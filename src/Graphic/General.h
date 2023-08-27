@@ -13,16 +13,18 @@ class Graphic {
   static Graphic& GetIns() { return instance_; }
   void Initialize(int width, int height, HWND hwnd);
 
+  ~Graphic() {}
+
  private:
   static Graphic instance_;
   Graphic();
-  ComPtr<ID3D12Device> dev_ = nullptr;
-  ComPtr<IDXGIFactory6> dxgiFactory_ = nullptr;
-  ComPtr<IDXGISwapChain4> swapchain_ = nullptr;
+  ComPtr<ID3D12Device> dev_;
+  ComPtr<IDXGIFactory6> dxgiFactory_;
+  ComPtr<IDXGISwapChain4> swapchain_;
 
-  ComPtr<ID3D12CommandAllocator> cmdAllocator_ = nullptr;
-  ComPtr<ID3D12GraphicsCommandList> cmdList_ = nullptr;
-  ComPtr<ID3D12CommandQueue> cmdQueue_ = nullptr;
+  ComPtr<ID3D12CommandAllocator> cmdAllocator_;
+  ComPtr<ID3D12GraphicsCommandList> cmdList_;
+  ComPtr<ID3D12CommandQueue> cmdQueue_;
 
   void EnableDebugLayer();
   void InitDevice();

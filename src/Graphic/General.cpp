@@ -4,7 +4,7 @@
 #include <vector>
 
 namespace mugen_engine {
-Graphic Graphic::instance_ = Graphic();
+Graphic Graphic::instance_;
 
 Graphic::Graphic() {}
 
@@ -29,24 +29,24 @@ void Graphic::InitDevice() {
                                 D3D_FEATURE_LEVEL_11_1, D3D_FEATURE_LEVEL_11_0};
   D3D_FEATURE_LEVEL feature_level;
   for (auto lv : levels) {
-    if (D3D12CreateDevice(nullptr, lv, IID_PPV_ARGS(dev_.GetAddressOf())) ==
-        S_OK) {
+    if (SUCCEEDED(D3D12CreateDevice(nullptr, lv, IID_PPV_ARGS(dev_.GetAddressOf())))) {
       feature_level = lv;
       break;
     }
   }
 
-  #ifdef _DEBUG
-  if (FAILED(CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG ,IID_PPV_ARGS(dxgiFactory_.GetAddressOf())))) {
+#ifdef _DEBUG
+  if (FAILED(CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG,
+                                IID_PPV_ARGS(dxgiFactory_.GetAddressOf())))) {
     abort();
   }
-  #else
+#else
   if (FAILED(CreateDXGIFactory1(IID_PPV_ARGS(dxgiFactory_.GetAddressOf())))) {
     abort();
   }
-  #endif
-  std::vector<IDXGIAdapter*> adapters;
-  IDXGIAdapter* tmpAdpt = nullptr;
+#endif
+  std::vector<ComPtr<IDXGIAdapter>> adapters;
+  ComPtr<IDXGIAdapter> tmpAdpt = nullptr;
   for (int i = 0;
        dxgiFactory_->EnumAdapters(i, &tmpAdpt) != DXGI_ERROR_NOT_FOUND; ++i) {
     adapters.push_back(tmpAdpt);
