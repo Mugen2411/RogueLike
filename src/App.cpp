@@ -36,6 +36,9 @@ void App::Run() {
       DispatchMessage(&msg);
     }
     if (msg.message == WM_QUIT) break;
+
+    Graphic::GetIns().ClearScreen();
+    Graphic::GetIns().ScreenFlip();
   }
   UnregisterClass(wc.lpszClassName, wc.hInstance);
 }

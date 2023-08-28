@@ -12,6 +12,8 @@ class Graphic {
  public:
   static Graphic& GetIns() { return instance_; }
   void Initialize(int width, int height, HWND hwnd);
+  void ClearScreen();
+  void ScreenFlip();
 
   ~Graphic() {}
 
@@ -25,6 +27,8 @@ class Graphic {
   ComPtr<ID3D12CommandAllocator> cmdAllocator_;
   ComPtr<ID3D12GraphicsCommandList> cmdList_;
   ComPtr<ID3D12CommandQueue> cmdQueue_;
+
+  ComPtr<ID3D12DescriptorHeap> rtvHeaps_;
 
   void EnableDebugLayer();
   void InitDevice();

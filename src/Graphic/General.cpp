@@ -17,6 +17,27 @@ void Graphic::Initialize(int width, int height, HWND hwnd) {
   InitSwapChain(width, height, hwnd);
 }
 
+void Graphic::ClearScreen() {
+  cmdAllocator_->Reset();
+  auto bbIdx = swapchain_->GetCurrentBackBufferIndex();
+  auto rtvH = rtvHeaps_->GetCPUDescriptorHandleForHeapStart();
+  rtvH.ptr += bbIdx * dev_->GetDescriptorHandleIncrementSize(
+                          D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+  cmdList_->OMSetRenderTargets(1, &rtvH, true, nullptr);
+  
+  float clearColor[] = {1.0f, 1.0f, 0.0f, 1.0f};
+  cmdList_->ClearRenderTargetView(rtvH, clearColor, 0, nullptr);
+}
+
+void Graphic::ScreenFlip() { cmdList_->Close();
+  ID3D12CommandList* cmdlists[] = {cmdList_.Get()};
+  cmdQueue_->ExecuteCommandLists(1, cmdlists);
+  cmdAllocator_->Reset();
+  cmdList_->Reset(cmdAllocator_.Get(), nullptr);
+
+  swapchain_->Present(1, 0);
+}
+
 void Graphic::EnableDebugLayer() {
   ID3D12Debug* debugLayer = nullptr;
   auto result = D3D12GetDebugInterface(IID_PPV_ARGS(&debugLayer));
@@ -101,5 +122,24 @@ void Graphic::InitSwapChain(int width, int height, HWND hwnd) {
       cmdQueue_.Get(), hwnd, &swapchainDesc, nullptr, nullptr,
       reinterpret_cast<IDXGISwapChain1**>(swapchain_.GetAddressOf()));
   if (FAILED(res)) abort();
+
+  D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+  heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
+  heapDesc.NodeMask = 0;
+  heapDesc.NumDescriptors = 2;
+  heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+
+  if (FAILED(dev_->CreateDescriptorHeap(
+          &heapDesc, IID_PPV_ARGS(rtvHeaps_.GetAddressOf()))))
+    abort();
+
+  std::vector<ComPtr<ID3D12Resource>> backBuffers(swapchainDesc.BufferCount);
+  auto handle = rtvHeaps_->GetCPUDescriptorHandleForHeapStart();
+  for (int idx = 0; idx < swapchainDesc.BufferCount; ++idx) {
+    swapchain_->GetBuffer(idx, IID_PPV_ARGS(backBuffers[idx].GetAddressOf()));
+    handle.ptr += idx * dev_->GetDescriptorHandleIncrementSize(
+                            D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+    dev_->CreateRenderTargetView(backBuffers[idx].Get(), nullptr, handle);
+  }
 }
 }  // namespace mugen_engine
