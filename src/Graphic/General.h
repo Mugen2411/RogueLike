@@ -6,6 +6,8 @@
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "dxgi.lib")
 
+#include <vector>
+
 namespace mugen_engine {
 using Microsoft::WRL::ComPtr;
 class Graphic {
@@ -30,9 +32,19 @@ class Graphic {
 
   ComPtr<ID3D12DescriptorHeap> rtvHeaps_;
 
+  ComPtr<ID3D12Fence> fence_;
+  UINT64 fenceVal_ = 0;
+
+  const int num_back_buffer = 2;
+  std::vector<ComPtr<ID3D12Resource>> back_buffers_;
+
   void EnableDebugLayer();
   void InitDevice();
   void InitCommandList();
   void InitSwapChain(int width, int height, HWND hwnd);
+  void InitFence();
+
+  void SetResourceBarrier(D3D12_RESOURCE_STATES before,
+                          D3D12_RESOURCE_STATES after);
 };
 }  // namespace mugen_engine

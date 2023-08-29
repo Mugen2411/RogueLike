@@ -1,12 +1,11 @@
 #include "General.h"
 
 #include <string>
-#include <vector>
 
 namespace mugen_engine {
 Graphic Graphic::instance_;
 
-Graphic::Graphic() {}
+Graphic::Graphic() : back_buffers_(num_back_buffer) {}
 
 void Graphic::Initialize(int width, int height, HWND hwnd) {
 #ifdef _DEBUG
@@ -15,27 +14,41 @@ void Graphic::Initialize(int width, int height, HWND hwnd) {
   InitDevice();
   InitCommandList();
   InitSwapChain(width, height, hwnd);
+  InitFence();
 }
 
 void Graphic::ClearScreen() {
-  cmdAllocator_->Reset();
+  SetResourceBarrier(D3D12_RESOURCE_STATE_PRESENT,
+                     D3D12_RESOURCE_STATE_RENDER_TARGET);
+
   auto bbIdx = swapchain_->GetCurrentBackBufferIndex();
   auto rtvH = rtvHeaps_->GetCPUDescriptorHandleForHeapStart();
   rtvH.ptr += bbIdx * dev_->GetDescriptorHandleIncrementSize(
                           D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
   cmdList_->OMSetRenderTargets(1, &rtvH, true, nullptr);
-  
+
   float clearColor[] = {1.0f, 1.0f, 0.0f, 1.0f};
   cmdList_->ClearRenderTargetView(rtvH, clearColor, 0, nullptr);
 }
 
-void Graphic::ScreenFlip() { cmdList_->Close();
+void Graphic::ScreenFlip() {
+  SetResourceBarrier(D3D12_RESOURCE_STATE_RENDER_TARGET,
+                     D3D12_RESOURCE_STATE_PRESENT);
+
+  cmdList_->Close();
   ID3D12CommandList* cmdlists[] = {cmdList_.Get()};
   cmdQueue_->ExecuteCommandLists(1, cmdlists);
+
+  cmdQueue_->Signal(fence_.Get(), ++fenceVal_);
+  auto event = CreateEvent(nullptr, false, false, nullptr);
+  fence_->SetEventOnCompletion(fenceVal_, event);
+  WaitForSingleObject(event, INFINITE);
+  CloseHandle(event);
+
+  swapchain_->Present(0, 0);
+
   cmdAllocator_->Reset();
   cmdList_->Reset(cmdAllocator_.Get(), nullptr);
-
-  swapchain_->Present(1, 0);
 }
 
 void Graphic::EnableDebugLayer() {
@@ -50,7 +63,8 @@ void Graphic::InitDevice() {
                                 D3D_FEATURE_LEVEL_11_1, D3D_FEATURE_LEVEL_11_0};
   D3D_FEATURE_LEVEL feature_level;
   for (auto lv : levels) {
-    if (SUCCEEDED(D3D12CreateDevice(nullptr, lv, IID_PPV_ARGS(dev_.GetAddressOf())))) {
+    if (SUCCEEDED(D3D12CreateDevice(nullptr, lv,
+                                    IID_PPV_ARGS(dev_.GetAddressOf())))) {
       feature_level = lv;
       break;
     }
@@ -133,13 +147,33 @@ void Graphic::InitSwapChain(int width, int height, HWND hwnd) {
           &heapDesc, IID_PPV_ARGS(rtvHeaps_.GetAddressOf()))))
     abort();
 
-  std::vector<ComPtr<ID3D12Resource>> backBuffers(swapchainDesc.BufferCount);
   auto handle = rtvHeaps_->GetCPUDescriptorHandleForHeapStart();
   for (int idx = 0; idx < swapchainDesc.BufferCount; ++idx) {
-    swapchain_->GetBuffer(idx, IID_PPV_ARGS(backBuffers[idx].GetAddressOf()));
+    swapchain_->GetBuffer(idx, IID_PPV_ARGS(back_buffers_[idx].GetAddressOf()));
     handle.ptr += idx * dev_->GetDescriptorHandleIncrementSize(
                             D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-    dev_->CreateRenderTargetView(backBuffers[idx].Get(), nullptr, handle);
+    dev_->CreateRenderTargetView(back_buffers_[idx].Get(), nullptr, handle);
   }
+}
+
+void Graphic::InitFence() {
+  if (FAILED(dev_->CreateFence(fenceVal_, D3D12_FENCE_FLAG_NONE,
+                               IID_PPV_ARGS(fence_.GetAddressOf()))))
+    abort();
+}
+
+void Graphic::SetResourceBarrier(D3D12_RESOURCE_STATES before,
+                                 D3D12_RESOURCE_STATES after) {
+  auto bbIdx = swapchain_->GetCurrentBackBufferIndex();
+
+  D3D12_RESOURCE_BARRIER barrierDesc = {};
+  barrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+  barrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+  barrierDesc.Transition.pResource = back_buffers_[bbIdx].Get();
+  barrierDesc.Transition.Subresource = 0;
+  barrierDesc.Transition.StateBefore = before;
+  barrierDesc.Transition.StateAfter = after;
+
+  cmdList_->ResourceBarrier(1, &barrierDesc);
 }
 }  // namespace mugen_engine
