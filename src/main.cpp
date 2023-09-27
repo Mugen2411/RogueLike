@@ -5,14 +5,18 @@
 #include <tchar.h>
 #include <vector>
 #include <string>
+#include <memory>
 
 #include <wrl/client.h>
 
 #include <d3d12.h>
 #include <dxgi1_6.h>
+#include <DirectXMath.h>
+#include <d3dcompiler.h>
 
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "dxgi.lib")
+#pragma comment(lib, "d3dcompiler.lib")
 
 /**
  *****************************************************************************
@@ -87,6 +91,19 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> _backBuffers(2);
 	Microsoft::WRL::ComPtr<ID3D12Fence> _fence = nullptr;
 	UINT64 _fenceVal = 0;
+	Microsoft::WRL::ComPtr<ID3DBlob> vsBlob = nullptr;
+	Microsoft::WRL::ComPtr<ID3DBlob> psBlob = nullptr;
+	Microsoft::WRL::ComPtr<ID3DBlob> errorBlob = nullptr;
+
+	//DX12 描画する物毎に用意されるもの
+	DirectX::XMFLOAT3 vertices[3] =
+	{
+		{-1.0f, 1.0f, 0.0f},
+		{-1.0f, 1.0f, 0.0f},
+		{1.0f, -1.0f, 0.0f},
+	};
+	Microsoft::WRL::ComPtr<ID3D12Resource> vertBuff = nullptr;
+	D3D12_VERTEX_BUFFER_VIEW vbView = {};
 
 	//DXGIファクトリ
 	{
@@ -202,6 +219,67 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	//フェンス
 	{
 		auto result = _dev->CreateFence(_fenceVal, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(_fence.ReleaseAndGetAddressOf()));
+	}
+
+	//頂点バッファ
+	{
+		D3D12_HEAP_PROPERTIES heapprop = {};
+		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+
+		D3D12_RESOURCE_DESC resdesc = {};
+		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+		resdesc.Width = sizeof(vertices);
+		resdesc.Height = 1;
+		resdesc.DepthOrArraySize = 1;
+		resdesc.MipLevels = 1;
+		resdesc.Format = DXGI_FORMAT_UNKNOWN;
+		resdesc.SampleDesc.Count = 1;
+		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(vertBuff.ReleaseAndGetAddressOf()));
+
+		//確保したGPUヒープに頂点データを流し込む
+		DirectX::XMFLOAT3 *vertMap = nullptr;
+		result = vertBuff->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
+		std::copy(std::begin(vertices), std::end(vertices), vertMap);
+		vertBuff->Unmap(0, nullptr);
+	}
+	//頂点バッファビュー
+	{
+		vbView.BufferLocation = vertBuff->GetGPUVirtualAddress();
+		vbView.SizeInBytes = sizeof(vertices);
+		vbView.StrideInBytes = sizeof(vertices[0]);
+	}
+
+	//シェーダーオブジェクトの読み込み
+	{
+		auto f = [&](HRESULT result)
+		{
+			if(SUCCEEDED(result))
+			{
+				return;
+			}
+			if(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
+			{
+				::OutputDebugStringA("ファイルが見当たりません");
+				return;
+			}
+			std::string errstr;
+			errstr.resize(errorBlob->GetBufferSize());
+			std::copy_n(reinterpret_cast<char*>(errorBlob->GetBufferPointer()), errorBlob->GetBufferSize(), errstr.begin());
+			errstr += '\n';
+			::OutputDebugStringA(errstr.c_str());
+		};
+		auto result = D3DCompileFromFile(L"shader/BasicVertexShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "BasicVS", "vs_5_0",
+			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, psBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
+		f(result);
+		result = D3DCompileFromFile(L"shader/BasicPixelShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "BasicPS", "ps_5_0",
+			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, psBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
+		f(result);
 	}
 
 	MSG msg = {};

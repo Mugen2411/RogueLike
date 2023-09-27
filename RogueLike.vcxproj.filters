@@ -19,4 +19,8 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shader\BasicVertexShader.hlsl" />
+    <FxCompile Include="shader\BasicPixelShader.hlsl" />
+  </ItemGroup>
 </Project>
