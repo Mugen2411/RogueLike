@@ -94,11 +94,19 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3DBlob> vsBlob = nullptr;
 	Microsoft::WRL::ComPtr<ID3DBlob> psBlob = nullptr;
 	Microsoft::WRL::ComPtr<ID3DBlob> errorBlob = nullptr;
+	D3D12_INPUT_ELEMENT_DESC inputLayout[] =
+	{
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0}
+	};
+	Microsoft::WRL::ComPtr<ID3D12PipelineState> pipelinestate = nullptr;
+	Microsoft::WRL::ComPtr<ID3D12RootSignature> rootsignature = nullptr;
+	D3D12_VIEWPORT viewport = {};
+	D3D12_RECT scissorrect = {};
 
 	//DX12 描画する物毎に用意されるもの
 	DirectX::XMFLOAT3 vertices[3] =
 	{
-		{-1.0f, 1.0f, 0.0f},
+		{-1.0f, -1.0f, 0.0f},
 		{-1.0f, 1.0f, 0.0f},
 		{1.0f, -1.0f, 0.0f},
 	};
@@ -255,31 +263,100 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		vbView.StrideInBytes = sizeof(vertices[0]);
 	}
 
+	auto processBlobError = [&](HRESULT result)
+	{
+		if(SUCCEEDED(result))
+		{
+			return;
+		}
+		if(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
+		{
+			::OutputDebugStringA("ファイルが見当たりません");
+			return;
+		}
+		std::string errstr;
+		errstr.resize(errorBlob->GetBufferSize());
+		std::copy_n(reinterpret_cast<char*>(errorBlob->GetBufferPointer()), errorBlob->GetBufferSize(), errstr.begin());
+		errstr += '\n';
+		::OutputDebugStringA(errstr.c_str());
+	};
+
 	//シェーダーオブジェクトの読み込み
 	{
-		auto f = [&](HRESULT result)
-		{
-			if(SUCCEEDED(result))
-			{
-				return;
-			}
-			if(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
-			{
-				::OutputDebugStringA("ファイルが見当たりません");
-				return;
-			}
-			std::string errstr;
-			errstr.resize(errorBlob->GetBufferSize());
-			std::copy_n(reinterpret_cast<char*>(errorBlob->GetBufferPointer()), errorBlob->GetBufferSize(), errstr.begin());
-			errstr += '\n';
-			::OutputDebugStringA(errstr.c_str());
-		};
 		auto result = D3DCompileFromFile(L"shader/BasicVertexShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "BasicVS", "vs_5_0",
-			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, psBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		f(result);
+			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, vsBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
+		processBlobError(result);
 		result = D3DCompileFromFile(L"shader/BasicPixelShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "BasicPS", "ps_5_0",
 			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, psBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		f(result);
+		processBlobError(result);
+	}
+
+	//ルートシグネチャ
+	{
+		Microsoft::WRL::ComPtr<ID3DBlob> rootSigBlob = nullptr;
+		D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc = {};
+		rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
+		auto result = D3D12SerializeRootSignature(&rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,
+			rootSigBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
+		processBlobError(result);
+		result = _dev->CreateRootSignature(0, rootSigBlob->GetBufferPointer(), rootSigBlob->GetBufferSize(),
+			IID_PPV_ARGS(rootsignature.ReleaseAndGetAddressOf()));
+	}
+
+	//パイプラインステート
+	{
+		D3D12_GRAPHICS_PIPELINE_STATE_DESC gpipeline = {};
+		//ルートシグネチャ
+		gpipeline.pRootSignature = rootsignature.Get();
+		//シェーダー設定
+		gpipeline.VS.pShaderBytecode = vsBlob->GetBufferPointer();
+		gpipeline.VS.BytecodeLength = vsBlob->GetBufferSize();
+		gpipeline.PS.pShaderBytecode = psBlob->GetBufferPointer();
+		gpipeline.PS.BytecodeLength = psBlob->GetBufferSize();
+		//サンプルマスク
+		gpipeline.SampleMask = D3D12_DEFAULT_SAMPLE_MASK;
+		//ラスタライザーステート
+		gpipeline.RasterizerState.MultisampleEnable = false;
+		gpipeline.RasterizerState.CullMode = D3D12_CULL_MODE_NONE;
+		gpipeline.RasterizerState.FillMode = D3D12_FILL_MODE_SOLID;
+		gpipeline.RasterizerState.DepthClipEnable = true;
+		//ブレンドステート
+		gpipeline.BlendState.AlphaToCoverageEnable = false;
+		gpipeline.BlendState.IndependentBlendEnable = false;
+
+		D3D12_RENDER_TARGET_BLEND_DESC renderTargetBlendDesc = {};
+		renderTargetBlendDesc.BlendEnable = false;
+		renderTargetBlendDesc.LogicOpEnable = false;
+		renderTargetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+
+		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
+		//入力レイアウト
+		gpipeline.InputLayout.pInputElementDescs = inputLayout;
+		gpipeline.InputLayout.NumElements = _countof(inputLayout);
+		gpipeline.IBStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED;
+		gpipeline.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
+		//レンダーターゲット
+		gpipeline.NumRenderTargets = 1;
+		gpipeline.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
+		//アンチエイリアス
+		gpipeline.SampleDesc.Count = 1;
+		gpipeline.SampleDesc.Quality = 0;
+
+		auto result = _dev->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(pipelinestate.ReleaseAndGetAddressOf()));
+	}
+	//ビューポートとシザー矩形
+	{
+		viewport.Width = window_width;
+		viewport.Height = window_height;
+		viewport.TopLeftX = 0;
+		viewport.TopLeftY = 0;
+		viewport.MaxDepth = 1.0f;
+		viewport.MinDepth = 0.0f;
+
+		scissorrect.top = 0;
+		scissorrect.left = 0;
+		scissorrect.right = scissorrect.left + window_width;
+		scissorrect.bottom = scissorrect.top + window_height;
 	}
 
 	MSG msg = {};
@@ -318,7 +395,14 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			_cmdList->OMSetRenderTargets(1, &rtvH, true, nullptr);
 			float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };
 			_cmdList->ClearRenderTargetView(rtvH, clearColor, 0, nullptr);
+			_cmdList->RSSetViewports(1, &viewport);
 		}
+		_cmdList->SetPipelineState(pipelinestate.Get());
+		_cmdList->SetGraphicsRootSignature(rootsignature.Get());
+		_cmdList->RSSetScissorRects(1, &scissorrect);
+		_cmdList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+		_cmdList->IASetVertexBuffers(0, 1, &vbView);
+		_cmdList->DrawInstanced(3, 1, 0, 0);
 
 		//DX12 描画後処理
 		{
