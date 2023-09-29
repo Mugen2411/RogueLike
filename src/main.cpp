@@ -104,14 +104,21 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	D3D12_RECT scissorrect = {};
 
 	//DX12 描画する物毎に用意されるもの
-	DirectX::XMFLOAT3 vertices[3] =
+	DirectX::XMFLOAT3 vertices[4] =
 	{
-		{-1.0f, -1.0f, 0.0f},
-		{-1.0f, 1.0f, 0.0f},
-		{1.0f, -1.0f, 0.0f},
+		{-0.4f,-0.7f, 0.0f},
+		{-0.4f, 0.7f, 0.0f},
+		{ 0.4f,-0.7f, 0.0f},
+		{ 0.4f, 0.7f, 0.0f},
+	};
+	uint16_t indices[] = {
+		0, 1, 2,
+		2, 1, 3
 	};
 	Microsoft::WRL::ComPtr<ID3D12Resource> vertBuff = nullptr;
 	D3D12_VERTEX_BUFFER_VIEW vbView = {};
+	Microsoft::WRL::ComPtr<ID3D12Resource> idxBuff = nullptr;
+	D3D12_INDEX_BUFFER_VIEW ibView = {};
 
 	//DXGIファクトリ
 	{
@@ -120,7 +127,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 #else
 		auto result = CreateDXGIFactory1(IID_PPV_ARGS(_dxgiFactory.ReleaseAndGetAddressOf()));
 #endif
-	}
+}
 
 	//DX12 アダプタ列挙
 	std::vector<Microsoft::WRL::ComPtr<IDXGIAdapter>> adapters;
@@ -251,7 +258,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(vertBuff.ReleaseAndGetAddressOf()));
 
 		//確保したGPUヒープに頂点データを流し込む
-		DirectX::XMFLOAT3 *vertMap = nullptr;
+		DirectX::XMFLOAT3* vertMap = nullptr;
 		result = vertBuff->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
 		std::copy(std::begin(vertices), std::end(vertices), vertMap);
 		vertBuff->Unmap(0, nullptr);
@@ -261,6 +268,39 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		vbView.BufferLocation = vertBuff->GetGPUVirtualAddress();
 		vbView.SizeInBytes = sizeof(vertices);
 		vbView.StrideInBytes = sizeof(vertices[0]);
+	}
+	//インデックスバッファ
+	{
+		D3D12_HEAP_PROPERTIES heapprop = {};
+		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+
+		D3D12_RESOURCE_DESC resdesc = {};
+		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+		resdesc.Width = sizeof(indices);
+		resdesc.Height = 1;
+		resdesc.DepthOrArraySize = 1;
+		resdesc.MipLevels = 1;
+		resdesc.Format = DXGI_FORMAT_UNKNOWN;
+		resdesc.SampleDesc.Count = 1;
+		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(idxBuff.ReleaseAndGetAddressOf()));
+
+		//確保したGPUヒープに頂点データを流し込む
+		uint16_t* idxMap = nullptr;
+		result = idxBuff->Map(0, nullptr, reinterpret_cast<void**>(&idxMap));
+		std::copy(std::begin(indices), std::end(indices), idxMap);
+		idxBuff->Unmap(0, nullptr);
+	}
+	//インデックスバッファビュー
+	{
+		ibView.BufferLocation = idxBuff->GetGPUVirtualAddress();
+		ibView.SizeInBytes = sizeof(indices);
+		ibView.Format = DXGI_FORMAT_R16_UINT;
 	}
 
 	auto processBlobError = [&](HRESULT result)
@@ -402,7 +442,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		_cmdList->RSSetScissorRects(1, &scissorrect);
 		_cmdList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		_cmdList->IASetVertexBuffers(0, 1, &vbView);
-		_cmdList->DrawInstanced(3, 1, 0, 0);
+		_cmdList->IASetIndexBuffer(&ibView);
+		_cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 
 		//DX12 描画後処理
 		{
