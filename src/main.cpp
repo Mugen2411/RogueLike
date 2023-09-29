@@ -56,6 +56,19 @@ void EnableDebugLayer()
 	debugLayer->Release();
 }
 
+/**
+ *****************************************************************************
+ * @brief	アライメントに揃える
+ * @param size			元のサイズ
+ * @param alignment		アライメントサイズ
+ * @return				アライメントを揃えたサイズ
+ *****************************************************************************
+ */
+size_t AlignmentedSize(size_t size, size_t alignment)
+{
+	return size + alignment - size % alignment;
+}
+
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
 	int window_width = 1280;
@@ -124,6 +137,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		0, 1, 2,
 		2, 1, 3
 	};
+	Microsoft::WRL::ComPtr<ID3D12Resource> uploadBuff = nullptr;
 	Microsoft::WRL::ComPtr<ID3D12Resource> vertBuff = nullptr;
 	D3D12_VERTEX_BUFFER_VIEW vbView = {};
 	Microsoft::WRL::ComPtr<ID3D12Resource> idxBuff = nullptr;
@@ -133,14 +147,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	{
 		uint8_t R, G, B, A;
 	};
-	std::vector<TexRGBA> textureData(256 * 256);
-	for(auto& rgba : textureData)
-	{
-		rgba.R = rand() % 256;
-		rgba.G = rand() % 256;
-		rgba.B = rand() % 256;
-		rgba.A = 0xFF;
-	}
+	DirectX::TexMetadata metadata = {};
+	DirectX::ScratchImage scratchImg = {};
+	DirectX::Image const * img = {};
 
 	//DXGIファクトリ
 	{
@@ -257,6 +266,11 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	{
 		auto result = _dev->CreateFence(_fenceVal, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(_fence.ReleaseAndGetAddressOf()));
 	}
+	//画像読み込み
+	{
+		DirectX::LoadFromWICFile(L"media/graphic/return_to_escape.png", DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
+		img = scratchImg.GetImage(0, 0, 0);
+	}
 
 	//頂点バッファ
 	{
@@ -324,16 +338,38 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		ibView.SizeInBytes = sizeof(indices);
 		ibView.Format = DXGI_FORMAT_R16_UINT;
 	}
-	//テクスチャバッファー
+	//アップロード用中間バッファ
 	{
-		DirectX::TexMetadata metadata = {};
-		DirectX::ScratchImage scratchImg = {};
-		DirectX::LoadFromWICFile(L"media/graphic/return_to_escape.png", DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
-		auto img = scratchImg.GetImage(0, 0, 0);
 		D3D12_HEAP_PROPERTIES heapprop = {};
-		heapprop.Type = D3D12_HEAP_TYPE_CUSTOM;
-		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_WRITE_BACK;
-		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_L0;
+		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+		heapprop.CreationNodeMask = 0;
+		heapprop.VisibleNodeMask = 0;
+
+		D3D12_RESOURCE_DESC resdesc = {};
+		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+		resdesc.Width = AlignmentedSize(img->rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT) * img->height;
+		resdesc.Height = 1;
+		resdesc.DepthOrArraySize = 1;
+		resdesc.MipLevels = 1;
+		resdesc.Format = DXGI_FORMAT_UNKNOWN;
+		resdesc.SampleDesc.Count = 1;
+		resdesc.SampleDesc.Quality = 0;
+		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(uploadBuff.ReleaseAndGetAddressOf()));
+	}
+	//コピー先リソース
+	{
+		D3D12_HEAP_PROPERTIES heapprop = {};
+		heapprop.Type = D3D12_HEAP_TYPE_DEFAULT;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+		heapprop.CreationNodeMask = 0;
+		heapprop.VisibleNodeMask = 0;
 
 		D3D12_RESOURCE_DESC resdesc = {};
 		resdesc.Dimension = static_cast<D3D12_RESOURCE_DIMENSION>(metadata.dimension);
@@ -341,16 +377,72 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		resdesc.Height = metadata.height;
 		resdesc.DepthOrArraySize = metadata.arraySize;
 		resdesc.MipLevels = metadata.mipLevels;
-		resdesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+		resdesc.Format = metadata.format;
 		resdesc.SampleDesc.Count = 1;
 		resdesc.SampleDesc.Quality = 0;
 		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
 		resdesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
 
-		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
-			D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE, nullptr, IID_PPV_ARGS(texBuff.ReleaseAndGetAddressOf()));
+		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc, 
+			D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(texBuff.ReleaseAndGetAddressOf()));
 
-		result = texBuff->WriteToSubresource(0, nullptr, img->pixels, img->rowPitch, img->slicePitch);
+		uint8_t* mapforImg = nullptr;
+		result = uploadBuff->Map(0, nullptr, (void**)&mapforImg);
+		
+		auto srcAddress = img->pixels;
+		auto rowPitch = AlignmentedSize(img->rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
+		for(int y = 0; y < img->height; ++y)
+		{
+			std::copy_n(srcAddress, rowPitch, mapforImg);
+			srcAddress += img->rowPitch;
+			mapforImg += rowPitch;
+		}
+		uploadBuff->Unmap(0, nullptr);
+	}
+	//GPUにテクスチャをアップロード
+	{
+		D3D12_TEXTURE_COPY_LOCATION src = {};
+		src.pResource = uploadBuff.Get();
+		src.Type = D3D12_TEXTURE_COPY_TYPE_PLACED_FOOTPRINT;
+		src.PlacedFootprint.Offset = 0;
+		src.PlacedFootprint.Footprint.Width = metadata.width;
+		src.PlacedFootprint.Footprint.Height = metadata.height;
+		src.PlacedFootprint.Footprint.Depth = metadata.depth;
+		src.PlacedFootprint.Footprint.RowPitch = AlignmentedSize(img->rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
+		src.PlacedFootprint.Footprint.Format = img->format;
+
+		D3D12_TEXTURE_COPY_LOCATION dst = {};
+		dst.pResource = texBuff.Get();
+		dst.Type = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
+		dst.SubresourceIndex = 0;
+
+		_cmdList->CopyTextureRegion(&dst, 0, 0, 0, &src, nullptr);
+
+		//テクスチャ転送前バリア
+		{
+			D3D12_RESOURCE_BARRIER barrierDesc = {};
+			barrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+			barrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+			barrierDesc.Transition.pResource = texBuff.Get();
+			barrierDesc.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+			barrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
+			barrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+
+			_cmdList->ResourceBarrier(1, &barrierDesc);
+		}
+		_cmdList->Close();
+
+		ID3D12CommandList* cmdlists[] = { _cmdList.Get()};
+		_cmdQueue->ExecuteCommandLists(1, cmdlists);
+
+		_cmdQueue->Signal(_fence.Get(), ++_fenceVal);
+		if(_fence->GetCompletedValue() != _fenceVal)
+		{
+			auto event = CreateEvent(nullptr, false, false, nullptr);
+			_fence->SetEventOnCompletion(_fenceVal, event);
+			WaitForSingleObject(event, INFINITE);
+			CloseHandle(event);
+		}
 	}
 	//シェーダーリソースビュー用のディスクリプタヒープ
 	{
@@ -364,7 +456,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	//シェーダーリソースビュー
 	{
 		D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-		srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+		srvDesc.Format = metadata.format;
 		srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
 		srvDesc.Texture2D.MipLevels = 1;
@@ -518,6 +610,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			auto bbIdx = _swapchain->GetCurrentBackBufferIndex();
 			auto rtvH = _rtvHeaps->GetCPUDescriptorHandleForHeapStart();
 			rtvH.ptr += bbIdx * _dev->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+			
+			_cmdAllocator->Reset();
+			_cmdList->Reset(_cmdAllocator.Get(), nullptr);
 
 			//DX12 レンダーターゲット前バリア
 			{
@@ -574,9 +669,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 				CloseHandle(event);
 			}
 			_swapchain->Present(1, 0);
-
-			_cmdAllocator->Reset();
-			_cmdList->Reset(_cmdAllocator.Get(), nullptr);
 		}
 	}
 
