@@ -23,4 +23,7 @@
     <FxCompile Include="shader\BasicVertexShader.hlsl" />
     <FxCompile Include="shader\BasicPixelShader.hlsl" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\BasicShaderHeader.hlsli" />
+  </ItemGroup>
 </Project>
