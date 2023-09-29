@@ -13,10 +13,12 @@
 #include <dxgi1_6.h>
 #include <DirectXMath.h>
 #include <d3dcompiler.h>
+#include <DirectXTex.h>
 
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+#pragma comment(lib, "DirectXTex.lib")
 
 /**
  *****************************************************************************
@@ -324,17 +326,21 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	}
 	//テクスチャバッファー
 	{
+		DirectX::TexMetadata metadata = {};
+		DirectX::ScratchImage scratchImg = {};
+		DirectX::LoadFromWICFile(L"media/graphic/return_to_escape.png", DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
+		auto img = scratchImg.GetImage(0, 0, 0);
 		D3D12_HEAP_PROPERTIES heapprop = {};
 		heapprop.Type = D3D12_HEAP_TYPE_CUSTOM;
 		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_WRITE_BACK;
 		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_L0;
 
 		D3D12_RESOURCE_DESC resdesc = {};
-		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
-		resdesc.Width = 256;
-		resdesc.Height = 256;
-		resdesc.DepthOrArraySize = 1;
-		resdesc.MipLevels = 1;
+		resdesc.Dimension = static_cast<D3D12_RESOURCE_DIMENSION>(metadata.dimension);
+		resdesc.Width = metadata.width;
+		resdesc.Height = metadata.height;
+		resdesc.DepthOrArraySize = metadata.arraySize;
+		resdesc.MipLevels = metadata.mipLevels;
 		resdesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 		resdesc.SampleDesc.Count = 1;
 		resdesc.SampleDesc.Quality = 0;
@@ -344,7 +350,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
 			D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE, nullptr, IID_PPV_ARGS(texBuff.ReleaseAndGetAddressOf()));
 
-		result = texBuff->WriteToSubresource(0, nullptr, textureData.data(), sizeof(TexRGBA) * 256, sizeof(TexRGBA) * textureData.size());
+		result = texBuff->WriteToSubresource(0, nullptr, img->pixels, img->rowPitch, img->slicePitch);
 	}
 	//シェーダーリソースビュー用のディスクリプタヒープ
 	{

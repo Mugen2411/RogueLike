@@ -2,5 +2,7 @@
 
 float4 BasicPS(Output input) : SV_TARGET
 {
-	return float4(tex.Sample(smp, input.uv));
+	float4 col = tex.Sample(smp, input.uv);
+	if(col.w == 0.0f) discard;
+	return col;
 }
