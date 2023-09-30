@@ -28,9 +28,12 @@
   <ItemGroup>
     <FxCompile Include="shader\BasicVertexShader.hlsl" />
     <FxCompile Include="shader\BasicPixelShader.hlsl" />
+    <FxCompile Include="shader\ScreenVertexShader.hlsl" />
+    <FxCompile Include="shader\ScreenPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\BasicShaderHeader.hlsli" />
+    <None Include="shader\ScreenShaderHeader.hlsli" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Core.h">

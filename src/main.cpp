@@ -72,8 +72,8 @@ size_t AlignmentedSize(size_t size, size_t alignment)
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
-	int window_width = 1280;
-	int window_height = 720;
+	int window_width = 640;
+	int window_height = 360;
 	WNDCLASSEX w = {};
 	w.cbSize = sizeof(w);
 	w.lpfnWndProc = WindowProcedure;
@@ -82,10 +82,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	RegisterClassEx(&w);
 
-	RECT wrc = { 0,0,window_width, window_height };
+	RECT wrc = { 0,0,window_width << 1, window_height << 1 };
 	AdjustWindowRect(&wrc, WS_OVERLAPPEDWINDOW, false);
 
-	HWND hwnd = CreateWindow(w.lpszClassName, _T("RogueLikeMagician"),
+	HWND hwnd = CreateWindow(w.lpszClassName, _T("MagicaRogue"),
 		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
 		wrc.right - wrc.left, wrc.bottom - wrc.top,
 		nullptr, nullptr, w.hInstance, nullptr);
@@ -120,6 +120,33 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> rootsignature = nullptr;
 	D3D12_VIEWPORT viewport = {};
 	D3D12_RECT scissorrect = {};
+	Microsoft::WRL::ComPtr<ID3D12Resource> screenBuff;
+	float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> screenRtvHeap;
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> screenSrvHeap;
+	struct SCREEN_VERTEX_DATA
+	{
+		DirectX::XMFLOAT3 pos;
+		DirectX::XMFLOAT2 uv;
+	};
+	SCREEN_VERTEX_DATA screenVertices[4] =
+	{
+		{{ -1, -1, 0},{0, 1}},
+		{{ -1,  1, 0},{0, 0}},
+		{{  1, -1, 0},{1, 1}},
+		{{  1,  1, 0},{1, 0}},
+	};
+	Microsoft::WRL::ComPtr<ID3D12Resource> screenVBuff = nullptr;
+	D3D12_VERTEX_BUFFER_VIEW screenVbView = {};
+	D3D12_INPUT_ELEMENT_DESC screenLayout[2] =
+	{
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
+		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
+	};
+	Microsoft::WRL::ComPtr<ID3D12RootSignature> screenRootSignature = nullptr;
+	Microsoft::WRL::ComPtr<ID3D12PipelineState> screenPipelineState = nullptr;
+	Microsoft::WRL::ComPtr<ID3DBlob> screenVsBlob = nullptr;
+	Microsoft::WRL::ComPtr<ID3DBlob> screenPsBlob = nullptr;
 
 	//DX12 描画する物毎に用意されるもの
 	struct VERTEX_DATA
@@ -235,7 +262,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		swapchainDesc.SampleDesc.Quality = 0;
 		swapchainDesc.BufferUsage = DXGI_USAGE_BACK_BUFFER;
 		swapchainDesc.BufferCount = 2;
-		swapchainDesc.Scaling = DXGI_SCALING_NONE;
+		swapchainDesc.Scaling = DXGI_SCALING_STRETCH;
 		swapchainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
 		swapchainDesc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;
 		swapchainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
@@ -391,7 +418,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 		uint8_t* mapforImg = nullptr;
 		result = uploadBuff->Map(0, nullptr, (void**)&mapforImg);
-		
+
 		auto srcAddress = img->pixels;
 		auto rowPitch = AlignmentedSize(img->rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
 		for(int y = 0; y < img->height; ++y)
@@ -459,7 +486,36 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		constBuff->Map(0, nullptr, (void**)&mapMatrix);
 		*mapMatrix = matrix;
 	}
-	//シェーダーリソースビュー用のディスクリプタヒープ
+	//定数バッファ
+	{
+		D3D12_HEAP_PROPERTIES heapprop = {};
+		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+		heapprop.CreationNodeMask = 0;
+		heapprop.VisibleNodeMask = 0;
+
+		D3D12_RESOURCE_DESC resdesc = {};
+		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+		resdesc.Width = (sizeof(matrix) + 0xFF) & ~0xFF;
+		resdesc.Height = 1;
+		resdesc.DepthOrArraySize = 1;
+		resdesc.MipLevels = 1;
+		resdesc.Format = DXGI_FORMAT_UNKNOWN;
+		resdesc.SampleDesc.Count = 1;
+		resdesc.SampleDesc.Quality = 0;
+		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+		auto result = device->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(constBuff.ReleaseAndGetAddressOf()));
+
+		DirectX::XMMATRIX* mapMatrix;
+		result = constBuff->Map(0, nullptr, (void**)&mapMatrix);
+		*mapMatrix = matrix;
+		constBuff->Unmap(0, nullptr);
+	}
+	//ディスクリプタヒープ
 	{
 		D3D12_DESCRIPTOR_HEAP_DESC descHeapDesc = {};
 		descHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
@@ -470,6 +526,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	}
 	//シェーダーリソースビュー
 	{
+		auto basicHeapHandle = basicDescHeap->GetCPUDescriptorHandleForHeapStart();
+
 		D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 		srvDesc.Format = metadata.format;
 		srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
@@ -554,7 +612,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc = {};
 		rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
 		rootSignatureDesc.pParameters = &rootparam;
-		rootSignatureDesc.NumParameters = 1;
+		rootSignatureDesc.NumParameters = 2;
 		rootSignatureDesc.pStaticSamplers = &samplerDesc;
 		rootSignatureDesc.NumStaticSamplers = 1;
 		auto result = D3D12SerializeRootSignature(&rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,
@@ -652,7 +710,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 				BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
 				BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
 				BarrierDesc.Transition.Subresource = 0;
-				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
 				BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 				cmdList->ResourceBarrier(1, &BarrierDesc);
 			}
@@ -671,7 +729,33 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cmdList->IASetIndexBuffer(&ibView);
 		cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 
-		//DX12 描画後処理
+		//DX12 本描画前バリア
+		{
+			auto bbIdx = swapchain->GetCurrentBackBufferIndex();
+			D3D12_RESOURCE_BARRIER BarrierDesc = {};
+			BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+			BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+			BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
+			BarrierDesc.Transition.Subresource = 0;
+			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+			cmdList->ResourceBarrier(1, &BarrierDesc);
+
+			cmdList->Close();
+			ID3D12CommandList* cmdLists[] = { cmdList.Get() };
+			cmdQueue->ExecuteCommandLists(1, cmdLists);
+
+			//待機処理
+			cmdQueue->Signal(fence.Get(), ++fenceVal);
+			if(fence->GetCompletedValue() != fenceVal)
+			{
+				auto event = CreateEvent(nullptr, false, false, nullptr);
+				fence->SetEventOnCompletion(fenceVal, event);
+				WaitForSingleObject(event, INFINITE);
+				CloseHandle(event);
+			}
+		}
+
 		{
 			//DX12 プレゼント前バリア
 			{
