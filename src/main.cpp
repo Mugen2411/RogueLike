@@ -72,8 +72,8 @@ size_t AlignmentedSize(size_t size, size_t alignment)
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
-	int window_width = 640;
-	int window_height = 360;
+	int window_width = 1280;
+	int window_height = 720;
 	WNDCLASSEX w = {};
 	w.cbSize = sizeof(w);
 	w.lpfnWndProc = WindowProcedure;
@@ -82,10 +82,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	RegisterClassEx(&w);
 
-	RECT wrc = { 0,0,window_width << 1, window_height << 1 };
+	RECT wrc = { 0,0,window_width, window_height };
 	AdjustWindowRect(&wrc, WS_OVERLAPPEDWINDOW, false);
 
-	HWND hwnd = CreateWindow(w.lpszClassName, _T("MagicaRogue"),
+	HWND hwnd = CreateWindow(w.lpszClassName, _T("RogueLikeMagician"),
 		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
 		wrc.right - wrc.left, wrc.bottom - wrc.top,
 		nullptr, nullptr, w.hInstance, nullptr);
@@ -120,33 +120,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> rootsignature = nullptr;
 	D3D12_VIEWPORT viewport = {};
 	D3D12_RECT scissorrect = {};
-	Microsoft::WRL::ComPtr<ID3D12Resource> screenBuff;
-	float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> screenRtvHeap;
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> screenSrvHeap;
-	struct SCREEN_VERTEX_DATA
-	{
-		DirectX::XMFLOAT3 pos;
-		DirectX::XMFLOAT2 uv;
-	};
-	SCREEN_VERTEX_DATA screenVertices[4] =
-	{
-		{{ -1, -1, 0},{0, 1}},
-		{{ -1,  1, 0},{0, 0}},
-		{{  1, -1, 0},{1, 1}},
-		{{  1,  1, 0},{1, 0}},
-	};
-	Microsoft::WRL::ComPtr<ID3D12Resource> screenVBuff = nullptr;
-	D3D12_VERTEX_BUFFER_VIEW screenVbView = {};
-	D3D12_INPUT_ELEMENT_DESC screenLayout[2] =
-	{
-		{"POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
-		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
-	};
-	Microsoft::WRL::ComPtr<ID3D12RootSignature> screenRootSignature = nullptr;
-	Microsoft::WRL::ComPtr<ID3D12PipelineState> screenPipelineState = nullptr;
-	Microsoft::WRL::ComPtr<ID3DBlob> screenVsBlob = nullptr;
-	Microsoft::WRL::ComPtr<ID3DBlob> screenPsBlob = nullptr;
 
 	//DX12 描画する物毎に用意されるもの
 	struct VERTEX_DATA
@@ -170,7 +143,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	D3D12_VERTEX_BUFFER_VIEW vbView = {};
 	Microsoft::WRL::ComPtr<ID3D12Resource> idxBuff = nullptr;
 	D3D12_INDEX_BUFFER_VIEW ibView = {};
-	Microsoft::WRL::ComPtr<ID3D12Resource> constBuff = nullptr;
 	Microsoft::WRL::ComPtr<ID3D12Resource> texBuff = nullptr;
 	struct TexRGBA
 	{
@@ -263,7 +235,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		swapchainDesc.SampleDesc.Quality = 0;
 		swapchainDesc.BufferUsage = DXGI_USAGE_BACK_BUFFER;
 		swapchainDesc.BufferCount = 2;
-		swapchainDesc.Scaling = DXGI_SCALING_STRETCH;
+		swapchainDesc.Scaling = DXGI_SCALING_NONE;
 		swapchainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
 		swapchainDesc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;
 		swapchainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
@@ -419,7 +391,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 		uint8_t* mapforImg = nullptr;
 		result = uploadBuff->Map(0, nullptr, (void**)&mapforImg);
-
+		
 		auto srcAddress = img->pixels;
 		auto rowPitch = AlignmentedSize(img->rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
 		for(int y = 0; y < img->height; ++y)
@@ -487,36 +459,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		constBuff->Map(0, nullptr, (void**)&mapMatrix);
 		*mapMatrix = matrix;
 	}
-	//定数バッファ
-	{
-		D3D12_HEAP_PROPERTIES heapprop = {};
-		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
-		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
-		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
-		heapprop.CreationNodeMask = 0;
-		heapprop.VisibleNodeMask = 0;
-
-		D3D12_RESOURCE_DESC resdesc = {};
-		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
-		resdesc.Width = (sizeof(matrix) + 0xFF) & ~0xFF;
-		resdesc.Height = 1;
-		resdesc.DepthOrArraySize = 1;
-		resdesc.MipLevels = 1;
-		resdesc.Format = DXGI_FORMAT_UNKNOWN;
-		resdesc.SampleDesc.Count = 1;
-		resdesc.SampleDesc.Quality = 0;
-		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
-		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
-
-		auto result = _dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
-			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(constBuff.ReleaseAndGetAddressOf()));
-
-		DirectX::XMMATRIX* mapMatrix;
-		result = constBuff->Map(0, nullptr, (void**)&mapMatrix);
-		*mapMatrix = matrix;
-		constBuff->Unmap(0, nullptr);
-	}
-	//ディスクリプタヒープ
+	//シェーダーリソースビュー用のディスクリプタヒープ
 	{
 		D3D12_DESCRIPTOR_HEAP_DESC descHeapDesc = {};
 		descHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
@@ -527,8 +470,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	}
 	//シェーダーリソースビュー
 	{
-		auto basicHeapHandle = basicDescHeap->GetCPUDescriptorHandleForHeapStart();
-
 		D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 		srvDesc.Format = metadata.format;
 		srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
@@ -612,8 +553,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		//ルートシグネチャ
 		D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc = {};
 		rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
-		rootSignatureDesc.pParameters = rootparam;
-		rootSignatureDesc.NumParameters = 2;
+		rootSignatureDesc.pParameters = &rootparam;
+		rootSignatureDesc.NumParameters = 1;
 		rootSignatureDesc.pStaticSamplers = &samplerDesc;
 		rootSignatureDesc.NumStaticSamplers = 1;
 		auto result = D3D12SerializeRootSignature(&rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,
@@ -678,110 +619,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		scissorrect.right = scissorrect.left + window_width;
 		scissorrect.bottom = scissorrect.top + window_height;
 	}
-	//スクリーン用リソース
-	{
-		auto heapDesc = _rtvHeaps->GetDesc();
-		auto& bbuff = _backBuffers[0];
-		auto resDesc = bbuff->GetDesc();
-
-		D3D12_HEAP_PROPERTIES heapprop = {};
-		heapprop.Type = D3D12_HEAP_TYPE_DEFAULT;
-		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
-		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
-		heapprop.CreationNodeMask = 0;
-		heapprop.VisibleNodeMask = 0;
-
-		D3D12_CLEAR_VALUE clearValue = CD3DX12_CLEAR_VALUE(DXGI_FORMAT_R8G8B8A8_UNORM, clearColor);
-
-		_dev->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resDesc, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE,
-			&clearValue, IID_PPV_ARGS(screenBuff.ReleaseAndGetAddressOf()));
-	}
-	//スクリーン用ビュー
-	{
-		//RTV
-		auto heapDesc = _rtvHeaps->GetDesc();
-		heapDesc.NumDescriptors = 1;
-		auto result = _dev->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(screenRtvHeap.ReleaseAndGetAddressOf()));
-
-		D3D12_RENDER_TARGET_VIEW_DESC rtvDesc = {};
-		rtvDesc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
-		rtvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-
-		_dev->CreateRenderTargetView(screenBuff.Get(), &rtvDesc, screenRtvHeap->GetCPUDescriptorHandleForHeapStart());
-
-		//SRV
-		heapDesc.NumDescriptors = 1;
-		heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-		heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
-
-		result = _dev->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(screenSrvHeap.ReleaseAndGetAddressOf()));
-
-		D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
-		srvDesc.Format = rtvDesc.Format;
-		srvDesc.Texture2D.MipLevels = 1;
-		srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
-
-		_dev->CreateShaderResourceView(screenBuff.Get(), &srvDesc, screenSrvHeap->GetCPUDescriptorHandleForHeapStart());
-	}
-	//スクリーン用ポリゴン
-	{
-		auto heapprop = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
-		auto resDesc = CD3DX12_RESOURCE_DESC::Buffer(sizeof(screenVertices));
-		auto result = _dev->CreateCommittedResource(&heapprop,
-			D3D12_HEAP_FLAG_NONE, &resDesc,
-			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(screenVBuff.ReleaseAndGetAddressOf()));
-
-		screenVbView.BufferLocation = screenVBuff->GetGPUVirtualAddress();
-		screenVbView.SizeInBytes = sizeof(screenVertices);
-		screenVbView.StrideInBytes = sizeof(SCREEN_VERTEX_DATA);
-
-		SCREEN_VERTEX_DATA* mapScreen = nullptr;
-		screenVBuff->Map(0, nullptr, (void**)&mapScreen);
-		std::copy(std::begin(screenVertices), std::end(screenVertices), mapScreen);
-		screenVBuff->Unmap(0, nullptr);
-	}
-	//スクリーン用ルートシグネチャ
-	{
-		D3D12_ROOT_SIGNATURE_DESC rsDesc = {};
-		rsDesc.NumParameters = 0;
-		rsDesc.NumStaticSamplers = 0;
-		rsDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
-
-		Microsoft::WRL::ComPtr<ID3DBlob> rsBlob;
-		auto result = D3D12SerializeRootSignature(&rsDesc, D3D_ROOT_SIGNATURE_VERSION_1,
-			rsBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		processBlobError(result);
-		result = _dev->CreateRootSignature(0, rsBlob->GetBufferPointer(), rsBlob->GetBufferSize(),
-			IID_PPV_ARGS(screenRootSignature.ReleaseAndGetAddressOf()));
-	}
-	//スクリーン用パイプラインステート
-	{
-		D3D12_GRAPHICS_PIPELINE_STATE_DESC gpsDesc = {};
-		gpsDesc.InputLayout.NumElements = _countof(screenLayout);
-		gpsDesc.InputLayout.pInputElementDescs = screenLayout;
-		auto result = D3DCompileFromFile(L"shader/ScreenVertexShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
-			"vs", "vs_5_0", 0, 0, screenVsBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		processBlobError(result);
-		result = D3DCompileFromFile(L"shader/ScreenPixelShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
-			"ps", "ps_5_0", 0, 0, screenPsBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		processBlobError(result);
-		gpsDesc.VS = CD3DX12_SHADER_BYTECODE(screenVsBlob.Get());
-		gpsDesc.PS = CD3DX12_SHADER_BYTECODE(screenPsBlob.Get());
-
-		gpsDesc.BlendState = CD3DX12_BLEND_DESC(D3D12_DEFAULT);
-		gpsDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
-		gpsDesc.NumRenderTargets = 1;
-		gpsDesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
-		gpsDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
-		gpsDesc.SampleMask = D3D12_DEFAULT_SAMPLE_MASK;
-		gpsDesc.SampleDesc.Count = 1;
-		gpsDesc.SampleDesc.Quality = 0;
-		gpsDesc.Flags = D3D12_PIPELINE_STATE_FLAG_NONE;
-
-		gpsDesc.pRootSignature = screenRootSignature.Get();
-		result = _dev->CreateGraphicsPipelineState(&gpsDesc, IID_PPV_ARGS(screenPipelineState.ReleaseAndGetAddressOf()));
-	}
 
 	MSG msg = {};
 
@@ -815,7 +652,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 				BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
 				BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
 				BarrierDesc.Transition.Subresource = 0;
-				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
 				BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 				cmdList->ResourceBarrier(1, &BarrierDesc);
 			}
@@ -834,33 +671,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cmdList->IASetIndexBuffer(&ibView);
 		cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 
-		//DX12 本描画前バリア
-		{
-			auto bbIdx = _swapchain->GetCurrentBackBufferIndex();
-			D3D12_RESOURCE_BARRIER BarrierDesc = {};
-			BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-			BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-			BarrierDesc.Transition.pResource = _backBuffers[bbIdx].Get();
-			BarrierDesc.Transition.Subresource = 0;
-			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
-			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-			_cmdList->ResourceBarrier(1, &BarrierDesc);
-
-			_cmdList->Close();
-			ID3D12CommandList* cmdLists[] = { _cmdList.Get() };
-			_cmdQueue->ExecuteCommandLists(1, cmdLists);
-
-			//待機処理
-			_cmdQueue->Signal(_fence.Get(), ++_fenceVal);
-			if(_fence->GetCompletedValue() != _fenceVal)
-			{
-				auto event = CreateEvent(nullptr, false, false, nullptr);
-				_fence->SetEventOnCompletion(_fenceVal, event);
-				WaitForSingleObject(event, INFINITE);
-				CloseHandle(event);
-			}
-		}
-
+		//DX12 描画後処理
 		{
 			//DX12 プレゼント前バリア
 			{
