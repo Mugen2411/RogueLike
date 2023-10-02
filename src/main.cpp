@@ -72,8 +72,8 @@ size_t AlignmentedSize(size_t size, size_t alignment)
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
-	int window_width = 640;
-	int window_height = 360;
+	int window_width = 1280;
+	int window_height = 720;
 	WNDCLASSEX w = {};
 	w.cbSize = sizeof(w);
 	w.lpfnWndProc = WindowProcedure;
@@ -82,7 +82,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	RegisterClassEx(&w);
 
-	RECT wrc = { 0,0,window_width << 1, window_height << 1 };
+	RECT wrc = { 0, 0, window_width, window_height};
 	AdjustWindowRect(&wrc, WS_OVERLAPPEDWINDOW, false);
 
 	HWND hwnd = CreateWindow(w.lpszClassName, _T("MagicaRogue"),
@@ -120,34 +120,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> rootsignature = nullptr;
 	D3D12_VIEWPORT viewport = {};
 	D3D12_RECT scissorrect = {};
-	Microsoft::WRL::ComPtr<ID3D12Resource> screenBuff;
-	float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> screenRtvHeap;
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> screenSrvHeap;
-	struct SCREEN_VERTEX_DATA
-	{
-		DirectX::XMFLOAT3 pos;
-		DirectX::XMFLOAT2 uv;
-	};
-	SCREEN_VERTEX_DATA screenVertices[4] =
-	{
-		{{ -1, -1, 0},{0, 1}},
-		{{ -1,  1, 0},{0, 0}},
-		{{  1, -1, 0},{1, 1}},
-		{{  1,  1, 0},{1, 0}},
-	};
-	Microsoft::WRL::ComPtr<ID3D12Resource> screenVBuff = nullptr;
-	D3D12_VERTEX_BUFFER_VIEW screenVbView = {};
-	D3D12_INPUT_ELEMENT_DESC screenLayout[2] =
-	{
-		{"POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
-		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
-	};
-	Microsoft::WRL::ComPtr<ID3D12RootSignature> screenRootSignature = nullptr;
-	Microsoft::WRL::ComPtr<ID3D12PipelineState> screenPipelineState = nullptr;
-	Microsoft::WRL::ComPtr<ID3DBlob> screenVsBlob = nullptr;
-	Microsoft::WRL::ComPtr<ID3DBlob> screenPsBlob = nullptr;
-
 	//DX12 描画する物毎に用意されるもの
 	struct VERTEX_DATA
 	{
@@ -612,7 +584,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc = {};
 		rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
 		rootSignatureDesc.pParameters = &rootparam;
-		rootSignatureDesc.NumParameters = 2;
+		rootSignatureDesc.NumParameters = 1;
 		rootSignatureDesc.pStaticSamplers = &samplerDesc;
 		rootSignatureDesc.NumStaticSamplers = 1;
 		auto result = D3D12SerializeRootSignature(&rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,
@@ -710,7 +682,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 				BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
 				BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
 				BarrierDesc.Transition.Subresource = 0;
-				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
 				BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 				cmdList->ResourceBarrier(1, &BarrierDesc);
 			}
@@ -728,33 +700,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cmdList->IASetVertexBuffers(0, 1, &vbView);
 		cmdList->IASetIndexBuffer(&ibView);
 		cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
-
-		//DX12 本描画前バリア
-		{
-			auto bbIdx = swapchain->GetCurrentBackBufferIndex();
-			D3D12_RESOURCE_BARRIER BarrierDesc = {};
-			BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-			BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-			BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
-			BarrierDesc.Transition.Subresource = 0;
-			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
-			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-			cmdList->ResourceBarrier(1, &BarrierDesc);
-
-			cmdList->Close();
-			ID3D12CommandList* cmdLists[] = { cmdList.Get() };
-			cmdQueue->ExecuteCommandLists(1, cmdLists);
-
-			//待機処理
-			cmdQueue->Signal(fence.Get(), ++fenceVal);
-			if(fence->GetCompletedValue() != fenceVal)
-			{
-				auto event = CreateEvent(nullptr, false, false, nullptr);
-				fence->SetEventOnCompletion(fenceVal, event);
-				WaitForSingleObject(event, INFINITE);
-				CloseHandle(event);
-			}
-		}
 
 		{
 			//DX12 プレゼント前バリア
