@@ -66,5 +66,8 @@ namespace mugen_engine
 			WaitForSingleObject(event, INFINITE);
 			CloseHandle(event);
 		}
+
+		m_cmdAllocator->Reset();
+		m_cmdList->Reset(m_cmdAllocator.Get(), nullptr);
 	}
 }

@@ -572,6 +572,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		{
 			break;
 		}
+		
+		mugen_engine::MECore::GetIns().ScreenFlip();
 		/*
 		//DX12 描画前処理
 		{
@@ -579,9 +581,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			auto bbIdx = swapchain->GetCurrentBackBufferIndex();
 			auto rtvH = rtvHeaps->GetCPUDescriptorHandleForHeapStart();
 			rtvH.ptr += bbIdx * m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-			
-			cmdAllocator->Reset();
-			cmdList->Reset(cmdAllocator.Get(), nullptr);
+
 
 			//DX12 レンダーターゲット前バリア
 			{
