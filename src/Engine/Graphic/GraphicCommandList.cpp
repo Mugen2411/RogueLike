@@ -80,4 +80,14 @@ namespace mugen_engine
 	{
 		return m_cmdQueue.Get();
 	}
+
+	/**********************************************************************//**
+		@brief			コマンドリストの生ポインタを取得
+		@param			なし
+		@return			コマンドリストの生ポインタ
+	*//***********************************************************************/
+	ID3D12GraphicsCommandList* const MEGraphicCommandList::GetCommandList() const
+	{
+		return m_cmdList.Get();
+	}
 }

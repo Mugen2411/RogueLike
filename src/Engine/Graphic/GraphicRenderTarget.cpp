@@ -7,7 +7,7 @@ namespace mugen_engine
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	MEGraphicRenderTarget::MEGraphicRenderTarget() :m_backBuffers(2)
+	MEGraphicRenderTarget::MEGraphicRenderTarget() :m_numBackBuffer(2), m_backBuffers(m_numBackBuffer)
 	{}
 
 	/**********************************************************************//**
@@ -16,7 +16,7 @@ namespace mugen_engine
 		@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
 		@return			インスタンス
 	*//***********************************************************************/
-	void MEGraphicRenderTarget::Initialize(IDXGIFactory4* dxgiFactory, ID3D12CommandQueue* cmdQueue,
+	void MEGraphicRenderTarget::Initialize(const MEGraphicDevice& device, ID3D12CommandQueue* cmdQueue,
 		HWND hwnd, const int window_width, const int window_height)
 	{
 		//DX12 スワップチェイン
@@ -36,8 +36,81 @@ namespace mugen_engine
 			swapchainDesc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;
 			swapchainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
-			auto result = dxgiFactory->CreateSwapChainForHwnd(cmdQueue, hwnd, &swapchainDesc,
+			auto result = device.GetFactory()->CreateSwapChainForHwnd(cmdQueue, hwnd, &swapchainDesc,
 				nullptr, nullptr, reinterpret_cast<IDXGISwapChain1**>(m_swapchain.ReleaseAndGetAddressOf()));
+		}
+		//DX12 ディスクリプタヒープ
+		{
+			D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+			heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
+			heapDesc.NodeMask = 0;
+			heapDesc.NumDescriptors = 2;
+			heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+			auto result = device.GetDevice()->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(m_rtvHeaps.ReleaseAndGetAddressOf()));
+
+			DXGI_SWAP_CHAIN_DESC swcDesc = {};
+			m_swapchain->GetDesc(&swcDesc);
+
+			D3D12_CPU_DESCRIPTOR_HANDLE handle = m_rtvHeaps->GetCPUDescriptorHandleForHeapStart();
+
+			for(int idx = 0; idx < swcDesc.BufferCount; ++idx)
+			{
+				result = m_swapchain->GetBuffer(idx, IID_PPV_ARGS(m_backBuffers[idx].ReleaseAndGetAddressOf()));
+				device.GetDevice()->CreateRenderTargetView(m_backBuffers[idx].Get(), nullptr, handle);
+				handle.ptr += device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+			}
+		}
+	}
+
+	/**********************************************************************//**
+		@brief			バックバッファの内容をディスプレイに反映する
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicRenderTarget::Present()
+	{
+		m_swapchain->Present(1, 0);
+	}
+
+	/**********************************************************************//**
+		@brief			描画前バリア
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicRenderTarget::SetBarrierBeforeRender(ID3D12GraphicsCommandList* cmdList)
+	{
+		//DX12 プレゼント前バリア
+		{
+			auto bbIdx = m_swapchain->GetCurrentBackBufferIndex();
+			D3D12_RESOURCE_BARRIER BarrierDesc = {};
+			BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+			BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+			BarrierDesc.Transition.pResource = m_backBuffers[bbIdx].Get();
+			BarrierDesc.Transition.Subresource = 0;
+			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+			cmdList->ResourceBarrier(1, &BarrierDesc);
+		}
+	}
+
+	/**********************************************************************//**
+		@brief			プレゼント前バリア
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicRenderTarget::SetBarrierBeforePresent(ID3D12GraphicsCommandList* cmdList)
+	{
+		//DX12 プレゼント前バリア
+		{
+			auto bbIdx = m_swapchain->GetCurrentBackBufferIndex();
+			D3D12_RESOURCE_BARRIER BarrierDesc = {};
+			BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+			BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+			BarrierDesc.Transition.pResource = m_backBuffers[bbIdx].Get();
+			BarrierDesc.Transition.Subresource = 0;
+			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
+			cmdList->ResourceBarrier(1, &BarrierDesc);
 		}
 	}
 }

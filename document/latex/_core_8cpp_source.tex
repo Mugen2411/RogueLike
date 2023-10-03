@@ -4,30 +4,98 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8h}{Core.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00004}00004\ }
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00005}\mbox{\hyperlink{namespacemugen__engine}{00005}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00006}00006\ \{}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00007}00007\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00012}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{00012}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}}\&\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{MECore::GetIns}}()}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00013}00013\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}}\ instance;}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00016}00016\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00017}00017\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00023}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9}{00023}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9}{MECore::Initialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ window\_width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ window\_height)}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00024}00024\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\_graphicDevice}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}{Initialize}}(window\_width,\ window\_height);}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_ab506a8162c98ec14b893d20be0129769}{Initialize}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\_graphicDevice}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}());}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00027}00027\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00029}00029\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00034}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{00034}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{MECore::ScreenFlip}}()}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00035}00035\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00037}00037\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00039}00039\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00044}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a87f41c5f106912e64bbd2c4585e7fb93}{00044}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a87f41c5f106912e64bbd2c4585e7fb93}{MECore::MECore}}()}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00045}00045\ \ \ \ \ \{\}}
-\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00005}00005\ LRESULT\ \mbox{\hyperlink{_core_8cpp_a6deefd2ee7e3726f368c853368adcc9f}{WindowProcedure}}(HWND\ hwnd,\ UINT\ msg,\ WPARAM\ wparam,\ LPARAM\ lparam);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00007}\mbox{\hyperlink{namespacemugen__engine}{00007}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00009}00009\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00014}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{00014}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}}\&\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{MECore::GetIns}}()}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}}\ instance;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00019}00019\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00025}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984}{00025}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984}{MECore::Initialize}}(\textcolor{keyword}{const}\ std::wstring\ window\_title,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ window\_width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ window\_height)}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8}{m\_windowWidth}}\ =\ window\_width;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b}{m\_windowHeight}}\ =\ window\_height;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44}{m\_windowTitle}}\ =\ window\_title;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab0e66e76c01786fc7b4283c10e659a52}{\_CreateWindow}}();}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\_graphicDevice}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb}{Initialize}}();}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_ab506a8162c98ec14b893d20be0129769}{Initialize}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\_graphicDevice}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}());}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}{m\_renderTarget}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a5d64bf84d161e64d1d8041cb0af9a745}{Initialize}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\_graphicDevice}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_aaff754f77faa1422294f88812c5fff86}{GetCommandQueue}}(),}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8}{m\_windowHandle}},\ window\_width,\ window\_height);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00037}00037\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00042}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}{00042}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}{MECore::Finalize}}()}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00043}00043\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ UnregisterClass(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.lpszClassName,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.hInstance);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00047}00047\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00052}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e}{00052}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e}{MECore::ProcessMessage}}()}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00053}00053\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ MSG\ msg\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(PeekMessage(\&msg,\ \textcolor{keyword}{nullptr},\ 0,\ 0,\ PM\_REMOVE))}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ TranslateMessage(\&msg);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ DispatchMessage(\&msg);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(msg.message\ ==\ WM\_QUIT)}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}{m\_renderTarget}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_aa56108621bd0be997c9a04260b32b547}{SetBarrierBeforeRender}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}());}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00077}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{00077}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{MECore::ScreenFlip}}()}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}{m\_renderTarget}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a0b70a4ad345c1077fb9c9e962a68f315}{SetBarrierBeforePresent}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}());}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\_graphicCommandList}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}{m\_renderTarget}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_ad2cbb7cfe081e9ab6a3be51570f71b4e}{Present}}();}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00084}00084\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00089}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a87f41c5f106912e64bbd2c4585e7fb93}{00089}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a87f41c5f106912e64bbd2c4585e7fb93}{MECore::MECore}}()\ :\ m\_windowClass\ \{\},\ m\_windowHandle(),\ m\_windowWidth(0),\ m\_windowHeight(0)}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00090}00090\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00092}00092\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00098}\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab0e66e76c01786fc7b4283c10e659a52}{00098}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab0e66e76c01786fc7b4283c10e659a52}{MECore::\_CreateWindow}}()}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.cbSize\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}});}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.lpfnWndProc\ =\ \mbox{\hyperlink{_core_8cpp_a6deefd2ee7e3726f368c853368adcc9f}{WindowProcedure}};}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.lpszClassName\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44}{m\_windowTitle}}.c\_str();}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.hInstance\ =\ GetModuleHandle(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ RegisterClassEx(\&\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}});}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ RECT\ wrc\ =\ \{\ 0,\ 0,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8}{m\_windowWidth}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b}{m\_windowHeight}}\ \};}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ AdjustWindowRect(\&wrc,\ WS\_OVERLAPPEDWINDOW,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8}{m\_windowHandle}}\ =\ CreateWindow(\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.lpszClassName,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44}{m\_windowTitle}}.c\_str(),}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ WS\_OVERLAPPEDWINDOW,\ CW\_USEDEFAULT,\ CW\_USEDEFAULT,}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ wrc.right\ -\/\ wrc.left,\ wrc.bottom\ -\/\ wrc.top,}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\_windowClass}}.hInstance,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ ShowWindow(\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8}{m\_windowHandle}},\ SW\_SHOW);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00131}\mbox{\hyperlink{_core_8cpp_a6deefd2ee7e3726f368c853368adcc9f}{00131}}\ \textcolor{keyword}{static}\ LRESULT\ \mbox{\hyperlink{_core_8cpp_a6deefd2ee7e3726f368c853368adcc9f}{WindowProcedure}}(HWND\ hwnd,\ UINT\ msg,\ WPARAM\ wparam,\ LPARAM\ lparam)}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00132}00132\ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00133}00133\ \ \ \ \ \textcolor{keywordflow}{if}(msg\ ==\ WM\_DESTROY)}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00134}00134\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ PostQuitMessage(0);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00137}00137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{return}\ DefWindowProc(hwnd,\ msg,\ wparam,\ lparam);}
+\DoxyCodeLine{\Hypertarget{_core_8cpp_source_l00139}00139\ \}}
 
 \end{DoxyCode}

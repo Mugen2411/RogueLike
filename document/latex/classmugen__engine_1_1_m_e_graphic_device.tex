@@ -16,10 +16,17 @@
 \begin{DoxyCompactList}\small\item\em デフォルトコンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a}{MEGraphic\+Device}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&)=delete
 \begin{DoxyCompactList}\small\item\em コピーコンストラクタ(削除) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}{Initialize}} (int window\+\_\+width, int window\+\_\+height)
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb}{Initialize}} ()
 \begin{DoxyCompactList}\small\item\em 最初に必ず呼ばれる初期化処理 \end{DoxyCompactList}\item 
 ID3\+D12\+Device \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{Get\+Device}} () const
-\begin{DoxyCompactList}\small\item\em デバイスの生ポインタを取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em デバイスの生ポインタを取得 \end{DoxyCompactList}\item 
+IDXGIFactory4 \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e58f27436b87b8c4429ede419217767}{Get\+Factory}} () const
+\begin{DoxyCompactList}\small\item\em ファクトリの生ポインタを取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6}{\+\_\+\+Enable\+Debug\+Layer}} ()
+\begin{DoxyCompactList}\small\item\em デバッグレイヤーの有効化 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,7 +66,7 @@ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ IDXGIFactory6 $>$ \mbox{\hyperlink{classmuge
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00076}{76}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00091}{91}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a}\label{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a} 
 \index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!MEGraphicDevice@{MEGraphicDevice}}
@@ -74,6 +81,28 @@ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ IDXGIFactory6 $>$ \mbox{\hyperlink{classmuge
 
 
 \doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6}\label{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!\_EnableDebugLayer@{\_EnableDebugLayer}}
+\index{\_EnableDebugLayer@{\_EnableDebugLayer}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{\_EnableDebugLayer()}{\_EnableDebugLayer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+\_\+\+Enable\+Debug\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+デバッグレイヤーの有効化 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00099}{99}} 行目に定義があります。
+
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}\label{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25} 
 \index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!GetDevice@{GetDevice}}
 \index{GetDevice@{GetDevice}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
@@ -85,34 +114,62 @@ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ IDXGIFactory6 $>$ \mbox{\hyperlink{classmuge
 デバイスの生ポインタを取得 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+デバイスの生ポインタ 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00066}{66}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}\label{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad} 
+ \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00071}{71}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a4e58f27436b87b8c4429ede419217767}\label{classmugen__engine_1_1_m_e_graphic_device_a4e58f27436b87b8c4429ede419217767} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!GetFactory@{GetFactory}}
+\index{GetFactory@{GetFactory}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{GetFactory()}{GetFactory()}}
+{\footnotesize\ttfamily IDXGIFactory4 \texorpdfstring{$\ast$}{*}const mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+Get\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+ファクトリの生ポインタを取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+ファクトリの生ポインタ 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00081}{81}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb}\label{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb} 
 \index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!Initialize@{Initialize}}
 \index{Initialize@{Initialize}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
 \doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+Initialize (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+width,  }\item[{int}]{window\+\_\+height }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 最初に必ず呼ばれる初期化処理 
 
-初期化
+デバイスとファクトリの初期化
 
 
-\begin{DoxyParams}[1]{引数}
-\mbox{\texttt{ in}}  & {\em window\+\_\+width} & ウィンドウ(描画範囲)の横幅 \\
-\hline
-\mbox{\texttt{ in}}  & {\em window\+\_\+height} & ウィンドウ(描画範囲)の縦幅 \\
+\begin{DoxyParams}{引数}
+{\em なし} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{戻り値}
-インスタンス 
+なし 
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00014}{14}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_device_8cpp_source}{Graphic\+Device.\+cpp}} の \mbox{\hyperlink{_graphic_device_8cpp_source_l00013}{13}} 行目に定義があります。
 
 
 
@@ -129,7 +186,7 @@ DX12デバイス
 
 
 
- \mbox{\hyperlink{_graphic_device_8h_source}{Graphic\+Device.\+h}} の \mbox{\hyperlink{_graphic_device_8h_source_l00042}{42}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_device_8h_source}{Graphic\+Device.\+h}} の \mbox{\hyperlink{_graphic_device_8h_source_l00047}{47}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}\label{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea} 
 \index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!m\_dxgiFactory@{m\_dxgiFactory}}
@@ -143,7 +200,7 @@ DXGIデバイス
 
 
 
- \mbox{\hyperlink{_graphic_device_8h_source}{Graphic\+Device.\+h}} の \mbox{\hyperlink{_graphic_device_8h_source_l00043}{43}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_device_8h_source}{Graphic\+Device.\+h}} の \mbox{\hyperlink{_graphic_device_8h_source_l00048}{48}} 行目に定義があります。
 
 
 

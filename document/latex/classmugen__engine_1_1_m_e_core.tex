@@ -12,8 +12,12 @@
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9}{Initialize}} (int window\+\_\+width, int window\+\_\+height)
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984}{Initialize}} (const std\+::wstring window\+\_\+title, int window\+\_\+width, int window\+\_\+height)
 \begin{DoxyCompactList}\small\item\em 最初に必ず呼び出す初期化処理 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}{Finalize}} ()
+\begin{DoxyCompactList}\small\item\em 最後に必ず呼び出す終了処理 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e}{Process\+Message}} ()
+\begin{DoxyCompactList}\small\item\em システムのメッセージを処理する \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{Screen\+Flip}} ()
 \begin{DoxyCompactList}\small\item\em 描画結果を画面に反映させる \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{静的公開メンバ関数}
@@ -27,20 +31,34 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a87f41c5f106912e64bbd2c4585e7fb93}{MECore}} ()
 \begin{DoxyCompactList}\small\item\em デフォルトコンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092}{MECore}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \&)=delete
-\begin{DoxyCompactList}\small\item\em コピーコンストラクタ(削除) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em コピーコンストラクタ(削除) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab0e66e76c01786fc7b4283c10e659a52}{\+\_\+\+Create\+Window}} ()
+\begin{DoxyCompactList}\small\item\em ウィンドウの作成 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
+HWND \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8}{m\+\_\+window\+Handle}}
+\begin{DoxyCompactList}\small\item\em ウィンドウハンドル \end{DoxyCompactList}\item 
+std\+::wstring \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44}{m\+\_\+window\+Title}}
+\begin{DoxyCompactList}\small\item\em ウィンドウの名前(ウィンドウクラスの名前) \end{DoxyCompactList}\item 
+WNDCLASSEX \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}{m\+\_\+window\+Class}}
+\begin{DoxyCompactList}\small\item\em ウィンドウクラス \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8}{m\+\_\+window\+Width}}
+\begin{DoxyCompactList}\small\item\em ウィンドウの横幅 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b}{m\+\_\+window\+Height}}
+\begin{DoxyCompactList}\small\item\em ウィンドウの高さ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\+\_\+graphic\+Device}}
 \begin{DoxyCompactList}\small\item\em グラフィックデバイス \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\+\_\+graphic\+Command\+List}}
-\begin{DoxyCompactList}\small\item\em グラフィックコマンドリスト \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em グラフィックコマンドリスト \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}{m\+\_\+render\+Target}}
+\begin{DoxyCompactList}\small\item\em レンダーターゲット \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 メディアサポートエンジンの中核となるクラス 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00016}{16}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00017}{17}} 行目に定義があります。
 
 
 
@@ -67,7 +85,7 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00044}{44}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00089}{89}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092}\label{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!MECore@{MECore}}
@@ -82,6 +100,54 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 
 
 \doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_core_ab0e66e76c01786fc7b4283c10e659a52}\label{classmugen__engine_1_1_m_e_core_ab0e66e76c01786fc7b4283c10e659a52} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!\_CreateWindow@{\_CreateWindow}}
+\index{\_CreateWindow@{\_CreateWindow}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{\_CreateWindow()}{\_CreateWindow()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MECore\+::\+\_\+\+Create\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ウィンドウの作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em window\+\_\+width} & ウィンドウ(描画範囲)の横幅 \\
+\hline
+\mbox{\texttt{ in}}  & {\em window\+\_\+height} & ウィンドウ(描画範囲)の縦幅 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00098}{98}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}\label{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MECore\+::\+Finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+最後に必ず呼び出す終了処理 
+
+終了処理
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00042}{42}} 行目に定義があります。
+
 \Hypertarget{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}\label{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetIns@{GetIns}}
 \index{GetIns@{GetIns}!mugen\_engine::MECore@{mugen\_engine::MECore}}
@@ -102,13 +168,13 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00012}{12}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00014}{14}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9}\label{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9} 
+\Hypertarget{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984}\label{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!Initialize@{Initialize}}
 \index{Initialize@{Initialize}!mugen\_engine::MECore@{mugen\_engine::MECore}}
 \doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MECore\+::\+Initialize (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+width,  }\item[{int}]{window\+\_\+height }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MECore\+::\+Initialize (\begin{DoxyParamCaption}\item[{const std\+::wstring}]{window\+\_\+title,  }\item[{int}]{window\+\_\+width,  }\item[{int}]{window\+\_\+height }\end{DoxyParamCaption})}
 
 
 
@@ -128,7 +194,29 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00023}{23}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00025}{25}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e}\label{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!ProcessMessage@{ProcessMessage}}
+\index{ProcessMessage@{ProcessMessage}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{ProcessMessage()}{ProcessMessage()}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MECore\+::\+Process\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+システムのメッセージを処理する 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何もなければ0、アプリケーションが終了するなら-\/1 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00052}{52}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}\label{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!ScreenFlip@{ScreenFlip}}
@@ -152,7 +240,7 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00034}{34}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00077}{77}} 行目に定義があります。
 
 
 
@@ -169,7 +257,7 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00034}{34}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00047}{47}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}\label{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_graphicDevice@{m\_graphicDevice}}
@@ -183,7 +271,91 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00033}{33}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00046}{46}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}\label{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_renderTarget@{m\_renderTarget}}
+\index{m\_renderTarget@{m\_renderTarget}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_renderTarget}{m\_renderTarget}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} mugen\+\_\+engine\+::\+MECore\+::m\+\_\+render\+Target\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+レンダーターゲット 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00048}{48}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}\label{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowClass@{m\_windowClass}}
+\index{m\_windowClass@{m\_windowClass}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_windowClass}{m\_windowClass}}
+{\footnotesize\ttfamily WNDCLASSEX mugen\+\_\+engine\+::\+MECore\+::m\+\_\+window\+Class\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ウィンドウクラス 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00042}{42}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8}\label{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowHandle@{m\_windowHandle}}
+\index{m\_windowHandle@{m\_windowHandle}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_windowHandle}{m\_windowHandle}}
+{\footnotesize\ttfamily HWND mugen\+\_\+engine\+::\+MECore\+::m\+\_\+window\+Handle\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ウィンドウハンドル 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00040}{40}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b}\label{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowHeight@{m\_windowHeight}}
+\index{m\_windowHeight@{m\_windowHeight}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_windowHeight}{m\_windowHeight}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MECore\+::m\+\_\+window\+Height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ウィンドウの高さ 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00044}{44}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44}\label{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowTitle@{m\_windowTitle}}
+\index{m\_windowTitle@{m\_windowTitle}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_windowTitle}{m\_windowTitle}}
+{\footnotesize\ttfamily std\+::wstring mugen\+\_\+engine\+::\+MECore\+::m\+\_\+window\+Title\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ウィンドウの名前(ウィンドウクラスの名前) 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8}\label{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowWidth@{m\_windowWidth}}
+\index{m\_windowWidth@{m\_windowWidth}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_windowWidth}{m\_windowWidth}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MECore\+::m\+\_\+window\+Width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ウィンドウの横幅 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00043}{43}} 行目に定義があります。
 
 
 

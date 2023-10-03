@@ -84,28 +84,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12Resource> constBuff = nullptr;
 	DirectX::XMMATRIX matrix = DirectX::XMMatrixScaling(2.0 / window_width, 2.0 / window_height, 1.0f);
 
-	//DX12 ディスクリプタヒープ
-	{
-		D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
-		heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
-		heapDesc.NodeMask = 0;
-		heapDesc.NumDescriptors = 2;
-		heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
-		auto result = m_device->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(rtvHeaps.ReleaseAndGetAddressOf()));
-
-		DXGI_SWAP_CHAIN_DESC swcDesc = {};
-		swapchain->GetDesc(&swcDesc);
-
-		D3D12_CPU_DESCRIPTOR_HANDLE handle = rtvHeaps->GetCPUDescriptorHandleForHeapStart();
-
-		for(int idx = 0; idx < swcDesc.BufferCount; ++idx)
-		{
-			result = swapchain->GetBuffer(idx, IID_PPV_ARGS(backBuffers[idx].ReleaseAndGetAddressOf()));
-			m_device->CreateRenderTargetView(backBuffers[idx].Get(), nullptr, handle);
-			handle.ptr += m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-		}
-	}
-
 	//画像読み込み
 	{
 		DirectX::LoadFromWICFile(L"media/graphic/return_to_escape.png", DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
@@ -517,19 +495,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 
 		{
-			//DX12 プレゼント前バリア
-			{
-				auto bbIdx = swapchain->GetCurrentBackBufferIndex();
-				D3D12_RESOURCE_BARRIER BarrierDesc = {};
-				BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-				BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-				BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
-				BarrierDesc.Transition.Subresource = 0;
-				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
-				BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
-				cmdList->ResourceBarrier(1, &BarrierDesc);
-			}
-
 			cmdList->Close();
 			ID3D12CommandList* cmdLists[] = { cmdList.Get() };
 			cmdQueue->ExecuteCommandLists(1, cmdLists);
@@ -543,7 +508,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 				WaitForSingleObject(event, INFINITE);
 				CloseHandle(event);
 			}
-			swapchain->Present(1, 0);
 		}*/
 	}
 	return 0;

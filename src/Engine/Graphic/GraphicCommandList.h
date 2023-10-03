@@ -25,6 +25,8 @@ namespace mugen_engine
 		void Execute();
 		//! コマンドキューの生ポインタを取得
 		ID3D12CommandQueue * const GetCommandQueue() const;
+		//! コマンドリストの生ポインタを取得
+		ID3D12GraphicsCommandList* const GetCommandList() const;
 	private:
 
 		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> m_cmdAllocator = nullptr;		//!< コマンドアロケーター

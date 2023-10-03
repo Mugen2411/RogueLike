@@ -30,7 +30,7 @@ namespace mugen_engine
 		_CreateWindow();
 		m_graphicDevice.Initialize();
 		m_graphicCommandList.Initialize(m_graphicDevice.GetDevice());
-		m_renderTarget.Initialize(m_graphicDevice.GetFactory(), m_graphicCommandList.GetCommandQueue(),
+		m_renderTarget.Initialize(m_graphicDevice, m_graphicCommandList.GetCommandQueue(),
 			m_windowHandle, window_width, window_height);
 	}
 
@@ -64,6 +64,8 @@ namespace mugen_engine
 			return -1;
 		}
 
+		m_renderTarget.SetBarrierBeforeRender(m_graphicCommandList.GetCommandList());
+
 		return 0;
 	}
 
@@ -74,7 +76,9 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::ScreenFlip()
 	{
+		m_renderTarget.SetBarrierBeforePresent(m_graphicCommandList.GetCommandList());
 		m_graphicCommandList.Execute();
+		m_renderTarget.Present();
 	}
 
 	/**********************************************************************//**
@@ -82,7 +86,7 @@ namespace mugen_engine
 		@param			‚È‚µ
 		@return			‚È‚µ
 	*//***********************************************************************/
-	MECore::MECore()
+	MECore::MECore() : m_windowClass {}, m_windowHandle(), m_windowWidth(0), m_windowHeight(0)
 	{}
 
 	/**********************************************************************//**

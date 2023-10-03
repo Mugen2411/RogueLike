@@ -30,7 +30,15 @@ var menudata={children:[
 {text:"クラス一覧",url:"annotated.html"},
 {text:"クラス索引",url:"classes.html"},
 {text:"クラスメンバ",url:"functions.html",children:[
-{text:"全て",url:"functions.html"},
+{text:"全て",url:"functions.html",children:[
+{text:"_",url:"functions.html#index__5F"},
+{text:"e",url:"functions.html#index_e"},
+{text:"f",url:"functions.html#index_f"},
+{text:"g",url:"functions.html#index_g"},
+{text:"i",url:"functions.html#index_i"},
+{text:"m",url:"functions.html#index_m"},
+{text:"p",url:"functions.html#index_p"},
+{text:"s",url:"functions.html#index_s"}]},
 {text:"関数",url:"functions_func.html"},
 {text:"変数",url:"functions_vars.html"}]}]},
 {text:"ファイル",url:"files.html",children:[

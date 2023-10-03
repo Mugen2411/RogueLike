@@ -9,11 +9,12 @@
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00007}00007\ \{}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00008}00008\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00014}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}{00014}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}{MEGraphicDevice::Initialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ window\_width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ window\_height)}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00015}00015\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//DXGIファクトリ}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00013}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb}{00013}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb}{MEGraphicDevice::Initialize}}()}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//DXGIファクトリ}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6}{\_EnableDebugLayer}}();}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ CreateDXGIFactory2(DXGI\_CREATE\_FACTORY\_DEBUG,\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{m\_dxgiFactory}}.ReleaseAndGetAddressOf()));}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#else}}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ CreateDXGIFactory1(IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{m\_dxgiFactory}}.ReleaseAndGetAddressOf()));}
@@ -61,14 +62,30 @@
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00064}00064\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00066}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{00066}}\ \ \ \ \ ID3D12Device\ *\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{MEGraphicDevice::GetDevice}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00067}00067\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{m\_device}}.Get();}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00069}00069\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00076}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}{00076}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}{MEGraphicDevice::MEGraphicDevice}}()}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00077}00077\ \ \ \ \ \{\}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00071}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{00071}}\ \ \ \ \ ID3D12Device\ *\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{MEGraphicDevice::GetDevice}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00072}00072\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{m\_device}}.Get();}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00081}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e58f27436b87b8c4429ede419217767}{00081}}\ \ \ \ \ IDXGIFactory4*\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e58f27436b87b8c4429ede419217767}{MEGraphicDevice::GetFactory}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00082}00082\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{m\_dxgiFactory}}.Get();}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00086}00086\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00091}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}{00091}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}{MEGraphicDevice::MEGraphicDevice}}()}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00092}00092\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00094}00094\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00099}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6}{00099}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6}{MEGraphicDevice::\_EnableDebugLayer}}()}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00100}00100\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ ID3D12Debug*\ debugLayer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ D3D12GetDebugInterface(IID\_PPV\_ARGS(\&debugLayer));}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ debugLayer-\/>EnableDebugLayer();}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ debugLayer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00106}00106\ \}}
 
 \end{DoxyCode}

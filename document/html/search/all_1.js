@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['core_2ecpp_0',['Core.cpp',['../_core_8cpp.html',1,'']]],
-  ['core_2eh_1',['Core.h',['../_core_8h.html',1,'']]]
+  ['alignmentedsize_0',['AlignmentedSize',['../main_8cpp.html#ae9f2dc86511322a21b8ca82d417d522e',1,'main.cpp']]]
 ];

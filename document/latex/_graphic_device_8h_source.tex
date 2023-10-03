@@ -31,15 +31,18 @@
 \DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}{MEGraphicDevice}}();}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00034}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a}{00034}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a}{MEGraphicDevice}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00035}00035\ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}{Initialize}}(\textcolor{keywordtype}{int}\ window\_width,\ \textcolor{keywordtype}{int}\ window\_height);}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a474caa37051bbe08f07aa8ca0e319bdb}{Initialize}}();}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ ID3D12Device\ *\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00042}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{00042}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Device>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{m\_device}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00043}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{00043}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<IDXGIFactory6>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{m\_dxgiFactory}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00044}00044\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ IDXGIFactory4*\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e58f27436b87b8c4429ede419217767}{GetFactory}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a74a4671e5b24b4fbfb56f9e85812fad6}{\_EnableDebugLayer}}();}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_GraphicCore\_\_}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00047}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{00047}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Device>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{m\_device}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00048}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{00048}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<IDXGIFactory6>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{m\_dxgiFactory}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00049}00049\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_GraphicCore\_\_}}
 
 \end{DoxyCode}

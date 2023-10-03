@@ -17,7 +17,11 @@ GPUコマンドを管理するクラス
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_ab506a8162c98ec14b893d20be0129769}{Initialize}} (ID3\+D12\+Device \texorpdfstring{$\ast$}{*}const device)
 \begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}} ()
-\begin{DoxyCompactList}\small\item\em 実行\&GPU処理を待機 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 実行\&GPU処理を待機 \end{DoxyCompactList}\item 
+ID3\+D12\+Command\+Queue \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_aaff754f77faa1422294f88812c5fff86}{Get\+Command\+Queue}} () const
+\begin{DoxyCompactList}\small\item\em コマンドキューの生ポインタを取得 \end{DoxyCompactList}\item 
+ID3\+D12\+Graphics\+Command\+List \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{Get\+Command\+List}} () const
+\begin{DoxyCompactList}\small\item\em コマンドリストの生ポインタを取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
@@ -90,6 +94,50 @@ GPUコマンドを管理するクラス
 
  \mbox{\hyperlink{_graphic_command_list_8cpp_source}{Graphic\+Command\+List.\+cpp}} の \mbox{\hyperlink{_graphic_command_list_8cpp_source_l00054}{54}} 行目に定義があります。
 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}\label{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113} 
+\index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!GetCommandList@{GetCommandList}}
+\index{GetCommandList@{GetCommandList}!mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{GetCommandList()}{GetCommandList()}}
+{\footnotesize\ttfamily ID3\+D12\+Graphics\+Command\+List \texorpdfstring{$\ast$}{*}const mugen\+\_\+engine\+::\+MEGraphic\+Command\+List\+::\+Get\+Command\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+コマンドリストの生ポインタを取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+コマンドリストの生ポインタ 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_command_list_8cpp_source}{Graphic\+Command\+List.\+cpp}} の \mbox{\hyperlink{_graphic_command_list_8cpp_source_l00089}{89}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_aaff754f77faa1422294f88812c5fff86}\label{classmugen__engine_1_1_m_e_graphic_command_list_aaff754f77faa1422294f88812c5fff86} 
+\index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!GetCommandQueue@{GetCommandQueue}}
+\index{GetCommandQueue@{GetCommandQueue}!mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{GetCommandQueue()}{GetCommandQueue()}}
+{\footnotesize\ttfamily ID3\+D12\+Command\+Queue \texorpdfstring{$\ast$}{*}const mugen\+\_\+engine\+::\+MEGraphic\+Command\+List\+::\+Get\+Command\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+コマンドキューの生ポインタを取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+コマンドキューの生ポインタ 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_command_list_8cpp_source}{Graphic\+Command\+List.\+cpp}} の \mbox{\hyperlink{_graphic_command_list_8cpp_source_l00079}{79}} 行目に定義があります。
+
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_ab506a8162c98ec14b893d20be0129769}\label{classmugen__engine_1_1_m_e_graphic_command_list_ab506a8162c98ec14b893d20be0129769} 
 \index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!Initialize@{Initialize}}
 \index{Initialize@{Initialize}!mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}}
@@ -127,7 +175,7 @@ GPUコマンドを管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00028}{28}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00032}{32}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_acc0e77e7025ec547e9fe443e81e77a64}\label{classmugen__engine_1_1_m_e_graphic_command_list_acc0e77e7025ec547e9fe443e81e77a64} 
 \index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!m\_cmdList@{m\_cmdList}}
@@ -141,7 +189,7 @@ GPUコマンドを管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00029}{29}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00033}{33}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_a0ca4ea9b352068a34336d01e113935bb}\label{classmugen__engine_1_1_m_e_graphic_command_list_a0ca4ea9b352068a34336d01e113935bb} 
 \index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!m\_cmdQueue@{m\_cmdQueue}}
@@ -155,7 +203,7 @@ GPUコマンドを管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00030}{30}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00034}{34}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_af40bb06443392d83ee69818c3ec0cd6c}\label{classmugen__engine_1_1_m_e_graphic_command_list_af40bb06443392d83ee69818c3ec0cd6c} 
 \index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!m\_fence@{m\_fence}}
@@ -169,7 +217,7 @@ GPUコマンドを管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00032}{32}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00036}{36}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_command_list_a5741e2748685df9c0a6e79ab2307f31e}\label{classmugen__engine_1_1_m_e_graphic_command_list_a5741e2748685df9c0a6e79ab2307f31e} 
 \index{mugen\_engine::MEGraphicCommandList@{mugen\_engine::MEGraphicCommandList}!m\_fenceVal@{m\_fenceVal}}
@@ -183,7 +231,7 @@ GPUコマンドを管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00033}{33}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00037}{37}} 行目に定義があります。
 
 
 

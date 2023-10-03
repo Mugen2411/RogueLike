@@ -1,12 +1,22 @@
 var searchData=
 [
-  ['m_5fcmdallocator_0',['m_cmdAllocator',['../classmugen__engine_1_1_m_e_graphic_command_list.html#abfeead5ef969e3abe891d273004b446e',1,'mugen_engine::MEGraphicCommandList']]],
-  ['m_5fcmdlist_1',['m_cmdList',['../classmugen__engine_1_1_m_e_graphic_command_list.html#acc0e77e7025ec547e9fe443e81e77a64',1,'mugen_engine::MEGraphicCommandList']]],
-  ['m_5fcmdqueue_2',['m_cmdQueue',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a0ca4ea9b352068a34336d01e113935bb',1,'mugen_engine::MEGraphicCommandList']]],
-  ['m_5fdevice_3',['m_device',['../classmugen__engine_1_1_m_e_graphic_device.html#a9ecb2f43d857b6c4d7ab8bfa590c0d01',1,'mugen_engine::MEGraphicDevice']]],
-  ['m_5fdxgifactory_4',['m_dxgiFactory',['../classmugen__engine_1_1_m_e_graphic_device.html#a57525e9d4aaba75d1a82de08a906e2ea',1,'mugen_engine::MEGraphicDevice']]],
-  ['m_5ffence_5',['m_fence',['../classmugen__engine_1_1_m_e_graphic_command_list.html#af40bb06443392d83ee69818c3ec0cd6c',1,'mugen_engine::MEGraphicCommandList']]],
-  ['m_5ffenceval_6',['m_fenceVal',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a5741e2748685df9c0a6e79ab2307f31e',1,'mugen_engine::MEGraphicCommandList']]],
-  ['m_5fgraphiccommandlist_7',['m_graphicCommandList',['../classmugen__engine_1_1_m_e_core.html#a3cc07bef08ae9c5908e2c548d5958190',1,'mugen_engine::MECore']]],
-  ['m_5fgraphicdevice_8',['m_graphicDevice',['../classmugen__engine_1_1_m_e_core.html#a8d369ea07794fcd7f4ea80102f88c1cc',1,'mugen_engine::MECore']]]
+  ['m_5fbackbuffers_0',['m_backBuffers',['../classmugen__engine_1_1_m_e_graphic_render_target.html#ae7ca5f6c47d5668efac0c873949e6dbf',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['m_5fcmdallocator_1',['m_cmdAllocator',['../classmugen__engine_1_1_m_e_graphic_command_list.html#abfeead5ef969e3abe891d273004b446e',1,'mugen_engine::MEGraphicCommandList']]],
+  ['m_5fcmdlist_2',['m_cmdList',['../classmugen__engine_1_1_m_e_graphic_command_list.html#acc0e77e7025ec547e9fe443e81e77a64',1,'mugen_engine::MEGraphicCommandList']]],
+  ['m_5fcmdqueue_3',['m_cmdQueue',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a0ca4ea9b352068a34336d01e113935bb',1,'mugen_engine::MEGraphicCommandList']]],
+  ['m_5fdevice_4',['m_device',['../classmugen__engine_1_1_m_e_graphic_device.html#a9ecb2f43d857b6c4d7ab8bfa590c0d01',1,'mugen_engine::MEGraphicDevice']]],
+  ['m_5fdxgifactory_5',['m_dxgiFactory',['../classmugen__engine_1_1_m_e_graphic_device.html#a57525e9d4aaba75d1a82de08a906e2ea',1,'mugen_engine::MEGraphicDevice']]],
+  ['m_5ffence_6',['m_fence',['../classmugen__engine_1_1_m_e_graphic_command_list.html#af40bb06443392d83ee69818c3ec0cd6c',1,'mugen_engine::MEGraphicCommandList']]],
+  ['m_5ffenceval_7',['m_fenceVal',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a5741e2748685df9c0a6e79ab2307f31e',1,'mugen_engine::MEGraphicCommandList']]],
+  ['m_5fgraphiccommandlist_8',['m_graphicCommandList',['../classmugen__engine_1_1_m_e_core.html#a3cc07bef08ae9c5908e2c548d5958190',1,'mugen_engine::MECore']]],
+  ['m_5fgraphicdevice_9',['m_graphicDevice',['../classmugen__engine_1_1_m_e_core.html#a8d369ea07794fcd7f4ea80102f88c1cc',1,'mugen_engine::MECore']]],
+  ['m_5fnumbackbuffer_10',['m_numBackBuffer',['../classmugen__engine_1_1_m_e_graphic_render_target.html#acf6c0fb8255f78344737fb4085c71e2e',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['m_5frendertarget_11',['m_renderTarget',['../classmugen__engine_1_1_m_e_core.html#a0e95c24d2c973b5581393acc4b506496',1,'mugen_engine::MECore']]],
+  ['m_5frtvheaps_12',['m_rtvHeaps',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a52fd63cbad69ef7157bd6f8e5514eed3',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['m_5fswapchain_13',['m_swapchain',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a2560e7f8b4c485ffc500303075e2d4de',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['m_5fwindowclass_14',['m_windowClass',['../classmugen__engine_1_1_m_e_core.html#acfbb1a13eef6f0f08d59000e67164c5c',1,'mugen_engine::MECore']]],
+  ['m_5fwindowhandle_15',['m_windowHandle',['../classmugen__engine_1_1_m_e_core.html#a6a5f62424c0797e55b3a350765e001a8',1,'mugen_engine::MECore']]],
+  ['m_5fwindowheight_16',['m_windowHeight',['../classmugen__engine_1_1_m_e_core.html#a807fa7c2778faf2ec643dacb1d3d278b',1,'mugen_engine::MECore']]],
+  ['m_5fwindowtitle_17',['m_windowTitle',['../classmugen__engine_1_1_m_e_core.html#a3c12c2d04aa3e57a2f5bba3cf197fb44',1,'mugen_engine::MECore']]],
+  ['m_5fwindowwidth_18',['m_windowWidth',['../classmugen__engine_1_1_m_e_core.html#a00189f604a60d9428042bec40d3c13b8',1,'mugen_engine::MECore']]]
 ];

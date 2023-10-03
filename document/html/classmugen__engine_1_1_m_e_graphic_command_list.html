@@ -98,6 +98,12 @@ $(function() {
 <tr class="memitem:a0851e4dc9ed7b6e1381cb6b169412c56" id="r_a0851e4dc9ed7b6e1381cb6b169412c56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html#a0851e4dc9ed7b6e1381cb6b169412c56">Execute</a> ()</td></tr>
 <tr class="memdesc:a0851e4dc9ed7b6e1381cb6b169412c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">実行&amp;GPU処理を待機  <br /></td></tr>
 <tr class="separator:a0851e4dc9ed7b6e1381cb6b169412c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff754f77faa1422294f88812c5fff86" id="r_aaff754f77faa1422294f88812c5fff86"><td class="memItemLeft" align="right" valign="top">ID3D12CommandQueue *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html#aaff754f77faa1422294f88812c5fff86">GetCommandQueue</a> () const</td></tr>
+<tr class="memdesc:aaff754f77faa1422294f88812c5fff86"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドキューの生ポインタを取得  <br /></td></tr>
+<tr class="separator:aaff754f77faa1422294f88812c5fff86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1e2cc2bc3bca3eddec5081531e5113" id="r_a5a1e2cc2bc3bca3eddec5081531e5113"><td class="memItemLeft" align="right" valign="top">ID3D12GraphicsCommandList *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html#a5a1e2cc2bc3bca3eddec5081531e5113">GetCommandList</a> () const</td></tr>
+<tr class="memdesc:a5a1e2cc2bc3bca3eddec5081531e5113"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドリストの生ポインタを取得  <br /></td></tr>
+<tr class="separator:a5a1e2cc2bc3bca3eddec5081531e5113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
@@ -180,6 +186,62 @@ $(function() {
 
 </div>
 </div>
+<a id="a5a1e2cc2bc3bca3eddec5081531e5113" name="a5a1e2cc2bc3bca3eddec5081531e5113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1e2cc2bc3bca3eddec5081531e5113">&#9670;&#160;</a></span>GetCommandList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12GraphicsCommandList *const mugen_engine::MEGraphicCommandList::GetCommandList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドリストの生ポインタを取得 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>コマンドリストの生ポインタ </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_command_list_8cpp_source.html">GraphicCommandList.cpp</a> の <a class="el" href="_graphic_command_list_8cpp_source.html#l00089">89</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aaff754f77faa1422294f88812c5fff86" name="aaff754f77faa1422294f88812c5fff86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff754f77faa1422294f88812c5fff86">&#9670;&#160;</a></span>GetCommandQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12CommandQueue *const mugen_engine::MEGraphicCommandList::GetCommandQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドキューの生ポインタを取得 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>コマンドキューの生ポインタ </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_command_list_8cpp_source.html">GraphicCommandList.cpp</a> の <a class="el" href="_graphic_command_list_8cpp_source.html#l00079">79</a> 行目に定義があります。</p>
+
+</div>
+</div>
 <a id="ab506a8162c98ec14b893d20be0129769" name="ab506a8162c98ec14b893d20be0129769"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab506a8162c98ec14b893d20be0129769">&#9670;&#160;</a></span>Initialize()</h2>
 
@@ -232,7 +294,7 @@ $(function() {
 
 <p>コマンドアロケーター </p>
 
-<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00028">28</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00032">32</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -258,7 +320,7 @@ $(function() {
 
 <p>コマンドリスト </p>
 
-<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00029">29</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00033">33</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -284,7 +346,7 @@ $(function() {
 
 <p>コマンドキュー </p>
 
-<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00030">30</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00034">34</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -310,7 +372,7 @@ $(function() {
 
 <p>フェンス </p>
 
-<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00036">36</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -336,7 +398,7 @@ $(function() {
 
 <p>フェンスの進捗を管理する数値 </p>
 
-<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00033">33</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_command_list_8h_source.html">GraphicCommandList.h</a> の <a class="el" href="_graphic_command_list_8h_source.html#l00037">37</a> 行目に定義があります。</p>
 
 </div>
 </div>

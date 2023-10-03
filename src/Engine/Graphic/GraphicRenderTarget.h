@@ -25,9 +25,16 @@ namespace mugen_engine
 		//! コンストラクタ
 		MEGraphicRenderTarget();
 		//! 初期化
-		void Initialize(IDXGIFactory4* dxgiFactory, ID3D12CommandQueue* cmdQueue,
+		void Initialize(const MEGraphicDevice& device, ID3D12CommandQueue* cmdQueue,
 			HWND hwnd, const int window_width, const int window_height);
+		//! バックバッファの内容をディスプレイに反映する
+		void Present();
+		//! 描画前バリア
+		void SetBarrierBeforeRender(ID3D12GraphicsCommandList* cmdList);
+		//! プレゼント前バリア
+		void SetBarrierBeforePresent(ID3D12GraphicsCommandList* cmdList);
 	private:
+		const int m_numBackBuffer;												//!< バックバッファの数
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> m_swapchain = nullptr;			//!< スワップチェイン
 		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_rtvHeaps = nullptr;		//!< レンダーターゲットヒープ
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_backBuffers;		//!< バックバッファ
