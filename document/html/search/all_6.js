@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['windowprocedure_0',['WindowProcedure',['../main_8cpp.html#ab41a5745bc23c47844f0bd8be16ab464',1,'main.cpp']]],
-  ['winmain_1',['WinMain',['../main_8cpp.html#aa9f5bde5a38da1ef0ae63e9a5a567411',1,'main.cpp']]]
+  ['screenflip_0',['ScreenFlip',['../classmugen__engine_1_1_m_e_core.html#a29c86d9bd9b6506ac15fb8a97e27e3e1',1,'mugen_engine::MECore']]]
 ];

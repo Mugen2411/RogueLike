@@ -64,558 +64,560 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ w.hInstance,\ \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090\ \ \ \ \ ShowWindow(hwnd,\ SW\_SHOW);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a9022e852b944b87956d261869b5d9971}{EnableDebugLayer}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//DX12\ 1つだけあれば良さそうなモノ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ \ \ \ \ Microsoft::WRL::ComPtr<IDXGISwapChain4>\ swapchain\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>\ rtvHeaps\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>\ basicDescHeap\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100\ \ \ \ \ std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>>\ backBuffers(2);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101\ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ vsBlob\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102\ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ psBlob\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103\ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ errorBlob\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104\ \ \ \ \ D3D12\_INPUT\_ELEMENT\_DESC\ inputLayout[]\ =}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}POSITION"{}},\ 0,\ DXGI\_FORMAT\_R32G32B32\_FLOAT,\ 0,\ D3D12\_APPEND\_ALIGNED\_ELEMENT,\ D3D12\_INPUT\_CLASSIFICATION\_PER\_VERTEX\_DATA,\ 0\},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}TEXCOORD"{}},\ 0,\ DXGI\_FORMAT\_R32G32\_FLOAT,\ 0,\ D3D12\_APPEND\_ALIGNED\_ELEMENT,\ D3D12\_INPUT\_CLASSIFICATION\_PER\_VERTEX\_DATA,\ 0\}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12PipelineState>\ pipelinestate\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12RootSignature>\ rootsignature\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111\ \ \ \ \ D3D12\_VIEWPORT\ viewport\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112\ \ \ \ \ D3D12\_RECT\ scissorrect\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//DX12\ 描画する物毎に用意されるもの}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keyword}{struct\ }VERTEX\_DATA}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ DirectX::XMFLOAT3\ pos;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ DirectX::XMFLOAT2\ uv;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119\ \ \ \ \ VERTEX\_DATA\ vertices[4]\ =}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \{\{-\/32.0f,-\/32.0f,\ 0.0f\},\{0.0f,\ 1.0f\}\},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \{\{-\/32.0f,\ 32.0f,\ 0.0f\},\{0.0f,\ 0.0f\}\},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \{\{\ 32.0f,-\/32.0f,\ 0.0f\},\{1.0f,\ 1.0f\}\},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \{\{\ 32.0f,\ 32.0f,\ 0.0f\},\{1.0f,\ 0.0f\}\},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126\ \ \ \ \ uint16\_t\ indices[]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ 0,\ 1,\ 2,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ 2,\ 1,\ 3}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00130}00130\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ uploadBuff\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00131}00131\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ vertBuff\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}00132\ \ \ \ \ D3D12\_VERTEX\_BUFFER\_VIEW\ vbView\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ idxBuff\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134\ \ \ \ \ D3D12\_INDEX\_BUFFER\_VIEW\ ibView\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ texBuff\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136\ \ \ \ \ \textcolor{keyword}{struct\ }TexRGBA}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ uint8\_t\ R,\ G,\ B,\ A;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140\ \ \ \ \ DirectX::TexMetadata\ metadata\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141\ \ \ \ \ DirectX::ScratchImage\ scratchImg\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142\ \ \ \ \ DirectX::Image\ \textcolor{keyword}{const}\ *\ img\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143\ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ constBuff\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144\ \ \ \ \ DirectX::XMMATRIX\ matrix\ =\ DirectX::XMMatrixScaling(2.0\ /\ window\_width,\ 2.0\ /\ window\_height,\ 1.0f);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{comment}{//DX12\ スワップチェイン}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ DXGI\_SWAP\_CHAIN\_DESC1\ swapchainDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ swapchainDesc.Width\ =\ window\_width;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ swapchainDesc.Height\ =\ window\_height;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ swapchainDesc.Format\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ swapchainDesc.Stereo\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ swapchainDesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ swapchainDesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ swapchainDesc.BufferUsage\ =\ DXGI\_USAGE\_BACK\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ swapchainDesc.BufferCount\ =\ 2;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ swapchainDesc.Scaling\ =\ DXGI\_SCALING\_STRETCH;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ swapchainDesc.SwapEffect\ =\ DXGI\_SWAP\_EFFECT\_FLIP\_DISCARD;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ swapchainDesc.AlphaMode\ =\ DXGI\_ALPHA\_MODE\_UNSPECIFIED;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ swapchainDesc.Flags\ =\ DXGI\_SWAP\_CHAIN\_FLAG\_ALLOW\_MODE\_SWITCH;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_dxgiFactory-\/>CreateSwapChainForHwnd(cmdQueue.Get(),\ hwnd,\ \&swapchainDesc,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{reinterpret\_cast<}IDXGISwapChain1**\textcolor{keyword}{>}(swapchain.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00166}00166\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//DX12\ ディスクリプタヒープ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ D3D12\_DESCRIPTOR\_HEAP\_DESC\ heapDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ heapDesc.Type\ =\ D3D12\_DESCRIPTOR\_HEAP\_TYPE\_RTV;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ heapDesc.NodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ heapDesc.NumDescriptors\ =\ 2;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ heapDesc.Flags\ =\ D3D12\_DESCRIPTOR\_HEAP\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateDescriptorHeap(\&heapDesc,\ IID\_PPV\_ARGS(rtvHeaps.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ DXGI\_SWAP\_CHAIN\_DESC\ swcDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ swapchain-\/>GetDesc(\&swcDesc);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00178}00178\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ D3D12\_CPU\_DESCRIPTOR\_HANDLE\ handle\ =\ rtvHeaps-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00180}00180\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ swcDesc.BufferCount;\ ++idx)}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ swapchain-\/>GetBuffer(idx,\ IID\_PPV\_ARGS(backBuffers[idx].ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ m\_device-\/>CreateRenderTargetView(backBuffers[idx].Get(),\ \textcolor{keyword}{nullptr},\ handle);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ handle.ptr\ +=\ m\_device-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_RTV);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00187}00187\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00188}00188\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//画像読み込み}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00190}00190\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ DirectX::LoadFromWICFile(L\textcolor{stringliteral}{"{}media/graphic/return\_to\_escape.png"{}},\ DirectX::WIC\_FLAGS\_NONE,\ \&metadata,\ scratchImg);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ img\ =\ scratchImg.GetImage(0,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00193}00193\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00194}00194\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00195}00195\ \ \ \ \ \textcolor{comment}{//頂点バッファ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00196}00196\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00201}00201\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \textcolor{keyword}{sizeof}(vertices);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00212}00212\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(vertBuff.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00215}00215\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//確保したGPUヒープに頂点データを流し込む}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ VERTEX\_DATA*\ vertMap\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ result\ =\ vertBuff-\/>Map(0,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&vertMap));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ std::copy(std::begin(vertices),\ std::end(vertices),\ vertMap);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ vertBuff-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00221}00221\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00222}00222\ \ \ \ \ \textcolor{comment}{//頂点バッファビュー}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00223}00223\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ vbView.BufferLocation\ =\ vertBuff-\/>GetGPUVirtualAddress();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ vbView.SizeInBytes\ =\ \textcolor{keyword}{sizeof}(vertices);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ vbView.StrideInBytes\ =\ \textcolor{keyword}{sizeof}(vertices[0]);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00227}00227\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00228}00228\ \ \ \ \ \textcolor{comment}{//インデックスバッファ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00229}00229\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00234}00234\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \textcolor{keyword}{sizeof}(indices);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00245}00245\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(idxBuff.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00248}00248\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{comment}{//確保したGPUヒープに頂点データを流し込む}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ uint16\_t*\ idxMap\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ result\ =\ idxBuff-\/>Map(0,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&idxMap));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ std::copy(std::begin(indices),\ std::end(indices),\ idxMap);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ idxBuff-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00254}00254\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00255}00255\ \ \ \ \ \textcolor{comment}{//インデックスバッファビュー}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00256}00256\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ ibView.BufferLocation\ =\ idxBuff-\/>GetGPUVirtualAddress();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ ibView.SizeInBytes\ =\ \textcolor{keyword}{sizeof}(indices);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ ibView.Format\ =\ DXGI\_FORMAT\_R16\_UINT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00260}00260\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{comment}{//アップロード用中間バッファ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00262}00262\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00269}00269\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \mbox{\hyperlink{main_8cpp_ae9f2dc86511322a21b8ca82d417d522e}{AlignmentedSize}}(img-\/>rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT)\ *\ img-\/>height;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00281}00281\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(uploadBuff.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00284}00284\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00285}00285\ \ \ \ \ \textcolor{comment}{//コピー先リソース}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00286}00286\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_DEFAULT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00293}00293\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ \textcolor{keyword}{static\_cast<}D3D12\_RESOURCE\_DIMENSION\textcolor{keyword}{>}(metadata.dimension);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ metadata.width;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ metadata.height;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ metadata.arraySize;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ metadata.mipLevels;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ metadata.format;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00305}00305\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_COPY\_DEST,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(texBuff.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00308}00308\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ uint8\_t*\ mapforImg\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ result\ =\ uploadBuff-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapforImg);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00311}00311\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ srcAddress\ =\ img-\/>pixels;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rowPitch\ =\ \mbox{\hyperlink{main_8cpp_ae9f2dc86511322a21b8ca82d417d522e}{AlignmentedSize}}(img-\/>rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ img-\/>height;\ ++y)}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(srcAddress,\ rowPitch,\ mapforImg);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ srcAddress\ +=\ img-\/>rowPitch;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ mapforImg\ +=\ rowPitch;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ uploadBuff-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00321}00321\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00322}00322\ \ \ \ \ \textcolor{comment}{//GPUにテクスチャをアップロード}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00323}00323\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ src\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ src.pResource\ =\ uploadBuff.Get();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ src.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_PLACED\_FOOTPRINT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Offset\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Width\ =\ metadata.width;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Height\ =\ metadata.height;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Depth\ =\ metadata.depth;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.RowPitch\ =\ \mbox{\hyperlink{main_8cpp_ae9f2dc86511322a21b8ca82d417d522e}{AlignmentedSize}}(img-\/>rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Format\ =\ img-\/>format;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00333}00333\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ dst\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ dst.pResource\ =\ texBuff.Get();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ dst.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_SUBRESOURCE\_INDEX;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ dst.SubresourceIndex\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00338}00338\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ cmdList-\/>CopyTextureRegion(\&dst,\ 0,\ 0,\ 0,\ \&src,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00340}00340\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{comment}{//テクスチャ転送前バリア}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ barrierDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.pResource\ =\ texBuff.Get();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.Subresource\ =\ D3D12\_RESOURCE\_BARRIER\_ALL\_SUBRESOURCES;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_COPY\_DEST;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_PIXEL\_SHADER\_RESOURCE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00350}00350\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ResourceBarrier(1,\ \&barrierDesc);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00354}00354\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//定数バッファ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00356}00356\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ heapprop\ =\ CD3DX12\_HEAP\_PROPERTIES(D3D12\_HEAP\_TYPE\_UPLOAD);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ resDesc\ =\ CD3DX12\_RESOURCE\_DESC::Buffer((\textcolor{keyword}{sizeof}(matrix)\ +\ 0xFF)\ \&\ \string~0xFF);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resDesc,\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(constBuff.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00361}00361\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \textcolor{comment}{//定数バッファへの書き込み}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ DirectX::XMMATRIX*\ mapMatrix\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ constBuff-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapMatrix);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ *mapMatrix\ =\ matrix;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00366}00366\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00367}00367\ \ \ \ \ \textcolor{comment}{//定数バッファ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00368}00368\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00375}00375\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ (\textcolor{keyword}{sizeof}(matrix)\ +\ 0xFF)\ \&\ \string~0xFF;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00387}00387\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(constBuff.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00390}00390\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ DirectX::XMMATRIX*\ mapMatrix;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ result\ =\ constBuff-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapMatrix);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ *mapMatrix\ =\ matrix;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ constBuff-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00395}00395\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00396}00396\ \ \ \ \ \textcolor{comment}{//ディスクリプタヒープ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00397}00397\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ D3D12\_DESCRIPTOR\_HEAP\_DESC\ descHeapDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ descHeapDesc.Flags\ =\ D3D12\_DESCRIPTOR\_HEAP\_FLAG\_SHADER\_VISIBLE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ descHeapDesc.NodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ descHeapDesc.NumDescriptors\ =\ 2;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ descHeapDesc.Type\ =\ D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateDescriptorHeap(\&descHeapDesc,\ IID\_PPV\_ARGS(basicDescHeap.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00404}00404\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00405}00405\ \ \ \ \ \textcolor{comment}{//シェーダーリソースビュー}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00406}00406\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ basicDescHeap-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00408}00408\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ D3D12\_SHADER\_RESOURCE\_VIEW\_DESC\ srvDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ srvDesc.Format\ =\ metadata.format;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ srvDesc.Shader4ComponentMapping\ =\ D3D12\_DEFAULT\_SHADER\_4\_COMPONENT\_MAPPING;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ srvDesc.ViewDimension\ =\ D3D12\_SRV\_DIMENSION\_TEXTURE2D;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ srvDesc.Texture2D.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00414}00414\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ handle\ =\ basicDescHeap-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ m\_device-\/>CreateShaderResourceView(texBuff.Get(),\ \&srvDesc,\ handle);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00417}00417\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ handle.ptr\ +=\ m\_device-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00419}00419\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ D3D12\_CONSTANT\_BUFFER\_VIEW\_DESC\ cbvDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ cbvDesc.BufferLocation\ =\ constBuff-\/>GetGPUVirtualAddress();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ cbvDesc.SizeInBytes\ =\ constBuff-\/>GetDesc().Width;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00423}00423\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ m\_device-\/>CreateConstantBufferView(\&cbvDesc,\ handle);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00425}00425\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00426}00426\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00427}00427\ \ \ \ \ \textcolor{comment}{//Blobのエラー処理}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00428}00428\ \ \ \ \ \textcolor{keyword}{auto}\ processBlobError\ =\ [\&](HRESULT\ result)}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00429}00429\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SUCCEEDED(result))}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(result\ ==\ HRESULT\_FROM\_WIN32(ERROR\_FILE\_NOT\_FOUND))}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ ::OutputDebugStringA(\textcolor{stringliteral}{"{}ファイルが見当たりません"{}});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00438}00438\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ std::string\ errstr;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ errstr.resize(errorBlob-\/>GetBufferSize());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ std::copy\_n(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(errorBlob-\/>GetBufferPointer()),\ errorBlob-\/>GetBufferSize(),\ errstr.begin());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ errstr\ +=\ \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ ::OutputDebugStringA(errstr.c\_str());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00444}00444\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00445}00445\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00446}00446\ \ \ \ \ \textcolor{comment}{//シェーダーオブジェクトの読み込み}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00447}00447\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ D3DCompileFromFile(L\textcolor{stringliteral}{"{}shader/BasicVertexShader.hlsl"{}},\ \textcolor{keyword}{nullptr},\ D3D\_COMPILE\_STANDARD\_FILE\_INCLUDE,\ \textcolor{stringliteral}{"{}BasicVS"{}},\ \textcolor{stringliteral}{"{}vs\_5\_0"{}},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ D3DCOMPILE\_DEBUG\ |\ D3DCOMPILE\_SKIP\_OPTIMIZATION,\ 0,\ vsBlob.ReleaseAndGetAddressOf(),\ errorBlob.ReleaseAndGetAddressOf());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ processBlobError(result);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ result\ =\ D3DCompileFromFile(L\textcolor{stringliteral}{"{}shader/BasicPixelShader.hlsl"{}},\ \textcolor{keyword}{nullptr},\ D3D\_COMPILE\_STANDARD\_FILE\_INCLUDE,\ \textcolor{stringliteral}{"{}BasicPS"{}},\ \textcolor{stringliteral}{"{}ps\_5\_0"{}},}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ D3DCOMPILE\_DEBUG\ |\ D3DCOMPILE\_SKIP\_OPTIMIZATION,\ 0,\ psBlob.ReleaseAndGetAddressOf(),\ errorBlob.ReleaseAndGetAddressOf());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00453}00453\ \ \ \ \ \ \ \ \ processBlobError(result);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00454}00454\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00455}00455\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00456}00456\ \ \ \ \ \textcolor{comment}{//ルートシグネチャ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00457}00457\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ rootSigBlob\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \textcolor{comment}{//サンプラー}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ D3D12\_STATIC\_SAMPLER\_DESC\ samplerDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ samplerDesc.AddressU\ =\ D3D12\_TEXTURE\_ADDRESS\_MODE\_WRAP;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00462}00462\ \ \ \ \ \ \ \ \ samplerDesc.AddressV\ =\ D3D12\_TEXTURE\_ADDRESS\_MODE\_WRAP;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ samplerDesc.AddressW\ =\ D3D12\_TEXTURE\_ADDRESS\_MODE\_WRAP;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ samplerDesc.BorderColor\ =\ D3D12\_STATIC\_BORDER\_COLOR\_OPAQUE\_BLACK;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00465}00465\ \ \ \ \ \ \ \ \ samplerDesc.Filter\ =\ D3D12\_FILTER\_MIN\_MAG\_MIP\_POINT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ samplerDesc.MaxLOD\ =\ D3D12\_FLOAT32\_MAX;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ samplerDesc.MinLOD\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ samplerDesc.ShaderVisibility\ =\ D3D12\_SHADER\_VISIBILITY\_PIXEL;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00469}00469\ \ \ \ \ \ \ \ \ samplerDesc.ComparisonFunc\ =\ D3D12\_COMPARISON\_FUNC\_NEVER;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ディスクリプタレンジ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ D3D12\_DESCRIPTOR\_RANGE\ descTblRange[2]\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \textcolor{comment}{//テクスチャ用}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00473}00473\ \ \ \ \ \ \ \ \ descTblRange[0].NumDescriptors\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ descTblRange[0].RangeType\ =\ D3D12\_DESCRIPTOR\_RANGE\_TYPE\_SRV;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ descTblRange[0].BaseShaderRegister\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ descTblRange[0].OffsetInDescriptorsFromTableStart\ =\ D3D12\_DESCRIPTOR\_RANGE\_OFFSET\_APPEND;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \textcolor{comment}{//定数用}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ descTblRange[1].NumDescriptors\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ descTblRange[1].RangeType\ =\ D3D12\_DESCRIPTOR\_RANGE\_TYPE\_CBV;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ descTblRange[1].BaseShaderRegister\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ descTblRange[1].OffsetInDescriptorsFromTableStart\ =\ D3D12\_DESCRIPTOR\_RANGE\_OFFSET\_APPEND;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ルートパラメーター}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ D3D12\_ROOT\_PARAMETER\ rootparam\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \textcolor{comment}{//テクスチャ用}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ rootparam.ParameterType\ =\ D3D12\_ROOT\_PARAMETER\_TYPE\_DESCRIPTOR\_TABLE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00486}00486\ \ \ \ \ \ \ \ \ rootparam.ShaderVisibility\ =\ D3D12\_SHADER\_VISIBILITY\_ALL;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ rootparam.DescriptorTable.pDescriptorRanges\ =\ descTblRange;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ rootparam.DescriptorTable.NumDescriptorRanges\ =\ 2;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ルートシグネチャ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ D3D12\_ROOT\_SIGNATURE\_DESC\ rootSignatureDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ rootSignatureDesc.Flags\ =\ D3D12\_ROOT\_SIGNATURE\_FLAG\_ALLOW\_INPUT\_ASSEMBLER\_INPUT\_LAYOUT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ rootSignatureDesc.pParameters\ =\ \&rootparam;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ rootSignatureDesc.NumParameters\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ rootSignatureDesc.pStaticSamplers\ =\ \&samplerDesc;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ rootSignatureDesc.NumStaticSamplers\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ D3D12SerializeRootSignature(\&rootSignatureDesc,\ D3D\_ROOT\_SIGNATURE\_VERSION\_1\_0,}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ rootSigBlob.ReleaseAndGetAddressOf(),\ errorBlob.ReleaseAndGetAddressOf());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ processBlobError(result);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ result\ =\ m\_device-\/>CreateRootSignature(0,\ rootSigBlob-\/>GetBufferPointer(),\ rootSigBlob-\/>GetBufferSize(),}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ \ \ IID\_PPV\_ARGS(rootsignature.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00501}00501\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00502}00502\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00503}00503\ \ \ \ \ \textcolor{comment}{//パイプラインステート}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00504}00504\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ D3D12\_GRAPHICS\_PIPELINE\_STATE\_DESC\ gpipeline\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ルートシグネチャ}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ gpipeline.pRootSignature\ =\ rootsignature.Get();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \textcolor{comment}{//シェーダー設定}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00509}00509\ \ \ \ \ \ \ \ \ gpipeline.VS.pShaderBytecode\ =\ vsBlob-\/>GetBufferPointer();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ gpipeline.VS.BytecodeLength\ =\ vsBlob-\/>GetBufferSize();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00511}00511\ \ \ \ \ \ \ \ \ gpipeline.PS.pShaderBytecode\ =\ psBlob-\/>GetBufferPointer();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00512}00512\ \ \ \ \ \ \ \ \ gpipeline.PS.BytecodeLength\ =\ psBlob-\/>GetBufferSize();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \textcolor{comment}{//サンプルマスク}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ gpipeline.SampleMask\ =\ D3D12\_DEFAULT\_SAMPLE\_MASK;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ラスタライザーステート}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ gpipeline.RasterizerState.MultisampleEnable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ gpipeline.RasterizerState.CullMode\ =\ D3D12\_CULL\_MODE\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ gpipeline.RasterizerState.FillMode\ =\ D3D12\_FILL\_MODE\_SOLID;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ gpipeline.RasterizerState.DepthClipEnable\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ブレンドステート}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ gpipeline.BlendState.AlphaToCoverageEnable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00522}00522\ \ \ \ \ \ \ \ \ gpipeline.BlendState.IndependentBlendEnable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00523}00523\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ D3D12\_RENDER\_TARGET\_BLEND\_DESC\ renderTargetBlendDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ renderTargetBlendDesc.BlendEnable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00526}00526\ \ \ \ \ \ \ \ \ renderTargetBlendDesc.LogicOpEnable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ renderTargetBlendDesc.RenderTargetWriteMask\ =\ D3D12\_COLOR\_WRITE\_ENABLE\_ALL;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00528}00528\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ gpipeline.BlendState.RenderTarget[0]\ =\ renderTargetBlendDesc;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \textcolor{comment}{//入力レイアウト}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ gpipeline.InputLayout.pInputElementDescs\ =\ inputLayout;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ gpipeline.InputLayout.NumElements\ =\ \_countof(inputLayout);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ gpipeline.IBStripCutValue\ =\ D3D12\_INDEX\_BUFFER\_STRIP\_CUT\_VALUE\_DISABLED;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ gpipeline.PrimitiveTopologyType\ =\ D3D12\_PRIMITIVE\_TOPOLOGY\_TYPE\_TRIANGLE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ \textcolor{comment}{//レンダーターゲット}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ gpipeline.NumRenderTargets\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00537}00537\ \ \ \ \ \ \ \ \ gpipeline.RTVFormats[0]\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00538}00538\ \ \ \ \ \ \ \ \ \textcolor{comment}{//アンチエイリアス}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00539}00539\ \ \ \ \ \ \ \ \ gpipeline.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00540}00540\ \ \ \ \ \ \ \ \ gpipeline.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00541}00541\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00542}00542\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m\_device-\/>CreateGraphicsPipelineState(\&gpipeline,\ IID\_PPV\_ARGS(pipelinestate.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00543}00543\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00544}00544\ \ \ \ \ \textcolor{comment}{//ビューポートとシザー矩形}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00545}00545\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ viewport.Width\ =\ window\_width;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00547}00547\ \ \ \ \ \ \ \ \ viewport.Height\ =\ window\_height;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ viewport.TopLeftX\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ viewport.TopLeftY\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00550}00550\ \ \ \ \ \ \ \ \ viewport.MaxDepth\ =\ 1.0f;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00551}00551\ \ \ \ \ \ \ \ \ viewport.MinDepth\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00552}00552\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ scissorrect.top\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ scissorrect.left\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ scissorrect.right\ =\ scissorrect.left\ +\ window\_width;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00556}00556\ \ \ \ \ \ \ \ \ scissorrect.bottom\ =\ scissorrect.top\ +\ window\_height;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00557}00557\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092\ \textcolor{comment}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093\ \textcolor{comment}{\ \ \ \ EnableDebugLayer();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094\ \textcolor{comment}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ \textcolor{comment}{\ \ \ \ //DX12\ 1つだけあれば良さそうなモノ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<IDXGISwapChain4>\ swapchain\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>\ rtvHeaps\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>\ basicDescHeap\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100\ \textcolor{comment}{\ \ \ \ std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>>\ backBuffers(2);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ vsBlob\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ psBlob\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ errorBlob\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104\ \textcolor{comment}{\ \ \ \ D3D12\_INPUT\_ELEMENT\_DESC\ inputLayout[]\ =}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{"{}POSITION"{},\ 0,\ DXGI\_FORMAT\_R32G32B32\_FLOAT,\ 0,\ D3D12\_APPEND\_ALIGNED\_ELEMENT,\ D3D12\_INPUT\_CLASSIFICATION\_PER\_VERTEX\_DATA,\ 0\},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{"{}TEXCOORD"{},\ 0,\ DXGI\_FORMAT\_R32G32\_FLOAT,\ 0,\ D3D12\_APPEND\_ALIGNED\_ELEMENT,\ D3D12\_INPUT\_CLASSIFICATION\_PER\_VERTEX\_DATA,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12PipelineState>\ pipelinestate\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12RootSignature>\ rootsignature\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111\ \textcolor{comment}{\ \ \ \ D3D12\_VIEWPORT\ viewport\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112\ \textcolor{comment}{\ \ \ \ D3D12\_RECT\ scissorrect\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113\ \textcolor{comment}{\ \ \ \ //DX12\ 描画する物毎に用意されるもの}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114\ \textcolor{comment}{\ \ \ \ struct\ VERTEX\_DATA}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ DirectX::XMFLOAT3\ pos;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ DirectX::XMFLOAT2\ uv;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119\ \textcolor{comment}{\ \ \ \ VERTEX\_DATA\ vertices[4]\ =}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{\{-\/32.0f,-\/32.0f,\ 0.0f\},\{0.0f,\ 1.0f\}\},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{\{-\/32.0f,\ 32.0f,\ 0.0f\},\{0.0f,\ 0.0f\}\},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{\{\ 32.0f,-\/32.0f,\ 0.0f\},\{1.0f,\ 1.0f\}\},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{\{\ 32.0f,\ 32.0f,\ 0.0f\},\{1.0f,\ 0.0f\}\},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126\ \textcolor{comment}{\ \ \ \ uint16\_t\ indices[]\ =\ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127\ \textcolor{comment}{\ \ \ \ \ \ \ \ 0,\ 1,\ 2,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128\ \textcolor{comment}{\ \ \ \ \ \ \ \ 2,\ 1,\ 3}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00130}00130\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ uploadBuff\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00131}00131\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ vertBuff\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}00132\ \textcolor{comment}{\ \ \ \ D3D12\_VERTEX\_BUFFER\_VIEW\ vbView\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ idxBuff\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134\ \textcolor{comment}{\ \ \ \ D3D12\_INDEX\_BUFFER\_VIEW\ ibView\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ texBuff\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136\ \textcolor{comment}{\ \ \ \ struct\ TexRGBA}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint8\_t\ R,\ G,\ B,\ A;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140\ \textcolor{comment}{\ \ \ \ DirectX::TexMetadata\ metadata\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141\ \textcolor{comment}{\ \ \ \ DirectX::ScratchImage\ scratchImg\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142\ \textcolor{comment}{\ \ \ \ DirectX::Image\ const\ *\ img\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143\ \textcolor{comment}{\ \ \ \ Microsoft::WRL::ComPtr<ID3D12Resource>\ constBuff\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144\ \textcolor{comment}{\ \ \ \ DirectX::XMMATRIX\ matrix\ =\ DirectX::XMMatrixScaling(2.0\ /\ window\_width,\ 2.0\ /\ window\_height,\ 1.0f);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147\ \textcolor{comment}{\ \ \ \ //DX12\ スワップチェイン}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ DXGI\_SWAP\_CHAIN\_DESC1\ swapchainDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.Width\ =\ window\_width;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.Height\ =\ window\_height;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.Format\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.Stereo\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.SampleDesc.Quality\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.BufferUsage\ =\ DXGI\_USAGE\_BACK\_BUFFER;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.BufferCount\ =\ 2;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}00159\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.Scaling\ =\ DXGI\_SCALING\_STRETCH;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.SwapEffect\ =\ DXGI\_SWAP\_EFFECT\_FLIP\_DISCARD;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.AlphaMode\ =\ DXGI\_ALPHA\_MODE\_UNSPECIFIED;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchainDesc.Flags\ =\ DXGI\_SWAP\_CHAIN\_FLAG\_ALLOW\_MODE\_SWITCH;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_dxgiFactory-\/>CreateSwapChainForHwnd(cmdQueue.Get(),\ hwnd,\ \&swapchainDesc,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00165}00165\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ nullptr,\ nullptr,\ reinterpret\_cast<IDXGISwapChain1**>(swapchain.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00166}00166\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}00167\ \textcolor{comment}{\ \ \ \ //DX12\ ディスクリプタヒープ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_DESCRIPTOR\_HEAP\_DESC\ heapDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapDesc.Type\ =\ D3D12\_DESCRIPTOR\_HEAP\_TYPE\_RTV;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapDesc.NodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapDesc.NumDescriptors\ =\ 2;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapDesc.Flags\ =\ D3D12\_DESCRIPTOR\_HEAP\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateDescriptorHeap(\&heapDesc,\ IID\_PPV\_ARGS(rtvHeaps.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176\ \textcolor{comment}{\ \ \ \ \ \ \ \ DXGI\_SWAP\_CHAIN\_DESC\ swcDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}00177\ \textcolor{comment}{\ \ \ \ \ \ \ \ swapchain-\/>GetDesc(\&swcDesc);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00178}00178\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00179}00179\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_CPU\_DESCRIPTOR\_HANDLE\ handle\ =\ rtvHeaps-\/>GetCPUDescriptorHandleForHeapStart();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00180}00180\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ \ \ \ for(int\ idx\ =\ 0;\ idx\ <\ swcDesc.BufferCount;\ ++idx)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ result\ =\ swapchain-\/>GetBuffer(idx,\ IID\_PPV\_ARGS(backBuffers[idx].ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ m\_device-\/>CreateRenderTargetView(backBuffers[idx].Get(),\ nullptr,\ handle);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ handle.ptr\ +=\ m\_device-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_RTV);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00186}00186\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00187}00187\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00188}00188\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00189}00189\ \textcolor{comment}{\ \ \ \ //画像読み込み}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00190}00190\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00191}00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ DirectX::LoadFromWICFile(L"{}media/graphic/return\_to\_escape.png"{},\ DirectX::WIC\_FLAGS\_NONE,\ \&metadata,\ scratchImg);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00192}00192\ \textcolor{comment}{\ \ \ \ \ \ \ \ img\ =\ scratchImg.GetImage(0,\ 0,\ 0);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00193}00193\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00194}00194\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00195}00195\ \textcolor{comment}{\ \ \ \ //頂点バッファ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00196}00196\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00197}00197\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00198}00198\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00199}00199\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00200}00200\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00201}00201\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00202}00202\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00203}00203\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00204}00204\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Width\ =\ sizeof(vertices);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00205}00205\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00206}00206\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00207}00207\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00208}00208\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00209}00209\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00210}00210\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00211}00211\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00212}00212\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00213}00213\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00214}00214\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ nullptr,\ IID\_PPV\_ARGS(vertBuff.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00215}00215\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00216}00216\ \textcolor{comment}{\ \ \ \ \ \ \ \ //確保したGPUヒープに頂点データを流し込む}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00217}00217\ \textcolor{comment}{\ \ \ \ \ \ \ \ VERTEX\_DATA*\ vertMap\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00218}00218\ \textcolor{comment}{\ \ \ \ \ \ \ \ result\ =\ vertBuff-\/>Map(0,\ nullptr,\ reinterpret\_cast<void**>(\&vertMap));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00219}00219\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::copy(std::begin(vertices),\ std::end(vertices),\ vertMap);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00220}00220\ \textcolor{comment}{\ \ \ \ \ \ \ \ vertBuff-\/>Unmap(0,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00221}00221\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00222}00222\ \textcolor{comment}{\ \ \ \ //頂点バッファビュー}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00223}00223\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00224}00224\ \textcolor{comment}{\ \ \ \ \ \ \ \ vbView.BufferLocation\ =\ vertBuff-\/>GetGPUVirtualAddress();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00225}00225\ \textcolor{comment}{\ \ \ \ \ \ \ \ vbView.SizeInBytes\ =\ sizeof(vertices);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00226}00226\ \textcolor{comment}{\ \ \ \ \ \ \ \ vbView.StrideInBytes\ =\ sizeof(vertices[0]);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00227}00227\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00228}00228\ \textcolor{comment}{\ \ \ \ //インデックスバッファ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00229}00229\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00230}00230\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00231}00231\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00232}00232\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00233}00233\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00234}00234\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00235}00235\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00236}00236\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00237}00237\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Width\ =\ sizeof(indices);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00238}00238\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00239}00239\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00240}00240\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00241}00241\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00242}00242\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00243}00243\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00244}00244\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00245}00245\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00246}00246\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00247}00247\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ nullptr,\ IID\_PPV\_ARGS(idxBuff.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00248}00248\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00249}00249\ \textcolor{comment}{\ \ \ \ \ \ \ \ //確保したGPUヒープに頂点データを流し込む}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00250}00250\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint16\_t*\ idxMap\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00251}00251\ \textcolor{comment}{\ \ \ \ \ \ \ \ result\ =\ idxBuff-\/>Map(0,\ nullptr,\ reinterpret\_cast<void**>(\&idxMap));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00252}00252\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::copy(std::begin(indices),\ std::end(indices),\ idxMap);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00253}00253\ \textcolor{comment}{\ \ \ \ \ \ \ \ idxBuff-\/>Unmap(0,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00254}00254\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00255}00255\ \textcolor{comment}{\ \ \ \ //インデックスバッファビュー}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00256}00256\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00257}00257\ \textcolor{comment}{\ \ \ \ \ \ \ \ ibView.BufferLocation\ =\ idxBuff-\/>GetGPUVirtualAddress();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00258}00258\ \textcolor{comment}{\ \ \ \ \ \ \ \ ibView.SizeInBytes\ =\ sizeof(indices);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00259}00259\ \textcolor{comment}{\ \ \ \ \ \ \ \ ibView.Format\ =\ DXGI\_FORMAT\_R16\_UINT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00260}00260\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00261}00261\ \textcolor{comment}{\ \ \ \ //アップロード用中間バッファ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00262}00262\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00263}00263\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00264}00264\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00265}00265\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00266}00266\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00267}00267\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00268}00268\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00269}00269\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00270}00270\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00271}00271\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00272}00272\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Width\ =\ AlignmentedSize(img-\/>rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT)\ *\ img-\/>height;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00273}00273\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00274}00274\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00275}00275\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00276}00276\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00277}00277\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00278}00278\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00279}00279\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00280}00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00281}00281\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00283}00283\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ nullptr,\ IID\_PPV\_ARGS(uploadBuff.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00284}00284\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00285}00285\ \textcolor{comment}{\ \ \ \ //コピー先リソース}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00286}00286\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00287}00287\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00288}00288\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_DEFAULT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00289}00289\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00290}00290\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00291}00291\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00292}00292\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00293}00293\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00294}00294\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00295}00295\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Dimension\ =\ static\_cast<D3D12\_RESOURCE\_DIMENSION>(metadata.dimension);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00296}00296\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Width\ =\ metadata.width;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00297}00297\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Height\ =\ metadata.height;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00298}00298\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ metadata.arraySize;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00299}00299\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ metadata.mipLevels;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00300}00300\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Format\ =\ metadata.format;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00301}00301\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00302}00302\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00303}00303\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00304}00304\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00305}00305\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00306}00306\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00307}00307\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_COPY\_DEST,\ nullptr,\ IID\_PPV\_ARGS(texBuff.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00308}00308\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00309}00309\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint8\_t*\ mapforImg\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00310}00310\ \textcolor{comment}{\ \ \ \ \ \ \ \ result\ =\ uploadBuff-\/>Map(0,\ nullptr,\ (void**)\&mapforImg);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00311}00311\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00312}00312\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ srcAddress\ =\ img-\/>pixels;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00313}00313\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ rowPitch\ =\ AlignmentedSize(img-\/>rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00314}00314\ \textcolor{comment}{\ \ \ \ \ \ \ \ for(int\ y\ =\ 0;\ y\ <\ img-\/>height;\ ++y)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00315}00315\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00316}00316\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(srcAddress,\ rowPitch,\ mapforImg);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00317}00317\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ srcAddress\ +=\ img-\/>rowPitch;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00318}00318\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ mapforImg\ +=\ rowPitch;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00319}00319\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00320}00320\ \textcolor{comment}{\ \ \ \ \ \ \ \ uploadBuff-\/>Unmap(0,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00321}00321\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00322}00322\ \textcolor{comment}{\ \ \ \ //GPUにテクスチャをアップロード}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00323}00323\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00324}00324\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ src\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00325}00325\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.pResource\ =\ uploadBuff.Get();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00326}00326\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_PLACED\_FOOTPRINT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00327}00327\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.PlacedFootprint.Offset\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00328}00328\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Width\ =\ metadata.width;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00329}00329\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Height\ =\ metadata.height;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00330}00330\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Depth\ =\ metadata.depth;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00331}00331\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.RowPitch\ =\ AlignmentedSize(img-\/>rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00332}00332\ \textcolor{comment}{\ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Format\ =\ img-\/>format;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00333}00333\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00334}00334\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ dst\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00335}00335\ \textcolor{comment}{\ \ \ \ \ \ \ \ dst.pResource\ =\ texBuff.Get();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00336}00336\ \textcolor{comment}{\ \ \ \ \ \ \ \ dst.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_SUBRESOURCE\_INDEX;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00337}00337\ \textcolor{comment}{\ \ \ \ \ \ \ \ dst.SubresourceIndex\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00338}00338\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00339}00339\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>CopyTextureRegion(\&dst,\ 0,\ 0,\ 0,\ \&src,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00340}00340\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00341}00341\ \textcolor{comment}{\ \ \ \ \ \ \ \ //テクスチャ転送前バリア}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00342}00342\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00343}00343\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ barrierDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00344}00344\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00345}00345\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00346}00346\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.pResource\ =\ texBuff.Get();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00347}00347\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.Subresource\ =\ D3D12\_RESOURCE\_BARRIER\_ALL\_SUBRESOURCES;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00348}00348\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_COPY\_DEST;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00349}00349\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_PIXEL\_SHADER\_RESOURCE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00350}00350\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00351}00351\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ResourceBarrier(1,\ \&barrierDesc);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00352}00352\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00353}00353\ \textcolor{comment}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00354}00354\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00355}00355\ \textcolor{comment}{\ \ \ \ //定数バッファ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00356}00356\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00357}00357\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ heapprop\ =\ CD3DX12\_HEAP\_PROPERTIES(D3D12\_HEAP\_TYPE\_UPLOAD);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00358}00358\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ resDesc\ =\ CD3DX12\_RESOURCE\_DESC::Buffer((sizeof(matrix)\ +\ 0xFF)\ \&\ \string~0xFF);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00359}00359\ \textcolor{comment}{\ \ \ \ \ \ \ \ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resDesc,\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00360}00360\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ nullptr,\ IID\_PPV\_ARGS(constBuff.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00361}00361\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00362}00362\ \textcolor{comment}{\ \ \ \ \ \ \ \ //定数バッファへの書き込み}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00363}00363\ \textcolor{comment}{\ \ \ \ \ \ \ \ DirectX::XMMATRIX*\ mapMatrix\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00364}00364\ \textcolor{comment}{\ \ \ \ \ \ \ \ constBuff-\/>Map(0,\ nullptr,\ (void**)\&mapMatrix);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00365}00365\ \textcolor{comment}{\ \ \ \ \ \ \ \ *mapMatrix\ =\ matrix;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00366}00366\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00367}00367\ \textcolor{comment}{\ \ \ \ //定数バッファ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00368}00368\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00369}00369\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00370}00370\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00371}00371\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00372}00372\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00373}00373\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00374}00374\ \textcolor{comment}{\ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00375}00375\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00376}00376\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00377}00377\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00378}00378\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Width\ =\ (sizeof(matrix)\ +\ 0xFF)\ \&\ \string~0xFF;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00379}00379\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00380}00380\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00381}00381\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00382}00382\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00383}00383\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00384}00384\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00385}00385\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00386}00386\ \textcolor{comment}{\ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00387}00387\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00388}00388\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00389}00389\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ nullptr,\ IID\_PPV\_ARGS(constBuff.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00390}00390\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00391}00391\ \textcolor{comment}{\ \ \ \ \ \ \ \ DirectX::XMMATRIX*\ mapMatrix;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00392}00392\ \textcolor{comment}{\ \ \ \ \ \ \ \ result\ =\ constBuff-\/>Map(0,\ nullptr,\ (void**)\&mapMatrix);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00393}00393\ \textcolor{comment}{\ \ \ \ \ \ \ \ *mapMatrix\ =\ matrix;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00394}00394\ \textcolor{comment}{\ \ \ \ \ \ \ \ constBuff-\/>Unmap(0,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00395}00395\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00396}00396\ \textcolor{comment}{\ \ \ \ //ディスクリプタヒープ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00397}00397\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00398}00398\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_DESCRIPTOR\_HEAP\_DESC\ descHeapDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00399}00399\ \textcolor{comment}{\ \ \ \ \ \ \ \ descHeapDesc.Flags\ =\ D3D12\_DESCRIPTOR\_HEAP\_FLAG\_SHADER\_VISIBLE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00400}00400\ \textcolor{comment}{\ \ \ \ \ \ \ \ descHeapDesc.NodeMask\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00401}00401\ \textcolor{comment}{\ \ \ \ \ \ \ \ descHeapDesc.NumDescriptors\ =\ 2;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00402}00402\ \textcolor{comment}{\ \ \ \ \ \ \ \ descHeapDesc.Type\ =\ D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00403}00403\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateDescriptorHeap(\&descHeapDesc,\ IID\_PPV\_ARGS(basicDescHeap.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00404}00404\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00405}00405\ \textcolor{comment}{\ \ \ \ //シェーダーリソースビュー}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00406}00406\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00407}00407\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ basicHeapHandle\ =\ basicDescHeap-\/>GetCPUDescriptorHandleForHeapStart();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00408}00408\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00409}00409\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_SHADER\_RESOURCE\_VIEW\_DESC\ srvDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00410}00410\ \textcolor{comment}{\ \ \ \ \ \ \ \ srvDesc.Format\ =\ metadata.format;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00411}00411\ \textcolor{comment}{\ \ \ \ \ \ \ \ srvDesc.Shader4ComponentMapping\ =\ D3D12\_DEFAULT\_SHADER\_4\_COMPONENT\_MAPPING;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00412}00412\ \textcolor{comment}{\ \ \ \ \ \ \ \ srvDesc.ViewDimension\ =\ D3D12\_SRV\_DIMENSION\_TEXTURE2D;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00413}00413\ \textcolor{comment}{\ \ \ \ \ \ \ \ srvDesc.Texture2D.MipLevels\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00414}00414\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00415}00415\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ handle\ =\ basicDescHeap-\/>GetCPUDescriptorHandleForHeapStart();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00416}00416\ \textcolor{comment}{\ \ \ \ \ \ \ \ m\_device-\/>CreateShaderResourceView(texBuff.Get(),\ \&srvDesc,\ handle);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00417}00417\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00418}00418\ \textcolor{comment}{\ \ \ \ \ \ \ \ handle.ptr\ +=\ m\_device-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00419}00419\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00420}00420\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_CONSTANT\_BUFFER\_VIEW\_DESC\ cbvDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00421}00421\ \textcolor{comment}{\ \ \ \ \ \ \ \ cbvDesc.BufferLocation\ =\ constBuff-\/>GetGPUVirtualAddress();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00422}00422\ \textcolor{comment}{\ \ \ \ \ \ \ \ cbvDesc.SizeInBytes\ =\ constBuff-\/>GetDesc().Width;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00423}00423\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00424}00424\ \textcolor{comment}{\ \ \ \ \ \ \ \ m\_device-\/>CreateConstantBufferView(\&cbvDesc,\ handle);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00425}00425\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00426}00426\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00427}00427\ \textcolor{comment}{\ \ \ \ //Blobのエラー処理}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00428}00428\ \textcolor{comment}{\ \ \ \ auto\ processBlobError\ =\ [\&](HRESULT\ result)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00429}00429\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00430}00430\ \textcolor{comment}{\ \ \ \ \ \ \ \ if(SUCCEEDED(result))}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00431}00431\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00432}00432\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00433}00433\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00434}00434\ \textcolor{comment}{\ \ \ \ \ \ \ \ if(result\ ==\ HRESULT\_FROM\_WIN32(ERROR\_FILE\_NOT\_FOUND))}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00435}00435\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00436}00436\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ::OutputDebugStringA("{}ファイルが見当たりません"{});}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00437}00437\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00438}00438\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00439}00439\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::string\ errstr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00440}00440\ \textcolor{comment}{\ \ \ \ \ \ \ \ errstr.resize(errorBlob-\/>GetBufferSize());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00441}00441\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::copy\_n(reinterpret\_cast<char*>(errorBlob-\/>GetBufferPointer()),\ errorBlob-\/>GetBufferSize(),\ errstr.begin());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00442}00442\ \textcolor{comment}{\ \ \ \ \ \ \ \ errstr\ +=\ '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00443}00443\ \textcolor{comment}{\ \ \ \ \ \ \ \ ::OutputDebugStringA(errstr.c\_str());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00444}00444\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00445}00445\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00446}00446\ \textcolor{comment}{\ \ \ \ //シェーダーオブジェクトの読み込み}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00447}00447\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00448}00448\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ D3DCompileFromFile(L"{}shader/BasicVertexShader.hlsl"{},\ nullptr,\ D3D\_COMPILE\_STANDARD\_FILE\_INCLUDE,\ "{}BasicVS"{},\ "{}vs\_5\_0"{},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00449}00449\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3DCOMPILE\_DEBUG\ |\ D3DCOMPILE\_SKIP\_OPTIMIZATION,\ 0,\ vsBlob.ReleaseAndGetAddressOf(),\ errorBlob.ReleaseAndGetAddressOf());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00450}00450\ \textcolor{comment}{\ \ \ \ \ \ \ \ processBlobError(result);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00451}00451\ \textcolor{comment}{\ \ \ \ \ \ \ \ result\ =\ D3DCompileFromFile(L"{}shader/BasicPixelShader.hlsl"{},\ nullptr,\ D3D\_COMPILE\_STANDARD\_FILE\_INCLUDE,\ "{}BasicPS"{},\ "{}ps\_5\_0"{},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00452}00452\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ D3DCOMPILE\_DEBUG\ |\ D3DCOMPILE\_SKIP\_OPTIMIZATION,\ 0,\ psBlob.ReleaseAndGetAddressOf(),\ errorBlob.ReleaseAndGetAddressOf());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00453}00453\ \textcolor{comment}{\ \ \ \ \ \ \ \ processBlobError(result);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00454}00454\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00455}00455\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00456}00456\ \textcolor{comment}{\ \ \ \ //ルートシグネチャ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00457}00457\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00458}00458\ \textcolor{comment}{\ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ rootSigBlob\ =\ nullptr;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00459}00459\ \textcolor{comment}{\ \ \ \ \ \ \ \ //サンプラー}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00460}00460\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_STATIC\_SAMPLER\_DESC\ samplerDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00461}00461\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.AddressU\ =\ D3D12\_TEXTURE\_ADDRESS\_MODE\_WRAP;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00462}00462\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.AddressV\ =\ D3D12\_TEXTURE\_ADDRESS\_MODE\_WRAP;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00463}00463\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.AddressW\ =\ D3D12\_TEXTURE\_ADDRESS\_MODE\_WRAP;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00464}00464\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.BorderColor\ =\ D3D12\_STATIC\_BORDER\_COLOR\_OPAQUE\_BLACK;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00465}00465\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.Filter\ =\ D3D12\_FILTER\_MIN\_MAG\_MIP\_POINT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00466}00466\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.MaxLOD\ =\ D3D12\_FLOAT32\_MAX;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00467}00467\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.MinLOD\ =\ 0.0f;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00468}00468\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.ShaderVisibility\ =\ D3D12\_SHADER\_VISIBILITY\_PIXEL;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00469}00469\ \textcolor{comment}{\ \ \ \ \ \ \ \ samplerDesc.ComparisonFunc\ =\ D3D12\_COMPARISON\_FUNC\_NEVER;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00470}00470\ \textcolor{comment}{\ \ \ \ \ \ \ \ //ディスクリプタレンジ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00471}00471\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_DESCRIPTOR\_RANGE\ descTblRange[2]\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00472}00472\ \textcolor{comment}{\ \ \ \ \ \ \ \ //テクスチャ用}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00473}00473\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[0].NumDescriptors\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00474}00474\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[0].RangeType\ =\ D3D12\_DESCRIPTOR\_RANGE\_TYPE\_SRV;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00475}00475\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[0].BaseShaderRegister\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00476}00476\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[0].OffsetInDescriptorsFromTableStart\ =\ D3D12\_DESCRIPTOR\_RANGE\_OFFSET\_APPEND;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00477}00477\ \textcolor{comment}{\ \ \ \ \ \ \ \ //定数用}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00478}00478\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[1].NumDescriptors\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00479}00479\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[1].RangeType\ =\ D3D12\_DESCRIPTOR\_RANGE\_TYPE\_CBV;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00480}00480\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[1].BaseShaderRegister\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00481}00481\ \textcolor{comment}{\ \ \ \ \ \ \ \ descTblRange[1].OffsetInDescriptorsFromTableStart\ =\ D3D12\_DESCRIPTOR\_RANGE\_OFFSET\_APPEND;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00482}00482\ \textcolor{comment}{\ \ \ \ \ \ \ \ //ルートパラメーター}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00483}00483\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_ROOT\_PARAMETER\ rootparam\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00484}00484\ \textcolor{comment}{\ \ \ \ \ \ \ \ //テクスチャ用}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00485}00485\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootparam.ParameterType\ =\ D3D12\_ROOT\_PARAMETER\_TYPE\_DESCRIPTOR\_TABLE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00486}00486\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootparam.ShaderVisibility\ =\ D3D12\_SHADER\_VISIBILITY\_ALL;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00487}00487\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootparam.DescriptorTable.pDescriptorRanges\ =\ descTblRange;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00488}00488\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootparam.DescriptorTable.NumDescriptorRanges\ =\ 2;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00489}00489\ \textcolor{comment}{\ \ \ \ \ \ \ \ //ルートシグネチャ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00490}00490\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_ROOT\_SIGNATURE\_DESC\ rootSignatureDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00491}00491\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootSignatureDesc.Flags\ =\ D3D12\_ROOT\_SIGNATURE\_FLAG\_ALLOW\_INPUT\_ASSEMBLER\_INPUT\_LAYOUT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00492}00492\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootSignatureDesc.pParameters\ =\ \&rootparam;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00493}00493\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootSignatureDesc.NumParameters\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00494}00494\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootSignatureDesc.pStaticSamplers\ =\ \&samplerDesc;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00495}00495\ \textcolor{comment}{\ \ \ \ \ \ \ \ rootSignatureDesc.NumStaticSamplers\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00496}00496\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ D3D12SerializeRootSignature(\&rootSignatureDesc,\ D3D\_ROOT\_SIGNATURE\_VERSION\_1\_0,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00497}00497\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ rootSigBlob.ReleaseAndGetAddressOf(),\ errorBlob.ReleaseAndGetAddressOf());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00498}00498\ \textcolor{comment}{\ \ \ \ \ \ \ \ processBlobError(result);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00499}00499\ \textcolor{comment}{\ \ \ \ \ \ \ \ result\ =\ m\_device-\/>CreateRootSignature(0,\ rootSigBlob-\/>GetBufferPointer(),\ rootSigBlob-\/>GetBufferSize(),}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00500}00500\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ IID\_PPV\_ARGS(rootsignature.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00501}00501\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00502}00502\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00503}00503\ \textcolor{comment}{\ \ \ \ //パイプラインステート}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00504}00504\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00505}00505\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_GRAPHICS\_PIPELINE\_STATE\_DESC\ gpipeline\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00506}00506\ \textcolor{comment}{\ \ \ \ \ \ \ \ //ルートシグネチャ}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00507}00507\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.pRootSignature\ =\ rootsignature.Get();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00508}00508\ \textcolor{comment}{\ \ \ \ \ \ \ \ //シェーダー設定}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00509}00509\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.VS.pShaderBytecode\ =\ vsBlob-\/>GetBufferPointer();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00510}00510\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.VS.BytecodeLength\ =\ vsBlob-\/>GetBufferSize();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00511}00511\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.PS.pShaderBytecode\ =\ psBlob-\/>GetBufferPointer();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00512}00512\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.PS.BytecodeLength\ =\ psBlob-\/>GetBufferSize();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00513}00513\ \textcolor{comment}{\ \ \ \ \ \ \ \ //サンプルマスク}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00514}00514\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.SampleMask\ =\ D3D12\_DEFAULT\_SAMPLE\_MASK;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00515}00515\ \textcolor{comment}{\ \ \ \ \ \ \ \ //ラスタライザーステート}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00516}00516\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.RasterizerState.MultisampleEnable\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00517}00517\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.RasterizerState.CullMode\ =\ D3D12\_CULL\_MODE\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00518}00518\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.RasterizerState.FillMode\ =\ D3D12\_FILL\_MODE\_SOLID;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00519}00519\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.RasterizerState.DepthClipEnable\ =\ true;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00520}00520\ \textcolor{comment}{\ \ \ \ \ \ \ \ //ブレンドステート}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00521}00521\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.BlendState.AlphaToCoverageEnable\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00522}00522\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.BlendState.IndependentBlendEnable\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00523}00523\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00524}00524\ \textcolor{comment}{\ \ \ \ \ \ \ \ D3D12\_RENDER\_TARGET\_BLEND\_DESC\ renderTargetBlendDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00525}00525\ \textcolor{comment}{\ \ \ \ \ \ \ \ renderTargetBlendDesc.BlendEnable\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00526}00526\ \textcolor{comment}{\ \ \ \ \ \ \ \ renderTargetBlendDesc.LogicOpEnable\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00527}00527\ \textcolor{comment}{\ \ \ \ \ \ \ \ renderTargetBlendDesc.RenderTargetWriteMask\ =\ D3D12\_COLOR\_WRITE\_ENABLE\_ALL;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00528}00528\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00529}00529\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.BlendState.RenderTarget[0]\ =\ renderTargetBlendDesc;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00530}00530\ \textcolor{comment}{\ \ \ \ \ \ \ \ //入力レイアウト}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00531}00531\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.InputLayout.pInputElementDescs\ =\ inputLayout;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00532}00532\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.InputLayout.NumElements\ =\ \_countof(inputLayout);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00533}00533\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.IBStripCutValue\ =\ D3D12\_INDEX\_BUFFER\_STRIP\_CUT\_VALUE\_DISABLED;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00534}00534\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.PrimitiveTopologyType\ =\ D3D12\_PRIMITIVE\_TOPOLOGY\_TYPE\_TRIANGLE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00535}00535\ \textcolor{comment}{\ \ \ \ \ \ \ \ //レンダーターゲット}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00536}00536\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.NumRenderTargets\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00537}00537\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.RTVFormats[0]\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00538}00538\ \textcolor{comment}{\ \ \ \ \ \ \ \ //アンチエイリアス}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00539}00539\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.SampleDesc.Count\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00540}00540\ \textcolor{comment}{\ \ \ \ \ \ \ \ gpipeline.SampleDesc.Quality\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00541}00541\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00542}00542\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ result\ =\ m\_device-\/>CreateGraphicsPipelineState(\&gpipeline,\ IID\_PPV\_ARGS(pipelinestate.ReleaseAndGetAddressOf()));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00543}00543\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00544}00544\ \textcolor{comment}{\ \ \ \ //ビューポートとシザー矩形}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00545}00545\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00546}00546\ \textcolor{comment}{\ \ \ \ \ \ \ \ viewport.Width\ =\ window\_width;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00547}00547\ \textcolor{comment}{\ \ \ \ \ \ \ \ viewport.Height\ =\ window\_height;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00548}00548\ \textcolor{comment}{\ \ \ \ \ \ \ \ viewport.TopLeftX\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00549}00549\ \textcolor{comment}{\ \ \ \ \ \ \ \ viewport.TopLeftY\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00550}00550\ \textcolor{comment}{\ \ \ \ \ \ \ \ viewport.MaxDepth\ =\ 1.0f;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00551}00551\ \textcolor{comment}{\ \ \ \ \ \ \ \ viewport.MinDepth\ =\ 0.0f;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00552}00552\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00553}00553\ \textcolor{comment}{\ \ \ \ \ \ \ \ scissorrect.top\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00554}00554\ \textcolor{comment}{\ \ \ \ \ \ \ \ scissorrect.left\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00555}00555\ \textcolor{comment}{\ \ \ \ \ \ \ \ scissorrect.right\ =\ scissorrect.left\ +\ window\_width;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00556}00556\ \textcolor{comment}{\ \ \ \ \ \ \ \ scissorrect.bottom\ =\ scissorrect.top\ +\ window\_height;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00557}00557\ \textcolor{comment}{\ \ \ \ \}*/}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00558}00558\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00559}00559\ \ \ \ \ MSG\ msg\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00559}00559\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9}{Initialize}}(window\_width,\ window\_height);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00560}00560\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00561}00561\ \ \ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00562}00562\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(PeekMessage(\&msg,\ \textcolor{keyword}{nullptr},\ 0,\ 0,\ PM\_REMOVE))}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ TranslateMessage(\&msg);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ DispatchMessage(\&msg);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00568}00568\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(msg.message\ ==\ WM\_QUIT)}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00573}00573\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \textcolor{comment}{//DX12\ 描画前処理}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00575}00575\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//auto\ result\ =\ cmdAllocator-\/>Reset();}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bbIdx\ =\ swapchain-\/>GetCurrentBackBufferIndex();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rtvH\ =\ rtvHeaps-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ rtvH.ptr\ +=\ bbIdx\ *\ m\_device-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_RTV);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ cmdAllocator-\/>Reset();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>Reset(cmdAllocator.Get(),\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00583}00583\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//DX12\ レンダーターゲット前バリア}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ BarrierDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.pResource\ =\ backBuffers[bbIdx].Get();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.Subresource\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_PRESENT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_RENDER\_TARGET;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ResourceBarrier(1,\ \&BarrierDesc);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>OMSetRenderTargets(1,\ \&rtvH,\ \textcolor{keyword}{true},\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ clearColor[]\ =\ \{\ 1.0f,\ 1.0f,\ 0.0f,\ 1.0f\ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ClearRenderTargetView(rtvH,\ clearColor,\ 0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>RSSetViewports(1,\ \&viewport);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00599}00599\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00600}00600\ \ \ \ \ \ \ \ \ cmdList-\/>SetPipelineState(pipelinestate.Get());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00601}00601\ \ \ \ \ \ \ \ \ cmdList-\/>SetGraphicsRootSignature(rootsignature.Get());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00602}00602\ \ \ \ \ \ \ \ \ cmdList-\/>SetDescriptorHeaps(1,\ basicDescHeap.GetAddressOf());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00603}00603\ \ \ \ \ \ \ \ \ cmdList-\/>SetGraphicsRootDescriptorTable(0,\ basicDescHeap-\/>GetGPUDescriptorHandleForHeapStart());}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00604}00604\ \ \ \ \ \ \ \ \ cmdList-\/>RSSetScissorRects(1,\ \&scissorrect);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00605}00605\ \ \ \ \ \ \ \ \ cmdList-\/>IASetPrimitiveTopology(D3D\_PRIMITIVE\_TOPOLOGY\_TRIANGLELIST);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00606}00606\ \ \ \ \ \ \ \ \ cmdList-\/>IASetVertexBuffers(0,\ 1,\ \&vbView);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00607}00607\ \ \ \ \ \ \ \ \ cmdList-\/>IASetIndexBuffer(\&ibView);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00608}00608\ \ \ \ \ \ \ \ \ cmdList-\/>DrawIndexedInstanced(6,\ 1,\ 0,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00609}00609\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//DX12\ プレゼント前バリア}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bbIdx\ =\ swapchain-\/>GetCurrentBackBufferIndex();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ BarrierDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.pResource\ =\ backBuffers[bbIdx].Get();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.Subresource\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_RENDER\_TARGET;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_PRESENT;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ResourceBarrier(1,\ \&BarrierDesc);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00623}00623\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>Close();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ ID3D12CommandList*\ cmdLists[]\ =\ \{\ cmdList.Get()\ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ \ \ cmdQueue-\/>ExecuteCommandLists(1,\ cmdLists);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00627}00627\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00628}00628\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//待機処理}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ cmdQueue-\/>Signal(fence.Get(),\ ++fenceVal);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00630}00630\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(fence-\/>GetCompletedValue()\ !=\ fenceVal)}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00632}00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{event}\ =\ CreateEvent(\textcolor{keyword}{nullptr},\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00633}00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fence-\/>SetEventOnCompletion(fenceVal,\ event);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00634}00634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WaitForSingleObject(event,\ INFINITE);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00635}00635\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CloseHandle(event);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00636}00636\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \ \ swapchain-\/>Present(1,\ 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00638}00638\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00639}00639\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00640}00640\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00641}00641\ \ \ \ \ UnregisterClass(w.lpszClassName,\ w.hInstance);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00642}00642\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00643}00643\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00561}00561\ \ \ \ \ MSG\ msg\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00562}00562\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00563}00563\ \ \ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00564}00564\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(PeekMessage(\&msg,\ \textcolor{keyword}{nullptr},\ 0,\ 0,\ PM\_REMOVE))}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ TranslateMessage(\&msg);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ DispatchMessage(\&msg);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(msg.message\ ==\ WM\_QUIT)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00575}00575\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{ScreenFlip}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00578}00578\ \textcolor{comment}{\ \ \ \ \ \ \ \ //DX12\ 描画前処理}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00579}00579\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00580}00580\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ //auto\ result\ =\ cmdAllocator-\/>Reset();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00581}00581\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ auto\ bbIdx\ =\ swapchain-\/>GetCurrentBackBufferIndex();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00582}00582\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ auto\ rtvH\ =\ rtvHeaps-\/>GetCPUDescriptorHandleForHeapStart();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00583}00583\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ rtvH.ptr\ +=\ bbIdx\ *\ m\_device-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_RTV);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00584}00584\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00585}00585\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00586}00586\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ //DX12\ レンダーターゲット前バリア}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00587}00587\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00588}00588\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ BarrierDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00589}00589\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00590}00590\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00591}00591\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.pResource\ =\ backBuffers[bbIdx].Get();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00592}00592\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.Subresource\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00593}00593\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_PRESENT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00594}00594\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_RENDER\_TARGET;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00595}00595\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ResourceBarrier(1,\ \&BarrierDesc);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00596}00596\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00597}00597\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>OMSetRenderTargets(1,\ \&rtvH,\ true,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00598}00598\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ float\ clearColor[]\ =\ \{\ 1.0f,\ 1.0f,\ 0.0f,\ 1.0f\ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00599}00599\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ClearRenderTargetView(rtvH,\ clearColor,\ 0,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00600}00600\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>RSSetViewports(1,\ \&viewport);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00601}00601\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00602}00602\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>SetPipelineState(pipelinestate.Get());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00603}00603\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>SetGraphicsRootSignature(rootsignature.Get());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00604}00604\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>SetDescriptorHeaps(1,\ basicDescHeap.GetAddressOf());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00605}00605\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>SetGraphicsRootDescriptorTable(0,\ basicDescHeap-\/>GetGPUDescriptorHandleForHeapStart());}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00606}00606\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>RSSetScissorRects(1,\ \&scissorrect);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00607}00607\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>IASetPrimitiveTopology(D3D\_PRIMITIVE\_TOPOLOGY\_TRIANGLELIST);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00608}00608\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>IASetVertexBuffers(0,\ 1,\ \&vbView);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00609}00609\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>IASetIndexBuffer(\&ibView);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00610}00610\ \textcolor{comment}{\ \ \ \ \ \ \ \ cmdList-\/>DrawIndexedInstanced(6,\ 1,\ 0,\ 0,\ 0);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00611}00611\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00612}00612\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00613}00613\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ //DX12\ プレゼント前バリア}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00614}00614\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00615}00615\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ auto\ bbIdx\ =\ swapchain-\/>GetCurrentBackBufferIndex();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00616}00616\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ BarrierDesc\ =\ \{\};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00617}00617\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00618}00618\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00619}00619\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.pResource\ =\ backBuffers[bbIdx].Get();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00620}00620\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.Subresource\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00621}00621\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_RENDER\_TARGET;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00622}00622\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BarrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_PRESENT;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00623}00623\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>ResourceBarrier(1,\ \&BarrierDesc);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00624}00624\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00625}00625\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00626}00626\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdList-\/>Close();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00627}00627\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ ID3D12CommandList*\ cmdLists[]\ =\ \{\ cmdList.Get()\ \};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00628}00628\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdQueue-\/>ExecuteCommandLists(1,\ cmdLists);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00629}00629\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00630}00630\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ //待機処理}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00631}00631\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cmdQueue-\/>Signal(fence.Get(),\ ++fenceVal);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00632}00632\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if(fence-\/>GetCompletedValue()\ !=\ fenceVal)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00633}00633\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00634}00634\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ auto\ event\ =\ CreateEvent(nullptr,\ false,\ false,\ nullptr);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00635}00635\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fence-\/>SetEventOnCompletion(fenceVal,\ event);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00636}00636\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WaitForSingleObject(event,\ INFINITE);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00637}00637\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CloseHandle(event);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00638}00638\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00639}00639\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ swapchain-\/>Present(1,\ 0);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00640}00640\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00641}00641\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00642}00642\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00643}00643\ \ \ \ \ UnregisterClass(w.lpszClassName,\ w.hInstance);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00644}00644\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00645}00645\ \}}
 
 \end{DoxyCode}

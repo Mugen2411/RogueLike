@@ -13,7 +13,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a1de2bc27e3657e9ef2d197789503cde9}{Initialize}} (int window\+\_\+width, int window\+\_\+height)
-\begin{DoxyCompactList}\small\item\em 最初に必ず呼び出す初期化処理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 最初に必ず呼び出す初期化処理 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{Screen\+Flip}} ()
+\begin{DoxyCompactList}\small\item\em 描画結果を画面に反映させる \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{静的公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,12 +28,19 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \begin{DoxyCompactList}\small\item\em デフォルトコンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092}{MECore}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \&)=delete
 \begin{DoxyCompactList}\small\item\em コピーコンストラクタ(削除) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\+\_\+graphic\+Device}}
+\begin{DoxyCompactList}\small\item\em グラフィックデバイス \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}{m\+\_\+graphic\+Command\+List}}
+\begin{DoxyCompactList}\small\item\em グラフィックコマンドリスト \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 メディアサポートエンジンの中核となるクラス 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00015}{15}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00016}{16}} 行目に定義があります。
 
 
 
@@ -58,7 +67,7 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00034}{34}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00044}{44}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092}\label{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!MECore@{MECore}}
@@ -119,7 +128,62 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_core}{MECore}} \& \mbox{\hype
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00024}{24}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00023}{23}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}\label{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!ScreenFlip@{ScreenFlip}}
+\index{ScreenFlip@{ScreenFlip}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{ScreenFlip()}{ScreenFlip()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MECore\+::\+Screen\+Flip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+描画結果を画面に反映させる 
+
+描画結果を画面に反映する
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00034}{34}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190}\label{classmugen__engine_1_1_m_e_core_a3cc07bef08ae9c5908e2c548d5958190} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_graphicCommandList@{m\_graphicCommandList}}
+\index{m\_graphicCommandList@{m\_graphicCommandList}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_graphicCommandList}{m\_graphicCommandList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} mugen\+\_\+engine\+::\+MECore\+::m\+\_\+graphic\+Command\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+グラフィックコマンドリスト 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00034}{34}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}\label{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_graphicDevice@{m\_graphicDevice}}
+\index{m\_graphicDevice@{m\_graphicDevice}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_graphicDevice}{m\_graphicDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} mugen\+\_\+engine\+::\+MECore\+::m\+\_\+graphic\+Device\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+グラフィックデバイス 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00033}{33}} 行目に定義があります。
 
 
 

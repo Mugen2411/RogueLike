@@ -7,5 +7,6 @@ var searchData=
   ['m_5fdxgifactory_4',['m_dxgiFactory',['../classmugen__engine_1_1_m_e_graphic_device.html#a57525e9d4aaba75d1a82de08a906e2ea',1,'mugen_engine::MEGraphicDevice']]],
   ['m_5ffence_5',['m_fence',['../classmugen__engine_1_1_m_e_graphic_command_list.html#af40bb06443392d83ee69818c3ec0cd6c',1,'mugen_engine::MEGraphicCommandList']]],
   ['m_5ffenceval_6',['m_fenceVal',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a5741e2748685df9c0a6e79ab2307f31e',1,'mugen_engine::MEGraphicCommandList']]],
-  ['m_5fgraphiccommandlist_7',['m_graphicCommandList',['../classmugen__engine_1_1_m_e_graphic_device.html#a3508421fef25bb63f61edc231cf5d68b',1,'mugen_engine::MEGraphicDevice']]]
+  ['m_5fgraphiccommandlist_7',['m_graphicCommandList',['../classmugen__engine_1_1_m_e_core.html#a3cc07bef08ae9c5908e2c548d5958190',1,'mugen_engine::MECore']]],
+  ['m_5fgraphicdevice_8',['m_graphicDevice',['../classmugen__engine_1_1_m_e_core.html#a8d369ea07794fcd7f4ea80102f88c1cc',1,'mugen_engine::MECore']]]
 ];
