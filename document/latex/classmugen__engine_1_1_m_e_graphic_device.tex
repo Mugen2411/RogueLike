@@ -1,0 +1,183 @@
+\doxysection{mugen\+\_\+engine\+::MEGraphic\+Device クラス}
+\hypertarget{classmugen__engine_1_1_m_e_graphic_device}{}\label{classmugen__engine_1_1_m_e_graphic_device}\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+
+
+グラフィック制御部分の中核となるクラス  
+
+
+
+
+{\ttfamily \#include $<$Graphic\+Core.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}{Initialize}} (int window\+\_\+width, int window\+\_\+height)
+\begin{DoxyCompactList}\small\item\em 最初に必ず呼ばれる初期化処理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静的公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_ad5b2dbc59424f4a43519c281338a65f9}{Get\+Ins}} ()
+\begin{DoxyCompactList}\small\item\em インスタンスの取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}{MEGraphic\+Device}} ()
+\begin{DoxyCompactList}\small\item\em デフォルトコンストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a}{MEGraphic\+Device}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&)=delete
+\begin{DoxyCompactList}\small\item\em コピーコンストラクタ(削除) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}{m\+\_\+device}} = nullptr
+\begin{DoxyCompactList}\small\item\em DX12デバイス \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ IDXGIFactory6 $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}{m\+\_\+dxgi\+Factory}} = nullptr
+\begin{DoxyCompactList}\small\item\em DXGIデバイス \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a3508421fef25bb63f61edc231cf5d68b}{m\+\_\+graphic\+Command\+List}}
+\begin{DoxyCompactList}\small\item\em コマンドリスト \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+グラフィック制御部分の中核となるクラス 
+
+ \mbox{\hyperlink{_graphic_core_8h_source}{Graphic\+Core.\+h}} の \mbox{\hyperlink{_graphic_core_8h_source_l00028}{28}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee}\label{classmugen__engine_1_1_m_e_graphic_device_afb6fd2eec2f8409737ded05edddbeeee} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!MEGraphicDevice@{MEGraphicDevice}}
+\index{MEGraphicDevice@{MEGraphicDevice}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{MEGraphicDevice()}{MEGraphicDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+MEGraphic\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+デフォルトコンストラクタ 
+
+コンストラクタ
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_core_8cpp_source}{Graphic\+Core.\+cpp}} の \mbox{\hyperlink{_graphic_core_8cpp_source_l00083}{83}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a}\label{classmugen__engine_1_1_m_e_graphic_device_a9e6e87fb88e54b18160c48f4c3c95a0a} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!MEGraphicDevice@{MEGraphicDevice}}
+\index{MEGraphicDevice@{MEGraphicDevice}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{MEGraphicDevice()}{MEGraphicDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+MEGraphic\+Device (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+コピーコンストラクタ(削除) 
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_ad5b2dbc59424f4a43519c281338a65f9}\label{classmugen__engine_1_1_m_e_graphic_device_ad5b2dbc59424f4a43519c281338a65f9} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!GetIns@{GetIns}}
+\index{GetIns@{GetIns}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{GetIns()}{GetIns()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \& mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+Get\+Ins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+インスタンスの取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+インスタンス 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_core_8cpp_source}{Graphic\+Core.\+cpp}} の \mbox{\hyperlink{_graphic_core_8cpp_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad}\label{classmugen__engine_1_1_m_e_graphic_device_a4e3a836926069928acfd64e6c84439ad} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Device\+::\+Initialize (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+width,  }\item[{int}]{window\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+最初に必ず呼ばれる初期化処理 
+
+初期化
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em window\+\_\+width} & ウィンドウ(描画範囲)の横幅 \\
+\hline
+\mbox{\texttt{ in}}  & {\em window\+\_\+height} & ウィンドウ(描画範囲)の縦幅 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+インスタンス 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_core_8cpp_source}{Graphic\+Core.\+cpp}} の \mbox{\hyperlink{_graphic_core_8cpp_source_l00024}{24}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01}\label{classmugen__engine_1_1_m_e_graphic_device_a9ecb2f43d857b6c4d7ab8bfa590c0d01} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!m\_device@{m\_device}}
+\index{m\_device@{m\_device}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{m\_device}{m\_device}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Device$>$ mugen\+\_\+engine\+::\+MEGraphic\+Device\+::m\+\_\+device = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+DX12デバイス 
+
+
+
+ \mbox{\hyperlink{_graphic_core_8h_source}{Graphic\+Core.\+h}} の \mbox{\hyperlink{_graphic_core_8h_source_l00042}{42}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea}\label{classmugen__engine_1_1_m_e_graphic_device_a57525e9d4aaba75d1a82de08a906e2ea} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!m\_dxgiFactory@{m\_dxgiFactory}}
+\index{m\_dxgiFactory@{m\_dxgiFactory}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{m\_dxgiFactory}{m\_dxgiFactory}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$IDXGIFactory6$>$ mugen\+\_\+engine\+::\+MEGraphic\+Device\+::m\+\_\+dxgi\+Factory = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+DXGIデバイス 
+
+
+
+ \mbox{\hyperlink{_graphic_core_8h_source}{Graphic\+Core.\+h}} の \mbox{\hyperlink{_graphic_core_8h_source_l00043}{43}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_device_a3508421fef25bb63f61edc231cf5d68b}\label{classmugen__engine_1_1_m_e_graphic_device_a3508421fef25bb63f61edc231cf5d68b} 
+\index{mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}!m\_graphicCommandList@{m\_graphicCommandList}}
+\index{m\_graphicCommandList@{m\_graphicCommandList}!mugen\_engine::MEGraphicDevice@{mugen\_engine::MEGraphicDevice}}
+\doxysubsubsection{\texorpdfstring{m\_graphicCommandList}{m\_graphicCommandList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} mugen\+\_\+engine\+::\+MEGraphic\+Device\+::m\+\_\+graphic\+Command\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コマンドリスト 
+
+
+
+ \mbox{\hyperlink{_graphic_core_8h_source}{Graphic\+Core.\+h}} の \mbox{\hyperlink{_graphic_core_8h_source_l00045}{45}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_core_8h}{Graphic\+Core.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_core_8cpp}{Graphic\+Core.\+cpp}}\end{DoxyCompactItemize}

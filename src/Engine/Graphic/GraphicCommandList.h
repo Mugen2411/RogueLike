@@ -14,18 +14,23 @@ namespace mugen_engine
 		@class		MEGraphicCommandList
 		@brief		GPUコマンドを管理するクラス
 	*//***********************************************************************/
-	class GraphicCommandList
+	class MEGraphicCommandList
 	{
 	public:
 		//! コンストラクタ
-		GraphicCommandList();
+		MEGraphicCommandList();
 		//! 初期化
 		void Initialize(ID3D12Device* device);
+		//! 実行&GPU処理を待機
+		void Execute();
 	private:
 
-		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> cmdAllocator = nullptr;		//!< コマンドアロケーター
-		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> cmdList = nullptr;		//!< コマンドリスト
-		Microsoft::WRL::ComPtr<ID3D12CommandQueue> cmdQueue = nullptr;				//!< コマンドキュー
+		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> m_cmdAllocator = nullptr;		//!< コマンドアロケーター
+		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> m_cmdList = nullptr;		//!< コマンドリスト
+		Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_cmdQueue = nullptr;				//!< コマンドキュー
+
+		Microsoft::WRL::ComPtr<ID3D12Fence> m_fence = nullptr;						//!< フェンス
+		UINT64 m_fenceVal = 0;														//!< フェンスの進捗を管理する数値
 	};
 }
 

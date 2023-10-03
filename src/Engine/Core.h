@@ -17,7 +17,7 @@ namespace mugen_engine
 	public:
 		//! インスタンスの取得
 		static MECore& GetIns();
-		//! 最初に必ず呼ばれる初期化処理
+		//! 最初に必ず呼び出す初期化処理
 		void Initialize(int window_width, int window_height);
 
 	private:

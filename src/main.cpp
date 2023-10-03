@@ -98,8 +98,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> rtvHeaps = nullptr;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> basicDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers(2);
-	Microsoft::WRL::ComPtr<ID3D12Fence> fence = nullptr;
-	UINT64 fenceVal = 0;
 	Microsoft::WRL::ComPtr<ID3DBlob> vsBlob = nullptr;
 	Microsoft::WRL::ComPtr<ID3DBlob> psBlob = nullptr;
 	Microsoft::WRL::ComPtr<ID3DBlob> errorBlob = nullptr;
@@ -188,10 +186,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		}
 	}
 
-	//フェンス
-	{
-		auto result = m_device->CreateFence(fenceVal, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(fence.ReleaseAndGetAddressOf()));
-	}
 	//画像読み込み
 	{
 		DirectX::LoadFromWICFile(L"media/graphic/return_to_escape.png", DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
@@ -356,19 +350,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 			cmdList->ResourceBarrier(1, &barrierDesc);
 		}
-		cmdList->Close();
-
-		ID3D12CommandList* cmdlists[] = { cmdList.Get()};
-		cmdQueue->ExecuteCommandLists(1, cmdlists);
-
-		cmdQueue->Signal(fence.Get(), ++fenceVal);
-		if(fence->GetCompletedValue() != fenceVal)
-		{
-			auto event = CreateEvent(nullptr, false, false, nullptr);
-			fence->SetEventOnCompletion(fenceVal, event);
-			WaitForSingleObject(event, INFINITE);
-			CloseHandle(event);
-		}
+		
 	}
 	//定数バッファ
 	{

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: main.cpp ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle"><div class="title">main.cpp ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;Windows.h&gt;</code><br />
+<code>#include &lt;tchar.h&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;wrl/client.h&gt;</code><br />
+<code>#include &lt;d3d12.h&gt;</code><br />
+<code>#include &lt;dxgi1_6.h&gt;</code><br />
+<code>#include &lt;DirectXMath.h&gt;</code><br />
+<code>#include &lt;d3dcompiler.h&gt;</code><br />
+<code>#include &lt;DirectXTex.h&gt;</code><br />
+<code>#include &lt;d3dx12.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_core_8h_source.html">Engine/Core.h</a>&quot;</code><br />
+</div>
+<p><a href="main_8cpp_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:ab41a5745bc23c47844f0bd8be16ab464" id="r_ab41a5745bc23c47844f0bd8be16ab464"><td class="memItemLeft" align="right" valign="top">LRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab41a5745bc23c47844f0bd8be16ab464">WindowProcedure</a> (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)</td></tr>
+<tr class="memdesc:ab41a5745bc23c47844f0bd8be16ab464"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウプロシージャ  <br /></td></tr>
+<tr class="separator:ab41a5745bc23c47844f0bd8be16ab464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9022e852b944b87956d261869b5d9971" id="r_a9022e852b944b87956d261869b5d9971"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9022e852b944b87956d261869b5d9971">EnableDebugLayer</a> ()</td></tr>
+<tr class="memdesc:a9022e852b944b87956d261869b5d9971"><td class="mdescLeft">&#160;</td><td class="mdescRight">デバッグレイヤーを有効化  <br /></td></tr>
+<tr class="separator:a9022e852b944b87956d261869b5d9971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f2dc86511322a21b8ca82d417d522e" id="r_ae9f2dc86511322a21b8ca82d417d522e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae9f2dc86511322a21b8ca82d417d522e">AlignmentedSize</a> (size_t size, size_t alignment)</td></tr>
+<tr class="memdesc:ae9f2dc86511322a21b8ca82d417d522e"><td class="mdescLeft">&#160;</td><td class="mdescRight">アライメントに揃える  <br /></td></tr>
+<tr class="separator:ae9f2dc86511322a21b8ca82d417d522e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f5bde5a38da1ef0ae63e9a5a567411" id="r_aa9f5bde5a38da1ef0ae63e9a5a567411"><td class="memItemLeft" align="right" valign="top">int WINAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa9f5bde5a38da1ef0ae63e9a5a567411">WinMain</a> (HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)</td></tr>
+<tr class="separator:aa9f5bde5a38da1ef0ae63e9a5a567411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><dl class="section note"><dt>覚え書き</dt><dd>Copyright (c) Mugen_Gamelab </dd></dl>
+
+<p class="definition"> <a class="el" href="main_8cpp_source.html">main.cpp</a> に定義があります。</p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="ae9f2dc86511322a21b8ca82d417d522e" name="ae9f2dc86511322a21b8ca82d417d522e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f2dc86511322a21b8ca82d417d522e">&#9670;&#160;</a></span>AlignmentedSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t AlignmentedSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>alignment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>アライメントに揃える </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>元のサイズ </td></tr>
+    <tr><td class="paramname">alignment</td><td>アライメントサイズ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>アライメントを揃えたサイズ </dd></dl>
+
+<p class="definition"> <a class="el" href="main_8cpp_source.html">main.cpp</a> の <a class="el" href="main_8cpp_source.html#l00065">65</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a9022e852b944b87956d261869b5d9971" name="a9022e852b944b87956d261869b5d9971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9022e852b944b87956d261869b5d9971">&#9670;&#160;</a></span>EnableDebugLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EnableDebugLayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>デバッグレイヤーを有効化 </p>
+
+<p class="definition"> <a class="el" href="main_8cpp_source.html">main.cpp</a> の <a class="el" href="main_8cpp_source.html#l00049">49</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab41a5745bc23c47844f0bd8be16ab464" name="ab41a5745bc23c47844f0bd8be16ab464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab41a5745bc23c47844f0bd8be16ab464">&#9670;&#160;</a></span>WindowProcedure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LRESULT WindowProcedure </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hwnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WPARAM&#160;</td>
+          <td class="paramname"><em>wparam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPARAM&#160;</td>
+          <td class="paramname"><em>lparam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ウィンドウプロシージャ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hwnd</td><td>ウィンドウハンドル </td></tr>
+    <tr><td class="paramname">msg</td><td>メッセージ </td></tr>
+    <tr><td class="paramname">wparam</td><td>パラメータ </td></tr>
+    <tr><td class="paramname">lparam</td><td>パラメータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>正常終了 </td></tr>
+    <tr><td class="paramname">継続</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="main_8cpp_source.html">main.cpp</a> の <a class="el" href="main_8cpp_source.html#l00033">33</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa9f5bde5a38da1ef0ae63e9a5a567411" name="aa9f5bde5a38da1ef0ae63e9a5a567411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9f5bde5a38da1ef0ae63e9a5a567411">&#9670;&#160;</a></span>WinMain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WINAPI WinMain </td>
+          <td>(</td>
+          <td class="paramtype">HINSTANCE&#160;</td>
+          <td class="paramname"><em>hI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HINSTANCE&#160;</td>
+          <td class="paramname"><em>hP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPSTR&#160;</td>
+          <td class="paramname"><em>lpC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nC</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8cpp_source.html">main.cpp</a> の <a class="el" href="main_8cpp_source.html#l00070">70</a> 行目に定義があります。</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

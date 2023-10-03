@@ -1,0 +1,130 @@
+\doxysection{mugen\+\_\+engine\+::Graphic\+Command\+List クラス}
+\hypertarget{classmugen__engine_1_1_graphic_command_list}{}\label{classmugen__engine_1_1_graphic_command_list}\index{mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}}
+
+
+{\ttfamily \#include $<$Graphic\+Command\+List.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_graphic_command_list_a4dd429b85c6f9501e16573423379c73a}{Graphic\+Command\+List}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_graphic_command_list_ab16e2e2aa6ed8f82d9ae72f2851db4d5}{Initialize}} (ID3\+D12\+Device \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Command\+Allocator $>$ \mbox{\hyperlink{classmugen__engine_1_1_graphic_command_list_aaab965bfef2d5428781018b7ee78f470}{cmd\+Allocator}} = nullptr
+\begin{DoxyCompactList}\small\item\em コマンドアロケーター \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \mbox{\hyperlink{classmugen__engine_1_1_graphic_command_list_af3007760f0f97948f732d5c51ae5a14c}{cmd\+List}} = nullptr
+\begin{DoxyCompactList}\small\item\em コマンドリスト \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Command\+Queue $>$ \mbox{\hyperlink{classmugen__engine_1_1_graphic_command_list_ab14c101a8cd682932b58104c704926fd}{cmd\+Queue}} = nullptr
+\begin{DoxyCompactList}\small\item\em コマンドキュー \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_graphic_command_list_a4dd429b85c6f9501e16573423379c73a}\label{classmugen__engine_1_1_graphic_command_list_a4dd429b85c6f9501e16573423379c73a} 
+\index{mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}!GraphicCommandList@{GraphicCommandList}}
+\index{GraphicCommandList@{GraphicCommandList}!mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{GraphicCommandList()}{GraphicCommandList()}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+Graphic\+Command\+List\+::\+Graphic\+Command\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_command_list_8cpp_source}{Graphic\+Command\+List.\+cpp}} の \mbox{\hyperlink{_graphic_command_list_8cpp_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_graphic_command_list_ab16e2e2aa6ed8f82d9ae72f2851db4d5}\label{classmugen__engine_1_1_graphic_command_list_ab16e2e2aa6ed8f82d9ae72f2851db4d5} 
+\index{mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+Graphic\+Command\+List\+::\+Initialize (\begin{DoxyParamCaption}\item[{ID3\+D12\+Device \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})}
+
+
+
+初期化 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em device} & DX12デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+インスタンス 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_command_list_8cpp_source}{Graphic\+Command\+List.\+cpp}} の \mbox{\hyperlink{_graphic_command_list_8cpp_source_l00021}{21}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_graphic_command_list_aaab965bfef2d5428781018b7ee78f470}\label{classmugen__engine_1_1_graphic_command_list_aaab965bfef2d5428781018b7ee78f470} 
+\index{mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}!cmdAllocator@{cmdAllocator}}
+\index{cmdAllocator@{cmdAllocator}!mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{cmdAllocator}{cmdAllocator}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Command\+Allocator$>$ mugen\+\_\+engine\+::\+Graphic\+Command\+List\+::cmd\+Allocator = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コマンドアロケーター 
+
+
+
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00026}{26}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_graphic_command_list_af3007760f0f97948f732d5c51ae5a14c}\label{classmugen__engine_1_1_graphic_command_list_af3007760f0f97948f732d5c51ae5a14c} 
+\index{mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}!cmdList@{cmdList}}
+\index{cmdList@{cmdList}!mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{cmdList}{cmdList}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Graphics\+Command\+List$>$ mugen\+\_\+engine\+::\+Graphic\+Command\+List\+::cmd\+List = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コマンドリスト 
+
+
+
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00027}{27}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_graphic_command_list_ab14c101a8cd682932b58104c704926fd}\label{classmugen__engine_1_1_graphic_command_list_ab14c101a8cd682932b58104c704926fd} 
+\index{mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}!cmdQueue@{cmdQueue}}
+\index{cmdQueue@{cmdQueue}!mugen\_engine::GraphicCommandList@{mugen\_engine::GraphicCommandList}}
+\doxysubsubsection{\texorpdfstring{cmdQueue}{cmdQueue}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Command\+Queue$>$ mugen\+\_\+engine\+::\+Graphic\+Command\+List\+::cmd\+Queue = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コマンドキュー 
+
+
+
+ \mbox{\hyperlink{_graphic_command_list_8h_source}{Graphic\+Command\+List.\+h}} の \mbox{\hyperlink{_graphic_command_list_8h_source_l00028}{28}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_command_list_8h}{Graphic\+Command\+List.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_command_list_8cpp}{Graphic\+Command\+List.\+cpp}}\end{DoxyCompactItemize}

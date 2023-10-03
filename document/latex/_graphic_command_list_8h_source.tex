@@ -1,0 +1,36 @@
+\doxysection{Graphic\+Command\+List.\+h}
+\hypertarget{_graphic_command_list_8h_source}{}\label{_graphic_command_list_8h_source}\index{Engine/Graphic/GraphicCommandList.h@{Engine/Graphic/GraphicCommandList.h}}
+\mbox{\hyperlink{_graphic_command_list_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MugenEngine\_GraphicCommandList\_\_}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MugenEngine\_GraphicCommandList\_\_}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <d3d12.h>}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <wrl/client.h>}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00017}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_adee69b109f4d6fd2c20f6d8f6f937391}{MEGraphicCommandList}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_ae3fcb4bc906d68bfc3dd6f2d60cf2bf7}{Initialize}}(ID3D12Device*\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00028}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_abfeead5ef969e3abe891d273004b446e}{00028}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12CommandAllocator>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_abfeead5ef969e3abe891d273004b446e}{m\_cmdAllocator}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00029}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_acc0e77e7025ec547e9fe443e81e77a64}{00029}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_acc0e77e7025ec547e9fe443e81e77a64}{m\_cmdList}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00030}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0ca4ea9b352068a34336d01e113935bb}{00030}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12CommandQueue>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0ca4ea9b352068a34336d01e113935bb}{m\_cmdQueue}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00032}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_af40bb06443392d83ee69818c3ec0cd6c}{00032}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Fence>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_af40bb06443392d83ee69818c3ec0cd6c}{m\_fence}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00033}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5741e2748685df9c0a6e79ab2307f31e}{00033}}\ \ \ \ \ \ \ \ \ UINT64\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5741e2748685df9c0a6e79ab2307f31e}{m\_fenceVal}}\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_graphic_command_list_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_GraphicCommandList\_\_}}
+
+\end{DoxyCode}

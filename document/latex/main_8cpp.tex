@@ -1,0 +1,119 @@
+\doxysection{main.\+cpp ファイル}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+{\ttfamily \#include $<$tchar.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$wrl/client.\+h$>$}\newline
+{\ttfamily \#include $<$d3d12.\+h$>$}\newline
+{\ttfamily \#include $<$dxgi1\+\_\+6.\+h$>$}\newline
+{\ttfamily \#include $<$Direct\+XMath.\+h$>$}\newline
+{\ttfamily \#include $<$d3dcompiler.\+h$>$}\newline
+{\ttfamily \#include $<$Direct\+XTex.\+h$>$}\newline
+{\ttfamily \#include $<$d3dx12.\+h$>$}\newline
+{\ttfamily \#include "{}Engine/\+Core.\+h"{}}\newline
+\doxysubsubsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+LRESULT \mbox{\hyperlink{main_8cpp_ab41a5745bc23c47844f0bd8be16ab464}{Window\+Procedure}} (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+\begin{DoxyCompactList}\small\item\em ウィンドウプロシージャ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a9022e852b944b87956d261869b5d9971}{Enable\+Debug\+Layer}} ()
+\begin{DoxyCompactList}\small\item\em デバッグレイヤーを有効化 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{main_8cpp_ae9f2dc86511322a21b8ca82d417d522e}{Alignmented\+Size}} (size\+\_\+t size, size\+\_\+t alignment)
+\begin{DoxyCompactList}\small\item\em アライメントに揃える \end{DoxyCompactList}\item 
+int WINAPI \mbox{\hyperlink{main_8cpp_aa9f5bde5a38da1ef0ae63e9a5a567411}{Win\+Main}} (HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+\begin{DoxyNote}{覚え書き}
+Copyright (c) Mugen\+\_\+\+Gamelab 
+\end{DoxyNote}
+
+
+ \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}} に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{main_8cpp_ae9f2dc86511322a21b8ca82d417d522e}\label{main_8cpp_ae9f2dc86511322a21b8ca82d417d522e} 
+\index{main.cpp@{main.cpp}!AlignmentedSize@{AlignmentedSize}}
+\index{AlignmentedSize@{AlignmentedSize}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{AlignmentedSize()}{AlignmentedSize()}}
+{\footnotesize\ttfamily size\+\_\+t Alignmented\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{alignment }\end{DoxyParamCaption})}
+
+
+
+アライメントに揃える 
+
+
+\begin{DoxyParams}{引数}
+{\em size} & 元のサイズ \\
+\hline
+{\em alignment} & アライメントサイズ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+アライメントを揃えたサイズ 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}} の \mbox{\hyperlink{main_8cpp_source_l00065}{65}} 行目に定義があります。
+
+\Hypertarget{main_8cpp_a9022e852b944b87956d261869b5d9971}\label{main_8cpp_a9022e852b944b87956d261869b5d9971} 
+\index{main.cpp@{main.cpp}!EnableDebugLayer@{EnableDebugLayer}}
+\index{EnableDebugLayer@{EnableDebugLayer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{EnableDebugLayer()}{EnableDebugLayer()}}
+{\footnotesize\ttfamily void Enable\+Debug\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+デバッグレイヤーを有効化 
+
+
+
+ \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}} の \mbox{\hyperlink{main_8cpp_source_l00049}{49}} 行目に定義があります。
+
+\Hypertarget{main_8cpp_ab41a5745bc23c47844f0bd8be16ab464}\label{main_8cpp_ab41a5745bc23c47844f0bd8be16ab464} 
+\index{main.cpp@{main.cpp}!WindowProcedure@{WindowProcedure}}
+\index{WindowProcedure@{WindowProcedure}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WindowProcedure()}{WindowProcedure()}}
+{\footnotesize\ttfamily LRESULT Window\+Procedure (\begin{DoxyParamCaption}\item[{HWND}]{hwnd,  }\item[{UINT}]{msg,  }\item[{WPARAM}]{wparam,  }\item[{LPARAM}]{lparam }\end{DoxyParamCaption})}
+
+
+
+ウィンドウプロシージャ 
+
+
+\begin{DoxyParams}{引数}
+{\em hwnd} & ウィンドウハンドル \\
+\hline
+{\em msg} & メッセージ \\
+\hline
+{\em wparam} & パラメータ \\
+\hline
+{\em lparam} & パラメータ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{戻り値}
+{\em 0} & 正常終了 \\
+\hline
+{\em 継続} & \\
+\hline
+\end{DoxyRetVals}
+
+
+ \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}} の \mbox{\hyperlink{main_8cpp_source_l00033}{33}} 行目に定義があります。
+
+\Hypertarget{main_8cpp_aa9f5bde5a38da1ef0ae63e9a5a567411}\label{main_8cpp_aa9f5bde5a38da1ef0ae63e9a5a567411} 
+\index{main.cpp@{main.cpp}!WinMain@{WinMain}}
+\index{WinMain@{WinMain}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WinMain()}{WinMain()}}
+{\footnotesize\ttfamily int WINAPI Win\+Main (\begin{DoxyParamCaption}\item[{HINSTANCE}]{hI,  }\item[{HINSTANCE}]{hP,  }\item[{LPSTR}]{lpC,  }\item[{int}]{nC }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}} の \mbox{\hyperlink{main_8cpp_source_l00070}{70}} 行目に定義があります。
+

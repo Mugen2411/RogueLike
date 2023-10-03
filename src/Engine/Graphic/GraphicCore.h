@@ -42,7 +42,7 @@ namespace mugen_engine
 		Microsoft::WRL::ComPtr<ID3D12Device> m_device = nullptr;			//!< DX12デバイス
 		Microsoft::WRL::ComPtr<IDXGIFactory6> m_dxgiFactory = nullptr;		//!< DXGIデバイス
 
-		GraphicCommandList m_graphicCommandList;							//!< コマンドリスト
+		MEGraphicCommandList m_graphicCommandList;							//!< コマンドリスト
 	};
 }
 
