@@ -4,7 +4,8 @@
 #ifndef __MugenEngine_Core__
 #define __MugenEngine_Core__
 
-#include "Graphic/GraphicCore.h"
+#include "Graphic/GraphicDevice.h"
+#include "Graphic/GraphicCommandList.h"
 
 namespace mugen_engine
 {
@@ -25,6 +26,9 @@ namespace mugen_engine
 		MECore();
 		//!コピーコンストラクタ(削除)
 		MECore(const MECore&) = delete;
+
+		MEGraphicDevice m_graphicDevice;							//!< グラフィックデバイス
+		MEGraphicCommandList m_graphicCommandList;					//!< グラフィックコマンドリスト
 	};
 }
 

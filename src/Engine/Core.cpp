@@ -14,7 +14,6 @@ namespace mugen_engine
 		static MECore instance;
 		return instance;
 	}
-
 	/**********************************************************************//**
 		@brief			初期化
 		@param[in]		window_width		ウィンドウ(描画範囲)の横幅
@@ -23,7 +22,8 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::Initialize(const int window_width, const int window_height)
 	{
-		MEGraphicDevice::GetIns().Initialize(window_width, window_height);
+		m_graphicDevice.Initialize(window_width, window_height);
+		m_graphicCommandList.Initialize(m_graphicDevice.GetDevice());
 	}
 
 	/**********************************************************************//**

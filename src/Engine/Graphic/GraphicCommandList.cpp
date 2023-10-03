@@ -18,7 +18,7 @@ namespace mugen_engine
 		@param[in]		device			DX12デバイス
 		@return			インスタンス
 	*//***********************************************************************/
-	void MEGraphicCommandList::Initialize(ID3D12Device *device)
+	void MEGraphicCommandList::Initialize(ID3D12Device * const device)
 	{
 		//DX12 コマンドリストとコマンドアロケーター
 		{

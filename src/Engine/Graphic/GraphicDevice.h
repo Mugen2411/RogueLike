@@ -28,21 +28,19 @@ namespace mugen_engine
 	class MEGraphicDevice
 	{
 	public:
-		//! インスタンスの取得
-		static MEGraphicDevice& GetIns();
-		//! 最初に必ず呼ばれる初期化処理
-		void Initialize(int window_width, int window_height);
-
-	private:
 		//! デフォルトコンストラクタ
 		MEGraphicDevice();
 		//!コピーコンストラクタ(削除)
 		MEGraphicDevice(const MEGraphicDevice&) = delete;
 
+		//! 最初に必ず呼ばれる初期化処理
+		void Initialize(int window_width, int window_height);
+		//! デバイスの生ポインタを取得
+		ID3D12Device * const GetDevice() const;
+
+	private:
 		Microsoft::WRL::ComPtr<ID3D12Device> m_device = nullptr;			//!< DX12デバイス
 		Microsoft::WRL::ComPtr<IDXGIFactory6> m_dxgiFactory = nullptr;		//!< DXGIデバイス
-
-		MEGraphicCommandList m_graphicCommandList;							//!< コマンドリスト
 	};
 }
 

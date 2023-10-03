@@ -1,20 +1,10 @@
 //! @file GraphicCore.cpp
 //! @note Copyright (c) Mugen_GameLab
 
-#include "GraphicCore.h"
+#include "GraphicDevice.h"
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			インスタンスの取得
-		@param			なし
-		@return			インスタンス
-	*//***********************************************************************/
-	MEGraphicDevice& MEGraphicDevice::GetIns()
-	{
-		static MEGraphicDevice instance;
-		return instance;
-	}
 	/**********************************************************************//**
 		@brief			初期化
 		@param[in]		window_width		ウィンドウ(描画範囲)の横幅
@@ -71,8 +61,11 @@ namespace mugen_engine
 				break;
 			}
 		}
+	}
 
-		m_graphicCommandList.Initialize(m_device.Get());
+	ID3D12Device * const MEGraphicDevice::GetDevice() const
+	{
+		return m_device.Get();
 	}
 
 	/**********************************************************************//**

@@ -88,7 +88,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		nullptr, nullptr, w.hInstance, nullptr);
 
 	ShowWindow(hwnd, SW_SHOW);
-
+	/*
 #ifdef _DEBUG
 	EnableDebugLayer();
 #endif
@@ -554,7 +554,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		scissorrect.left = 0;
 		scissorrect.right = scissorrect.left + window_width;
 		scissorrect.bottom = scissorrect.top + window_height;
-	}
+	}*/
+
+	mugen_engine::MECore::GetIns().Initialize(window_width, window_height);
 
 	MSG msg = {};
 
@@ -570,7 +572,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		{
 			break;
 		}
-
+		/*
 		//DX12 •`‰æ‘Oˆ—
 		{
 			//auto result = cmdAllocator->Reset();
@@ -635,7 +637,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 				CloseHandle(event);
 			}
 			swapchain->Present(1, 0);
-		}
+		}*/
 	}
 
 	UnregisterClass(w.lpszClassName, w.hInstance);
