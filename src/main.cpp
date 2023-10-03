@@ -49,7 +49,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	};
 	Microsoft::WRL::ComPtr<ID3D12PipelineState> pipelinestate = nullptr;
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> rootsignature = nullptr;
-	D3D12_VIEWPORT viewport = {};
 	D3D12_RECT scissorrect = {};
 	//DX12 描画する物毎に用意されるもの
 	struct VERTEX_DATA
@@ -441,13 +440,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	}
 	//ビューポートとシザー矩形
 	{
-		viewport.Width = window_width;
-		viewport.Height = window_height;
-		viewport.TopLeftX = 0;
-		viewport.TopLeftY = 0;
-		viewport.MaxDepth = 1.0f;
-		viewport.MinDepth = 0.0f;
-
 		scissorrect.top = 0;
 		scissorrect.left = 0;
 		scissorrect.right = scissorrect.left + window_width;
@@ -458,32 +450,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	while(mugen_engine::MECore::GetIns().ProcessMessage() == 0)
 	{
-		mugen_engine::MECore::GetIns().ScreenFlip();
+		mugen_engine::MECore::GetIns().ClearScreen(255, 0, 0);
 		/*
 		//DX12 描画前処理
-		{
-			//auto result = cmdAllocator->Reset();
-			auto bbIdx = swapchain->GetCurrentBackBufferIndex();
-			auto rtvH = rtvHeaps->GetCPUDescriptorHandleForHeapStart();
-			rtvH.ptr += bbIdx * m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-
-
-			//DX12 レンダーターゲット前バリア
-			{
-				D3D12_RESOURCE_BARRIER BarrierDesc = {};
-				BarrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-				BarrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-				BarrierDesc.Transition.pResource = backBuffers[bbIdx].Get();
-				BarrierDesc.Transition.Subresource = 0;
-				BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
-				BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-				cmdList->ResourceBarrier(1, &BarrierDesc);
-			}
-			cmdList->OMSetRenderTargets(1, &rtvH, true, nullptr);
-			float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };
-			cmdList->ClearRenderTargetView(rtvH, clearColor, 0, nullptr);
-			cmdList->RSSetViewports(1, &viewport);
-		}
 		cmdList->SetPipelineState(pipelinestate.Get());
 		cmdList->SetGraphicsRootSignature(rootsignature.Get());
 		cmdList->SetDescriptorHeaps(1, basicDescHeap.GetAddressOf());
@@ -493,22 +462,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cmdList->IASetVertexBuffers(0, 1, &vbView);
 		cmdList->IASetIndexBuffer(&ibView);
 		cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
+		*/
 
-		{
-			cmdList->Close();
-			ID3D12CommandList* cmdLists[] = { cmdList.Get() };
-			cmdQueue->ExecuteCommandLists(1, cmdLists);
-
-			//待機処理
-			cmdQueue->Signal(fence.Get(), ++fenceVal);
-			if(fence->GetCompletedValue() != fenceVal)
-			{
-				auto event = CreateEvent(nullptr, false, false, nullptr);
-				fence->SetEventOnCompletion(fenceVal, event);
-				WaitForSingleObject(event, INFINITE);
-				CloseHandle(event);
-			}
-		}*/
+		mugen_engine::MECore::GetIns().ScreenFlip();
 	}
 	return 0;
 }

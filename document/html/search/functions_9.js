@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['windowprocedure_0',['WindowProcedure',['../_core_8cpp.html#a6deefd2ee7e3726f368c853368adcc9f',1,'Core.cpp']]],
-  ['winmain_1',['WinMain',['../main_8cpp.html#aa9f5bde5a38da1ef0ae63e9a5a567411',1,'main.cpp']]]
+  ['screenflip_0',['ScreenFlip',['../classmugen__engine_1_1_m_e_core.html#a29c86d9bd9b6506ac15fb8a97e27e3e1',1,'mugen_engine::MECore']]],
+  ['setbarrierbeforepresent_1',['SetBarrierBeforePresent',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a86bd05010fcd095968d0e5f4deab7933',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setbarrierbeforerender_2',['SetBarrierBeforeRender',['../classmugen__engine_1_1_m_e_graphic_render_target.html#af4af93f98257ad2ce73ff834430fe0de',1,'mugen_engine::MEGraphicRenderTarget']]]
 ];

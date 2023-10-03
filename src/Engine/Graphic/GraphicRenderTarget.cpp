@@ -60,6 +60,14 @@ namespace mugen_engine
 				handle.ptr += device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 			}
 		}
+		{
+			m_viewport.Width = window_width;
+			m_viewport.Height = window_height;
+			m_viewport.TopLeftX = 0;
+			m_viewport.TopLeftY = 0;
+			m_viewport.MaxDepth = 1.0f;
+			m_viewport.MinDepth = 0.0f;
+		}
 	}
 
 	/**********************************************************************//**
@@ -77,7 +85,7 @@ namespace mugen_engine
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicRenderTarget::SetBarrierBeforeRender(ID3D12GraphicsCommandList* cmdList)
+	void MEGraphicRenderTarget::SetBarrierBeforeRender(MEGraphicDevice& device, MEGraphicCommandList& cmdList)
 	{
 		//DX12 プレゼント前バリア
 		{
@@ -89,7 +97,10 @@ namespace mugen_engine
 			BarrierDesc.Transition.Subresource = 0;
 			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
 			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-			cmdList->ResourceBarrier(1, &BarrierDesc);
+			cmdList.GetCommandList()->ResourceBarrier(1, &BarrierDesc);
+
+			m_renderTargetHandle = m_rtvHeaps->GetCPUDescriptorHandleForHeapStart();
+			m_renderTargetHandle.ptr += bbIdx * device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 		}
 	}
 
@@ -98,7 +109,7 @@ namespace mugen_engine
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicRenderTarget::SetBarrierBeforePresent(ID3D12GraphicsCommandList* cmdList)
+	void MEGraphicRenderTarget::SetBarrierBeforePresent(MEGraphicCommandList& cmdList)
 	{
 		//DX12 プレゼント前バリア
 		{
@@ -110,7 +121,13 @@ namespace mugen_engine
 			BarrierDesc.Transition.Subresource = 0;
 			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
 			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
-			cmdList->ResourceBarrier(1, &BarrierDesc);
+			cmdList.GetCommandList()->ResourceBarrier(1, &BarrierDesc);
 		}
+	}
+	void MEGraphicRenderTarget::Clear(float clearColor[4], MEGraphicCommandList& cmdList)
+	{
+		cmdList.GetCommandList()->OMSetRenderTargets(1, &m_renderTargetHandle, true, nullptr);
+		cmdList.GetCommandList()->ClearRenderTargetView(m_renderTargetHandle, clearColor, 0, nullptr);
+		cmdList.GetCommandList()->RSSetViewports(1, &m_viewport);
 	}
 }

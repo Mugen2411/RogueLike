@@ -30,14 +30,18 @@ namespace mugen_engine
 		//! バックバッファの内容をディスプレイに反映する
 		void Present();
 		//! 描画前バリア
-		void SetBarrierBeforeRender(ID3D12GraphicsCommandList* cmdList);
+		void SetBarrierBeforeRender(MEGraphicDevice& device, MEGraphicCommandList& cmdList);
 		//! プレゼント前バリア
-		void SetBarrierBeforePresent(ID3D12GraphicsCommandList* cmdList);
+		void SetBarrierBeforePresent(MEGraphicCommandList& cmdList);
+		//! 画面を指定した色でクリアする
+		void Clear(float clearColor[4], MEGraphicCommandList& cmdList);
 	private:
 		const int m_numBackBuffer;												//!< バックバッファの数
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> m_swapchain = nullptr;			//!< スワップチェイン
 		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_rtvHeaps = nullptr;		//!< レンダーターゲットヒープ
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_backBuffers;		//!< バックバッファ
+		D3D12_CPU_DESCRIPTOR_HANDLE m_renderTargetHandle;						//!< OMSetRenderTargetに渡すCPU上のアドレス
+		D3D12_VIEWPORT m_viewport;												//!< ビューポート
 	};
 }
 

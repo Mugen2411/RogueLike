@@ -27,6 +27,8 @@ namespace mugen_engine
 		int ProcessMessage();
 		//! 描画結果を画面に反映させる
 		void ScreenFlip();
+		//! 画面を指定した色で初期化する
+		void ClearScreen(const int R, const int G, const int B);
 
 	private:
 		//! デフォルトコンストラクタ

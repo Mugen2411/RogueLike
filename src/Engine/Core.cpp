@@ -64,7 +64,7 @@ namespace mugen_engine
 			return -1;
 		}
 
-		m_renderTarget.SetBarrierBeforeRender(m_graphicCommandList.GetCommandList());
+		m_renderTarget.SetBarrierBeforeRender(m_graphicDevice, m_graphicCommandList);
 
 		return 0;
 	}
@@ -76,9 +76,22 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::ScreenFlip()
 	{
-		m_renderTarget.SetBarrierBeforePresent(m_graphicCommandList.GetCommandList());
+		m_renderTarget.SetBarrierBeforePresent(m_graphicCommandList);
 		m_graphicCommandList.Execute();
 		m_renderTarget.Present();
+	}
+
+	/**********************************************************************//**
+		@brief			画面を指定した色でクリアする
+		@param[in]		R			赤の輝度
+		@param[in]		G			緑の輝度
+		@param[in]		B			青の輝度
+		@return			なし
+	*//***********************************************************************/
+	void MECore::ClearScreen(const int R, const int G, const int B)
+	{
+		float clearColor[] = { R / 255.0f, G / 255.0f, B / 255.0f, 1.0f };
+		m_renderTarget.Clear(clearColor, m_graphicCommandList);
 	}
 
 	/**********************************************************************//**

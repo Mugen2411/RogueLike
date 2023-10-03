@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['execute_0',['Execute',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a0851e4dc9ed7b6e1381cb6b169412c56',1,'mugen_engine::MEGraphicCommandList']]]
+  ['clear_0',['Clear',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a2d91615ba217b2edbf035ac6f5fa0c02',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['clearscreen_1',['ClearScreen',['../classmugen__engine_1_1_m_e_core.html#a0a00883185ed356fc17062cd521f78f4',1,'mugen_engine::MECore']]]
 ];
