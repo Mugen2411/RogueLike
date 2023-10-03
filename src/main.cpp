@@ -20,42 +20,6 @@
 
 /**
  *****************************************************************************
- * @brief	ウィンドウプロシージャ
- * @param	hwnd ウィンドウハンドル
- * @param	msg	メッセージ
- * @param	wparam	パラメータ
- * @param	lparam	パラメータ
- * @retval 0 正常終了
- * @retval 継続
- * @details
- *****************************************************************************
- */
-LRESULT WindowProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
-{
-	if(msg == WM_DESTROY)
-	{
-		PostQuitMessage(0);
-		return 0;
-	}
-	return DefWindowProc(hwnd, msg, wparam, lparam);
-}
-
-/**
- *****************************************************************************
- * @brief	デバッグレイヤーを有効化
- * @details
- *****************************************************************************
- */
-void EnableDebugLayer()
-{
-	ID3D12Debug* debugLayer = nullptr;
-	auto result = D3D12GetDebugInterface(IID_PPV_ARGS(&debugLayer));
-	debugLayer->EnableDebugLayer();
-	debugLayer->Release();
-}
-
-/**
- *****************************************************************************
  * @brief	アライメントに揃える
  * @param size			元のサイズ
  * @param alignment		アライメントサイズ
@@ -71,33 +35,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
 	int window_width = 1280;
 	int window_height = 720;
-	WNDCLASSEX w = {};
-	w.cbSize = sizeof(w);
-	w.lpfnWndProc = WindowProcedure;
-	w.lpszClassName = _T("RogueLike Magician");
-	w.hInstance = GetModuleHandle(nullptr);
-
-	RegisterClassEx(&w);
-
-	RECT wrc = { 0, 0, window_width, window_height};
-	AdjustWindowRect(&wrc, WS_OVERLAPPEDWINDOW, false);
-
-	HWND hwnd = CreateWindow(w.lpszClassName, _T("MagicaRogue"),
-		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
-		wrc.right - wrc.left, wrc.bottom - wrc.top,
-		nullptr, nullptr, w.hInstance, nullptr);
-
-	ShowWindow(hwnd, SW_SHOW);
 	/*
-#ifdef _DEBUG
-	EnableDebugLayer();
-#endif
 
 	//DX12 1つだけあれば良さそうなモノ
-	Microsoft::WRL::ComPtr<IDXGISwapChain4> swapchain = nullptr;
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> rtvHeaps = nullptr;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> basicDescHeap = nullptr;
-	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers(2);
 	Microsoft::WRL::ComPtr<ID3DBlob> vsBlob = nullptr;
 	Microsoft::WRL::ComPtr<ID3DBlob> psBlob = nullptr;
 	Microsoft::WRL::ComPtr<ID3DBlob> errorBlob = nullptr;
@@ -143,27 +84,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12Resource> constBuff = nullptr;
 	DirectX::XMMATRIX matrix = DirectX::XMMatrixScaling(2.0 / window_width, 2.0 / window_height, 1.0f);
 
-	
-	//DX12 スワップチェイン
-	{
-		DXGI_SWAP_CHAIN_DESC1 swapchainDesc = {};
-
-		swapchainDesc.Width = window_width;
-		swapchainDesc.Height = window_height;
-		swapchainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-		swapchainDesc.Stereo = false;
-		swapchainDesc.SampleDesc.Count = 1;
-		swapchainDesc.SampleDesc.Quality = 0;
-		swapchainDesc.BufferUsage = DXGI_USAGE_BACK_BUFFER;
-		swapchainDesc.BufferCount = 2;
-		swapchainDesc.Scaling = DXGI_SCALING_STRETCH;
-		swapchainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
-		swapchainDesc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;
-		swapchainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
-
-		auto result = m_dxgiFactory->CreateSwapChainForHwnd(cmdQueue.Get(), hwnd, &swapchainDesc,
-			nullptr, nullptr, reinterpret_cast<IDXGISwapChain1**>(swapchain.ReleaseAndGetAddressOf()));
-	}
 	//DX12 ディスクリプタヒープ
 	{
 		D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
@@ -556,23 +476,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		scissorrect.bottom = scissorrect.top + window_height;
 	}*/
 
-	mugen_engine::MECore::GetIns().Initialize(window_width, window_height);
+	mugen_engine::MECore::GetIns().Initialize(L"MagicaRogue", window_width, window_height);
 
-	MSG msg = {};
-
-	while(true)
+	while(mugen_engine::MECore::GetIns().ProcessMessage() == 0)
 	{
-		if(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
-		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-		}
-
-		if(msg.message == WM_QUIT)
-		{
-			break;
-		}
-		
 		mugen_engine::MECore::GetIns().ScreenFlip();
 		/*
 		//DX12 描画前処理
@@ -639,7 +546,5 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			swapchain->Present(1, 0);
 		}*/
 	}
-
-	UnregisterClass(w.lpszClassName, w.hInstance);
 	return 0;
 }

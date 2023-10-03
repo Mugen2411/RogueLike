@@ -70,4 +70,14 @@ namespace mugen_engine
 		m_cmdAllocator->Reset();
 		m_cmdList->Reset(m_cmdAllocator.Get(), nullptr);
 	}
+
+	/**********************************************************************//**
+		@brief			コマンドキューの生ポインタを取得
+		@param			なし
+		@return			コマンドキューの生ポインタ
+	*//***********************************************************************/
+	ID3D12CommandQueue * const MEGraphicCommandList::GetCommandQueue() const
+	{
+		return m_cmdQueue.Get();
+	}
 }

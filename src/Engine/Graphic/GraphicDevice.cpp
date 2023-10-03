@@ -6,16 +6,16 @@
 namespace mugen_engine
 {
 	/**********************************************************************//**
-		@brief			初期化
-		@param[in]		window_width		ウィンドウ(描画範囲)の横幅
-		@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
-		@return			インスタンス
+		@brief			デバイスとファクトリの初期化
+		@param			なし
+		@return			なし
 	*//***********************************************************************/
-	void MEGraphicDevice::Initialize(const int window_width, const int window_height)
+	void MEGraphicDevice::Initialize()
 	{
 		//DXGIファクトリ
 		{
 #ifdef _DEBUG
+			_EnableDebugLayer();
 			auto result = CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG, IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf()));
 #else
 			auto result = CreateDXGIFactory1(IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf()));
@@ -63,9 +63,24 @@ namespace mugen_engine
 		}
 	}
 
+	/**********************************************************************//**
+		@brief			デバイスの生ポインタを取得
+		@param			なし
+		@return			デバイスの生ポインタ
+	*//***********************************************************************/
 	ID3D12Device * const MEGraphicDevice::GetDevice() const
 	{
 		return m_device.Get();
+	}
+
+	/**********************************************************************//**
+		@brief			ファクトリの生ポインタを取得
+		@param			なし
+		@return			ファクトリの生ポインタ
+	*//***********************************************************************/
+	IDXGIFactory4* const MEGraphicDevice::GetFactory() const
+	{
+		return m_dxgiFactory.Get();
 	}
 
 	/**********************************************************************//**
@@ -75,4 +90,17 @@ namespace mugen_engine
 	*//***********************************************************************/
 	MEGraphicDevice::MEGraphicDevice()
 	{}
+
+	/**********************************************************************//**
+		@brief			デバッグレイヤーの有効化
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicDevice::_EnableDebugLayer()
+	{
+		ID3D12Debug* debugLayer = nullptr;
+		auto result = D3D12GetDebugInterface(IID_PPV_ARGS(&debugLayer));
+		debugLayer->EnableDebugLayer();
+		debugLayer->Release();
+	}
 }

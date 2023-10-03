@@ -34,11 +34,16 @@ namespace mugen_engine
 		MEGraphicDevice(const MEGraphicDevice&) = delete;
 
 		//! 最初に必ず呼ばれる初期化処理
-		void Initialize(int window_width, int window_height);
+		void Initialize();
 		//! デバイスの生ポインタを取得
 		ID3D12Device * const GetDevice() const;
+		//! ファクトリの生ポインタを取得
+		IDXGIFactory4* const GetFactory() const;
 
 	private:
+		//! デバッグレイヤーの有効化
+		void _EnableDebugLayer();
+
 		Microsoft::WRL::ComPtr<ID3D12Device> m_device = nullptr;			//!< DX12デバイス
 		Microsoft::WRL::ComPtr<IDXGIFactory6> m_dxgiFactory = nullptr;		//!< DXGIデバイス
 	};

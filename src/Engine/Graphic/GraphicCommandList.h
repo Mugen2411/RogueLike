@@ -23,6 +23,8 @@ namespace mugen_engine
 		void Initialize(ID3D12Device * const device);
 		//! 実行&GPU処理を待機
 		void Execute();
+		//! コマンドキューの生ポインタを取得
+		ID3D12CommandQueue * const GetCommandQueue() const;
 	private:
 
 		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> m_cmdAllocator = nullptr;		//!< コマンドアロケーター
