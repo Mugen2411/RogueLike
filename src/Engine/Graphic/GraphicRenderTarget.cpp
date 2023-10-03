@@ -99,6 +99,8 @@ namespace mugen_engine
 			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 			cmdList.GetCommandList()->ResourceBarrier(1, &BarrierDesc);
 
+			cmdList.Execute();
+
 			m_renderTargetHandle = m_rtvHeaps->GetCPUDescriptorHandleForHeapStart();
 			m_renderTargetHandle.ptr += bbIdx * device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 		}
@@ -122,6 +124,8 @@ namespace mugen_engine
 			BarrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
 			BarrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
 			cmdList.GetCommandList()->ResourceBarrier(1, &BarrierDesc);
+
+			cmdList.Execute();
 		}
 	}
 	void MEGraphicRenderTarget::Clear(float clearColor[4], MEGraphicCommandList& cmdList)
@@ -129,5 +133,18 @@ namespace mugen_engine
 		cmdList.GetCommandList()->OMSetRenderTargets(1, &m_renderTargetHandle, true, nullptr);
 		cmdList.GetCommandList()->ClearRenderTargetView(m_renderTargetHandle, clearColor, 0, nullptr);
 		cmdList.GetCommandList()->RSSetViewports(1, &m_viewport);
+		cmdList.Execute();
+	}
+	void MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList& cmdList, 
+		const int topX, const int topY, const int bottomX, const int bottomY)
+	{
+		static D3D12_RECT scissorRect= {};
+		scissorRect.top = topY;
+		scissorRect.left = topX;
+		scissorRect.right = bottomX;
+		scissorRect.bottom = bottomY;
+
+		cmdList.GetCommandList()->RSSetScissorRects(1, &scissorRect);
+		cmdList.Execute();
 	}
 }

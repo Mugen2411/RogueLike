@@ -29,6 +29,10 @@ namespace mugen_engine
 		void ScreenFlip();
 		//! 画面を指定した色で初期化する
 		void ClearScreen(const int R, const int G, const int B);
+		//! 描画可能な範囲を設定する
+		void SetRenderArea(const int topX, const int topY, const int bottomX, const int bottomY);
+		//! 描画可能な範囲を画面全体に設定する
+		void ResetRenderArea();
 
 	private:
 		//! デフォルトコンストラクタ

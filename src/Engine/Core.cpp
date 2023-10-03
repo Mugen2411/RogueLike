@@ -95,6 +95,28 @@ namespace mugen_engine
 	}
 
 	/**********************************************************************//**
+		@brief			描画可能な範囲を設定する
+		@param[in]		topX		左上のX座標
+		@param[in]		topY		左上のY座標
+		@param[in]		bottomX		右下のX座標
+		@param[in]		bottomY		右下のY座標
+		@return			なし
+	*//***********************************************************************/
+	void MECore::SetRenderArea(const int topX, const int topY, const int bottomX, const int bottomY)
+	{
+		m_renderTarget.SetRenderArea(m_graphicCommandList, topX, topY, bottomX, bottomY);
+	}
+	/**********************************************************************//**
+		@brief			描画可能な範囲を画面全体に設定する
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MECore::ResetRenderArea()
+	{
+		SetRenderArea(0, 0, m_windowWidth, m_windowHeight);
+	}
+
+	/**********************************************************************//**
 		@brief			コンストラクタ
 		@param			なし
 		@return			なし

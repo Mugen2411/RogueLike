@@ -35,6 +35,9 @@ namespace mugen_engine
 		void SetBarrierBeforePresent(MEGraphicCommandList& cmdList);
 		//! 画面を指定した色でクリアする
 		void Clear(float clearColor[4], MEGraphicCommandList& cmdList);
+		//! 描画可能な範囲を設定する
+		void SetRenderArea(MEGraphicCommandList& cmdList, 
+			const int topX, const int topY, const int bottomX, const int bottomY);
 	private:
 		const int m_numBackBuffer;												//!< バックバッファの数
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> m_swapchain = nullptr;			//!< スワップチェイン

@@ -49,7 +49,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	};
 	Microsoft::WRL::ComPtr<ID3D12PipelineState> pipelinestate = nullptr;
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> rootsignature = nullptr;
-	D3D12_RECT scissorrect = {};
 	//DX12 描画する物毎に用意されるもの
 	struct VERTEX_DATA
 	{
@@ -437,13 +436,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		gpipeline.SampleDesc.Quality = 0;
 
 		auto result = m_device->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(pipelinestate.ReleaseAndGetAddressOf()));
-	}
-	//ビューポートとシザー矩形
-	{
-		scissorrect.top = 0;
-		scissorrect.left = 0;
-		scissorrect.right = scissorrect.left + window_width;
-		scissorrect.bottom = scissorrect.top + window_height;
 	}*/
 
 	mugen_engine::MECore::GetIns().Initialize(L"MagicaRogue", window_width, window_height);
@@ -457,7 +449,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cmdList->SetGraphicsRootSignature(rootsignature.Get());
 		cmdList->SetDescriptorHeaps(1, basicDescHeap.GetAddressOf());
 		cmdList->SetGraphicsRootDescriptorTable(0, basicDescHeap->GetGPUDescriptorHandleForHeapStart());
-		cmdList->RSSetScissorRects(1, &scissorrect);
 		cmdList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		cmdList->IASetVertexBuffers(0, 1, &vbView);
 		cmdList->IASetIndexBuffer(&ibView);
