@@ -9,7 +9,7 @@ namespace mugen_engine
 		@param			なし
 		@return			インスタンス
 	*//***********************************************************************/
-	MECore& MECore::GetIns() const
+	MECore& MECore::GetIns()
 	{
 		static MECore instance;
 		return instance;
@@ -23,7 +23,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::Initialize(const int window_width, const int window_height)
 	{
-		graphicCore.Initialize(window_width, window_height);
+		MEGraphicDevice::GetIns().Initialize(window_width, window_height);
 	}
 
 	/**********************************************************************//**

@@ -16,7 +16,7 @@ namespace mugen_engine
 	{
 	public:
 		//! インスタンスの取得
-		MECore& GetIns() const;
+		static MECore& GetIns();
 		//! 最初に必ず呼ばれる初期化処理
 		void Initialize(int window_width, int window_height);
 
@@ -25,8 +25,6 @@ namespace mugen_engine
 		MECore();
 		//!コピーコンストラクタ(削除)
 		MECore(const MECore&) = delete;
-
-		MEGraphicCore graphicCore;			//!< グラフィック部分の中核
 	};
 }
 
