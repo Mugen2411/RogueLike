@@ -35,11 +35,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="shader\BasicVertexShader.hlsl" />
-    <FxCompile Include="shader\BasicPixelShader.hlsl" />
+    <FxCompile Include="src\shader\BasicVertexShader.hlsl" />
+    <FxCompile Include="src\shader\BasicPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\BasicShaderHeader.hlsli" />
+    <None Include="src\shader\BasicShaderHeader.hlsli" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Core.h">

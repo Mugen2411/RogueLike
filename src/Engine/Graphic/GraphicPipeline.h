@@ -25,10 +25,14 @@ namespace mugen_engine
 		void Initialize(const MEGraphicDevice& device);
 	private:
 		//! バイトコード周りのエラー処理
-		void _processBlobError(HRESULT result);
+		void _ProcessBlobError(HRESULT result);
+		//! ルートシグネチャの作成
+		void _CreateRootSignarure(const MEGraphicDevice& device);
+		//! シェーダーの読み込み
+		void _LoadShader();
 
-		Microsoft::WRL::ComPtr<ID3DBlob> m_vsBlob = nullptr;							//!< 頂点シェーダーのバイトコード
-		Microsoft::WRL::ComPtr<ID3DBlob> m_psBlob = nullptr;							//!< ピクセルシェーダーのバイトコード
+		std::vector<char> m_vsBlob;													//!< 頂点シェーダーのバイトコード
+		std::vector<char> m_psBlob;													//!< ピクセルシェーダーのバイトコード
 		Microsoft::WRL::ComPtr<ID3DBlob> m_errorBlob = nullptr;						//!< バイトコード読み込みのエラーコード
 
 		Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pipelineState = nullptr;		//!< パイプラインステート

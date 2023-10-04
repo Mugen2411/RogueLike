@@ -1,6 +1,9 @@
-#include "GraphicPipeline.h"
 //! @file GraphicPipeline.cpp
 //! @note Copyright (c) Mugen_GameLab
+
+#include "GraphicPipeline.h"
+
+#include <fstream>
 
 namespace mugen_engine
 {
@@ -18,6 +21,40 @@ namespace mugen_engine
 		@return			なし
 	*//***********************************************************************/
 	void MEGraphicPipeline::Initialize(const MEGraphicDevice& device)
+	{
+		_LoadShader();
+		_CreateRootSignarure(device);
+	}
+
+	/**********************************************************************//**
+		@brief			バイトコード周りのエラー処理
+		@param			result				読み込み時のエラーコード
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicPipeline::_ProcessBlobError(HRESULT result)
+	{
+		if(SUCCEEDED(result))
+		{
+			return;
+		}
+		if(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
+		{
+			::OutputDebugStringA("ファイルが見当たりません");
+			return;
+		}
+		std::string errstr;
+		errstr.resize(m_errorBlob->GetBufferSize());
+		std::copy_n(reinterpret_cast<char*>(m_errorBlob->GetBufferPointer()), m_errorBlob->GetBufferSize(), errstr.begin());
+		errstr += '\n';
+		::OutputDebugStringA(errstr.c_str());
+	}
+
+	/**********************************************************************//**
+		@brief			ルートシグネチャの作成
+		@param			device				デバイス
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicPipeline::_CreateRootSignarure(const MEGraphicDevice& device)
 	{
 		Microsoft::WRL::ComPtr<ID3DBlob> rootSigBlob = nullptr;
 		//サンプラー
@@ -59,31 +96,47 @@ namespace mugen_engine
 		rootSignatureDesc.NumStaticSamplers = 1;
 		auto result = D3D12SerializeRootSignature(&rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,
 			rootSigBlob.ReleaseAndGetAddressOf(), m_errorBlob.ReleaseAndGetAddressOf());
-		_processBlobError(result);
+		_ProcessBlobError(result);
 		result = device.GetDevice()->CreateRootSignature(0, rootSigBlob->GetBufferPointer(), rootSigBlob->GetBufferSize(),
 			IID_PPV_ARGS(m_rootSignature.ReleaseAndGetAddressOf()));
 	}
 
 	/**********************************************************************//**
-		@brief			バイトコード周りのエラー処理
-		@param			result				読み込み時のエラーコード
+		@brief			シェーダーの読み込み
+		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicPipeline::_processBlobError(HRESULT result)
+	void MEGraphicPipeline::_LoadShader()
 	{
-		if(SUCCEEDED(result))
+		//頂点シェーダー
 		{
-			return;
+			std::ifstream ifs("BasicVertexShader.cso", std::ios_base::in | std::ios_base::binary);
+			if(ifs.fail())
+			{
+				OutputDebugStringA("VS Load Error\n");
+				return;
+			}
+			ifs.seekg(0, std::ios::end);
+			size_t size = ifs.tellg();
+			ifs.seekg(0, std::ios::beg);
+			m_vsBlob.resize(size);
+			ifs.read(m_vsBlob.data(), size);
 		}
-		if(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
+
+		//ピクセルシェーダー
 		{
-			::OutputDebugStringA("ファイルが見当たりません");
-			return;
+			std::ifstream ifs("BasicPixelShader.cso", std::ios_base::in | std::ios_base::binary);
+			if(ifs.fail())
+			{
+				OutputDebugStringA("PS Load Error\n");
+				return;
+			}
+
+			ifs.seekg(0, std::ios::end);
+			size_t size = ifs.tellg();
+			ifs.seekg(0, std::ios::beg);
+			m_psBlob.resize(size);
+			ifs.read(m_psBlob.data(), size);
 		}
-		std::string errstr;
-		errstr.resize(m_errorBlob->GetBufferSize());
-		std::copy_n(reinterpret_cast<char*>(m_errorBlob->GetBufferPointer()), m_errorBlob->GetBufferSize(), errstr.begin());
-		errstr += '\n';
-		::OutputDebugStringA(errstr.c_str());
 	}
 }

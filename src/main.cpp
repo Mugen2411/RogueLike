@@ -315,27 +315,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		m_device->CreateConstantBufferView(&cbvDesc, handle);
 	}
 
-	//Blobのエラー処理
-	auto processBlobError = [&](HRESULT result)
-	{
-		
-	};
-
-	//シェーダーオブジェクトの読み込み
-	{
-		auto result = D3DCompileFromFile(L"shader/BasicVertexShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "BasicVS", "vs_5_0",
-			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, vsBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		processBlobError(result);
-		result = D3DCompileFromFile(L"shader/BasicPixelShader.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "BasicPS", "ps_5_0",
-			D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, psBlob.ReleaseAndGetAddressOf(), errorBlob.ReleaseAndGetAddressOf());
-		processBlobError(result);
-	}
-
-	//ルートシグネチャ
-	{
-		
-	}
-
 	//パイプラインステート
 	{
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC gpipeline = {};
