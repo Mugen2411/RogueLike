@@ -1,0 +1,194 @@
+\doxysection{mugen\+\_\+engine\+::MEGraphic\+Pipeline クラス}
+\hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline}{}\label{classmugen__engine_1_1_m_e_graphic_pipeline}\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+
+
+ブレンド等を含むパイプラインを管理するクラス  
+
+
+
+
+{\ttfamily \#include $<$Graphic\+Pipeline.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a49f85dc2d142dafd34abd2d89c64c230}{MEGraphic\+Pipeline}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_aa08ba891cfb409b728ef32bd50ac4179}{Initialize}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a20c0217657c0691fbb45bb51ec9b981f}{\+\_\+process\+Blob\+Error}} (HRESULT result)
+\begin{DoxyCompactList}\small\item\em バイトコード周りのエラー処理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+DBlob $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_ad84370ccd64f4edfe9bab4eaf6abac7d}{m\+\_\+vs\+Blob}} = nullptr
+\begin{DoxyCompactList}\small\item\em 頂点シェーダーのバイトコード \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+DBlob $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_acc75829c33c54c788600f1f6dfc89a4e}{m\+\_\+ps\+Blob}} = nullptr
+\begin{DoxyCompactList}\small\item\em ピクセルシェーダーのバイトコード \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+DBlob $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_aaed99dc47bcb98ab5c20ba0fe743c6e9}{m\+\_\+error\+Blob}} = nullptr
+\begin{DoxyCompactList}\small\item\em バイトコード読み込みのエラーコード \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Pipeline\+State $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a5e227501120c506029b30e03acdbb7d2}{m\+\_\+pipeline\+State}} = nullptr
+\begin{DoxyCompactList}\small\item\em パイプラインステート \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Root\+Signature $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a9cbe587496a50131abed8affe28508ad}{m\+\_\+root\+Signature}} = nullptr
+\begin{DoxyCompactList}\small\item\em ルートシグネチャ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+ブレンド等を含むパイプラインを管理するクラス 
+
+ \mbox{\hyperlink{_graphic_pipeline_8h_source}{Graphic\+Pipeline.\+h}} の \mbox{\hyperlink{_graphic_pipeline_8h_source_l00019}{19}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_a49f85dc2d142dafd34abd2d89c64c230}\label{classmugen__engine_1_1_m_e_graphic_pipeline_a49f85dc2d142dafd34abd2d89c64c230} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!MEGraphicPipeline@{MEGraphicPipeline}}
+\index{MEGraphicPipeline@{MEGraphicPipeline}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{MEGraphicPipeline()}{MEGraphicPipeline()}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::\+MEGraphic\+Pipeline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8cpp_source}{Graphic\+Pipeline.\+cpp}} の \mbox{\hyperlink{_graphic_pipeline_8cpp_source_l00012}{12}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_a20c0217657c0691fbb45bb51ec9b981f}\label{classmugen__engine_1_1_m_e_graphic_pipeline_a20c0217657c0691fbb45bb51ec9b981f} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!\_processBlobError@{\_processBlobError}}
+\index{\_processBlobError@{\_processBlobError}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{\_processBlobError()}{\_processBlobError()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::\+\_\+process\+Blob\+Error (\begin{DoxyParamCaption}\item[{HRESULT}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+バイトコード周りのエラー処理 
+
+
+\begin{DoxyParams}{引数}
+{\em result} & 読み込み時のエラーコード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8cpp_source}{Graphic\+Pipeline.\+cpp}} の \mbox{\hyperlink{_graphic_pipeline_8cpp_source_l00072}{72}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_aa08ba891cfb409b728ef32bd50ac4179}\label{classmugen__engine_1_1_m_e_graphic_pipeline_aa08ba891cfb409b728ef32bd50ac4179} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::\+Initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})}
+
+
+
+初期化 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8cpp_source}{Graphic\+Pipeline.\+cpp}} の \mbox{\hyperlink{_graphic_pipeline_8cpp_source_l00020}{20}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_aaed99dc47bcb98ab5c20ba0fe743c6e9}\label{classmugen__engine_1_1_m_e_graphic_pipeline_aaed99dc47bcb98ab5c20ba0fe743c6e9} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!m\_errorBlob@{m\_errorBlob}}
+\index{m\_errorBlob@{m\_errorBlob}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{m\_errorBlob}{m\_errorBlob}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+DBlob$>$ mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::m\+\_\+error\+Blob = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+バイトコード読み込みのエラーコード 
+
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8h_source}{Graphic\+Pipeline.\+h}} の \mbox{\hyperlink{_graphic_pipeline_8h_source_l00032}{32}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_a5e227501120c506029b30e03acdbb7d2}\label{classmugen__engine_1_1_m_e_graphic_pipeline_a5e227501120c506029b30e03acdbb7d2} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!m\_pipelineState@{m\_pipelineState}}
+\index{m\_pipelineState@{m\_pipelineState}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{m\_pipelineState}{m\_pipelineState}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Pipeline\+State$>$ mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::m\+\_\+pipeline\+State = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+パイプラインステート 
+
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8h_source}{Graphic\+Pipeline.\+h}} の \mbox{\hyperlink{_graphic_pipeline_8h_source_l00034}{34}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_acc75829c33c54c788600f1f6dfc89a4e}\label{classmugen__engine_1_1_m_e_graphic_pipeline_acc75829c33c54c788600f1f6dfc89a4e} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!m\_psBlob@{m\_psBlob}}
+\index{m\_psBlob@{m\_psBlob}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{m\_psBlob}{m\_psBlob}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+DBlob$>$ mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::m\+\_\+ps\+Blob = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ピクセルシェーダーのバイトコード 
+
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8h_source}{Graphic\+Pipeline.\+h}} の \mbox{\hyperlink{_graphic_pipeline_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_a9cbe587496a50131abed8affe28508ad}\label{classmugen__engine_1_1_m_e_graphic_pipeline_a9cbe587496a50131abed8affe28508ad} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!m\_rootSignature@{m\_rootSignature}}
+\index{m\_rootSignature@{m\_rootSignature}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{m\_rootSignature}{m\_rootSignature}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Root\+Signature$>$ mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::m\+\_\+root\+Signature = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ルートシグネチャ 
+
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8h_source}{Graphic\+Pipeline.\+h}} の \mbox{\hyperlink{_graphic_pipeline_8h_source_l00035}{35}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_pipeline_ad84370ccd64f4edfe9bab4eaf6abac7d}\label{classmugen__engine_1_1_m_e_graphic_pipeline_ad84370ccd64f4edfe9bab4eaf6abac7d} 
+\index{mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}!m\_vsBlob@{m\_vsBlob}}
+\index{m\_vsBlob@{m\_vsBlob}!mugen\_engine::MEGraphicPipeline@{mugen\_engine::MEGraphicPipeline}}
+\doxysubsubsection{\texorpdfstring{m\_vsBlob}{m\_vsBlob}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+DBlob$>$ mugen\+\_\+engine\+::\+MEGraphic\+Pipeline\+::m\+\_\+vs\+Blob = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+頂点シェーダーのバイトコード 
+
+
+
+ \mbox{\hyperlink{_graphic_pipeline_8h_source}{Graphic\+Pipeline.\+h}} の \mbox{\hyperlink{_graphic_pipeline_8h_source_l00030}{30}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_pipeline_8h}{Graphic\+Pipeline.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_pipeline_8cpp}{Graphic\+Pipeline.\+cpp}}\end{DoxyCompactItemize}

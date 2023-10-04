@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Engine/Graphic/GraphicPipeline.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_8404e32aee7c4f7d7fc8d76c84d6a5ca.html">Graphic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">GraphicPipeline.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_graphic_pipeline_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef __MugenEngine_GraphicPipeline__</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define __MugenEngine_GraphicPipeline__</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_device_8h.html">GraphicDevice.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemugen__engine.html">mugen_engine</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>: </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">MEGraphicPipeline</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aa08ba891cfb409b728ef32bd50ac4179">Initialize</a>(<span class="keyword">const</span> <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&amp; device);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a20c0217657c0691fbb45bb51ec9b981f">_processBlobError</a>(HRESULT result);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ad84370ccd64f4edfe9bab4eaf6abac7d">   30</a></span>        Microsoft::WRL::ComPtr&lt;ID3DBlob&gt; <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ad84370ccd64f4edfe9bab4eaf6abac7d">m_vsBlob</a> = <span class="keyword">nullptr</span>;                            </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#acc75829c33c54c788600f1f6dfc89a4e">   31</a></span>        Microsoft::WRL::ComPtr&lt;ID3DBlob&gt; <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#acc75829c33c54c788600f1f6dfc89a4e">m_psBlob</a> = <span class="keyword">nullptr</span>;                            </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">   32</a></span>        Microsoft::WRL::ComPtr&lt;ID3DBlob&gt; <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a> = <span class="keyword">nullptr</span>;                     </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5e227501120c506029b30e03acdbb7d2">   34</a></span>        Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5e227501120c506029b30e03acdbb7d2">m_pipelineState</a> = <span class="keyword">nullptr</span>;      </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">   35</a></span>        Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">m_rootSignature</a> = <span class="keyword">nullptr</span>;      </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    };</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span><span class="comment">//__MugenEngine_GraphicPipeline__</span></div>
+<div class="ttc" id="a_graphic_device_8h_html"><div class="ttname"><a href="_graphic_device_8h.html">GraphicDevice.h</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_device_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_device.html">mugen_engine::MEGraphicDevice</a></div><div class="ttdoc">グラフィック制御部分の中核となるクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_device_8h_source.html#l00028">GraphicDevice.h:29</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html">mugen_engine::MEGraphicPipeline</a></div><div class="ttdoc">ブレンド等を含むパイプラインを管理するクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00019">GraphicPipeline.h:20</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a20c0217657c0691fbb45bb51ec9b981f"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a20c0217657c0691fbb45bb51ec9b981f">mugen_engine::MEGraphicPipeline::_processBlobError</a></div><div class="ttdeci">void _processBlobError(HRESULT result)</div><div class="ttdoc">バイトコード周りのエラー処理</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00072">GraphicPipeline.cpp:72</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a49f85dc2d142dafd34abd2d89c64c230"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">mugen_engine::MEGraphicPipeline::MEGraphicPipeline</a></div><div class="ttdeci">MEGraphicPipeline()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00012">GraphicPipeline.cpp:12</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a5e227501120c506029b30e03acdbb7d2"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5e227501120c506029b30e03acdbb7d2">mugen_engine::MEGraphicPipeline::m_pipelineState</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt; m_pipelineState</div><div class="ttdoc">パイプラインステート</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00034">GraphicPipeline.h:34</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a9cbe587496a50131abed8affe28508ad"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">mugen_engine::MEGraphicPipeline::m_rootSignature</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt; m_rootSignature</div><div class="ttdoc">ルートシグネチャ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00035">GraphicPipeline.h:35</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_aa08ba891cfb409b728ef32bd50ac4179"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aa08ba891cfb409b728ef32bd50ac4179">mugen_engine::MEGraphicPipeline::Initialize</a></div><div class="ttdeci">void Initialize(const MEGraphicDevice &amp;device)</div><div class="ttdoc">初期化</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00020">GraphicPipeline.cpp:20</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_aaed99dc47bcb98ab5c20ba0fe743c6e9"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">mugen_engine::MEGraphicPipeline::m_errorBlob</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3DBlob &gt; m_errorBlob</div><div class="ttdoc">バイトコード読み込みのエラーコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00032">GraphicPipeline.h:32</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_acc75829c33c54c788600f1f6dfc89a4e"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#acc75829c33c54c788600f1f6dfc89a4e">mugen_engine::MEGraphicPipeline::m_psBlob</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3DBlob &gt; m_psBlob</div><div class="ttdoc">ピクセルシェーダーのバイトコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00031">GraphicPipeline.h:31</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_ad84370ccd64f4edfe9bab4eaf6abac7d"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ad84370ccd64f4edfe9bab4eaf6abac7d">mugen_engine::MEGraphicPipeline::m_vsBlob</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3DBlob &gt; m_vsBlob</div><div class="ttdoc">頂点シェーダーのバイトコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00030">GraphicPipeline.h:30</a></div></div>
+<div class="ttc" id="anamespacemugen__engine_html"><div class="ttname"><a href="namespacemugen__engine.html">mugen_engine</a></div><div class="ttdef"><b>Definition</b> <a href="_core_8cpp_source.html#l00007">Core.cpp:8</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

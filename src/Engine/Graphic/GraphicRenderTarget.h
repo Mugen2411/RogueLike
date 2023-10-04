@@ -25,7 +25,7 @@ namespace mugen_engine
 		//! コンストラクタ
 		MEGraphicRenderTarget();
 		//! 初期化
-		void Initialize(const MEGraphicDevice& device, ID3D12CommandQueue* cmdQueue,
+		void Initialize(const MEGraphicDevice& device, const MEGraphicCommandList& cmdList,
 			HWND hwnd, const int window_width, const int window_height);
 		//! バックバッファの内容をディスプレイに反映する
 		void Present();

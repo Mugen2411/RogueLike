@@ -28,10 +28,11 @@ namespace mugen_engine
 		m_windowHeight = window_height;
 		m_windowTitle = window_title;
 		_CreateWindow();
-		m_graphicDevice.Initialize();
-		m_graphicCommandList.Initialize(m_graphicDevice.GetDevice());
-		m_renderTarget.Initialize(m_graphicDevice, m_graphicCommandList.GetCommandQueue(),
+		m_device.Initialize();
+		m_commandList.Initialize(m_device);
+		m_renderTarget.Initialize(m_device, m_commandList,
 			m_windowHandle, window_width, window_height);
+		m_pipeline.Initialize(m_device);
 	}
 
 	/**********************************************************************//**
@@ -64,7 +65,7 @@ namespace mugen_engine
 			return -1;
 		}
 
-		m_renderTarget.SetBarrierBeforeRender(m_graphicDevice, m_graphicCommandList);
+		m_renderTarget.SetBarrierBeforeRender(m_device, m_commandList);
 
 		return 0;
 	}
@@ -76,8 +77,8 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::ScreenFlip()
 	{
-		m_renderTarget.SetBarrierBeforePresent(m_graphicCommandList);
-		m_graphicCommandList.Execute();
+		m_renderTarget.SetBarrierBeforePresent(m_commandList);
+		m_commandList.Execute();
 		m_renderTarget.Present();
 	}
 
@@ -91,7 +92,7 @@ namespace mugen_engine
 	void MECore::ClearScreen(const int R, const int G, const int B)
 	{
 		float clearColor[] = { R / 255.0f, G / 255.0f, B / 255.0f, 1.0f };
-		m_renderTarget.Clear(clearColor, m_graphicCommandList);
+		m_renderTarget.Clear(clearColor, m_commandList);
 	}
 
 	/**********************************************************************//**
@@ -104,7 +105,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::SetRenderArea(const int topX, const int topY, const int bottomX, const int bottomY)
 	{
-		m_renderTarget.SetRenderArea(m_graphicCommandList, topX, topY, bottomX, bottomY);
+		m_renderTarget.SetRenderArea(m_commandList, topX, topY, bottomX, bottomY);
 	}
 	/**********************************************************************//**
 		@brief			ï`âÊâ¬î\Ç»îÕàÕÇâÊñ ëSëÃÇ…ê›íËÇ∑ÇÈ

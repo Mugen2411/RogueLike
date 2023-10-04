@@ -2,6 +2,7 @@
 //! @note Copyright (c) Mugen_GameLab
 
 #include "GraphicCommandList.h"
+#include "GraphicDevice.h"
 
 namespace mugen_engine
 {
@@ -18,14 +19,14 @@ namespace mugen_engine
 		@param[in]		device			DX12デバイス
 		@return			インスタンス
 	*//***********************************************************************/
-	void MEGraphicCommandList::Initialize(ID3D12Device * const device)
+	void MEGraphicCommandList::Initialize(const MEGraphicDevice& device)
 	{
 		//DX12 コマンドリストとコマンドアロケーター
 		{
-			auto result = device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(m_cmdAllocator.ReleaseAndGetAddressOf()));
+			auto result = device.GetDevice()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(m_cmdAllocator.ReleaseAndGetAddressOf()));
 		}
 		{
-			auto result = device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_cmdAllocator.Get(),
+			auto result = device.GetDevice()->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_cmdAllocator.Get(),
 				nullptr, IID_PPV_ARGS(m_cmdList.ReleaseAndGetAddressOf()));
 		}
 
@@ -37,12 +38,12 @@ namespace mugen_engine
 			cmdQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL;
 			cmdQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
 
-			auto result = device->CreateCommandQueue(&cmdQueueDesc, IID_PPV_ARGS(m_cmdQueue.ReleaseAndGetAddressOf()));
+			auto result = device.GetDevice()->CreateCommandQueue(&cmdQueueDesc, IID_PPV_ARGS(m_cmdQueue.ReleaseAndGetAddressOf()));
 		}
 
 		//フェンス
 		{
-			auto result = device->CreateFence(m_fenceVal, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(m_fence.ReleaseAndGetAddressOf()));
+			auto result = device.GetDevice()->CreateFence(m_fenceVal, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(m_fence.ReleaseAndGetAddressOf()));
 		}
 	}
 

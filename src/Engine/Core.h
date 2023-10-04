@@ -7,6 +7,7 @@
 #include "Graphic/GraphicDevice.h"
 #include "Graphic/GraphicCommandList.h"
 #include "Graphic/GraphicRenderTarget.h"
+#include "Graphic/GraphicPipeline.h"
 
 namespace mugen_engine
 {
@@ -49,9 +50,10 @@ namespace mugen_engine
 		int m_windowWidth;											//!< ウィンドウの横幅
 		int m_windowHeight;											//!< ウィンドウの高さ
 
-		MEGraphicDevice m_graphicDevice;							//!< グラフィックデバイス
-		MEGraphicCommandList m_graphicCommandList;					//!< グラフィックコマンドリスト
+		MEGraphicDevice m_device;									//!< グラフィックデバイス
+		MEGraphicCommandList m_commandList;							//!< グラフィックコマンドリスト
 		MEGraphicRenderTarget m_renderTarget;						//!< レンダーターゲット
+		MEGraphicPipeline m_pipeline;								//!< パイプライン
 	};
 }
 

@@ -10,6 +10,8 @@
 
 namespace mugen_engine
 {
+	class MEGraphicDevice;
+
 	/**********************************************************************//**
 		@class		MEGraphicCommandList
 		@brief		GPUコマンドを管理するクラス
@@ -20,7 +22,7 @@ namespace mugen_engine
 		//! コンストラクタ
 		MEGraphicCommandList();
 		//! 初期化
-		void Initialize(ID3D12Device * const device);
+		void Initialize(const MEGraphicDevice& device);
 		//! 実行&GPU処理を待機
 		void Execute();
 		//! コマンドキューの生ポインタを取得

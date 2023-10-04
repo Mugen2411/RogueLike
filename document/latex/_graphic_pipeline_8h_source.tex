@@ -1,0 +1,38 @@
+\doxysection{Graphic\+Pipeline.\+h}
+\hypertarget{_graphic_pipeline_8h_source}{}\label{_graphic_pipeline_8h_source}\index{Engine/Graphic/GraphicPipeline.h@{Engine/Graphic/GraphicPipeline.h}}
+\mbox{\hyperlink{_graphic_pipeline_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MugenEngine\_GraphicPipeline\_\_}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MugenEngine\_GraphicPipeline\_\_}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graphic_device_8h}{GraphicDevice.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <d3d12.h>}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <wrl/client.h>}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00019}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{00019}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a49f85dc2d142dafd34abd2d89c64c230}{MEGraphicPipeline}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_aa08ba891cfb409b728ef32bd50ac4179}{Initialize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a20c0217657c0691fbb45bb51ec9b981f}{\_processBlobError}}(HRESULT\ result);}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00030}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_ad84370ccd64f4edfe9bab4eaf6abac7d}{00030}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_ad84370ccd64f4edfe9bab4eaf6abac7d}{m\_vsBlob}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00031}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_acc75829c33c54c788600f1f6dfc89a4e}{00031}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_acc75829c33c54c788600f1f6dfc89a4e}{m\_psBlob}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00032}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_aaed99dc47bcb98ab5c20ba0fe743c6e9}{00032}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3DBlob>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_aaed99dc47bcb98ab5c20ba0fe743c6e9}{m\_errorBlob}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00034}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a5e227501120c506029b30e03acdbb7d2}{00034}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12PipelineState>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a5e227501120c506029b30e03acdbb7d2}{m\_pipelineState}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00035}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a9cbe587496a50131abed8affe28508ad}{00035}}\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12RootSignature>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a9cbe587496a50131abed8affe28508ad}{m\_rootSignature}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00036}00036\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_graphic_pipeline_8h_source_l00039}00039\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_GraphicPipeline\_\_}}
+
+\end{DoxyCode}
