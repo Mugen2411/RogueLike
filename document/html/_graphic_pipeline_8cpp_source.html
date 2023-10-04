@@ -82,95 +82,217 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">GraphicPipeline.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_graphic_pipeline_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_pipeline_8h.html">GraphicPipeline.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemugen__engine.html">mugen_engine</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">   12</a></span>    <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">MEGraphicPipeline::MEGraphicPipeline</a>()</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {}</div>
+<a href="_graphic_pipeline_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_pipeline_8h.html">GraphicPipeline.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemugen__engine.html">mugen_engine</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">   15</a></span>    <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">MEGraphicPipeline::MEGraphicPipeline</a>()</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {}</div>
 </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aa08ba891cfb409b728ef32bd50ac4179">   20</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aa08ba891cfb409b728ef32bd50ac4179">MEGraphicPipeline::Initialize</a>(<span class="keyword">const</span> <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&amp; device)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        Microsoft::WRL::ComPtr&lt;ID3DBlob&gt; rootSigBlob = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="comment">//サンプラー</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        D3D12_STATIC_SAMPLER_DESC samplerDesc = {};</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        samplerDesc.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        samplerDesc.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        samplerDesc.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        samplerDesc.BorderColor = D3D12_STATIC_BORDER_COLOR_OPAQUE_BLACK;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        samplerDesc.Filter = D3D12_FILTER_MIN_MAG_MIP_POINT;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        samplerDesc.MaxLOD = D3D12_FLOAT32_MAX;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        samplerDesc.MinLOD = 0.0f;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        samplerDesc.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        samplerDesc.ComparisonFunc = D3D12_COMPARISON_FUNC_NEVER;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">//ディスクリプタレンジ</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        D3D12_DESCRIPTOR_RANGE descTblRange[2] = {};</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="comment">//テクスチャ用</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        descTblRange[0].NumDescriptors = 1;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        descTblRange[0].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        descTblRange[0].BaseShaderRegister = 0;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        descTblRange[0].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="comment">//定数用</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        descTblRange[1].NumDescriptors = 1;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        descTblRange[1].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_CBV;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        descTblRange[1].BaseShaderRegister = 0;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        descTblRange[1].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment">//ルートパラメーター</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        D3D12_ROOT_PARAMETER rootparam = {};</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">//テクスチャ用</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        rootparam.ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        rootparam.ShaderVisibility = D3D12_SHADER_VISIBILITY_ALL;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        rootparam.DescriptorTable.pDescriptorRanges = descTblRange;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        rootparam.DescriptorTable.NumDescriptorRanges = 2;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">//ルートシグネチャ</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc = {};</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        rootSignatureDesc.pParameters = &amp;rootparam;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        rootSignatureDesc.NumParameters = 1;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        rootSignatureDesc.pStaticSamplers = &amp;samplerDesc;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        rootSignatureDesc.NumStaticSamplers = 1;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">auto</span> result = D3D12SerializeRootSignature(&amp;rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            rootSigBlob.ReleaseAndGetAddressOf(), <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>.ReleaseAndGetAddressOf());</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a20c0217657c0691fbb45bb51ec9b981f">_processBlobError</a>(result);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        result = device.<a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">GetDevice</a>()-&gt;CreateRootSignature(0, rootSigBlob-&gt;GetBufferPointer(), rootSigBlob-&gt;GetBufferSize(),</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            IID_PPV_ARGS(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">m_rootSignature</a>.ReleaseAndGetAddressOf()));</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ac921b3426c1ae880bb12ea67de2154ae">   23</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ac921b3426c1ae880bb12ea67de2154ae">MEGraphicPipeline::Initialize</a>(<span class="keyword">const</span> <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&amp; device, <span class="keyword">const</span> D3D12_INPUT_ELEMENT_DESC inputLayout[], <span class="keyword">const</span> <span class="keywordtype">int</span> layoutSize)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292">_LoadShader</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a72202b58cf14a895104ffdb0aae5f5a3">_CreateRootSignarure</a>(device);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a20c0217657c0691fbb45bb51ec9b981f">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a20c0217657c0691fbb45bb51ec9b981f">MEGraphicPipeline::_processBlobError</a>(HRESULT result)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">if</span>(SUCCEEDED(result))</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span>(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            ::OutputDebugStringA(<span class="stringliteral">&quot;ファイルが見当たりません&quot;</span>);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        std::string errstr;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        errstr.resize(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>-&gt;GetBufferSize());</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::copy_n(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>-&gt;GetBufferPointer()), <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>-&gt;GetBufferSize(), errstr.begin());</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        errstr += <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        ::OutputDebugStringA(errstr.c_str());</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3">MEGraphicPipeline::_ProcessBlobError</a>(HRESULT result)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span>(SUCCEEDED(result))</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span>(result == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            ::OutputDebugStringA(<span class="stringliteral">&quot;ファイルが見当たりません&quot;</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        std::string errstr;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        errstr.resize(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>-&gt;GetBufferSize());</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        std::copy_n(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>-&gt;GetBufferPointer()), <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>-&gt;GetBufferSize(), errstr.begin());</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        errstr += <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        ::OutputDebugStringA(errstr.c_str());</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
 </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a72202b58cf14a895104ffdb0aae5f5a3">   57</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a72202b58cf14a895104ffdb0aae5f5a3">MEGraphicPipeline::_CreateRootSignarure</a>(<span class="keyword">const</span> <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&amp; device)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        Microsoft::WRL::ComPtr&lt;ID3DBlob&gt; rootSigBlob = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="comment">//サンプラー</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        D3D12_STATIC_SAMPLER_DESC samplerDesc = {};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        samplerDesc.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        samplerDesc.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        samplerDesc.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        samplerDesc.BorderColor = D3D12_STATIC_BORDER_COLOR_OPAQUE_BLACK;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        samplerDesc.Filter = D3D12_FILTER_MIN_MAG_MIP_POINT;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        samplerDesc.MaxLOD = D3D12_FLOAT32_MAX;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        samplerDesc.MinLOD = 0.0f;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        samplerDesc.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        samplerDesc.ComparisonFunc = D3D12_COMPARISON_FUNC_NEVER;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">//ディスクリプタレンジ</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        D3D12_DESCRIPTOR_RANGE descTblRange[2] = {};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">//テクスチャ用</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        descTblRange[0].NumDescriptors = 1;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        descTblRange[0].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        descTblRange[0].BaseShaderRegister = 0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        descTblRange[0].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment">//定数用</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        descTblRange[1].NumDescriptors = 1;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        descTblRange[1].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_CBV;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        descTblRange[1].BaseShaderRegister = 0;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        descTblRange[1].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">//ルートパラメーター</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        D3D12_ROOT_PARAMETER rootparam = {};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">//テクスチャ用</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        rootparam.ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        rootparam.ShaderVisibility = D3D12_SHADER_VISIBILITY_ALL;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        rootparam.DescriptorTable.pDescriptorRanges = descTblRange;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        rootparam.DescriptorTable.NumDescriptorRanges = 2;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="comment">//ルートシグネチャ</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc = {};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        rootSignatureDesc.pParameters = &amp;rootparam;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        rootSignatureDesc.NumParameters = 1;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        rootSignatureDesc.pStaticSamplers = &amp;samplerDesc;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        rootSignatureDesc.NumStaticSamplers = 1;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keyword">auto</span> result = D3D12SerializeRootSignature(&amp;rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1_0,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            rootSigBlob.ReleaseAndGetAddressOf(), <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a>.ReleaseAndGetAddressOf());</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3">_ProcessBlobError</a>(result);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        result = device.<a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">GetDevice</a>()-&gt;CreateRootSignature(0, rootSigBlob-&gt;GetBufferPointer(), rootSigBlob-&gt;GetBufferSize(),</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            IID_PPV_ARGS(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">m_rootSignature</a>.ReleaseAndGetAddressOf()));</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292">  109</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292">MEGraphicPipeline::_LoadShader</a>()</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="comment">//頂点シェーダー</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            std::ifstream ifs(<span class="stringliteral">&quot;BasicVertexShader.cso&quot;</span>, std::ios_base::in | std::ios_base::binary);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">if</span>(ifs.fail())</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                OutputDebugStringA(<span class="stringliteral">&quot;VS Load Error\n&quot;</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            ifs.seekg(0, std::ios::end);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordtype">size_t</span> size = ifs.tellg();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            ifs.seekg(0, std::ios::beg);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5881f125352cb0fe4d4ccebe61d9c0ab">m_vsBlob</a>.resize(size);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            ifs.read(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5881f125352cb0fe4d4ccebe61d9c0ab">m_vsBlob</a>.data(), size);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="comment">//ピクセルシェーダー</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            std::ifstream ifs(<span class="stringliteral">&quot;BasicPixelShader.cso&quot;</span>, std::ios_base::in | std::ios_base::binary);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">if</span>(ifs.fail())</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                OutputDebugStringA(<span class="stringliteral">&quot;PS Load Error\n&quot;</span>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            ifs.seekg(0, std::ios::end);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordtype">size_t</span> size = ifs.tellg();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            ifs.seekg(0, std::ios::beg);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a138fa28d476c7b123e93731334bfea8a">m_psBlob</a>.resize(size);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            ifs.read(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a138fa28d476c7b123e93731334bfea8a">m_psBlob</a>.data(), size);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#abc127052ba3e90b694b7c4d40d034225">  148</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#abc127052ba3e90b694b7c4d40d034225">MEGraphicPipeline::_CreatePipelineState</a>(<span class="keyword">const</span> <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&amp; device, <span class="keyword">const</span> D3D12_INPUT_ELEMENT_DESC inputLayout[], <span class="keyword">const</span> <span class="keywordtype">int</span> layoutSize)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        D3D12_GRAPHICS_PIPELINE_STATE_DESC gpipeline = {};</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="comment">//ルートシグネチャ</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        gpipeline.pRootSignature = <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">m_rootSignature</a>.Get();</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="comment">//シェーダー設定</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        gpipeline.VS.pShaderBytecode = <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5881f125352cb0fe4d4ccebe61d9c0ab">m_vsBlob</a>.data();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        gpipeline.VS.BytecodeLength = <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5881f125352cb0fe4d4ccebe61d9c0ab">m_vsBlob</a>.size();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        gpipeline.PS.pShaderBytecode = <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a138fa28d476c7b123e93731334bfea8a">m_psBlob</a>.data();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        gpipeline.PS.BytecodeLength = <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a138fa28d476c7b123e93731334bfea8a">m_psBlob</a>.size();</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="comment">//サンプルマスク</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        gpipeline.SampleMask = D3D12_DEFAULT_SAMPLE_MASK;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="comment">//ラスタライザーステート</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        gpipeline.RasterizerState.MultisampleEnable = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        gpipeline.RasterizerState.CullMode = D3D12_CULL_MODE_NONE;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        gpipeline.RasterizerState.FillMode = D3D12_FILL_MODE_SOLID;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        gpipeline.RasterizerState.DepthClipEnable = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="comment">//ブレンドステート</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        gpipeline.BlendState.AlphaToCoverageEnable = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        gpipeline.BlendState.IndependentBlendEnable = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        D3D12_RENDER_TARGET_BLEND_DESC renderTargetBlendDesc = {};</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        renderTargetBlendDesc.BlendEnable = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        renderTargetBlendDesc.LogicOpEnable = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        renderTargetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        renderTargetBlendDesc.SrcBlend = D3D12_BLEND_SRC_ALPHA;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        renderTargetBlendDesc.DestBlend = D3D12_BLEND_INV_SRC_ALPHA;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="comment">//入力レイアウト</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        gpipeline.InputLayout.pInputElementDescs = inputLayout;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        gpipeline.InputLayout.NumElements = layoutSize;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        gpipeline.IBStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        gpipeline.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="comment">//レンダーターゲット</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        gpipeline.NumRenderTargets = 1;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        gpipeline.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="comment">//アンチエイリアス</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        gpipeline.SampleDesc.Count = 1;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        gpipeline.SampleDesc.Quality = 0;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keyword">auto</span> result = device.<a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">GetDevice</a>()-&gt;CreateGraphicsPipelineState(&amp;gpipeline, IID_PPV_ARGS(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a0e87c52c19c80463cfd0f0a7961f549e">m_pipelineState</a>[0].ReleaseAndGetAddressOf()));</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="comment">//加算ブレンド</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        renderTargetBlendDesc.SrcBlend = D3D12_BLEND_ONE;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        renderTargetBlendDesc.DestBlend = D3D12_BLEND_ONE;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        result = device.<a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">GetDevice</a>()-&gt;CreateGraphicsPipelineState(&amp;gpipeline, IID_PPV_ARGS(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a0e87c52c19c80463cfd0f0a7961f549e">m_pipelineState</a>[1].ReleaseAndGetAddressOf()));</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="comment">//減算ブレンド</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_SUBTRACT;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        renderTargetBlendDesc.SrcBlend = D3D12_BLEND_ONE;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        renderTargetBlendDesc.DestBlend = D3D12_BLEND_ONE;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        result = device.<a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">GetDevice</a>()-&gt;CreateGraphicsPipelineState(&amp;gpipeline, IID_PPV_ARGS(<a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a0e87c52c19c80463cfd0f0a7961f549e">m_pipelineState</a>[2].ReleaseAndGetAddressOf()));</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>}</div>
 <div class="ttc" id="a_graphic_pipeline_8h_html"><div class="ttname"><a href="_graphic_pipeline_8h.html">GraphicPipeline.h</a></div></div>
 <div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_device_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_device.html">mugen_engine::MEGraphicDevice</a></div><div class="ttdoc">グラフィック制御部分の中核となるクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_device_8h_source.html#l00028">GraphicDevice.h:29</a></div></div>
 <div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_device_html_a1b80c568c2b2708835c532d31a748b25"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">mugen_engine::MEGraphicDevice::GetDevice</a></div><div class="ttdeci">ID3D12Device *const GetDevice() const</div><div class="ttdoc">デバイスの生ポインタを取得</div><div class="ttdef"><b>Definition</b> <a href="_graphic_device_8cpp_source.html#l00071">GraphicDevice.cpp:71</a></div></div>
-<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a20c0217657c0691fbb45bb51ec9b981f"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a20c0217657c0691fbb45bb51ec9b981f">mugen_engine::MEGraphicPipeline::_processBlobError</a></div><div class="ttdeci">void _processBlobError(HRESULT result)</div><div class="ttdoc">バイトコード周りのエラー処理</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00072">GraphicPipeline.cpp:72</a></div></div>
-<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a49f85dc2d142dafd34abd2d89c64c230"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">mugen_engine::MEGraphicPipeline::MEGraphicPipeline</a></div><div class="ttdeci">MEGraphicPipeline()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00012">GraphicPipeline.cpp:12</a></div></div>
-<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a9cbe587496a50131abed8affe28508ad"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">mugen_engine::MEGraphicPipeline::m_rootSignature</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt; m_rootSignature</div><div class="ttdoc">ルートシグネチャ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00035">GraphicPipeline.h:35</a></div></div>
-<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_aa08ba891cfb409b728ef32bd50ac4179"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aa08ba891cfb409b728ef32bd50ac4179">mugen_engine::MEGraphicPipeline::Initialize</a></div><div class="ttdeci">void Initialize(const MEGraphicDevice &amp;device)</div><div class="ttdoc">初期化</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00020">GraphicPipeline.cpp:20</a></div></div>
-<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_aaed99dc47bcb98ab5c20ba0fe743c6e9"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">mugen_engine::MEGraphicPipeline::m_errorBlob</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3DBlob &gt; m_errorBlob</div><div class="ttdoc">バイトコード読み込みのエラーコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00032">GraphicPipeline.h:32</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a0e87c52c19c80463cfd0f0a7961f549e"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a0e87c52c19c80463cfd0f0a7961f549e">mugen_engine::MEGraphicPipeline::m_pipelineState</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt; m_pipelineState[3]</div><div class="ttdoc">パイプラインステート</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00040">GraphicPipeline.h:40</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a138fa28d476c7b123e93731334bfea8a"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a138fa28d476c7b123e93731334bfea8a">mugen_engine::MEGraphicPipeline::m_psBlob</a></div><div class="ttdeci">std::vector&lt; char &gt; m_psBlob</div><div class="ttdoc">ピクセルシェーダーのバイトコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00037">GraphicPipeline.h:37</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a2b820883c37d62c06cef397de3704292"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292">mugen_engine::MEGraphicPipeline::_LoadShader</a></div><div class="ttdeci">void _LoadShader()</div><div class="ttdoc">シェーダーの読み込み</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00109">GraphicPipeline.cpp:109</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a49f85dc2d142dafd34abd2d89c64c230"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">mugen_engine::MEGraphicPipeline::MEGraphicPipeline</a></div><div class="ttdeci">MEGraphicPipeline()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00015">GraphicPipeline.cpp:15</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a5881f125352cb0fe4d4ccebe61d9c0ab"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5881f125352cb0fe4d4ccebe61d9c0ab">mugen_engine::MEGraphicPipeline::m_vsBlob</a></div><div class="ttdeci">std::vector&lt; char &gt; m_vsBlob</div><div class="ttdoc">頂点シェーダーのバイトコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00036">GraphicPipeline.h:36</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a58bb08857eed4bb938bd032c8f1584d3"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3">mugen_engine::MEGraphicPipeline::_ProcessBlobError</a></div><div class="ttdeci">void _ProcessBlobError(HRESULT result)</div><div class="ttdoc">バイトコード周りのエラー処理</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00034">GraphicPipeline.cpp:34</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a72202b58cf14a895104ffdb0aae5f5a3"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a72202b58cf14a895104ffdb0aae5f5a3">mugen_engine::MEGraphicPipeline::_CreateRootSignarure</a></div><div class="ttdeci">void _CreateRootSignarure(const MEGraphicDevice &amp;device)</div><div class="ttdoc">ルートシグネチャの作成</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00057">GraphicPipeline.cpp:57</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_a9cbe587496a50131abed8affe28508ad"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">mugen_engine::MEGraphicPipeline::m_rootSignature</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt; m_rootSignature</div><div class="ttdoc">ルートシグネチャ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00041">GraphicPipeline.h:41</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_aaed99dc47bcb98ab5c20ba0fe743c6e9"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">mugen_engine::MEGraphicPipeline::m_errorBlob</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3DBlob &gt; m_errorBlob</div><div class="ttdoc">バイトコード読み込みのエラーコード</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00038">GraphicPipeline.h:38</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_abc127052ba3e90b694b7c4d40d034225"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#abc127052ba3e90b694b7c4d40d034225">mugen_engine::MEGraphicPipeline::_CreatePipelineState</a></div><div class="ttdeci">void _CreatePipelineState(const MEGraphicDevice &amp;device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)</div><div class="ttdoc">パイプラインステートの作成</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00148">GraphicPipeline.cpp:148</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html_ac921b3426c1ae880bb12ea67de2154ae"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ac921b3426c1ae880bb12ea67de2154ae">mugen_engine::MEGraphicPipeline::Initialize</a></div><div class="ttdeci">void Initialize(const MEGraphicDevice &amp;device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)</div><div class="ttdoc">初期化</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8cpp_source.html#l00023">GraphicPipeline.cpp:23</a></div></div>
 <div class="ttc" id="anamespacemugen__engine_html"><div class="ttname"><a href="namespacemugen__engine.html">mugen_engine</a></div><div class="ttdef"><b>Definition</b> <a href="_core_8cpp_source.html#l00007">Core.cpp:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

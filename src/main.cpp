@@ -39,17 +39,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	//DX12 1つだけあれば良さそうなモノ
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> basicDescHeap = nullptr;
-	D3D12_INPUT_ELEMENT_DESC inputLayout[] =
-	{
-		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
-		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0}
-	};
+	
 	//DX12 描画する物毎に用意されるもの
-	struct VERTEX_DATA
-	{
-		DirectX::XMFLOAT3 pos;
-		DirectX::XMFLOAT2 uv;
-	};
+	
 	VERTEX_DATA vertices[4] =
 	{
 		{{-32.0f,-32.0f, 0.0f},{0.0f, 1.0f}},
@@ -67,10 +59,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	Microsoft::WRL::ComPtr<ID3D12Resource> idxBuff = nullptr;
 	D3D12_INDEX_BUFFER_VIEW ibView = {};
 	Microsoft::WRL::ComPtr<ID3D12Resource> texBuff = nullptr;
-	struct TexRGBA
-	{
-		uint8_t R, G, B, A;
-	};
 	DirectX::TexMetadata metadata = {};
 	DirectX::ScratchImage scratchImg = {};
 	DirectX::Image const * img = {};
@@ -313,48 +301,6 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		cbvDesc.SizeInBytes = constBuff->GetDesc().Width;
 
 		m_device->CreateConstantBufferView(&cbvDesc, handle);
-	}
-
-	//パイプラインステート
-	{
-		D3D12_GRAPHICS_PIPELINE_STATE_DESC gpipeline = {};
-		//ルートシグネチャ
-		gpipeline.pRootSignature = rootsignature.Get();
-		//シェーダー設定
-		gpipeline.VS.pShaderBytecode = vsBlob->GetBufferPointer();
-		gpipeline.VS.BytecodeLength = vsBlob->GetBufferSize();
-		gpipeline.PS.pShaderBytecode = psBlob->GetBufferPointer();
-		gpipeline.PS.BytecodeLength = psBlob->GetBufferSize();
-		//サンプルマスク
-		gpipeline.SampleMask = D3D12_DEFAULT_SAMPLE_MASK;
-		//ラスタライザーステート
-		gpipeline.RasterizerState.MultisampleEnable = false;
-		gpipeline.RasterizerState.CullMode = D3D12_CULL_MODE_NONE;
-		gpipeline.RasterizerState.FillMode = D3D12_FILL_MODE_SOLID;
-		gpipeline.RasterizerState.DepthClipEnable = true;
-		//ブレンドステート
-		gpipeline.BlendState.AlphaToCoverageEnable = false;
-		gpipeline.BlendState.IndependentBlendEnable = false;
-
-		D3D12_RENDER_TARGET_BLEND_DESC renderTargetBlendDesc = {};
-		renderTargetBlendDesc.BlendEnable = false;
-		renderTargetBlendDesc.LogicOpEnable = false;
-		renderTargetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
-
-		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
-		//入力レイアウト
-		gpipeline.InputLayout.pInputElementDescs = inputLayout;
-		gpipeline.InputLayout.NumElements = _countof(inputLayout);
-		gpipeline.IBStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED;
-		gpipeline.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
-		//レンダーターゲット
-		gpipeline.NumRenderTargets = 1;
-		gpipeline.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
-		//アンチエイリアス
-		gpipeline.SampleDesc.Count = 1;
-		gpipeline.SampleDesc.Quality = 0;
-
-		auto result = m_device->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(pipelinestate.ReleaseAndGetAddressOf()));
 	}*/
 
 	mugen_engine::MECore::GetIns().Initialize(L"MagicaRogue", window_width, window_height);
@@ -375,5 +321,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 		mugen_engine::MECore::GetIns().ScreenFlip();
 	}
+
+	mugen_engine::MECore::GetIns().Finalize();
+
 	return 0;
 }

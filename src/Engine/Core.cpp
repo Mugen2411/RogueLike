@@ -32,7 +32,7 @@ namespace mugen_engine
 		m_commandList.Initialize(m_device);
 		m_renderTarget.Initialize(m_device, m_commandList,
 			m_windowHandle, window_width, window_height);
-		m_pipeline.Initialize(m_device);
+		m_pipeline.Initialize(m_device, m_inputLayout, _countof(m_inputLayout));
 	}
 
 	/**********************************************************************//**
@@ -122,7 +122,11 @@ namespace mugen_engine
 		@param			‚È‚µ
 		@return			‚È‚µ
 	*//***********************************************************************/
-	MECore::MECore() : m_windowClass {}, m_windowHandle(), m_windowWidth(0), m_windowHeight(0)
+	MECore::MECore() : m_windowClass {}, m_windowHandle(), m_windowWidth(0), m_windowHeight(0), m_inputLayout
+	{
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
+		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0}
+	}
 	{}
 
 	/**********************************************************************//**
@@ -148,7 +152,7 @@ namespace mugen_engine
 			wrc.right - wrc.left, wrc.bottom - wrc.top,
 			nullptr, nullptr, m_windowClass.hInstance, nullptr);
 
-		ShowWindow( m_windowHandle, SW_SHOW);
+		ShowWindow(m_windowHandle, SW_SHOW);
 	}
 }
 

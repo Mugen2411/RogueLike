@@ -9,6 +9,8 @@
 #include "Graphic/GraphicRenderTarget.h"
 #include "Graphic/GraphicPipeline.h"
 
+#include <DirectXMath.h>
+
 namespace mugen_engine
 {
 	/**********************************************************************//**
@@ -18,6 +20,16 @@ namespace mugen_engine
 	class MECore
 	{
 	public:
+		/**********************************************************************//**
+			@struct		VERTEX_DATA
+			@brief		頂点単位のデータ群
+		*//***********************************************************************/
+		struct VERTEX_DATA
+		{
+			DirectX::XMFLOAT3 pos;									//!< 頂点の座標
+			DirectX::XMFLOAT2 uv;									//!< テクスチャのUV座標
+		};
+
 		//! インスタンスの取得
 		static MECore& GetIns();
 		//! 最初に必ず呼び出す初期化処理
@@ -49,6 +61,8 @@ namespace mugen_engine
 		WNDCLASSEX m_windowClass;									//!< ウィンドウクラス
 		int m_windowWidth;											//!< ウィンドウの横幅
 		int m_windowHeight;											//!< ウィンドウの高さ
+
+		D3D12_INPUT_ELEMENT_DESC m_inputLayout[2];						//!< 入力レイアウト
 
 		MEGraphicDevice m_device;									//!< グラフィックデバイス
 		MEGraphicCommandList m_commandList;							//!< グラフィックコマンドリスト

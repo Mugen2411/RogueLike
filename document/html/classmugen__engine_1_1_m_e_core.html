@@ -75,6 +75,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
 <a href="#pri-methods">非公開メンバ関数</a> &#124;
@@ -89,6 +90,12 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_core_8h_source.html">Core.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmugen__engine_1_1_m_e_core_1_1_v_e_r_t_e_x___d_a_t_a.html">VERTEX_DATA</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点単位のデータ群  <a href="structmugen__engine_1_1_m_e_core_1_1_v_e_r_t_e_x___d_a_t_a.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a5c11ae146be6ee69d4b66f2f44d1b984" id="r_a5c11ae146be6ee69d4b66f2f44d1b984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a5c11ae146be6ee69d4b66f2f44d1b984">Initialize</a> (const std::wstring window_title, int window_width, int window_height)</td></tr>
@@ -148,6 +155,9 @@ $(function() {
 <tr class="memitem:a807fa7c2778faf2ec643dacb1d3d278b" id="r_a807fa7c2778faf2ec643dacb1d3d278b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a807fa7c2778faf2ec643dacb1d3d278b">m_windowHeight</a></td></tr>
 <tr class="memdesc:a807fa7c2778faf2ec643dacb1d3d278b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの高さ  <br /></td></tr>
 <tr class="separator:a807fa7c2778faf2ec643dacb1d3d278b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760627ac44f129236b40295096b5e221" id="r_a760627ac44f129236b40295096b5e221"><td class="memItemLeft" align="right" valign="top">D3D12_INPUT_ELEMENT_DESC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a760627ac44f129236b40295096b5e221">m_inputLayout</a> [2]</td></tr>
+<tr class="memdesc:a760627ac44f129236b40295096b5e221"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力レイアウト  <br /></td></tr>
+<tr class="separator:a760627ac44f129236b40295096b5e221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33197eaa98e560a76432fda4ee50c5d5" id="r_a33197eaa98e560a76432fda4ee50c5d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a33197eaa98e560a76432fda4ee50c5d5">m_device</a></td></tr>
 <tr class="memdesc:a33197eaa98e560a76432fda4ee50c5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックデバイス  <br /></td></tr>
 <tr class="separator:a33197eaa98e560a76432fda4ee50c5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,7 +174,7 @@ $(function() {
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>メディアサポートエンジンの中核となるクラス </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00018">18</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00020">20</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="a87f41c5f106912e64bbd2c4585e7fb93" name="a87f41c5f106912e64bbd2c4585e7fb93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87f41c5f106912e64bbd2c4585e7fb93">&#9670;&#160;</a></span>MECore() <span class="overload">[1/2]</span></h2>
@@ -265,7 +275,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00134">134</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00138">138</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -591,7 +601,7 @@ $(function() {
 
 <p>グラフィックコマンドリスト </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00054">54</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00068">68</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -617,7 +627,33 @@ $(function() {
 
 <p>グラフィックデバイス </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00053">53</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00067">67</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a760627ac44f129236b40295096b5e221" name="a760627ac44f129236b40295096b5e221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760627ac44f129236b40295096b5e221">&#9670;&#160;</a></span>m_inputLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_INPUT_ELEMENT_DESC mugen_engine::MECore::m_inputLayout[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>入力レイアウト </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00065">65</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -643,7 +679,7 @@ $(function() {
 
 <p>パイプライン </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00056">56</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00070">70</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -669,7 +705,7 @@ $(function() {
 
 <p>レンダーターゲット </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00055">55</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00069">69</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -695,7 +731,7 @@ $(function() {
 
 <p>ウィンドウクラス </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00049">49</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00061">61</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -721,7 +757,7 @@ $(function() {
 
 <p>ウィンドウハンドル </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00047">47</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00059">59</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -747,7 +783,7 @@ $(function() {
 
 <p>ウィンドウの高さ </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00051">51</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00063">63</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -773,7 +809,7 @@ $(function() {
 
 <p>ウィンドウの名前(ウィンドウクラスの名前) </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00060">60</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -799,7 +835,7 @@ $(function() {
 
 <p>ウィンドウの横幅 </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00050">50</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00062">62</a> 行目に定義があります。</p>
 
 </div>
 </div>

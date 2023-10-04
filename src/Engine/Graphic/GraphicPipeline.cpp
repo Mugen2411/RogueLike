@@ -20,7 +20,7 @@ namespace mugen_engine
 		@param[in]		device			デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicPipeline::Initialize(const MEGraphicDevice& device)
+	void MEGraphicPipeline::Initialize(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)
 	{
 		_LoadShader();
 		_CreateRootSignarure(device);
@@ -138,5 +138,73 @@ namespace mugen_engine
 			m_psBlob.resize(size);
 			ifs.read(m_psBlob.data(), size);
 		}
+	}
+
+	/**********************************************************************//**
+		@brief			パイプラインステートの作成
+		@param			device				デバイス
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicPipeline::_CreatePipelineState(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)
+	{
+		D3D12_GRAPHICS_PIPELINE_STATE_DESC gpipeline = {};
+		//ルートシグネチャ
+		gpipeline.pRootSignature = m_rootSignature.Get();
+		//シェーダー設定
+		gpipeline.VS.pShaderBytecode = m_vsBlob.data();
+		gpipeline.VS.BytecodeLength = m_vsBlob.size();
+		gpipeline.PS.pShaderBytecode = m_psBlob.data();
+		gpipeline.PS.BytecodeLength = m_psBlob.size();
+		//サンプルマスク
+		gpipeline.SampleMask = D3D12_DEFAULT_SAMPLE_MASK;
+		//ラスタライザーステート
+		gpipeline.RasterizerState.MultisampleEnable = false;
+		gpipeline.RasterizerState.CullMode = D3D12_CULL_MODE_NONE;
+		gpipeline.RasterizerState.FillMode = D3D12_FILL_MODE_SOLID;
+		gpipeline.RasterizerState.DepthClipEnable = true;
+		//ブレンドステート
+		gpipeline.BlendState.AlphaToCoverageEnable = false;
+		gpipeline.BlendState.IndependentBlendEnable = false;
+
+		D3D12_RENDER_TARGET_BLEND_DESC renderTargetBlendDesc = {};
+		renderTargetBlendDesc.BlendEnable = true;
+		renderTargetBlendDesc.LogicOpEnable = false;
+		renderTargetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+		renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
+		renderTargetBlendDesc.SrcBlend = D3D12_BLEND_SRC_ALPHA;
+		renderTargetBlendDesc.DestBlend = D3D12_BLEND_INV_SRC_ALPHA;
+
+		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
+		//入力レイアウト
+		gpipeline.InputLayout.pInputElementDescs = inputLayout;
+		gpipeline.InputLayout.NumElements = layoutSize;
+		gpipeline.IBStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED;
+		gpipeline.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
+		//レンダーターゲット
+		gpipeline.NumRenderTargets = 1;
+		gpipeline.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
+		//アンチエイリアス
+		gpipeline.SampleDesc.Count = 1;
+		gpipeline.SampleDesc.Quality = 0;
+
+		auto result = device.GetDevice()->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(m_pipelineState[0].ReleaseAndGetAddressOf()));
+
+		//加算ブレンド
+		renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
+		renderTargetBlendDesc.SrcBlend = D3D12_BLEND_ONE;
+		renderTargetBlendDesc.DestBlend = D3D12_BLEND_ONE;
+
+		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
+
+		result = device.GetDevice()->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(m_pipelineState[1].ReleaseAndGetAddressOf()));
+
+		//減算ブレンド
+		renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_SUBTRACT;
+		renderTargetBlendDesc.SrcBlend = D3D12_BLEND_ONE;
+		renderTargetBlendDesc.DestBlend = D3D12_BLEND_ONE;
+
+		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
+
+		result = device.GetDevice()->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(m_pipelineState[2].ReleaseAndGetAddressOf()));
 	}
 }

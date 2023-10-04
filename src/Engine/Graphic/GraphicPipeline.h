@@ -22,7 +22,7 @@ namespace mugen_engine
 		//! コンストラクタ
 		MEGraphicPipeline();
 		//! 初期化
-		void Initialize(const MEGraphicDevice& device);
+		void Initialize(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize);
 	private:
 		//! バイトコード周りのエラー処理
 		void _ProcessBlobError(HRESULT result);
@@ -30,12 +30,14 @@ namespace mugen_engine
 		void _CreateRootSignarure(const MEGraphicDevice& device);
 		//! シェーダーの読み込み
 		void _LoadShader();
+		//! パイプラインステートの作成
+		void _CreatePipelineState(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize);
 
 		std::vector<char> m_vsBlob;													//!< 頂点シェーダーのバイトコード
 		std::vector<char> m_psBlob;													//!< ピクセルシェーダーのバイトコード
 		Microsoft::WRL::ComPtr<ID3DBlob> m_errorBlob = nullptr;						//!< バイトコード読み込みのエラーコード
 
-		Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pipelineState = nullptr;		//!< パイプラインステート
+		Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pipelineState[3] = { nullptr };		//!< パイプラインステート
 		Microsoft::WRL::ComPtr<ID3D12RootSignature> m_rootSignature = nullptr;		//!< ルートシグネチャ
 	};
 }
