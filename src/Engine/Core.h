@@ -8,8 +8,11 @@
 #include "Graphic/GraphicCommandList.h"
 #include "Graphic/GraphicRenderTarget.h"
 #include "Graphic/GraphicPipeline.h"
+#include "Graphic/GraphicGpuResourceManager.h"
+#include "Graphic/GraphicLoadedImage.h"
 
 #include <DirectXMath.h>
+#include <unordered_map>
 
 namespace mugen_engine
 {
@@ -46,6 +49,8 @@ namespace mugen_engine
 		void SetRenderArea(const int topX, const int topY, const int bottomX, const int bottomY);
 		//! 描画可能な範囲を画面全体に設定する
 		void ResetRenderArea();
+		//! 画像をファイルから読み込む
+		void LoadGraph(std::string gid, std::wstring filepath);
 
 	private:
 		//! デフォルトコンストラクタ
@@ -56,18 +61,21 @@ namespace mugen_engine
 		//! ウィンドウの作成
 		void _CreateWindow();
 		
-		HWND m_windowHandle;										//!< ウィンドウハンドル
-		std::wstring m_windowTitle;									//!< ウィンドウの名前(ウィンドウクラスの名前)
-		WNDCLASSEX m_windowClass;									//!< ウィンドウクラス
-		int m_windowWidth;											//!< ウィンドウの横幅
-		int m_windowHeight;											//!< ウィンドウの高さ
+		HWND m_windowHandle;											//!< ウィンドウハンドル
+		std::wstring m_windowTitle;										//!< ウィンドウの名前(ウィンドウクラスの名前)
+		WNDCLASSEX m_windowClass;										//!< ウィンドウクラス
+		int m_windowWidth;												//!< ウィンドウの横幅
+		int m_windowHeight;												//!< ウィンドウの高さ
 
 		D3D12_INPUT_ELEMENT_DESC m_inputLayout[2];						//!< 入力レイアウト
 
-		MEGraphicDevice m_device;									//!< グラフィックデバイス
-		MEGraphicCommandList m_commandList;							//!< グラフィックコマンドリスト
-		MEGraphicRenderTarget m_renderTarget;						//!< レンダーターゲット
-		MEGraphicPipeline m_pipeline;								//!< パイプライン
+		MEGraphicDevice m_device;										//!< グラフィックデバイス
+		MEGraphicCommandList m_commandList;								//!< グラフィックコマンドリスト
+		MEGraphicRenderTarget m_renderTarget;							//!< レンダーターゲット
+		MEGraphicPipeline m_pipeline;									//!< パイプライン
+		MEGraphicGpuResourceManager m_resourceManager;					//!< GPUリソースマネージャー
+
+		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImageIndices;	//!< 読み込み済み画像のインデックスを辞書で管理する
 	};
 }
 

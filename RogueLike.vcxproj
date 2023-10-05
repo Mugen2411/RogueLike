@@ -137,9 +137,12 @@
   <ItemGroup>
     <ClCompile Include="src\Engine\Core.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicCommandList.cpp" />
+    <ClCompile Include="src\Engine\Graphic\GraphicCpuResourceManager.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicDevice.cpp" />
+    <ClCompile Include="src\Engine\Graphic\GraphicGpuResourceManager.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicPipeline.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicRenderTarget.cpp" />
+    <ClCompile Include="src\Engine\Graphic\GraphicLoadedImage.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,8 +178,10 @@
     <ClInclude Include="src\Engine\Core.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicCommandList.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicDevice.h" />
+    <ClInclude Include="src\Engine\Graphic\GraphicGpuResourceManager.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicPipeline.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicRenderTarget.h" />
+    <ClInclude Include="src\Engine\Graphic\GraphicLoadedImage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

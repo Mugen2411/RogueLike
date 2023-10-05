@@ -33,6 +33,7 @@ namespace mugen_engine
 		m_renderTarget.Initialize(m_device, m_commandList,
 			m_windowHandle, window_width, window_height);
 		m_pipeline.Initialize(m_device, m_inputLayout, _countof(m_inputLayout));
+		m_resourceManager.Initialize(m_device);
 	}
 
 	/**********************************************************************//**
@@ -115,6 +116,12 @@ namespace mugen_engine
 	void MECore::ResetRenderArea()
 	{
 		SetRenderArea(0, 0, m_windowWidth, m_windowHeight);
+	}
+
+	void MECore::LoadGraph(std::string gid, std::wstring filepath)
+	{
+		auto img = m_resourceManager.LoadGraph(filepath, m_device, m_commandList);
+		m_loadedImageIndices[gid] = img;
 	}
 
 	/**********************************************************************//**
