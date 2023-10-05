@@ -96,6 +96,9 @@ $(function() {
 <tr class="memitem:ac921b3426c1ae880bb12ea67de2154ae" id="r_ac921b3426c1ae880bb12ea67de2154ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ac921b3426c1ae880bb12ea67de2154ae">Initialize</a> (const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)</td></tr>
 <tr class="memdesc:ac921b3426c1ae880bb12ea67de2154ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化  <br /></td></tr>
 <tr class="separator:ac921b3426c1ae880bb12ea67de2154ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d712861469c0a2c65eed9fec8b294a" id="r_a57d712861469c0a2c65eed9fec8b294a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a57d712861469c0a2c65eed9fec8b294a">SetPipelineState</a> (const int type, <a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;cmdList)</td></tr>
+<tr class="memdesc:a57d712861469c0a2c65eed9fec8b294a"><td class="mdescLeft">&#160;</td><td class="mdescRight">パイプラインステートの設定  <br /></td></tr>
+<tr class="separator:a57d712861469c0a2c65eed9fec8b294a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
@@ -213,7 +216,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00148">148</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00149">149</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -250,7 +253,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00057">57</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -286,7 +289,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00109">109</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00110">110</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -323,7 +326,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00034">34</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00035">35</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -372,6 +375,46 @@ $(function() {
 
 </div>
 </div>
+<a id="a57d712861469c0a2c65eed9fec8b294a" name="a57d712861469c0a2c65eed9fec8b294a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d712861469c0a2c65eed9fec8b294a">&#9670;&#160;</a></span>SetPipelineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::SetPipelineState </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmdList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>パイプラインステートの設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>描画タイプ(0=透過・1=加算・2=減算) </td></tr>
+    <tr><td class="paramname">cmdList</td><td>コマンドリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00221">221</a> 行目に定義があります。</p>
+
+</div>
+</div>
 <h2 class="groupheader">メンバ詳解</h2>
 <a id="aaed99dc47bcb98ab5c20ba0fe743c6e9" name="aaed99dc47bcb98ab5c20ba0fe743c6e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaed99dc47bcb98ab5c20ba0fe743c6e9">&#9670;&#160;</a></span>m_errorBlob</h2>
@@ -395,7 +438,7 @@ $(function() {
 
 <p>バイトコード読み込みのエラーコード </p>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00038">38</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00040">40</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -421,7 +464,7 @@ $(function() {
 
 <p>パイプラインステート </p>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00040">40</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00042">42</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -447,7 +490,7 @@ $(function() {
 
 <p>ピクセルシェーダーのバイトコード </p>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00037">37</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00039">39</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -473,7 +516,7 @@ $(function() {
 
 <p>ルートシグネチャ </p>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00041">41</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00043">43</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -499,7 +542,7 @@ $(function() {
 
 <p>頂点シェーダーのバイトコード </p>
 
-<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00036">36</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00038">38</a> 行目に定義があります。</p>
 
 </div>
 </div>

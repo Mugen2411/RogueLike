@@ -24,6 +24,7 @@ namespace mugen_engine
 	{
 		_LoadShader();
 		_CreateRootSignarure(device);
+		_CreatePipelineState(device, inputLayout, layoutSize);
 	}
 
 	/**********************************************************************//**
@@ -171,8 +172,11 @@ namespace mugen_engine
 		renderTargetBlendDesc.LogicOpEnable = false;
 		renderTargetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
 		renderTargetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
+		renderTargetBlendDesc.BlendOpAlpha = D3D12_BLEND_OP_ADD;
 		renderTargetBlendDesc.SrcBlend = D3D12_BLEND_SRC_ALPHA;
 		renderTargetBlendDesc.DestBlend = D3D12_BLEND_INV_SRC_ALPHA;
+		renderTargetBlendDesc.SrcBlendAlpha = D3D12_BLEND_ONE;
+		renderTargetBlendDesc.DestBlendAlpha = D3D12_BLEND_ZERO;
 
 		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
 		//入力レイアウト
@@ -206,5 +210,17 @@ namespace mugen_engine
 		gpipeline.BlendState.RenderTarget[0] = renderTargetBlendDesc;
 
 		result = device.GetDevice()->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(m_pipelineState[2].ReleaseAndGetAddressOf()));
+	}
+
+	/**********************************************************************//**
+		@brief			パイプラインステートの設定
+		@param			type				描画タイプ(0=透過・1=加算・2=減算)
+		@param			cmdList				コマンドリスト
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicPipeline::SetPipelineState(const int type, MEGraphicCommandList& cmdList)
+	{
+		cmdList.GetCommandList()->SetPipelineState(m_pipelineState[type].Get());
+		cmdList.GetCommandList()->SetGraphicsRootSignature(m_rootSignature.Get());
 	}
 }

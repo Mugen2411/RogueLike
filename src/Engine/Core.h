@@ -23,16 +23,6 @@ namespace mugen_engine
 	class MECore
 	{
 	public:
-		/**********************************************************************//**
-			@struct		VERTEX_DATA
-			@brief		頂点単位のデータ群
-		*//***********************************************************************/
-		struct VERTEX_DATA
-		{
-			DirectX::XMFLOAT3 pos;									//!< 頂点の座標
-			DirectX::XMFLOAT2 uv;									//!< テクスチャのUV座標
-		};
-
 		//! インスタンスの取得
 		static MECore& GetIns();
 		//! 最初に必ず呼び出す初期化処理
@@ -51,6 +41,8 @@ namespace mugen_engine
 		void ResetRenderArea();
 		//! 画像をファイルから読み込む
 		void LoadGraph(std::string gid, std::wstring filepath);
+		//! 読み込み済み画像を取得する
+		MEGraphicLoadedImage& GetGraph(std::string gid);
 
 	private:
 		//! デフォルトコンストラクタ
@@ -76,6 +68,7 @@ namespace mugen_engine
 		MEGraphicGpuResourceManager m_resourceManager;					//!< GPUリソースマネージャー
 
 		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImageIndices;	//!< 読み込み済み画像のインデックスを辞書で管理する
+		friend MEGraphicLoadedImage;
 	};
 }
 

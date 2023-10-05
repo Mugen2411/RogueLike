@@ -23,6 +23,8 @@ namespace mugen_engine
 		MEGraphicPipeline();
 		//! 初期化
 		void Initialize(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize);
+		//! パイプラインステートの設定
+		void SetPipelineState(const int type, MEGraphicCommandList& cmdList);
 	private:
 		//! バイトコード周りのエラー処理
 		void _ProcessBlobError(HRESULT result);

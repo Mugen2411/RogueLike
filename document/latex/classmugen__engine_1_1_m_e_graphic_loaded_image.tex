@@ -1,0 +1,277 @@
+\doxysection{mugen\+\_\+engine\+::MEGraphic\+Loaded\+Image クラス}
+\hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image}{}\label{classmugen__engine_1_1_m_e_graphic_loaded_image}\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+
+
+読み込み済み画像を扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Graphic\+Loaded\+Image.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a3de99dbfbe0d931267fba3d17feb99d6}{MEGraphic\+Loaded\+Image}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_ae734e719d7d4c8d12882ad4a0156dbe0}{MEGraphic\+Loaded\+Image}} (uint32\+\_\+t index, size\+\_\+t width, size\+\_\+t height, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*}cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*}resource\+Manager, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_aa699ad7cf74ff2f2099a25bc46129630}{Draw\+Graph}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em 指定した座標に描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a7bce92d332c712e1e0b2c71919caca7e}{m\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em 読み込み画像が何番目か \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a0c745754634f1ff5e86934be74ace797}{m\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em 画像の横幅 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a726bbd91160b577c578509acc00cd39d}{m\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em 画像の高さ \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_af362a449e0893c88f9f49989f4b66e29}{m\+\_\+x\+Divide\+Num}}
+\begin{DoxyCompactList}\small\item\em 横方向の分割数 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_abf445d375e000f8b8109df2a0d8a78fb}{m\+\_\+y\+Divide\+Num}}
+\begin{DoxyCompactList}\small\item\em 縦方向の分割数 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_ab9dee7ae64cb84b0fd2392025dcfec80}{m\+\_\+vertices}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em 板ポリゴンとして表示するための頂点 \end{DoxyCompactList}\item 
+Direct\+X\+::\+XMMATRIX \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a5af306007f2e5d84d6b395b1bd4ac98f}{m\+\_\+matrix}}
+\begin{DoxyCompactList}\small\item\em 変形行列 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_ad55e9d97d68869baf3928d0a15cfc79a}{m\+\_\+cmd\+List}}
+\begin{DoxyCompactList}\small\item\em コマンドリスト \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a84a41cdb0849bade94f0434f84749459}{m\+\_\+resource\+Manager}}
+\begin{DoxyCompactList}\small\item\em リソースマネージャー \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_ad892ac850fd0de2d405d441ca95c2d63}{m\+\_\+pipeline}}
+\begin{DoxyCompactList}\small\item\em パイプライン \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+読み込み済み画像を扱うクラス 
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00020}{20}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a3de99dbfbe0d931267fba3d17feb99d6}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a3de99dbfbe0d931267fba3d17feb99d6} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!MEGraphicLoadedImage@{MEGraphicLoadedImage}}
+\index{MEGraphicLoadedImage@{MEGraphicLoadedImage}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{MEGraphicLoadedImage()}{MEGraphicLoadedImage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+MEGraphic\+Loaded\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00015}{15}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_ae734e719d7d4c8d12882ad4a0156dbe0}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_ae734e719d7d4c8d12882ad4a0156dbe0} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!MEGraphicLoadedImage@{MEGraphicLoadedImage}}
+\index{MEGraphicLoadedImage@{MEGraphicLoadedImage}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{MEGraphicLoadedImage()}{MEGraphicLoadedImage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+MEGraphic\+Loaded\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*}}]{cmd\+List,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*}}]{resource\+Manager,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 画像読み込み時のインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & 画像の横幅 \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & 画像の高さ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00026}{26}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_aa699ad7cf74ff2f2099a25bc46129630}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_aa699ad7cf74ff2f2099a25bc46129630} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!DrawGraph@{DrawGraph}}
+\index{DrawGraph@{DrawGraph}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{DrawGraph()}{DrawGraph()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+Draw\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+指定した座標に描画 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 描画する中心の\+Y座標 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00043}{43}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_ad55e9d97d68869baf3928d0a15cfc79a}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_ad55e9d97d68869baf3928d0a15cfc79a} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_cmdList@{m\_cmdList}}
+\index{m\_cmdList@{m\_cmdList}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_cmdList}{m\_cmdList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+cmd\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コマンドリスト 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00038}{38}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a726bbd91160b577c578509acc00cd39d}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a726bbd91160b577c578509acc00cd39d} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_height@{m\_height}}
+\index{m\_height@{m\_height}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_height}{m\_height}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+画像の高さ 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00033}{33}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a7bce92d332c712e1e0b2c71919caca7e}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a7bce92d332c712e1e0b2c71919caca7e} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_index@{m\_index}}
+\index{m\_index@{m\_index}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_index}{m\_index}}
+{\footnotesize\ttfamily uint32\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+読み込み画像が何番目か 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a5af306007f2e5d84d6b395b1bd4ac98f}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a5af306007f2e5d84d6b395b1bd4ac98f} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_matrix@{m\_matrix}}
+\index{m\_matrix@{m\_matrix}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_matrix}{m\_matrix}}
+{\footnotesize\ttfamily Direct\+X\+::\+XMMATRIX mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+変形行列 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00037}{37}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_ad892ac850fd0de2d405d441ca95c2d63}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_ad892ac850fd0de2d405d441ca95c2d63} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_pipeline@{m\_pipeline}}
+\index{m\_pipeline@{m\_pipeline}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_pipeline}{m\_pipeline}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+pipeline\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+パイプライン 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00040}{40}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a84a41cdb0849bade94f0434f84749459}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a84a41cdb0849bade94f0434f84749459} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_resourceManager@{m\_resourceManager}}
+\index{m\_resourceManager@{m\_resourceManager}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_resourceManager}{m\_resourceManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+resource\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+リソースマネージャー 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00039}{39}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_ab9dee7ae64cb84b0fd2392025dcfec80}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_ab9dee7ae64cb84b0fd2392025dcfec80} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_vertices@{m\_vertices}}
+\index{m\_vertices@{m\_vertices}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_vertices}{m\_vertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+vertices\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+板ポリゴンとして表示するための頂点 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00036}{36}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a0c745754634f1ff5e86934be74ace797}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a0c745754634f1ff5e86934be74ace797} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_width@{m\_width}}
+\index{m\_width@{m\_width}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_width}{m\_width}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+画像の横幅 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00032}{32}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_af362a449e0893c88f9f49989f4b66e29}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_af362a449e0893c88f9f49989f4b66e29} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_xDivideNum@{m\_xDivideNum}}
+\index{m\_xDivideNum@{m\_xDivideNum}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_xDivideNum}{m\_xDivideNum}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+x\+Divide\+Num\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+横方向の分割数 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00034}{34}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_abf445d375e000f8b8109df2a0d8a78fb}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_abf445d375e000f8b8109df2a0d8a78fb} 
+\index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!m\_yDivideNum@{m\_yDivideNum}}
+\index{m\_yDivideNum@{m\_yDivideNum}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
+\doxysubsubsection{\texorpdfstring{m\_yDivideNum}{m\_yDivideNum}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::m\+\_\+y\+Divide\+Num\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+縦方向の分割数 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00035}{35}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_loaded_image_8h}{Graphic\+Loaded\+Image.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_loaded_image_8cpp}{Graphic\+Loaded\+Image.\+cpp}}\end{DoxyCompactItemize}

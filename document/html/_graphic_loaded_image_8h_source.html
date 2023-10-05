@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Engine/Graphic/GraphicLoadedImage.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_8404e32aee7c4f7d7fc8d76c84d6a5ca.html">Graphic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">GraphicLoadedImage.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_graphic_loaded_image_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef __MugenEngine_GraphicLoadedImage__</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define __MugenEngine_GraphicLoadedImage__</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_command_list_8h.html">GraphicCommandList.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_pipeline_8h.html">GraphicPipeline.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_struct_8h.html">GraphicStruct.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemugen__engine.html">mugen_engine</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">class </span>MEGraphicGpuResourceManager;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html">   20</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html">MEGraphicLoadedImage</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a3de99dbfbe0d931267fba3d17feb99d6">MEGraphicLoadedImage</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a3de99dbfbe0d931267fba3d17feb99d6">MEGraphicLoadedImage</a>(uint32_t index, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height, </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a>* cmdList, <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html">MEGraphicGpuResourceManager</a>* resourceManager, <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a>* pipeline);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#aa699ad7cf74ff2f2099a25bc46129630">DrawGraph</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a7bce92d332c712e1e0b2c71919caca7e">   31</a></span>        uint32_t <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a7bce92d332c712e1e0b2c71919caca7e">m_index</a>;                                           </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a0c745754634f1ff5e86934be74ace797">   32</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a0c745754634f1ff5e86934be74ace797">m_width</a>;                                             </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a726bbd91160b577c578509acc00cd39d">   33</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a726bbd91160b577c578509acc00cd39d">m_height</a>;                                            </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#af362a449e0893c88f9f49989f4b66e29">   34</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#af362a449e0893c88f9f49989f4b66e29">m_xDivideNum</a>;                                        </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#abf445d375e000f8b8109df2a0d8a78fb">   35</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#abf445d375e000f8b8109df2a0d8a78fb">m_yDivideNum</a>;                                        </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ab9dee7ae64cb84b0fd2392025dcfec80">   36</a></span>        <a class="code hl_struct" href="structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html">VERTEX_DATA</a> <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ab9dee7ae64cb84b0fd2392025dcfec80">m_vertices</a>[4];                                  </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a5af306007f2e5d84d6b395b1bd4ac98f">   37</a></span>        DirectX::XMMATRIX <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a5af306007f2e5d84d6b395b1bd4ac98f">m_matrix</a>;                                 </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ad55e9d97d68869baf3928d0a15cfc79a">   38</a></span>        <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a>* <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ad55e9d97d68869baf3928d0a15cfc79a">m_cmdList</a>;                            </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a84a41cdb0849bade94f0434f84749459">   39</a></span>        <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html">MEGraphicGpuResourceManager</a>* <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a84a41cdb0849bade94f0434f84749459">m_resourceManager</a>;             </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ad892ac850fd0de2d405d441ca95c2d63">   40</a></span>        <a class="code hl_class" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a>* <a class="code hl_variable" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ad892ac850fd0de2d405d441ca95c2d63">m_pipeline</a>;                              </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif</span><span class="comment">//__MugenEngine_GraphicLoadedImage__</span></div>
+<div class="ttc" id="a_graphic_command_list_8h_html"><div class="ttname"><a href="_graphic_command_list_8h.html">GraphicCommandList.h</a></div></div>
+<div class="ttc" id="a_graphic_pipeline_8h_html"><div class="ttname"><a href="_graphic_pipeline_8h.html">GraphicPipeline.h</a></div></div>
+<div class="ttc" id="a_graphic_struct_8h_html"><div class="ttname"><a href="_graphic_struct_8h.html">GraphicStruct.h</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_command_list_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_command_list.html">mugen_engine::MEGraphicCommandList</a></div><div class="ttdoc">GPUコマンドを管理するクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_command_list_8h_source.html#l00019">GraphicCommandList.h:20</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_gpu_resource_manager_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html">mugen_engine::MEGraphicGpuResourceManager</a></div><div class="ttdoc">GPU資源を管理するクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_gpu_resource_manager_8h_source.html#l00024">GraphicGpuResourceManager.h:25</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html">mugen_engine::MEGraphicLoadedImage</a></div><div class="ttdoc">読み込み済み画像を扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00020">GraphicLoadedImage.h:21</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_a0c745754634f1ff5e86934be74ace797"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a0c745754634f1ff5e86934be74ace797">mugen_engine::MEGraphicLoadedImage::m_width</a></div><div class="ttdeci">size_t m_width</div><div class="ttdoc">画像の横幅</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00032">GraphicLoadedImage.h:32</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_a3de99dbfbe0d931267fba3d17feb99d6"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a3de99dbfbe0d931267fba3d17feb99d6">mugen_engine::MEGraphicLoadedImage::MEGraphicLoadedImage</a></div><div class="ttdeci">MEGraphicLoadedImage()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8cpp_source.html#l00015">GraphicLoadedImage.cpp:15</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_a5af306007f2e5d84d6b395b1bd4ac98f"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a5af306007f2e5d84d6b395b1bd4ac98f">mugen_engine::MEGraphicLoadedImage::m_matrix</a></div><div class="ttdeci">DirectX::XMMATRIX m_matrix</div><div class="ttdoc">変形行列</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00037">GraphicLoadedImage.h:37</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_a726bbd91160b577c578509acc00cd39d"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a726bbd91160b577c578509acc00cd39d">mugen_engine::MEGraphicLoadedImage::m_height</a></div><div class="ttdeci">size_t m_height</div><div class="ttdoc">画像の高さ</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00033">GraphicLoadedImage.h:33</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_a7bce92d332c712e1e0b2c71919caca7e"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a7bce92d332c712e1e0b2c71919caca7e">mugen_engine::MEGraphicLoadedImage::m_index</a></div><div class="ttdeci">uint32_t m_index</div><div class="ttdoc">読み込み画像が何番目か</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00031">GraphicLoadedImage.h:31</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_a84a41cdb0849bade94f0434f84749459"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a84a41cdb0849bade94f0434f84749459">mugen_engine::MEGraphicLoadedImage::m_resourceManager</a></div><div class="ttdeci">MEGraphicGpuResourceManager * m_resourceManager</div><div class="ttdoc">リソースマネージャー</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00039">GraphicLoadedImage.h:39</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_aa699ad7cf74ff2f2099a25bc46129630"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#aa699ad7cf74ff2f2099a25bc46129630">mugen_engine::MEGraphicLoadedImage::DrawGraph</a></div><div class="ttdeci">void DrawGraph(int x, int y)</div><div class="ttdoc">指定した座標に描画</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8cpp_source.html#l00043">GraphicLoadedImage.cpp:43</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_ab9dee7ae64cb84b0fd2392025dcfec80"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ab9dee7ae64cb84b0fd2392025dcfec80">mugen_engine::MEGraphicLoadedImage::m_vertices</a></div><div class="ttdeci">VERTEX_DATA m_vertices[4]</div><div class="ttdoc">板ポリゴンとして表示するための頂点</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00036">GraphicLoadedImage.h:36</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_abf445d375e000f8b8109df2a0d8a78fb"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#abf445d375e000f8b8109df2a0d8a78fb">mugen_engine::MEGraphicLoadedImage::m_yDivideNum</a></div><div class="ttdeci">size_t m_yDivideNum</div><div class="ttdoc">縦方向の分割数</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00035">GraphicLoadedImage.h:35</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_ad55e9d97d68869baf3928d0a15cfc79a"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ad55e9d97d68869baf3928d0a15cfc79a">mugen_engine::MEGraphicLoadedImage::m_cmdList</a></div><div class="ttdeci">MEGraphicCommandList * m_cmdList</div><div class="ttdoc">コマンドリスト</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00038">GraphicLoadedImage.h:38</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_ad892ac850fd0de2d405d441ca95c2d63"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ad892ac850fd0de2d405d441ca95c2d63">mugen_engine::MEGraphicLoadedImage::m_pipeline</a></div><div class="ttdeci">MEGraphicPipeline * m_pipeline</div><div class="ttdoc">パイプライン</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00040">GraphicLoadedImage.h:40</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_loaded_image_html_af362a449e0893c88f9f49989f4b66e29"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#af362a449e0893c88f9f49989f4b66e29">mugen_engine::MEGraphicLoadedImage::m_xDivideNum</a></div><div class="ttdeci">size_t m_xDivideNum</div><div class="ttdoc">横方向の分割数</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00034">GraphicLoadedImage.h:34</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_pipeline_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_pipeline.html">mugen_engine::MEGraphicPipeline</a></div><div class="ttdoc">ブレンド等を含むパイプラインを管理するクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_pipeline_8h_source.html#l00019">GraphicPipeline.h:20</a></div></div>
+<div class="ttc" id="anamespacemugen__engine_html"><div class="ttname"><a href="namespacemugen__engine.html">mugen_engine</a></div><div class="ttdef"><b>Definition</b> <a href="_core_8cpp_source.html#l00007">Core.cpp:8</a></div></div>
+<div class="ttc" id="astructmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a_html"><div class="ttname"><a href="structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html">mugen_engine::VERTEX_DATA</a></div><div class="ttdoc">頂点単位のデータ群</div><div class="ttdef"><b>Definition</b> <a href="_graphic_struct_8h_source.html#l00015">GraphicStruct.h:16</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

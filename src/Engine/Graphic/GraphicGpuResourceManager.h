@@ -7,6 +7,7 @@
 #include "GraphicDevice.h"
 #include "GraphicCommandList.h"
 #include "GraphicLoadedImage.h"
+#include "GraphicStruct.h"
 
 #include <d3d12.h>
 #include <DirectXMath.h>
@@ -28,7 +29,16 @@ namespace mugen_engine
 		//! 初期化
 		void Initialize(const MEGraphicDevice& device);
 		//! 画像を読み込む
-		MEGraphicLoadedImage LoadGraph(const std::wstring& filepath, const MEGraphicDevice& device, MEGraphicCommandList& cmdList);
+		MEGraphicLoadedImage LoadGraph(const std::wstring& filepath, const MEGraphicDevice& device,
+			MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline);
+		//! GPUリソースをコマンドリストに設定する
+		void SetGpuResource(const uint32_t index, MEGraphicCommandList& cmdList);
+		//! 頂点データをバッファに書き込む
+		void UploadVertexData(VERTEX_DATA* vertices, size_t vertexNum, MEGraphicCommandList& cmdList);
+		//! 定数バッファに書き込む
+		void UploadConstantData(const uint32_t index, DirectX::XMMATRIX matrix, MEGraphicCommandList& cmdList);
+		//! 描画対象としてセットする
+		void SetRenderCommand(MEGraphicCommandList& cmdList);
 	private:
 		//! 定数バッファを確保する
 		void _InitalizeConstantBuffer(uint32_t index, const MEGraphicDevice& device);
@@ -53,14 +63,18 @@ namespace mugen_engine
 			MEGraphicCommandList& cmdList);
 		//! テクスチャアップロード前のバリア設定
 		void _SetBarrierBeforeUploadTexture(uint32_t index, const MEGraphicCommandList& cmdList);
+		//! 頂点バッファの作成
+		void _CreateVertexBuffer(size_t vertexNum, const MEGraphicDevice& device);
 
-		uint32_t m_currentIndex = 0;													//!< 現在割り当てられている画像枚数
+		uint32_t m_currentIndex = 0;												//!< 現在割り当てられている画像枚数
 		uint32_t m_maxResourceView = 1024;											//!< 割り当てられる画像枚数の最大値
 		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_basicDescHeap = nullptr;		//!< ディスクリプタヒープ
 		uint32_t m_descriptorHeapIncrementSize;										//!< SRVとCBVにおけるディスクリプタヒープ上のサイズ
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_textureBuffers;		//!< テクスチャのバッファ
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_constantBuffers;		//!< 定数バッファ
 		Microsoft::WRL::ComPtr<ID3D12Resource> m_uploadBuffer = nullptr;			//!< アップロード用の中間バッファ
+		Microsoft::WRL::ComPtr<ID3D12Resource> m_vertexBuffer = nullptr;			//!< 頂点バッファ
+		D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView;								//!< 頂点バッファビュー
 	};
 }
 

@@ -1,0 +1,682 @@
+\doxysection{mugen\+\_\+engine\+::MEGraphic\+Gpu\+Resource\+Manager クラス}
+\hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+
+
+GPU資源を管理するクラス  
+
+
+
+
+{\ttfamily \#include $<$Graphic\+Gpu\+Resource\+Manager.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4ea2d82eec97a72993792da64adfbae6}{MEGraphic\+Gpu\+Resource\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af2f0ffe256cb678862813d49cd5cdef5}{Initialize}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40ee9aad4c4d9e9ccb926f13054e17a2}{Load\+Graph}} (const std\+::wstring \&filepath, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&pipeline)
+\begin{DoxyCompactList}\small\item\em 画像を読み込む \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a}{Set\+Gpu\+Resource}} (const uint32\+\_\+t index, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em GPUリソースをコマンドリストに設定する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab6718cfba5dab38e4b7e3080065aea0d}{Upload\+Vertex\+Data}} (\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} \texorpdfstring{$\ast$}{*}vertices, size\+\_\+t vertex\+Num, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em 頂点データをバッファに書き込む \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a19089010782083c1427ef9d7517ccee5}{Upload\+Constant\+Data}} (const uint32\+\_\+t index, Direct\+X\+::\+XMMATRIX matrix, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em 定数バッファに書き込む \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9}{Set\+Render\+Command}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em 描画対象としてセットする \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{\+\_\+\+Initalize\+Constant\+Buffer}} (uint32\+\_\+t index, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 定数バッファを確保する \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\+\_\+\+Get\+Alignmented\+Size}} (size\+\_\+t size, size\+\_\+t alignment)
+\begin{DoxyCompactList}\small\item\em アライメントサイズを取得 \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{\+\_\+\+Get\+Shader\+Resource\+Index}} ()
+\begin{DoxyCompactList}\small\item\em シェーダーリソースビューとコンスタントバッファビューを生成しても良いインデックスを返す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{\+\_\+\+Create\+Srv}} (uint32\+\_\+t index, const DXGI\+\_\+\+FORMAT format, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 指定したインデックスにフォーマットを参考に\+SRVを構築する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{\+\_\+\+Create\+Cbv}} (uint32\+\_\+t index, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 指定したインデックスに\+CBVを構築する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{\+\_\+\+Create\+Texture\+Buffer}} (const uint32\+\_\+t index, const Direct\+X\+::\+Tex\+Metadata \&metadata, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em テクスチャのバッファを作成する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{\+\_\+\+Reset\+Upload\+Buffer}} (const size\+\_\+t row\+Pitch, const size\+\_\+t height, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em アップロード用のバッファを再設定する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{\+\_\+\+Upload\+Data\+To\+Upload\+Buffer}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}src\+Data, const size\+\_\+t row\+Pitch, const size\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em アップロード用のバッファにデータを流し込む \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{\+\_\+\+Upload\+To\+Gpu}} (uint32\+\_\+t index, Direct\+X\+::\+Tex\+Metadata \&metadata, size\+\_\+t row\+Pitch, DXGI\+\_\+\+FORMAT format, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em GPUにテクスチャデータをアップロードする \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{\+\_\+\+Set\+Barrier\+Before\+Upload\+Texture}} (uint32\+\_\+t index, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em テクスチャアップロード前のバリア設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{\+\_\+\+Create\+Vertex\+Buffer}} (size\+\_\+t vertex\+Num, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 頂点バッファの作成 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9}{m\+\_\+current\+Index}} = 0
+\begin{DoxyCompactList}\small\item\em 現在割り当てられている画像枚数 \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aedfdf0e77b83e04c37f357bec780a941}{m\+\_\+max\+Resource\+View}} = 1024
+\begin{DoxyCompactList}\small\item\em 割り当てられる画像枚数の最大値 \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Descriptor\+Heap $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\+\_\+basic\+Desc\+Heap}} = nullptr
+\begin{DoxyCompactList}\small\item\em ディスクリプタヒープ \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\+\_\+descriptor\+Heap\+Increment\+Size}}
+\begin{DoxyCompactList}\small\item\em SRVと\+CBVにおけるディスクリプタヒープ上のサイズ \end{DoxyCompactList}\item 
+std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\+\_\+texture\+Buffers}}
+\begin{DoxyCompactList}\small\item\em テクスチャのバッファ \end{DoxyCompactList}\item 
+std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\+\_\+constant\+Buffers}}
+\begin{DoxyCompactList}\small\item\em 定数バッファ \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\+\_\+upload\+Buffer}} = nullptr
+\begin{DoxyCompactList}\small\item\em アップロード用の中間バッファ \end{DoxyCompactList}\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\+\_\+vertex\+Buffer}} = nullptr
+\begin{DoxyCompactList}\small\item\em 頂点バッファ \end{DoxyCompactList}\item 
+D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\+\_\+vertex\+Buffer\+View}}
+\begin{DoxyCompactList}\small\item\em 頂点バッファビュー \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+GPU資源を管理するクラス 
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00024}{24}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4ea2d82eec97a72993792da64adfbae6}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4ea2d82eec97a72993792da64adfbae6} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!MEGraphicGpuResourceManager@{MEGraphicGpuResourceManager}}
+\index{MEGraphicGpuResourceManager@{MEGraphicGpuResourceManager}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{MEGraphicGpuResourceManager()}{MEGraphicGpuResourceManager()}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+MEGraphic\+Gpu\+Resource\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_CreateCbv@{\_CreateCbv}}
+\index{\_CreateCbv@{\_CreateCbv}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_CreateCbv()}{\_CreateCbv()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Create\+Cbv (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+指定したインデックスに\+CBVを構築する 
+
+指定したインデックスに定数バッファビューを構築する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 生成時に割り当てられたインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00163}{163}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_CreateSrv@{\_CreateSrv}}
+\index{\_CreateSrv@{\_CreateSrv}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_CreateSrv()}{\_CreateSrv()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Create\+Srv (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{const DXGI\+\_\+\+FORMAT}]{format,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+指定したインデックスにフォーマットを参考に\+SRVを構築する 
+
+指定したインデックスにシェーダーリソースビューを構築する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 生成時に割り当てられたインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em format} & 画像のフォーマット \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00142}{142}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_CreateTextureBuffer@{\_CreateTextureBuffer}}
+\index{\_CreateTextureBuffer@{\_CreateTextureBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_CreateTextureBuffer()}{\_CreateTextureBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Create\+Texture\+Buffer (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{index,  }\item[{const Direct\+X\+::\+Tex\+Metadata \&}]{metadata,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+テクスチャのバッファを作成する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 生成時に割り当てられたインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em metadata} & 画像のメタデータ \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00182}{182}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_CreateVertexBuffer@{\_CreateVertexBuffer}}
+\index{\_CreateVertexBuffer@{\_CreateVertexBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_CreateVertexBuffer()}{\_CreateVertexBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Create\+Vertex\+Buffer (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{vertex\+Num,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+頂点バッファの作成 
+
+頂点バッファを作成する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em vertex\+Num} & 頂点の数(もし3\+D描画に対応するつもりならこれは画像の枚数だけ必要) \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00288}{288}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_GetAlignmentedSize@{\_GetAlignmentedSize}}
+\index{\_GetAlignmentedSize@{\_GetAlignmentedSize}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_GetAlignmentedSize()}{\_GetAlignmentedSize()}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Get\+Alignmented\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{alignment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+アライメントサイズを取得 
+
+アライメントに揃える
+
+
+\begin{DoxyParams}{引数}
+{\em size} & 元のサイズ \\
+\hline
+{\em alignment} & アライメントサイズ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+アライメントを揃えたサイズ 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00384}{384}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_GetShaderResourceIndex@{\_GetShaderResourceIndex}}
+\index{\_GetShaderResourceIndex@{\_GetShaderResourceIndex}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_GetShaderResourceIndex()}{\_GetShaderResourceIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Get\+Shader\+Resource\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+シェーダーリソースビューとコンスタントバッファビューを生成しても良いインデックスを返す 
+
+シェーダーリソースビューと定数バッファビューを生成しても良いインデックスを返す
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+シェーダーリソースビューを生成しても良いインデックス(+1すると定数バッファ) 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00126}{126}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_InitalizeConstantBuffer@{\_InitalizeConstantBuffer}}
+\index{\_InitalizeConstantBuffer@{\_InitalizeConstantBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_InitalizeConstantBuffer()}{\_InitalizeConstantBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Initalize\+Constant\+Buffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+定数バッファを確保する 
+
+定数バッファを初期化する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 生成時に割り当てられたインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00353}{353}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_ResetUploadBuffer@{\_ResetUploadBuffer}}
+\index{\_ResetUploadBuffer@{\_ResetUploadBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_ResetUploadBuffer()}{\_ResetUploadBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Reset\+Upload\+Buffer (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row\+Pitch,  }\item[{const size\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+アップロード用のバッファを再設定する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em row\+Pitch} & 画像の一行辺りのデータサイズ \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & 画像の高さ \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00215}{215}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_SetBarrierBeforeUploadTexture@{\_SetBarrierBeforeUploadTexture}}
+\index{\_SetBarrierBeforeUploadTexture@{\_SetBarrierBeforeUploadTexture}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_SetBarrierBeforeUploadTexture()}{\_SetBarrierBeforeUploadTexture()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Set\+Barrier\+Before\+Upload\+Texture (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+テクスチャアップロード前のバリア設定 
+
+テクスチャデータを転送する直前にバリアを設定する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 対象のバッファのインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00269}{269}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_UploadDataToUploadBuffer@{\_UploadDataToUploadBuffer}}
+\index{\_UploadDataToUploadBuffer@{\_UploadDataToUploadBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_UploadDataToUploadBuffer()}{\_UploadDataToUploadBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Upload\+Data\+To\+Upload\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{src\+Data,  }\item[{const size\+\_\+t}]{row\+Pitch,  }\item[{const size\+\_\+t}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+アップロード用のバッファにデータを流し込む 
+
+中間バッファにデータをアップロードする
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em src\+Data} & 画像の生データへのポインタ \\
+\hline
+\mbox{\texttt{ in}}  & {\em row\+Pitch} & 画像の一行辺りのデータサイズ \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & 画像の高さ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00247}{247}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_UploadToGpu@{\_UploadToGpu}}
+\index{\_UploadToGpu@{\_UploadToGpu}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{\_UploadToGpu()}{\_UploadToGpu()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+\_\+\+Upload\+To\+Gpu (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{Direct\+X\+::\+Tex\+Metadata \&}]{metadata,  }\item[{size\+\_\+t}]{row\+Pitch,  }\item[{DXGI\+\_\+\+FORMAT}]{format,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+GPUにテクスチャデータをアップロードする 
+
+テクスチャデータを転送する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 対象のバッファのインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em metadata} & 画像のメタデータ \\
+\hline
+\mbox{\texttt{ in}}  & {\em row\+Pitch} & 画像データの行単位のサイズ \\
+\hline
+\mbox{\texttt{ in}}  & {\em format} & 画像データのフォーマット \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00323}{323}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af2f0ffe256cb678862813d49cd5cdef5}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af2f0ffe256cb678862813d49cd5cdef5} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Initialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})}
+
+
+
+初期化 
+
+
+\begin{DoxyParams}{引数}
+{\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00021}{21}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40ee9aad4c4d9e9ccb926f13054e17a2}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40ee9aad4c4d9e9ccb926f13054e17a2} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!LoadGraph@{LoadGraph}}
+\index{LoadGraph@{LoadGraph}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadGraph()}{LoadGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}} mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Load\+Graph (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{filepath,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&}]{pipeline }\end{DoxyParamCaption})}
+
+
+
+画像を読み込む 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em filepath} & 読み込む画像のファイルパス \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!SetGpuResource@{SetGpuResource}}
+\index{SetGpuResource@{SetGpuResource}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{SetGpuResource()}{SetGpuResource()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Set\+Gpu\+Resource (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{index,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})}
+
+
+
+GPUリソースをコマンドリストに設定する 
+
+描画時にディスクリプタヒープ等をコマンドリストに設定する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 描画する画像のインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00073}{73}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!SetRenderCommand@{SetRenderCommand}}
+\index{SetRenderCommand@{SetRenderCommand}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{SetRenderCommand()}{SetRenderCommand()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Set\+Render\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})}
+
+
+
+描画対象としてセットする 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00115}{115}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a19089010782083c1427ef9d7517ccee5}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a19089010782083c1427ef9d7517ccee5} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!UploadConstantData@{UploadConstantData}}
+\index{UploadConstantData@{UploadConstantData}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{UploadConstantData()}{UploadConstantData()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Upload\+Constant\+Data (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{index,  }\item[{Direct\+X\+::\+XMMATRIX}]{matrix,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})}
+
+
+
+定数バッファに書き込む 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em matrix} & 変形行列 \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00102}{102}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab6718cfba5dab38e4b7e3080065aea0d}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab6718cfba5dab38e4b7e3080065aea0d} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!UploadVertexData@{UploadVertexData}}
+\index{UploadVertexData@{UploadVertexData}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{UploadVertexData()}{UploadVertexData()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Upload\+Vertex\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} \texorpdfstring{$\ast$}{*}}]{vertices,  }\item[{size\+\_\+t}]{vertex\+Num,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})}
+
+
+
+頂点データをバッファに書き込む 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em vertices} & 頂点データの先頭のポインタ \\
+\hline
+\mbox{\texttt{ in}}  & {\em vertex\+Num} & 頂点の数 \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00088}{88}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_basicDescHeap@{m\_basicDescHeap}}
+\index{m\_basicDescHeap@{m\_basicDescHeap}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_basicDescHeap}{m\_basicDescHeap}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Descriptor\+Heap$>$ mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+basic\+Desc\+Heap = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ディスクリプタヒープ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00071}{71}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_constantBuffers@{m\_constantBuffers}}
+\index{m\_constantBuffers@{m\_constantBuffers}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_constantBuffers}{m\_constantBuffers}}
+{\footnotesize\ttfamily std\+::vector$<$Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Resource$>$ $>$ mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+constant\+Buffers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+定数バッファ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00074}{74}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_currentIndex@{m\_currentIndex}}
+\index{m\_currentIndex@{m\_currentIndex}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_currentIndex}{m\_currentIndex}}
+{\footnotesize\ttfamily uint32\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+current\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+現在割り当てられている画像枚数 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00069}{69}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_descriptorHeapIncrementSize@{m\_descriptorHeapIncrementSize}}
+\index{m\_descriptorHeapIncrementSize@{m\_descriptorHeapIncrementSize}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_descriptorHeapIncrementSize}{m\_descriptorHeapIncrementSize}}
+{\footnotesize\ttfamily uint32\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+descriptor\+Heap\+Increment\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SRVと\+CBVにおけるディスクリプタヒープ上のサイズ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00072}{72}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aedfdf0e77b83e04c37f357bec780a941}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aedfdf0e77b83e04c37f357bec780a941} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_maxResourceView@{m\_maxResourceView}}
+\index{m\_maxResourceView@{m\_maxResourceView}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_maxResourceView}{m\_maxResourceView}}
+{\footnotesize\ttfamily uint32\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+max\+Resource\+View = 1024\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+割り当てられる画像枚数の最大値 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00070}{70}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_textureBuffers@{m\_textureBuffers}}
+\index{m\_textureBuffers@{m\_textureBuffers}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_textureBuffers}{m\_textureBuffers}}
+{\footnotesize\ttfamily std\+::vector$<$Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Resource$>$ $>$ mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+texture\+Buffers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+テクスチャのバッファ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00073}{73}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_uploadBuffer@{m\_uploadBuffer}}
+\index{m\_uploadBuffer@{m\_uploadBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_uploadBuffer}{m\_uploadBuffer}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Resource$>$ mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+upload\+Buffer = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+アップロード用の中間バッファ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00075}{75}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_vertexBuffer@{m\_vertexBuffer}}
+\index{m\_vertexBuffer@{m\_vertexBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_vertexBuffer}{m\_vertexBuffer}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Resource$>$ mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+vertex\+Buffer = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+頂点バッファ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00076}{76}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_vertexBufferView@{m\_vertexBufferView}}
+\index{m\_vertexBufferView@{m\_vertexBufferView}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_vertexBufferView}{m\_vertexBufferView}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+vertex\+Buffer\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+頂点バッファビュー 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00077}{77}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_gpu_resource_manager_8h}{Graphic\+Gpu\+Resource\+Manager.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp}{Graphic\+Gpu\+Resource\+Manager.\+cpp}}\end{DoxyCompactItemize}

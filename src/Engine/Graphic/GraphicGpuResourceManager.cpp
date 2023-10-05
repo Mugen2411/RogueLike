@@ -28,6 +28,8 @@ namespace mugen_engine
 		auto result = device.GetDevice()->CreateDescriptorHeap(&descHeapDesc, IID_PPV_ARGS(m_basicDescHeap.ReleaseAndGetAddressOf()));
 
 		m_descriptorHeapIncrementSize = device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+
+		_CreateVertexBuffer(4, device);
 	}
 
 	/**********************************************************************//**
@@ -37,7 +39,7 @@ namespace mugen_engine
 		@return			なし
 	*//***********************************************************************/
 	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadGraph(const std::wstring& filepath,
-		const MEGraphicDevice& device, MEGraphicCommandList& cmdList)
+		const MEGraphicDevice& device, MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline)
 	{
 		auto index = _GetShaderResourceIndex();
 		_InitalizeConstantBuffer(index, device);
@@ -57,9 +59,63 @@ namespace mugen_engine
 		_UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
 		_UploadToGpu(index, metadata, img->rowPitch, img->format, cmdList);
 
-		MEGraphicLoadedImage ret(index, img->width, img->height);
+		MEGraphicLoadedImage ret(index, img->width, img->height, &cmdList, this, &pipeline);
 
 		return ret;
+	}
+
+	/**********************************************************************//**
+		@brief			描画時にディスクリプタヒープ等をコマンドリストに設定する
+		@param[in]		index					描画する画像のインデックス
+		@param[in]		cmdList					コマンドリスト
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicGpuResourceManager::SetGpuResource(const uint32_t index, MEGraphicCommandList& cmdList)
+	{
+		auto handle = m_basicDescHeap->GetGPUDescriptorHandleForHeapStart();
+		handle.ptr += m_descriptorHeapIncrementSize * index * 2;
+		cmdList.GetCommandList()->SetDescriptorHeaps(1, m_basicDescHeap.GetAddressOf());
+		cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
+	}
+
+	/**********************************************************************//**
+		@brief			頂点データをバッファに書き込む
+		@param[in]		vertices					頂点データの先頭のポインタ
+		@param[in]		vertexNum					頂点の数
+		@param[in]		cmdList						コマンドリスト
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicGpuResourceManager::UploadVertexData(VERTEX_DATA* vertices, size_t vertexNum, MEGraphicCommandList& cmdList)
+	{
+		VERTEX_DATA* vertMap = nullptr;
+		auto result = m_vertexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
+		std::copy_n(vertices, vertexNum, vertMap);
+		m_vertexBuffer->Unmap(0, nullptr);
+	}
+
+	/**********************************************************************//**
+		@brief			定数バッファに書き込む
+		@param[in]		matrix						変形行列
+		@param[in]		cmdList						コマンドリスト
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicGpuResourceManager::UploadConstantData(const uint32_t index, DirectX::XMMATRIX matrix, MEGraphicCommandList& cmdList)
+	{
+		DirectX::XMMATRIX* mapMatrix;
+		auto result = m_constantBuffers[index]->Map(0, nullptr, (void**)&mapMatrix);
+		*mapMatrix = matrix;
+		m_constantBuffers[index]->Unmap(0, nullptr);
+	}
+
+	/**********************************************************************//**
+		@brief			描画対象としてセットする
+		@param[in]		cmdList						コマンドリスト
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicGpuResourceManager::SetRenderCommand(MEGraphicCommandList& cmdList)
+	{
+		cmdList.GetCommandList()->IASetVertexBuffers(0, 1, &m_vertexBufferView);
+		cmdList.GetCommandList()->DrawInstanced(4, 1, 0, 0);
 	}
 
 	/**********************************************************************//**
@@ -87,7 +143,7 @@ namespace mugen_engine
 		const MEGraphicDevice& device)
 	{
 		auto basicHeapHandle = m_basicDescHeap->GetCPUDescriptorHandleForHeapStart();
-		basicHeapHandle.ptr += m_descriptorHeapIncrementSize * index;
+		basicHeapHandle.ptr += m_descriptorHeapIncrementSize * (index * 2);
 
 		D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 		srvDesc.Format = format;
@@ -107,7 +163,7 @@ namespace mugen_engine
 	void MEGraphicGpuResourceManager::_CreateCbv(uint32_t index, const MEGraphicDevice& device)
 	{
 		auto basicHeapHandle = m_basicDescHeap->GetCPUDescriptorHandleForHeapStart();
-		basicHeapHandle.ptr += m_descriptorHeapIncrementSize * (index + 1);
+		basicHeapHandle.ptr += m_descriptorHeapIncrementSize * (index * 2 + 1);
 
 		D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
 		cbvDesc.BufferLocation = m_constantBuffers[index]->GetGPUVirtualAddress();
@@ -204,6 +260,12 @@ namespace mugen_engine
 		m_uploadBuffer->Unmap(0, nullptr);
 	}
 
+	/**********************************************************************//**
+		@brief			テクスチャデータを転送する直前にバリアを設定する
+		@param[in]		index						対象のバッファのインデックス
+		@param[in]		cmdList						コマンドリスト
+		@return			なし
+	*//***********************************************************************/
 	void MEGraphicGpuResourceManager::_SetBarrierBeforeUploadTexture(uint32_t index, const MEGraphicCommandList& cmdList)
 	{
 		D3D12_RESOURCE_BARRIER barrierDesc = {};
@@ -217,6 +279,47 @@ namespace mugen_engine
 		cmdList.GetCommandList()->ResourceBarrier(1, &barrierDesc);
 	}
 
+	/**********************************************************************//**
+		@brief			頂点バッファを作成する
+		@param[in]		vertexNum					頂点の数(もし3D描画に対応するつもりならこれは画像の枚数だけ必要)
+		@param[in]		device						デバイス
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicGpuResourceManager::_CreateVertexBuffer(size_t vertexNum, const MEGraphicDevice& device)
+	{
+		D3D12_HEAP_PROPERTIES heapprop = {};
+		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+
+		D3D12_RESOURCE_DESC resdesc = {};
+		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+		resdesc.Width = sizeof(VERTEX_DATA) * vertexNum;
+		resdesc.Height = 1;
+		resdesc.DepthOrArraySize = 1;
+		resdesc.MipLevels = 1;
+		resdesc.Format = DXGI_FORMAT_UNKNOWN;
+		resdesc.SampleDesc.Count = 1;
+		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+		auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(m_vertexBuffer.ReleaseAndGetAddressOf()));
+
+		m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
+		m_vertexBufferView.SizeInBytes = sizeof(VERTEX_DATA) * vertexNum;
+		m_vertexBufferView.StrideInBytes = sizeof(VERTEX_DATA);
+	}
+
+	/**********************************************************************//**
+		@brief			テクスチャデータを転送する
+		@param[in]		index						対象のバッファのインデックス
+		@param[in]		metadata					画像のメタデータ
+		@param[in]		rowPitch					画像データの行単位のサイズ
+		@param[in]		format						画像データのフォーマット
+		@param[in]		cmdList						コマンドリスト
+		@return			なし
+	*//***********************************************************************/
 	void MEGraphicGpuResourceManager::_UploadToGpu(uint32_t index, DirectX::TexMetadata& metadata, size_t rowPitch, DXGI_FORMAT format,
 		MEGraphicCommandList& cmdList)
 	{
