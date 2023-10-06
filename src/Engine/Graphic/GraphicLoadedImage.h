@@ -27,10 +27,14 @@ namespace mugen_engine
 		MEGraphicLoadedImage(uint32_t index, size_t width, size_t height, 
 			MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
 			MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget);
+		//! コンストラクタ
+		MEGraphicLoadedImage(uint32_t index, size_t width, size_t height, size_t xDivideNum, size_t yDivideNum,
+			MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
+			MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget);
 		//! 指定した座標に描画
-		void DrawGraph(int x, int y);
+		void DrawGraph(int x, int y, int index = 0);
 		//! 座標と拡大率と回転角度を指定して描画
-		void DrawRotaGraph(int x, int y, float scale, float angle);
+		void DrawRotaGraph(int x, int y, float scale, float angle, int index = 0);
 	private:
 		uint32_t m_index;											//!< 読み込み画像が何番目か
 		size_t m_width;												//!< 画像の横幅

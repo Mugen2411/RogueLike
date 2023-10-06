@@ -108,6 +108,7 @@ namespace mugen_engine
 	{
 		m_renderTarget.SetRenderArea(m_commandList, topX, topY, bottomX, bottomY);
 	}
+
 	/**********************************************************************//**
 		@brief			描画可能な範囲を画面全体に設定する
 		@param			なし
@@ -118,12 +119,35 @@ namespace mugen_engine
 		SetRenderArea(0, 0, m_windowWidth, m_windowHeight);
 	}
 
+	/**********************************************************************//**
+		@brief			ファイルから画像を読み込む
+		@param[in]		gid				取り出すキー
+		@param[in]		filepath		画像ファイルへのパス
+		@return			なし
+	*//***********************************************************************/
 	void MECore::LoadGraph(std::string gid, std::wstring filepath)
 	{
 		auto img = m_resourceManager.LoadGraph(filepath, m_device, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImageIndices[gid] = img;
 	}
 
+	/**********************************************************************//**
+		@brief			ファイルから画像を読み込む
+		@param[in]		gid				取り出すキー
+		@param[in]		filepath		画像ファイルへのパス
+		@return			なし
+	*//***********************************************************************/
+	void MECore::LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)
+	{
+		auto img = m_resourceManager.LoadDivGraph(filepath, xDivideNum, yDivideNum, m_device, m_commandList, m_pipeline, m_renderTarget);
+		m_loadedImageIndices[gid] = img;
+	}
+
+	/**********************************************************************//**
+		@brief			キーを指定して読み込み済み画像を取り出す
+		@param[in]		gid				取り出すキー
+		@return			読み込み済み画像
+	*//***********************************************************************/
 	MEGraphicLoadedImage& MECore::GetGraph(std::string gid)
 	{
 		return m_loadedImageIndices[gid];

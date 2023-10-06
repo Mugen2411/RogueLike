@@ -31,6 +31,10 @@ namespace mugen_engine
 		//! 画像を読み込む
 		MEGraphicLoadedImage LoadGraph(const std::wstring& filepath, const MEGraphicDevice& device,
 			MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
+		//! 画像を分割して読み込む
+		MEGraphicLoadedImage LoadDivGraph(const std::wstring& filepath, int xDivideNum, int yDivideNum,
+			const MEGraphicDevice& device, MEGraphicCommandList& cmdList,
+			MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
 		//! GPUリソースをコマンドリストに設定する
 		void SetGpuResource(const uint32_t index, MEGraphicCommandList& cmdList);
 		//! 頂点データをバッファに書き込む

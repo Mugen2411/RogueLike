@@ -9,7 +9,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	
 	mugen_engine::MECore::GetIns().Initialize(L"MagicaRogue", window_width, window_height);
 
-	mugen_engine::MECore::GetIns().LoadGraph("material", L"media/graphic/materials_x4.png");
+	mugen_engine::MECore::GetIns().LoadDivGraph("material", L"media/graphic/material.png", 4, 3);
 	mugen_engine::MECore::GetIns().LoadGraph("esc", L"media/graphic/return_to_escape.png");
 
 	while(mugen_engine::MECore::GetIns().ProcessMessage() == 0)
@@ -17,10 +17,14 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		mugen_engine::MECore::GetIns().ResetRenderArea();
 		mugen_engine::MECore::GetIns().ClearScreen(0, 0xFF, 0xFF);
 
-		mugen_engine::MECore::GetIns().GetGraph("material").DrawGraph(640, 360);
 		for(int i = 0; i < 30; i++)
 		{
 			mugen_engine::MECore::GetIns().GetGraph("esc").DrawRotaGraph(i * 32, i * 18, 0.5f+0.2f*i, 3.1415926f / 15 * i);
+		}
+
+		for(int i = 0; i < 12; i++)
+		{
+			mugen_engine::MECore::GetIns().GetGraph("material").DrawRotaGraph(64 + i * 96, 64 + i * 48, 1.0f + 0.4f * i, 3.1415926f / 12 * i, i);
 		}
 
 		mugen_engine::MECore::GetIns().ScreenFlip();

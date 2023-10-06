@@ -36,13 +36,47 @@ namespace mugen_engine
 	{}
 
 	/**********************************************************************//**
+		@brief			コンストラクタ
+		@param[in]		index				画像読み込み時のインデックス
+		@param[in]		width				画像の横幅
+		@param[in]		height				画像の高さ
+		@param[in]		xDivideNum			横方向の分割数
+		@param[in]		yDivideNum			縦方向の分割数
+		@return			なし
+	*//***********************************************************************/
+	MEGraphicLoadedImage::MEGraphicLoadedImage(uint32_t index, size_t width, size_t height, size_t xDivideNum, size_t yDivideNum,
+		MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
+		MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget) :
+		m_index(index), m_width(width), m_height(height), m_xDivideNum(xDivideNum), m_yDivideNum(yDivideNum),
+		m_vertices {
+		{{-static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{0.0f, 1.0f}},
+		{{-static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{0.0f, 0.0f}},
+		{{ static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{1.0f, 1.0f}},
+		{{ static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{1.0f, 0.0f}},
+		}, m_cmdList(cmdList), m_resourceManager(resourceManager), m_pipeline(pipeline), m_renderTarget(renderTarget)
+	{}
+
+	/**********************************************************************//**
 		@brief			指定した座標に描画
 		@param[in]		x					描画する中心のX座標
 		@param[in]		y					描画する中心のY座標
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::DrawGraph(int x, int y)
+	void MEGraphicLoadedImage::DrawGraph(int x, int y, int index)
 	{
+		if(index >= m_xDivideNum * m_yDivideNum)
+		{
+			OutputDebugStringA("out of range");
+			return;
+		}
+		m_vertices[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		m_vertices[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+		m_vertices[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
 		DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
 			2.0f / MECore::GetIns().m_windowHeight, 1.0f);
 		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(
@@ -70,8 +104,21 @@ namespace mugen_engine
 		@param[in]		angle				回転角度(ラジアン)
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle)
+	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle, int index)
 	{
+		if(index >= m_xDivideNum * m_yDivideNum)
+		{
+			OutputDebugStringA("out of range");
+			return;
+		}
+		m_vertices[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		m_vertices[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+		m_vertices[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
 		DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().m_windowWidth,
 			2.0f * scale / MECore::GetIns().m_windowHeight, 1.0f);
 		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(

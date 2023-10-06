@@ -36,6 +36,9 @@ namespace mugen_engine
 		@brief			画像を読み込む
 		@param[in]		filepath			読み込む画像のファイルパス
 		@param[in]		device				デバイス
+		@param[in]		cmdList				コマンドリスト
+		@param[in]		pipeline			パイプライン
+		@param[in]		renderTarget		レンダーターゲット
 		@return			なし
 	*//***********************************************************************/
 	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadGraph(const std::wstring& filepath,
@@ -61,6 +64,44 @@ namespace mugen_engine
 		_UploadToGpu(index, metadata, img->rowPitch, img->format, cmdList);
 
 		MEGraphicLoadedImage ret(index, img->width, img->height, &cmdList, this, &pipeline, &renderTarget);
+
+		return ret;
+	}
+
+	/**********************************************************************//**
+		@brief			画像を分割して読み込む
+		@param[in]		filepath			読み込む画像のファイルパス
+		@param[in]		xDivideNum			横方向の分割数
+		@param[in]		yDivideNum			縦方向の分割数
+		@param[in]		device				デバイス
+		@param[in]		cmdList				コマンドリスト
+		@param[in]		pipeline			パイプライン
+		@param[in]		renderTarget		レンダーターゲット
+		@return			なし
+	*//***********************************************************************/
+	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadDivGraph(const std::wstring& filepath, int xDivideNum, int yDivideNum,
+		const MEGraphicDevice& device, MEGraphicCommandList& cmdList,
+		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
+	{
+		auto index = _GetShaderResourceIndex();
+		_InitalizeConstantBuffer(index, device);
+
+		DirectX::TexMetadata metadata = {};
+		DirectX::ScratchImage scratchImg = {};
+		DirectX::Image const* img = {};
+
+		DirectX::LoadFromWICFile(filepath.c_str(), DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
+		img = scratchImg.GetImage(0, 0, 0);
+
+		_CreateTextureBuffer(index, metadata, device);
+		_CreateCbv(index, device);
+		_CreateSrv(index, img->format, device);
+
+		_ResetUploadBuffer(img->rowPitch, img->height, device);
+		_UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
+		_UploadToGpu(index, metadata, img->rowPitch, img->format, cmdList);
+
+		MEGraphicLoadedImage ret(index, img->width / xDivideNum, img->height / yDivideNum, xDivideNum, yDivideNum, &cmdList, this, &pipeline, &renderTarget);
 
 		return ret;
 	}

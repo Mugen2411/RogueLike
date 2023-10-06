@@ -41,6 +41,8 @@ namespace mugen_engine
 		void ResetRenderArea();
 		//! 画像をファイルから読み込む
 		void LoadGraph(std::string gid, std::wstring filepath);
+		//! 画像をファイルから分割して読み込む
+		void LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum);
 		//! 読み込み済み画像を取得する
 		MEGraphicLoadedImage& GetGraph(std::string gid);
 
