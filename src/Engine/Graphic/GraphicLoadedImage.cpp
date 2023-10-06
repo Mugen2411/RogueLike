@@ -24,14 +24,15 @@ namespace mugen_engine
 		@return			‚È‚µ
 	*//***********************************************************************/
 	MEGraphicLoadedImage::MEGraphicLoadedImage(uint32_t index, size_t width, size_t height,
-		MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager, MEGraphicPipeline* pipeline) :
+		MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
+		MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget) :
 		m_index(index), m_width(width), m_height(height), m_xDivideNum(1), m_yDivideNum(1),
 		m_vertices {
 		{{-static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{0.0f, 1.0f}},
 		{{-static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{0.0f, 0.0f}},
 		{{ static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{1.0f, 1.0f}},
 		{{ static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{1.0f, 0.0f}},
-		}, m_cmdList(cmdList), m_resourceManager(resourceManager), m_pipeline(pipeline)
+		}, m_cmdList(cmdList), m_resourceManager(resourceManager), m_pipeline(pipeline), m_renderTarget(renderTarget)
 	{}
 
 	/**********************************************************************//**
@@ -44,9 +45,11 @@ namespace mugen_engine
 	{
 		static DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
 			2.0f / MECore::GetIns().m_windowHeight, 1.0f);
-		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(static_cast<float>(x), static_cast<float>(y), 0.0f);
+		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(static_cast<float>(x - MECore::GetIns().m_windowWidth / 2),
+			static_cast<float>(- y + MECore::GetIns().m_windowHeight / 2), 0.0f);
 		m_matrix = moveMatrix * screenScale;
 		
+		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
 		m_pipeline->SetPipelineState(0, *m_cmdList);
 		m_resourceManager->SetGpuResource(m_index, *m_cmdList);
 

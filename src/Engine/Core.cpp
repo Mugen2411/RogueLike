@@ -120,7 +120,7 @@ namespace mugen_engine
 
 	void MECore::LoadGraph(std::string gid, std::wstring filepath)
 	{
-		auto img = m_resourceManager.LoadGraph(filepath, m_device, m_commandList, m_pipeline);
+		auto img = m_resourceManager.LoadGraph(filepath, m_device, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImageIndices[gid] = img;
 	}
 

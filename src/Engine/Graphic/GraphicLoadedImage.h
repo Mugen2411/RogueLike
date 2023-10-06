@@ -8,6 +8,7 @@
 #include <DirectXMath.h>
 #include "GraphicCommandList.h"
 #include "GraphicPipeline.h"
+#include "GraphicRenderTarget.h"
 #include "GraphicStruct.h"
 
 namespace mugen_engine
@@ -24,7 +25,8 @@ namespace mugen_engine
 		MEGraphicLoadedImage();
 		//! コンストラクタ
 		MEGraphicLoadedImage(uint32_t index, size_t width, size_t height, 
-			MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager, MEGraphicPipeline* pipeline);
+			MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
+			MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget);
 		//! 指定した座標に描画
 		void DrawGraph(int x, int y);
 	private:
@@ -38,6 +40,7 @@ namespace mugen_engine
 		MEGraphicCommandList* m_cmdList;							//!< コマンドリスト
 		MEGraphicGpuResourceManager* m_resourceManager;				//!< リソースマネージャー
 		MEGraphicPipeline* m_pipeline;								//!< パイプライン
+		MEGraphicRenderTarget* m_renderTarget;						//!< レンダーターゲット
 	};
 }
 

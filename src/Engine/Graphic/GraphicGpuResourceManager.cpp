@@ -39,7 +39,8 @@ namespace mugen_engine
 		@return			‚È‚µ
 	*//***********************************************************************/
 	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadGraph(const std::wstring& filepath,
-		const MEGraphicDevice& device, MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline)
+		const MEGraphicDevice& device, MEGraphicCommandList& cmdList,
+		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
 	{
 		auto index = _GetShaderResourceIndex();
 		_InitalizeConstantBuffer(index, device);
@@ -51,15 +52,15 @@ namespace mugen_engine
 		DirectX::LoadFromWICFile(filepath.c_str(), DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
 		img = scratchImg.GetImage(0, 0, 0);
 
+		_CreateTextureBuffer(index, metadata, device);
 		_CreateCbv(index, device);
 		_CreateSrv(index, img->format, device);
-		_CreateTextureBuffer(index, metadata, device);
 
 		_ResetUploadBuffer(img->rowPitch, img->height, device);
 		_UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
 		_UploadToGpu(index, metadata, img->rowPitch, img->format, cmdList);
 
-		MEGraphicLoadedImage ret(index, img->width, img->height, &cmdList, this, &pipeline);
+		MEGraphicLoadedImage ret(index, img->width, img->height, &cmdList, this, &pipeline, &renderTarget);
 
 		return ret;
 	}
@@ -254,7 +255,7 @@ namespace mugen_engine
 		for(int y = 0; y < height; ++y)
 		{
 			std::copy_n(srcAddress, GpuRowPitch, mapforImg);
-			srcAddress += GpuRowPitch;
+			srcAddress += rowPitch;
 			mapforImg += GpuRowPitch;
 		}
 		m_uploadBuffer->Unmap(0, nullptr);

@@ -38,6 +38,8 @@ namespace mugen_engine
 		//! 描画可能な範囲を設定する
 		void SetRenderArea(MEGraphicCommandList& cmdList, 
 			const int topX, const int topY, const int bottomX, const int bottomY);
+		//! 描画毎に必要なコマンドを積む
+		void SetRenderBaseCommand(MEGraphicCommandList& cmdList);
 	private:
 		const int m_numBackBuffer;												//!< バックバッファの数
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> m_swapchain = nullptr;			//!< スワップチェイン
@@ -45,6 +47,7 @@ namespace mugen_engine
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_backBuffers;		//!< バックバッファ
 		D3D12_CPU_DESCRIPTOR_HANDLE m_renderTargetHandle;						//!< OMSetRenderTargetに渡すCPU上のアドレス
 		D3D12_VIEWPORT m_viewport;												//!< ビューポート
+		D3D12_RECT m_scissorRect;													//!< シザー矩形
 	};
 }
 

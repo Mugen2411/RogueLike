@@ -143,8 +143,6 @@ namespace mugen_engine
 	{
 		cmdList.GetCommandList()->OMSetRenderTargets(1, &m_renderTargetHandle, true, nullptr);
 		cmdList.GetCommandList()->ClearRenderTargetView(m_renderTargetHandle, clearColor, 0, nullptr);
-		cmdList.GetCommandList()->RSSetViewports(1, &m_viewport);
-		cmdList.Execute();
 	}
 
 	/**********************************************************************//**
@@ -159,13 +157,21 @@ namespace mugen_engine
 	void MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList& cmdList, 
 		const int topX, const int topY, const int bottomX, const int bottomY)
 	{
-		static D3D12_RECT scissorRect= {};
-		scissorRect.top = topY;
-		scissorRect.left = topX;
-		scissorRect.right = bottomX;
-		scissorRect.bottom = bottomY;
+		m_scissorRect.top = topY;
+		m_scissorRect.left = topX;
+		m_scissorRect.right = bottomX;
+		m_scissorRect.bottom = bottomY;
+	}
 
-		cmdList.GetCommandList()->RSSetScissorRects(1, &scissorRect);
-		cmdList.Execute();
+	/**********************************************************************//**
+		@brief			描画毎に必要なコマンドを積む
+		@param			cmdList			コマンドリスト
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicRenderTarget::SetRenderBaseCommand(MEGraphicCommandList& cmdList)
+	{
+		cmdList.GetCommandList()->OMSetRenderTargets(1, &m_renderTargetHandle, true, nullptr);
+		cmdList.GetCommandList()->RSSetScissorRects(1, &m_scissorRect);
+		cmdList.GetCommandList()->RSSetViewports(1, &m_viewport);
 	}
 }
