@@ -85,7 +85,13 @@
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ D3D12GetDebugInterface(IID\_PPV\_ARGS(\&debugLayer));}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ debugLayer-\/>EnableDebugLayer();}
 \DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ debugLayer-\/>Release();}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00105}00105\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00106}00106\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Debug>\ spDebugController0;}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ Microsoft::WRL::ComPtr<ID3D12Debug1>\ spDebugController1;}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ D3D12GetDebugInterface(IID\_PPV\_ARGS(\&spDebugController0));}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ spDebugController0-\/>QueryInterface(IID\_PPV\_ARGS(\&spDebugController1));}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ spDebugController1-\/>SetEnableGPUBasedValidation(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_device_8cpp_source_l00112}00112\ \}}
 
 \end{DoxyCode}

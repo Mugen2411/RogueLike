@@ -5,6 +5,7 @@ var searchData=
   ['setbarrierbeforerender_2',['SetBarrierBeforeRender',['../classmugen__engine_1_1_m_e_graphic_render_target.html#af4af93f98257ad2ce73ff834430fe0de',1,'mugen_engine::MEGraphicRenderTarget']]],
   ['setgpuresource_3',['SetGpuResource',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#aaec35100ee346845f0c3f9e74efcab4a',1,'mugen_engine::MEGraphicGpuResourceManager']]],
   ['setpipelinestate_4',['SetPipelineState',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a57d712861469c0a2c65eed9fec8b294a',1,'mugen_engine::MEGraphicPipeline']]],
-  ['setrenderarea_5',['setrenderarea',['../classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40',1,'mugen_engine::MECore::SetRenderArea()'],['../classmugen__engine_1_1_m_e_graphic_render_target.html#a4a434c63c78f37b4cb143882c090b447',1,'mugen_engine::MEGraphicRenderTarget::SetRenderArea()']]],
-  ['setrendercommand_6',['SetRenderCommand',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a40aa78852a2cf8d7bf00b3f93fb339d9',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['setrenderarea_5',['setrenderarea',['../classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40',1,'mugen_engine::MECore::SetRenderArea()'],['../classmugen__engine_1_1_m_e_graphic_render_target.html#a4a434c63c78f37b4cb143882c090b447',1,'mugen_engine::MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList &amp;cmdList, const int topX, const int topY, const int bottomX, const int bottomY)']]],
+  ['setrenderbasecommand_6',['SetRenderBaseCommand',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a9ad02058247ee840df88df8ace4472af',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setrendercommand_7',['SetRenderCommand',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a40aa78852a2cf8d7bf00b3f93fb339d9',1,'mugen_engine::MEGraphicGpuResourceManager']]]
 ];

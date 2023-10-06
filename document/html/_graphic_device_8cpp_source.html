@@ -174,9 +174,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">auto</span> result = D3D12GetDebugInterface(IID_PPV_ARGS(&amp;debugLayer));</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        debugLayer-&gt;EnableDebugLayer();</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        debugLayer-&gt;Release();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        Microsoft::WRL::ComPtr&lt;ID3D12Debug&gt; spDebugController0;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        Microsoft::WRL::ComPtr&lt;ID3D12Debug1&gt; spDebugController1;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        D3D12GetDebugInterface(IID_PPV_ARGS(&amp;spDebugController0));</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        spDebugController0-&gt;QueryInterface(IID_PPV_ARGS(&amp;spDebugController1));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        spDebugController1-&gt;SetEnableGPUBasedValidation(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
 </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
 <div class="ttc" id="a_graphic_device_8h_html"><div class="ttname"><a href="_graphic_device_8h.html">GraphicDevice.h</a></div></div>
 <div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_device_html_a1b80c568c2b2708835c532d31a748b25"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">mugen_engine::MEGraphicDevice::GetDevice</a></div><div class="ttdeci">ID3D12Device *const GetDevice() const</div><div class="ttdoc">デバイスの生ポインタを取得</div><div class="ttdef"><b>Definition</b> <a href="_graphic_device_8cpp_source.html#l00071">GraphicDevice.cpp:71</a></div></div>
 <div class="ttc" id="aclassmugen__engine_1_1_m_e_graphic_device_html_a474caa37051bbe08f07aa8ca0e319bdb"><div class="ttname"><a href="classmugen__engine_1_1_m_e_graphic_device.html#a474caa37051bbe08f07aa8ca0e319bdb">mugen_engine::MEGraphicDevice::Initialize</a></div><div class="ttdeci">void Initialize()</div><div class="ttdoc">最初に必ず呼ばれる初期化処理</div><div class="ttdef"><b>Definition</b> <a href="_graphic_device_8cpp_source.html#l00013">GraphicDevice.cpp:13</a></div></div>

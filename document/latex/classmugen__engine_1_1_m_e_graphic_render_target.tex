@@ -25,7 +25,9 @@ void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a86bd0501
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a2d91615ba217b2edbf035ac6f5fa0c02}{Clear}} (float clear\+Color\mbox{[}4\mbox{]}, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
 \begin{DoxyCompactList}\small\item\em 画面を指定した色でクリアする \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a4a434c63c78f37b4cb143882c090b447}{Set\+Render\+Area}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, const int topX, const int topY, const int bottomX, const int bottomY)
-\begin{DoxyCompactList}\small\item\em 描画可能な範囲を設定する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 描画可能な範囲を設定する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a9ad02058247ee840df88df8ace4472af}{Set\+Render\+Base\+Command}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List)
+\begin{DoxyCompactList}\small\item\em 描画毎に必要なコマンドを積む \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,7 +42,9 @@ std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ 
 D3\+D12\+\_\+\+CPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_aa1b0ad6043c785bac32ce3db44b99458}{m\+\_\+render\+Target\+Handle}}
 \begin{DoxyCompactList}\small\item\em OMSet\+Render\+Targetに渡す\+CPU上のアドレス \end{DoxyCompactList}\item 
 D3\+D12\+\_\+\+VIEWPORT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a8c0a89ec4ac74438d8a55a20137694fe}{m\+\_\+viewport}}
-\begin{DoxyCompactList}\small\item\em ビューポート \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ビューポート \end{DoxyCompactList}\item 
+D3\+D12\+\_\+\+RECT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a060bf07daee6ec251205581b625e2b39}{m\+\_\+scissor\+Rect}}
+\begin{DoxyCompactList}\small\item\em シザー矩形 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
@@ -226,7 +230,29 @@ D3\+D12\+\_\+\+VIEWPORT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_rend
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_render_target_8cpp_source}{Graphic\+Render\+Target.\+cpp}} の \mbox{\hyperlink{_graphic_render_target_8cpp_source_l00159}{159}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8cpp_source}{Graphic\+Render\+Target.\+cpp}} の \mbox{\hyperlink{_graphic_render_target_8cpp_source_l00157}{157}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_a9ad02058247ee840df88df8ace4472af}\label{classmugen__engine_1_1_m_e_graphic_render_target_a9ad02058247ee840df88df8ace4472af} 
+\index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!SetRenderBaseCommand@{SetRenderBaseCommand}}
+\index{SetRenderBaseCommand@{SetRenderBaseCommand}!mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}}
+\doxysubsubsection{\texorpdfstring{SetRenderBaseCommand()}{SetRenderBaseCommand()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Target\+::\+Set\+Render\+Base\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List }\end{DoxyParamCaption})}
+
+
+
+描画毎に必要なコマンドを積む 
+
+
+\begin{DoxyParams}{引数}
+{\em cmd\+List} & コマンドリスト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_render_target_8cpp_source}{Graphic\+Render\+Target.\+cpp}} の \mbox{\hyperlink{_graphic_render_target_8cpp_source_l00171}{171}} 行目に定義があります。
 
 
 
@@ -243,7 +269,7 @@ D3\+D12\+\_\+\+VIEWPORT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_rend
 
 
 
- \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00045}{45}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00047}{47}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_acf6c0fb8255f78344737fb4085c71e2e}\label{classmugen__engine_1_1_m_e_graphic_render_target_acf6c0fb8255f78344737fb4085c71e2e} 
 \index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!m\_numBackBuffer@{m\_numBackBuffer}}
@@ -257,7 +283,7 @@ D3\+D12\+\_\+\+VIEWPORT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_rend
 
 
 
- \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00042}{42}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00044}{44}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_aa1b0ad6043c785bac32ce3db44b99458}\label{classmugen__engine_1_1_m_e_graphic_render_target_aa1b0ad6043c785bac32ce3db44b99458} 
 \index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!m\_renderTargetHandle@{m\_renderTargetHandle}}
@@ -271,7 +297,7 @@ OMSet\+Render\+Targetに渡す\+CPU上のアドレス
 
 
 
- \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00046}{46}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00048}{48}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_a52fd63cbad69ef7157bd6f8e5514eed3}\label{classmugen__engine_1_1_m_e_graphic_render_target_a52fd63cbad69ef7157bd6f8e5514eed3} 
 \index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!m\_rtvHeaps@{m\_rtvHeaps}}
@@ -285,7 +311,21 @@ OMSet\+Render\+Targetに渡す\+CPU上のアドレス
 
 
 
- \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00044}{44}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00046}{46}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_a060bf07daee6ec251205581b625e2b39}\label{classmugen__engine_1_1_m_e_graphic_render_target_a060bf07daee6ec251205581b625e2b39} 
+\index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!m\_scissorRect@{m\_scissorRect}}
+\index{m\_scissorRect@{m\_scissorRect}!mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}}
+\doxysubsubsection{\texorpdfstring{m\_scissorRect}{m\_scissorRect}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+RECT mugen\+\_\+engine\+::\+MEGraphic\+Render\+Target\+::m\+\_\+scissor\+Rect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+シザー矩形 
+
+
+
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00050}{50}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_a2560e7f8b4c485ffc500303075e2d4de}\label{classmugen__engine_1_1_m_e_graphic_render_target_a2560e7f8b4c485ffc500303075e2d4de} 
 \index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!m\_swapchain@{m\_swapchain}}
@@ -299,7 +339,7 @@ OMSet\+Render\+Targetに渡す\+CPU上のアドレス
 
 
 
- \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00043}{43}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00045}{45}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_render_target_a8c0a89ec4ac74438d8a55a20137694fe}\label{classmugen__engine_1_1_m_e_graphic_render_target_a8c0a89ec4ac74438d8a55a20137694fe} 
 \index{mugen\_engine::MEGraphicRenderTarget@{mugen\_engine::MEGraphicRenderTarget}!m\_viewport@{m\_viewport}}
@@ -313,7 +353,7 @@ OMSet\+Render\+Targetに渡す\+CPU上のアドレス
 
 
 
- \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00047}{47}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_target_8h_source}{Graphic\+Render\+Target.\+h}} の \mbox{\hyperlink{_graphic_render_target_8h_source_l00049}{49}} 行目に定義があります。
 
 
 
