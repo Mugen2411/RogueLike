@@ -43,12 +43,43 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MEGraphicLoadedImage::DrawGraph(int x, int y)
 	{
-		static DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
+		DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
 			2.0f / MECore::GetIns().m_windowHeight, 1.0f);
-		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(static_cast<float>(x - MECore::GetIns().m_windowWidth / 2),
-			static_cast<float>(- y + MECore::GetIns().m_windowHeight / 2), 0.0f);
-		m_matrix = moveMatrix * screenScale;
-		
+		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(
+			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
+			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
+		m_matrix = screenScale * moveMatrix;
+
+		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
+		m_pipeline->SetPipelineState(0, *m_cmdList);
+		m_resourceManager->SetGpuResource(m_index, *m_cmdList);
+
+		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices), *m_cmdList);
+		m_resourceManager->UploadConstantData(m_index, m_matrix, *m_cmdList);
+		m_resourceManager->SetRenderCommand(*m_cmdList);
+
+		m_cmdList->Execute();
+	}
+
+	/**********************************************************************//**
+		@brief			ç¿ïWÇ∆ägëÂó¶Ç∆âÒì]äpìxÇéwíËÇµÇƒï`âÊ
+		@param[in]		x					ï`âÊÇ∑ÇÈíÜêSÇÃXç¿ïW
+		@param[in]		y					ï`âÊÇ∑ÇÈíÜêSÇÃYç¿ïW
+		@param[in]		scale				ägëÂó¶
+		@param[in]		angle				âÒì]äpìx(ÉâÉWÉAÉì)
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle)
+	{
+		DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().m_windowWidth,
+			2.0f * scale / MECore::GetIns().m_windowHeight, 1.0f);
+		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(
+			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
+			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
+		DirectX::XMMATRIX rotateMatrix = DirectX::XMMatrixRotationZ(angle);
+		m_matrix = rotateMatrix * screenScale * moveMatrix;
+
 		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
 		m_pipeline->SetPipelineState(0, *m_cmdList);
 		m_resourceManager->SetGpuResource(m_index, *m_cmdList);

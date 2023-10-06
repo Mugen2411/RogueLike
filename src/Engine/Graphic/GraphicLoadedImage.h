@@ -29,6 +29,8 @@ namespace mugen_engine
 			MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget);
 		//! w’è‚µ‚½À•W‚É•`‰æ
 		void DrawGraph(int x, int y);
+		//! À•W‚ÆŠg‘å—¦‚Æ‰ñ“]Šp“x‚ğw’è‚µ‚Ä•`‰æ
+		void DrawRotaGraph(int x, int y, float scale, float angle);
 	private:
 		uint32_t m_index;											//!< “Ç‚İ‚İ‰æ‘œ‚ª‰½”Ô–Ú‚©
 		size_t m_width;												//!< ‰æ‘œ‚Ì‰¡•

@@ -1,20 +1,5 @@
 //! @file main.cpp
 //! @note Copyright (c) Mugen_Gamelab
-
-#include <Windows.h>
-#include <tchar.h>
-#include <vector>
-#include <string>
-#include <memory>
-
-#include <wrl/client.h>
-
-#include <d3d12.h>
-#include <dxgi1_6.h>
-#include <DirectXMath.h>
-#include <d3dcompiler.h>
-#include <d3dx12.h>
-
 #include "Engine/Core.h"
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
@@ -33,8 +18,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		mugen_engine::MECore::GetIns().ClearScreen(0, 0xFF, 0xFF);
 
 		mugen_engine::MECore::GetIns().GetGraph("material").DrawGraph(640, 360);
-		mugen_engine::MECore::GetIns().GetGraph("esc").DrawGraph(60, 60);
-		mugen_engine::MECore::GetIns().GetGraph("esc").DrawGraph(120, 120);
+		for(int i = 0; i < 30; i++)
+		{
+			mugen_engine::MECore::GetIns().GetGraph("esc").DrawRotaGraph(i * 32, i * 18, 0.5f+0.2f*i, 3.1415926f / 15 * i);
+		}
 
 		mugen_engine::MECore::GetIns().ScreenFlip();
 	}
