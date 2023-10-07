@@ -10,4 +10,5 @@ cbuffer cbuff0 : register(b0)
 	matrix move;
 	matrix rot;
 	matrix scale;
+	float4 brightness;
 }

@@ -13,7 +13,7 @@ namespace mugen_engine
 		@return			‚È‚µ
 	*//***********************************************************************/
 	MEGraphicLoadedImage::MEGraphicLoadedImage() :
-		m_index(0), m_width(0), m_height(0), m_xDivideNum(1), m_yDivideNum(1)
+		m_index(0), m_width(0), m_height(0), m_xDivideNum(1), m_yDivideNum(1), m_brightness(1.0f, 1.0f, 1.0f, 1.0f)
 	{}
 
 	/**********************************************************************//**
@@ -32,7 +32,8 @@ namespace mugen_engine
 		{{-static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{0.0f, 0.0f}},
 		{{ static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{1.0f, 1.0f}},
 		{{ static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{1.0f, 0.0f}},
-		}, m_cmdList(cmdList), m_resourceManager(resourceManager), m_pipeline(pipeline), m_renderTarget(renderTarget)
+		}, m_brightness(1.0f, 1.0f, 1.0f, 1.0f), m_cmdList(cmdList), m_resourceManager(resourceManager),
+		m_pipeline(pipeline), m_renderTarget(renderTarget)
 	{}
 
 	/**********************************************************************//**
@@ -84,6 +85,7 @@ namespace mugen_engine
 			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
 			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
+		constData.brightness = m_brightness;
 
 		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
 		m_pipeline->SetPipelineState(0, *m_cmdList);
@@ -127,6 +129,7 @@ namespace mugen_engine
 			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
 			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
 		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
+		constData.brightness = m_brightness;
 
 		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
 		m_pipeline->SetPipelineState(0, *m_cmdList);
@@ -138,5 +141,18 @@ namespace mugen_engine
 		m_resourceManager->SetRenderCommand(*m_cmdList);
 
 		m_cmdList->Execute();
+	}
+
+	/**********************************************************************//**
+		@brief			‰æ‘œ•`‰æ‚Ì‹P“x‚ğİ’è
+		@param[in]		R					Ô
+		@param[in]		G					—Î
+		@param[in]		B					Â
+		@param[in]		A					•s“§–¾“x
+		@return			‚È‚µ
+	*//***********************************************************************/
+	void MEGraphicLoadedImage::SetBrightness(const float R, const float G, const float B, const float A)
+	{
+		m_brightness = DirectX::XMFLOAT4(R, G, B, A);
 	}
 }

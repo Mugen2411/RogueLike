@@ -1,6 +1,13 @@
 var searchData=
 [
-  ['uploadconstantdata_0',['UploadConstantData',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ab16f2ef0380b38c25b75788110401039',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploadvertexdata_1',['UploadVertexData',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ab6718cfba5dab38e4b7e3080065aea0d',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uv_2',['uv',['../structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html#aa2a3c7ab4b91c004d19c42d52964614f',1,'mugen_engine::VERTEX_DATA']]]
+  ['scalematrix_0',['scaleMatrix',['../structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html#a17eb2e557c78eaa619bdeea2a25f0568',1,'mugen_engine::CONSTANT_DATA']]],
+  ['screenflip_1',['ScreenFlip',['../classmugen__engine_1_1_m_e_core.html#a29c86d9bd9b6506ac15fb8a97e27e3e1',1,'mugen_engine::MECore']]],
+  ['setbarrierbeforepresent_2',['SetBarrierBeforePresent',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a86bd05010fcd095968d0e5f4deab7933',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setbarrierbeforerender_3',['SetBarrierBeforeRender',['../classmugen__engine_1_1_m_e_graphic_render_target.html#af4af93f98257ad2ce73ff834430fe0de',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setbrightness_4',['SetBrightness',['../classmugen__engine_1_1_m_e_graphic_loaded_image.html#a6706d008f0c0762dc3777fad9f778a85',1,'mugen_engine::MEGraphicLoadedImage']]],
+  ['setgpuresource_5',['SetGpuResource',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#aaec35100ee346845f0c3f9e74efcab4a',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['setpipelinestate_6',['SetPipelineState',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a57d712861469c0a2c65eed9fec8b294a',1,'mugen_engine::MEGraphicPipeline']]],
+  ['setrenderarea_7',['setrenderarea',['../classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40',1,'mugen_engine::MECore::SetRenderArea()'],['../classmugen__engine_1_1_m_e_graphic_render_target.html#a4a434c63c78f37b4cb143882c090b447',1,'mugen_engine::MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList &amp;cmdList, const int topX, const int topY, const int bottomX, const int bottomY)']]],
+  ['setrenderbasecommand_8',['SetRenderBaseCommand',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a9ad02058247ee840df88df8ace4472af',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setrendercommand_9',['SetRenderCommand',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a40aa78852a2cf8d7bf00b3f93fb339d9',1,'mugen_engine::MEGraphicGpuResourceManager']]]
 ];

@@ -27,6 +27,7 @@ namespace mugen_engine
 		DirectX::XMMATRIX moveMatrix;							//!< 変形行列(並行移動)
 		DirectX::XMMATRIX rotateMatrix;							//!< 変形行列(回転)
 		DirectX::XMMATRIX scaleMatrix;							//!< 変形行列(拡大)
+		DirectX::XMFLOAT4 brightness;							//!< 輝度調整
 	};
 }
 
