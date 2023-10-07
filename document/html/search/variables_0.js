@@ -46,5 +46,6 @@ var searchData=
   ['m_5fwindowwidth_43',['m_windowWidth',['../classmugen__engine_1_1_m_e_core.html#a00189f604a60d9428042bec40d3c13b8',1,'mugen_engine::MECore']]],
   ['m_5fxdividenum_44',['m_xDivideNum',['../classmugen__engine_1_1_m_e_graphic_loaded_image.html#af362a449e0893c88f9f49989f4b66e29',1,'mugen_engine::MEGraphicLoadedImage']]],
   ['m_5fydividenum_45',['m_yDivideNum',['../classmugen__engine_1_1_m_e_graphic_loaded_image.html#abf445d375e000f8b8109df2a0d8a78fb',1,'mugen_engine::MEGraphicLoadedImage']]],
-  ['megraphicloadedimage_46',['MEGraphicLoadedImage',['../classmugen__engine_1_1_m_e_core.html#ab040ecdbae8c80a40b0e132714cf0198',1,'mugen_engine::MECore']]]
+  ['megraphicloadedimage_46',['MEGraphicLoadedImage',['../classmugen__engine_1_1_m_e_core.html#ab040ecdbae8c80a40b0e132714cf0198',1,'mugen_engine::MECore']]],
+  ['movematrix_47',['moveMatrix',['../structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html#aaedee04adcaf8327d8966688012e9b34',1,'mugen_engine::CONSTANT_DATA']]]
 ];

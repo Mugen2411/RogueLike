@@ -61,6 +61,8 @@ var menudata={children:[
 {text:"変数",url:"functions_vars.html",children:[
 {text:"m",url:"functions_vars.html#index_m"},
 {text:"p",url:"functions_vars.html#index_p"},
+{text:"r",url:"functions_vars.html#index_r"},
+{text:"s",url:"functions_vars.html#index_s"},
 {text:"u",url:"functions_vars.html#index_u"}]}]}]},
 {text:"ファイル",url:"files.html",children:[
 {text:"ファイル一覧",url:"files.html"},

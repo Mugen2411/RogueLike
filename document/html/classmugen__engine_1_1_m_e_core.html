@@ -115,6 +115,9 @@ $(function() {
 <tr class="memitem:a4e60218ad0b3e25d49915cced759d5e6" id="r_a4e60218ad0b3e25d49915cced759d5e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a4e60218ad0b3e25d49915cced759d5e6">LoadGraph</a> (std::string gid, std::wstring filepath)</td></tr>
 <tr class="memdesc:a4e60218ad0b3e25d49915cced759d5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像をファイルから読み込む  <br /></td></tr>
 <tr class="separator:a4e60218ad0b3e25d49915cced759d5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535878e1fa59aa58aba12fc1324d45e5" id="r_a535878e1fa59aa58aba12fc1324d45e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a535878e1fa59aa58aba12fc1324d45e5">LoadDivGraph</a> (std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)</td></tr>
+<tr class="memdesc:a535878e1fa59aa58aba12fc1324d45e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像をファイルから分割して読み込む  <br /></td></tr>
+<tr class="separator:a535878e1fa59aa58aba12fc1324d45e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d65cc98ae8019f39066e6f749cf53dd" id="r_a7d65cc98ae8019f39066e6f749cf53dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html">MEGraphicLoadedImage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a7d65cc98ae8019f39066e6f749cf53dd">GetGraph</a> (std::string gid)</td></tr>
 <tr class="memdesc:a7d65cc98ae8019f39066e6f749cf53dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込み済み画像を取得する  <br /></td></tr>
 <tr class="separator:a7d65cc98ae8019f39066e6f749cf53dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,7 +219,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00137">137</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00161">161</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -282,7 +285,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00150">150</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00174">174</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -380,8 +383,16 @@ $(function() {
 </div><div class="memdoc">
 
 <p>読み込み済み画像を取得する </p>
+<p>キーを指定して読み込み済み画像を取り出す</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>読み込み済み画像 </dd></dl>
 
-<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00127">127</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00151">151</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -468,6 +479,59 @@ $(function() {
 
 </div>
 </div>
+<a id="a535878e1fa59aa58aba12fc1324d45e5" name="a535878e1fa59aa58aba12fc1324d45e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535878e1fa59aa58aba12fc1324d45e5">&#9670;&#160;</a></span>LoadDivGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::LoadDivGraph </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramname"><em>filepath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>xDivideNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>yDivideNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画像をファイルから分割して読み込む </p>
+<p>ファイルから画像を読み込む</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filepath</td><td>画像ファイルへのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00140">140</a> 行目に定義があります。</p>
+
+</div>
+</div>
 <a id="a4e60218ad0b3e25d49915cced759d5e6" name="a4e60218ad0b3e25d49915cced759d5e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e60218ad0b3e25d49915cced759d5e6">&#9670;&#160;</a></span>LoadGraph()</h2>
 
@@ -495,8 +559,17 @@ $(function() {
 </div><div class="memdoc">
 
 <p>画像をファイルから読み込む </p>
+<p>ファイルから画像を読み込む</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filepath</td><td>画像ファイルへのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00121">121</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00128">128</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -552,7 +625,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00116">116</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00117">117</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -662,7 +735,7 @@ $(function() {
 
 <p>グラフィックコマンドリスト </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00065">65</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00067">67</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -688,7 +761,7 @@ $(function() {
 
 <p>グラフィックデバイス </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00064">64</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00066">66</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -714,7 +787,7 @@ $(function() {
 
 <p>入力レイアウト </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00062">62</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00064">64</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -740,7 +813,7 @@ $(function() {
 
 <p>読み込み済み画像のインデックスを辞書で管理する </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00070">70</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00072">72</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -766,7 +839,7 @@ $(function() {
 
 <p>パイプライン </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00067">67</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00069">69</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -792,7 +865,7 @@ $(function() {
 
 <p>レンダーターゲット </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00066">66</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00068">68</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -818,7 +891,7 @@ $(function() {
 
 <p>GPUリソースマネージャー </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00068">68</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00070">70</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -844,7 +917,7 @@ $(function() {
 
 <p>ウィンドウクラス </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00058">58</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00060">60</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -870,7 +943,7 @@ $(function() {
 
 <p>ウィンドウハンドル </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00056">56</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00058">58</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -896,7 +969,7 @@ $(function() {
 
 <p>ウィンドウの高さ </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00060">60</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00062">62</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -922,7 +995,7 @@ $(function() {
 
 <p>ウィンドウの名前(ウィンドウクラスの名前) </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00057">57</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00059">59</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -948,7 +1021,7 @@ $(function() {
 
 <p>ウィンドウの横幅 </p>
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00059">59</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00061">61</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -972,7 +1045,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00071">71</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00073">73</a> 行目に定義があります。</p>
 
 </div>
 </div>
