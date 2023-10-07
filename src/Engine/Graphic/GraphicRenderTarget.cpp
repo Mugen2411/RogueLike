@@ -56,7 +56,7 @@ namespace mugen_engine
 
 			D3D12_CPU_DESCRIPTOR_HANDLE handle = m_rtvHeaps->GetCPUDescriptorHandleForHeapStart();
 
-			for(int idx = 0; idx < swcDesc.BufferCount; ++idx)
+			for(uint32_t idx = 0; idx < swcDesc.BufferCount; ++idx)
 			{
 				result = m_swapchain->GetBuffer(idx, IID_PPV_ARGS(m_backBuffers[idx].ReleaseAndGetAddressOf()));
 				device.GetDevice()->CreateRenderTargetView(m_backBuffers[idx].Get(), nullptr, handle);
@@ -64,8 +64,8 @@ namespace mugen_engine
 			}
 		}
 		{
-			m_viewport.Width = window_width;
-			m_viewport.Height = window_height;
+			m_viewport.Width = static_cast<float>(window_width);
+			m_viewport.Height = static_cast<float>(window_height);
 			m_viewport.TopLeftX = 0;
 			m_viewport.TopLeftY = 0;
 			m_viewport.MaxDepth = 1.0f;

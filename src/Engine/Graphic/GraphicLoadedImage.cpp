@@ -92,8 +92,8 @@ namespace mugen_engine
 		m_resourceManager->SetGpuResource(m_index, *m_cmdList);
 
 		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices), *m_cmdList);
-		m_resourceManager->UploadConstantData(m_index, constData, *m_cmdList);
+		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices));
+		m_resourceManager->UploadConstantData(m_index, constData);
 		m_resourceManager->SetRenderCommand(*m_cmdList);
 
 		m_cmdList->Execute();
@@ -136,8 +136,8 @@ namespace mugen_engine
 		m_resourceManager->SetGpuResource(m_index, *m_cmdList);
 
 		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices), *m_cmdList);
-		m_resourceManager->UploadConstantData(m_index, constData, *m_cmdList);
+		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices));
+		m_resourceManager->UploadConstantData(m_index, constData);
 		m_resourceManager->SetRenderCommand(*m_cmdList);
 
 		m_cmdList->Execute();

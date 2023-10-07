@@ -204,7 +204,7 @@ namespace mugen_engine
  * @details
  *****************************************************************************
  */
-static LRESULT WindowProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+LRESULT WindowProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
 	if(msg == WM_DESTROY)
 	{

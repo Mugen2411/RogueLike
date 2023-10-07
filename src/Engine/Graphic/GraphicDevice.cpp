@@ -17,6 +17,10 @@ namespace mugen_engine
 #ifdef _DEBUG
 			_EnableDebugLayer();
 			auto result = CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG, IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf()));
+			if(FAILED(result))
+			{
+				OutputDebugStringA("DXGI Factory Initialize Error.\n");
+		}
 #else
 			auto result = CreateDXGIFactory1(IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf()));
 #endif
@@ -99,7 +103,7 @@ namespace mugen_engine
 	void MEGraphicDevice::_EnableDebugLayer()
 	{
 		ID3D12Debug* debugLayer = nullptr;
-		auto result = D3D12GetDebugInterface(IID_PPV_ARGS(&debugLayer));
+		D3D12GetDebugInterface(IID_PPV_ARGS(&debugLayer));
 		debugLayer->EnableDebugLayer();
 		debugLayer->Release();
 

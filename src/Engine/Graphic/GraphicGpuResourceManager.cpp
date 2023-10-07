@@ -27,6 +27,11 @@ namespace mugen_engine
 		descHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 		auto result = device.GetDevice()->CreateDescriptorHeap(&descHeapDesc, IID_PPV_ARGS(m_basicDescHeap.ReleaseAndGetAddressOf()));
 
+		if(FAILED(result))
+		{
+			OutputDebugStringA("DX12 DescriptorHeap Initialize Error.\n");
+		}
+
 		m_descriptorHeapIncrementSize = device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
 		_CreateVertexBuffer(4, device);
@@ -79,7 +84,7 @@ namespace mugen_engine
 		@param[in]		renderTarget		レンダーターゲット
 		@return			なし
 	*//***********************************************************************/
-	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadDivGraph(const std::wstring& filepath, int xDivideNum, int yDivideNum,
+	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadDivGraph(const std::wstring& filepath, size_t xDivideNum, size_t yDivideNum,
 		const MEGraphicDevice& device, MEGraphicCommandList& cmdList,
 		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
 	{
@@ -124,13 +129,16 @@ namespace mugen_engine
 		@brief			頂点データをバッファに書き込む
 		@param[in]		vertices					頂点データの先頭のポインタ
 		@param[in]		vertexNum					頂点の数
-		@param[in]		cmdList						コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::UploadVertexData(VERTEX_DATA* vertices, size_t vertexNum, MEGraphicCommandList& cmdList)
+	void MEGraphicGpuResourceManager::UploadVertexData(VERTEX_DATA* vertices, size_t vertexNum)
 	{
 		VERTEX_DATA* vertMap = nullptr;
 		auto result = m_vertexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
+		if(FAILED(result))
+		{
+			OutputDebugStringA("DX12 VertexBuffer Mapping Error.\n");
+		}
 		std::copy_n(vertices, vertexNum, vertMap);
 		m_vertexBuffer->Unmap(0, nullptr);
 	}
@@ -141,7 +149,7 @@ namespace mugen_engine
 		@param[in]		cmdList						コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::UploadConstantData(const uint32_t index, CONSTANT_DATA& constData, MEGraphicCommandList& cmdList)
+	void MEGraphicGpuResourceManager::UploadConstantData(const uint32_t index, CONSTANT_DATA& constData)
 	{
 		CONSTANT_DATA* mapMatrix;
 		auto result = m_constantBuffers[index]->Map(0, nullptr, (void**)&mapMatrix);
@@ -169,7 +177,7 @@ namespace mugen_engine
 	{
 		if(m_currentIndex >= m_maxResourceView)
 		{
-			return -1;
+			return 0;
 		}
 		return m_currentIndex++;
 	}
@@ -209,7 +217,7 @@ namespace mugen_engine
 
 		D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
 		cbvDesc.BufferLocation = m_constantBuffers[index]->GetGPUVirtualAddress();
-		cbvDesc.SizeInBytes = m_constantBuffers[index]->GetDesc().Width;
+		cbvDesc.SizeInBytes = static_cast<UINT>(m_constantBuffers[index]->GetDesc().Width);
 
 		device.GetDevice()->CreateConstantBufferView(&cbvDesc, basicHeapHandle);
 	}
@@ -234,9 +242,9 @@ namespace mugen_engine
 		D3D12_RESOURCE_DESC resdesc = {};
 		resdesc.Dimension = static_cast<D3D12_RESOURCE_DIMENSION>(metadata.dimension);
 		resdesc.Width = metadata.width;
-		resdesc.Height = metadata.height;
-		resdesc.DepthOrArraySize = metadata.arraySize;
-		resdesc.MipLevels = metadata.mipLevels;
+		resdesc.Height = static_cast<UINT>(metadata.height);
+		resdesc.DepthOrArraySize = static_cast<UINT16>(metadata.arraySize);
+		resdesc.MipLevels = static_cast<UINT16>(metadata.mipLevels);
 		resdesc.Format = metadata.format;
 		resdesc.SampleDesc.Count = 1;
 		resdesc.SampleDesc.Quality = 0;
@@ -349,7 +357,7 @@ namespace mugen_engine
 			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(m_vertexBuffer.ReleaseAndGetAddressOf()));
 
 		m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-		m_vertexBufferView.SizeInBytes = sizeof(VERTEX_DATA) * vertexNum;
+		m_vertexBufferView.SizeInBytes = static_cast<UINT>(sizeof(VERTEX_DATA) * vertexNum);
 		m_vertexBufferView.StrideInBytes = sizeof(VERTEX_DATA);
 	}
 
@@ -369,10 +377,10 @@ namespace mugen_engine
 		src.pResource = m_uploadBuffer.Get();
 		src.Type = D3D12_TEXTURE_COPY_TYPE_PLACED_FOOTPRINT;
 		src.PlacedFootprint.Offset = 0;
-		src.PlacedFootprint.Footprint.Width = metadata.width;
-		src.PlacedFootprint.Footprint.Height = metadata.height;
-		src.PlacedFootprint.Footprint.Depth = metadata.depth;
-		src.PlacedFootprint.Footprint.RowPitch = _GetAlignmentedSize(rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
+		src.PlacedFootprint.Footprint.Width = static_cast<UINT>(metadata.width);
+		src.PlacedFootprint.Footprint.Height = static_cast<UINT>(metadata.height);
+		src.PlacedFootprint.Footprint.Depth = static_cast<UINT>(metadata.depth);
+		src.PlacedFootprint.Footprint.RowPitch = static_cast<UINT>(_GetAlignmentedSize(rowPitch, D3D12_TEXTURE_DATA_PITCH_ALIGNMENT));
 		src.PlacedFootprint.Footprint.Format = format;
 
 		D3D12_TEXTURE_COPY_LOCATION dst = {};

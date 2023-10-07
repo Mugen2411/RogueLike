@@ -22,307 +22,316 @@
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ descHeapDesc.Type\ =\ D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV;}
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateDescriptorHeap(\&descHeapDesc,\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}.ReleaseAndGetAddressOf()));}
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{\_CreateVertexBuffer}}(4,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(FAILED(result))}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ OutputDebugStringA(\textcolor{stringliteral}{"{}DX12\ DescriptorHeap\ Initialize\ Error.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00035}00035\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00044}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a2924d6e75704f6e01b0e18d89b17b260}{00044}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a2924d6e75704f6e01b0e18d89b17b260}{MEGraphicGpuResourceManager::LoadGraph}}(\textcolor{keyword}{const}\ std::wstring\&\ filepath,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}\&\ pipeline,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphicRenderTarget}}\&\ renderTarget)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00047}00047\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ index\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{\_GetShaderResourceIndex}}();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{\_InitalizeConstantBuffer}}(index,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ DirectX::TexMetadata\ metadata\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ DirectX::ScratchImage\ scratchImg\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ DirectX::Image\ \textcolor{keyword}{const}*\ img\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00054}00054\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ DirectX::LoadFromWICFile(filepath.c\_str(),\ DirectX::WIC\_FLAGS\_NONE,\ \&metadata,\ scratchImg);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ img\ =\ scratchImg.GetImage(0,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{\_CreateTextureBuffer}}(index,\ metadata,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{\_CreateCbv}}(index,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{\_CreateSrv}}(index,\ img-\/>format,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{\_ResetUploadBuffer}}(img-\/>rowPitch,\ img-\/>height,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{\_UploadDataToUploadBuffer}}(img-\/>pixels,\ img-\/>rowPitch,\ img-\/>height);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{\_UploadToGpu}}(index,\ metadata,\ img-\/>rowPitch,\ img-\/>format,\ cmdList);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ ret(index,\ img-\/>width,\ img-\/>height,\ \&cmdList,\ \textcolor{keyword}{this},\ \&pipeline,\ \&renderTarget);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00067}00067\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>GetDescriptorHandleIncrementSize(D3D12\_DESCRIPTOR\_HEAP\_TYPE\_CBV\_SRV\_UAV);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{\_CreateVertexBuffer}}(4,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00040}00040\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00049}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a2924d6e75704f6e01b0e18d89b17b260}{00049}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a2924d6e75704f6e01b0e18d89b17b260}{MEGraphicGpuResourceManager::LoadGraph}}(\textcolor{keyword}{const}\ std::wstring\&\ filepath,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}\&\ pipeline,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphicRenderTarget}}\&\ renderTarget)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ index\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{\_GetShaderResourceIndex}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{\_InitalizeConstantBuffer}}(index,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ DirectX::TexMetadata\ metadata\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ DirectX::ScratchImage\ scratchImg\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ DirectX::Image\ \textcolor{keyword}{const}*\ img\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ DirectX::LoadFromWICFile(filepath.c\_str(),\ DirectX::WIC\_FLAGS\_NONE,\ \&metadata,\ scratchImg);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ img\ =\ scratchImg.GetImage(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{\_CreateTextureBuffer}}(index,\ metadata,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{\_CreateCbv}}(index,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{\_CreateSrv}}(index,\ img-\/>format,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{\_ResetUploadBuffer}}(img-\/>rowPitch,\ img-\/>height,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{\_UploadDataToUploadBuffer}}(img-\/>pixels,\ img-\/>rowPitch,\ img-\/>height);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{\_UploadToGpu}}(index,\ metadata,\ img-\/>rowPitch,\ img-\/>format,\ cmdList);}
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00082}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a137f7f6c0c1d190c38923d269c829f9e}{00082}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a137f7f6c0c1d190c38923d269c829f9e}{MEGraphicGpuResourceManager::LoadDivGraph}}(\textcolor{keyword}{const}\ std::wstring\&\ filepath,\ \textcolor{keywordtype}{int}\ xDivideNum,\ \textcolor{keywordtype}{int}\ yDivideNum,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}\&\ pipeline,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphicRenderTarget}}\&\ renderTarget)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00085}00085\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ index\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{\_GetShaderResourceIndex}}();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{\_InitalizeConstantBuffer}}(index,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ DirectX::TexMetadata\ metadata\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ DirectX::ScratchImage\ scratchImg\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ DirectX::Image\ \textcolor{keyword}{const}*\ img\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00092}00092\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ DirectX::LoadFromWICFile(filepath.c\_str(),\ DirectX::WIC\_FLAGS\_NONE,\ \&metadata,\ scratchImg);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ img\ =\ scratchImg.GetImage(0,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00095}00095\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{\_CreateTextureBuffer}}(index,\ metadata,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{\_CreateCbv}}(index,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{\_CreateSrv}}(index,\ img-\/>format,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00099}00099\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{\_ResetUploadBuffer}}(img-\/>rowPitch,\ img-\/>height,\ device);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{\_UploadDataToUploadBuffer}}(img-\/>pixels,\ img-\/>rowPitch,\ img-\/>height);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{\_UploadToGpu}}(index,\ metadata,\ img-\/>rowPitch,\ img-\/>format,\ cmdList);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00103}00103\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ ret(index,\ img-\/>width\ /\ xDivideNum,\ img-\/>height\ /\ yDivideNum,\ xDivideNum,\ yDivideNum,\ \&cmdList,\ \textcolor{keyword}{this},\ \&pipeline,\ \&renderTarget);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00105}00105\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ ret(index,\ img-\/>width,\ img-\/>height,\ \&cmdList,\ \textcolor{keyword}{this},\ \&pipeline,\ \&renderTarget);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00087}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_abc9e9461b6e23746452e8ec85a2a576f}{00087}}\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_abc9e9461b6e23746452e8ec85a2a576f}{MEGraphicGpuResourceManager::LoadDivGraph}}(\textcolor{keyword}{const}\ std::wstring\&\ filepath,\ \textcolor{keywordtype}{size\_t}\ xDivideNum,\ \textcolor{keywordtype}{size\_t}\ yDivideNum,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}\&\ pipeline,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphicRenderTarget}}\&\ renderTarget)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00090}00090\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ index\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{\_GetShaderResourceIndex}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{\_InitalizeConstantBuffer}}(index,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ DirectX::TexMetadata\ metadata\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ DirectX::ScratchImage\ scratchImg\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ DirectX::Image\ \textcolor{keyword}{const}*\ img\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ DirectX::LoadFromWICFile(filepath.c\_str(),\ DirectX::WIC\_FLAGS\_NONE,\ \&metadata,\ scratchImg);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ img\ =\ scratchImg.GetImage(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{\_CreateTextureBuffer}}(index,\ metadata,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{\_CreateCbv}}(index,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{\_CreateSrv}}(index,\ img-\/>format,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{\_ResetUploadBuffer}}(img-\/>rowPitch,\ img-\/>height,\ device);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{\_UploadDataToUploadBuffer}}(img-\/>pixels,\ img-\/>rowPitch,\ img-\/>height);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{\_UploadToGpu}}(index,\ metadata,\ img-\/>rowPitch,\ img-\/>format,\ cmdList);}
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00108}00108\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00109}00109\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00115}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a}{00115}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a}{MEGraphicGpuResourceManager::SetGpuResource}}(\textcolor{keyword}{const}\ uint32\_t\ index,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00116}00116\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ handle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}-\/>GetGPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ handle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ *\ index\ *\ 2;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetDescriptorHeaps(1,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}.GetAddressOf());}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetGraphicsRootDescriptorTable(0,\ handle);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00121}00121\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00122}00122\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00123}00123\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00130}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab6718cfba5dab38e4b7e3080065aea0d}{00130}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab6718cfba5dab38e4b7e3080065aea0d}{MEGraphicGpuResourceManager::UploadVertexData}}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}}*\ vertices,\ \textcolor{keywordtype}{size\_t}\ vertexNum,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00131}00131\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}}*\ vertMap\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}-\/>Map(0,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&vertMap));}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ std::copy\_n(vertices,\ vertexNum,\ vertMap);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00136}00136\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00137}00137\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00138}00138\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00144}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab16f2ef0380b38c25b75788110401039}{00144}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ab16f2ef0380b38c25b75788110401039}{MEGraphicGpuResourceManager::UploadConstantData}}(\textcolor{keyword}{const}\ uint32\_t\ index,\ \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}}\&\ constData,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00145}00145\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}}*\ mapMatrix;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapMatrix);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ *mapMatrix\ =\ constData;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00150}00150\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00151}00151\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00152}00152\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00157}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9}{00157}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9}{MEGraphicGpuResourceManager::SetRenderCommand}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00158}00158\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>IASetVertexBuffers(0,\ 1,\ \&\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}});}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>DrawInstanced(4,\ 1,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00161}00161\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00162}00162\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00163}00163\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00168}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{00168}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{MEGraphicGpuResourceManager::\_GetShaderResourceIndex}}()}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00169}00169\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9}{m\_currentIndex}}\ >=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aedfdf0e77b83e04c37f357bec780a941}{m\_maxResourceView}})}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9}{m\_currentIndex}}++;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00175}00175\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00176}00176\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00177}00177\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00184}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{00184}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{MEGraphicGpuResourceManager::\_CreateSrv}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ DXGI\_FORMAT\ format,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00186}00186\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ basicHeapHandle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ *\ (index\ *\ 2);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00189}00189\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ D3D12\_SHADER\_RESOURCE\_VIEW\_DESC\ srvDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ srvDesc.Format\ =\ format;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ srvDesc.Shader4ComponentMapping\ =\ D3D12\_DEFAULT\_SHADER\_4\_COMPONENT\_MAPPING;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ srvDesc.ViewDimension\ =\ D3D12\_SRV\_DIMENSION\_TEXTURE2D;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ srvDesc.Texture2D.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00195}00195\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateShaderResourceView(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].Get(),\ \&srvDesc,\ basicHeapHandle);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00197}00197\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00198}00198\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00199}00199\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00205}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{00205}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{MEGraphicGpuResourceManager::\_CreateCbv}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00206}00206\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ basicHeapHandle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ *\ (index\ *\ 2\ +\ 1);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00209}00209\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ D3D12\_CONSTANT\_BUFFER\_VIEW\_DESC\ cbvDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ cbvDesc.BufferLocation\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>GetGPUVirtualAddress();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ cbvDesc.SizeInBytes\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>GetDesc().Width;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00213}00213\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateConstantBufferView(\&cbvDesc,\ basicHeapHandle);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00215}00215\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00216}00216\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00217}00217\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00224}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{00224}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{MEGraphicGpuResourceManager::\_CreateTextureBuffer}}(\textcolor{keyword}{const}\ uint32\_t\ index,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ DirectX::TexMetadata\&\ metadata,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00226}00226\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_DEFAULT;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00233}00233\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ \textcolor{keyword}{static\_cast<}D3D12\_RESOURCE\_DIMENSION\textcolor{keyword}{>}(metadata.dimension);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ metadata.width;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ metadata.height;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ metadata.arraySize;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ metadata.mipLevels;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ metadata.format;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00245}00245\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_COPY\_DEST,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00248}00248\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00249}00249\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00250}00250\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00257}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{00257}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{MEGraphicGpuResourceManager::\_ResetUploadBuffer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ rowPitch,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ height,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00258}00258\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00265}00265\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\_GetAlignmentedSize}}(rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT)\ *\ height;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00277}00277\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00280}00280\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00281}00281\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00282}00282\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00289}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{00289}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{MEGraphicGpuResourceManager::\_UploadDataToUploadBuffer}}(uint8\_t\ *\ srcData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ rowPitch,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ height)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00290}00290\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ uint8\_t*\ mapforImg\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapforImg);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00293}00293\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ srcAddress\ =\ srcData;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ GpuRowPitch\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\_GetAlignmentedSize}}(rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ height;\ ++y)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(srcAddress,\ GpuRowPitch,\ mapforImg);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ srcAddress\ +=\ rowPitch;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ mapforImg\ +=\ GpuRowPitch;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00303}00303\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00304}00304\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00305}00305\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00311}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{00311}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{MEGraphicGpuResourceManager::\_SetBarrierBeforeUploadTexture}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00312}00312\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ barrierDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ barrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ barrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ barrierDesc.Transition.pResource\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].Get();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ barrierDesc.Transition.Subresource\ =\ D3D12\_RESOURCE\_BARRIER\_ALL\_SUBRESOURCES;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_COPY\_DEST;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_PIXEL\_SHADER\_RESOURCE;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00320}00320\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>ResourceBarrier(1,\ \&barrierDesc);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00322}00322\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00323}00323\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00324}00324\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00330}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{00330}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{MEGraphicGpuResourceManager::\_CreateVertexBuffer}}(\textcolor{keywordtype}{size\_t}\ vertexNum,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00331}00331\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00336}00336\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}})\ *\ vertexNum;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00347}00347\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}.ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00350}00350\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}}.BufferLocation\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}-\/>GetGPUVirtualAddress();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}}.SizeInBytes\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}})\ *\ vertexNum;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}}.StrideInBytes\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}});}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00354}00354\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphicLoadedImage}}\ ret(index,\ img-\/>width\ /\ xDivideNum,\ img-\/>height\ /\ yDivideNum,\ xDivideNum,\ yDivideNum,\ \&cmdList,\ \textcolor{keyword}{this},\ \&pipeline,\ \&renderTarget);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00114}00114\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00120}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a}{00120}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaec35100ee346845f0c3f9e74efcab4a}{MEGraphicGpuResourceManager::SetGpuResource}}(\textcolor{keyword}{const}\ uint32\_t\ index,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00121}00121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ handle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}-\/>GetGPUDescriptorHandleForHeapStart();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ handle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ *\ index\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetDescriptorHeaps(1,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}.GetAddressOf());}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetGraphicsRootDescriptorTable(0,\ handle);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00128}00128\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00134}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a18af002c473e0b99f9b318e33b8c7f58}{00134}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a18af002c473e0b99f9b318e33b8c7f58}{MEGraphicGpuResourceManager::UploadVertexData}}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}}*\ vertices,\ \textcolor{keywordtype}{size\_t}\ vertexNum)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00135}00135\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}}*\ vertMap\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}-\/>Map(0,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&vertMap));}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(FAILED(result))}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ OutputDebugStringA(\textcolor{stringliteral}{"{}DX12\ VertexBuffer\ Mapping\ Error.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ std::copy\_n(vertices,\ vertexNum,\ vertMap);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00146}00146\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00152}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d1b8eb0194c54df74ea08391f9ebe91}{00152}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d1b8eb0194c54df74ea08391f9ebe91}{MEGraphicGpuResourceManager::UploadConstantData}}(\textcolor{keyword}{const}\ uint32\_t\ index,\ \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}}\&\ constData)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00153}00153\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}}*\ mapMatrix;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapMatrix);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ *mapMatrix\ =\ constData;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00158}00158\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00160}00160\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00165}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9}{00165}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a40aa78852a2cf8d7bf00b3f93fb339d9}{MEGraphicGpuResourceManager::SetRenderCommand}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00166}00166\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>IASetVertexBuffers(0,\ 1,\ \&\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>DrawInstanced(4,\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00171}00171\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00176}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{00176}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a57e60c42acf5bf79045812541af48d9b}{MEGraphicGpuResourceManager::\_GetShaderResourceIndex}}()}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00177}00177\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9}{m\_currentIndex}}\ >=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aedfdf0e77b83e04c37f357bec780a941}{m\_maxResourceView}})}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af252ad0ff31d1316303d4c58347a48d9}{m\_currentIndex}}++;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00185}00185\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00192}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{00192}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_acf8504644fe597fdd7fe77c25b3bfa6a}{MEGraphicGpuResourceManager::\_CreateSrv}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ DXGI\_FORMAT\ format,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00194}00194\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}-\/>GetCPUDescriptorHandleForHeapStart();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ basicHeapHandle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ *\ (index\ *\ 2);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ D3D12\_SHADER\_RESOURCE\_VIEW\_DESC\ srvDesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ srvDesc.Format\ =\ format;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ srvDesc.Shader4ComponentMapping\ =\ D3D12\_DEFAULT\_SHADER\_4\_COMPONENT\_MAPPING;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ srvDesc.ViewDimension\ =\ D3D12\_SRV\_DIMENSION\_TEXTURE2D;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ srvDesc.Texture2D.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateShaderResourceView(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].Get(),\ \&srvDesc,\ basicHeapHandle);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00207}00207\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00213}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{00213}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a73e7a78d2e178dfb1655cd22a632a199}{MEGraphicGpuResourceManager::\_CreateCbv}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00214}00214\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}{m\_basicDescHeap}}-\/>GetCPUDescriptorHandleForHeapStart();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ basicHeapHandle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}{m\_descriptorHeapIncrementSize}}\ *\ (index\ *\ 2\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ D3D12\_CONSTANT\_BUFFER\_VIEW\_DESC\ cbvDesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ cbvDesc.BufferLocation\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>GetGPUVirtualAddress();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ cbvDesc.SizeInBytes\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index]-\/>GetDesc().Width);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateConstantBufferView(\&cbvDesc,\ basicHeapHandle);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00223}00223\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00225}00225\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00232}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{00232}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a4c5a35e6c956d00aefa1e91b56dc536e}{MEGraphicGpuResourceManager::\_CreateTextureBuffer}}(\textcolor{keyword}{const}\ uint32\_t\ index,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ DirectX::TexMetadata\&\ metadata,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00234}00234\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ \textcolor{keyword}{static\_cast<}D3D12\_RESOURCE\_DIMENSION\textcolor{keyword}{>}(metadata.dimension);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ metadata.width;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(metadata.height);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ \textcolor{keyword}{static\_cast<}UINT16\textcolor{keyword}{>}(metadata.arraySize);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ \textcolor{keyword}{static\_cast<}UINT16\textcolor{keyword}{>}(metadata.mipLevels);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ metadata.format;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_COPY\_DEST,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].ReleaseAndGetAddressOf()));}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00256}00256\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00258}00258\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00265}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{00265}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a6225e2445f2b6a37f27813b48c8237d0}{MEGraphicGpuResourceManager::\_ResetUploadBuffer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ rowPitch,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ height,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00266}00266\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\_GetAlignmentedSize}}(rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT)\ *\ height;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}.ReleaseAndGetAddressOf()));}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00290}00290\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00297}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{00297}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aff56cd722fab243222a39def9b38c7c1}{MEGraphicGpuResourceManager::\_UploadDataToUploadBuffer}}(uint8\_t\ *\ srcData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ rowPitch,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ height)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00298}00298\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ uint8\_t*\ mapforImg\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&mapforImg);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ srcAddress\ =\ srcData;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ GpuRowPitch\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\_GetAlignmentedSize}}(rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ height;\ ++y)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(srcAddress,\ GpuRowPitch,\ mapforImg);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ srcAddress\ +=\ rowPitch;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ mapforImg\ +=\ GpuRowPitch;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}-\/>Unmap(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00311}00311\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00313}00313\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00319}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{00319}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{MEGraphicGpuResourceManager::\_SetBarrierBeforeUploadTexture}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00320}00320\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_BARRIER\ barrierDesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ barrierDesc.Type\ =\ D3D12\_RESOURCE\_BARRIER\_TYPE\_TRANSITION;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ barrierDesc.Flags\ =\ D3D12\_RESOURCE\_BARRIER\_FLAG\_NONE;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ barrierDesc.Transition.pResource\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].Get();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ barrierDesc.Transition.Subresource\ =\ D3D12\_RESOURCE\_BARRIER\_ALL\_SUBRESOURCES;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateBefore\ =\ D3D12\_RESOURCE\_STATE\_COPY\_DEST;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ barrierDesc.Transition.StateAfter\ =\ D3D12\_RESOURCE\_STATE\_PIXEL\_SHADER\_RESOURCE;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>ResourceBarrier(1,\ \&barrierDesc);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00330}00330\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00332}00332\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00338}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{00338}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5d7e5b6b351b79a729ea1be8a01dbc33}{MEGraphicGpuResourceManager::\_CreateVertexBuffer}}(\textcolor{keywordtype}{size\_t}\ vertexNum,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00339}00339\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}})\ *\ vertexNum;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
 \DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00355}00355\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00356}00356\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00365}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{00365}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{MEGraphicGpuResourceManager::\_UploadToGpu}}(uint32\_t\ index,\ DirectX::TexMetadata\&\ metadata,\ \textcolor{keywordtype}{size\_t}\ rowPitch,\ DXGI\_FORMAT\ format,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00367}00367\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ src\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ src.pResource\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}.Get();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ src.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_PLACED\_FOOTPRINT;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Offset\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Width\ =\ metadata.width;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Height\ =\ metadata.height;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Depth\ =\ metadata.depth;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.RowPitch\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\_GetAlignmentedSize}}(rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Format\ =\ format;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00377}00377\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ dst\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ dst.pResource\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].Get();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ dst.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_SUBRESOURCE\_INDEX;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ dst.SubresourceIndex\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00382}00382\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>CopyTextureRegion(\&dst,\ 0,\ 0,\ 0,\ \&src,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00384}00384\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{\_SetBarrierBeforeUploadTexture}}(index,\ cmdList);}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00387}00387\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00388}00388\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00389}00389\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00395}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{00395}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{MEGraphicGpuResourceManager::\_InitalizeConstantBuffer}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00396}00396\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00403}00403\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}})\ +\ 0xFF)\ \&\ \string~0xFF;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00415}00415\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index].ReleaseAndGetAddressOf()));}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00418}00418\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00419}00419\ }
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00420}00420\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00426}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{00426}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{MEGraphicGpuResourceManager::\_GetAlignmentedSize}}(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ alignment)}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00427}00427\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ size\ +\ alignment\ -\/\ size\ \%\ alignment;}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00429}00429\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00430}00430\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}.ReleaseAndGetAddressOf()));}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}}.BufferLocation\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a17c15c20102e1ee1fc7ae5362c1b69dc}{m\_vertexBuffer}}-\/>GetGPUVirtualAddress();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}}.SizeInBytes\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}})\ *\ vertexNum);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_af451f0ca85ccd5ade19bab39c8efd47a}{m\_vertexBufferView}}.StrideInBytes\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\_DATA}});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00362}00362\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00364}00364\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00373}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{00373}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5b78ab4cf91cf6f7cab4cabfd467fcc9}{MEGraphicGpuResourceManager::\_UploadToGpu}}(uint32\_t\ index,\ DirectX::TexMetadata\&\ metadata,\ \textcolor{keywordtype}{size\_t}\ rowPitch,\ DXGI\_FORMAT\ format,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00375}00375\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ src\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ src.pResource\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}{m\_uploadBuffer}}.Get();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ src.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_PLACED\_FOOTPRINT;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Offset\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Width\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(metadata.width);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Height\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(metadata.height);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Depth\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(metadata.depth);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.RowPitch\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{\_GetAlignmentedSize}}(rowPitch,\ D3D12\_TEXTURE\_DATA\_PITCH\_ALIGNMENT));}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ src.PlacedFootprint.Footprint.Format\ =\ format;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ D3D12\_TEXTURE\_COPY\_LOCATION\ dst\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ dst.pResource\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9b99917b5635b0c3a29814f5e0f839f3}{m\_textureBuffers}}[index].Get();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ dst.Type\ =\ D3D12\_TEXTURE\_COPY\_TYPE\_SUBRESOURCE\_INDEX;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ dst.SubresourceIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>CopyTextureRegion(\&dst,\ 0,\ 0,\ 0,\ \&src,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afd29d22de1afc7f0afeb6d65dec430d0}{\_SetBarrierBeforeUploadTexture}}(index,\ cmdList);}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00395}00395\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00397}00397\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00403}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{00403}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7c96e0a8ed44d78c915504dba063f0a6}{MEGraphicGpuResourceManager::\_InitalizeConstantBuffer}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00404}00404\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}})\ +\ 0xFF)\ \&\ \string~0xFF;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a7fe36cd1e080cef32d61ba6dff5fd855}{m\_constantBuffers}}[index].ReleaseAndGetAddressOf()));}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00426}00426\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00428}00428\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00434}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{00434}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae04048578b10effe9691e23a9f6b707c}{MEGraphicGpuResourceManager::\_GetAlignmentedSize}}(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ alignment)}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00435}00435\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ size\ +\ alignment\ -\/\ size\ \%\ alignment;}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00437}00437\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_gpu_resource_manager_8cpp_source_l00438}00438\ \}}
 
 \end{DoxyCode}

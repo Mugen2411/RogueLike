@@ -24,10 +24,18 @@ namespace mugen_engine
 		//DX12 コマンドリストとコマンドアロケーター
 		{
 			auto result = device.GetDevice()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(m_cmdAllocator.ReleaseAndGetAddressOf()));
+			if(FAILED(result))
+			{
+				OutputDebugStringA("DX12 CommandAllocator Initialize Error.\n");
+			}
 		}
 		{
 			auto result = device.GetDevice()->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_cmdAllocator.Get(),
 				nullptr, IID_PPV_ARGS(m_cmdList.ReleaseAndGetAddressOf()));
+			if(FAILED(result))
+			{
+				OutputDebugStringA("DX12 CommandList Initialize Error.\n");
+			}
 		}
 
 		//DX12 コマンドキュー
@@ -39,11 +47,19 @@ namespace mugen_engine
 			cmdQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
 
 			auto result = device.GetDevice()->CreateCommandQueue(&cmdQueueDesc, IID_PPV_ARGS(m_cmdQueue.ReleaseAndGetAddressOf()));
+			if(FAILED(result))
+			{
+				OutputDebugStringA("DX12 CommandQueue Initialize Error.\n");
+			}
 		}
 
 		//フェンス
 		{
 			auto result = device.GetDevice()->CreateFence(m_fenceVal, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(m_fence.ReleaseAndGetAddressOf()));
+			if(FAILED(result))
+			{
+				OutputDebugStringA("DX12 Fence Initialize Error.\n");
+			}
 		}
 	}
 
