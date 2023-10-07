@@ -17,6 +17,17 @@ namespace mugen_engine
 		DirectX::XMFLOAT3 pos;									//!< 頂点の座標
 		DirectX::XMFLOAT2 uv;									//!< テクスチャのUV座標
 	};
+
+	/**********************************************************************//**
+		@struct		CONSTANT_DATA
+		@brief		定数バッファのデータ群
+	*//***********************************************************************/
+	struct CONSTANT_DATA
+	{
+		DirectX::XMMATRIX moveMatrix;							//!< 変形行列(並行移動)
+		DirectX::XMMATRIX rotateMatrix;							//!< 変形行列(回転)
+		DirectX::XMMATRIX scaleMatrix;							//!< 変形行列(拡大)
+	};
 }
 
 #endif//__MugenEngine_GraphicStruct__

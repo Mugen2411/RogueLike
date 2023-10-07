@@ -40,7 +40,7 @@ namespace mugen_engine
 		//! 頂点データをバッファに書き込む
 		void UploadVertexData(VERTEX_DATA* vertices, size_t vertexNum, MEGraphicCommandList& cmdList);
 		//! 定数バッファに書き込む
-		void UploadConstantData(const uint32_t index, DirectX::XMMATRIX matrix, MEGraphicCommandList& cmdList);
+		void UploadConstantData(const uint32_t index, CONSTANT_DATA& constData, MEGraphicCommandList& cmdList);
 		//! 描画対象としてセットする
 		void SetRenderCommand(MEGraphicCommandList& cmdList);
 	private:

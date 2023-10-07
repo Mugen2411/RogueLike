@@ -141,11 +141,11 @@ namespace mugen_engine
 		@param[in]		cmdList						コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::UploadConstantData(const uint32_t index, DirectX::XMMATRIX matrix, MEGraphicCommandList& cmdList)
+	void MEGraphicGpuResourceManager::UploadConstantData(const uint32_t index, CONSTANT_DATA& constData, MEGraphicCommandList& cmdList)
 	{
-		DirectX::XMMATRIX* mapMatrix;
+		CONSTANT_DATA* mapMatrix;
 		auto result = m_constantBuffers[index]->Map(0, nullptr, (void**)&mapMatrix);
-		*mapMatrix = matrix;
+		*mapMatrix = constData;
 		m_constantBuffers[index]->Unmap(0, nullptr);
 	}
 
@@ -403,7 +403,7 @@ namespace mugen_engine
 
 		D3D12_RESOURCE_DESC resdesc = {};
 		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
-		resdesc.Width = (sizeof(DirectX::XMMATRIX) + 0xFF) & ~0xFF;
+		resdesc.Width = (sizeof(CONSTANT_DATA) + 0xFF) & ~0xFF;
 		resdesc.Height = 1;
 		resdesc.DepthOrArraySize = 1;
 		resdesc.MipLevels = 1;

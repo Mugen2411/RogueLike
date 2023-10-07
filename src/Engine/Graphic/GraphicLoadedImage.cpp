@@ -77,12 +77,13 @@ namespace mugen_engine
 			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
 		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
 			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
-		DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
+		CONSTANT_DATA constData = {};
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
 			2.0f / MECore::GetIns().m_windowHeight, 1.0f);
-		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(
+		constData.moveMatrix = DirectX::XMMatrixTranslation(
 			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
 			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
-		m_matrix = screenScale * moveMatrix;
+		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 
 		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
 		m_pipeline->SetPipelineState(0, *m_cmdList);
@@ -90,7 +91,7 @@ namespace mugen_engine
 
 		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices), *m_cmdList);
-		m_resourceManager->UploadConstantData(m_index, m_matrix, *m_cmdList);
+		m_resourceManager->UploadConstantData(m_index, constData, *m_cmdList);
 		m_resourceManager->SetRenderCommand(*m_cmdList);
 
 		m_cmdList->Execute();
@@ -119,13 +120,13 @@ namespace mugen_engine
 			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
 		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
 			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
-		DirectX::XMMATRIX screenScale = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().m_windowWidth,
+		CONSTANT_DATA constData = {};
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().m_windowWidth,
 			2.0f * scale / MECore::GetIns().m_windowHeight, 1.0f);
-		DirectX::XMMATRIX moveMatrix = DirectX::XMMatrixTranslation(
+		constData.moveMatrix = DirectX::XMMatrixTranslation(
 			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
 			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
-		DirectX::XMMATRIX rotateMatrix = DirectX::XMMatrixRotationZ(angle);
-		m_matrix = rotateMatrix * screenScale * moveMatrix;
+		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
 
 		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
 		m_pipeline->SetPipelineState(0, *m_cmdList);
@@ -133,7 +134,7 @@ namespace mugen_engine
 
 		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices), *m_cmdList);
-		m_resourceManager->UploadConstantData(m_index, m_matrix, *m_cmdList);
+		m_resourceManager->UploadConstantData(m_index, constData, *m_cmdList);
 		m_resourceManager->SetRenderCommand(*m_cmdList);
 
 		m_cmdList->Execute();
