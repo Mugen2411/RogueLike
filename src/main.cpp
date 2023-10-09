@@ -12,14 +12,17 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	mugen_engine::MECore::GetIns().LoadDivGraph("material", L"media/graphic/material.png", 4, 3);
 	mugen_engine::MECore::GetIns().LoadGraph("esc", L"media/graphic/return_to_escape.png");
 
+	mugen_engine::MECore::GetIns().LoadFont("gothic", L"ノスタルドット（M+）", 64);
+
 	auto escGraph = mugen_engine::MECore::GetIns().GetGraph("esc");
 	auto materialGraph = mugen_engine::MECore::GetIns().GetGraph("material");
 	materialGraph.SetBrightness(1.0f, 0.2f, 0.2f, 1.0f);
+	auto gothicFont = mugen_engine::MECore::GetIns().GetFont("gothic");
 
 	while(mugen_engine::MECore::GetIns().ProcessMessage() == 0)
 	{
 		mugen_engine::MECore::GetIns().ResetRenderArea();
-		mugen_engine::MECore::GetIns().ClearScreen(0, 0xFF, 0xFF);
+		mugen_engine::MECore::GetIns().ClearScreen(0, 0, 0);
 
 		for(int i = 0; i < 30; i++)
 		{
@@ -30,6 +33,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		{	
 			materialGraph.DrawRotaGraph(64 + i * 96, 64 + i * 48, 1.0f + 0.4f * i, 3.1415926f / 12 * i, i);
 		}
+		float color[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+		gothicFont.DrawString(60, 60, color , L"ちなみに\n日本語は\nいけるん\nですか");
 
 		mugen_engine::MECore::GetIns().ScreenFlip();
 	}

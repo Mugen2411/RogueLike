@@ -81,11 +81,11 @@ namespace mugen_engine
 		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
 			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
 		CONSTANT_DATA constData = {};
-		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().m_windowWidth,
-			2.0f / MECore::GetIns().m_windowHeight, 1.0f);
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),
+			2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
 		constData.moveMatrix = DirectX::XMMatrixTranslation(
-			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
-			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
+			static_cast<float>(x - MECore::GetIns().GetWindowWidth() / 2) / MECore::GetIns().GetWindowWidth() * 2,
+			static_cast<float>(-y + MECore::GetIns().GetWindowHeight() / 2) / MECore::GetIns().GetWindowHeight() * 2, 0.0f);
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 		constData.brightness = m_brightness;
 
@@ -126,11 +126,11 @@ namespace mugen_engine
 		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
 			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
 		CONSTANT_DATA constData = {};
-		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().m_windowWidth,
-			2.0f * scale / MECore::GetIns().m_windowHeight, 1.0f);
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().GetWindowWidth(),
+			2.0f * scale / MECore::GetIns().GetWindowHeight(), 1.0f);
 		constData.moveMatrix = DirectX::XMMatrixTranslation(
-			static_cast<float>(x - MECore::GetIns().m_windowWidth / 2) / MECore::GetIns().m_windowWidth * 2,
-			static_cast<float>(-y + MECore::GetIns().m_windowHeight / 2) / MECore::GetIns().m_windowHeight * 2, 0.0f);
+			static_cast<float>(x - MECore::GetIns().GetWindowWidth() / 2) / MECore::GetIns().GetWindowWidth() * 2,
+			static_cast<float>(-y + MECore::GetIns().GetWindowHeight() / 2) / MECore::GetIns().GetWindowHeight() * 2, 0.0f);
 		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
 		constData.brightness = m_brightness;
 

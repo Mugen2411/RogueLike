@@ -10,6 +10,7 @@
 #include "Graphic/GraphicPipeline.h"
 #include "Graphic/GraphicGpuResourceManager.h"
 #include "Graphic/GraphicLoadedImage.h"
+#include "Graphic/GraphicFontData.h"
 
 #include <DirectXMath.h>
 #include <unordered_map>
@@ -45,6 +46,20 @@ namespace mugen_engine
 		void LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum);
 		//! 読み込み済み画像を取得する
 		MEGraphicLoadedImage& GetGraph(std::string gid);
+		//! フォントを読み込む
+		void LoadFont(std::string gid, std::wstring fontName, int fontSize);
+		//! 読み込み済みフォントを取得する
+		MEGraphicFontData& GetFont(std::string gid);
+		//! 画面の横幅を取得
+		int GetWindowWidth() const
+		{
+			return m_windowWidth;
+		}
+		//! 画面の高さを取得
+		int GetWindowHeight() const
+		{
+			return m_windowHeight;
+		}
 
 	private:
 		//! デフォルトコンストラクタ
@@ -69,8 +84,8 @@ namespace mugen_engine
 		MEGraphicPipeline m_pipeline;									//!< パイプライン
 		MEGraphicGpuResourceManager m_resourceManager;					//!< GPUリソースマネージャー
 
-		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImageIndices;	//!< 読み込み済み画像のインデックスを辞書で管理する
-		friend MEGraphicLoadedImage;
+		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImages;	//!< 読み込み済み画像を辞書で管理する
+		std::unordered_map<std::string, MEGraphicFontData> m_loadedFonts;		//!< 読み込み済みのフォントを辞書で管理する
 	};
 }
 

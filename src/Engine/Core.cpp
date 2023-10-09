@@ -128,7 +128,7 @@ namespace mugen_engine
 	void MECore::LoadGraph(std::string gid, std::wstring filepath)
 	{
 		auto img = MEGraphicLoadedImage(filepath, m_device, 1, 1, m_commandList, m_pipeline, m_renderTarget);
-		m_loadedImageIndices[gid] = img;
+		m_loadedImages[gid] = img;
 	}
 
 	/**********************************************************************//**
@@ -140,7 +140,7 @@ namespace mugen_engine
 	void MECore::LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)
 	{
 		auto img = MEGraphicLoadedImage(filepath, m_device, xDivideNum, yDivideNum, m_commandList, m_pipeline, m_renderTarget);
-		m_loadedImageIndices[gid] = img;
+		m_loadedImages[gid] = img;
 	}
 
 	/**********************************************************************//**
@@ -150,7 +150,29 @@ namespace mugen_engine
 	*//***********************************************************************/
 	MEGraphicLoadedImage& MECore::GetGraph(std::string gid)
 	{
-		return m_loadedImageIndices[gid];
+		return m_loadedImages[gid];
+	}
+
+	/**********************************************************************//**
+		@brief			フォントを読み込む
+		@param[in]		gid				取り出すキー
+		@param[in]		fontName		フォントの名前
+		@param[in]		fontSize		フォントサイズ
+		@return			なし
+	*//***********************************************************************/
+	void MECore::LoadFont(std::string gid, std::wstring fontName, int fontSize)
+	{
+		m_loadedFonts[gid] = MEGraphicFontData(fontName, fontSize, m_device, m_commandList, m_pipeline, m_renderTarget);
+	}
+
+	/**********************************************************************//**
+		@brief			キーを指定して読み込みフォントを取り出す
+		@param[in]		gid				取り出すキー
+		@return			読み込み済みフォント
+	*//***********************************************************************/
+	MEGraphicFontData& MECore::GetFont(std::string gid)
+	{
+		return m_loadedFonts[gid];
 	}
 
 	/**********************************************************************//**
