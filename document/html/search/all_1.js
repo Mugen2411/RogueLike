@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['brightness_0',['brightness',['../structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html#af170b8b56492d8ca7eb84d68c6a730af',1,'mugen_engine::CONSTANT_DATA']]]
+  ['a_0',['A',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html#a12ce5298b9003eb60b1921c83f235db2',1,'mugen_engine::MEGraphicCharacterUnit::TexRGBA']]]
 ];

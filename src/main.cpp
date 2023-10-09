@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		{	
 			materialGraph.DrawRotaGraph(64 + i * 96, 64 + i * 48, 1.0f + 0.4f * i, 3.1415926f / 12 * i, i);
 		}
-		float color[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+		float color[4] = {0.0f, 1.0f, 1.0f, 1.0f};
 		gothicFont.DrawString(60, 60, color , L"‚¿‚È‚Ý‚É\n“ú–{Œê‚Í\n‚¢‚¯‚é‚ñ\n‚Å‚·‚©");
 
 		mugen_engine::MECore::GetIns().ScreenFlip();

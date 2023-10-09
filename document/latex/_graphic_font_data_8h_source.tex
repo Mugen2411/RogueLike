@@ -10,17 +10,31 @@
 \DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graphic_character_render_unit_8h}{GraphicCharacterRenderUnit.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00008}00008\ }
 \DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00012}00012\ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00013}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphicFontData}}}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00014}00014\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00017}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a58ac90c0fdc19d7d1107ff9e27310c38}{00017}}\ \ \ \ \ \ \ \ \ std::unordered\_map<wchar\_t,\ MEGraphicCharacterUnit>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a58ac90c0fdc19d7d1107ff9e27310c38}{loadedCharacters}};}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00018}00018\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00019}00019\ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00021}00021\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_GraphicFontData\_\_}}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <wingdi.h>}}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00018}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{00018}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphicFontData}}}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00019}00019\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a82fc24d5e7155ca33faeb5041a011182}{MEGraphicFontData}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a82fc24d5e7155ca33faeb5041a011182}{MEGraphicFontData}}(std::wstring\ fontName,\ \textcolor{keywordtype}{int}\ fontSize,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}\&\ cmdList,}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}\&\ pipeline,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphicRenderTarget}}\&\ renderTarget);}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphicFontData}}\ \&\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a39cf13efd320fa64d254a25c6cf14919}{operator=\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphicFontData}}\ \&\ rhs);}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a5bb4fbf94bbaedb6a51d610181b08a5f}{DrawString}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{float}\ color[4],\ std::wstring\ text);}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00031}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_ad26139e1ac0c223988c06a7d2f49dc61}{00031}}\ \ \ \ \ \ \ \ \ HDC\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_ad26139e1ac0c223988c06a7d2f49dc61}{m\_hdc}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00032}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a20326ac5380e041681140830f3b34416}{00032}}\ \ \ \ \ \ \ \ \ HFONT\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a20326ac5380e041681140830f3b34416}{m\_oldFont}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00033}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a08ef13f934b9977a0a3a777c9d2edf2e}{00033}}\ \ \ \ \ \ \ \ \ std::unordered\_map<wchar\_t,\ MEGraphicCharacterUnit>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a08ef13f934b9977a0a3a777c9d2edf2e}{m\_loadedCharacters}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00035}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a23a7fa83e914940748d7fe5fd79c6e1f}{00035}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}*\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a23a7fa83e914940748d7fe5fd79c6e1f}{m\_pDevice}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00036}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a5cc7ef52f61ef937566fd40b2b4c281e}{00036}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphicCommandList}}*\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a5cc7ef52f61ef937566fd40b2b4c281e}{m\_pCmdList}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00037}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a2629b40356b632a749d4ce2dcc0178e4}{00037}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphicPipeline}}*\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a2629b40356b632a749d4ce2dcc0178e4}{m\_pPipeline}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00038}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a915c9365f43035cd9029b2b17165c94b}{00038}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphicRenderTarget}}*\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a915c9365f43035cd9029b2b17165c94b}{m\_pRenderTarget}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00039}00039\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_graphic_font_data_8h_source_l00042}00042\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_GraphicFontData\_\_}}
 
 \end{DoxyCode}

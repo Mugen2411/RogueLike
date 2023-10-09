@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['windowprocedure_0',['WindowProcedure',['../_core_8cpp.html#ab41a5745bc23c47844f0bd8be16ab464',1,'Core.cpp']]],
-  ['winmain_1',['WinMain',['../main_8cpp.html#aa9f5bde5a38da1ef0ae63e9a5a567411',1,'main.cpp']]]
+  ['texrgba_0',['TexRGBA',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html',1,'mugen_engine::MEGraphicCharacterUnit']]]
 ];

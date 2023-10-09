@@ -75,25 +75,224 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pri-attribs">非公開変数類</a> &#124;
 <a href="classmugen__engine_1_1_m_e_graphic_font_data-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">mugen_engine::MEGraphicFontData クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>読み込んだフォントで画面上に文字列描画を行うクラス  
+ <a href="classmugen__engine_1_1_m_e_graphic_font_data.html#details">[詳解]</a></p>
+
 <p><code>#include &lt;<a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a82fc24d5e7155ca33faeb5041a011182" id="r_a82fc24d5e7155ca33faeb5041a011182"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a82fc24d5e7155ca33faeb5041a011182">MEGraphicFontData</a> ()</td></tr>
+<tr class="memdesc:a82fc24d5e7155ca33faeb5041a011182"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:a82fc24d5e7155ca33faeb5041a011182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f541628c0ce46f2af7aa6f78b305fa8" id="r_a9f541628c0ce46f2af7aa6f78b305fa8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a9f541628c0ce46f2af7aa6f78b305fa8">MEGraphicFontData</a> (std::wstring fontName, int fontSize, <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device, <a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;cmdList, <a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> &amp;pipeline, <a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> &amp;renderTarget)</td></tr>
+<tr class="memdesc:a9f541628c0ce46f2af7aa6f78b305fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:a9f541628c0ce46f2af7aa6f78b305fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39cf13efd320fa64d254a25c6cf14919" id="r_a39cf13efd320fa64d254a25c6cf14919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html">MEGraphicFontData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a39cf13efd320fa64d254a25c6cf14919">operator=</a> (const <a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html">MEGraphicFontData</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a39cf13efd320fa64d254a25c6cf14919"><td class="mdescLeft">&#160;</td><td class="mdescRight">コピー代入演算子  <br /></td></tr>
+<tr class="separator:a39cf13efd320fa64d254a25c6cf14919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb4fbf94bbaedb6a51d610181b08a5f" id="r_a5bb4fbf94bbaedb6a51d610181b08a5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a5bb4fbf94bbaedb6a51d610181b08a5f">DrawString</a> (int x, int y, float color[4], std::wstring text)</td></tr>
+<tr class="memdesc:a5bb4fbf94bbaedb6a51d610181b08a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の描画を行う  <br /></td></tr>
+<tr class="separator:a5bb4fbf94bbaedb6a51d610181b08a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a58ac90c0fdc19d7d1107ff9e27310c38" id="r_a58ac90c0fdc19d7d1107ff9e27310c38"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; wchar_t, <a class="el" href="classmugen__engine_1_1_m_e_graphic_character_unit.html">MEGraphicCharacterUnit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a58ac90c0fdc19d7d1107ff9e27310c38">loadedCharacters</a></td></tr>
-<tr class="separator:a58ac90c0fdc19d7d1107ff9e27310c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26139e1ac0c223988c06a7d2f49dc61" id="r_ad26139e1ac0c223988c06a7d2f49dc61"><td class="memItemLeft" align="right" valign="top">HDC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#ad26139e1ac0c223988c06a7d2f49dc61">m_hdc</a></td></tr>
+<tr class="memdesc:ad26139e1ac0c223988c06a7d2f49dc61"><td class="mdescLeft">&#160;</td><td class="mdescRight">ハンドル  <br /></td></tr>
+<tr class="separator:ad26139e1ac0c223988c06a7d2f49dc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20326ac5380e041681140830f3b34416" id="r_a20326ac5380e041681140830f3b34416"><td class="memItemLeft" align="right" valign="top">HFONT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a20326ac5380e041681140830f3b34416">m_oldFont</a></td></tr>
+<tr class="memdesc:a20326ac5380e041681140830f3b34416"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字テクスチャに渡すフォント本体  <br /></td></tr>
+<tr class="separator:a20326ac5380e041681140830f3b34416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08ef13f934b9977a0a3a777c9d2edf2e" id="r_a08ef13f934b9977a0a3a777c9d2edf2e"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; wchar_t, <a class="el" href="classmugen__engine_1_1_m_e_graphic_character_unit.html">MEGraphicCharacterUnit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a08ef13f934b9977a0a3a777c9d2edf2e">m_loadedCharacters</a></td></tr>
+<tr class="memdesc:a08ef13f934b9977a0a3a777c9d2edf2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">各文字のテクスチャ  <br /></td></tr>
+<tr class="separator:a08ef13f934b9977a0a3a777c9d2edf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23a7fa83e914940748d7fe5fd79c6e1f" id="r_a23a7fa83e914940748d7fe5fd79c6e1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a23a7fa83e914940748d7fe5fd79c6e1f">m_pDevice</a></td></tr>
+<tr class="memdesc:a23a7fa83e914940748d7fe5fd79c6e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">デバイス  <br /></td></tr>
+<tr class="separator:a23a7fa83e914940748d7fe5fd79c6e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc7ef52f61ef937566fd40b2b4c281e" id="r_a5cc7ef52f61ef937566fd40b2b4c281e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a5cc7ef52f61ef937566fd40b2b4c281e">m_pCmdList</a></td></tr>
+<tr class="memdesc:a5cc7ef52f61ef937566fd40b2b4c281e"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドリスト  <br /></td></tr>
+<tr class="separator:a5cc7ef52f61ef937566fd40b2b4c281e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2629b40356b632a749d4ce2dcc0178e4" id="r_a2629b40356b632a749d4ce2dcc0178e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a2629b40356b632a749d4ce2dcc0178e4">m_pPipeline</a></td></tr>
+<tr class="memdesc:a2629b40356b632a749d4ce2dcc0178e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">パイプライン  <br /></td></tr>
+<tr class="separator:a2629b40356b632a749d4ce2dcc0178e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a915c9365f43035cd9029b2b17165c94b" id="r_a915c9365f43035cd9029b2b17165c94b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html#a915c9365f43035cd9029b2b17165c94b">m_pRenderTarget</a></td></tr>
+<tr class="memdesc:a915c9365f43035cd9029b2b17165c94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">レンダーターゲット  <br /></td></tr>
+<tr class="separator:a915c9365f43035cd9029b2b17165c94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock">
-<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00013">13</a> 行目に定義があります。</p>
-</div><h2 class="groupheader">メンバ詳解</h2>
-<a id="a58ac90c0fdc19d7d1107ff9e27310c38" name="a58ac90c0fdc19d7d1107ff9e27310c38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58ac90c0fdc19d7d1107ff9e27310c38">&#9670;&#160;</a></span>loadedCharacters</h2>
+<div class="textblock"><p>読み込んだフォントで画面上に文字列描画を行うクラス </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00018">18</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a82fc24d5e7155ca33faeb5041a011182" name="a82fc24d5e7155ca33faeb5041a011182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82fc24d5e7155ca33faeb5041a011182">&#9670;&#160;</a></span>MEGraphicFontData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mugen_engine::MEGraphicFontData::MEGraphicFontData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8cpp_source.html">GraphicFontData.cpp</a> の <a class="el" href="_graphic_font_data_8cpp_source.html#l00008">8</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a9f541628c0ce46f2af7aa6f78b305fa8" name="a9f541628c0ce46f2af7aa6f78b305fa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f541628c0ce46f2af7aa6f78b305fa8">&#9670;&#160;</a></span>MEGraphicFontData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mugen_engine::MEGraphicFontData::MEGraphicFontData </td>
+          <td>(</td>
+          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramname"><em>fontName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fontSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmdList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> &amp;&#160;</td>
+          <td class="paramname"><em>pipeline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> &amp;&#160;</td>
+          <td class="paramname"><em>renderTarget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fontName</td><td>テクスチャを生成するフォントの名前 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fontSize</td><td>フォントサイズ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8cpp_source.html">GraphicFontData.cpp</a> の <a class="el" href="_graphic_font_data_8cpp_source.html#l00016">16</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a5bb4fbf94bbaedb6a51d610181b08a5f" name="a5bb4fbf94bbaedb6a51d610181b08a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bb4fbf94bbaedb6a51d610181b08a5f">&#9670;&#160;</a></span>DrawString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicFontData::DrawString </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>color</em>[4], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列の描画を行う </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8cpp_source.html">GraphicFontData.cpp</a> の <a class="el" href="_graphic_font_data_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a39cf13efd320fa64d254a25c6cf14919" name="a39cf13efd320fa64d254a25c6cf14919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39cf13efd320fa64d254a25c6cf14919">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html">MEGraphicFontData</a> &amp; mugen_engine::MEGraphicFontData::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmugen__engine_1_1_m_e_graphic_font_data.html">MEGraphicFontData</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コピー代入演算子 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td>右辺 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>自身の参照 </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8cpp_source.html">GraphicFontData.cpp</a> の <a class="el" href="_graphic_font_data_8cpp_source.html#l00044">44</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ad26139e1ac0c223988c06a7d2f49dc61" name="ad26139e1ac0c223988c06a7d2f49dc61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26139e1ac0c223988c06a7d2f49dc61">&#9670;&#160;</a></span>m_hdc</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,7 +301,7 @@ $(function() {
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;wchar_t, <a class="el" href="classmugen__engine_1_1_m_e_graphic_character_unit.html">MEGraphicCharacterUnit</a>&gt; mugen_engine::MEGraphicFontData::loadedCharacters</td>
+          <td class="memname">HDC mugen_engine::MEGraphicFontData::m_hdc</td>
         </tr>
       </table>
   </td>
@@ -112,12 +311,171 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00017">17</a> 行目に定義があります。</p>
+<p>ハンドル </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00031">31</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a08ef13f934b9977a0a3a777c9d2edf2e" name="a08ef13f934b9977a0a3a777c9d2edf2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08ef13f934b9977a0a3a777c9d2edf2e">&#9670;&#160;</a></span>m_loadedCharacters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;wchar_t, <a class="el" href="classmugen__engine_1_1_m_e_graphic_character_unit.html">MEGraphicCharacterUnit</a>&gt; mugen_engine::MEGraphicFontData::m_loadedCharacters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>各文字のテクスチャ </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00033">33</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a20326ac5380e041681140830f3b34416" name="a20326ac5380e041681140830f3b34416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20326ac5380e041681140830f3b34416">&#9670;&#160;</a></span>m_oldFont</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HFONT mugen_engine::MEGraphicFontData::m_oldFont</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>文字テクスチャに渡すフォント本体 </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5cc7ef52f61ef937566fd40b2b4c281e" name="a5cc7ef52f61ef937566fd40b2b4c281e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc7ef52f61ef937566fd40b2b4c281e">&#9670;&#160;</a></span>m_pCmdList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a>* mugen_engine::MEGraphicFontData::m_pCmdList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドリスト </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00036">36</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a23a7fa83e914940748d7fe5fd79c6e1f" name="a23a7fa83e914940748d7fe5fd79c6e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23a7fa83e914940748d7fe5fd79c6e1f">&#9670;&#160;</a></span>m_pDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>* mugen_engine::MEGraphicFontData::m_pDevice</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デバイス </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00035">35</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2629b40356b632a749d4ce2dcc0178e4" name="a2629b40356b632a749d4ce2dcc0178e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2629b40356b632a749d4ce2dcc0178e4">&#9670;&#160;</a></span>m_pPipeline</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a>* mugen_engine::MEGraphicFontData::m_pPipeline</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>パイプライン </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00037">37</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a915c9365f43035cd9029b2b17165c94b" name="a915c9365f43035cd9029b2b17165c94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a915c9365f43035cd9029b2b17165c94b">&#9670;&#160;</a></span>m_pRenderTarget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a>* mugen_engine::MEGraphicFontData::m_pRenderTarget</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>レンダーターゲット </p>
+
+<p class="definition"> <a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a> の <a class="el" href="_graphic_font_data_8h_source.html#l00038">38</a> 行目に定義があります。</p>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>Engine/Graphic/<a class="el" href="_graphic_font_data_8h_source.html">GraphicFontData.h</a></li>
+<li>Engine/Graphic/<a class="el" href="_graphic_font_data_8cpp_source.html">GraphicFontData.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

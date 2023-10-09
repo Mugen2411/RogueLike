@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['uploadconstantdata_0',['UploadConstantData',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a310937dd9ea610b80e02a2eb4c34a718',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploaddatatouploadbuffer_1',['UploadDataToUploadBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a7d09566d5916d12d2470b3ca585ff848',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploadtogpu_2',['UploadToGpu',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a8d18cb7b6d3c75bdf658a90899a36514',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploadvertexdata_3',['UploadVertexData',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a18af002c473e0b99f9b318e33b8c7f58',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uv_4',['uv',['../structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html#aa2a3c7ab4b91c004d19c42d52964614f',1,'mugen_engine::VERTEX_DATA']]]
+  ['r_0',['R',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html#ab8d14cda585beaf117d548e68bd595ec',1,'mugen_engine::MEGraphicCharacterUnit::TexRGBA']]],
+  ['resetrenderarea_1',['ResetRenderArea',['../classmugen__engine_1_1_m_e_core.html#aef074df0952ec0eedb4c8f7d86028ecf',1,'mugen_engine::MECore']]],
+  ['resetuploadbuffer_2',['ResetUploadBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a71d9e52f9453da796cb23ccc2ae189e9',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['rotatematrix_3',['rotateMatrix',['../structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html#aaddab14acbee0a972e1adf75523a1679',1,'mugen_engine::CONSTANT_DATA']]]
 ];
