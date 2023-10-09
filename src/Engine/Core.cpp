@@ -127,7 +127,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadGraph(std::string gid, std::wstring filepath)
 	{
-		auto img = m_resourceManager.LoadGraph(filepath, m_device, m_commandList, m_pipeline, m_renderTarget);
+		auto img = MEGraphicLoadedImage(filepath, m_device, 1, 1, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImageIndices[gid] = img;
 	}
 
@@ -139,7 +139,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)
 	{
-		auto img = m_resourceManager.LoadDivGraph(filepath, xDivideNum, yDivideNum, m_device, m_commandList, m_pipeline, m_renderTarget);
+		auto img = MEGraphicLoadedImage(filepath, m_device, xDivideNum, yDivideNum, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImageIndices[gid] = img;
 	}
 

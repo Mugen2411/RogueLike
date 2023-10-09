@@ -10,7 +10,7 @@ namespace mugen_engine
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	MEGraphicGpuResourceManager::MEGraphicGpuResourceManager(): m_constantBuffers(m_maxResourceView), m_textureBuffers(m_maxResourceView)
+	MEGraphicGpuResourceManager::MEGraphicGpuResourceManager()
 	{}
 
 	/**********************************************************************//**
@@ -23,7 +23,7 @@ namespace mugen_engine
 		D3D12_DESCRIPTOR_HEAP_DESC descHeapDesc = {};
 		descHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 		descHeapDesc.NodeMask = 0;
-		descHeapDesc.NumDescriptors = m_maxResourceView * 2;
+		descHeapDesc.NumDescriptors = 2;
 		descHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 		auto result = device.GetDevice()->CreateDescriptorHeap(&descHeapDesc, IID_PPV_ARGS(m_basicDescHeap.ReleaseAndGetAddressOf()));
 
@@ -35,92 +35,19 @@ namespace mugen_engine
 		m_descriptorHeapIncrementSize = device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
 		_CreateVertexBuffer(4, device);
-	}
 
-	/**********************************************************************//**
-		@brief			画像を読み込む
-		@param[in]		filepath			読み込む画像のファイルパス
-		@param[in]		device				デバイス
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		pipeline			パイプライン
-		@param[in]		renderTarget		レンダーターゲット
-		@return			なし
-	*//***********************************************************************/
-	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadGraph(const std::wstring& filepath,
-		const MEGraphicDevice& device, MEGraphicCommandList& cmdList,
-		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
-	{
-		auto index = _GetShaderResourceIndex();
-		_InitalizeConstantBuffer(index, device);
-
-		DirectX::TexMetadata metadata = {};
-		DirectX::ScratchImage scratchImg = {};
-		DirectX::Image const* img = {};
-
-		DirectX::LoadFromWICFile(filepath.c_str(), DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
-		img = scratchImg.GetImage(0, 0, 0);
-
-		_CreateTextureBuffer(index, metadata, device);
-		_CreateCbv(index, device);
-		_CreateSrv(index, img->format, device);
-
-		_ResetUploadBuffer(img->rowPitch, img->height, device);
-		_UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
-		_UploadToGpu(index, metadata, img->rowPitch, img->format, cmdList);
-
-		MEGraphicLoadedImage ret(index, img->width, img->height, &cmdList, this, &pipeline, &renderTarget);
-
-		return ret;
-	}
-
-	/**********************************************************************//**
-		@brief			画像を分割して読み込む
-		@param[in]		filepath			読み込む画像のファイルパス
-		@param[in]		xDivideNum			横方向の分割数
-		@param[in]		yDivideNum			縦方向の分割数
-		@param[in]		device				デバイス
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		pipeline			パイプライン
-		@param[in]		renderTarget		レンダーターゲット
-		@return			なし
-	*//***********************************************************************/
-	MEGraphicLoadedImage  MEGraphicGpuResourceManager::LoadDivGraph(const std::wstring& filepath, size_t xDivideNum, size_t yDivideNum,
-		const MEGraphicDevice& device, MEGraphicCommandList& cmdList,
-		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
-	{
-		auto index = _GetShaderResourceIndex();
-		_InitalizeConstantBuffer(index, device);
-
-		DirectX::TexMetadata metadata = {};
-		DirectX::ScratchImage scratchImg = {};
-		DirectX::Image const* img = {};
-
-		DirectX::LoadFromWICFile(filepath.c_str(), DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
-		img = scratchImg.GetImage(0, 0, 0);
-
-		_CreateTextureBuffer(index, metadata, device);
-		_CreateCbv(index, device);
-		_CreateSrv(index, img->format, device);
-
-		_ResetUploadBuffer(img->rowPitch, img->height, device);
-		_UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
-		_UploadToGpu(index, metadata, img->rowPitch, img->format, cmdList);
-
-		MEGraphicLoadedImage ret(index, img->width / xDivideNum, img->height / yDivideNum, xDivideNum, yDivideNum, &cmdList, this, &pipeline, &renderTarget);
-
-		return ret;
+		_InitalizeConstantBuffer(device);
+		_CreateCbv(device);
 	}
 
 	/**********************************************************************//**
 		@brief			描画時にディスクリプタヒープ等をコマンドリストに設定する
-		@param[in]		index					描画する画像のインデックス
 		@param[in]		cmdList					コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::SetGpuResource(const uint32_t index, MEGraphicCommandList& cmdList)
+	void MEGraphicGpuResourceManager::SetGpuResource(MEGraphicCommandList& cmdList)
 	{
 		auto handle = m_basicDescHeap->GetGPUDescriptorHandleForHeapStart();
-		handle.ptr += m_descriptorHeapIncrementSize * index * 2;
 		cmdList.GetCommandList()->SetDescriptorHeaps(1, m_basicDescHeap.GetAddressOf());
 		cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
 	}
@@ -149,12 +76,12 @@ namespace mugen_engine
 		@param[in]		cmdList						コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::UploadConstantData(const uint32_t index, CONSTANT_DATA& constData)
+	void MEGraphicGpuResourceManager::UploadConstantData(CONSTANT_DATA& constData)
 	{
 		CONSTANT_DATA* mapMatrix;
-		auto result = m_constantBuffers[index]->Map(0, nullptr, (void**)&mapMatrix);
+		auto result = m_constantBuffer->Map(0, nullptr, (void**)&mapMatrix);
 		*mapMatrix = constData;
-		m_constantBuffers[index]->Unmap(0, nullptr);
+		m_constantBuffer->Unmap(0, nullptr);
 	}
 
 	/**********************************************************************//**
@@ -169,31 +96,15 @@ namespace mugen_engine
 	}
 
 	/**********************************************************************//**
-		@brief			シェーダーリソースビューと定数バッファビューを生成しても良いインデックスを返す
-		@param			なし
-		@return			シェーダーリソースビューを生成しても良いインデックス(+1すると定数バッファ)
-	*//***********************************************************************/
-	uint32_t MEGraphicGpuResourceManager::_GetShaderResourceIndex()
-	{
-		if(m_currentIndex >= m_maxResourceView)
-		{
-			return 0;
-		}
-		return m_currentIndex++;
-	}
-
-	/**********************************************************************//**
-		@brief			指定したインデックスにシェーダーリソースビューを構築する
-		@param[in]		index				生成時に割り当てられたインデックス
+		@brief			シェーダーリソースビューを構築する
 		@param[in]		format				画像のフォーマット
 		@param[in]		device				デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_CreateSrv(uint32_t index, const DXGI_FORMAT format,
+	void MEGraphicGpuResourceManager::CreateSrv(const DXGI_FORMAT format,
 		const MEGraphicDevice& device)
 	{
 		auto basicHeapHandle = m_basicDescHeap->GetCPUDescriptorHandleForHeapStart();
-		basicHeapHandle.ptr += m_descriptorHeapIncrementSize * (index * 2);
 
 		D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 		srvDesc.Format = format;
@@ -201,7 +112,7 @@ namespace mugen_engine
 		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
 		srvDesc.Texture2D.MipLevels = 1;
 
-		device.GetDevice()->CreateShaderResourceView(m_textureBuffers[index].Get(), &srvDesc, basicHeapHandle);
+		device.GetDevice()->CreateShaderResourceView(m_textureBuffer.Get(), &srvDesc, basicHeapHandle);
 	}
 
 	/**********************************************************************//**
@@ -210,27 +121,25 @@ namespace mugen_engine
 		@param[in]		device				デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_CreateCbv(uint32_t index, const MEGraphicDevice& device)
+	void MEGraphicGpuResourceManager::_CreateCbv(const MEGraphicDevice& device)
 	{
 		auto basicHeapHandle = m_basicDescHeap->GetCPUDescriptorHandleForHeapStart();
-		basicHeapHandle.ptr += m_descriptorHeapIncrementSize * (index * 2 + 1);
+		basicHeapHandle.ptr += m_descriptorHeapIncrementSize;
 
 		D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
-		cbvDesc.BufferLocation = m_constantBuffers[index]->GetGPUVirtualAddress();
-		cbvDesc.SizeInBytes = static_cast<UINT>(m_constantBuffers[index]->GetDesc().Width);
+		cbvDesc.BufferLocation = m_constantBuffer->GetGPUVirtualAddress();
+		cbvDesc.SizeInBytes = static_cast<UINT>(m_constantBuffer->GetDesc().Width);
 
 		device.GetDevice()->CreateConstantBufferView(&cbvDesc, basicHeapHandle);
 	}
 
 	/**********************************************************************//**
 		@brief			テクスチャのバッファを作成する
-		@param[in]		index				生成時に割り当てられたインデックス
 		@param[in]		metadata			画像のメタデータ
 		@param[in]		device				デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_CreateTextureBuffer(const uint32_t index,
-		const DirectX::TexMetadata& metadata, const MEGraphicDevice& device)
+	void MEGraphicGpuResourceManager::CreateTextureBuffer(const DirectX::TexMetadata& metadata, const MEGraphicDevice& device)
 	{
 		D3D12_HEAP_PROPERTIES heapprop = {};
 		heapprop.Type = D3D12_HEAP_TYPE_DEFAULT;
@@ -252,7 +161,7 @@ namespace mugen_engine
 		resdesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
 
 		auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
-			D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(m_textureBuffers[index].ReleaseAndGetAddressOf()));
+			D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(m_textureBuffer.ReleaseAndGetAddressOf()));
 	}
 
 	/**********************************************************************//**
@@ -262,7 +171,7 @@ namespace mugen_engine
 		@param[in]		device				デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_ResetUploadBuffer(const size_t rowPitch, const size_t height, const MEGraphicDevice& device)
+	void MEGraphicGpuResourceManager::ResetUploadBuffer(const size_t rowPitch, const size_t height, const MEGraphicDevice& device)
 	{
 		D3D12_HEAP_PROPERTIES heapprop = {};
 		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -294,7 +203,7 @@ namespace mugen_engine
 		@param[in]		height			画像の高さ
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_UploadDataToUploadBuffer(uint8_t * srcData, const size_t rowPitch, const size_t height)
+	void MEGraphicGpuResourceManager::UploadDataToUploadBuffer(uint8_t * srcData, const size_t rowPitch, const size_t height)
 	{
 		uint8_t* mapforImg = nullptr;
 		auto result = m_uploadBuffer->Map(0, nullptr, (void**)&mapforImg);
@@ -312,16 +221,15 @@ namespace mugen_engine
 
 	/**********************************************************************//**
 		@brief			テクスチャデータを転送する直前にバリアを設定する
-		@param[in]		index						対象のバッファのインデックス
 		@param[in]		cmdList						コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_SetBarrierBeforeUploadTexture(uint32_t index, const MEGraphicCommandList& cmdList)
+	void MEGraphicGpuResourceManager::_SetBarrierBeforeUploadTexture(const MEGraphicCommandList& cmdList)
 	{
 		D3D12_RESOURCE_BARRIER barrierDesc = {};
 		barrierDesc.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 		barrierDesc.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-		barrierDesc.Transition.pResource = m_textureBuffers[index].Get();
+		barrierDesc.Transition.pResource = m_textureBuffer.Get();
 		barrierDesc.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 		barrierDesc.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
 		barrierDesc.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
@@ -363,14 +271,13 @@ namespace mugen_engine
 
 	/**********************************************************************//**
 		@brief			テクスチャデータを転送する
-		@param[in]		index						対象のバッファのインデックス
 		@param[in]		metadata					画像のメタデータ
 		@param[in]		rowPitch					画像データの行単位のサイズ
 		@param[in]		format						画像データのフォーマット
 		@param[in]		cmdList						コマンドリスト
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_UploadToGpu(uint32_t index, DirectX::TexMetadata& metadata, size_t rowPitch, DXGI_FORMAT format,
+	void MEGraphicGpuResourceManager::UploadToGpu(DirectX::TexMetadata& metadata, size_t rowPitch, DXGI_FORMAT format,
 		MEGraphicCommandList& cmdList)
 	{
 		D3D12_TEXTURE_COPY_LOCATION src = {};
@@ -384,23 +291,22 @@ namespace mugen_engine
 		src.PlacedFootprint.Footprint.Format = format;
 
 		D3D12_TEXTURE_COPY_LOCATION dst = {};
-		dst.pResource = m_textureBuffers[index].Get();
+		dst.pResource = m_textureBuffer.Get();
 		dst.Type = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
 		dst.SubresourceIndex = 0;
 
 		cmdList.GetCommandList()->CopyTextureRegion(&dst, 0, 0, 0, &src, nullptr);
 
-		_SetBarrierBeforeUploadTexture(index, cmdList);
+		_SetBarrierBeforeUploadTexture(cmdList);
 		cmdList.Execute();
 	}
 
 	/**********************************************************************//**
 		@brief			定数バッファを初期化する
-		@param[in]		index			生成時に割り当てられたインデックス
 		@param[in]		device			デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_InitalizeConstantBuffer(uint32_t index, const MEGraphicDevice& device)
+	void MEGraphicGpuResourceManager::_InitalizeConstantBuffer(const MEGraphicDevice& device)
 	{
 		D3D12_HEAP_PROPERTIES heapprop = {};
 		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -422,7 +328,7 @@ namespace mugen_engine
 		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
 
 		auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
-			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(m_constantBuffers[index].ReleaseAndGetAddressOf()));
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(m_constantBuffer.ReleaseAndGetAddressOf()));
 	}
 
 	/**********************************************************************//**

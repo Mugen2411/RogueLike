@@ -13,54 +13,56 @@ namespace mugen_engine
 		@return			なし
 	*//***********************************************************************/
 	MEGraphicLoadedImage::MEGraphicLoadedImage() :
-		m_index(0), m_width(0), m_height(0), m_xDivideNum(1), m_yDivideNum(1), m_brightness(1.0f, 1.0f, 1.0f, 1.0f)
+		m_width(0), m_height(0), m_xDivideNum(1), m_yDivideNum(1), m_brightness(1.0f, 1.0f, 1.0f, 1.0f)
 	{}
 
 	/**********************************************************************//**
 		@brief			コンストラクタ
-		@param[in]		index				画像読み込み時のインデックス
-		@param[in]		width				画像の横幅
-		@param[in]		height				画像の高さ
-		@return			なし
-	*//***********************************************************************/
-	MEGraphicLoadedImage::MEGraphicLoadedImage(uint32_t index, size_t width, size_t height,
-		MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
-		MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget) :
-		m_index(index), m_width(width), m_height(height), m_xDivideNum(1), m_yDivideNum(1),
-		m_vertices {
-		{{-static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{0.0f, 1.0f}},
-		{{-static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{0.0f, 0.0f}},
-		{{ static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{1.0f, 1.0f}},
-		{{ static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{1.0f, 0.0f}},
-		}, m_brightness(1.0f, 1.0f, 1.0f, 1.0f), m_cmdList(cmdList), m_resourceManager(resourceManager),
-		m_pipeline(pipeline), m_renderTarget(renderTarget)
-	{}
-
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param[in]		index				画像読み込み時のインデックス
-		@param[in]		width				画像の横幅
-		@param[in]		height				画像の高さ
+		@param[in]		filepath			画像のファイルパス
+		@param[in]		device				デバイス
 		@param[in]		xDivideNum			横方向の分割数
 		@param[in]		yDivideNum			縦方向の分割数
+		@param[in]		cmdList				コマンドリスト
+		@param[in]		pipeline			パイプライン
+		@param[in]		renderTarget		レンダーターゲット
 		@return			なし
 	*//***********************************************************************/
-	MEGraphicLoadedImage::MEGraphicLoadedImage(uint32_t index, size_t width, size_t height, size_t xDivideNum, size_t yDivideNum,
-		MEGraphicCommandList* cmdList, MEGraphicGpuResourceManager* resourceManager,
-		MEGraphicPipeline* pipeline, MEGraphicRenderTarget* renderTarget) :
-		m_index(index), m_width(width), m_height(height), m_xDivideNum(xDivideNum), m_yDivideNum(yDivideNum),
-		m_vertices {
-		{{-static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{0.0f, 1.0f}},
-		{{-static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{0.0f, 0.0f}},
-		{{ static_cast<float>(width) / 2,-static_cast<float>(height) / 2, 0.0f},{1.0f, 1.0f}},
-		{{ static_cast<float>(width) / 2, static_cast<float>(height) / 2, 0.0f},{1.0f, 0.0f}},
-		}, m_cmdList(cmdList), m_resourceManager(resourceManager), m_pipeline(pipeline), m_renderTarget(renderTarget)
-	{}
+	MEGraphicLoadedImage::MEGraphicLoadedImage(const std::wstring& filepath,
+		MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum,MEGraphicCommandList& cmdList,
+		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
+		m_width(0), m_height(0), m_xDivideNum(xDivideNum), m_yDivideNum(yDivideNum),
+		m_brightness(1.0f, 1.0f, 1.0f, 1.0f), m_pCmdList(&cmdList),
+		m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget)
+	{
+		DirectX::TexMetadata metadata = {};
+		DirectX::ScratchImage scratchImg = {};
+		DirectX::Image const* img = {};
+
+		DirectX::LoadFromWICFile(filepath.c_str(), DirectX::WIC_FLAGS_NONE, &metadata, scratchImg);
+		img = scratchImg.GetImage(0, 0, 0);
+
+		m_width = metadata.width / xDivideNum;
+		m_height = metadata.height / yDivideNum;
+
+		m_vertices[0] = {{ -static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f }, { 0.0f, 1.0f }};
+		m_vertices[1] = { {-static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{0.0f, 0.0f} };
+		m_vertices[2] = { { static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f},{1.0f, 1.0f} };
+		m_vertices[3] = { { static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{1.0f, 0.0f} };
+
+		m_resourceManager.Initialize(device);
+		m_resourceManager.CreateTextureBuffer(metadata, device);
+		m_resourceManager.CreateSrv(img->format, device);
+
+		m_resourceManager.ResetUploadBuffer(img->rowPitch, img->height, device);
+		m_resourceManager.UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
+		m_resourceManager.UploadToGpu(metadata, img->rowPitch, img->format, *m_pCmdList);
+	}
 
 	/**********************************************************************//**
 		@brief			指定した座標に描画
 		@param[in]		x					描画する中心のX座標
 		@param[in]		y					描画する中心のY座標
+		@param[in]		index				画像が分割されている場合どれを描画するか
 		@return			なし
 	*//***********************************************************************/
 	void MEGraphicLoadedImage::DrawGraph(int x, int y, int index)
@@ -87,16 +89,16 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 		constData.brightness = m_brightness;
 
-		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
-		m_pipeline->SetPipelineState(0, *m_cmdList);
-		m_resourceManager->SetGpuResource(m_index, *m_cmdList);
+		m_pRenderTarget->SetRenderBaseCommand(*m_pCmdList);
+		m_pPipeline->SetPipelineState(0, *m_pCmdList);
+		m_resourceManager.SetGpuResource(*m_pCmdList);
 
-		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices));
-		m_resourceManager->UploadConstantData(m_index, constData);
-		m_resourceManager->SetRenderCommand(*m_cmdList);
+		m_pCmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+		m_resourceManager.UploadVertexData(m_vertices, _countof(m_vertices));
+		m_resourceManager.UploadConstantData(constData);
+		m_resourceManager.SetRenderCommand(*m_pCmdList);
 
-		m_cmdList->Execute();
+		m_pCmdList->Execute();
 	}
 
 	/**********************************************************************//**
@@ -105,6 +107,7 @@ namespace mugen_engine
 		@param[in]		y					描画する中心のY座標
 		@param[in]		scale				拡大率
 		@param[in]		angle				回転角度(ラジアン)
+		@param[in]		index				画像が分割されている場合どれを描画するか
 		@return			なし
 	*//***********************************************************************/
 	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle, int index)
@@ -131,16 +134,16 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
 		constData.brightness = m_brightness;
 
-		m_renderTarget->SetRenderBaseCommand(*m_cmdList);
-		m_pipeline->SetPipelineState(0, *m_cmdList);
-		m_resourceManager->SetGpuResource(m_index, *m_cmdList);
+		m_pRenderTarget->SetRenderBaseCommand(*m_pCmdList);
+		m_pPipeline->SetPipelineState(0, *m_pCmdList);
+		m_resourceManager.SetGpuResource(*m_pCmdList);
 
-		m_cmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager->UploadVertexData(m_vertices, _countof(m_vertices));
-		m_resourceManager->UploadConstantData(m_index, constData);
-		m_resourceManager->SetRenderCommand(*m_cmdList);
+		m_pCmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+		m_resourceManager.UploadVertexData(m_vertices, _countof(m_vertices));
+		m_resourceManager.UploadConstantData(constData);
+		m_resourceManager.SetRenderCommand(*m_pCmdList);
 
-		m_cmdList->Execute();
+		m_pCmdList->Execute();
 	}
 
 	/**********************************************************************//**

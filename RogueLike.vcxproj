@@ -138,8 +138,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Core.cpp" />
+    <ClCompile Include="src\Engine\Graphic\GraphicCharacterRenderUnit.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicCommandList.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicDevice.cpp" />
+    <ClCompile Include="src\Engine\Graphic\GraphicFontData.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicGpuResourceManager.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicPipeline.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicRenderTarget.cpp" />
@@ -177,8 +179,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Core.h" />
+    <ClInclude Include="src\Engine\Graphic\GraphicCharacterRenderUnit.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicCommandList.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicDevice.h" />
+    <ClInclude Include="src\Engine\Graphic\GraphicFontData.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicGpuResourceManager.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicPipeline.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicRenderTarget.h" />

@@ -61,6 +61,7 @@ var menudata={children:[
 {text:"u",url:"functions_func.html#index_u"}]},
 {text:"変数",url:"functions_vars.html",children:[
 {text:"b",url:"functions_vars.html#index_b"},
+{text:"l",url:"functions_vars.html#index_l"},
 {text:"m",url:"functions_vars.html#index_m"},
 {text:"p",url:"functions_vars.html#index_p"},
 {text:"r",url:"functions_vars.html#index_r"},
