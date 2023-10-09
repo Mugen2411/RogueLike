@@ -18,8 +18,10 @@
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a39cf13efd320fa64d254a25c6cf14919}{operator=}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} \&rhs)
 \begin{DoxyCompactList}\small\item\em コピー代入演算子 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a5bb4fbf94bbaedb6a51d610181b08a5f}{Draw\+String}} (int x, int y, float color\mbox{[}4\mbox{]}, std\+::wstring text)
-\begin{DoxyCompactList}\small\item\em 文字列の描画を行う \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a520e9eb772ffdfa2ebf9596ad55bed99}{Draw\+String}} (const int x, const int y, float color\mbox{[}4\mbox{]}, const std\+::wstring text)
+\begin{DoxyCompactList}\small\item\em 文字列の描画を行う \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a28884e85cda8b020a9cb8f3c4cbdeb33}{Draw\+Format\+String}} (const int x, const int y, float color\mbox{[}4\mbox{]}, const std\+::wstring text,...)
+\begin{DoxyCompactList}\small\item\em 書式文字列を描画する \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,7 +61,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00008}{8}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00009}{9}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a9f541628c0ce46f2af7aa6f78b305fa8}\label{classmugen__engine_1_1_m_e_graphic_font_data_a9f541628c0ce46f2af7aa6f78b305fa8} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!MEGraphicFontData@{MEGraphicFontData}}
@@ -83,24 +85,54 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00016}{16}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00017}{17}} 行目に定義があります。
 
 
 
 \doxysubsection{関数詳解}
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a5bb4fbf94bbaedb6a51d610181b08a5f}\label{classmugen__engine_1_1_m_e_graphic_font_data_a5bb4fbf94bbaedb6a51d610181b08a5f} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a28884e85cda8b020a9cb8f3c4cbdeb33}\label{classmugen__engine_1_1_m_e_graphic_font_data_a28884e85cda8b020a9cb8f3c4cbdeb33} 
+\index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!DrawFormatString@{DrawFormatString}}
+\index{DrawFormatString@{DrawFormatString}!mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}}
+\doxysubsubsection{\texorpdfstring{DrawFormatString()}{DrawFormatString()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+Format\+String (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{const std\+::wstring}]{text,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+書式文字列を描画する 
+
+
+
+ \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00092}{92}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a520e9eb772ffdfa2ebf9596ad55bed99}\label{classmugen__engine_1_1_m_e_graphic_font_data_a520e9eb772ffdfa2ebf9596ad55bed99} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!DrawString@{DrawString}}
 \index{DrawString@{DrawString}!mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}}
 \doxysubsubsection{\texorpdfstring{DrawString()}{DrawString()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+String (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{std\+::wstring}]{text }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+String (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{const std\+::wstring}]{text }\end{DoxyParamCaption})}
 
 
 
 文字列の描画を行う 
 
+文字列の描画
 
 
- \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00058}{58}} 行目に定義があります。
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 左上の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 左上の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & 文字色 \\
+\hline
+\mbox{\texttt{ in}}  & {\em text} & 描画したい文字列 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00067}{67}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a39cf13efd320fa64d254a25c6cf14919}\label{classmugen__engine_1_1_m_e_graphic_font_data_a39cf13efd320fa64d254a25c6cf14919} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!operator=@{operator=}}
@@ -122,7 +154,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00044}{44}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00045}{45}} 行目に定義があります。
 
 
 
@@ -139,7 +171,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00031}{31}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00033}{33}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a08ef13f934b9977a0a3a777c9d2edf2e}\label{classmugen__engine_1_1_m_e_graphic_font_data_a08ef13f934b9977a0a3a777c9d2edf2e} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!m\_loadedCharacters@{m\_loadedCharacters}}
@@ -153,7 +185,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00033}{33}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00035}{35}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a20326ac5380e041681140830f3b34416}\label{classmugen__engine_1_1_m_e_graphic_font_data_a20326ac5380e041681140830f3b34416} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!m\_oldFont@{m\_oldFont}}
@@ -167,7 +199,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00032}{32}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00034}{34}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a5cc7ef52f61ef937566fd40b2b4c281e}\label{classmugen__engine_1_1_m_e_graphic_font_data_a5cc7ef52f61ef937566fd40b2b4c281e} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!m\_pCmdList@{m\_pCmdList}}
@@ -181,7 +213,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00036}{36}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00038}{38}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a23a7fa83e914940748d7fe5fd79c6e1f}\label{classmugen__engine_1_1_m_e_graphic_font_data_a23a7fa83e914940748d7fe5fd79c6e1f} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!m\_pDevice@{m\_pDevice}}
@@ -195,7 +227,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00035}{35}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00037}{37}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a2629b40356b632a749d4ce2dcc0178e4}\label{classmugen__engine_1_1_m_e_graphic_font_data_a2629b40356b632a749d4ce2dcc0178e4} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!m\_pPipeline@{m\_pPipeline}}
@@ -209,7 +241,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00037}{37}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00039}{39}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a915c9365f43035cd9029b2b17165c94b}\label{classmugen__engine_1_1_m_e_graphic_font_data_a915c9365f43035cd9029b2b17165c94b} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!m\_pRenderTarget@{m\_pRenderTarget}}
@@ -223,7 +255,7 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 
- \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00038}{38}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_font_data_8h_source}{Graphic\+Font\+Data.\+h}} の \mbox{\hyperlink{_graphic_font_data_8h_source_l00040}{40}} 行目に定義があります。
 
 
 

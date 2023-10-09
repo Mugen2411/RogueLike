@@ -21,7 +21,7 @@ struct \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_character_unit_1_1_t
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_character_unit_a4e3fbde71aca17b132cca6be27122280}{MEGraphic\+Character\+Unit}} (const wchar\+\_\+t character, HFONT font\+Data, HDC hdc, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&render\+Target)
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_character_unit_a1c764003ebdc6107d4fc23a78f29dbf8}{Draw\+Character}} (int x, int y, float color\mbox{[}4\mbox{]})
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_character_unit_a30786f4c6bced7fece482d6df4ae260d}{Draw\+Character}} (const int x, const int y, float color\mbox{[}4\mbox{]})
 \begin{DoxyCompactList}\small\item\em 指定した位置に描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
@@ -63,8 +63,16 @@ friend \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_character_unit_a75752
 コンストラクタ 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source}{Graphic\+Character\+Render\+Unit.\+cpp}} の \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source_l00013}{13}} 行目に定義があります。
+
+ \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source}{Graphic\+Character\+Render\+Unit.\+cpp}} の \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source_l00018}{18}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_character_unit_a4e3fbde71aca17b132cca6be27122280}\label{classmugen__engine_1_1_m_e_graphic_character_unit_a4e3fbde71aca17b132cca6be27122280} 
 \index{mugen\_engine::MEGraphicCharacterUnit@{mugen\_engine::MEGraphicCharacterUnit}!MEGraphicCharacterUnit@{MEGraphicCharacterUnit}}
@@ -77,25 +85,59 @@ friend \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_character_unit_a75752
 コンストラクタ 
 
 
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em character} & テクスチャに変換する文字 \\
+\hline
+\mbox{\texttt{ in}}  & {\em font\+Data} & フォント \\
+\hline
+\mbox{\texttt{ in}}  & {\em hdc} & デバイスコンテキスト \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\mbox{\texttt{ in}}  & {\em pipeline} & パイプライン \\
+\hline
+\mbox{\texttt{ in}}  & {\em render\+Target} & レンダーターゲット \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source}{Graphic\+Character\+Render\+Unit.\+cpp}} の \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source_l00015}{15}} 行目に定義があります。
+
+ \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source}{Graphic\+Character\+Render\+Unit.\+cpp}} の \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source_l00032}{32}} 行目に定義があります。
 
 
 
 \doxysubsection{関数詳解}
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_character_unit_a1c764003ebdc6107d4fc23a78f29dbf8}\label{classmugen__engine_1_1_m_e_graphic_character_unit_a1c764003ebdc6107d4fc23a78f29dbf8} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_character_unit_a30786f4c6bced7fece482d6df4ae260d}\label{classmugen__engine_1_1_m_e_graphic_character_unit_a30786f4c6bced7fece482d6df4ae260d} 
 \index{mugen\_engine::MEGraphicCharacterUnit@{mugen\_engine::MEGraphicCharacterUnit}!DrawCharacter@{DrawCharacter}}
 \index{DrawCharacter@{DrawCharacter}!mugen\_engine::MEGraphicCharacterUnit@{mugen\_engine::MEGraphicCharacterUnit}}
 \doxysubsubsection{\texorpdfstring{DrawCharacter()}{DrawCharacter()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Character\+Unit\+::\+Draw\+Character (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Character\+Unit\+::\+Draw\+Character (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
 
 
 
 指定した位置に描画 
 
+文字を描画
 
 
- \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source}{Graphic\+Character\+Render\+Unit.\+cpp}} の \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source_l00091}{91}} 行目に定義があります。
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 左上の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 左上の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & 文字色 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source}{Graphic\+Character\+Render\+Unit.\+cpp}} の \mbox{\hyperlink{_graphic_character_render_unit_8cpp_source_l00116}{116}} 行目に定義があります。
 
 
 

@@ -33,9 +33,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			escGraph.DrawRotaGraph(i * 32, i * 18, 0.5f+0.2f*i, 3.1415926f / 15 * i);
 		}
 
-		for(int i = 0; i < 12; i++)
+		for(int i = 0; i < 12000; i++)
 		{	
-			materialGraph.DrawRotaGraph(64 + i * 96, 64 + i * 48, 1.0f + 0.4f * i, 3.1415926f / 12 * i, i);
+			materialGraph.DrawRotaGraph(10 + rand() % 1260, 10 + rand() % 700, (rand() % 10 + 10) / 10.0f, 3.1415926f / 120.0f * (rand() % 120), rand() % 12);
 		}
 		float color[4] = {1.0f, 1.0f, 1.0f, 1.0f};
 		gothicFont.DrawString(0, 0, color , L"‚¿‚È‚Ý‚É\n“ú–{Œê‚Í\n‚¢‚¯‚é‚ñ\n‚Å‚·‚©");
