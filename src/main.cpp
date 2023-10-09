@@ -1,6 +1,7 @@
 //! @file main.cpp
 //! @note Copyright (c) Mugen_Gamelab
 #include "Engine/Core.h"
+#include "Engine/Fps.h"
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
@@ -8,6 +9,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	int window_height = 720;
 	
 	mugen_engine::MECore::GetIns().Initialize(L"MagicaRogue", window_width, window_height);
+
+	mugen_engine::Fps fps;
 
 	mugen_engine::MECore::GetIns().LoadDivGraph("material", L"media/graphic/material.png", 4, 3);
 	mugen_engine::MECore::GetIns().LoadGraph("esc", L"media/graphic/return_to_escape.png");
@@ -19,6 +22,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	materialGraph.SetBrightness(1.0f, 0.2f, 0.2f, 1.0f);
 	auto gothicFont = mugen_engine::MECore::GetIns().GetFont("gothic");
 
+	int frame = 0;
 	while(mugen_engine::MECore::GetIns().ProcessMessage() == 0)
 	{
 		mugen_engine::MECore::GetIns().ResetRenderArea();
@@ -33,10 +37,15 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		{	
 			materialGraph.DrawRotaGraph(64 + i * 96, 64 + i * 48, 1.0f + 0.4f * i, 3.1415926f / 12 * i, i);
 		}
-		float color[4] = {0.0f, 1.0f, 1.0f, 1.0f};
-		gothicFont.DrawString(60, 60, color , L"‚¿‚È‚Ý‚É\n“ú–{Œê‚Í\n‚¢‚¯‚é‚ñ\n‚Å‚·‚©");
-
+		float color[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+		gothicFont.DrawString(0, 0, color , L"‚¿‚È‚Ý‚É\n“ú–{Œê‚Í\n‚¢‚¯‚é‚ñ\n‚Å‚·‚©");
+		gothicFont.DrawFormatString(0, 720 - 128, color, L"frame: %d", frame);
+		fps.Draw();
 		mugen_engine::MECore::GetIns().ScreenFlip();
+		fps.Update();
+		fps.Wait();
+
+		frame++;
 	}
 
 	mugen_engine::MECore::GetIns().Finalize();

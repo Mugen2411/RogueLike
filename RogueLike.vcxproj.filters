@@ -84,5 +84,8 @@
     <ClInclude Include="src\Engine\Graphic\GraphicCharacterRenderUnit.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Fps.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

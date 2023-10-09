@@ -190,6 +190,7 @@
     <ClInclude Include="src\Engine\Graphic\GraphicRenderTarget.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicLoadedImage.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicStruct.h" />
+    <ClInclude Include="src\Engine\Fps.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

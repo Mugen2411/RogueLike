@@ -2,6 +2,7 @@
 //! @note Copyright (c) Mugen_GameLab
 
 #include "GraphicFontData.h"
+#include <memory>
 
 namespace mugen_engine
 {
@@ -55,7 +56,15 @@ namespace mugen_engine
 		return *this;
 	}
 
-	void MEGraphicFontData::DrawString(int x, int y, float color[4], std::wstring text)
+	/**********************************************************************//**
+		@brief			ï∂éöóÒÇÃï`âÊ
+		@param[in]		x					ç∂è„ÇÃXç¿ïW
+		@param[in]		y					ç∂è„ÇÃYç¿ïW
+		@param[in]		color				ï∂éöêF
+		@param[in]		text				ï`âÊÇµÇΩÇ¢ï∂éöóÒ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MEGraphicFontData::DrawString(const int x, const int y, float color[4], const std::wstring text)
 	{
 		size_t xOffset = 0;
 		size_t yOffset = 0;
@@ -79,5 +88,16 @@ namespace mugen_engine
 				xOffset = 0;
 			}
 		}
+	}
+	void MEGraphicFontData::DrawFormatString(const int x, const int y, float color[4], const std::wstring text, ...)
+	{
+		va_list args;
+		va_start(args, text);
+		const int len = _vscwprintf_p(text.c_str(), args);
+		wchar_t* buf = new wchar_t[len + 1];
+		vswprintf_s(buf, len + 1, text.c_str(), args);
+		DrawString(x, y, color, buf);
+		delete[] buf;
+		va_end(args);
 	}
 }

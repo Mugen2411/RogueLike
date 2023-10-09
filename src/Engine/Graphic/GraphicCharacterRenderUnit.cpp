@@ -10,8 +10,25 @@
 
 namespace mugen_engine
 {
+	/**********************************************************************//**
+		@brief			コンストラクタ
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
 	MEGraphicCharacterUnit::MEGraphicCharacterUnit()
 	{}
+
+	/**********************************************************************//**
+		@brief			コンストラクタ
+		@param[in]		character			テクスチャに変換する文字
+		@param[in]		fontData			フォント
+		@param[in]		hdc					デバイスコンテキスト
+		@param[in]		device				デバイス
+		@param[in]		cmdList				コマンドリスト
+		@param[in]		pipeline			パイプライン
+		@param[in]		renderTarget		レンダーターゲット
+		@return			なし
+	*//***********************************************************************/
 	MEGraphicCharacterUnit::MEGraphicCharacterUnit(const wchar_t character, HFONT fontData, HDC hdc,
 		MEGraphicDevice& device, MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
 		m_pCmdList(&cmdList), m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget)
@@ -75,10 +92,10 @@ namespace mugen_engine
 			}
 		}
 
-		m_vertices[0] = { { -static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f }, { 0.0f, 1.0f } };
-		m_vertices[1] = { {-static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{0.0f, 0.0f} };
-		m_vertices[2] = { { static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f},{1.0f, 1.0f} };
-		m_vertices[3] = { { static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{1.0f, 0.0f} };
+		m_vertices[0] = { { 0.0f, -static_cast<float>(m_height), 0.0f }, { 0.0f, 1.0f } };
+		m_vertices[1] = { { 0.0f, 0.0f, 0.0f},{0.0f, 0.0f} };
+		m_vertices[2] = { { static_cast<float>(m_width), -static_cast<float>(m_height), 0.0f},{1.0f, 1.0f} };
+		m_vertices[3] = { { static_cast<float>(m_width), 0.0f, 0.0f},{1.0f, 0.0f} };
 
 		m_resourceManager.Initialize(device);
 		m_resourceManager.CreateTextureBuffer(metadata, device);
@@ -88,7 +105,15 @@ namespace mugen_engine
 		m_resourceManager.UploadDataToUploadBuffer(reinterpret_cast<uint8_t*>(textureData.data()), m_width * sizeof(TexRGBA), m_height);
 		m_resourceManager.UploadToGpu(metadata, m_width * sizeof(TexRGBA), metadata.format, *m_pCmdList);
 	}
-	void MEGraphicCharacterUnit::DrawCharacter(int x, int y, float color[4])
+
+	/**********************************************************************//**
+		@brief			文字を描画
+		@param[in]		x					左上のX座標
+		@param[in]		y					左上のY座標
+		@param[in]		color				文字色
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicCharacterUnit::DrawCharacter(const int x, const int y, float color[4])
 	{
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),

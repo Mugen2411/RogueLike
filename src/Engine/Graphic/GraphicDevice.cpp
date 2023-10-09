@@ -107,10 +107,10 @@ namespace mugen_engine
 		debugLayer->EnableDebugLayer();
 		debugLayer->Release();
 
-		Microsoft::WRL::ComPtr<ID3D12Debug> spDebugController0;
-		Microsoft::WRL::ComPtr<ID3D12Debug1> spDebugController1;
-		D3D12GetDebugInterface(IID_PPV_ARGS(&spDebugController0));
-		spDebugController0->QueryInterface(IID_PPV_ARGS(&spDebugController1));
-		spDebugController1->SetEnableGPUBasedValidation(true);
+		//Microsoft::WRL::ComPtr<ID3D12Debug> spDebugController0;
+		//Microsoft::WRL::ComPtr<ID3D12Debug1> spDebugController1;
+		//D3D12GetDebugInterface(IID_PPV_ARGS(&spDebugController0));
+		//spDebugController0->QueryInterface(IID_PPV_ARGS(&spDebugController1));
+		//spDebugController1->SetEnableGPUBasedValidation(true);
 	}
 }

@@ -80,7 +80,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MEGraphicRenderTarget::Present()
 	{
-		m_swapchain->Present(1, 0);
+		m_swapchain->Present(0, 0);
 	}
 
 	/**********************************************************************//**
