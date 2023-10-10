@@ -17,6 +17,7 @@ namespace mugen_engine
 	class MEGraphicRenderQueue
 	{
 	public:
+		//! 初期化
 		static void Initialize(MEGraphicDevice& device);
 		//! 描画を予約する
 		static void ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
@@ -25,11 +26,15 @@ namespace mugen_engine
 		//! 予約した描画を行う
 		static void RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
 	private:
+		/**********************************************************************//**
+			@struct		RENDER_DATA
+			@brief		四角形のポリゴンを一枚描画する単位
+		*//***********************************************************************/
 		struct RENDER_DATA
 		{
-			D3D12_VERTEX_BUFFER_VIEW* vertexBufferView;
-			ID3D12DescriptorHeap* textureHeap;
-			int blendType;
+			D3D12_VERTEX_BUFFER_VIEW* vertexBufferView;			//!< 頂点バッファビュー
+			ID3D12DescriptorHeap* textureHeap;					//!< テクスチャのディスクリプタヒープ
+			int blendType;										//!< ブレンドタイプ
 		};
 
 		//! 指定したインデックスにCBVを構築する

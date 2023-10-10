@@ -10,6 +10,11 @@ namespace mugen_engine
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
 	MEGraphicDevice* MEGraphicRenderQueue::m_pDevice = nullptr;
 
+	/**********************************************************************//**
+		@brief			初期化
+		@param[in]		device				デバイス
+		@return			なし
+	*//***********************************************************************/
 	void MEGraphicRenderQueue::Initialize(MEGraphicDevice& device)
 	{
 		m_pDevice = &device;
@@ -29,6 +34,17 @@ namespace mugen_engine
 		_InitalizeConstantBuffer(device);
 	}
 
+	/**********************************************************************//**
+		@brief			描画を予約する
+		@param[in]		vbView				頂点バッファビュー
+		@param[in]		constData			定数バッファのデータ
+		@param[in]		textureHeap			テクスチャのディスクリプタヒープ
+		@param[in]		blendType			ブレンドタイプ
+		@param[in]		cmdList				コマンドリスト
+		@param[in]		pipeline			パイプライン
+		@param[in]		renderTarget		レンダーターゲット
+		@return			なし
+	*//***********************************************************************/
 	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
 		ID3D12DescriptorHeap* textureHeap, int blendType, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 		MEGraphicRenderTarget* renderTarget)
@@ -53,6 +69,13 @@ namespace mugen_engine
 		m_currentReserved++;
 	}
 
+	/**********************************************************************//**
+		@brief			予約された描画を全部発火する
+		@param[in]		cmdList				コマンドリスト
+		@param[in]		pipeline			パイプライン
+		@param[in]		renderTarget		レンダーターゲット
+		@return			なし
+	*//***********************************************************************/
 	void MEGraphicRenderQueue::RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
 	{	
 		auto handle = m_constantDescHeap->GetGPUDescriptorHandleForHeapStart();
@@ -63,9 +86,10 @@ namespace mugen_engine
 				m_reserveList[idx].textureHeap->GetCPUDescriptorHandleForHeapStart(), D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 			cpuHandle.ptr += m_descriptorHeapIncrementSize * 2;
 		}
+		renderTarget.SetRenderBaseCommand(cmdList);
+
 		for(int idx = 0; idx < m_currentReserved; ++idx)
 		{
-			renderTarget.SetRenderBaseCommand(cmdList);
 			pipeline.SetPipelineState(m_reserveList[idx].blendType, cmdList);
 			cmdList.GetCommandList()->SetDescriptorHeaps(1, m_constantDescHeap.GetAddressOf());
 			cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
