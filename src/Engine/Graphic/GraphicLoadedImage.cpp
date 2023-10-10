@@ -33,7 +33,7 @@ namespace mugen_engine
 		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
 		m_width(0), m_height(0), m_xDivideNum(xDivideNum), m_yDivideNum(yDivideNum),
 		m_brightness(1.0f, 1.0f, 1.0f, 1.0f), m_pCmdList(&cmdList),
-		m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget)
+		m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget), m_blendType(BLEND_TYPE::ALPHA)
 	{
 		DirectX::TexMetadata metadata = {};
 		DirectX::ScratchImage scratchImg = {};
@@ -99,7 +99,7 @@ namespace mugen_engine
 		constData.brightness = m_brightness;
 
 		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData,
-			m_resourceManager.GetTextureHeap(), 0, m_pCmdList, m_pPipeline, m_pRenderTarget);
+			m_resourceManager.GetTextureHeap(), m_blendType, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
 	/**********************************************************************//**
@@ -128,7 +128,7 @@ namespace mugen_engine
 		constData.brightness = m_brightness;
 
 		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData, 
-			m_resourceManager.GetTextureHeap(), 0, m_pCmdList, m_pPipeline, m_pRenderTarget);
+			m_resourceManager.GetTextureHeap(), m_blendType, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
 	/**********************************************************************//**
@@ -142,5 +142,15 @@ namespace mugen_engine
 	void MEGraphicLoadedImage::SetBrightness(const float R, const float G, const float B, const float A)
 	{
 		m_brightness = DirectX::XMFLOAT4(R, G, B, A);
+	}
+
+	/**********************************************************************//**
+		@brief			画像描画時のブレンドタイプを設定
+		@param[in]		blendType					ブレンドタイプ
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicLoadedImage::SetBlendType(BLEND_TYPE blendType)
+	{
+		m_blendType = blendType;
 	}
 }

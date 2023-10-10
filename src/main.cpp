@@ -19,7 +19,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	auto escGraph = mugen_engine::MECore::GetIns().GetGraph("esc");
 	auto materialGraph = mugen_engine::MECore::GetIns().GetGraph("material");
-	materialGraph.SetBrightness(1.0f, 0.2f, 0.2f, 1.0f);
+	materialGraph.SetBlendType(mugen_engine::MEGraphicLoadedImage::ADD);
 	auto gothicFont = mugen_engine::MECore::GetIns().GetFont("gothic");
 
 	int frame = 0;
@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			escGraph.DrawRotaGraph(i * 32, i * 18, 0.5f+0.2f*i, 3.1415926f / 15 * i);
 		}
 
-		for(int i = 0; i < 100000; i++)
+		for(int i = 0; i < 1000; i++)
 		{	
 			materialGraph.DrawRotaGraph(10 + rand() % 1260, 10 + rand() % 700, (rand() % 10 + 10) / 10.0f, 3.1415926f / 120.0f * (rand() % 120), rand() % 12);
 		}
