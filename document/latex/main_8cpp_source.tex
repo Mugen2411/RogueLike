@@ -21,7 +21,7 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{auto}\ escGraph\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd}{GetGraph}}(\textcolor{stringliteral}{"{}esc"{}});}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{auto}\ materialGraph\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd}{GetGraph}}(\textcolor{stringliteral}{"{}material"{}});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022\ \ \ \ \ materialGraph.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a6706d008f0c0762dc3777fad9f778a85}{SetBrightness}}(1.0f,\ 0.2f,\ 0.2f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022\ \ \ \ \ materialGraph.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a26a563747a1312efbfcbb9fd2f8f992e}{SetBlendType}}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a8ac9fe56709be18e95b733747b86fcf4a1a76f80d467a5421ec30434c50ccca21}{mugen\_engine::MEGraphicLoadedImage::ADD}});}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{auto}\ gothicFont\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ac56af72e96d3d970bd8ab52c7b643798}{GetFont}}(\textcolor{stringliteral}{"{}gothic"{}});}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{int}\ frame\ =\ 0;}
@@ -35,7 +35,7 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ escGraph.DrawRotaGraph(i\ *\ 32,\ i\ *\ 18,\ 0.5f+0.2f*i,\ 3.1415926f\ /\ 15\ *\ i);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 12000;\ i++)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000;\ i++)}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \{\ \ \ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ materialGraph.DrawRotaGraph(10\ +\ rand()\ \%\ 1260,\ 10\ +\ rand()\ \%\ 700,\ (rand()\ \%\ 10\ +\ 10)\ /\ 10.0f,\ 3.1415926f\ /\ 120.0f\ *\ (rand()\ \%\ 120),\ rand()\ \%\ 12);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
