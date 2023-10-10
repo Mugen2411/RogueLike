@@ -5,7 +5,7 @@ namespace mugen_engine
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> MEGraphicRenderQueue::m_constantDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> MEGraphicRenderQueue::m_constantBuffers;
 	int MEGraphicRenderQueue::m_currentReserved = 0;
-	int MEGraphicRenderQueue::m_maxReserve = 0xFFFF;
+	int MEGraphicRenderQueue::m_maxReserve = 0x3FFF;
 	std::vector<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
 	MEGraphicDevice* MEGraphicRenderQueue::m_pDevice = nullptr;
@@ -29,10 +29,14 @@ namespace mugen_engine
 		_InitalizeConstantBuffer(device);
 	}
 
-	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData, 
-		ID3D12DescriptorHeap* textureHeap, int blendType)
+	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
+		ID3D12DescriptorHeap* textureHeap, int blendType, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
+		MEGraphicRenderTarget* renderTarget)
 	{
-		if(m_currentReserved == m_maxReserve - 1) return;
+		if(m_currentReserved == m_maxReserve - 1)
+		{
+			RenderAll(*cmdList, *pipeline, *renderTarget);
+		}
 
 		RENDER_DATA tmp = {};
 		tmp.vertexBufferView = vbView;

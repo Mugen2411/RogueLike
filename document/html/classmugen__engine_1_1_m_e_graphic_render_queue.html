@@ -95,9 +95,9 @@ $(function() {
 静的公開メンバ関数</h2></td></tr>
 <tr class="memitem:a94c9e4b10ad9f04f87a517f85d868bfa" id="r_a94c9e4b10ad9f04f87a517f85d868bfa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#a94c9e4b10ad9f04f87a517f85d868bfa">Initialize</a> (<a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device)</td></tr>
 <tr class="separator:a94c9e4b10ad9f04f87a517f85d868bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea60af99ff0e10ca1a8554827c98db28" id="r_aea60af99ff0e10ca1a8554827c98db28"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#aea60af99ff0e10ca1a8554827c98db28">ReserveRender</a> (D3D12_VERTEX_BUFFER_VIEW *vbView, <a class="el" href="structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html">CONSTANT_DATA</a> constData, ID3D12DescriptorHeap *textureHeap, int blendType)</td></tr>
-<tr class="memdesc:aea60af99ff0e10ca1a8554827c98db28"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を予約する  <br /></td></tr>
-<tr class="separator:aea60af99ff0e10ca1a8554827c98db28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b0b8411c3389e186fb585ce81e6337" id="r_ae2b0b8411c3389e186fb585ce81e6337"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#ae2b0b8411c3389e186fb585ce81e6337">ReserveRender</a> (D3D12_VERTEX_BUFFER_VIEW *vbView, <a class="el" href="structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html">CONSTANT_DATA</a> constData, ID3D12DescriptorHeap *textureHeap, int blendType, <a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> *cmdList, <a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> *pipeline, <a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> *renderTarget)</td></tr>
+<tr class="memdesc:ae2b0b8411c3389e186fb585ce81e6337"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を予約する  <br /></td></tr>
+<tr class="separator:ae2b0b8411c3389e186fb585ce81e6337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d5acd8d695b20b11be0dd1b002ed694" id="r_a7d5acd8d695b20b11be0dd1b002ed694"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#a7d5acd8d695b20b11be0dd1b002ed694">RenderAll</a> (<a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;cmdList, <a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> &amp;pipeline, <a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> &amp;renderTarget)</td></tr>
 <tr class="memdesc:a7d5acd8d695b20b11be0dd1b002ed694"><td class="mdescLeft">&#160;</td><td class="mdescRight">予約した描画を行う  <br /></td></tr>
 <tr class="separator:a7d5acd8d695b20b11be0dd1b002ed694"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +122,7 @@ $(function() {
 <tr class="memitem:a8b512208fb7c89b3428bda43bf9d3036" id="r_a8b512208fb7c89b3428bda43bf9d3036"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#a8b512208fb7c89b3428bda43bf9d3036">m_currentReserved</a> = 0</td></tr>
 <tr class="memdesc:a8b512208fb7c89b3428bda43bf9d3036"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在描画予約キューに入っている数  <br /></td></tr>
 <tr class="separator:a8b512208fb7c89b3428bda43bf9d3036"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a62f27aa1f97b85d509f3db78a2f795" id="r_a6a62f27aa1f97b85d509f3db78a2f795"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#a6a62f27aa1f97b85d509f3db78a2f795">m_maxReserve</a> = 0xFFFF</td></tr>
+<tr class="memitem:a6a62f27aa1f97b85d509f3db78a2f795" id="r_a6a62f27aa1f97b85d509f3db78a2f795"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#a6a62f27aa1f97b85d509f3db78a2f795">m_maxReserve</a> = 0x3FFF</td></tr>
 <tr class="memdesc:a6a62f27aa1f97b85d509f3db78a2f795"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画予約可能な最大数  <br /></td></tr>
 <tr class="separator:a6a62f27aa1f97b85d509f3db78a2f795"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a425e7ac0fabff99a742632c4fa9f6427" id="r_a425e7ac0fabff99a742632c4fa9f6427"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a.html">RENDER_DATA</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_queue.html#a425e7ac0fabff99a742632c4fa9f6427">m_reserveList</a></td></tr>
@@ -184,7 +184,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8cpp_source.html">GraphicRenderQueue.cpp</a> の <a class="el" href="_graphic_render_queue_8cpp_source.html#l00085">85</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8cpp_source.html">GraphicRenderQueue.cpp</a> の <a class="el" href="_graphic_render_queue_8cpp_source.html#l00089">89</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8cpp_source.html">GraphicRenderQueue.cpp</a> の <a class="el" href="_graphic_render_queue_8cpp_source.html#l00124">124</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8cpp_source.html">GraphicRenderQueue.cpp</a> の <a class="el" href="_graphic_render_queue_8cpp_source.html#l00128">128</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -296,12 +296,12 @@ $(function() {
 
 <p>予約した描画を行う </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8cpp_source.html">GraphicRenderQueue.cpp</a> の <a class="el" href="_graphic_render_queue_8cpp_source.html#l00052">52</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8cpp_source.html">GraphicRenderQueue.cpp</a> の <a class="el" href="_graphic_render_queue_8cpp_source.html#l00056">56</a> 行目に定義があります。</p>
 
 </div>
 </div>
-<a id="aea60af99ff0e10ca1a8554827c98db28" name="aea60af99ff0e10ca1a8554827c98db28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea60af99ff0e10ca1a8554827c98db28">&#9670;&#160;</a></span>ReserveRender()</h2>
+<a id="ae2b0b8411c3389e186fb585ce81e6337" name="ae2b0b8411c3389e186fb585ce81e6337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b0b8411c3389e186fb585ce81e6337">&#9670;&#160;</a></span>ReserveRender()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,7 +331,25 @@ $(function() {
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>blendType</em>&#160;</td>
+          <td class="paramname"><em>blendType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> *&#160;</td>
+          <td class="paramname"><em>cmdList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> *&#160;</td>
+          <td class="paramname"><em>pipeline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> *&#160;</td>
+          <td class="paramname"><em>renderTarget</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -375,7 +393,7 @@ $(function() {
 
 <p>定数バッファ </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00040">40</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00041">41</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -401,7 +419,7 @@ $(function() {
 
 <p>定数用のディスクリプタヒープ </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00039">39</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00040">40</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -427,7 +445,7 @@ $(function() {
 
 <p>現在描画予約キューに入っている数 </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00041">41</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00042">42</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -453,7 +471,7 @@ $(function() {
 
 <p>SRVとCBVにおけるディスクリプタヒープ上のサイズ </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00044">44</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00045">45</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -467,7 +485,7 @@ $(function() {
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int mugen_engine::MEGraphicRenderQueue::m_maxReserve = 0xFFFF</td>
+          <td class="memname">int mugen_engine::MEGraphicRenderQueue::m_maxReserve = 0x3FFF</td>
         </tr>
       </table>
   </td>
@@ -479,7 +497,7 @@ $(function() {
 
 <p>描画予約可能な最大数 </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00042">42</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00043">43</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -505,7 +523,7 @@ $(function() {
 
 <p>デバイス </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00045">45</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00046">46</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -531,7 +549,7 @@ $(function() {
 
 <p>描画予約キュー </p>
 
-<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00043">43</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_render_queue_8h_source.html">GraphicRenderQueue.h</a> の <a class="el" href="_graphic_render_queue_8h_source.html#l00044">44</a> 行目に定義があります。</p>
 
 </div>
 </div>

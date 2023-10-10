@@ -50,7 +50,21 @@ namespace mugen_engine
 		m_vertices[2] = { { static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f},{1.0f, 1.0f} };
 		m_vertices[3] = { { static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{1.0f, 0.0f} };
 
-		m_resourceManager.Initialize(device);
+		m_resourceManager.Initialize(device, static_cast<UINT>(xDivideNum * yDivideNum));
+
+		for(int index = 0; index < xDivideNum * yDivideNum; ++index)
+		{
+			m_vertices[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+				1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+			m_vertices[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+				1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+			m_vertices[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+				1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+			m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+				1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+			m_resourceManager.UploadVertexData(index, m_vertices, 4);
+		}
+
 		m_resourceManager.CreateTextureBuffer(metadata, device);
 		m_resourceManager.CreateSrv(img->format, device);
 
@@ -75,14 +89,6 @@ namespace mugen_engine
 			OutputDebugStringA("out of range");
 			return;
 		}
-		m_vertices[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
-		m_vertices[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
-		m_vertices[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
-		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),
 			2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
@@ -92,8 +98,8 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 		constData.brightness = m_brightness;
 
-		m_resourceManager.UploadVertexData(m_vertices, 4);
-		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(), constData, m_resourceManager.GetTextureHeap(), 0);
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData,
+			m_resourceManager.GetTextureHeap(), 0, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
 	/**********************************************************************//**
@@ -112,14 +118,6 @@ namespace mugen_engine
 			OutputDebugStringA("out of range");
 			return;
 		}
-		m_vertices[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
-		m_vertices[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
-		m_vertices[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
-		m_vertices[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
-			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().GetWindowWidth(),
 			2.0f * scale / MECore::GetIns().GetWindowHeight(), 1.0f);
@@ -129,8 +127,8 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
 		constData.brightness = m_brightness;
 
-		m_resourceManager.UploadVertexData(m_vertices, 4);
-		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(), constData, m_resourceManager.GetTextureHeap(), 0);
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData, 
+			m_resourceManager.GetTextureHeap(), 0, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
 	/**********************************************************************//**

@@ -82,7 +82,6 @@ namespace mugen_engine
 		MEGraphicCommandList m_commandList;								//!< グラフィックコマンドリスト
 		MEGraphicRenderTarget m_renderTarget;							//!< レンダーターゲット
 		MEGraphicPipeline m_pipeline;									//!< パイプライン
-		MEGraphicGpuResourceManager m_resourceManager;					//!< GPUリソースマネージャー
 
 		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImages;	//!< 読み込み済み画像を辞書で管理する
 		std::unordered_map<std::string, MEGraphicFontData> m_loadedFonts;		//!< 読み込み済みのフォントを辞書で管理する

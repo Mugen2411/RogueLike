@@ -18,8 +18,9 @@ namespace mugen_engine
 		@param			device				デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::Initialize(const MEGraphicDevice& device)
+	void MEGraphicGpuResourceManager::Initialize(const MEGraphicDevice& device, UINT numVertexBuffer)
 	{
+		m_numVertexBuffer = numVertexBuffer;
 		D3D12_DESCRIPTOR_HEAP_DESC descHeapDesc = {};
 		descHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
 		descHeapDesc.NodeMask = 0;
@@ -34,8 +35,7 @@ namespace mugen_engine
 
 		m_descriptorHeapIncrementSize = device.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		_CreateVertexBuffer(4, device);
-
+		CreateVertexBuffer(4, device);
 		_InitalizeConstantBuffer(device);
 		_CreateCbv(device);
 	}
@@ -58,16 +58,16 @@ namespace mugen_engine
 		@param[in]		vertexNum					頂点の数
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::UploadVertexData(VERTEX_DATA* vertices, size_t vertexNum)
+	void MEGraphicGpuResourceManager::UploadVertexData(uint32_t index, VERTEX_DATA* vertices, size_t vertexNum)
 	{
 		VERTEX_DATA* vertMap = nullptr;
-		auto result = m_vertexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
+		auto result = m_vertexBuffer[index]->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
 		if(FAILED(result))
 		{
 			OutputDebugStringA("DX12 VertexBuffer Mapping Error.\n");
 		}
 		std::copy_n(vertices, vertexNum, vertMap);
-		m_vertexBuffer->Unmap(0, nullptr);
+		m_vertexBuffer[index]->Unmap(0, nullptr);
 	}
 
 	/**********************************************************************//**
@@ -82,17 +82,6 @@ namespace mugen_engine
 		auto result = m_constantBuffer->Map(0, nullptr, (void**)&mapMatrix);
 		*mapMatrix = constData;
 		m_constantBuffer->Unmap(0, nullptr);
-	}
-
-	/**********************************************************************//**
-		@brief			描画対象としてセットする
-		@param[in]		cmdList						コマンドリスト
-		@return			なし
-	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::SetRenderCommand(MEGraphicCommandList& cmdList)
-	{
-		cmdList.GetCommandList()->IASetVertexBuffers(0, 1, &m_vertexBufferView);
-		cmdList.GetCommandList()->DrawInstanced(4, 1, 0, 0);
 	}
 
 	/**********************************************************************//**
@@ -243,7 +232,7 @@ namespace mugen_engine
 		@param[in]		device						デバイス
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicGpuResourceManager::_CreateVertexBuffer(size_t vertexNum, const MEGraphicDevice& device)
+	void MEGraphicGpuResourceManager::CreateVertexBuffer(size_t vertexNum, const MEGraphicDevice& device)
 	{
 		D3D12_HEAP_PROPERTIES heapprop = {};
 		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -261,12 +250,17 @@ namespace mugen_engine
 		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
 		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
 
-		auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
-			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(m_vertexBuffer.ReleaseAndGetAddressOf()));
+		m_vertexBuffer.resize(m_numVertexBuffer);
+		m_vertexBufferView.resize(m_numVertexBuffer);
+		for(UINT idx = 0; idx < m_numVertexBuffer; ++idx)
+		{
+			auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+				D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(m_vertexBuffer[idx].ReleaseAndGetAddressOf()));
 
-		m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-		m_vertexBufferView.SizeInBytes = static_cast<UINT>(sizeof(VERTEX_DATA) * vertexNum);
-		m_vertexBufferView.StrideInBytes = sizeof(VERTEX_DATA);
+			m_vertexBufferView[idx].BufferLocation = m_vertexBuffer[idx]->GetGPUVirtualAddress();
+			m_vertexBufferView[idx].SizeInBytes = static_cast<UINT>(sizeof(VERTEX_DATA) * vertexNum);
+			m_vertexBufferView[idx].StrideInBytes = sizeof(VERTEX_DATA);
+		}
 	}
 
 	/**********************************************************************//**

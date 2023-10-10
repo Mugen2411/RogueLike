@@ -8,5 +8,6 @@ var searchData=
   ['core_2eh_5',['Core.h',['../_core_8h.html',1,'']]],
   ['count_5f_6',['count_',['../classmugen__engine_1_1_fps.html#afab2f9e6e0a7526ec08754550e5d600f',1,'mugen_engine::Fps']]],
   ['createsrv_7',['CreateSrv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ae1a25f50192f4a47df95f85d9420bf19',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['createtexturebuffer_8',['CreateTextureBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7326c5e2f2982b9ce05ca2e1173cd34',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['createtexturebuffer_8',['CreateTextureBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7326c5e2f2982b9ce05ca2e1173cd34',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createvertexbuffer_9',['CreateVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7aab3b4314e258a876c5249b485e4ca',1,'mugen_engine::MEGraphicGpuResourceManager']]]
 ];

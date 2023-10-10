@@ -20,7 +20,8 @@ namespace mugen_engine
 		static void Initialize(MEGraphicDevice& device);
 		//! •`‰æ‚ğ—\–ñ‚·‚é
 		static void ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
-			ID3D12DescriptorHeap* textureHeap, int blendType);
+			ID3D12DescriptorHeap* textureHeap, int blendType, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
+			MEGraphicRenderTarget* renderTarget);
 		//! —\–ñ‚µ‚½•`‰æ‚ğs‚¤
 		static void RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
 	private:

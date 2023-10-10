@@ -98,9 +98,11 @@ namespace mugen_engine
 		m_vertices[2] = { { static_cast<float>(m_width), -static_cast<float>(m_height), 0.0f},{1.0f, 1.0f} };
 		m_vertices[3] = { { static_cast<float>(m_width), 0.0f, 0.0f},{1.0f, 0.0f} };
 
-		m_resourceManager.Initialize(device);
+		m_resourceManager.Initialize(device, 1);
 		m_resourceManager.CreateTextureBuffer(metadata, device);
 		m_resourceManager.CreateSrv(metadata.format, device);
+
+		m_resourceManager.UploadVertexData(0, m_vertices, 4);
 
 		m_resourceManager.UploadByCpu(reinterpret_cast<uint8_t*>(textureData.data()), m_width * sizeof(TexRGBA), m_height);
 
@@ -127,7 +129,7 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 		constData.brightness = DirectX::XMFLOAT4 { color[0], color[1], color[2], color[3] };
 
-		m_resourceManager.UploadVertexData(m_vertices, 4);
-		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(), constData, m_resourceManager.GetTextureHeap(), 0);
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(0), constData,
+			m_resourceManager.GetTextureHeap(), 0, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 }

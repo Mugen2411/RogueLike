@@ -35,7 +35,6 @@ namespace mugen_engine
 		m_renderTarget.Initialize(m_device, m_commandList,
 			m_windowHandle, window_width, window_height);
 		m_pipeline.Initialize(m_device, m_inputLayout, _countof(m_inputLayout));
-		m_resourceManager.Initialize(m_device);
 		MEGraphicRenderQueue::Initialize(m_device);
 
 		LoadFont("__mugen_engine_default__", L"ÇlÇr ÉSÉVÉbÉN", 32);
