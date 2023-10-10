@@ -16,7 +16,7 @@ namespace mugen_engine
         int count_;                 //カウンタ
         float fps_;                 // fps_
         static const int cnt_to_sample = 60;    //平均を取るサンプル数
-        static const int ideal_fps_ = 120;  //設定したFPS
+        static const int ideal_fps_ = 60;  //設定したFPS
         mugen_engine::MEGraphicFontData defFont;
 
     public:

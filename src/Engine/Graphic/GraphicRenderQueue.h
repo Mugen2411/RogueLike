@@ -49,6 +49,7 @@ namespace mugen_engine
 		static std::vector<RENDER_DATA> m_reserveList;								//!< 描画予約キュー
 		static uint32_t m_descriptorHeapIncrementSize;								//!< SRVとCBVにおけるディスクリプタヒープ上のサイズ
 		static MEGraphicDevice* m_pDevice;											//!< デバイス
+		static std::vector<CONSTANT_DATA*> m_pMapMatrix;							//!< マップされた定数バッファ
 	};
 }
 

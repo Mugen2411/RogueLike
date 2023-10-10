@@ -5,10 +5,11 @@ namespace mugen_engine
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> MEGraphicRenderQueue::m_constantDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> MEGraphicRenderQueue::m_constantBuffers;
 	int MEGraphicRenderQueue::m_currentReserved = 0;
-	int MEGraphicRenderQueue::m_maxReserve = 0x3FFF;
+	int MEGraphicRenderQueue::m_maxReserve = 0x1FFF;
 	std::vector<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
 	MEGraphicDevice* MEGraphicRenderQueue::m_pDevice = nullptr;
+	std::vector<CONSTANT_DATA*> MEGraphicRenderQueue::m_pMapMatrix;
 
 	/**********************************************************************//**
 		@brief			‰Šú‰»
@@ -31,6 +32,8 @@ namespace mugen_engine
 		{
 			OutputDebugStringA("DX12 DescriptorHeap Initialize Error.\n");
 		}
+
+		m_reserveList.reserve(m_maxReserve);
 		_InitalizeConstantBuffer(device);
 	}
 
@@ -54,17 +57,15 @@ namespace mugen_engine
 			RenderAll(*cmdList, *pipeline, *renderTarget);
 		}
 
-		RENDER_DATA tmp = {};
+		static RENDER_DATA tmp = {};
 		tmp.vertexBufferView = vbView;
 		tmp.textureHeap = textureHeap;
 		tmp.blendType = blendType;
 
-		m_reserveList.push_back(tmp);
+		m_reserveList.emplace_back(tmp);
 
-		CONSTANT_DATA* mapMatrix;
-		auto result = m_constantBuffers[m_currentReserved]->Map(0, nullptr, (void**)&mapMatrix);
-		*mapMatrix = constData;
-		m_constantBuffers[m_currentReserved]->Unmap(0, nullptr);
+		*m_pMapMatrix[m_currentReserved] = constData;
+		//m_constantBuffers[m_currentReserved]->Unmap(0, nullptr);
 
 		m_currentReserved++;
 	}
@@ -142,6 +143,8 @@ namespace mugen_engine
 		cbvDesc.SizeInBytes = static_cast<UINT>(m_constantBuffers[index]->GetDesc().Width);
 
 		device.GetDevice()->CreateConstantBufferView(&cbvDesc, basicHeapHandle);
+
+		m_constantBuffers[index]->Map(0, nullptr, (void**)&m_pMapMatrix[index]);
 	}
 
 	/**********************************************************************//**
@@ -152,6 +155,7 @@ namespace mugen_engine
 	void MEGraphicRenderQueue::_InitalizeConstantBuffer(const MEGraphicDevice& device)
 	{
 		m_constantBuffers.resize(m_maxReserve);
+		m_pMapMatrix.resize(m_maxReserve);
 		for(int idx = 0; idx < m_maxReserve; ++idx)
 		{
 			_CreateCbv(idx, *m_pDevice);
