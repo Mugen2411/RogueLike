@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Engine\Audio\AudioDevice.cpp" />
     <ClCompile Include="src\Engine\Core.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicCharacterRenderUnit.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicCommandList.cpp" />
@@ -183,6 +184,7 @@
     <None Include="src\shader\BasicShaderHeader.hlsli" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Engine\Audio\AudioDevice.h" />
     <ClInclude Include="src\Engine\Core.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicCharacterRenderUnit.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicCommandList.h" />

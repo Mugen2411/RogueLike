@@ -1,8 +1,8 @@
-//! @file GraphicCore.h
+//! @file GraphicDevice.h
 //! @note Copyright (c) Mugen_GameLab
 
-#ifndef __MugenEngine_GraphicCore__
-#define __MugenEngine_GraphicCore__
+#ifndef __MugenEngine_GraphicDevice__
+#define __MugenEngine_GraphicDevice__
 
 #include <d3d12.h>
 #include <dxgi1_6.h>
@@ -49,4 +49,4 @@ namespace mugen_engine
 	};
 }
 
-#endif//__MugenEngine_GraphicCore__
+#endif//__MugenEngine_GraphicDevice__

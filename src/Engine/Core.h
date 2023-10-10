@@ -12,6 +12,8 @@
 #include "Graphic/GraphicLoadedImage.h"
 #include "Graphic/GraphicFontData.h"
 
+#include "Audio/AudioDevice.h"
+
 #include <DirectXMath.h>
 #include <unordered_map>
 
@@ -78,10 +80,12 @@ namespace mugen_engine
 
 		D3D12_INPUT_ELEMENT_DESC m_inputLayout[2];						//!< 入力レイアウト
 
-		MEGraphicDevice m_device;										//!< グラフィックデバイス
+		MEGraphicDevice m_graphicDevice;										//!< グラフィックデバイス
 		MEGraphicCommandList m_commandList;								//!< グラフィックコマンドリスト
 		MEGraphicRenderTarget m_renderTarget;							//!< レンダーターゲット
 		MEGraphicPipeline m_pipeline;									//!< パイプライン
+
+		MEAudioDevice m_audioDevice;									//!< オーディオデバイス
 
 		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImages;	//!< 読み込み済み画像を辞書で管理する
 		std::unordered_map<std::string, MEGraphicFontData> m_loadedFonts;		//!< 読み込み済みのフォントを辞書で管理する

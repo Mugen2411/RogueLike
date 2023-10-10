@@ -1,4 +1,4 @@
-//! @file GraphicCore.cpp
+//! @file GraphicDevice.cpp
 //! @note Copyright (c) Mugen_GameLab
 
 #include "GraphicDevice.h"

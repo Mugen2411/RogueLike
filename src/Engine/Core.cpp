@@ -30,12 +30,14 @@ namespace mugen_engine
 		m_windowHeight = window_height;
 		m_windowTitle = window_title;
 		_CreateWindow();
-		m_device.Initialize();
-		m_commandList.Initialize(m_device);
-		m_renderTarget.Initialize(m_device, m_commandList,
+		m_graphicDevice.Initialize();
+		m_commandList.Initialize(m_graphicDevice);
+		m_renderTarget.Initialize(m_graphicDevice, m_commandList,
 			m_windowHandle, window_width, window_height);
-		m_pipeline.Initialize(m_device, m_inputLayout, _countof(m_inputLayout));
-		MEGraphicRenderQueue::Initialize(m_device);
+		m_pipeline.Initialize(m_graphicDevice, m_inputLayout, _countof(m_inputLayout));
+		MEGraphicRenderQueue::Initialize(m_graphicDevice);
+
+		m_audioDevice.Initialize();
 
 		LoadFont("__mugen_engine_default__", L"ÇlÇr ÉSÉVÉbÉN", 32);
 	}
@@ -70,7 +72,7 @@ namespace mugen_engine
 			return -1;
 		}
 
-		m_renderTarget.SetBarrierBeforeRender(m_device, m_commandList);
+		m_renderTarget.SetBarrierBeforeRender(m_graphicDevice, m_commandList);
 
 		return 0;
 	}
@@ -132,7 +134,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadGraph(std::string gid, std::wstring filepath)
 	{
-		auto img = MEGraphicLoadedImage(filepath, m_device, 1, 1, m_commandList, m_pipeline, m_renderTarget);
+		auto img = MEGraphicLoadedImage(filepath, m_graphicDevice, 1, 1, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImages[gid] = img;
 	}
 
@@ -144,7 +146,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)
 	{
-		auto img = MEGraphicLoadedImage(filepath, m_device, xDivideNum, yDivideNum, m_commandList, m_pipeline, m_renderTarget);
+		auto img = MEGraphicLoadedImage(filepath, m_graphicDevice, xDivideNum, yDivideNum, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImages[gid] = img;
 	}
 
@@ -167,7 +169,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadFont(std::string gid, std::wstring fontName, int fontSize)
 	{
-		m_loadedFonts[gid] = MEGraphicFontData(fontName, fontSize, m_device, m_commandList, m_pipeline, m_renderTarget);
+		m_loadedFonts[gid] = MEGraphicFontData(fontName, fontSize, m_graphicDevice, m_commandList, m_pipeline, m_renderTarget);
 	}
 
 	/**********************************************************************//**
