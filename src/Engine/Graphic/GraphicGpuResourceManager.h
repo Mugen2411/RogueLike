@@ -47,6 +47,18 @@ namespace mugen_engine
 		//! GPUにテクスチャデータをアップロードする
 		void UploadToGpu(DirectX::TexMetadata& metadata, size_t rowPitch, DXGI_FORMAT format,
 			MEGraphicCommandList& cmdList);
+		//! CPUで転送する
+		void UploadByCpu(uint8_t* srcData, size_t rowPitch, size_t height);
+		//! 頂点バッファビューを取得
+		D3D12_VERTEX_BUFFER_VIEW* GetVertexBufferView()
+		{
+			return &m_vertexBufferView;
+		}
+		//! テクスチャ用ヒープを取得
+		ID3D12DescriptorHeap* GetTextureHeap()
+		{
+			return m_basicDescHeap.Get();
+		}
 	private:
 		//! 定数バッファを確保する
 		void _InitalizeConstantBuffer(const MEGraphicDevice& device);

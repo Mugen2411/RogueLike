@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			escGraph.DrawRotaGraph(i * 32, i * 18, 0.5f+0.2f*i, 3.1415926f / 15 * i);
 		}
 
-		for(int i = 0; i < 12000; i++)
+		for(int i = 0; i < 1200; i++)
 		{	
 			materialGraph.DrawRotaGraph(10 + rand() % 1260, 10 + rand() % 700, (rand() % 10 + 10) / 10.0f, 3.1415926f / 120.0f * (rand() % 120), rand() % 12);
 		}

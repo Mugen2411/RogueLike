@@ -21,7 +21,7 @@ namespace mugen_engine
 	void MEGraphicGpuResourceManager::Initialize(const MEGraphicDevice& device)
 	{
 		D3D12_DESCRIPTOR_HEAP_DESC descHeapDesc = {};
-		descHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+		descHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
 		descHeapDesc.NodeMask = 0;
 		descHeapDesc.NumDescriptors = 2;
 		descHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
@@ -142,9 +142,9 @@ namespace mugen_engine
 	void MEGraphicGpuResourceManager::CreateTextureBuffer(const DirectX::TexMetadata& metadata, const MEGraphicDevice& device)
 	{
 		D3D12_HEAP_PROPERTIES heapprop = {};
-		heapprop.Type = D3D12_HEAP_TYPE_DEFAULT;
-		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
-		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+		heapprop.Type = D3D12_HEAP_TYPE_CUSTOM;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_WRITE_BACK;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_L0;
 		heapprop.CreationNodeMask = 0;
 		heapprop.VisibleNodeMask = 0;
 
@@ -161,7 +161,7 @@ namespace mugen_engine
 		resdesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
 
 		auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
-			D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(m_textureBuffer.ReleaseAndGetAddressOf()));
+			D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE, nullptr, IID_PPV_ARGS(m_textureBuffer.ReleaseAndGetAddressOf()));
 	}
 
 	/**********************************************************************//**
@@ -299,6 +299,12 @@ namespace mugen_engine
 
 		_SetBarrierBeforeUploadTexture(cmdList);
 		cmdList.Execute();
+	}
+
+	void MEGraphicGpuResourceManager::UploadByCpu(uint8_t *srcData, size_t rowPitch, size_t height)
+	{
+		auto result = m_textureBuffer->WriteToSubresource(0, nullptr, srcData,
+			static_cast<UINT>(rowPitch), static_cast<UINT>(rowPitch * height));
 	}
 
 	/**********************************************************************//**

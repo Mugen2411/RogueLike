@@ -1,6 +1,8 @@
-#include "Core.h"
 //! @file Core.cpp
 //! @note Copyright (c) Mugen_GameLab
+
+#include "Core.h"
+#include "Graphic/GraphicRenderQueue.h"
 
 LRESULT WindowProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
@@ -34,6 +36,7 @@ namespace mugen_engine
 			m_windowHandle, window_width, window_height);
 		m_pipeline.Initialize(m_device, m_inputLayout, _countof(m_inputLayout));
 		m_resourceManager.Initialize(m_device);
+		MEGraphicRenderQueue::Initialize(m_device);
 
 		LoadFont("__mugen_engine_default__", L"ÇlÇr ÉSÉVÉbÉN", 32);
 	}
@@ -80,6 +83,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::ScreenFlip()
 	{
+		MEGraphicRenderQueue::RenderAll(m_commandList, m_pipeline, m_renderTarget);
 		m_renderTarget.SetBarrierBeforePresent(m_commandList);
 		m_commandList.Execute();
 		m_renderTarget.Present();

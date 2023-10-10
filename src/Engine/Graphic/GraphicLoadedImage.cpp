@@ -4,6 +4,7 @@
 #include "GraphicLoadedImage.h"
 #include "GraphicGpuResourceManager.h"
 #include "../Core.h"
+#include "GraphicRenderQueue.h"
 
 namespace mugen_engine
 {
@@ -53,9 +54,11 @@ namespace mugen_engine
 		m_resourceManager.CreateTextureBuffer(metadata, device);
 		m_resourceManager.CreateSrv(img->format, device);
 
-		m_resourceManager.ResetUploadBuffer(img->rowPitch, img->height, device);
-		m_resourceManager.UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
-		m_resourceManager.UploadToGpu(metadata, img->rowPitch, img->format, *m_pCmdList);
+		m_resourceManager.UploadByCpu(img->pixels, img->rowPitch, img->height);
+
+		//m_resourceManager.ResetUploadBuffer(img->rowPitch, img->height, device);
+		//m_resourceManager.UploadDataToUploadBuffer(img->pixels, img->rowPitch, img->height);
+		//m_resourceManager.UploadToGpu(metadata, img->rowPitch, img->format, *m_pCmdList);
 	}
 
 	/**********************************************************************//**
@@ -89,16 +92,8 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 		constData.brightness = m_brightness;
 
-		m_pRenderTarget->SetRenderBaseCommand(*m_pCmdList);
-		m_pPipeline->SetPipelineState(0, *m_pCmdList);
-		m_resourceManager.SetGpuResource(*m_pCmdList);
-
-		m_pCmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager.UploadVertexData(m_vertices, _countof(m_vertices));
-		m_resourceManager.UploadConstantData(constData);
-		m_resourceManager.SetRenderCommand(*m_pCmdList);
-
-		m_pCmdList->Execute();
+		m_resourceManager.UploadVertexData(m_vertices, 4);
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(), constData, m_resourceManager.GetTextureHeap(), 0);
 	}
 
 	/**********************************************************************//**
@@ -134,16 +129,8 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
 		constData.brightness = m_brightness;
 
-		m_pRenderTarget->SetRenderBaseCommand(*m_pCmdList);
-		m_pPipeline->SetPipelineState(0, *m_pCmdList);
-		m_resourceManager.SetGpuResource(*m_pCmdList);
-
-		m_pCmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager.UploadVertexData(m_vertices, _countof(m_vertices));
-		m_resourceManager.UploadConstantData(constData);
-		m_resourceManager.SetRenderCommand(*m_pCmdList);
-
-		m_pCmdList->Execute();
+		m_resourceManager.UploadVertexData(m_vertices, 4);
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(), constData, m_resourceManager.GetTextureHeap(), 0);
 	}
 
 	/**********************************************************************//**

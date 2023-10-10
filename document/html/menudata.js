@@ -46,7 +46,9 @@ var menudata={children:[
 {text:"p",url:"functions.html#index_p"},
 {text:"r",url:"functions.html#index_r"},
 {text:"s",url:"functions.html#index_s"},
+{text:"t",url:"functions.html#index_t"},
 {text:"u",url:"functions.html#index_u"},
+{text:"v",url:"functions.html#index_v"},
 {text:"w",url:"functions.html#index_w"}]},
 {text:"関数",url:"functions_func.html",children:[
 {text:"_",url:"functions_func.html#index__5F"},
@@ -76,7 +78,9 @@ var menudata={children:[
 {text:"p",url:"functions_vars.html#index_p"},
 {text:"r",url:"functions_vars.html#index_r"},
 {text:"s",url:"functions_vars.html#index_s"},
-{text:"u",url:"functions_vars.html#index_u"}]}]}]},
+{text:"t",url:"functions_vars.html#index_t"},
+{text:"u",url:"functions_vars.html#index_u"},
+{text:"v",url:"functions_vars.html#index_v"}]}]}]},
 {text:"ファイル",url:"files.html",children:[
 {text:"ファイル一覧",url:"files.html"},
 {text:"ファイルメンバ",url:"globals.html",children:[

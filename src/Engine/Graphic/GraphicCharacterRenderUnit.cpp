@@ -6,6 +6,7 @@
 #include "GraphicCommandList.h"
 #include "GraphicPipeline.h"
 #include "GraphicRenderTarget.h"
+#include "GraphicRenderQueue.h"
 #include "../Core.h"
 
 namespace mugen_engine
@@ -101,9 +102,11 @@ namespace mugen_engine
 		m_resourceManager.CreateTextureBuffer(metadata, device);
 		m_resourceManager.CreateSrv(metadata.format, device);
 
-		m_resourceManager.ResetUploadBuffer(m_width * sizeof(TexRGBA), m_height, device);
-		m_resourceManager.UploadDataToUploadBuffer(reinterpret_cast<uint8_t*>(textureData.data()), m_width * sizeof(TexRGBA), m_height);
-		m_resourceManager.UploadToGpu(metadata, m_width * sizeof(TexRGBA), metadata.format, *m_pCmdList);
+		m_resourceManager.UploadByCpu(reinterpret_cast<uint8_t*>(textureData.data()), m_width * sizeof(TexRGBA), m_height);
+
+		//m_resourceManager.ResetUploadBuffer(m_width * sizeof(TexRGBA), m_height, device);
+		//m_resourceManager.UploadDataToUploadBuffer(reinterpret_cast<uint8_t*>(textureData.data()), m_width * sizeof(TexRGBA), m_height);
+		//m_resourceManager.UploadToGpu(metadata, m_width * sizeof(TexRGBA), metadata.format, *m_pCmdList);
 	}
 
 	/**********************************************************************//**
@@ -124,15 +127,7 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixIdentity();
 		constData.brightness = DirectX::XMFLOAT4 { color[0], color[1], color[2], color[3] };
 
-		m_pRenderTarget->SetRenderBaseCommand(*m_pCmdList);
-		m_pPipeline->SetPipelineState(0, *m_pCmdList);
-		m_resourceManager.SetGpuResource(*m_pCmdList);
-
-		m_pCmdList->GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-		m_resourceManager.UploadVertexData(m_vertices, _countof(m_vertices));
-		m_resourceManager.UploadConstantData(constData);
-		m_resourceManager.SetRenderCommand(*m_pCmdList);
-
-		m_pCmdList->Execute();
+		m_resourceManager.UploadVertexData(m_vertices, 4);
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(), constData, m_resourceManager.GetTextureHeap(), 0);
 	}
 }

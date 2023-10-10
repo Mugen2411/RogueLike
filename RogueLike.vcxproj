@@ -148,6 +148,7 @@
     <ClCompile Include="src\Engine\Graphic\GraphicFontData.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicGpuResourceManager.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicPipeline.cpp" />
+    <ClCompile Include="src\Engine\Graphic\GraphicRenderQueue.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicRenderTarget.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicLoadedImage.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="src\Engine\Graphic\GraphicFontData.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicGpuResourceManager.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicPipeline.h" />
+    <ClInclude Include="src\Engine\Graphic\GraphicRenderQueue.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicRenderTarget.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicLoadedImage.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicStruct.h" />

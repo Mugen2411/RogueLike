@@ -123,6 +123,15 @@ $(function() {
 <tr class="memitem:a8d18cb7b6d3c75bdf658a90899a36514" id="r_a8d18cb7b6d3c75bdf658a90899a36514"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a8d18cb7b6d3c75bdf658a90899a36514">UploadToGpu</a> (DirectX::TexMetadata &amp;metadata, size_t rowPitch, DXGI_FORMAT format, <a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;cmdList)</td></tr>
 <tr class="memdesc:a8d18cb7b6d3c75bdf658a90899a36514"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPUにテクスチャデータをアップロードする  <br /></td></tr>
 <tr class="separator:a8d18cb7b6d3c75bdf658a90899a36514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229f04c42b5f7def8ad7999e4ecfec49" id="r_a229f04c42b5f7def8ad7999e4ecfec49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a229f04c42b5f7def8ad7999e4ecfec49">UploadByCpu</a> (uint8_t *srcData, size_t rowPitch, size_t height)</td></tr>
+<tr class="memdesc:a229f04c42b5f7def8ad7999e4ecfec49"><td class="mdescLeft">&#160;</td><td class="mdescRight">CPUで転送する  <br /></td></tr>
+<tr class="separator:a229f04c42b5f7def8ad7999e4ecfec49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d12e3fbf968919d3ce17e8d3080cc1" id="r_a62d12e3fbf968919d3ce17e8d3080cc1"><td class="memItemLeft" align="right" valign="top">D3D12_VERTEX_BUFFER_VIEW *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a62d12e3fbf968919d3ce17e8d3080cc1">GetVertexBufferView</a> ()</td></tr>
+<tr class="memdesc:a62d12e3fbf968919d3ce17e8d3080cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点バッファビューを取得  <br /></td></tr>
+<tr class="separator:a62d12e3fbf968919d3ce17e8d3080cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85dcec4acd131d990c1be75ee3cb63c3" id="r_a85dcec4acd131d990c1be75ee3cb63c3"><td class="memItemLeft" align="right" valign="top">ID3D12DescriptorHeap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a85dcec4acd131d990c1be75ee3cb63c3">GetTextureHeap</a> ()</td></tr>
+<tr class="memdesc:a85dcec4acd131d990c1be75ee3cb63c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャ用ヒープを取得  <br /></td></tr>
+<tr class="separator:a85dcec4acd131d990c1be75ee3cb63c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
@@ -333,7 +342,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>アライメントを揃えたサイズ </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00340">340</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00346">346</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -371,7 +380,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00309">309</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00315">315</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -491,6 +500,64 @@ $(function() {
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
 <p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00142">142</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a85dcec4acd131d990c1be75ee3cb63c3" name="a85dcec4acd131d990c1be75ee3cb63c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85dcec4acd131d990c1be75ee3cb63c3">&#9670;&#160;</a></span>GetTextureHeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12DescriptorHeap * mugen_engine::MEGraphicGpuResourceManager::GetTextureHeap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>テクスチャ用ヒープを取得 </p>
+
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00058">58</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a62d12e3fbf968919d3ce17e8d3080cc1" name="a62d12e3fbf968919d3ce17e8d3080cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d12e3fbf968919d3ce17e8d3080cc1">&#9670;&#160;</a></span>GetVertexBufferView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_VERTEX_BUFFER_VIEW * mugen_engine::MEGraphicGpuResourceManager::GetVertexBufferView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>頂点バッファビューを取得 </p>
+
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00053">53</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -626,6 +693,44 @@ $(function() {
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
 <p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00092">92</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a229f04c42b5f7def8ad7999e4ecfec49" name="a229f04c42b5f7def8ad7999e4ecfec49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229f04c42b5f7def8ad7999e4ecfec49">&#9670;&#160;</a></span>UploadByCpu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicGpuResourceManager::UploadByCpu </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>srcData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>rowPitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CPUで転送する </p>
+
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html">GraphicGpuResourceManager.cpp</a> の <a class="el" href="_graphic_gpu_resource_manager_8cpp_source.html#l00304">304</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -825,7 +930,7 @@ $(function() {
 
 <p>ディスクリプタヒープ </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00062">62</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00074">74</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -851,7 +956,7 @@ $(function() {
 
 <p>定数バッファ </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00065">65</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00077">77</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -877,7 +982,7 @@ $(function() {
 
 <p>SRVとCBVにおけるディスクリプタヒープ上のサイズ </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00063">63</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00075">75</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -903,7 +1008,7 @@ $(function() {
 
 <p>テクスチャのバッファ </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00064">64</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00076">76</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -929,7 +1034,7 @@ $(function() {
 
 <p>アップロード用の中間バッファ </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00066">66</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00078">78</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -955,7 +1060,7 @@ $(function() {
 
 <p>頂点バッファ </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00067">67</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00079">79</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -981,7 +1086,7 @@ $(function() {
 
 <p>頂点バッファビュー </p>
 
-<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00068">68</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_gpu_resource_manager_8h_source.html">GraphicGpuResourceManager.h</a> の <a class="el" href="_graphic_gpu_resource_manager_8h_source.html#l00080">80</a> 行目に定義があります。</p>
 
 </div>
 </div>

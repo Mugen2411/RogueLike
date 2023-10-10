@@ -1,0 +1,249 @@
+\doxysection{mugen\+\_\+engine\+::MEGraphic\+Render\+Queue クラス}
+\hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue}{}\label{classmugen__engine_1_1_m_e_graphic_render_queue}\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+
+
+{\ttfamily \#include $<$Graphic\+Render\+Queue.\+h$>$}
+
+\doxysubsubsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a}{RENDER\+\_\+\+DATA}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静的公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a94c9e4b10ad9f04f87a517f85d868bfa}{Initialize}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\item 
+static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aea60af99ff0e10ca1a8554827c98db28}{Reserve\+Render}} (D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*}vb\+View, \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}} const\+Data, ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*}texture\+Heap, int blend\+Type)
+\begin{DoxyCompactList}\small\item\em 描画を予約する \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a7d5acd8d695b20b11be0dd1b002ed694}{Render\+All}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&render\+Target)
+\begin{DoxyCompactList}\small\item\em 予約した描画を行う \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静的非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{\+\_\+\+Create\+Cbv}} (uint32\+\_\+t index, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 指定したインデックスに\+CBVを構築する \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605}{\+\_\+\+Initalize\+Constant\+Buffer}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 定数バッファを確保する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静的非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+static Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Descriptor\+Heap $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}{m\+\_\+constant\+Desc\+Heap}} = nullptr
+\begin{DoxyCompactList}\small\item\em 定数用のディスクリプタヒープ \end{DoxyCompactList}\item 
+static std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\+\_\+constant\+Buffers}}
+\begin{DoxyCompactList}\small\item\em 定数バッファ \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a8b512208fb7c89b3428bda43bf9d3036}{m\+\_\+current\+Reserved}} = 0
+\begin{DoxyCompactList}\small\item\em 現在描画予約キューに入っている数 \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\+\_\+max\+Reserve}} = 0x\+FFFF
+\begin{DoxyCompactList}\small\item\em 描画予約可能な最大数 \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a}{RENDER\+\_\+\+DATA}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a425e7ac0fabff99a742632c4fa9f6427}{m\+\_\+reserve\+List}}
+\begin{DoxyCompactList}\small\item\em 描画予約キュー \end{DoxyCompactList}\item 
+static uint32\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2}{m\+\_\+descriptor\+Heap\+Increment\+Size}} = 0
+\begin{DoxyCompactList}\small\item\em SRVと\+CBVにおけるディスクリプタヒープ上のサイズ \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1793e800d1d321845423a0a43f7f87b2}{m\+\_\+p\+Device}} = nullptr
+\begin{DoxyCompactList}\small\item\em デバイス \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}\label{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!\_CreateCbv@{\_CreateCbv}}
+\index{\_CreateCbv@{\_CreateCbv}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{\_CreateCbv()}{\_CreateCbv()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+\_\+\+Create\+Cbv (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+指定したインデックスに\+CBVを構築する 
+
+指定したインデックスに定数バッファビューを構築する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em index} & 生成時に割り当てられたインデックス \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8cpp_source}{Graphic\+Render\+Queue.\+cpp}} の \mbox{\hyperlink{_graphic_render_queue_8cpp_source_l00085}{85}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!\_InitalizeConstantBuffer@{\_InitalizeConstantBuffer}}
+\index{\_InitalizeConstantBuffer@{\_InitalizeConstantBuffer}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{\_InitalizeConstantBuffer()}{\_InitalizeConstantBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+\_\+\+Initalize\+Constant\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+定数バッファを確保する 
+
+定数バッファを初期化する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8cpp_source}{Graphic\+Render\+Queue.\+cpp}} の \mbox{\hyperlink{_graphic_render_queue_8cpp_source_l00124}{124}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a94c9e4b10ad9f04f87a517f85d868bfa}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a94c9e4b10ad9f04f87a517f85d868bfa} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+Initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8cpp_source}{Graphic\+Render\+Queue.\+cpp}} の \mbox{\hyperlink{_graphic_render_queue_8cpp_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a7d5acd8d695b20b11be0dd1b002ed694}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a7d5acd8d695b20b11be0dd1b002ed694} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!RenderAll@{RenderAll}}
+\index{RenderAll@{RenderAll}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{RenderAll()}{RenderAll()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+Render\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&}]{pipeline,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&}]{render\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+予約した描画を行う 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8cpp_source}{Graphic\+Render\+Queue.\+cpp}} の \mbox{\hyperlink{_graphic_render_queue_8cpp_source_l00052}{52}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_aea60af99ff0e10ca1a8554827c98db28}\label{classmugen__engine_1_1_m_e_graphic_render_queue_aea60af99ff0e10ca1a8554827c98db28} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!ReserveRender@{ReserveRender}}
+\index{ReserveRender@{ReserveRender}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{ReserveRender()}{ReserveRender()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+Reserve\+Render (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*}}]{vb\+View,  }\item[{\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}}}]{const\+Data,  }\item[{ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*}}]{texture\+Heap,  }\item[{int}]{blend\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+描画を予約する 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8cpp_source}{Graphic\+Render\+Queue.\+cpp}} の \mbox{\hyperlink{_graphic_render_queue_8cpp_source_l00032}{32}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_constantBuffers@{m\_constantBuffers}}
+\index{m\_constantBuffers@{m\_constantBuffers}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_constantBuffers}{m\_constantBuffers}}
+{\footnotesize\ttfamily std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+constant\+Buffers\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+定数バッファ 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00040}{40}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}\label{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_constantDescHeap@{m\_constantDescHeap}}
+\index{m\_constantDescHeap@{m\_constantDescHeap}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_constantDescHeap}{m\_constantDescHeap}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Descriptor\+Heap $>$ mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+constant\+Desc\+Heap = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+定数用のディスクリプタヒープ 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00039}{39}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a8b512208fb7c89b3428bda43bf9d3036}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a8b512208fb7c89b3428bda43bf9d3036} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_currentReserved@{m\_currentReserved}}
+\index{m\_currentReserved@{m\_currentReserved}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_currentReserved}{m\_currentReserved}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+current\+Reserved = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+現在描画予約キューに入っている数 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_descriptorHeapIncrementSize@{m\_descriptorHeapIncrementSize}}
+\index{m\_descriptorHeapIncrementSize@{m\_descriptorHeapIncrementSize}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_descriptorHeapIncrementSize}{m\_descriptorHeapIncrementSize}}
+{\footnotesize\ttfamily uint32\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+descriptor\+Heap\+Increment\+Size = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+SRVと\+CBVにおけるディスクリプタヒープ上のサイズ 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00044}{44}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_maxReserve@{m\_maxReserve}}
+\index{m\_maxReserve@{m\_maxReserve}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_maxReserve}{m\_maxReserve}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+max\+Reserve = 0x\+FFFF\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+描画予約可能な最大数 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00042}{42}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a1793e800d1d321845423a0a43f7f87b2}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a1793e800d1d321845423a0a43f7f87b2} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_pDevice@{m\_pDevice}}
+\index{m\_pDevice@{m\_pDevice}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_pDevice}{m\_pDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+p\+Device = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+デバイス 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00045}{45}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a425e7ac0fabff99a742632c4fa9f6427}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a425e7ac0fabff99a742632c4fa9f6427} 
+\index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_reserveList@{m\_reserveList}}
+\index{m\_reserveList@{m\_reserveList}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
+\doxysubsubsection{\texorpdfstring{m\_reserveList}{m\_reserveList}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a}{MEGraphic\+Render\+Queue\+::\+RENDER\+\_\+\+DATA}} $>$ mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+reserve\+List\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+描画予約キュー 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00043}{43}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_render_queue_8h}{Graphic\+Render\+Queue.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_render_queue_8cpp}{Graphic\+Render\+Queue.\+cpp}}\end{DoxyCompactItemize}
