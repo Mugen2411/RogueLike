@@ -64,7 +64,7 @@ namespace mugen_engine
 		@param[in]		text				•`‰æ‚µ‚½‚¢•¶Žš—ñ
 		@return			‚È‚µ
 	*//***********************************************************************/
-	void MEGraphicFontData::DrawString(const int x, const int y, float color[4], const std::wstring text)
+	void MEGraphicFontData::DrawString(const int x, const int y, float color[4], float priority, const std::wstring text)
 	{
 		size_t xOffset = 0;
 		size_t yOffset = 0;
@@ -79,7 +79,7 @@ namespace mugen_engine
 			auto& cur = m_loadedCharacters[text[currentOffset]];
 			if(text[currentOffset] != L'\n')
 			{
-				cur.DrawCharacter(x + static_cast<int>(xOffset), y + static_cast<int>(yOffset), color);
+				cur.DrawCharacter(x + static_cast<int>(xOffset), y + static_cast<int>(yOffset), color, priority);
 				xOffset += m_loadedCharacters[text[currentOffset]].m_width;
 			}
 			else
@@ -89,14 +89,14 @@ namespace mugen_engine
 			}
 		}
 	}
-	void MEGraphicFontData::DrawFormatString(const int x, const int y, float color[4], const std::wstring text, ...)
+	void MEGraphicFontData::DrawFormatString(const int x, const int y, float color[4], float priority, const std::wstring text, ...)
 	{
 		va_list args;
 		va_start(args, text);
 		const int len = _vscwprintf_p(text.c_str(), args);
 		wchar_t* buf = new wchar_t[len + 1];
 		vswprintf_s(buf, len + 1, text.c_str(), args);
-		DrawString(x, y, color, buf);
+		DrawString(x, y, color, priority, buf);
 		delete[] buf;
 		va_end(args);
 	}

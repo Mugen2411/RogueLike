@@ -69,7 +69,7 @@ int \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d
 \begin{DoxyCompactList}\small\item\em ウィンドウの高さ \end{DoxyCompactList}\item 
 D3\+D12\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a760627ac44f129236b40295096b5e221}{m\+\_\+input\+Layout}} \mbox{[}2\mbox{]}
 \begin{DoxyCompactList}\small\item\em 入力レイアウト \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a33197eaa98e560a76432fda4ee50c5d5}{m\+\_\+device}}
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}{m\+\_\+graphic\+Device}}
 \begin{DoxyCompactList}\small\item\em グラフィックデバイス \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a68f581f73e2c96bdcd20c0ef1f4b9e94}{m\+\_\+command\+List}}
 \begin{DoxyCompactList}\small\item\em グラフィックコマンドリスト \end{DoxyCompactList}\item 
@@ -77,6 +77,8 @@ D3\+D12\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC \mbox{\hyperlink{classmugen__eng
 \begin{DoxyCompactList}\small\item\em レンダーターゲット \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a6daeee64399b272d3a73a2dc4279d258}{m\+\_\+pipeline}}
 \begin{DoxyCompactList}\small\item\em パイプライン \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device}{MEAudio\+Device}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3b9b2da64fd3c49d7041e26d5e12d16e}{m\+\_\+audio\+Device}}
+\begin{DoxyCompactList}\small\item\em オーディオデバイス \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ad66f7aaac1ea326b1027892985bb37d7}{m\+\_\+loaded\+Images}}
 \begin{DoxyCompactList}\small\item\em 読み込み済み画像を辞書で管理する \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25}{m\+\_\+loaded\+Fonts}}
@@ -86,7 +88,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \doxysubsection{詳解}
 メディアサポートエンジンの中核となるクラス 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00024}{24}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00026}{26}} 行目に定義があります。
 
 
 
@@ -113,7 +115,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00188}{188}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00190}{190}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092}\label{classmugen__engine_1_1_m_e_core_ab67bc41e7d9f40371d475dd170003092} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!MECore@{MECore}}
@@ -150,7 +152,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00201}{201}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00203}{203}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a0a00883185ed356fc17062cd521f78f4}\label{classmugen__engine_1_1_m_e_core_a0a00883185ed356fc17062cd521f78f4} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!ClearScreen@{ClearScreen}}
@@ -178,7 +180,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00098}{98}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00100}{100}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}\label{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!Finalize@{Finalize}}
@@ -202,7 +204,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00048}{48}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00050}{50}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ac56af72e96d3d970bd8ab52c7b643798}\label{classmugen__engine_1_1_m_e_core_ac56af72e96d3d970bd8ab52c7b643798} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetFont@{GetFont}}
@@ -226,7 +228,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00178}{178}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00180}{180}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd}\label{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetGraph@{GetGraph}}
@@ -250,7 +252,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00156}{156}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00158}{158}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}\label{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetIns@{GetIns}}
@@ -286,7 +288,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00059}{59}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00061}{61}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ac6b8db890e9dd6d4f408963f719eb7d6}\label{classmugen__engine_1_1_m_e_core_ac6b8db890e9dd6d4f408963f719eb7d6} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetWindowWidth@{GetWindowWidth}}
@@ -300,7 +302,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00054}{54}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00056}{56}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984}\label{classmugen__engine_1_1_m_e_core_a5c11ae146be6ee69d4b66f2f44d1b984} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!Initialize@{Initialize}}
@@ -352,7 +354,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00145}{145}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00147}{147}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ae5d3d45ea3e9eef54403115f0b916b31}\label{classmugen__engine_1_1_m_e_core_ae5d3d45ea3e9eef54403115f0b916b31} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!LoadFont@{LoadFont}}
@@ -378,7 +380,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00168}{168}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00170}{170}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a4e60218ad0b3e25d49915cced759d5e6}\label{classmugen__engine_1_1_m_e_core_a4e60218ad0b3e25d49915cced759d5e6} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!LoadGraph@{LoadGraph}}
@@ -404,7 +406,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00133}{133}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00135}{135}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e}\label{classmugen__engine_1_1_m_e_core_ac0ed52db525aae4982979c445e4d3c5e} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!ProcessMessage@{ProcessMessage}}
@@ -426,7 +428,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00058}{58}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00060}{60}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_aef074df0952ec0eedb4c8f7d86028ecf}\label{classmugen__engine_1_1_m_e_core_aef074df0952ec0eedb4c8f7d86028ecf} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!ResetRenderArea@{ResetRenderArea}}
@@ -448,7 +450,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00122}{122}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00124}{124}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}\label{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!ScreenFlip@{ScreenFlip}}
@@ -472,7 +474,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00083}{83}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00085}{85}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_aec3792ccd97597895bba67cc9f5d0d40}\label{classmugen__engine_1_1_m_e_core_aec3792ccd97597895bba67cc9f5d0d40} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!SetRenderArea@{SetRenderArea}}
@@ -500,11 +502,25 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00112}{112}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00114}{114}} 行目に定義があります。
 
 
 
 \doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_core_a3b9b2da64fd3c49d7041e26d5e12d16e}\label{classmugen__engine_1_1_m_e_core_a3b9b2da64fd3c49d7041e26d5e12d16e} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_audioDevice@{m\_audioDevice}}
+\index{m\_audioDevice@{m\_audioDevice}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_audioDevice}{m\_audioDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device}{MEAudio\+Device}} mugen\+\_\+engine\+::\+MECore\+::m\+\_\+audio\+Device\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+オーディオデバイス 
+
+
+
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00088}{88}} 行目に定義があります。
+
 \Hypertarget{classmugen__engine_1_1_m_e_core_a68f581f73e2c96bdcd20c0ef1f4b9e94}\label{classmugen__engine_1_1_m_e_core_a68f581f73e2c96bdcd20c0ef1f4b9e94} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_commandList@{m\_commandList}}
 \index{m\_commandList@{m\_commandList}!mugen\_engine::MECore@{mugen\_engine::MECore}}
@@ -517,13 +533,13 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00082}{82}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00084}{84}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_core_a33197eaa98e560a76432fda4ee50c5d5}\label{classmugen__engine_1_1_m_e_core_a33197eaa98e560a76432fda4ee50c5d5} 
-\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_device@{m\_device}}
-\index{m\_device@{m\_device}!mugen\_engine::MECore@{mugen\_engine::MECore}}
-\doxysubsubsection{\texorpdfstring{m\_device}{m\_device}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} mugen\+\_\+engine\+::\+MECore\+::m\+\_\+device\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc}\label{classmugen__engine_1_1_m_e_core_a8d369ea07794fcd7f4ea80102f88c1cc} 
+\index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_graphicDevice@{m\_graphicDevice}}
+\index{m\_graphicDevice@{m\_graphicDevice}!mugen\_engine::MECore@{mugen\_engine::MECore}}
+\doxysubsubsection{\texorpdfstring{m\_graphicDevice}{m\_graphicDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} mugen\+\_\+engine\+::\+MECore\+::m\+\_\+graphic\+Device\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -531,7 +547,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00081}{81}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00083}{83}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a760627ac44f129236b40295096b5e221}\label{classmugen__engine_1_1_m_e_core_a760627ac44f129236b40295096b5e221} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_inputLayout@{m\_inputLayout}}
@@ -545,7 +561,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00079}{79}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00081}{81}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25}\label{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_loadedFonts@{m\_loadedFonts}}
@@ -559,7 +575,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00087}{87}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00091}{91}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_ad66f7aaac1ea326b1027892985bb37d7}\label{classmugen__engine_1_1_m_e_core_ad66f7aaac1ea326b1027892985bb37d7} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_loadedImages@{m\_loadedImages}}
@@ -573,7 +589,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00086}{86}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00090}{90}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a6daeee64399b272d3a73a2dc4279d258}\label{classmugen__engine_1_1_m_e_core_a6daeee64399b272d3a73a2dc4279d258} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_pipeline@{m\_pipeline}}
@@ -587,7 +603,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00084}{84}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00086}{86}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496}\label{classmugen__engine_1_1_m_e_core_a0e95c24d2c973b5581393acc4b506496} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_renderTarget@{m\_renderTarget}}
@@ -601,7 +617,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00083}{83}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00085}{85}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c}\label{classmugen__engine_1_1_m_e_core_acfbb1a13eef6f0f08d59000e67164c5c} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowClass@{m\_windowClass}}
@@ -615,7 +631,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00075}{75}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00077}{77}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8}\label{classmugen__engine_1_1_m_e_core_a6a5f62424c0797e55b3a350765e001a8} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowHandle@{m\_windowHandle}}
@@ -629,7 +645,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00073}{73}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00075}{75}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b}\label{classmugen__engine_1_1_m_e_core_a807fa7c2778faf2ec643dacb1d3d278b} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowHeight@{m\_windowHeight}}
@@ -643,7 +659,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00077}{77}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00079}{79}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44}\label{classmugen__engine_1_1_m_e_core_a3c12c2d04aa3e57a2f5bba3cf197fb44} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowTitle@{m\_windowTitle}}
@@ -657,7 +673,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00074}{74}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00076}{76}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8}\label{classmugen__engine_1_1_m_e_core_a00189f604a60d9428042bec40d3c13b8} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_windowWidth@{m\_windowWidth}}
@@ -671,7 +687,7 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
 
 
- \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00076}{76}} 行目に定義があります。
+ \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00078}{78}} 行目に定義があります。
 
 
 

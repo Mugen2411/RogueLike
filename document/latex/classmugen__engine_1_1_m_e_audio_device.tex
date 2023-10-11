@@ -1,0 +1,143 @@
+\doxysection{mugen\+\_\+engine\+::MEAudio\+Device クラス}
+\hypertarget{classmugen__engine_1_1_m_e_audio_device}{}\label{classmugen__engine_1_1_m_e_audio_device}\index{mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}}
+
+
+音声サポートの中核となるクラス  
+
+
+
+
+{\ttfamily \#include $<$Audio\+Device.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device_acbb6afb4a7cb3fe6d30eaf4c36c8069f}{MEAudio\+Device}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device_a101fa92ac47a9b1898a0fa003cfadfd1}{\texorpdfstring{$\sim$}{\string~}\+MEAudio\+Device}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device_a5995b7931e79673f927dba8ef7cdf4d4}{Initialize}} ()
+\begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ IXAudio2 $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device_a60a6ffe5963b4cdc8ca8d697f2541f44}{m\+\_\+device}}
+\begin{DoxyCompactList}\small\item\em XAudio2の中核となるデバイス \end{DoxyCompactList}\item 
+IXAudio2\+Mastering\+Voice \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device_a46f141c3e7e56608bb7f60bfb1f967d6}{m\+\_\+p\+Mastering\+Voice}}
+\begin{DoxyCompactList}\small\item\em 音声を実際に出力する最終バッファ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+音声サポートの中核となるクラス 
+
+ \mbox{\hyperlink{_audio_device_8h_source}{Audio\+Device.\+h}} の \mbox{\hyperlink{_audio_device_8h_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_audio_device_acbb6afb4a7cb3fe6d30eaf4c36c8069f}\label{classmugen__engine_1_1_m_e_audio_device_acbb6afb4a7cb3fe6d30eaf4c36c8069f} 
+\index{mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}!MEAudioDevice@{MEAudioDevice}}
+\index{MEAudioDevice@{MEAudioDevice}!mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}}
+\doxysubsubsection{\texorpdfstring{MEAudioDevice()}{MEAudioDevice()}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEAudio\+Device\+::\+MEAudio\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_audio_device_8cpp_source}{Audio\+Device.\+cpp}} の \mbox{\hyperlink{_audio_device_8cpp_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_audio_device_a101fa92ac47a9b1898a0fa003cfadfd1}\label{classmugen__engine_1_1_m_e_audio_device_a101fa92ac47a9b1898a0fa003cfadfd1} 
+\index{mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}!````~MEAudioDevice@{\texorpdfstring{$\sim$}{\string~}MEAudioDevice}}
+\index{````~MEAudioDevice@{\texorpdfstring{$\sim$}{\string~}MEAudioDevice}!mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MEAudioDevice()}{\string~MEAudioDevice()}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEAudio\+Device\+::\texorpdfstring{$\sim$}{\string~}\+MEAudio\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+デストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_audio_device_8cpp_source}{Audio\+Device.\+cpp}} の \mbox{\hyperlink{_audio_device_8cpp_source_l00021}{21}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_audio_device_a5995b7931e79673f927dba8ef7cdf4d4}\label{classmugen__engine_1_1_m_e_audio_device_a5995b7931e79673f927dba8ef7cdf4d4} 
+\index{mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEAudio\+Device\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+初期化 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_audio_device_8cpp_source}{Audio\+Device.\+cpp}} の \mbox{\hyperlink{_audio_device_8cpp_source_l00031}{31}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_audio_device_a60a6ffe5963b4cdc8ca8d697f2541f44}\label{classmugen__engine_1_1_m_e_audio_device_a60a6ffe5963b4cdc8ca8d697f2541f44} 
+\index{mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}!m\_device@{m\_device}}
+\index{m\_device@{m\_device}!mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}}
+\doxysubsubsection{\texorpdfstring{m\_device}{m\_device}}
+{\footnotesize\ttfamily Microsoft\+::\+WRL\+::\+Com\+Ptr$<$IXAudio2$>$ mugen\+\_\+engine\+::\+MEAudio\+Device\+::m\+\_\+device\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+XAudio2の中核となるデバイス 
+
+
+
+ \mbox{\hyperlink{_audio_device_8h_source}{Audio\+Device.\+h}} の \mbox{\hyperlink{_audio_device_8h_source_l00026}{26}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_audio_device_a46f141c3e7e56608bb7f60bfb1f967d6}\label{classmugen__engine_1_1_m_e_audio_device_a46f141c3e7e56608bb7f60bfb1f967d6} 
+\index{mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}!m\_pMasteringVoice@{m\_pMasteringVoice}}
+\index{m\_pMasteringVoice@{m\_pMasteringVoice}!mugen\_engine::MEAudioDevice@{mugen\_engine::MEAudioDevice}}
+\doxysubsubsection{\texorpdfstring{m\_pMasteringVoice}{m\_pMasteringVoice}}
+{\footnotesize\ttfamily IXAudio2\+Mastering\+Voice\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEAudio\+Device\+::m\+\_\+p\+Mastering\+Voice\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+音声を実際に出力する最終バッファ 
+
+
+
+ \mbox{\hyperlink{_audio_device_8h_source}{Audio\+Device.\+h}} の \mbox{\hyperlink{_audio_device_8h_source_l00027}{27}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Audio/\mbox{\hyperlink{_audio_device_8h}{Audio\+Device.\+h}}\item 
+Engine/\+Audio/\mbox{\hyperlink{_audio_device_8cpp}{Audio\+Device.\+cpp}}\end{DoxyCompactItemize}

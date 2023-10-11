@@ -8,6 +8,7 @@
 #include "GraphicCommandList.h"
 #include "GraphicPipeline.h"
 #include "GraphicRenderTarget.h"
+#include "GraphicGpuResourceManager.h"
 #include "GraphicStruct.h"
 #include <list>
 #include <DirectXTex.h>
@@ -21,7 +22,7 @@ namespace mugen_engine
 		static void Initialize(MEGraphicDevice& device);
 		//! 描画を予約する
 		static void ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
-			ID3D12DescriptorHeap* textureHeap, int blendType, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
+			MEGraphicGpuResourceManager* textureHeap, int blendType, float priority, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 			MEGraphicRenderTarget* renderTarget);
 		//! 予約した描画を行う
 		static void RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
@@ -33,8 +34,11 @@ namespace mugen_engine
 		struct RENDER_DATA
 		{
 			D3D12_VERTEX_BUFFER_VIEW* vertexBufferView;			//!< 頂点バッファビュー
-			ID3D12DescriptorHeap* textureHeap;					//!< テクスチャのディスクリプタヒープ
+			MEGraphicGpuResourceManager* textureHeap;			//!< テクスチャのディスクリプタヒープ
 			int blendType;										//!< ブレンドタイプ
+			CONSTANT_DATA constData;							//!< 定数データ
+			float priority;										//!< 描画優先度
+			size_t order;											//!< 予約された順番
 		};
 
 		//! 指定したインデックスにCBVを構築する
@@ -44,9 +48,9 @@ namespace mugen_engine
 
 		static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_constantDescHeap;		//!< 定数用のディスクリプタヒープ
 		static std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_constantBuffers;//!< 定数バッファ
-		static int m_currentReserved;												//!< 現在描画予約キューに入っている数
 		static int m_maxReserve;													//!< 描画予約可能な最大数
-		static std::vector<RENDER_DATA> m_reserveList;								//!< 描画予約キュー
+		static std::list<RENDER_DATA> m_reserveList;								//!< 描画予約キュー
+		static std::vector<const RENDER_DATA*> m_reservePointerList;						//!< ソートに使うポインタの配列
 		static uint32_t m_descriptorHeapIncrementSize;								//!< SRVとCBVにおけるディスクリプタヒープ上のサイズ
 		static MEGraphicDevice* m_pDevice;											//!< デバイス
 		static std::vector<CONSTANT_DATA*> m_pMapMatrix;							//!< マップされた定数バッファ

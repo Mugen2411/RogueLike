@@ -11,4 +11,7 @@ cbuffer cbuff0 : register(b0)
 	matrix rot;
 	matrix scale;
 	float4 brightness;
+    float4 dummy1;
+    float4 dummy2;
+    float4 dummy3;
 }

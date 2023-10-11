@@ -118,7 +118,7 @@ namespace mugen_engine
 		@param[in]		color				ï∂éöêF
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MEGraphicCharacterUnit::DrawCharacter(const int x, const int y, float color[4])
+	void MEGraphicCharacterUnit::DrawCharacter(const int x, const int y, float color[4], float priority)
 	{
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),
@@ -130,6 +130,6 @@ namespace mugen_engine
 		constData.brightness = DirectX::XMFLOAT4 { color[0], color[1], color[2], color[3] };
 
 		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(0), constData,
-			m_resourceManager.GetTextureHeap(), 0, m_pCmdList, m_pPipeline, m_pRenderTarget);
+			&m_resourceManager, 0, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 }

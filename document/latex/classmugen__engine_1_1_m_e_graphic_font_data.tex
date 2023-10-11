@@ -18,9 +18,9 @@
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a39cf13efd320fa64d254a25c6cf14919}{operator=}} (const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} \&rhs)
 \begin{DoxyCompactList}\small\item\em コピー代入演算子 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a520e9eb772ffdfa2ebf9596ad55bed99}{Draw\+String}} (const int x, const int y, float color\mbox{[}4\mbox{]}, const std\+::wstring text)
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a9944c3121e1894c73a0411787b54fabe}{Draw\+String}} (const int x, const int y, float color\mbox{[}4\mbox{]}, float priority, const std\+::wstring text)
 \begin{DoxyCompactList}\small\item\em 文字列の描画を行う \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a28884e85cda8b020a9cb8f3c4cbdeb33}{Draw\+Format\+String}} (const int x, const int y, float color\mbox{[}4\mbox{]}, const std\+::wstring text,...)
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data_a524a2ee23bba755ab9a7decade45fb37}{Draw\+Format\+String}} (const int x, const int y, float color\mbox{[}4\mbox{]}, float priority, const std\+::wstring text,...)
 \begin{DoxyCompactList}\small\item\em 書式文字列を描画する \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
@@ -90,11 +90,11 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 
 \doxysubsection{関数詳解}
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a28884e85cda8b020a9cb8f3c4cbdeb33}\label{classmugen__engine_1_1_m_e_graphic_font_data_a28884e85cda8b020a9cb8f3c4cbdeb33} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a524a2ee23bba755ab9a7decade45fb37}\label{classmugen__engine_1_1_m_e_graphic_font_data_a524a2ee23bba755ab9a7decade45fb37} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!DrawFormatString@{DrawFormatString}}
 \index{DrawFormatString@{DrawFormatString}!mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}}
 \doxysubsubsection{\texorpdfstring{DrawFormatString()}{DrawFormatString()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+Format\+String (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{const std\+::wstring}]{text,  }\item[{}]{... }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+Format\+String (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{float}]{priority,  }\item[{const std\+::wstring}]{text,  }\item[{}]{... }\end{DoxyParamCaption})}
 
 
 
@@ -104,11 +104,11 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
  \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00092}{92}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a520e9eb772ffdfa2ebf9596ad55bed99}\label{classmugen__engine_1_1_m_e_graphic_font_data_a520e9eb772ffdfa2ebf9596ad55bed99} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_font_data_a9944c3121e1894c73a0411787b54fabe}\label{classmugen__engine_1_1_m_e_graphic_font_data_a9944c3121e1894c73a0411787b54fabe} 
 \index{mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}!DrawString@{DrawString}}
 \index{DrawString@{DrawString}!mugen\_engine::MEGraphicFontData@{mugen\_engine::MEGraphicFontData}}
 \doxysubsubsection{\texorpdfstring{DrawString()}{DrawString()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+String (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{const std\+::wstring}]{text }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Font\+Data\+::\+Draw\+String (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{float}]{color\mbox{[}4\mbox{]},  }\item[{float}]{priority,  }\item[{const std\+::wstring}]{text }\end{DoxyParamCaption})}
 
 
 

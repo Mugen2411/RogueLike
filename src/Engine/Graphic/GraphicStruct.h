@@ -28,6 +28,10 @@ namespace mugen_engine
 		DirectX::XMMATRIX rotateMatrix;							//!< •ÏŒ`s—ñ(‰ñ“])
 		DirectX::XMMATRIX scaleMatrix;							//!< •ÏŒ`s—ñ(Šg‘å)
 		DirectX::XMFLOAT4 brightness;							//!< ‹P“x’²®
+	private:
+		DirectX::XMFLOAT4 dummy1;
+		DirectX::XMFLOAT4 dummy2;
+		DirectX::XMFLOAT4 dummy3;
 	};
 }
 

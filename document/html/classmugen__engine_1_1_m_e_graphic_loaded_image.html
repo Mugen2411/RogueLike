@@ -104,12 +104,12 @@ $(function() {
 <tr class="memitem:a29cb32604e5f3788fce6247fa1f1b9d9" id="r_a29cb32604e5f3788fce6247fa1f1b9d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a29cb32604e5f3788fce6247fa1f1b9d9">MEGraphicLoadedImage</a> (const std::wstring &amp;filepath, <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device, size_t xDivideNum, size_t yDivideNum, <a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;cmdList, <a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> &amp;pipeline, <a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> &amp;renderTarget)</td></tr>
 <tr class="memdesc:a29cb32604e5f3788fce6247fa1f1b9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
 <tr class="separator:a29cb32604e5f3788fce6247fa1f1b9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af40dbceeb7bb1c3408cd2422c68238f8" id="r_af40dbceeb7bb1c3408cd2422c68238f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#af40dbceeb7bb1c3408cd2422c68238f8">DrawGraph</a> (int x, int y, int index=0)</td></tr>
-<tr class="memdesc:af40dbceeb7bb1c3408cd2422c68238f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した座標に描画  <br /></td></tr>
-<tr class="separator:af40dbceeb7bb1c3408cd2422c68238f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a273feab6fba5bd06539673113e5e2f14" id="r_a273feab6fba5bd06539673113e5e2f14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a273feab6fba5bd06539673113e5e2f14">DrawRotaGraph</a> (int x, int y, float scale, float angle, int index=0)</td></tr>
-<tr class="memdesc:a273feab6fba5bd06539673113e5e2f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">座標と拡大率と回転角度を指定して描画  <br /></td></tr>
-<tr class="separator:a273feab6fba5bd06539673113e5e2f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097d1115e0e8b42dbca57f8dff204f15" id="r_a097d1115e0e8b42dbca57f8dff204f15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a097d1115e0e8b42dbca57f8dff204f15">DrawGraph</a> (int x, int y, float priority, int index=0)</td></tr>
+<tr class="memdesc:a097d1115e0e8b42dbca57f8dff204f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した座標に描画  <br /></td></tr>
+<tr class="separator:a097d1115e0e8b42dbca57f8dff204f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95c00827cc0f16e1bb1b5af9b4c337b" id="r_ac95c00827cc0f16e1bb1b5af9b4c337b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#ac95c00827cc0f16e1bb1b5af9b4c337b">DrawRotaGraph</a> (int x, int y, float scale, float angle, float priority, int index=0)</td></tr>
+<tr class="memdesc:ac95c00827cc0f16e1bb1b5af9b4c337b"><td class="mdescLeft">&#160;</td><td class="mdescRight">座標と拡大率と回転角度を指定して描画  <br /></td></tr>
+<tr class="separator:ac95c00827cc0f16e1bb1b5af9b4c337b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6706d008f0c0762dc3777fad9f778a85" id="r_a6706d008f0c0762dc3777fad9f778a85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_loaded_image.html#a6706d008f0c0762dc3777fad9f778a85">SetBrightness</a> (const float R, const float G, const float B, const float A)</td></tr>
 <tr class="memdesc:a6706d008f0c0762dc3777fad9f778a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像描画時の輝度を設定する  <br /></td></tr>
 <tr class="separator:a6706d008f0c0762dc3777fad9f778a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -284,8 +284,8 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="af40dbceeb7bb1c3408cd2422c68238f8" name="af40dbceeb7bb1c3408cd2422c68238f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af40dbceeb7bb1c3408cd2422c68238f8">&#9670;&#160;</a></span>DrawGraph()</h2>
+<a id="a097d1115e0e8b42dbca57f8dff204f15" name="a097d1115e0e8b42dbca57f8dff204f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097d1115e0e8b42dbca57f8dff204f15">&#9670;&#160;</a></span>DrawGraph()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,6 +301,12 @@ $(function() {
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>priority</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -331,8 +337,8 @@ $(function() {
 
 </div>
 </div>
-<a id="a273feab6fba5bd06539673113e5e2f14" name="a273feab6fba5bd06539673113e5e2f14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a273feab6fba5bd06539673113e5e2f14">&#9670;&#160;</a></span>DrawRotaGraph()</h2>
+<a id="ac95c00827cc0f16e1bb1b5af9b4c337b" name="ac95c00827cc0f16e1bb1b5af9b4c337b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95c00827cc0f16e1bb1b5af9b4c337b">&#9670;&#160;</a></span>DrawRotaGraph()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,6 +366,12 @@ $(function() {
           <td></td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>priority</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

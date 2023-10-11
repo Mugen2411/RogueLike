@@ -48,7 +48,7 @@ namespace mugen_engine
         void Draw()
         {
             static float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-            defFont.DrawFormatString(0, mugen_engine::MECore::GetIns().GetWindowHeight() - 32, color, L"fps: %.1f", fps_);
+            defFont.DrawFormatString(0, mugen_engine::MECore::GetIns().GetWindowHeight() - 32, color, -9999.9f, L"fps: %.1f", fps_);
         }
 
         void Wait()

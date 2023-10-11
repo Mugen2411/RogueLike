@@ -10,16 +10,22 @@
 \item 
 D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a62d342cc57dbc7635ee6bd018b2b671c}{vertex\+Buffer\+View}}
 \begin{DoxyCompactList}\small\item\em 頂点バッファビュー \end{DoxyCompactList}\item 
-ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ad506943e61bca4dfc67e5fd99cd1b173}{texture\+Heap}}
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a310e20aaee56379f2c28a914f59186dc}{texture\+Heap}}
 \begin{DoxyCompactList}\small\item\em テクスチャのディスクリプタヒープ \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ac4f312eb101b65af3aa0cd227794a93b}{blend\+Type}}
-\begin{DoxyCompactList}\small\item\em ブレンドタイプ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ブレンドタイプ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}} \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a528bea702ca6f672707dd8708990bfbd}{const\+Data}}
+\begin{DoxyCompactList}\small\item\em 定数データ \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a57f4c885f905200cb36f53a6bba9b97c}{priority}}
+\begin{DoxyCompactList}\small\item\em 描画優先度 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ae0a78771b9c66731d7da3f395146db0c}{order}}
+\begin{DoxyCompactList}\small\item\em 予約された順番 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 四角形のポリゴンを一枚描画する単位 
 
- \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00033}{33}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00034}{34}} 行目に定義があります。
 
 
 
@@ -36,13 +42,55 @@ int \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_
 
 
 
- \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00037}{37}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00038}{38}} 行目に定義があります。
 
-\Hypertarget{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ad506943e61bca4dfc67e5fd99cd1b173}\label{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ad506943e61bca4dfc67e5fd99cd1b173} 
+\Hypertarget{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a528bea702ca6f672707dd8708990bfbd}\label{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a528bea702ca6f672707dd8708990bfbd} 
+\index{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}!constData@{constData}}
+\index{constData@{constData}!mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}}
+\doxysubsubsection{\texorpdfstring{constData}{constData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}} mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+RENDER\+\_\+\+DATA\+::const\+Data}
+
+
+
+定数データ 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00039}{39}} 行目に定義があります。
+
+\Hypertarget{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ae0a78771b9c66731d7da3f395146db0c}\label{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_ae0a78771b9c66731d7da3f395146db0c} 
+\index{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}!order@{order}}
+\index{order@{order}!mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}}
+\doxysubsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+RENDER\+\_\+\+DATA\+::order}
+
+
+
+予約された順番 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a57f4c885f905200cb36f53a6bba9b97c}\label{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a57f4c885f905200cb36f53a6bba9b97c} 
+\index{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}!priority@{priority}}
+\index{priority@{priority}!mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily float mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+RENDER\+\_\+\+DATA\+::priority}
+
+
+
+描画優先度 
+
+
+
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00040}{40}} 行目に定義があります。
+
+\Hypertarget{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a310e20aaee56379f2c28a914f59186dc}\label{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a310e20aaee56379f2c28a914f59186dc} 
 \index{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}!textureHeap@{textureHeap}}
 \index{textureHeap@{textureHeap}!mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}}
 \doxysubsubsection{\texorpdfstring{textureHeap}{textureHeap}}
-{\footnotesize\ttfamily ID3\+D12\+Descriptor\+Heap\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+RENDER\+\_\+\+DATA\+::texture\+Heap}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+RENDER\+\_\+\+DATA\+::texture\+Heap}
 
 
 
@@ -50,7 +98,7 @@ int \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_
 
 
 
- \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00036}{36}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00037}{37}} 行目に定義があります。
 
 \Hypertarget{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a62d342cc57dbc7635ee6bd018b2b671c}\label{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a_a62d342cc57dbc7635ee6bd018b2b671c} 
 \index{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA@{mugen\_engine::MEGraphicRenderQueue::RENDER\_DATA}!vertexBufferView@{vertexBufferView}}
@@ -64,7 +112,7 @@ int \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_
 
 
 
- \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00035}{35}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_render_queue_8h_source}{Graphic\+Render\+Queue.\+h}} の \mbox{\hyperlink{_graphic_render_queue_8h_source_l00036}{36}} 行目に定義があります。
 
 
 

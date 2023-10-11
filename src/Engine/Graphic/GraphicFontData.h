@@ -26,9 +26,9 @@ namespace mugen_engine
 		//! コピー代入演算子
 		MEGraphicFontData & operator= (const MEGraphicFontData & rhs);
 		//! 文字列の描画を行う
-		void DrawString(const int x, const int y, float color[4], const std::wstring text);
+		void DrawString(const int x, const int y, float color[4], float priority, const std::wstring text);
 		//! 書式文字列を描画する
-		void DrawFormatString(const int x, const int y, float color[4], const std::wstring text, ...);
+		void DrawFormatString(const int x, const int y, float color[4], float priority, const std::wstring text, ...);
 	private:
 		HDC m_hdc;																//!< ハンドル
 		HFONT m_oldFont;														//!< 文字テクスチャに渡すフォント本体

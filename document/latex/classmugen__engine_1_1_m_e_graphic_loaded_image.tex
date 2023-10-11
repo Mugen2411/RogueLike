@@ -24,9 +24,9 @@ enum \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a8ac9fe567
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a29cb32604e5f3788fce6247fa1f1b9d9}{MEGraphic\+Loaded\+Image}} (const std\+::wstring \&filepath, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device, size\+\_\+t x\+Divide\+Num, size\+\_\+t y\+Divide\+Num, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&render\+Target)
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_af40dbceeb7bb1c3408cd2422c68238f8}{Draw\+Graph}} (int x, int y, int index=0)
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a097d1115e0e8b42dbca57f8dff204f15}{Draw\+Graph}} (int x, int y, float priority, int index=0)
 \begin{DoxyCompactList}\small\item\em 指定した座標に描画 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a273feab6fba5bd06539673113e5e2f14}{Draw\+Rota\+Graph}} (int x, int y, float scale, float angle, int index=0)
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_ac95c00827cc0f16e1bb1b5af9b4c337b}{Draw\+Rota\+Graph}} (int x, int y, float scale, float angle, float priority, int index=0)
 \begin{DoxyCompactList}\small\item\em 座標と拡大率と回転角度を指定して描画 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image_a6706d008f0c0762dc3777fad9f778a85}{Set\+Brightness}} (const float R, const float G, const float B, const float A)
 \begin{DoxyCompactList}\small\item\em 画像描画時の輝度を設定する \end{DoxyCompactList}\item 
@@ -153,11 +153,11 @@ SUB&\\
 
 
 \doxysubsection{関数詳解}
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_af40dbceeb7bb1c3408cd2422c68238f8}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_af40dbceeb7bb1c3408cd2422c68238f8} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a097d1115e0e8b42dbca57f8dff204f15}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a097d1115e0e8b42dbca57f8dff204f15} 
 \index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!DrawGraph@{DrawGraph}}
 \index{DrawGraph@{DrawGraph}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
 \doxysubsubsection{\texorpdfstring{DrawGraph()}{DrawGraph()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+Draw\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+Draw\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
 
 
 
@@ -179,11 +179,11 @@ SUB&\\
 
  \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00085}{85}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_a273feab6fba5bd06539673113e5e2f14}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_a273feab6fba5bd06539673113e5e2f14} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_loaded_image_ac95c00827cc0f16e1bb1b5af9b4c337b}\label{classmugen__engine_1_1_m_e_graphic_loaded_image_ac95c00827cc0f16e1bb1b5af9b4c337b} 
 \index{mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}!DrawRotaGraph@{DrawRotaGraph}}
 \index{DrawRotaGraph@{DrawRotaGraph}!mugen\_engine::MEGraphicLoadedImage@{mugen\_engine::MEGraphicLoadedImage}}
 \doxysubsubsection{\texorpdfstring{DrawRotaGraph()}{DrawRotaGraph()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+Draw\+Rota\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{scale,  }\item[{float}]{angle,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Loaded\+Image\+::\+Draw\+Rota\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{scale,  }\item[{float}]{angle,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
 
 
 

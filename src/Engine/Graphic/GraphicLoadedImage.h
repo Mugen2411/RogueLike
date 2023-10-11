@@ -35,9 +35,9 @@ namespace mugen_engine
 		};
 
 		//! w’è‚µ‚½À•W‚É•`‰æ
-		void DrawGraph(int x, int y, int index = 0);
+		void DrawGraph(int x, int y, float priority,int index = 0);
 		//! À•W‚ÆŠg‘å—¦‚Æ‰ñ“]Šp“x‚ğw’è‚µ‚Ä•`‰æ
-		void DrawRotaGraph(int x, int y, float scale, float angle, int index = 0);
+		void DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index = 0);
 		//! ‰æ‘œ•`‰æ‚Ì‹P“x‚ğİ’è‚·‚é
 		void SetBrightness(const float R, const float G, const float B, const float A);
 		//! ‰æ‘œ•`‰æ‚ÌƒuƒŒƒ“ƒhƒ^ƒCƒv‚ğİ’è‚·‚é

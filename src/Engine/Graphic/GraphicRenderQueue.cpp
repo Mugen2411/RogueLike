@@ -1,12 +1,13 @@
 #include "GraphicRenderQueue.h"
+#include <algorithm>
 
 namespace mugen_engine
 {
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> MEGraphicRenderQueue::m_constantDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> MEGraphicRenderQueue::m_constantBuffers;
-	int MEGraphicRenderQueue::m_currentReserved = 0;
 	int MEGraphicRenderQueue::m_maxReserve = 0x1FFF;
-	std::vector<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
+	std::list<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
+	std::vector<const MEGraphicRenderQueue::RENDER_DATA*> MEGraphicRenderQueue::m_reservePointerList;
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
 	MEGraphicDevice* MEGraphicRenderQueue::m_pDevice = nullptr;
 	std::vector<CONSTANT_DATA*> MEGraphicRenderQueue::m_pMapMatrix;
@@ -32,8 +33,6 @@ namespace mugen_engine
 		{
 			OutputDebugStringA("DX12 DescriptorHeap Initialize Error.\n");
 		}
-
-		m_reserveList.reserve(m_maxReserve);
 		_InitalizeConstantBuffer(device);
 	}
 
@@ -49,25 +48,18 @@ namespace mugen_engine
 		@return			‚È‚µ
 	*//***********************************************************************/
 	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
-		ID3D12DescriptorHeap* textureHeap, int blendType, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
+		MEGraphicGpuResourceManager* textureHeap, int blendType, float priority, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 		MEGraphicRenderTarget* renderTarget)
 	{
-		if(m_currentReserved == m_maxReserve - 1)
-		{
-			RenderAll(*cmdList, *pipeline, *renderTarget);
-		}
-
 		static RENDER_DATA tmp = {};
 		tmp.vertexBufferView = vbView;
 		tmp.textureHeap = textureHeap;
 		tmp.blendType = blendType;
+		tmp.constData = constData;
+		tmp.priority = priority;
+		tmp.order = m_reserveList.size();
 
-		m_reserveList.emplace_back(tmp);
-
-		*m_pMapMatrix[m_currentReserved] = constData;
-		//m_constantBuffers[m_currentReserved]->Unmap(0, nullptr);
-
-		m_currentReserved++;
+		m_reserveList.push_back(tmp);
 	}
 
 	/**********************************************************************//**
@@ -79,30 +71,51 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MEGraphicRenderQueue::RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
 	{	
-		auto handle = m_constantDescHeap->GetGPUDescriptorHandleForHeapStart();
-		auto cpuHandle = m_constantDescHeap->GetCPUDescriptorHandleForHeapStart();
-		for(int idx = 0; idx < m_currentReserved; ++idx)
+		for (auto& res : m_reserveList)
 		{
-			m_pDevice->GetDevice()->CopyDescriptorsSimple(1, cpuHandle, 
-				m_reserveList[idx].textureHeap->GetCPUDescriptorHandleForHeapStart(), D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
-			cpuHandle.ptr += m_descriptorHeapIncrementSize * 2;
+			m_reservePointerList.push_back(&res);
 		}
-		renderTarget.SetRenderBaseCommand(cmdList);
-
-		for(int idx = 0; idx < m_currentReserved; ++idx)
+		std::sort(m_reservePointerList.begin(), m_reservePointerList.end(), [](const RENDER_DATA* lhs, const RENDER_DATA* rhs)
+			{
+				if(lhs->priority > rhs->priority) return true;
+				if(lhs->priority < rhs->priority) return false;
+				if(lhs->order < rhs->order) return true;
+				return false;
+			});
+		do
 		{
-			pipeline.SetPipelineState(m_reserveList[idx].blendType, cmdList);
-			cmdList.GetCommandList()->SetDescriptorHeaps(1, m_constantDescHeap.GetAddressOf());
-			cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
+			auto cpuHandle = m_constantDescHeap->GetCPUDescriptorHandleForHeapStart();
+			const size_t processNum = min(m_reservePointerList.size(), m_maxReserve);
+			auto itr = m_reservePointerList.begin();
+			for(int idx = 0; idx < processNum; ++idx, ++itr)
+			{
+				m_pDevice->GetDevice()->CopyDescriptorsSimple(1, cpuHandle,
+					(*itr)->textureHeap->GetTextureHeap()->GetCPUDescriptorHandleForHeapStart(), D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+				cpuHandle.ptr += m_descriptorHeapIncrementSize * 2;
+				*m_pMapMatrix[idx] = (*itr)->constData;
+			}
 
-			cmdList.GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-			cmdList.GetCommandList()->IASetVertexBuffers(0, 1, m_reserveList[idx].vertexBufferView);
-			cmdList.GetCommandList()->DrawInstanced(4, 1, 0, 0);
+			int beforeBlendType = -1;
+			auto handle = m_constantDescHeap->GetGPUDescriptorHandleForHeapStart();
+			itr = m_reservePointerList.begin();
+			for(int idx = 0; idx < processNum; ++idx, ++itr)
+			{
+				renderTarget.SetRenderBaseCommand(cmdList);
+					pipeline.SetPipelineState((*itr)->blendType, cmdList);
+					beforeBlendType = (*itr)->blendType;
+				cmdList.GetCommandList()->SetDescriptorHeaps(1, m_constantDescHeap.GetAddressOf());
+				cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
 
-			handle.ptr += m_descriptorHeapIncrementSize * 2;
-		}
+				cmdList.GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+				cmdList.GetCommandList()->IASetVertexBuffers(0, 1, (*itr)->vertexBufferView);
+				cmdList.GetCommandList()->DrawInstanced(4, 1, 0, 0);
+
+				handle.ptr += m_descriptorHeapIncrementSize * 2;
+			}
+			m_reservePointerList.erase(m_reservePointerList.begin(), m_reservePointerList.begin() + processNum);
+			cmdList.Execute();
+		} while(!m_reservePointerList.empty());
 		m_reserveList.clear();
-		m_currentReserved = 0;
 	}
 
 	/**********************************************************************//**

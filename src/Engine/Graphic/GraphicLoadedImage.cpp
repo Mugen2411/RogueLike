@@ -82,7 +82,7 @@ namespace mugen_engine
 		@param[in]		index				‰æ‘œ‚ª•ªŠ„‚³‚ê‚Ä‚¢‚éê‡‚Ç‚ê‚ð•`‰æ‚·‚é‚©
 		@return			‚È‚µ
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::DrawGraph(int x, int y, int index)
+	void MEGraphicLoadedImage::DrawGraph(int x, int y, float priority, int index)
 	{
 		if(index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -99,7 +99,7 @@ namespace mugen_engine
 		constData.brightness = m_brightness;
 
 		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData,
-			m_resourceManager.GetTextureHeap(), m_blendType, m_pCmdList, m_pPipeline, m_pRenderTarget);
+			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
 	/**********************************************************************//**
@@ -111,7 +111,7 @@ namespace mugen_engine
 		@param[in]		index				‰æ‘œ‚ª•ªŠ„‚³‚ê‚Ä‚¢‚éê‡‚Ç‚ê‚ð•`‰æ‚·‚é‚©
 		@return			‚È‚µ
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle, int index)
+	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index)
 	{
 		if(index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -128,7 +128,7 @@ namespace mugen_engine
 		constData.brightness = m_brightness;
 
 		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData, 
-			m_resourceManager.GetTextureHeap(), m_blendType, m_pCmdList, m_pPipeline, m_pRenderTarget);
+			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
 	/**********************************************************************//**
