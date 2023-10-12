@@ -6,7 +6,7 @@ namespace mugen_engine
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> MEGraphicRenderQueue::m_constantDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> MEGraphicRenderQueue::m_constantBuffers;
 	int MEGraphicRenderQueue::m_maxReserve = 0x1FFF;
-	std::list<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
+	std::deque<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
 	std::vector<const MEGraphicRenderQueue::RENDER_DATA*> MEGraphicRenderQueue::m_reservePointerList;
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
 	MEGraphicDevice* MEGraphicRenderQueue::m_pDevice = nullptr;

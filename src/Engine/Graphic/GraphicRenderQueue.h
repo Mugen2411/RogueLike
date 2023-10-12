@@ -10,7 +10,7 @@
 #include "GraphicRenderTarget.h"
 #include "GraphicGpuResourceManager.h"
 #include "GraphicStruct.h"
-#include <list>
+#include <deque>
 #include <DirectXTex.h>
 
 namespace mugen_engine
@@ -49,7 +49,7 @@ namespace mugen_engine
 		static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_constantDescHeap;		//!< 定数用のディスクリプタヒープ
 		static std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_constantBuffers;//!< 定数バッファ
 		static int m_maxReserve;													//!< 描画予約可能な最大数
-		static std::list<RENDER_DATA> m_reserveList;								//!< 描画予約キュー
+		static std::deque<RENDER_DATA> m_reserveList;								//!< 描画予約キュー
 		static std::vector<const RENDER_DATA*> m_reservePointerList;						//!< ソートに使うポインタの配列
 		static uint32_t m_descriptorHeapIncrementSize;								//!< SRVとCBVにおけるディスクリプタヒープ上のサイズ
 		static MEGraphicDevice* m_pDevice;											//!< デバイス
