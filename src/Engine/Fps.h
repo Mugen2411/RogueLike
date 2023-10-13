@@ -17,7 +17,7 @@ namespace mugen_engine
         float fps_;                 // fps_
         static const int cnt_to_sample = 60;    //•½‹Ï‚ğæ‚éƒTƒ“ƒvƒ‹”
         static const int ideal_fps_ = 60;  //İ’è‚µ‚½FPS
-        mugen_engine::MEGraphicFontData defFont;
+        mugen_engine::MEFontData defFont;
 
     public:
         Fps()

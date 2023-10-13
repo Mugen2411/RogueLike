@@ -18,7 +18,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	auto gothicFont = mugen_engine::MECore::GetIns().GetFont("gothic");
 
-	magica_rogue::MRMapData mapData(1280 / 32, 720 / 32);
+	auto random = std::random_device();
+	magica_rogue::MRMapData mapData(720 / 8, 720 / 8, random());
 
 	int frame = 0;
 	while (mugen_engine::MECore::GetIns().ProcessMessage() == 0)

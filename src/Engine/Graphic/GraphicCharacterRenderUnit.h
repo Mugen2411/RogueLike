@@ -13,7 +13,7 @@ namespace mugen_engine
 	class MEGraphicCommandList;
 	class MEGraphicPipeline;
 	class MEGraphicRenderTarget;
-	class MEGraphicFontData;
+	class MEFontData;
 	/**********************************************************************//**
 		@class		MEGraphicCharacterUnit
 		@brief		フォントから特定の文字のテクスチャを作り保持するクラス
@@ -47,7 +47,7 @@ namespace mugen_engine
 		MEGraphicPipeline* m_pPipeline;								//!< パイプライン
 		MEGraphicRenderTarget* m_pRenderTarget;						//!< レンダーターゲット
 
-		friend MEGraphicFontData;
+		friend MEFontData;
 	};
 }
 

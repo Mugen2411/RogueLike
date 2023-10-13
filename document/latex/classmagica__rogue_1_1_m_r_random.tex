@@ -1,0 +1,105 @@
+\doxysection{magica\+\_\+rogue\+::MRRandom クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_random}{}\label{classmagica__rogue_1_1_m_r_random}\index{magica\_rogue::MRRandom@{magica\_rogue::MRRandom}}
+
+
+乱数を扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Random.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_a559e5ed351afb9c5894b3385818f92f6}{MRRandom}} (uint32\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_a0f86d543eff92801bf124d943cf52b92}{Get\+Ranged}} (uint32\+\_\+t minimum, uint32\+\_\+t maximum)
+\begin{DoxyCompactList}\small\item\em 最小値と最大値を指定して乱数を取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_a5cd7e4813d2042c00c8f0e03a5d5f27d}{m\+\_\+engine}}
+\begin{DoxyCompactList}\small\item\em 乱数を生成するデバイス(メルセンヌツイスタ) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+乱数を扱うクラス 
+
+ \mbox{\hyperlink{_random_8h_source}{Random.\+h}} の \mbox{\hyperlink{_random_8h_source_l00015}{15}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_random_a559e5ed351afb9c5894b3385818f92f6}\label{classmagica__rogue_1_1_m_r_random_a559e5ed351afb9c5894b3385818f92f6} 
+\index{magica\_rogue::MRRandom@{magica\_rogue::MRRandom}!MRRandom@{MRRandom}}
+\index{MRRandom@{MRRandom}!magica\_rogue::MRRandom@{magica\_rogue::MRRandom}}
+\doxysubsubsection{\texorpdfstring{MRRandom()}{MRRandom()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRRandom\+::\+MRRandom (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seed }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em seed} & シード値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_random_8cpp_source}{Random.\+cpp}} の \mbox{\hyperlink{_random_8cpp_source_l00014}{14}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_random_a0f86d543eff92801bf124d943cf52b92}\label{classmagica__rogue_1_1_m_r_random_a0f86d543eff92801bf124d943cf52b92} 
+\index{magica\_rogue::MRRandom@{magica\_rogue::MRRandom}!GetRanged@{GetRanged}}
+\index{GetRanged@{GetRanged}!magica\_rogue::MRRandom@{magica\_rogue::MRRandom}}
+\doxysubsubsection{\texorpdfstring{GetRanged()}{GetRanged()}}
+{\footnotesize\ttfamily uint32\+\_\+t magica\+\_\+rogue\+::\+MRRandom\+::\+Get\+Ranged (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{minimum,  }\item[{uint32\+\_\+t}]{maximum }\end{DoxyParamCaption})}
+
+
+
+最小値と最大値を指定して乱数を取得 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em minimum} & 最小値 \\
+\hline
+\mbox{\texttt{ in}}  & {\em maximum} & 最大値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_random_8cpp_source}{Random.\+cpp}} の \mbox{\hyperlink{_random_8cpp_source_l00023}{23}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_random_a5cd7e4813d2042c00c8f0e03a5d5f27d}\label{classmagica__rogue_1_1_m_r_random_a5cd7e4813d2042c00c8f0e03a5d5f27d} 
+\index{magica\_rogue::MRRandom@{magica\_rogue::MRRandom}!m\_engine@{m\_engine}}
+\index{m\_engine@{m\_engine}!magica\_rogue::MRRandom@{magica\_rogue::MRRandom}}
+\doxysubsubsection{\texorpdfstring{m\_engine}{m\_engine}}
+{\footnotesize\ttfamily std\+::mt19937 magica\+\_\+rogue\+::\+MRRandom\+::m\+\_\+engine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+乱数を生成するデバイス(メルセンヌツイスタ) 
+
+
+
+ \mbox{\hyperlink{_random_8h_source}{Random.\+h}} の \mbox{\hyperlink{_random_8h_source_l00023}{23}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+util/\mbox{\hyperlink{_random_8h}{Random.\+h}}\item 
+util/\mbox{\hyperlink{_random_8cpp}{Random.\+cpp}}\end{DoxyCompactItemize}

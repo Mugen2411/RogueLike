@@ -34,7 +34,7 @@ void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc13
 \begin{DoxyCompactList}\small\item\em 読み込み済み画像を取得する \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ae5d3d45ea3e9eef54403115f0b916b31}{Load\+Font}} (std\+::string gid, std\+::wstring font\+Name, int font\+Size)
 \begin{DoxyCompactList}\small\item\em フォントを読み込む \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ac56af72e96d3d970bd8ab52c7b643798}{Get\+Font}} (std\+::string gid)
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{MEFont\+Data}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab8640f01f6f1b28722ff35a68a4b2b15}{Get\+Font}} (std\+::string gid)
 \begin{DoxyCompactList}\small\item\em 読み込み済みフォントを取得する \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ac6b8db890e9dd6d4f408963f719eb7d6}{Get\+Window\+Width}} () const
 \begin{DoxyCompactList}\small\item\em 画面の横幅を取得 \end{DoxyCompactList}\item 
@@ -81,7 +81,7 @@ D3\+D12\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC \mbox{\hyperlink{classmugen__eng
 \begin{DoxyCompactList}\small\item\em オーディオデバイス \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{MEImage}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab709c682f3ef1c136a1e1796cd68dc1c}{m\+\_\+loaded\+Images}}
 \begin{DoxyCompactList}\small\item\em 読み込み済み画像を辞書で管理する \end{DoxyCompactList}\item 
-std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25}{m\+\_\+loaded\+Fonts}}
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{MEFont\+Data}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a93279ebbf298749e0defdc1bf1327eba}{m\+\_\+loaded\+Fonts}}
 \begin{DoxyCompactList}\small\item\em 読み込み済みのフォントを辞書で管理する \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -206,11 +206,11 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
  \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00050}{50}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_core_ac56af72e96d3d970bd8ab52c7b643798}\label{classmugen__engine_1_1_m_e_core_ac56af72e96d3d970bd8ab52c7b643798} 
+\Hypertarget{classmugen__engine_1_1_m_e_core_ab8640f01f6f1b28722ff35a68a4b2b15}\label{classmugen__engine_1_1_m_e_core_ab8640f01f6f1b28722ff35a68a4b2b15} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetFont@{GetFont}}
 \index{GetFont@{GetFont}!mugen\_engine::MECore@{mugen\_engine::MECore}}
 \doxysubsubsection{\texorpdfstring{GetFont()}{GetFont()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} \& mugen\+\_\+engine\+::\+MECore\+::\+Get\+Font (\begin{DoxyParamCaption}\item[{std\+::string}]{gid }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{MEFont\+Data}} \& mugen\+\_\+engine\+::\+MECore\+::\+Get\+Font (\begin{DoxyParamCaption}\item[{std\+::string}]{gid }\end{DoxyParamCaption})}
 
 
 
@@ -563,11 +563,11 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
  \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00081}{81}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25}\label{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25} 
+\Hypertarget{classmugen__engine_1_1_m_e_core_a93279ebbf298749e0defdc1bf1327eba}\label{classmugen__engine_1_1_m_e_core_a93279ebbf298749e0defdc1bf1327eba} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_loadedFonts@{m\_loadedFonts}}
 \index{m\_loadedFonts@{m\_loadedFonts}!mugen\_engine::MECore@{mugen\_engine::MECore}}
 \doxysubsubsection{\texorpdfstring{m\_loadedFonts}{m\_loadedFonts}}
-{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}}$>$ mugen\+\_\+engine\+::\+MECore\+::m\+\_\+loaded\+Fonts\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{MEFont\+Data}}$>$ mugen\+\_\+engine\+::\+MECore\+::m\+\_\+loaded\+Fonts\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

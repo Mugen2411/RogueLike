@@ -169,7 +169,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadFont(std::string gid, std::wstring fontName, int fontSize)
 	{
-		m_loadedFonts[gid] = MEGraphicFontData(fontName, fontSize, m_graphicDevice, m_commandList, m_pipeline, m_renderTarget);
+		m_loadedFonts[gid] = MEFontData(fontName, fontSize, m_graphicDevice, m_commandList, m_pipeline, m_renderTarget);
 	}
 
 	/**********************************************************************//**
@@ -177,7 +177,7 @@ namespace mugen_engine
 		@param[in]		gid				取り出すキー
 		@return			読み込み済みフォント
 	*//***********************************************************************/
-	MEGraphicFontData& MECore::GetFont(std::string gid)
+	MEFontData& MECore::GetFont(std::string gid)
 	{
 		return m_loadedFonts[gid];
 	}

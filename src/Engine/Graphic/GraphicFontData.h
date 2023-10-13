@@ -12,19 +12,19 @@
 namespace mugen_engine
 {
 	/**********************************************************************//**
-		@class		MEGraphicFontData
+		@class		MEFontData
 		@brief		読み込んだフォントで画面上に文字列描画を行うクラス
 	*//***********************************************************************/
-	class MEGraphicFontData
+	class MEFontData
 	{
 	public:
 		//! コンストラクタ
-		MEGraphicFontData();
+		MEFontData();
 		//! コンストラクタ
-		MEGraphicFontData(std::wstring fontName, int fontSize, MEGraphicDevice& device, MEGraphicCommandList& cmdList,
+		MEFontData(std::wstring fontName, int fontSize, MEGraphicDevice& device, MEGraphicCommandList& cmdList,
 			MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
 		//! コピー代入演算子
-		MEGraphicFontData & operator= (const MEGraphicFontData & rhs);
+		MEFontData & operator= (const MEFontData & rhs);
 		//! 文字列の描画を行う
 		void DrawString(const int x, const int y, float color[4], float priority, const std::wstring text);
 		//! 書式文字列を描画する

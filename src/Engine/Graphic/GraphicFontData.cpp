@@ -6,7 +6,7 @@
 
 namespace mugen_engine
 {
-	MEGraphicFontData::MEGraphicFontData()
+	MEFontData::MEFontData()
 	{}
 	/**********************************************************************//**
 		@brief			コンストラクタ
@@ -14,7 +14,7 @@ namespace mugen_engine
 		@param[in]		fontSize			フォントサイズ
 		@return			なし
 	*//***********************************************************************/
-	MEGraphicFontData::MEGraphicFontData(std::wstring fontName, int fontSize, MEGraphicDevice& device, MEGraphicCommandList& cmdList,
+	MEFontData::MEFontData(std::wstring fontName, int fontSize, MEGraphicDevice& device, MEGraphicCommandList& cmdList,
 		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget): 
 		m_pDevice(&device), m_pCmdList(&cmdList), m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget)
 	{
@@ -42,7 +42,7 @@ namespace mugen_engine
 		@param[in]		rhs					右辺
 		@return			自身の参照
 	*//***********************************************************************/
-	MEGraphicFontData& MEGraphicFontData::operator=(const MEGraphicFontData& rhs)
+	MEFontData& MEFontData::operator=(const MEFontData& rhs)
 	{
 		this->m_hdc = rhs.m_hdc;
 		this->m_oldFont = rhs.m_oldFont;
@@ -64,7 +64,7 @@ namespace mugen_engine
 		@param[in]		text				描画したい文字列
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicFontData::DrawString(const int x, const int y, float color[4], float priority, const std::wstring text)
+	void MEFontData::DrawString(const int x, const int y, float color[4], float priority, const std::wstring text)
 	{
 		size_t xOffset = 0;
 		size_t yOffset = 0;
@@ -89,7 +89,7 @@ namespace mugen_engine
 			}
 		}
 	}
-	void MEGraphicFontData::DrawFormatString(const int x, const int y, float color[4], float priority, const std::wstring text, ...)
+	void MEFontData::DrawFormatString(const int x, const int y, float color[4], float priority, const std::wstring text, ...)
 	{
 		va_list args;
 		va_start(args, text);

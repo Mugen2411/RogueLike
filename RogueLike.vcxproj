@@ -156,6 +156,7 @@
     <ClCompile Include="src\Engine\Graphic\GraphicLoadedImage.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map\MapData.cpp" />
+    <ClCompile Include="src\util\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="src\shader\BasicPixelShader.hlsl">
@@ -201,6 +202,7 @@
     <ClInclude Include="src\Engine\Graphic\GraphicStruct.h" />
     <ClInclude Include="src\Engine\Fps.h" />
     <ClInclude Include="src\Map\MapData.h" />
+    <ClInclude Include="src\util\Random.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

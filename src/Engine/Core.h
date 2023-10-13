@@ -51,7 +51,7 @@ namespace mugen_engine
 		//! フォントを読み込む
 		void LoadFont(std::string gid, std::wstring fontName, int fontSize);
 		//! 読み込み済みフォントを取得する
-		MEGraphicFontData& GetFont(std::string gid);
+		MEFontData& GetFont(std::string gid);
 		//! 画面の横幅を取得
 		int GetWindowWidth() const
 		{
@@ -88,7 +88,7 @@ namespace mugen_engine
 		MEAudioDevice m_audioDevice;									//!< オーディオデバイス
 
 		std::unordered_map<std::string, MEImage> m_loadedImages;	//!< 読み込み済み画像を辞書で管理する
-		std::unordered_map<std::string, MEGraphicFontData> m_loadedFonts;		//!< 読み込み済みのフォントを辞書で管理する
+		std::unordered_map<std::string, MEFontData> m_loadedFonts;		//!< 読み込み済みのフォントを辞書で管理する
 	};
 }
 
