@@ -34,12 +34,12 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 			escGraph.DrawRotaGraph(i * 32, i * 18, 0.5f+0.2f*i, 3.1415926f / 15 * i, 0.1f);
 		}
 		materialGraph.SetBrightness(1.0f, 1.0f, 1.0f, 0.05f);
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 10000; i++)
 		{	
 			materialGraph.DrawRotaGraph(10 + rand() % 1260, 10 + rand() % 700, (rand() % 10 + 10) / 10.0f, 3.1415926f / 120.0f * (rand() % 120), 0.2f, rand() % 12);
 		}
 		materialGraph.SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 10000; i++)
 		{
 			materialGraph.DrawRotaGraph(10 + rand() % 1260, 10 + rand() % 700, (rand() % 10 + 10) / 10.0f, 3.1415926f / 120.0f * (rand() % 120), 0.3f, rand() % 12);
 		}

@@ -5,7 +5,7 @@ namespace mugen_engine
 {
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> MEGraphicRenderQueue::m_constantDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> MEGraphicRenderQueue::m_constantBuffers;
-	int MEGraphicRenderQueue::m_maxReserve = 0xFF;
+	int MEGraphicRenderQueue::m_maxReserve = 0x1FFF;
 	std::deque<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
 	std::vector<const MEGraphicRenderQueue::RENDER_DATA*> MEGraphicRenderQueue::m_reservePointerList;
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
@@ -98,11 +98,14 @@ namespace mugen_engine
 			int beforeBlendType = -1;
 			auto handle = m_constantDescHeap->GetGPUDescriptorHandleForHeapStart();
 			itr = m_reservePointerList.begin();
+			renderTarget.SetRenderBaseCommand(cmdList);
 			for(int idx = 0; idx < processNum; ++idx, ++itr)
 			{
-				renderTarget.SetRenderBaseCommand(cmdList);
+				if (beforeBlendType != (*itr)->blendType)
+				{
 					pipeline.SetPipelineState((*itr)->blendType, cmdList);
 					beforeBlendType = (*itr)->blendType;
+				}
 				cmdList.GetCommandList()->SetDescriptorHeaps(1, m_constantDescHeap.GetAddressOf());
 				cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
 
