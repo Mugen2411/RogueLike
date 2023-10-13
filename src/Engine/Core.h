@@ -47,7 +47,7 @@ namespace mugen_engine
 		//! 画像をファイルから分割して読み込む
 		void LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum);
 		//! 読み込み済み画像を取得する
-		MEGraphicLoadedImage& GetGraph(std::string gid);
+		MEImage& GetGraph(std::string gid);
 		//! フォントを読み込む
 		void LoadFont(std::string gid, std::wstring fontName, int fontSize);
 		//! 読み込み済みフォントを取得する
@@ -87,7 +87,7 @@ namespace mugen_engine
 
 		MEAudioDevice m_audioDevice;									//!< オーディオデバイス
 
-		std::unordered_map<std::string, MEGraphicLoadedImage> m_loadedImages;	//!< 読み込み済み画像を辞書で管理する
+		std::unordered_map<std::string, MEImage> m_loadedImages;	//!< 読み込み済み画像を辞書で管理する
 		std::unordered_map<std::string, MEGraphicFontData> m_loadedFonts;		//!< 読み込み済みのフォントを辞書で管理する
 	};
 }

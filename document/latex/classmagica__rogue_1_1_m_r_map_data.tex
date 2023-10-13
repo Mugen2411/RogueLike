@@ -1,0 +1,198 @@
+\doxysection{magica\+\_\+rogue\+::MRMap\+Data クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_map_data}{}\label{classmagica__rogue_1_1_m_r_map_data}\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+
+
+マップデータを扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Map\+Data.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a27f22005cf43e6bc12cead31605bfaa2}{MRMap\+Data}} (const int width, const int height)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a117b579444111eb4aed3b48a6fd43da4}{Render}} (const int cameraX, const int cameraY) const
+\begin{DoxyCompactList}\small\item\em マップを描画する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a64a23a3147746cdc0ceb84d3ddbffdf9}{\+\_\+\+Convert\+Graph\+From\+Map}} ()
+\begin{DoxyCompactList}\small\item\em マップデータから表示に使うデータに変換する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}{m\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em マップの横幅 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}{m\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em マップの高さ \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\+\_\+map\+Data}}
+\begin{DoxyCompactList}\small\item\em マップデータ(壁=1, 床=0) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}{m\+\_\+graphic\+Data}}
+\begin{DoxyCompactList}\small\item\em 表示に使う方向とか入ってる奴 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c}{m\+\_\+mapchip\+Img}}
+\begin{DoxyCompactList}\small\item\em マップチップの画像 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+マップデータを扱うクラス 
+
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a27f22005cf43e6bc12cead31605bfaa2}\label{classmagica__rogue_1_1_m_r_map_data_a27f22005cf43e6bc12cead31605bfaa2} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!MRMapData@{MRMapData}}
+\index{MRMapData@{MRMapData}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{MRMapData()}{MRMapData()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRMap\+Data\+::\+MRMap\+Data (\begin{DoxyParamCaption}\item[{const int}]{width,  }\item[{const int}]{height }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em width} & マップの横幅 \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & マップの高さ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00015}{15}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a64a23a3147746cdc0ceb84d3ddbffdf9}\label{classmagica__rogue_1_1_m_r_map_data_a64a23a3147746cdc0ceb84d3ddbffdf9} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!\_ConvertGraphFromMap@{\_ConvertGraphFromMap}}
+\index{\_ConvertGraphFromMap@{\_ConvertGraphFromMap}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{\_ConvertGraphFromMap()}{\_ConvertGraphFromMap()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMap\+Data\+::\+\_\+\+Convert\+Graph\+From\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+マップデータから表示に使うデータに変換する 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00058}{58}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a117b579444111eb4aed3b48a6fd43da4}\label{classmagica__rogue_1_1_m_r_map_data_a117b579444111eb4aed3b48a6fd43da4} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMap\+Data\+::\+Render (\begin{DoxyParamCaption}\item[{const int}]{cameraX,  }\item[{const int}]{cameraY }\end{DoxyParamCaption}) const}
+
+
+
+マップを描画する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em cameraX} & マップの左上を合わせる\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em cameraY} & マップの左上を合わせる\+Y座標 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00042}{42}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}\label{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_graphicData@{m\_graphicData}}
+\index{m\_graphicData@{m\_graphicData}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{m\_graphicData}{m\_graphicData}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+graphic\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+表示に使う方向とか入ってる奴 
+
+
+
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00028}{28}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}\label{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_height@{m\_height}}
+\index{m\_height@{m\_height}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{m\_height}{m\_height}}
+{\footnotesize\ttfamily const int magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+マップの高さ 
+
+
+
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00025}{25}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c}\label{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_mapchipImg@{m\_mapchipImg}}
+\index{m\_mapchipImg@{m\_mapchipImg}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{m\_mapchipImg}{m\_mapchipImg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}}\texorpdfstring{$\ast$}{*} magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+mapchip\+Img\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+マップチップの画像 
+
+
+
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00030}{30}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}\label{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_mapData@{m\_mapData}}
+\index{m\_mapData@{m\_mapData}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{m\_mapData}{m\_mapData}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+map\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+マップデータ(壁=1, 床=0) 
+
+
+
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00027}{27}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}\label{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_width@{m\_width}}
+\index{m\_width@{m\_width}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{m\_width}{m\_width}}
+{\footnotesize\ttfamily const int magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+マップの横幅 
+
+
+
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00024}{24}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Map/\mbox{\hyperlink{_map_data_8h}{Map\+Data.\+h}}\item 
+Map/\mbox{\hyperlink{_map_data_8cpp}{Map\+Data.\+cpp}}\end{DoxyCompactItemize}

@@ -13,7 +13,7 @@ namespace mugen_engine
 		@param		Ç»Çµ
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	MEGraphicLoadedImage::MEGraphicLoadedImage() :
+	MEImage::MEImage() :
 		m_width(0), m_height(0), m_xDivideNum(1), m_yDivideNum(1), m_brightness(1.0f, 1.0f, 1.0f, 1.0f)
 	{}
 
@@ -28,7 +28,7 @@ namespace mugen_engine
 		@param[in]		renderTarget		ÉåÉìÉ_Å[É^Å[ÉQÉbÉg
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	MEGraphicLoadedImage::MEGraphicLoadedImage(const std::wstring& filepath,
+	MEImage::MEImage(const std::wstring& filepath,
 		MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum,MEGraphicCommandList& cmdList,
 		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
 		m_width(0), m_height(0), m_xDivideNum(xDivideNum), m_yDivideNum(yDivideNum),
@@ -82,7 +82,7 @@ namespace mugen_engine
 		@param[in]		index				âÊëúÇ™ï™äÑÇ≥ÇÍÇƒÇ¢ÇÈèÍçáÇ«ÇÍÇï`âÊÇ∑ÇÈÇ©
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::DrawGraph(int x, int y, float priority, int index)
+	void MEImage::DrawGraph(int x, int y, float priority, int index)
 	{
 		if(index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -111,7 +111,7 @@ namespace mugen_engine
 		@param[in]		index				âÊëúÇ™ï™äÑÇ≥ÇÍÇƒÇ¢ÇÈèÍçáÇ«ÇÍÇï`âÊÇ∑ÇÈÇ©
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index)
+	void MEImage::DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index)
 	{
 		if(index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -132,6 +132,62 @@ namespace mugen_engine
 	}
 
 	/**********************************************************************//**
+		@brief			2î{ä∑éZÇ≈éwíËÇµÇΩç¿ïWÇ…ï`âÊ
+		@param[in]		x					ï`âÊÇ∑ÇÈíÜêSÇÃXç¿ïW
+		@param[in]		y					ï`âÊÇ∑ÇÈíÜêSÇÃYç¿ïW
+		@param[in]		index				âÊëúÇ™ï™äÑÇ≥ÇÍÇƒÇ¢ÇÈèÍçáÇ«ÇÍÇï`âÊÇ∑ÇÈÇ©
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MEImage::DrawGraph2X(int x, int y, float priority, int index)
+	{
+		if (index >= m_xDivideNum * m_yDivideNum)
+		{
+			OutputDebugStringA("out of range");
+			return;
+		}
+		CONSTANT_DATA constData = {};
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * 2.0f / MECore::GetIns().GetWindowWidth(),
+			2.0f * 2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
+		constData.moveMatrix = DirectX::XMMatrixTranslation(
+			static_cast<float>(x * 2 - MECore::GetIns().GetWindowWidth() / 2) / MECore::GetIns().GetWindowWidth() * 2,
+			static_cast<float>(-y * 2 + MECore::GetIns().GetWindowHeight() / 2) / MECore::GetIns().GetWindowHeight() * 2, 0.0f);
+		constData.rotateMatrix = DirectX::XMMatrixIdentity();
+		constData.brightness = m_brightness;
+
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData,
+			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
+	}
+
+	/**********************************************************************//**
+		@brief			2î{ä∑éZÇ≈ç¿ïWÇ∆ägëÂó¶Ç∆âÒì]äpìxÇéwíËÇµÇƒï`âÊ
+		@param[in]		x					ï`âÊÇ∑ÇÈíÜêSÇÃXç¿ïW
+		@param[in]		y					ï`âÊÇ∑ÇÈíÜêSÇÃYç¿ïW
+		@param[in]		scale				ägëÂó¶
+		@param[in]		angle				âÒì]äpìx(ÉâÉWÉAÉì)
+		@param[in]		index				âÊëúÇ™ï™äÑÇ≥ÇÍÇƒÇ¢ÇÈèÍçáÇ«ÇÍÇï`âÊÇ∑ÇÈÇ©
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MEImage::DrawRotaGraph2X(int x, int y, float scale, float angle, float priority, int index)
+	{
+		if (index >= m_xDivideNum * m_yDivideNum)
+		{
+			OutputDebugStringA("out of range");
+			return;
+		}
+		CONSTANT_DATA constData = {};
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * 2.0f * scale / MECore::GetIns().GetWindowWidth(),
+			2.0f * 2.0f * scale / MECore::GetIns().GetWindowHeight(), 1.0f);
+		constData.moveMatrix = DirectX::XMMatrixTranslation(
+			static_cast<float>(x * 2 - MECore::GetIns().GetWindowWidth() / 2) / MECore::GetIns().GetWindowWidth() * 2,
+			static_cast<float>(-y * 2 + MECore::GetIns().GetWindowHeight() / 2) / MECore::GetIns().GetWindowHeight() * 2, 0.0f);
+		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
+		constData.brightness = m_brightness;
+
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData,
+			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
+	}
+
+	/**********************************************************************//**
 		@brief			âÊëúï`âÊéûÇÃãPìxÇê›íË
 		@param[in]		R					ê‘
 		@param[in]		G					óŒ
@@ -139,7 +195,7 @@ namespace mugen_engine
 		@param[in]		A					ïsìßñæìx
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::SetBrightness(const float R, const float G, const float B, const float A)
+	void MEImage::SetBrightness(const float R, const float G, const float B, const float A)
 	{
 		m_brightness = DirectX::XMFLOAT4(R, G, B, A);
 	}
@@ -149,7 +205,7 @@ namespace mugen_engine
 		@param[in]		blendType					ÉuÉåÉìÉhÉ^ÉCÉv
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MEGraphicLoadedImage::SetBlendType(BLEND_TYPE blendType)
+	void MEImage::SetBlendType(BLEND_TYPE blendType)
 	{
 		m_blendType = blendType;
 	}

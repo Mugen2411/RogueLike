@@ -82,73 +82,76 @@
 \DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ beforeBlendType\ =\ -\/1;}
 \DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ handle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}{m\_constantDescHeap}}-\/>GetGPUDescriptorHandleForHeapStart();}
 \DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ itr\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.begin();}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ processNum;\ ++idx,\ ++itr)}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ renderTarget.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a9ad02058247ee840df88df8ace4472af}{SetRenderBaseCommand}}(cmdList);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pipeline.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a57d712861469c0a2c65eed9fec8b294a}{SetPipelineState}}((*itr)-\/>blendType,\ cmdList);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ beforeBlendType\ =\ (*itr)-\/>blendType;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetDescriptorHeaps(1,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}{m\_constantDescHeap}}.GetAddressOf());}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetGraphicsRootDescriptorTable(0,\ handle);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00108}00108\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>IASetPrimitiveTopology(D3D\_PRIMITIVE\_TOPOLOGY\_TRIANGLESTRIP);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>IASetVertexBuffers(0,\ 1,\ (*itr)-\/>vertexBufferView);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>DrawInstanced(4,\ 1,\ 0,\ 0);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00112}00112\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ handle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2}{m\_descriptorHeapIncrementSize}}\ *\ 2;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.erase(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.begin(),\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.begin()\ +\ processNum);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(!\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.empty());}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa4aaad4998e755cd161cad84d94207e7}{m\_reserveList}}.clear();}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00119}00119\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00120}00120\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00121}00121\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00127}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{00127}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{MEGraphicRenderQueue::\_CreateCbv}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00128}00128\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00135}00135\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}})\ +\ 0xFF)\ \&\ \string~0xFF;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00147}00147\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,\ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index].ReleaseAndGetAddressOf()));}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ renderTarget.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target_a9ad02058247ee840df88df8ace4472af}{SetRenderBaseCommand}}(cmdList);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ processNum;\ ++idx,\ ++itr)}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (beforeBlendType\ !=\ (*itr)-\/>blendType)}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pipeline.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline_a57d712861469c0a2c65eed9fec8b294a}{SetPipelineState}}((*itr)-\/>blendType,\ cmdList);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ beforeBlendType\ =\ (*itr)-\/>blendType;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetDescriptorHeaps(1,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}{m\_constantDescHeap}}.GetAddressOf());}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>SetGraphicsRootDescriptorTable(0,\ handle);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>IASetPrimitiveTopology(D3D\_PRIMITIVE\_TOPOLOGY\_TRIANGLESTRIP);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>IASetVertexBuffers(0,\ 1,\ (*itr)-\/>vertexBufferView);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a5a1e2cc2bc3bca3eddec5081531e5113}{GetCommandList}}()-\/>DrawInstanced(4,\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ handle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2}{m\_descriptorHeapIncrementSize}}\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.erase(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.begin(),\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.begin()\ +\ processNum);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ cmdList.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list_a0851e4dc9ed7b6e1381cb6b169412c56}{Execute}}();}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(!\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6c37305bba1a5e9e4b576d4f65e5b8b4}{m\_reservePointerList}}.empty());}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa4aaad4998e755cd161cad84d94207e7}{m\_reserveList}}.clear();}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00122}00122\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00124}00124\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00130}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{00130}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{MEGraphicRenderQueue::\_CreateCbv}}(uint32\_t\ index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00131}00131\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapprop\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ heapprop.Type\ =\ D3D12\_HEAP\_TYPE\_UPLOAD;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ heapprop.CPUPageProperty\ =\ D3D12\_CPU\_PAGE\_PROPERTY\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ heapprop.MemoryPoolPreference\ =\ D3D12\_MEMORY\_POOL\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ heapprop.CreationNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ heapprop.VisibleNodeMask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC\ resdesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ resdesc.Dimension\ =\ D3D12\_RESOURCE\_DIMENSION\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ resdesc.Width\ =\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\_DATA}})\ +\ 0xFF)\ \&\ \string~0xFF;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ resdesc.Height\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ resdesc.DepthOrArraySize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ resdesc.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ resdesc.Format\ =\ DXGI\_FORMAT\_UNKNOWN;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ resdesc.SampleDesc.Quality\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ resdesc.Flags\ =\ D3D12\_RESOURCE\_FLAG\_NONE;}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ resdesc.Layout\ =\ D3D12\_TEXTURE\_LAYOUT\_ROW\_MAJOR;}
 \DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00150}00150\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}{m\_constantDescHeap}}-\/>GetCPUDescriptorHandleForHeapStart();}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ basicHeapHandle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2}{m\_descriptorHeapIncrementSize}}\ *\ (index\ *\ 2\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateCommittedResource(\&heapprop,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resdesc,\ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index].ReleaseAndGetAddressOf()));}
 \DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00153}00153\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ D3D12\_CONSTANT\_BUFFER\_VIEW\_DESC\ cbvDesc\ =\ \{\};}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ cbvDesc.BufferLocation\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index]-\/>GetGPUVirtualAddress();}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ cbvDesc.SizeInBytes\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index]-\/>GetDesc().Width);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00157}00157\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateConstantBufferView(\&cbvDesc,\ basicHeapHandle);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00159}00159\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index]-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aad79b31580aaa27d07345efef4bbd105}{m\_pMapMatrix}}[index]);}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ basicHeapHandle\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aca7456593655b73f1fbf2530faa0caf6}{m\_constantDescHeap}}-\/>GetCPUDescriptorHandleForHeapStart();}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ basicHeapHandle.ptr\ +=\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a21cb537c403022538e3b1c158175b3a2}{m\_descriptorHeapIncrementSize}}\ *\ (index\ *\ 2\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ D3D12\_CONSTANT\_BUFFER\_VIEW\_DESC\ cbvDesc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ cbvDesc.BufferLocation\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index]-\/>GetGPUVirtualAddress();}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ cbvDesc.SizeInBytes\ =\ \textcolor{keyword}{static\_cast<}UINT\textcolor{keyword}{>}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index]-\/>GetDesc().Width);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ device.\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device_a1b80c568c2b2708835c532d31a748b25}{GetDevice}}()-\/>CreateConstantBufferView(\&cbvDesc,\ basicHeapHandle);}
 \DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00162}00162\ }
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00163}00163\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00168}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605}{00168}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605}{MEGraphicRenderQueue::\_InitalizeConstantBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00169}00169\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}.resize(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\_maxReserve}});}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aad79b31580aaa27d07345efef4bbd105}{m\_pMapMatrix}}.resize(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\_maxReserve}});}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\_maxReserve}};\ ++idx)}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{\_CreateCbv}}(idx,\ *\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1793e800d1d321845423a0a43f7f87b2}{m\_pDevice}});}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00176}00176\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00177}00177\ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}[index]-\/>Map(0,\ \textcolor{keyword}{nullptr},\ (\textcolor{keywordtype}{void}**)\&\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aad79b31580aaa27d07345efef4bbd105}{m\_pMapMatrix}}[index]);}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00166}00166\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00171}\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605}{00171}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a748be9c665e157b955a496e76d0a5605}{MEGraphicRenderQueue::\_InitalizeConstantBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphicDevice}}\&\ device)}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00172}00172\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\_constantBuffers}}.resize(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\_maxReserve}});}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aad79b31580aaa27d07345efef4bbd105}{m\_pMapMatrix}}.resize(\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\_maxReserve}});}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\_maxReserve}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa8f4c7c01cbe1621c331f6232dd48121}{\_CreateCbv}}(idx,\ *\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1793e800d1d321845423a0a43f7f87b2}{m\_pDevice}});}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00179}00179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_graphic_render_queue_8cpp_source_l00180}00180\ \}}
 
 \end{DoxyCode}

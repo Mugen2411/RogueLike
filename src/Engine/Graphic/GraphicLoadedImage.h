@@ -16,16 +16,16 @@ namespace mugen_engine
 {
 	class MEGraphicGpuResourceManager;
 	/**********************************************************************//**
-		@class		MEGraphicLoadedImage
+		@class		MEImage
 		@brief		読み込み済み画像を扱うクラス
 	*//***********************************************************************/
-	class MEGraphicLoadedImage
+	class MEImage
 	{
 	public:
 		//! コンストラクタ
-		MEGraphicLoadedImage();
+		MEImage();
 		//! コンストラクタ
-		MEGraphicLoadedImage(const std::wstring& filepath, MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum,
+		MEImage(const std::wstring& filepath, MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum,
 			MEGraphicCommandList& cmdList,
 			MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
 
@@ -38,6 +38,10 @@ namespace mugen_engine
 		void DrawGraph(int x, int y, float priority,int index = 0);
 		//! 座標と拡大率と回転角度を指定して描画
 		void DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index = 0);
+		//! 2倍換算で指定した座標に描画
+		void DrawGraph2X(int x, int y, float priority, int index = 0);
+		//! 2倍換算で座標と拡大率と回転角度を指定して描画
+		void DrawRotaGraph2X(int x, int y, float scale, float angle, float priority, int index = 0);
 		//! 画像描画時の輝度を設定する
 		void SetBrightness(const float R, const float G, const float B, const float A);
 		//! 画像描画時のブレンドタイプを設定する

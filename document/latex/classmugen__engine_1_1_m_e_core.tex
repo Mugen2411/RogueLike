@@ -30,7 +30,7 @@ void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a4e60218ad0b3e25d49915cced
 \begin{DoxyCompactList}\small\item\em 画像をファイルから読み込む \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc1324d45e5}{Load\+Div\+Graph}} (std\+::string gid, std\+::wstring filepath, size\+\_\+t x\+Divide\+Num, size\+\_\+t y\+Divide\+Num)
 \begin{DoxyCompactList}\small\item\em 画像をファイルから分割して読み込む \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd}{Get\+Graph}} (std\+::string gid)
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{MEImage}} \& \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_aa82d2e31f5d5aa651347a7dac9cf73e5}{Get\+Graph}} (std\+::string gid)
 \begin{DoxyCompactList}\small\item\em 読み込み済み画像を取得する \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ae5d3d45ea3e9eef54403115f0b916b31}{Load\+Font}} (std\+::string gid, std\+::wstring font\+Name, int font\+Size)
 \begin{DoxyCompactList}\small\item\em フォントを読み込む \end{DoxyCompactList}\item 
@@ -79,7 +79,7 @@ D3\+D12\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC \mbox{\hyperlink{classmugen__eng
 \begin{DoxyCompactList}\small\item\em パイプライン \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_audio_device}{MEAudio\+Device}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a3b9b2da64fd3c49d7041e26d5e12d16e}{m\+\_\+audio\+Device}}
 \begin{DoxyCompactList}\small\item\em オーディオデバイス \end{DoxyCompactList}\item 
-std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ad66f7aaac1ea326b1027892985bb37d7}{m\+\_\+loaded\+Images}}
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{MEImage}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab709c682f3ef1c136a1e1796cd68dc1c}{m\+\_\+loaded\+Images}}
 \begin{DoxyCompactList}\small\item\em 読み込み済み画像を辞書で管理する \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_font_data}{MEGraphic\+Font\+Data}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a671af368b14a8592c360caa2ba317c25}{m\+\_\+loaded\+Fonts}}
 \begin{DoxyCompactList}\small\item\em 読み込み済みのフォントを辞書で管理する \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -230,11 +230,11 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
  \mbox{\hyperlink{_core_8cpp_source}{Core.\+cpp}} の \mbox{\hyperlink{_core_8cpp_source_l00180}{180}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd}\label{classmugen__engine_1_1_m_e_core_a7d65cc98ae8019f39066e6f749cf53dd} 
+\Hypertarget{classmugen__engine_1_1_m_e_core_aa82d2e31f5d5aa651347a7dac9cf73e5}\label{classmugen__engine_1_1_m_e_core_aa82d2e31f5d5aa651347a7dac9cf73e5} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!GetGraph@{GetGraph}}
 \index{GetGraph@{GetGraph}!mugen\_engine::MECore@{mugen\_engine::MECore}}
 \doxysubsubsection{\texorpdfstring{GetGraph()}{GetGraph()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}} \& mugen\+\_\+engine\+::\+MECore\+::\+Get\+Graph (\begin{DoxyParamCaption}\item[{std\+::string}]{gid }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{MEImage}} \& mugen\+\_\+engine\+::\+MECore\+::\+Get\+Graph (\begin{DoxyParamCaption}\item[{std\+::string}]{gid }\end{DoxyParamCaption})}
 
 
 
@@ -577,11 +577,11 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classmugen__engine_
 
  \mbox{\hyperlink{_core_8h_source}{Core.\+h}} の \mbox{\hyperlink{_core_8h_source_l00091}{91}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_core_ad66f7aaac1ea326b1027892985bb37d7}\label{classmugen__engine_1_1_m_e_core_ad66f7aaac1ea326b1027892985bb37d7} 
+\Hypertarget{classmugen__engine_1_1_m_e_core_ab709c682f3ef1c136a1e1796cd68dc1c}\label{classmugen__engine_1_1_m_e_core_ab709c682f3ef1c136a1e1796cd68dc1c} 
 \index{mugen\_engine::MECore@{mugen\_engine::MECore}!m\_loadedImages@{m\_loadedImages}}
 \index{m\_loadedImages@{m\_loadedImages}!mugen\_engine::MECore@{mugen\_engine::MECore}}
 \doxysubsubsection{\texorpdfstring{m\_loadedImages}{m\_loadedImages}}
-{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_loaded_image}{MEGraphic\+Loaded\+Image}}$>$ mugen\+\_\+engine\+::\+MECore\+::m\+\_\+loaded\+Images\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{MEImage}}$>$ mugen\+\_\+engine\+::\+MECore\+::m\+\_\+loaded\+Images\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

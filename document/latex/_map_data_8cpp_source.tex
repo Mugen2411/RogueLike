@@ -1,0 +1,81 @@
+\doxysection{Map\+Data.\+cpp}
+\hypertarget{_map_data_8cpp_source}{}\label{_map_data_8cpp_source}\index{Map/MapData.cpp@{Map/MapData.cpp}}
+\mbox{\hyperlink{_map_data_8cpp}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_map_data_8h}{MapData.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../Engine/Core.h"{}}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00007}\mbox{\hyperlink{namespacemagica__rogue}{00007}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00009}00009\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00015}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a27f22005cf43e6bc12cead31605bfaa2}{00015}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a27f22005cf43e6bc12cead31605bfaa2}{MRMapData::MRMapData}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height)\ :\ m\_width(width),\ m\_height(height)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc1324d45e5}{LoadDivGraph}}(\textcolor{stringliteral}{"{}mapchip"{}},\ L\textcolor{stringliteral}{"{}media/graphic/mapchip/ruins.png"{}},\ 8,\ 3);}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c}{m\_mapchipImg}}\ =\ \&\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_aa82d2e31f5d5aa651347a7dac9cf73e5}{GetGraph}}(\textcolor{stringliteral}{"{}mapchip"{}});}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}.resize(height);}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}{m\_graphicData}}.resize(height);}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ height;\ ++y)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y].resize(width);}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}{m\_graphicData}}[y].resize(width);}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}{m\_height}};\ ++y)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}{m\_width}};\ ++x)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y][x]\ =\ rand()\ \%\ 2;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a64a23a3147746cdc0ceb84d3ddbffdf9}{\_ConvertGraphFromMap}}();}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00036}00036\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00042}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a117b579444111eb4aed3b48a6fd43da4}{00042}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a117b579444111eb4aed3b48a6fd43da4}{MRMapData::Render}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cameraY)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00043}00043\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}{m\_height}};\ ++y)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}{m\_width}};\ ++x)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c}{m\_mapchipImg}}-\/>\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a51fc8eceabf60160e5516c64f510d6de}{DrawRotaGraph}}(cameraX\ +\ 16\ +\ 32\ *\ x,\ cameraY\ +\ 16\ +\ 32\ *\ y,\ 1.0f,\ 0.0f,\ 0.0f,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}{m\_graphicData}}[y][x]);}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00053}00053\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00058}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a64a23a3147746cdc0ceb84d3ddbffdf9}{00058}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a64a23a3147746cdc0ceb84d3ddbffdf9}{MRMapData::\_ConvertGraphFromMap}}()}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00059}00059\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}{m\_height}};\ ++y)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}{m\_width}};\ ++x)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y][x]\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}{m\_graphicData}}[y][x]\ =\ 16;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}{m\_width}}\ -\/\ 1\ ||\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y][x\ +\ 1]\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ |=\ 1;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}{m\_height}}\ -\/\ 1\ ||\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y\ +\ 1][x]\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ |=\ 2;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ 0\ ||\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y][x\ -\/\ 1]\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ |=\ 4;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ ==\ 0\ ||\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}{m\_mapData}}[y\ -\/\ 1][x]\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ |=\ 8;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}{m\_graphicData}}[y][x]\ =\ i;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00090}00090\ \}}
+
+\end{DoxyCode}
