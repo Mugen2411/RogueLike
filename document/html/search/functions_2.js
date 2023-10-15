@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['draw_0',['Draw',['../classmugen__engine_1_1_fps.html#a1b84a89d6400f52be54a522fc9e1d619',1,'mugen_engine::Fps']]],
-  ['drawcharacter_1',['DrawCharacter',['../classmugen__engine_1_1_m_e_graphic_character_unit.html#a8e318a8b2ea10819d2912d0c9df55ae9',1,'mugen_engine::MEGraphicCharacterUnit']]],
-  ['drawformatstring_2',['DrawFormatString',['../classmugen__engine_1_1_m_e_font_data.html#ab9b873a2ba4ecb53c32e4712c9469498',1,'mugen_engine::MEFontData']]],
-  ['drawgraph_3',['DrawGraph',['../classmugen__engine_1_1_m_e_image.html#ab5885f701a38815f9832b4e48c3873bb',1,'mugen_engine::MEImage']]],
-  ['drawgraph2x_4',['DrawGraph2X',['../classmugen__engine_1_1_m_e_image.html#ae9bc3eade98aca8a5071369848c6011b',1,'mugen_engine::MEImage']]],
-  ['drawrotagraph_5',['DrawRotaGraph',['../classmugen__engine_1_1_m_e_image.html#a51fc8eceabf60160e5516c64f510d6de',1,'mugen_engine::MEImage']]],
-  ['drawrotagraph2x_6',['DrawRotaGraph2X',['../classmugen__engine_1_1_m_e_image.html#ac049f800bbe907664d2950f7e62207ed',1,'mugen_engine::MEImage']]],
-  ['drawstring_7',['DrawString',['../classmugen__engine_1_1_m_e_font_data.html#a69e3404a995903e00c56b0220ce80dd9',1,'mugen_engine::MEFontData']]]
+  ['clear_0',['Clear',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a2d91615ba217b2edbf035ac6f5fa0c02',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['clearscreen_1',['ClearScreen',['../classmugen__engine_1_1_m_e_core.html#a0a00883185ed356fc17062cd521f78f4',1,'mugen_engine::MECore']]],
+  ['createsrv_2',['CreateSrv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ae1a25f50192f4a47df95f85d9420bf19',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createtexturebuffer_3',['CreateTextureBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7326c5e2f2982b9ce05ca2e1173cd34',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createvertexbuffer_4',['CreateVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7aab3b4314e258a876c5249b485e4ca',1,'mugen_engine::MEGraphicGpuResourceManager']]]
 ];

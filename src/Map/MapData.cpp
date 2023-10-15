@@ -106,8 +106,8 @@ namespace magica_rogue
 	void MRMapData::_DivideRooms()
 	{
 		const int room_margin = 3;
-		const int room_minimum = 9;
-		const int divide_margin = room_minimum + room_margin * 2 + 6;
+		const int room_minimum = 6;
+		const int divide_margin = room_minimum + room_margin * 2 + 4;
 		const int radius_path = 1;
 		std::vector<ROOM_NODE> roomList;
 

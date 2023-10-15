@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['screenflip_0',['ScreenFlip',['../classmugen__engine_1_1_m_e_core.html#a29c86d9bd9b6506ac15fb8a97e27e3e1',1,'mugen_engine::MECore']]],
-  ['setbarrierbeforepresent_1',['SetBarrierBeforePresent',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a86bd05010fcd095968d0e5f4deab7933',1,'mugen_engine::MEGraphicRenderTarget']]],
-  ['setbarrierbeforerender_2',['SetBarrierBeforeRender',['../classmugen__engine_1_1_m_e_graphic_render_target.html#af4af93f98257ad2ce73ff834430fe0de',1,'mugen_engine::MEGraphicRenderTarget']]],
-  ['setblendtype_3',['SetBlendType',['../classmugen__engine_1_1_m_e_image.html#ad095d3b93499825f35c35b397467286c',1,'mugen_engine::MEImage']]],
-  ['setbrightness_4',['SetBrightness',['../classmugen__engine_1_1_m_e_image.html#ab3ab48f43736904f3e21b275e922234a',1,'mugen_engine::MEImage']]],
-  ['setgpuresource_5',['SetGpuResource',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5162f5fe36883a91e5c6443cebca6b92',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['setpipelinestate_6',['SetPipelineState',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a57d712861469c0a2c65eed9fec8b294a',1,'mugen_engine::MEGraphicPipeline']]],
-  ['setrenderarea_7',['setrenderarea',['../classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40',1,'mugen_engine::MECore::SetRenderArea()'],['../classmugen__engine_1_1_m_e_graphic_render_target.html#a4a434c63c78f37b4cb143882c090b447',1,'mugen_engine::MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList &amp;cmdList, const int topX, const int topY, const int bottomX, const int bottomY)']]],
-  ['setrenderbasecommand_8',['SetRenderBaseCommand',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a9ad02058247ee840df88df8ace4472af',1,'mugen_engine::MEGraphicRenderTarget']]],
-  ['setrendercommand_9',['SetRenderCommand',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a40aa78852a2cf8d7bf00b3f93fb339d9',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['render_0',['Render',['../classmagica__rogue_1_1_m_r_map_data.html#a117b579444111eb4aed3b48a6fd43da4',1,'magica_rogue::MRMapData']]],
+  ['renderall_1',['RenderAll',['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a7d5acd8d695b20b11be0dd1b002ed694',1,'mugen_engine::MEGraphicRenderQueue']]],
+  ['reserverender_2',['ReserveRender',['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a8077cb7be0759d183b9e702027d4aac4',1,'mugen_engine::MEGraphicRenderQueue']]],
+  ['resetrenderarea_3',['ResetRenderArea',['../classmugen__engine_1_1_m_e_core.html#aef074df0952ec0eedb4c8f7d86028ecf',1,'mugen_engine::MECore']]],
+  ['resetuploadbuffer_4',['ResetUploadBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a71d9e52f9453da796cb23ccc2ae189e9',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['room_5findex_5',['ROOM_INDEX',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___i_n_d_e_x.html#acbecca302e9aebaddf800d1bc3975086',1,'magica_rogue::MRMapData::ROOM_INDEX']]],
+  ['room_5fnode_6',['ROOM_NODE',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#a90b5bd4afa9ec5c13abd97bf6246e79b',1,'magica_rogue::MRMapData::ROOM_NODE']]]
 ];

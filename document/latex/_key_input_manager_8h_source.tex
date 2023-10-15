@@ -1,0 +1,54 @@
+\doxysection{Key\+Input\+Manager.\+h}
+\hypertarget{_key_input_manager_8h_source}{}\label{_key_input_manager_8h_source}\index{Engine/Input/KeyInputManager.h@{Engine/Input/KeyInputManager.h}}
+\mbox{\hyperlink{_key_input_manager_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ \_\_MugenEngine\_KeyInputManager\_\_}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ \_\_MugenEngine\_KeyInputManager\_\_}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <Xinput.h>}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <WinUser.h>}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00014}00014\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}Xinput.lib"{})}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00018}00018\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00022}\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager}{00022}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager}{MEKeyInputManager}}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00023}00023\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00025}\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ struct}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\_KEYTYPE}}\ :\ \textcolor{keywordtype}{char}\ \{}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa5b3ec15499a125805b5bbf8e4afcec8c}{Buttons}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfac3b28f14adda15541f23ae21582f5e71}{LTrigger}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa7a1c91b1da9e7c5a1d3b9321e853005a}{RTrigger}},}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfaf6e24494285b967cd2adbdfdfb641519}{ThumbLL}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa8efc0a1755cedc6e084c709a30372de5}{ThumbLR}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa517edf48f0799584ea642d228d5109f7}{ThumbLU}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa1cf716a1bc2fbcf697ea06437df5eb41}{ThumbLD}},}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa1fe420f065f780cc9d448581bbf3ceb0}{ThumbRL}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfaa304561789e126b258e4ed772378fe81}{ThumbRR}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa1bafafcc4c3474e573bd4b942b5f1164}{ThumbRU}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa7d7bb7d57779e8c980c4866ad2b29427}{ThumbRD}},}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_ad73bf78bfb061f8b31b3ad600dae58c8}{AddKeycode}}(\textcolor{keywordtype}{char}\ codeKey,\ \textcolor{keywordtype}{char}\ codeKeyboard,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\_KEYTYPE}}\ typeGamepadKey,\ \textcolor{keywordtype}{short}\ codeGamepad);}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_acc3c09121eb738a3b4ea51aac8ee817d}{Update}}();}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a748e2cf29dc032707380a2e0e90993a2}{GetKey}}(\textcolor{keywordtype}{char}\ codeKey);}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00037}\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a6c1007a54fa84d5a419aca392e950874}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager}{MEKeyInputManager}}\&\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a6c1007a54fa84d5a419aca392e950874}{GetIns}}()\{}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager}{MEKeyInputManager}}\ instance;}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00046}\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf}{KeyInf}}\ \{}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00047}\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_a7ff52970c917af0f8b7f898b561000ef}{00047}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_a7ff52970c917af0f8b7f898b561000ef}{state}};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00048}\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_aad53a76affb6d101c1eb8db84c336723}{00048}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_aad53a76affb6d101c1eb8db84c336723}{codeKey}};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00049}\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_ae6bb0e49b1ece50bcaf54cc311b57694}{00049}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_ae6bb0e49b1ece50bcaf54cc311b57694}{codeKeyboard}};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00050}\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_a197720efe0a07b174a53fc9ee259e340}{00050}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\_KEYTYPE}}\ \mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_a197720efe0a07b174a53fc9ee259e340}{typeGamepadKey}};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00051}\mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_afdd9fb71a508f7bd7269c56583583bb1}{00051}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf_afdd9fb71a508f7bd7269c56583583bb1}{codeGamepad}};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a53bdda6e8d2bcf4a7eaf68d134d52f02}{MEKeyInputManager}}();}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00057}\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_adccb6b51fb62f4f688128c81aa6d3338}{00057}}\ \ \ \ \ \ \ \ \ std::vector<char>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_adccb6b51fb62f4f688128c81aa6d3338}{m\_statePrev}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00058}\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a2f5e4c7da0b1f6019f067c5c052e60ff}{00058}}\ \ \ \ \ \ \ \ \ std::vector<KeyInf>\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a2f5e4c7da0b1f6019f067c5c052e60ff}{m\_watchingKeyInfos}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00059}00059\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_key_input_manager_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_KeyInputManager\_\_}}
+
+\end{DoxyCode}
