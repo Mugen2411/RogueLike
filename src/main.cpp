@@ -21,7 +21,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	auto defFont = mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 
 	auto random = std::random_device();
-	magica_rogue::MRMapData mapData(64, 64, random());
+	magica_rogue::MRMapData mapData(256, 256, random());
 
 	int frame = 0;
 	enum KeyCode {

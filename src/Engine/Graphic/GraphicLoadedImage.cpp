@@ -89,6 +89,10 @@ namespace mugen_engine
 			OutputDebugStringA("out of range");
 			return;
 		}
+		if (x + m_width < 0) return;
+		if (x - m_width > MECore::GetIns().GetWindowWidth()) return;
+		if (y + m_height < 0) return;
+		if (y - m_height > MECore::GetIns().GetWindowHeight()) return;
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),
 			2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
@@ -118,6 +122,11 @@ namespace mugen_engine
 			OutputDebugStringA("out of range");
 			return;
 		}
+		if (x + m_width * scale < 0) return;
+		if (x - m_width * scale > MECore::GetIns().GetWindowWidth()) return;
+		if (y + m_height * scale < 0) return;
+		if (y - m_height * scale > MECore::GetIns().GetWindowHeight()) return;
+
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * scale / MECore::GetIns().GetWindowWidth(),
 			2.0f * scale / MECore::GetIns().GetWindowHeight(), 1.0f);
@@ -145,6 +154,10 @@ namespace mugen_engine
 			OutputDebugStringA("out of range");
 			return;
 		}
+		if (x + m_width * 2.0f < 0) return;
+		if (x - m_width * 2.0f > MECore::GetIns().GetWindowWidth()) return;
+		if (y + m_height * 2.0f < 0) return;
+		if (y - m_height * 2.0f > MECore::GetIns().GetWindowHeight()) return;
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * 2.0f / MECore::GetIns().GetWindowWidth(),
 			2.0f * 2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
@@ -174,6 +187,10 @@ namespace mugen_engine
 			OutputDebugStringA("out of range");
 			return;
 		}
+		if (x + m_width * scale * 2.0f < 0) return;
+		if (x - m_width * scale * 2.0f > MECore::GetIns().GetWindowWidth()) return;
+		if (y + m_height * scale * 2.0f < 0) return;
+		if (y - m_height * scale * 2.0f > MECore::GetIns().GetWindowHeight()) return;
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f * 2.0f * scale / MECore::GetIns().GetWindowWidth(),
 			2.0f * 2.0f * scale / MECore::GetIns().GetWindowHeight(), 1.0f);

@@ -18,7 +18,7 @@ namespace magica_rogue
 	*//***********************************************************************/
 	MRMapData::MRMapData(const int width, const int height, uint32_t seed) : m_width(width), m_height(height), m_random(seed)
 	{
-		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 8, 3);
+		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
 		m_font = &mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 		m_mapData.resize(height);
@@ -42,12 +42,13 @@ namespace magica_rogue
 	{
 		const int chipW = 32;
 		const int chipH = 64;
+		const float priority[2] = { 2.0f, 1.0f };
 		for (int y = 0; y < m_height; ++y)
 		{
 			for (int x = 0; x < m_width; ++x)
 			{
 				m_mapchipImg->DrawRotaGraph2X(chipW / 2 + chipW * x - cameraX, chipH / 2 + chipW * y - cameraY,
-					static_cast<float>(chipW) / 32, 0.0f, 2.0f, m_graphicData[y][x]);
+					static_cast<float>(chipW) / 32, 0.0f, priority[m_graphicData[y][x]], m_graphicData[y][x]);
 			}
 		}
 #ifdef _DEBUG
@@ -70,7 +71,7 @@ namespace magica_rogue
 		{
 			for (int x = 0; x < m_width; ++x)
 			{
-				int i = 0;
+				/*int i = 0;
 				if (m_mapData[y][x] == 1)
 				{
 					m_graphicData[y][x] = 16;
@@ -91,8 +92,8 @@ namespace magica_rogue
 				if (y == 0 || m_mapData[y - 1][x] == 1)
 				{
 					i |= 8;
-				}
-				m_graphicData[y][x] = i;
+				}*/
+				m_graphicData[y][x] = m_mapData[y][x];
 			}
 		}
 	}
