@@ -13,5 +13,7 @@ var searchData=
   ['meimage_10',['MEImage',['../classmugen__engine_1_1_m_e_image.html',1,'mugen_engine']]],
   ['mekeyinputmanager_11',['MEKeyInputManager',['../classmugen__engine_1_1_m_e_key_input_manager.html',1,'mugen_engine']]],
   ['mrmapdata_12',['MRMapData',['../classmagica__rogue_1_1_m_r_map_data.html',1,'magica_rogue']]],
-  ['mrrandom_13',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html',1,'magica_rogue']]]
+  ['mrplayer_13',['MRPlayer',['../classmagica__rogue_1_1_m_r_player.html',1,'magica_rogue']]],
+  ['mrrandom_14',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html',1,'magica_rogue']]],
+  ['mrtransform_15',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html',1,'magica_rogue']]]
 ];

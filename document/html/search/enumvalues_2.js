@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ltrigger_0',['LTrigger',['../classmugen__engine_1_1_m_e_key_input_manager.html#a66d05c62f4df68d6bdf57019524480dfac3b28f14adda15541f23ae21582f5e71',1,'mugen_engine::MEKeyInputManager']]]
+  ['haruna_0',['HARUNA',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a',1,'magica_rogue::MRPlayer']]]
 ];

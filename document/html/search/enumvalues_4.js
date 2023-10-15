@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sub_0',['SUB',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7',1,'mugen_engine::MEImage']]]
+  ['komuk_0',['KOMUK',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409',1,'magica_rogue::MRPlayer']]]
 ];

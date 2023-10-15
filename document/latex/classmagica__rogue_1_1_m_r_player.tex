@@ -1,0 +1,248 @@
+\doxysection{magica\+\_\+rogue\+::MRPlayer クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_player}{}\label{classmagica__rogue_1_1_m_r_player}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+
+
+操作出来る自機クラス  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+\doxysubsubsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}} \+: char \{ \newline
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7}{AKARI}} = 0
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e}{MAMI}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486}{YUKINA}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062}{REEZE}}
+, \newline
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c}{IOS}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3}{ISHIKI}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a}{HARUNA}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90}{MISATO}}
+, \newline
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397}{SSEL}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409}{KOMUK}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2}{AKIYO}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777}{OBORO}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a53405a879c8a82040d4e37fa627d5c99}{MRPlayer}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}} id, const float x, const float y)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{Render}} () const
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a6c76fd3faf4bf861cded116af459229b}{m\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em プレイヤー\+ID \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em 位置速度情報 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}{m\+\_\+player\+Img}}
+\begin{DoxyCompactList}\small\item\em プレイヤーのグラフィック \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+操作出来る自機クラス 
+
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{列挙型メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!PLAYER\_ID@{PLAYER\_ID}}
+\index{PLAYER\_ID@{PLAYER\_ID}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{PLAYER\_ID}{PLAYER\_ID}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{magica\+\_\+rogue\+::\+MRPlayer\+::\+PLAYER\+\_\+\+ID}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AKARI@{AKARI}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!AKARI@{AKARI}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7} 
+AKARI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAMI@{MAMI}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!MAMI@{MAMI}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e} 
+MAMI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YUKINA@{YUKINA}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!YUKINA@{YUKINA}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486} 
+YUKINA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REEZE@{REEZE}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!REEZE@{REEZE}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062} 
+REEZE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOS@{IOS}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!IOS@{IOS}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c} 
+IOS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISHIKI@{ISHIKI}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!ISHIKI@{ISHIKI}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3} 
+ISHIKI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HARUNA@{HARUNA}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!HARUNA@{HARUNA}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a} 
+HARUNA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISATO@{MISATO}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!MISATO@{MISATO}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90} 
+MISATO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSEL@{SSEL}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!SSEL@{SSEL}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397} 
+SSEL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KOMUK@{KOMUK}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!KOMUK@{KOMUK}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409} 
+KOMUK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AKIYO@{AKIYO}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!AKIYO@{AKIYO}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2} 
+AKIYO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBORO@{OBORO}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!OBORO@{OBORO}}}\Hypertarget{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777}\label{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777} 
+OBORO&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00019}{19}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a53405a879c8a82040d4e37fa627d5c99}\label{classmagica__rogue_1_1_m_r_player_a53405a879c8a82040d4e37fa627d5c99} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!MRPlayer@{MRPlayer}}
+\index{MRPlayer@{MRPlayer}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{MRPlayer()}{MRPlayer()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRPlayer\+::\+MRPlayer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}}}]{id,  }\item[{const float}]{x,  }\item[{const float}]{y }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em id} & プレイヤー\+ID \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y座標 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}\label{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+描画 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00065}{65}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}\label{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+更新 
+
+情報を更新
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00055}{55}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a6c76fd3faf4bf861cded116af459229b}\label{classmagica__rogue_1_1_m_r_player_a6c76fd3faf4bf861cded116af459229b} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_id@{m\_id}}
+\index{m\_id@{m\_id}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{m\_id}{m\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}} magica\+\_\+rogue\+::\+MRPlayer\+::m\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+プレイヤー\+ID 
+
+
+
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}\label{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_playerImg@{m\_playerImg}}
+\index{m\_playerImg@{m\_playerImg}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{m\_playerImg}{m\_playerImg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}}\texorpdfstring{$\ast$}{*} magica\+\_\+rogue\+::\+MRPlayer\+::m\+\_\+player\+Img\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+プレイヤーのグラフィック 
+
+
+
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00033}{33}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}\label{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_transform@{m\_transform}}
+\index{m\_transform@{m\_transform}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{m\_transform}{m\_transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} magica\+\_\+rogue\+::\+MRPlayer\+::m\+\_\+transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+位置速度情報 
+
+
+
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00032}{32}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Mover/\+Player/\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+Mover/\+Player/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}
