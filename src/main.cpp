@@ -17,6 +17,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	mugen_engine::MECore::GetIns().LoadFont("gothic", L"ノスタルドット（M+）", 64);
 
 	auto gothicFont = mugen_engine::MECore::GetIns().GetFont("gothic");
+	auto defFont = mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 
 	auto random = std::random_device();
 	magica_rogue::MRMapData mapData(720 / 8, 720 / 8, random());
@@ -30,7 +31,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		mapData.Render(0, 0);
 
 		float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		gothicFont.DrawFormatString(0, 720 - 128, color, -99.0, L"frame: %d", frame);
+		defFont.DrawFormatString(100, 720 - 32, color, -99.0, L"frame: %d", frame);
 		fps.Draw();
 		mugen_engine::MECore::GetIns().ScreenFlip();
 		fps.Update();

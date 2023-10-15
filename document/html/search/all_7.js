@@ -3,7 +3,7 @@ var searchData=
   ['g_0',['G',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html#a9147852e4450e3af3854f173b5161dc2',1,'mugen_engine::MEGraphicCharacterUnit::TexRGBA']]],
   ['getcommandlist_1',['GetCommandList',['../classmugen__engine_1_1_m_e_graphic_command_list.html#a5a1e2cc2bc3bca3eddec5081531e5113',1,'mugen_engine::MEGraphicCommandList']]],
   ['getcommandqueue_2',['GetCommandQueue',['../classmugen__engine_1_1_m_e_graphic_command_list.html#aaff754f77faa1422294f88812c5fff86',1,'mugen_engine::MEGraphicCommandList']]],
-  ['getdevice_3',['GetDevice',['../classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25',1,'mugen_engine::MEGraphicDevice']]],
+  ['getdevice_3',['getdevice',['../classmagica__rogue_1_1_m_r_random.html#a20e0b942972f90a014e0a758ff2e4367',1,'magica_rogue::MRRandom::GetDevice()'],['../classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25',1,'mugen_engine::MEGraphicDevice::GetDevice() const']]],
   ['getfactory_4',['GetFactory',['../classmugen__engine_1_1_m_e_graphic_device.html#a4e58f27436b87b8c4429ede419217767',1,'mugen_engine::MEGraphicDevice']]],
   ['getfont_5',['GetFont',['../classmugen__engine_1_1_m_e_core.html#ab8640f01f6f1b28722ff35a68a4b2b15',1,'mugen_engine::MECore']]],
   ['getgraph_6',['GetGraph',['../classmugen__engine_1_1_m_e_core.html#aa82d2e31f5d5aa651347a7dac9cf73e5',1,'mugen_engine::MECore']]],

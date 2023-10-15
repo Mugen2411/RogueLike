@@ -19,6 +19,10 @@ namespace magica_rogue
 		MRRandom(uint32_t seed);
 		//! 最小値と最大値を指定して乱数を取得
 		uint32_t GetRanged(uint32_t minimum, uint32_t maximum);
+		//! デバイスを返す
+		std::mt19937& GetDevice(){
+			return m_engine;
+		}
 	private:
 		std::mt19937 m_engine;					//!< 乱数を生成するデバイス(メルセンヌツイスタ)
 	};
