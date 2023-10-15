@@ -108,31 +108,38 @@ namespace magica_rogue
 	void MRMapData::_DivideRooms()
 	{
 		const int room_margin = 3;
-		const int room_minimum = 6;
+		const int room_minimum = 9;
 		const int divide_margin = room_minimum + room_margin * 2 + 2;
 		const int radius_path = 1;
 		std::vector<ROOM_NODE> roomList;
 
-		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
+		if (m_width < divide_margin * 2 || m_height < divide_margin * 2)
 		{
 			OutputDebugString(L"map size too small");
 			return;
 		}
 
 		// •”‰®‚ÌŠ„‚è•û‚ðŒˆ‚ß‚é
-		int xNum = m_random.GetRanged(max(3, m_width / divide_margin - 3), m_width / divide_margin);
-		int yNum = m_random.GetRanged(max(3, m_height / divide_margin - 3), m_height / divide_margin);
+		int xNum = m_random.GetRanged(max(2, m_width / divide_margin - 3), m_width / divide_margin);
+		int yNum = m_random.GetRanged(max(2, m_height / divide_margin - 3), m_height / divide_margin);
 
+		uint32_t yetElement = xNum * yNum;
+		uint32_t yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(6, 8)) / 10.0f);
 		for (int y = 0; y < yNum; ++y)
 		{
 			for (int x = 0; x < xNum; ++x)
 			{
-				int r = m_random.GetRanged(0, 99);
-				int u = 1;
-				if (r > 72)
+				int u = 0;
+				if (m_random.GetRanged(0, yetElement) <= yetRoom)
+				{
+					u = 1;
+					--yetRoom;
+				}
+				else
 				{
 					u = 2;
 				}
+				--yetElement;
 				roomList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, u));
 			}
 		}
@@ -313,11 +320,6 @@ namespace magica_rogue
 
 		for (int i = 0; i < roomList.size(); ++i)
 		{
-			if (m_random.GetRanged(0, 15) == 0)
-			{
-				connect[i] = -1;
-				continue;
-			}
 			int x = i % xNum;
 			int y = i / xNum;
 			std::vector<int> reserve;
@@ -340,13 +342,21 @@ namespace magica_rogue
 			std::shuffle(reserve.begin(), reserve.end(), m_random.GetDevice());
 			for (auto& r : reserve)
 			{
-				if (connect[i] != r)
+				if (connect[i] != r && connect[connect[r]] != i)
 				{
 					connect[i] = r;
 					break;
 				}
 			}
 			reserve.clear();
+		}
+
+		for (int i = 0; i < roomList.size(); ++i)
+		{
+			if (m_random.GetRanged(0, 7) != 0)
+			{
+				connect[i] = -1;
+			}
 		}
 
 		makePathes();
