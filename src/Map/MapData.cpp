@@ -105,9 +105,9 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRMapData::_DivideRooms()
 	{
-		const int room_margin = 5;
-		const int room_minimum = 8;
-		const int divide_margin = room_minimum + room_margin * 2 + 1;
+		const int room_margin = 3;
+		const int room_minimum = 6;
+		const int divide_margin = room_minimum + room_margin * 2 + 2;
 		const int radius_path = 1;
 		std::vector<ROOM_NODE> roomList;
 
