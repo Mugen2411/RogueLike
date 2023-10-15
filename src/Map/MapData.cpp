@@ -105,9 +105,10 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRMapData::_DivideRooms()
 	{
-		const int room_margin = 4;
-		const int room_minimum = 6;
-		const int divide_margin = room_minimum + room_margin * 2 + 3;
+		const int room_margin = 5;
+		const int room_minimum = 8;
+		const int divide_margin = room_minimum + room_margin * 2 + 1;
+		const int radius_path = 1;
 		std::vector<ROOM_NODE> roomList;
 
 		// •”‰®‚ÌŠ„‚è•û‚ðŒˆ‚ß‚é
@@ -235,67 +236,111 @@ namespace magica_rogue
 		}
 
 		auto fill3X3 = [&](int Y, int X) {
-			for (int y = max(0, Y - 1); y <= min(Y + 1, m_height - 1); ++y)
+			for (int y = max(0, Y - radius_path); y <= min(Y + radius_path, m_height - 1); ++y)
 			{
-				for (int x = max(0, X - 1); x <= min(X + 1, m_width - 1); ++x)
+				for (int x = max(0, X - radius_path); x <= min(X + radius_path, m_width - 1); ++x)
 				{
 					m_mapData[y][x] = 0;
 				}
 			}
 			};
+		auto makePathes = [&]() {
+			for (int i = 0; i < roomList.size(); ++i)
+			{
+				if (connect[i] == -1)continue;
+				// ’Ê˜H‚ÉŒŠ‚ð‚ ‚¯‚é
+				int fromX = i % xNum;
+				int fromY = i / xNum;
+				int toX = connect[i] % xNum;
+				int toY = connect[i] / xNum;
+
+				//Ú‘±æ‚ª‰¡‚É‚ ‚éŽž
+				if (fromY == toY)
+				{
+					int wallX = (fromX > toX) ? m_random.GetRanged(roomList[connect[i]].bottomX + room_margin, roomList[i].topX - room_margin) :
+						m_random.GetRanged(roomList[i].bottomX - room_margin, roomList[connect[i]].topX + room_margin);
+					int beginY = (roomList[i].bottomY - roomList[i].topY == 1) ? roomList[i].topY :
+						m_random.GetRanged(roomList[i].topY + radius_path, roomList[i].bottomY - radius_path - 1);
+					int endY = (roomList[connect[i]].bottomY - roomList[connect[i]].topY == 1) ? roomList[connect[i]].topY :
+						m_random.GetRanged(roomList[connect[i]].topY + radius_path, roomList[connect[i]].bottomY - radius_path - 1);
+					for (int x = min(roomList[connect[i]].bottomX - radius_path, wallX); x < max(roomList[connect[i]].bottomX - radius_path, wallX); ++x)
+					{
+						fill3X3(endY, x);
+					}
+					for (int x = min(wallX, roomList[i].topX + radius_path); x < max(wallX, roomList[i].topX + radius_path); ++x)
+					{
+						fill3X3(beginY, x);
+					}
+					for (int y = min(beginY, endY); y <= max(beginY, endY); ++y)
+					{
+						fill3X3(y, wallX);
+					}
+				}
+				//Ú‘±æ‚ªc‚É‚ ‚éŽž
+				if (fromX == toX)
+				{
+					int wallY = (fromY > toY) ? m_random.GetRanged(roomList[connect[i]].bottomY + room_margin, roomList[i].topY - room_margin) :
+						m_random.GetRanged(roomList[i].bottomY - room_margin, roomList[connect[i]].topY + room_margin);
+					int beginX = (roomList[i].bottomX - roomList[i].topX == 1) ? roomList[i].topX :
+						m_random.GetRanged(roomList[i].topX + radius_path, roomList[i].bottomX - radius_path - 1);
+					int endX = (roomList[connect[i]].bottomX - roomList[connect[i]].topX == 1) ? roomList[connect[i]].topX :
+						m_random.GetRanged(roomList[connect[i]].topX + radius_path, roomList[connect[i]].bottomX - radius_path - 1);
+					for (int y = min(roomList[connect[i]].bottomY - radius_path, wallY); y < max(roomList[connect[i]].bottomY - radius_path, wallY); ++y)
+					{
+						fill3X3(y, endX);
+					}
+					for (int y = min(wallY, roomList[i].topY + radius_path); y < max(wallY, roomList[i].topY + radius_path); ++y)
+					{
+						fill3X3(y, beginX);
+					}
+					for (int x = min(beginX, endX); x <= max(beginX, endX); ++x)
+					{
+						fill3X3(wallY, x);
+					}
+				}
+			}
+			};
+
+		makePathes();
+
 		for (int i = 0; i < roomList.size(); ++i)
 		{
-			if (connect[i] == -1)continue;
-			// ’Ê˜H‚ÉŒŠ‚ð‚ ‚¯‚é
-			int fromX = i % xNum;
-			int fromY = i / xNum;
-			int toX = connect[i] % xNum;
-			int toY = connect[i] / xNum;
-
-			//Ú‘±æ‚ª‰¡‚É‚ ‚éŽž
-			if (fromY == toY)
+			if (m_random.GetRanged(0, 15) == 0)
 			{
-				int wallX = (fromX > toX) ? m_random.GetRanged(roomList[connect[i]].bottomX + room_margin, roomList[i].topX - room_margin) :
-					m_random.GetRanged(roomList[i].bottomX - room_margin, roomList[connect[i]].topX + room_margin);
-				int beginY = (roomList[i].bottomY - roomList[i].topY == 1) ? roomList[i].topY :
-					m_random.GetRanged(roomList[i].topY + 1, roomList[i].bottomY - 1);
-				int endY = (roomList[connect[i]].bottomY - roomList[connect[i]].topY == 1) ? roomList[connect[i]].topY :
-					m_random.GetRanged(roomList[connect[i]].topY + 1, roomList[connect[i]].bottomY - 1);
-				for (int x = min(roomList[connect[i]].bottomX - 1, wallX); x < max(roomList[connect[i]].bottomX - 1, wallX); ++x)
+				connect[i] = -1;
+				continue;
+			}
+			int x = i % xNum;
+			int y = i / xNum;
+			std::vector<int> reserve;
+			if (x - 1 >= 0)
+			{
+				reserve.push_back(i - 1);
+			}
+			if (x + 1 < xNum)
+			{
+				reserve.push_back(i + 1);
+			}
+			if (y - 1 >= 0 && connect[i - xNum] == -1)
+			{
+				reserve.push_back(i - xNum);
+			}
+			if (y + 1 < yNum && connect[i + xNum] == -1)
+			{
+				reserve.push_back(i + xNum);
+			}
+			std::shuffle(reserve.begin(), reserve.end(), m_random.GetDevice());
+			for (auto& r : reserve)
+			{
+				if (connect[i] != r)
 				{
-					fill3X3(endY, x);
-				}
-				for (int x = min(wallX, roomList[i].topX + 1); x < max(wallX, roomList[i].topX + 1); ++x)
-				{
-					fill3X3(beginY, x);
-				}
-				for (int y = min(beginY, endY); y <= max(beginY, endY); ++y)
-				{
-					fill3X3(y, wallX);
+					connect[i] = r;
+					break;
 				}
 			}
-			//Ú‘±æ‚ªc‚É‚ ‚éŽž
-			if (fromX == toX)
-			{
-				int wallY = (fromY > toY) ? m_random.GetRanged(roomList[connect[i]].bottomY + room_margin, roomList[i].topY - room_margin) :
-					m_random.GetRanged(roomList[i].bottomY - room_margin, roomList[connect[i]].topY + room_margin);
-				int beginX = (roomList[i].bottomX - roomList[i].topX == 1) ? roomList[i].topX :
-					m_random.GetRanged(roomList[i].topX + 1, roomList[i].bottomX - 1);
-				int endX = (roomList[connect[i]].bottomX - roomList[connect[i]].topX == 1) ? roomList[connect[i]].topX :
-					m_random.GetRanged(roomList[connect[i]].topX + 1, roomList[connect[i]].bottomX - 1);
-				for (int y = min(roomList[connect[i]].bottomY - 1, wallY); y < max(roomList[connect[i]].bottomY - 1, wallY); ++y)
-				{
-					fill3X3(y, endX);
-				}
-				for (int y = min(wallY, roomList[i].topY + 1); y < max(wallY, roomList[i].topY + 1); ++y)
-				{
-					fill3X3(y, beginX);
-				}
-				for (int x = min(beginX, endX); x <= max(beginX, endX); ++x)
-				{
-					fill3X3(wallY, x);
-				}
-			}
+			reserve.clear();
 		}
+
+		makePathes();
 	}
 }
