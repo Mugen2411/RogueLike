@@ -154,6 +154,7 @@
     <ClCompile Include="src\Engine\Graphic\GraphicRenderQueue.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicRenderTarget.cpp" />
     <ClCompile Include="src\Engine\Graphic\GraphicLoadedImage.cpp" />
+    <ClCompile Include="src\Engine\Input\KeyInputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map\MapData.cpp" />
     <ClCompile Include="src\util\Random.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="src\Engine\Graphic\GraphicLoadedImage.h" />
     <ClInclude Include="src\Engine\Graphic\GraphicStruct.h" />
     <ClInclude Include="src\Engine\Fps.h" />
+    <ClInclude Include="src\Engine\Input\KeyInputManager.h" />
     <ClInclude Include="src\Map\MapData.h" />
     <ClInclude Include="src\util\Random.h" />
   </ItemGroup>

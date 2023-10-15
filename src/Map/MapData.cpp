@@ -43,21 +43,23 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRMapData::Render(const int cameraX, const int cameraY) const
 	{
-		const int chipW = 8;
-		const int chipH = 16;
+		const int chipW = 32;
+		const int chipH = 64;
 		for (int y = 0; y < m_height; ++y)
 		{
 			for (int x = 0; x < m_width; ++x)
 			{
-				m_mapchipImg->DrawRotaGraph(cameraX + chipW / 2 + chipW * x, cameraY + chipH / 2 + chipW * y,
+				m_mapchipImg->DrawRotaGraph2X(chipW / 2 + chipW * x - cameraX, chipH / 2 + chipW * y - cameraY,
 					static_cast<float>(chipW) / 32, 0.0f, 2.0f, m_graphicData[y][x]);
 			}
 		}
+#ifdef _DEBUG
 		float color[4] = { 0.0f, 1.0f, 1.0f, 1.0f };
 		for (auto& i : m_roomIndex)
 		{
-			m_font->DrawFormatString(cameraX + i.x * chipW, cameraY + i.y * chipW, color, 1.0f, L"%d", i.index);
+			m_font->DrawFormatString(i.x * chipW - cameraX, i.y * chipW - cameraY, color, 1.0f, L"%d", i.index);
 		}
+#endif
 	}
 
 	/**********************************************************************//**
@@ -110,6 +112,12 @@ namespace magica_rogue
 		const int divide_margin = room_minimum + room_margin * 2 + 2;
 		const int radius_path = 1;
 		std::vector<ROOM_NODE> roomList;
+
+		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
+		{
+			OutputDebugString(L"map size too small");
+			return;
+		}
 
 		// •”‰®‚ÌŠ„‚è•û‚ðŒˆ‚ß‚é
 		int xNum = m_random.GetRanged(max(3, m_width / divide_margin - 3), m_width / divide_margin);
