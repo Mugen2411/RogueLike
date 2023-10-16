@@ -42,10 +42,16 @@ namespace mugen_engine
 		void DrawGraph2X(int x, int y, float priority, int index = 0);
 		//! 2倍換算で座標と拡大率と回転角度を指定して描画
 		void DrawRotaGraph2X(int x, int y, float scale, float angle, float priority, int index = 0);
+		//! 自由に4頂点を指定して描画する
+		void DrawModiGraph(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index = 0);
+		//! 2倍換算で自由に4頂点を指定して描画する
+		void DrawModiGraph2X(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index = 0);
 		//! 画像描画時の輝度を設定する
 		void SetBrightness(const float R, const float G, const float B, const float A);
 		//! 画像描画時のブレンドタイプを設定する
 		void SetBlendType(BLEND_TYPE blendType);
+		//! 追加の頂点バッファをリセットする(普段は触らない！)
+		void ResetAdditionalVertexBuffer();
 		
 	private:
 		size_t m_width;												//!< 画像の横幅
@@ -55,6 +61,7 @@ namespace mugen_engine
 		VERTEX_DATA m_vertices[4];									//!< 板ポリゴンとして表示するための頂点
 		DirectX::XMFLOAT4 m_brightness;								//!< 輝度ベクトル
 		BLEND_TYPE m_blendType;										//!< ブレンドタイプ
+		MEGraphicDevice* m_pDevice;									//!< デバイス
 		MEGraphicCommandList* m_pCmdList;							//!< コマンドリスト
 		MEGraphicGpuResourceManager m_resourceManager;				//!< リソースマネージャー
 		MEGraphicPipeline* m_pPipeline;								//!< パイプライン

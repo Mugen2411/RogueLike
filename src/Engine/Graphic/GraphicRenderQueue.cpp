@@ -5,7 +5,7 @@ namespace mugen_engine
 {
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> MEGraphicRenderQueue::m_constantDescHeap = nullptr;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> MEGraphicRenderQueue::m_constantBuffers;
-	int MEGraphicRenderQueue::m_maxReserve = 0x1FFF;
+	int MEGraphicRenderQueue::m_maxReserve = 0x3FFF;
 	std::deque<MEGraphicRenderQueue::RENDER_DATA> MEGraphicRenderQueue::m_reserveList;
 	std::vector<const MEGraphicRenderQueue::RENDER_DATA*> MEGraphicRenderQueue::m_reservePointerList;
 	uint32_t MEGraphicRenderQueue::m_descriptorHeapIncrementSize = 0;
@@ -47,7 +47,7 @@ namespace mugen_engine
 		@param[in]		renderTarget		レンダーターゲット
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
+	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW vbView, CONSTANT_DATA constData,
 		MEGraphicGpuResourceManager* textureHeap, int blendType, float priority, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 		MEGraphicRenderTarget* renderTarget)
 	{
@@ -110,7 +110,7 @@ namespace mugen_engine
 				cmdList.GetCommandList()->SetGraphicsRootDescriptorTable(0, handle);
 
 				cmdList.GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-				cmdList.GetCommandList()->IASetVertexBuffers(0, 1, (*itr)->vertexBufferView);
+				cmdList.GetCommandList()->IASetVertexBuffers(0, 1, &(*itr)->vertexBufferView);
 				cmdList.GetCommandList()->DrawInstanced(4, 1, 0, 0);
 
 				handle.ptr += m_descriptorHeapIncrementSize * 2;

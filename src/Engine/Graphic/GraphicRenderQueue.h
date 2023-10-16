@@ -21,7 +21,7 @@ namespace mugen_engine
 		//! 初期化
 		static void Initialize(MEGraphicDevice& device);
 		//! 描画を予約する
-		static void ReserveRender(D3D12_VERTEX_BUFFER_VIEW* vbView, CONSTANT_DATA constData,
+		static void ReserveRender(D3D12_VERTEX_BUFFER_VIEW vbView, CONSTANT_DATA constData,
 			MEGraphicGpuResourceManager* textureHeap, int blendType, float priority, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 			MEGraphicRenderTarget* renderTarget);
 		//! 予約した描画を行う
@@ -33,7 +33,7 @@ namespace mugen_engine
 		*//***********************************************************************/
 		struct RENDER_DATA
 		{
-			D3D12_VERTEX_BUFFER_VIEW* vertexBufferView;			//!< 頂点バッファビュー
+			D3D12_VERTEX_BUFFER_VIEW vertexBufferView;			//!< 頂点バッファビュー
 			MEGraphicGpuResourceManager* textureHeap;			//!< テクスチャのディスクリプタヒープ
 			int blendType;										//!< ブレンドタイプ
 			CONSTANT_DATA constData;							//!< 定数データ

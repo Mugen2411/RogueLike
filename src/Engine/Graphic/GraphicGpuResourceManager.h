@@ -11,6 +11,7 @@
 #include <d3d12.h>
 #include <DirectXMath.h>
 #include <DirectXTex.h>
+#include <list>
 
 #include <wrl/client.h>
 
@@ -50,9 +51,9 @@ namespace mugen_engine
 		//! CPUで転送する
 		void UploadByCpu(uint8_t* srcData, size_t rowPitch, size_t height);
 		//! 頂点バッファビューを取得
-		D3D12_VERTEX_BUFFER_VIEW* GetVertexBufferView(uint32_t index)
+		D3D12_VERTEX_BUFFER_VIEW GetVertexBufferView(uint32_t index)
 		{
-			return &m_vertexBufferView[index];
+			return m_vertexBufferView[index];
 		}
 		//! テクスチャ用ヒープを取得
 		ID3D12DescriptorHeap* GetTextureHeap()
@@ -61,6 +62,14 @@ namespace mugen_engine
 		}
 		//! 頂点バッファの作成
 		void CreateVertexBuffer(size_t vertexNum, const MEGraphicDevice& device);
+		//! 追加の頂点バッファの作成
+		D3D12_VERTEX_BUFFER_VIEW CreateAdditionalVertexBuffer(int& vertexBufferIndex, size_t vertexNum, const MEGraphicDevice& device);
+		//! 追加の頂点データをバッファに書き込む
+		void UploadAdditionalVertexData(uint32_t index, VERTEX_DATA* vertices, size_t vertexNum);
+		//! 追加の頂点データをリセットする
+		void ResetAdditionalVertexBuffer() {
+			m_currerntAdditionalVertexBufferViewIndex = 0;
+		}
 	private:
 		//! 定数バッファを確保する
 		void _InitalizeConstantBuffer(const MEGraphicDevice& device);
@@ -79,6 +88,9 @@ namespace mugen_engine
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_vertexBuffer;			//!< 頂点バッファ
 		std::vector<D3D12_VERTEX_BUFFER_VIEW> m_vertexBufferView;					//!< 頂点バッファビュー
 		UINT m_numVertexBuffer;														//!< 頂点バッファの数
+		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_additionalVertexBuffer;	//!< 追加の頂点バッファ
+		UINT m_numAdditionalVertexBuffer;											//!< 追加の頂点バッファの数
+		UINT m_currerntAdditionalVertexBufferViewIndex;								//!< 次に割り当てる追加頂点バッファビュー
 	};
 }
 

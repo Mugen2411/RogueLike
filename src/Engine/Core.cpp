@@ -88,6 +88,11 @@ namespace mugen_engine
 		m_renderTarget.SetBarrierBeforePresent(m_commandList);
 		m_commandList.Execute();
 		m_renderTarget.Present();
+
+		for (auto& i : m_loadedImages)
+		{
+			i.second.ResetAdditionalVertexBuffer();
+		}
 	}
 
 	/**********************************************************************//**

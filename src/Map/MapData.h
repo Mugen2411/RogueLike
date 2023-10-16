@@ -25,6 +25,8 @@ namespace magica_rogue
 		MRMapData(const int width, const int height, uint32_t seed);
 		//! マップを描画
 		void Render(const MRCamera& camera) const;
+		//! ミニマップを描画
+		void RenderMiniMap()const;
 		//! プレイヤーの初期X座標を取得
 		float GetStartX() const {
 			return m_startX * 32.0f + 16.0f;
@@ -82,10 +84,12 @@ namespace magica_rogue
 
 		std::vector<std::vector<int>> m_mapData;			//!< マップデータ(壁=1, 床=0)
 		std::vector<std::vector<int>> m_graphicData;		//!< 表示に使う方向とか入ってる奴
+		std::vector<ROOM_NODE> roomList;					//!< 部屋リスト
 
 		float m_chipSize;									//!< マップチップの一辺の長さ
 
 		mugen_engine::MEImage* m_mapchipImg;				//!< マップチップの画像
+		mugen_engine::MEImage* m_minimapImg;				//!< ミニマップの画像
 		mugen_engine::MEFontData* m_font;					//!< フォントデータ
 
 		magica_rogue::MRRandom m_random;					//!< 乱数生成器

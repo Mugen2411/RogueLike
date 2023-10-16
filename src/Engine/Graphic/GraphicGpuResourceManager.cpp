@@ -264,6 +264,78 @@ namespace mugen_engine
 	}
 
 	/**********************************************************************//**
+		@brief			追加の頂点バッファを作成する
+		@param[in]		vertexNum					頂点の数(もし3D描画に対応するつもりならこれは画像の枚数だけ必要)
+		@param[in]		device						デバイス
+		@return			なし
+	*//***********************************************************************/
+	D3D12_VERTEX_BUFFER_VIEW MEGraphicGpuResourceManager::CreateAdditionalVertexBuffer(int& vertexBufferIndex, size_t vertexNum, const MEGraphicDevice& device)
+	{
+		if (m_currerntAdditionalVertexBufferViewIndex < m_additionalVertexBuffer.size())
+		{
+			D3D12_VERTEX_BUFFER_VIEW tmp = {};
+			tmp.BufferLocation = m_additionalVertexBuffer[m_currerntAdditionalVertexBufferViewIndex]->GetGPUVirtualAddress();
+			tmp.SizeInBytes = static_cast<UINT>(sizeof(VERTEX_DATA) * vertexNum);
+			tmp.StrideInBytes = sizeof(VERTEX_DATA);
+
+			vertexBufferIndex = m_currerntAdditionalVertexBufferViewIndex;
+
+			++m_currerntAdditionalVertexBufferViewIndex;
+
+			return tmp;
+		}
+		D3D12_HEAP_PROPERTIES heapprop = {};
+		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
+		heapprop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+		heapprop.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+
+		D3D12_RESOURCE_DESC resdesc = {};
+		resdesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+		resdesc.Width = sizeof(VERTEX_DATA) * vertexNum;
+		resdesc.Height = 1;
+		resdesc.DepthOrArraySize = 1;
+		resdesc.MipLevels = 1;
+		resdesc.Format = DXGI_FORMAT_UNKNOWN;
+		resdesc.SampleDesc.Count = 1;
+		resdesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		resdesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+		m_additionalVertexBuffer.push_back(nullptr);
+		auto result = device.GetDevice()->CreateCommittedResource(&heapprop, D3D12_HEAP_FLAG_NONE, &resdesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
+			IID_PPV_ARGS(m_additionalVertexBuffer[m_currerntAdditionalVertexBufferViewIndex].ReleaseAndGetAddressOf()));
+
+		D3D12_VERTEX_BUFFER_VIEW tmp = {};
+		tmp.BufferLocation = m_additionalVertexBuffer[m_currerntAdditionalVertexBufferViewIndex]->GetGPUVirtualAddress();
+		tmp.SizeInBytes = static_cast<UINT>(sizeof(VERTEX_DATA) * vertexNum);
+		tmp.StrideInBytes = sizeof(VERTEX_DATA);
+
+		vertexBufferIndex = m_currerntAdditionalVertexBufferViewIndex;
+
+		++m_currerntAdditionalVertexBufferViewIndex;
+
+		return tmp;
+	}
+
+	/**********************************************************************//**
+		@brief			追加の頂点データをバッファに書き込む
+		@param[in]		vertices					頂点データの先頭のポインタ
+		@param[in]		vertexNum					頂点の数
+		@return			なし
+	*//***********************************************************************/
+	void MEGraphicGpuResourceManager::UploadAdditionalVertexData(uint32_t index, VERTEX_DATA* vertices, size_t vertexNum)
+	{
+		VERTEX_DATA* vertMap = nullptr;
+		auto result = m_additionalVertexBuffer[index]->Map(0, nullptr, reinterpret_cast<void**>(&vertMap));
+		if (FAILED(result))
+		{
+			OutputDebugStringA("DX12 VertexBuffer Mapping Error.\n");
+		}
+		std::copy_n(vertices, vertexNum, vertMap);
+		m_additionalVertexBuffer[index]->Unmap(0, nullptr);
+	}
+
+	/**********************************************************************//**
 		@brief			テクスチャデータを転送する
 		@param[in]		metadata					画像のメタデータ
 		@param[in]		rowPitch					画像データの行単位のサイズ

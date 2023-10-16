@@ -14,7 +14,7 @@ struct \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e
 \item 
 static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a94c9e4b10ad9f04f87a517f85d868bfa}{Initialize}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
 \begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a8077cb7be0759d183b9e702027d4aac4}{Reserve\+Render}} (D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*}vb\+View, \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}} const\+Data, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*}texture\+Heap, int blend\+Type, float priority, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*}cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \texorpdfstring{$\ast$}{*}render\+Target)
+static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aed53caf0379a1008611962820dbede29}{Reserve\+Render}} (D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW vb\+View, \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}} const\+Data, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*}texture\+Heap, int blend\+Type, float priority, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*}cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \texorpdfstring{$\ast$}{*}render\+Target)
 \begin{DoxyCompactList}\small\item\em 描画を予約する \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a7d5acd8d695b20b11be0dd1b002ed694}{Render\+All}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&render\+Target)
 \begin{DoxyCompactList}\small\item\em 予約した描画を行う \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -32,7 +32,7 @@ static Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Descriptor\+Heap $>$ \mbox{
 \begin{DoxyCompactList}\small\item\em 定数用のディスクリプタヒープ \end{DoxyCompactList}\item 
 static std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a1398d17c4cd863c8a2a6cab4d00d1dde}{m\+\_\+constant\+Buffers}}
 \begin{DoxyCompactList}\small\item\em 定数バッファ \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\+\_\+max\+Reserve}} = 0x1\+FFF
+static int \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_a6a62f27aa1f97b85d509f3db78a2f795}{m\+\_\+max\+Reserve}} = 0x3\+FFF
 \begin{DoxyCompactList}\small\item\em 描画予約可能な最大数 \end{DoxyCompactList}\item 
 static std\+::deque$<$ \mbox{\hyperlink{structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a}{RENDER\+\_\+\+DATA}} $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_queue_aa4aaad4998e755cd161cad84d94207e7}{m\+\_\+reserve\+List}}
 \begin{DoxyCompactList}\small\item\em 描画予約キュー \end{DoxyCompactList}\item 
@@ -154,11 +154,11 @@ static std\+::vector$<$ \mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t
 
  \mbox{\hyperlink{_graphic_render_queue_8cpp_source}{Graphic\+Render\+Queue.\+cpp}} の \mbox{\hyperlink{_graphic_render_queue_8cpp_source_l00072}{72}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_a8077cb7be0759d183b9e702027d4aac4}\label{classmugen__engine_1_1_m_e_graphic_render_queue_a8077cb7be0759d183b9e702027d4aac4} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_render_queue_aed53caf0379a1008611962820dbede29}\label{classmugen__engine_1_1_m_e_graphic_render_queue_aed53caf0379a1008611962820dbede29} 
 \index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!ReserveRender@{ReserveRender}}
 \index{ReserveRender@{ReserveRender}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
 \doxysubsubsection{\texorpdfstring{ReserveRender()}{ReserveRender()}}
-{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+Reserve\+Render (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*}}]{vb\+View,  }\item[{\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}}}]{const\+Data,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*}}]{texture\+Heap,  }\item[{int}]{blend\+Type,  }\item[{float}]{priority,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*}}]{cmd\+List,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \texorpdfstring{$\ast$}{*}}]{render\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::\+Reserve\+Render (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW}]{vb\+View,  }\item[{\mbox{\hyperlink{structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a}{CONSTANT\+\_\+\+DATA}}}]{const\+Data,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \texorpdfstring{$\ast$}{*}}]{texture\+Heap,  }\item[{int}]{blend\+Type,  }\item[{float}]{priority,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*}}]{cmd\+List,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \texorpdfstring{$\ast$}{*}}]{render\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -237,7 +237,7 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 \index{mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}!m\_maxReserve@{m\_maxReserve}}
 \index{m\_maxReserve@{m\_maxReserve}!mugen\_engine::MEGraphicRenderQueue@{mugen\_engine::MEGraphicRenderQueue}}
 \doxysubsubsection{\texorpdfstring{m\_maxReserve}{m\_maxReserve}}
-{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+max\+Reserve = 0x1\+FFF\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MEGraphic\+Render\+Queue\+::m\+\_\+max\+Reserve = 0x3\+FFF\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 

@@ -29,10 +29,10 @@ namespace mugen_engine
 		@return			なし
 	*//***********************************************************************/
 	MEImage::MEImage(const std::wstring& filepath,
-		MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum,MEGraphicCommandList& cmdList,
+		MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum, MEGraphicCommandList& cmdList,
 		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
 		m_width(0), m_height(0), m_xDivideNum(xDivideNum), m_yDivideNum(yDivideNum),
-		m_brightness(1.0f, 1.0f, 1.0f, 1.0f), m_pCmdList(&cmdList),
+		m_brightness(1.0f, 1.0f, 1.0f, 1.0f), m_pDevice(&device), m_pCmdList(&cmdList),
 		m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget), m_blendType(BLEND_TYPE::ALPHA)
 	{
 		DirectX::TexMetadata metadata = {};
@@ -45,14 +45,14 @@ namespace mugen_engine
 		m_width = metadata.width / xDivideNum;
 		m_height = metadata.height / yDivideNum;
 
-		m_vertices[0] = {{ -static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f }, { 0.0f, 1.0f }};
+		m_vertices[0] = { { -static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f }, { 0.0f, 1.0f } };
 		m_vertices[1] = { {-static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{0.0f, 0.0f} };
 		m_vertices[2] = { { static_cast<float>(m_width) / 2,-static_cast<float>(m_height) / 2, 0.0f},{1.0f, 1.0f} };
 		m_vertices[3] = { { static_cast<float>(m_width) / 2, static_cast<float>(m_height) / 2, 0.0f},{1.0f, 0.0f} };
 
 		m_resourceManager.Initialize(device, static_cast<UINT>(xDivideNum * yDivideNum));
 
-		for(int index = 0; index < xDivideNum * yDivideNum; ++index)
+		for (int index = 0; index < xDivideNum * yDivideNum; ++index)
 		{
 			m_vertices[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
 				1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
@@ -84,7 +84,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MEImage::DrawGraph(int x, int y, float priority, int index)
 	{
-		if(index >= m_xDivideNum * m_yDivideNum)
+		if (index >= m_xDivideNum * m_yDivideNum)
 		{
 			OutputDebugStringA("out of range");
 			return;
@@ -117,7 +117,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MEImage::DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index)
 	{
-		if(index >= m_xDivideNum * m_yDivideNum)
+		if (index >= m_xDivideNum * m_yDivideNum)
 		{
 			OutputDebugStringA("out of range");
 			return;
@@ -136,7 +136,7 @@ namespace mugen_engine
 		constData.rotateMatrix = DirectX::XMMatrixRotationZ(angle);
 		constData.brightness = m_brightness;
 
-		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData, 
+		MEGraphicRenderQueue::ReserveRender(m_resourceManager.GetVertexBufferView(index), constData,
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
@@ -205,6 +205,94 @@ namespace mugen_engine
 	}
 
 	/**********************************************************************//**
+		@brief			自由に4頂点を指定して描画
+		@param[in]		x					描画する中心のX座標
+		@return			なし
+	*//***********************************************************************/
+	void MEImage::DrawModiGraph(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index)
+	{
+		if (index >= m_xDivideNum * m_yDivideNum)
+		{
+			OutputDebugStringA("out of range");
+			return;
+		}
+
+		CONSTANT_DATA constData = {};
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),
+			2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
+		constData.moveMatrix = DirectX::XMMatrixIdentity();
+		constData.rotateMatrix = DirectX::XMMatrixIdentity();
+		constData.brightness = m_brightness;
+
+		int ww = MECore::GetIns().GetWindowWidth() / 2;
+		int wh = MECore::GetIns().GetWindowHeight() / 2;
+		VERTEX_DATA tmp[4] = {};
+		tmp[0].pos = DirectX::XMFLOAT3(static_cast<float>(x0 - ww), static_cast<float>(-y0 + wh), 0.0f);
+		tmp[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		tmp[1].pos = DirectX::XMFLOAT3(static_cast<float>(x1 - ww), static_cast<float>(-y1 + wh), 0.0f);
+		tmp[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+		tmp[2].pos = DirectX::XMFLOAT3(static_cast<float>(x2 - ww), static_cast<float>(-y2 + wh), 0.0f);
+		tmp[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		tmp[3].pos = DirectX::XMFLOAT3(static_cast<float>(x3 - ww), static_cast<float>(-y3 + wh), 0.0f);
+		tmp[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+
+		int vertexBufferIndex = 0;
+		auto vbView = m_resourceManager.CreateAdditionalVertexBuffer(vertexBufferIndex, 4, *m_pDevice);
+		m_resourceManager.UploadAdditionalVertexData(vertexBufferIndex, tmp, 4);
+
+		MEGraphicRenderQueue::ReserveRender(vbView, constData,
+			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
+	}
+
+	/**********************************************************************//**
+		@brief			2倍換算で自由に4頂点を指定して描画
+		@param[in]		x					描画する中心のX座標
+		@return			なし
+	*//***********************************************************************/
+	void MEImage::DrawModiGraph2X(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index)
+	{
+		if (index >= m_xDivideNum * m_yDivideNum)
+		{
+			OutputDebugStringA("out of range");
+			return;
+		}
+
+		CONSTANT_DATA constData = {};
+		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),
+			2.0f / MECore::GetIns().GetWindowHeight(), 1.0f);
+		constData.moveMatrix = DirectX::XMMatrixIdentity();
+		constData.rotateMatrix = DirectX::XMMatrixIdentity();
+		constData.brightness = m_brightness;
+
+		int ww = MECore::GetIns().GetWindowWidth() / 2;
+		int wh = MECore::GetIns().GetWindowHeight() / 2;
+		VERTEX_DATA tmp[4] = {};
+		tmp[0].pos = DirectX::XMFLOAT3(static_cast<float>(x0 * 2 - ww), static_cast<float>(-y0 * 2 + wh), 0.0f);
+		tmp[0].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		tmp[1].pos = DirectX::XMFLOAT3(static_cast<float>(x1 * 2 - ww), static_cast<float>(-y1 * 2 + wh), 0.0f);
+		tmp[1].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+		tmp[2].pos = DirectX::XMFLOAT3(static_cast<float>(x2 * 2 - ww), static_cast<float>(-y2 * 2 + wh), 0.0f);
+		tmp[2].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum + 1));
+		tmp[3].pos = DirectX::XMFLOAT3(static_cast<float>(x3 * 2 - ww), static_cast<float>(-y3 * 2 + wh), 0.0f);
+		tmp[3].uv = DirectX::XMFLOAT2(1.0f / m_xDivideNum * (index % m_xDivideNum + 1),
+			1.0f / m_yDivideNum * static_cast<int>(index / m_xDivideNum));
+
+		int vertexBufferIndex = 0;
+		auto vbView = m_resourceManager.CreateAdditionalVertexBuffer(vertexBufferIndex, 4, *m_pDevice);
+		m_resourceManager.UploadAdditionalVertexData(vertexBufferIndex, tmp, 4);
+
+		MEGraphicRenderQueue::ReserveRender(vbView, constData,
+			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
+	}
+
+	/**********************************************************************//**
 		@brief			画像描画時の輝度を設定
 		@param[in]		R					赤
 		@param[in]		G					緑
@@ -225,5 +313,15 @@ namespace mugen_engine
 	void MEImage::SetBlendType(BLEND_TYPE blendType)
 	{
 		m_blendType = blendType;
+	}
+
+	/**********************************************************************//**
+		@brief			追加の頂点バッファをリセット
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MEImage::ResetAdditionalVertexBuffer()
+	{
+		m_resourceManager.ResetAdditionalVertexBuffer();
 	}
 }

@@ -36,12 +36,18 @@ void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a8
 \begin{DoxyCompactList}\small\item\em GPUにテクスチャデータをアップロードする \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a229f04c42b5f7def8ad7999e4ecfec49}{Upload\+By\+Cpu}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}src\+Data, size\+\_\+t row\+Pitch, size\+\_\+t height)
 \begin{DoxyCompactList}\small\item\em CPUで転送する \end{DoxyCompactList}\item 
-D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaceaf2ec5cef12d72f76c86da589f176}{Get\+Vertex\+Buffer\+View}} (uint32\+\_\+t index)
+D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5975faa5ec6615c97e1c07b1ec95893a}{Get\+Vertex\+Buffer\+View}} (uint32\+\_\+t index)
 \begin{DoxyCompactList}\small\item\em 頂点バッファビューを取得 \end{DoxyCompactList}\item 
 ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a85dcec4acd131d990c1be75ee3cb63c3}{Get\+Texture\+Heap}} ()
 \begin{DoxyCompactList}\small\item\em テクスチャ用ヒープを取得 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ac7aab3b4314e258a876c5249b485e4ca}{Create\+Vertex\+Buffer}} (size\+\_\+t vertex\+Num, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
-\begin{DoxyCompactList}\small\item\em 頂点バッファの作成 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 頂点バッファの作成 \end{DoxyCompactList}\item 
+D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a628babc668697ba5e2d114f488eb0a5d}{Create\+Additional\+Vertex\+Buffer}} (int \&vertex\+Buffer\+Index, size\+\_\+t vertex\+Num, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em 追加の頂点バッファの作成 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_abfa6bb090f502964048c8fbf41d80b79}{Upload\+Additional\+Vertex\+Data}} (uint32\+\_\+t index, \mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} \texorpdfstring{$\ast$}{*}vertices, size\+\_\+t vertex\+Num)
+\begin{DoxyCompactList}\small\item\em 追加の頂点データをバッファに書き込む \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a627a624bffa5e538d2b7116fceb44504}{Reset\+Additional\+Vertex\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em 追加の頂点データをリセットする \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
@@ -71,13 +77,19 @@ std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ 
 std\+::vector$<$ D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a365a5773e71c387daa5b42376a3c4058}{m\+\_\+vertex\+Buffer\+View}}
 \begin{DoxyCompactList}\small\item\em 頂点バッファビュー \end{DoxyCompactList}\item 
 UINT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a978af1874cf06946650057df61192d81}{m\+\_\+num\+Vertex\+Buffer}}
-\begin{DoxyCompactList}\small\item\em 頂点バッファの数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 頂点バッファの数 \end{DoxyCompactList}\item 
+std\+::vector$<$ Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ $>$ \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a0a74ca0d57fb31d49bc111537bd1e6f1}{m\+\_\+additional\+Vertex\+Buffer}}
+\begin{DoxyCompactList}\small\item\em 追加の頂点バッファ \end{DoxyCompactList}\item 
+UINT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a3262f906346415c6c7692e77c605678c}{m\+\_\+num\+Additional\+Vertex\+Buffer}}
+\begin{DoxyCompactList}\small\item\em 追加の頂点バッファの数 \end{DoxyCompactList}\item 
+UINT \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaf9cc78894feb6431749368636a6c11d}{m\+\_\+currernt\+Additional\+Vertex\+Buffer\+View\+Index}}
+\begin{DoxyCompactList}\small\item\em 次に割り当てる追加頂点バッファビュー \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 GPU資源を管理するクラス 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00023}{23}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00024}{24}} 行目に定義があります。
 
 
 
@@ -157,7 +169,7 @@ GPU資源を管理するクラス
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00340}{340}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00412}{412}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a15c0ac9fb35f01fd62c12a6cfecedb47}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a15c0ac9fb35f01fd62c12a6cfecedb47} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_InitalizeConstantBuffer@{\_InitalizeConstantBuffer}}
@@ -181,7 +193,7 @@ GPU資源を管理するクラス
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00309}{309}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00381}{381}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9f09697fa28224cbe93517adeb4b70fa}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9f09697fa28224cbe93517adeb4b70fa} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!\_SetBarrierBeforeUploadTexture@{\_SetBarrierBeforeUploadTexture}}
@@ -206,6 +218,32 @@ GPU資源を管理するクラス
 
 
  \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00216}{216}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a628babc668697ba5e2d114f488eb0a5d}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a628babc668697ba5e2d114f488eb0a5d} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!CreateAdditionalVertexBuffer@{CreateAdditionalVertexBuffer}}
+\index{CreateAdditionalVertexBuffer@{CreateAdditionalVertexBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{CreateAdditionalVertexBuffer()}{CreateAdditionalVertexBuffer()}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Create\+Additional\+Vertex\+Buffer (\begin{DoxyParamCaption}\item[{int \&}]{vertex\+Buffer\+Index,  }\item[{size\+\_\+t}]{vertex\+Num,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device }\end{DoxyParamCaption})}
+
+
+
+追加の頂点バッファの作成 
+
+追加の頂点バッファを作成する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em vertex\+Num} & 頂点の数(もし3\+D描画に対応するつもりならこれは画像の枚数だけ必要) \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00272}{272}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae1a25f50192f4a47df95f85d9420bf19}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_ae1a25f50192f4a47df95f85d9420bf19} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!CreateSrv@{CreateSrv}}
@@ -295,13 +333,13 @@ GPU資源を管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00058}{58}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00059}{59}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaceaf2ec5cef12d72f76c86da589f176}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaceaf2ec5cef12d72f76c86da589f176} 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5975faa5ec6615c97e1c07b1ec95893a}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a5975faa5ec6615c97e1c07b1ec95893a} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!GetVertexBufferView@{GetVertexBufferView}}
 \index{GetVertexBufferView@{GetVertexBufferView}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
 \doxysubsubsection{\texorpdfstring{GetVertexBufferView()}{GetVertexBufferView()}}
-{\footnotesize\ttfamily D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Get\+Vertex\+Buffer\+View (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Get\+Vertex\+Buffer\+View (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -309,7 +347,7 @@ GPU資源を管理するクラス
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00053}{53}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00054}{54}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a18292f9a7bd0b28e3e3c3dd0ac7a7266}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a18292f9a7bd0b28e3e3c3dd0ac7a7266} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!Initialize@{Initialize}}
@@ -332,6 +370,20 @@ GPU資源を管理するクラス
 
 
  \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00021}{21}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a627a624bffa5e538d2b7116fceb44504}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a627a624bffa5e538d2b7116fceb44504} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!ResetAdditionalVertexBuffer@{ResetAdditionalVertexBuffer}}
+\index{ResetAdditionalVertexBuffer@{ResetAdditionalVertexBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{ResetAdditionalVertexBuffer()}{ResetAdditionalVertexBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Reset\+Additional\+Vertex\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+追加の頂点データをリセットする 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00070}{70}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a71d9e52f9453da796cb23ccc2ae189e9}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a71d9e52f9453da796cb23ccc2ae189e9} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!ResetUploadBuffer@{ResetUploadBuffer}}
@@ -393,6 +445,30 @@ GPUリソースをコマンドリストに設定する
 
 描画対象としてセットする 
 
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_abfa6bb090f502964048c8fbf41d80b79}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_abfa6bb090f502964048c8fbf41d80b79} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!UploadAdditionalVertexData@{UploadAdditionalVertexData}}
+\index{UploadAdditionalVertexData@{UploadAdditionalVertexData}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{UploadAdditionalVertexData()}{UploadAdditionalVertexData()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::\+Upload\+Additional\+Vertex\+Data (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{index,  }\item[{\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} \texorpdfstring{$\ast$}{*}}]{vertices,  }\item[{size\+\_\+t}]{vertex\+Num }\end{DoxyParamCaption})}
+
+
+
+追加の頂点データをバッファに書き込む 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em vertices} & 頂点データの先頭のポインタ \\
+\hline
+\mbox{\texttt{ in}}  & {\em vertex\+Num} & 頂点の数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00326}{326}} 行目に定義があります。
+
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a229f04c42b5f7def8ad7999e4ecfec49}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a229f04c42b5f7def8ad7999e4ecfec49} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!UploadByCpu@{UploadByCpu}}
 \index{UploadByCpu@{UploadByCpu}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
@@ -405,7 +481,7 @@ CPUで転送する
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00298}{298}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00370}{370}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a310937dd9ea610b80e02a2eb4c34a718}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a310937dd9ea610b80e02a2eb4c34a718} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!UploadConstantData@{UploadConstantData}}
@@ -487,7 +563,7 @@ GPUにテクスチャデータをアップロードする
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00274}{274}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source}{Graphic\+Gpu\+Resource\+Manager.\+cpp}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8cpp_source_l00346}{346}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a91c18fd82dd79bf21e337ae1d0651fe1}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a91c18fd82dd79bf21e337ae1d0651fe1} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!UploadVertexData@{UploadVertexData}}
@@ -516,6 +592,20 @@ GPUにテクスチャデータをアップロードする
 
 
 \doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a0a74ca0d57fb31d49bc111537bd1e6f1}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a0a74ca0d57fb31d49bc111537bd1e6f1} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_additionalVertexBuffer@{m\_additionalVertexBuffer}}
+\index{m\_additionalVertexBuffer@{m\_additionalVertexBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_additionalVertexBuffer}{m\_additionalVertexBuffer}}
+{\footnotesize\ttfamily std\+::vector$<$Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ID3\+D12\+Resource$>$ $>$ mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+additional\+Vertex\+Buffer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+追加の頂点バッファ 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00091}{91}} 行目に定義があります。
+
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a20b9ae2601adabc5901ced7ce868e2a0} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_basicDescHeap@{m\_basicDescHeap}}
 \index{m\_basicDescHeap@{m\_basicDescHeap}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
@@ -528,7 +618,7 @@ GPUにテクスチャデータをアップロードする
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00074}{74}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00083}{83}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afdea5e03dd311e300cf4e36279dbd44d}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_afdea5e03dd311e300cf4e36279dbd44d} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_constantBuffer@{m\_constantBuffer}}
@@ -542,7 +632,21 @@ GPUにテクスチャデータをアップロードする
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00077}{77}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00086}{86}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaf9cc78894feb6431749368636a6c11d}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aaf9cc78894feb6431749368636a6c11d} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_currerntAdditionalVertexBufferViewIndex@{m\_currerntAdditionalVertexBufferViewIndex}}
+\index{m\_currerntAdditionalVertexBufferViewIndex@{m\_currerntAdditionalVertexBufferViewIndex}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_currerntAdditionalVertexBufferViewIndex}{m\_currerntAdditionalVertexBufferViewIndex}}
+{\footnotesize\ttfamily UINT mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+currernt\+Additional\+Vertex\+Buffer\+View\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+次に割り当てる追加頂点バッファビュー 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00093}{93}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a76e30fd11089bed1e2638f03929ed0aa} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_descriptorHeapIncrementSize@{m\_descriptorHeapIncrementSize}}
@@ -556,7 +660,21 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00075}{75}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00084}{84}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a3262f906346415c6c7692e77c605678c}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a3262f906346415c6c7692e77c605678c} 
+\index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_numAdditionalVertexBuffer@{m\_numAdditionalVertexBuffer}}
+\index{m\_numAdditionalVertexBuffer@{m\_numAdditionalVertexBuffer}!mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}}
+\doxysubsubsection{\texorpdfstring{m\_numAdditionalVertexBuffer}{m\_numAdditionalVertexBuffer}}
+{\footnotesize\ttfamily UINT mugen\+\_\+engine\+::\+MEGraphic\+Gpu\+Resource\+Manager\+::m\+\_\+num\+Additional\+Vertex\+Buffer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+追加の頂点バッファの数 
+
+
+
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00092}{92}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a978af1874cf06946650057df61192d81}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a978af1874cf06946650057df61192d81} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_numVertexBuffer@{m\_numVertexBuffer}}
@@ -570,7 +688,7 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00081}{81}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00090}{90}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9594ccc411095fee7a46de6edbdb3cdc}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a9594ccc411095fee7a46de6edbdb3cdc} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_textureBuffer@{m\_textureBuffer}}
@@ -584,7 +702,7 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00076}{76}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00085}{85}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a602b51e4b906a61222b0835e56be32de} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_uploadBuffer@{m\_uploadBuffer}}
@@ -598,7 +716,7 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00078}{78}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00087}{87}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aec79e1aae913f8ff8097e6e3fa8694f8}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_aec79e1aae913f8ff8097e6e3fa8694f8} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_vertexBuffer@{m\_vertexBuffer}}
@@ -612,7 +730,7 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00079}{79}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00088}{88}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a365a5773e71c387daa5b42376a3c4058}\label{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager_a365a5773e71c387daa5b42376a3c4058} 
 \index{mugen\_engine::MEGraphicGpuResourceManager@{mugen\_engine::MEGraphicGpuResourceManager}!m\_vertexBufferView@{m\_vertexBufferView}}
@@ -626,7 +744,7 @@ SRVと\+CBVにおけるディスクリプタヒープ上のサイズ
 
 
 
- \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00080}{80}} 行目に定義があります。
+ \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source}{Graphic\+Gpu\+Resource\+Manager.\+h}} の \mbox{\hyperlink{_graphic_gpu_resource_manager_8h_source_l00089}{89}} 行目に定義があります。
 
 
 

@@ -20,7 +20,10 @@ namespace magica_rogue
 		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
+		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 2, 1);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
+		m_minimapImg = &mugen_engine::MECore::GetIns().GetGraph("minimap");
+		m_minimapImg->SetBrightness(1.0f, 1.0f, 1.0f, 0.5f);
 		m_font = &mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 		m_mapData.resize(height);
 		m_graphicData.resize(height);
@@ -35,8 +38,7 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			マップを描画する
-		@param[in]		cameraX				マップの左上を合わせるX座標
-		@param[in]		cameraY				マップの左上を合わせるY座標
+		@param[in]		camera				カメラ
 		@return			なし
 	*//***********************************************************************/
 	void MRMapData::Render(const MRCamera& camera) const
@@ -61,6 +63,20 @@ namespace magica_rogue
 				camera.GetAnchoredY(i.y * chipW), color, 1.0f, L"%d", i.index);
 		}
 #endif
+	}
+
+	/**********************************************************************//**
+		@brief			ミニマップを描画する
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::RenderMiniMap() const
+	{
+		for (auto& r : roomList)
+		{
+			if (r.usedFor != 1) continue;
+			m_minimapImg->DrawModiGraph2X(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY, -0.1f, 0);
+		}
 	}
 
 	/**********************************************************************//**
@@ -266,7 +282,7 @@ namespace magica_rogue
 		const int room_minimum = 6;
 		const int divide_margin = room_minimum + room_margin * 2 + 4;
 		const int radius_path = 1;
-		std::vector<ROOM_NODE> roomList;
+		//std::vector<ROOM_NODE> roomList;
 
 		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
 		{
