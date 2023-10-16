@@ -122,6 +122,6 @@ namespace magica_rogue
 	void MRPlayer::Render() const
 	{
 		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
-			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, 0.0f, 4);
+			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, 0.0f, 0);
 	}
 }
