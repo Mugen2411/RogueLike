@@ -213,7 +213,7 @@ namespace mugen_engine
 		AdjustWindowRect(&wrc, WS_OVERLAPPEDWINDOW, false);
 
 		m_windowHandle = CreateWindow(m_windowClass.lpszClassName, m_windowTitle.c_str(),
-			WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
+			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME, CW_USEDEFAULT, CW_USEDEFAULT,
 			wrc.right - wrc.left, wrc.bottom - wrc.top,
 			nullptr, nullptr, m_windowClass.hInstance, nullptr);
 

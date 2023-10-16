@@ -20,29 +20,41 @@ namespace magica_rogue
 		switch (id)
 		{
 		case PLAYER_ID::AKARI:
+			m_speed = 2.8f;
 			break;
 		case PLAYER_ID::MAMI:
+			m_speed = 2.5f;
 			break;
 		case PLAYER_ID::YUKINA:
+			m_speed = 2.2f;
 			break;
 		case PLAYER_ID::REEZE:
+			m_speed = 3.2f;
 			break;
 		case PLAYER_ID::IOS:
+			m_speed = 2.4f;
 			break;
 		case PLAYER_ID::ISHIKI:
+			m_speed = 2.4f;
 			break;
 		case PLAYER_ID::HARUNA:
+			m_speed = 3.5f;
 			break;
 		case PLAYER_ID::MISATO:
+			m_speed = 2.4f;
 			break;
 		case PLAYER_ID::SSEL:
+			m_speed = 2.7f;
 			break;
 		case PLAYER_ID::KOMUK:
 			mugen_engine::MECore::GetIns().LoadDivGraph("player", L"media/graphic/player/komuk.png", 4, 4);
+			m_speed = 3.0f;
 			break;
 		case PLAYER_ID::AKIYO:
+			m_speed = 3.0f;
 			break;
 		case PLAYER_ID::OBORO:
+			m_speed = 2.8f;
 			break;
 		}
 
@@ -62,22 +74,22 @@ namespace magica_rogue
 		float vy = 0.0f;
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::RIGHT) > 0)
 		{
-			vx += 4.0f;
+			vx += m_speed;
 			++numPushedButton;
 		}
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::LEFT) > 0)
 		{
-			vx -= 4.0f;
+			vx -= m_speed;
 			++numPushedButton;
 		}
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::DOWN) > 0)
 		{
-			vy += 4.0f;
+			vy += m_speed;
 			++numPushedButton;
 		}
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::UP) > 0)
 		{
-			vy -= 4.0f;
+			vy -= m_speed;
 			++numPushedButton;
 		}
 		if (numPushedButton == 0)

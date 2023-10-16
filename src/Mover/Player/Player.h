@@ -44,6 +44,7 @@ namespace magica_rogue
 		mugen_engine::MEImage* m_playerImg;					//!< プレイヤーのグラフィック
 		MRCamera& m_camera;									//!< カメラ
 		float m_size;										//!< プレイヤーの当たり判定サイズ
+		float m_speed;										//!< 自機の移動速度
 	};
 }
 
