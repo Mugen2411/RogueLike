@@ -12,8 +12,10 @@ var searchData=
   ['megraphicrendertarget_9',['MEGraphicRenderTarget',['../classmugen__engine_1_1_m_e_graphic_render_target.html',1,'mugen_engine']]],
   ['meimage_10',['MEImage',['../classmugen__engine_1_1_m_e_image.html',1,'mugen_engine']]],
   ['mekeyinputmanager_11',['MEKeyInputManager',['../classmugen__engine_1_1_m_e_key_input_manager.html',1,'mugen_engine']]],
-  ['mrmapdata_12',['MRMapData',['../classmagica__rogue_1_1_m_r_map_data.html',1,'magica_rogue']]],
-  ['mrplayer_13',['MRPlayer',['../classmagica__rogue_1_1_m_r_player.html',1,'magica_rogue']]],
-  ['mrrandom_14',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html',1,'magica_rogue']]],
-  ['mrtransform_15',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html',1,'magica_rogue']]]
+  ['mrcamera_12',['MRCamera',['../classmagica__rogue_1_1_m_r_camera.html',1,'magica_rogue']]],
+  ['mrinputmanager_13',['MRInputManager',['../classmagica__rogue_1_1_m_r_input_manager.html',1,'magica_rogue']]],
+  ['mrmapdata_14',['MRMapData',['../classmagica__rogue_1_1_m_r_map_data.html',1,'magica_rogue']]],
+  ['mrplayer_15',['MRPlayer',['../classmagica__rogue_1_1_m_r_player.html',1,'magica_rogue']]],
+  ['mrrandom_16',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html',1,'magica_rogue']]],
+  ['mrtransform_17',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html',1,'magica_rogue']]]
 ];

@@ -1,9 +1,21 @@
 var searchData=
 [
-  ['update_0',['update',['../classmugen__engine_1_1_fps.html#aaa8fbb3ceb9d9f9adfdd68ea99069ed2',1,'mugen_engine::Fps::Update()'],['../classmugen__engine_1_1_m_e_key_input_manager.html#acc3c09121eb738a3b4ea51aac8ee817d',1,'mugen_engine::MEKeyInputManager::Update()'],['../classmagica__rogue_1_1_m_r_player.html#a1af70849babd1f929acec7b34d4f2187',1,'magica_rogue::MRPlayer::Update()'],['../classmagica__rogue_1_1_m_r_transform.html#ace281ee501c9dd6110c30042afb027d0',1,'magica_rogue::MRTransform::Update()']]],
-  ['uploadbycpu_1',['UploadByCpu',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a229f04c42b5f7def8ad7999e4ecfec49',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploadconstantdata_2',['UploadConstantData',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a310937dd9ea610b80e02a2eb4c34a718',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploaddatatouploadbuffer_3',['UploadDataToUploadBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a7d09566d5916d12d2470b3ca585ff848',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploadtogpu_4',['UploadToGpu',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a8d18cb7b6d3c75bdf658a90899a36514',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['uploadvertexdata_5',['UploadVertexData',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a91c18fd82dd79bf21e337ae1d0651fe1',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['screenflip_0',['ScreenFlip',['../classmugen__engine_1_1_m_e_core.html#a29c86d9bd9b6506ac15fb8a97e27e3e1',1,'mugen_engine::MECore']]],
+  ['setanchor_1',['SetAnchor',['../classmagica__rogue_1_1_m_r_camera.html#a9ae65a3751389ecde0f3fbd525309ae5',1,'magica_rogue::MRCamera']]],
+  ['setbarrierbeforepresent_2',['SetBarrierBeforePresent',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a86bd05010fcd095968d0e5f4deab7933',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setbarrierbeforerender_3',['SetBarrierBeforeRender',['../classmugen__engine_1_1_m_e_graphic_render_target.html#af4af93f98257ad2ce73ff834430fe0de',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setblendtype_4',['SetBlendType',['../classmugen__engine_1_1_m_e_image.html#ad095d3b93499825f35c35b397467286c',1,'mugen_engine::MEImage']]],
+  ['setbrightness_5',['SetBrightness',['../classmugen__engine_1_1_m_e_image.html#ab3ab48f43736904f3e21b275e922234a',1,'mugen_engine::MEImage']]],
+  ['setgpuresource_6',['SetGpuResource',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5162f5fe36883a91e5c6443cebca6b92',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['setpipelinestate_7',['SetPipelineState',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a57d712861469c0a2c65eed9fec8b294a',1,'mugen_engine::MEGraphicPipeline']]],
+  ['setposition_8',['SetPosition',['../classmagica__rogue_1_1_m_r_transform.html#ac3ce7af6031b6a4e2fd249c0c20f2663',1,'magica_rogue::MRTransform']]],
+  ['setrenderarea_9',['setrenderarea',['../classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40',1,'mugen_engine::MECore::SetRenderArea()'],['../classmugen__engine_1_1_m_e_graphic_render_target.html#a4a434c63c78f37b4cb143882c090b447',1,'mugen_engine::MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList &amp;cmdList, const int topX, const int topY, const int bottomX, const int bottomY)']]],
+  ['setrenderbasecommand_10',['SetRenderBaseCommand',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a9ad02058247ee840df88df8ace4472af',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['setrendercommand_11',['SetRenderCommand',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a40aa78852a2cf8d7bf00b3f93fb339d9',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['setvelocity_12',['SetVelocity',['../classmagica__rogue_1_1_m_r_transform.html#a8c4cd50d2504ef7f0b96fc9be23fd6e8',1,'magica_rogue::MRTransform']]],
+  ['setvelocitywithangle_13',['SetVelocityWithAngle',['../classmagica__rogue_1_1_m_r_transform.html#a6bfc484a1a036fea452bbc0968e28447',1,'magica_rogue::MRTransform']]],
+  ['setvelocityx_14',['SetVelocityX',['../classmagica__rogue_1_1_m_r_transform.html#a3e48c7eb8f49900fd9bc1a7c4ba7e5e6',1,'magica_rogue::MRTransform']]],
+  ['setvelocityy_15',['SetVelocityY',['../classmagica__rogue_1_1_m_r_transform.html#a2bb09fcc6b0e38ff7476e5a310468993',1,'magica_rogue::MRTransform']]],
+  ['setx_16',['SetX',['../classmagica__rogue_1_1_m_r_transform.html#a7901c9a16c74df9a85ac921a2063ab88',1,'magica_rogue::MRTransform']]],
+  ['sety_17',['SetY',['../classmagica__rogue_1_1_m_r_transform.html#a387357e5ebd0eb0f733028957ad24431',1,'magica_rogue::MRTransform']]]
 ];

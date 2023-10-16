@@ -11,5 +11,6 @@ var searchData=
   ['_5finitalizeconstantbuffer_8',['_initalizeconstantbuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a15c0ac9fb35f01fd62c12a6cfecedb47',1,'mugen_engine::MEGraphicGpuResourceManager::_InitalizeConstantBuffer()'],['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a748be9c665e157b955a496e76d0a5605',1,'mugen_engine::MEGraphicRenderQueue::_InitalizeConstantBuffer()']]],
   ['_5floadshader_9',['_LoadShader',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292',1,'mugen_engine::MEGraphicPipeline']]],
   ['_5fprocessbloberror_10',['_ProcessBlobError',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3',1,'mugen_engine::MEGraphicPipeline']]],
-  ['_5fsetbarrierbeforeuploadtexture_11',['_SetBarrierBeforeUploadTexture',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a9f09697fa28224cbe93517adeb4b70fa',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['_5fsetbarrierbeforeuploadtexture_11',['_SetBarrierBeforeUploadTexture',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a9f09697fa28224cbe93517adeb4b70fa',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['_5fsetstartposition_12',['_SetStartPosition',['../classmagica__rogue_1_1_m_r_map_data.html#aa7fa99c07b61c634ac009b3444bf8a87',1,'magica_rogue::MRMapData']]]
 ];

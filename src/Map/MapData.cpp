@@ -63,6 +63,12 @@ namespace magica_rogue
 #endif
 	}
 
+	/**********************************************************************//**
+		@brief			•Ç‚Æ•¨‘Ì‚ÌÕ“Ë‚ğˆ—‚·‚é
+		@param[in]		transform			•¨‘Ì‚ÌˆÊ’u‘¬“xî•ñ
+		@param[in]		size				•¨‘Ì‚Ìˆê•Ó‚Ì’·‚³
+		@return			‚È‚µ
+	*//***********************************************************************/
 	void MRMapData::HitWithWall(MRTransform& transform, const float size)
 	{
 		auto hitToChip = [&](float chipX, float chipY) {

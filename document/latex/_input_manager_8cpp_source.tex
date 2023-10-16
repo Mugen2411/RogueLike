@@ -1,0 +1,46 @@
+\doxysection{Input\+Manager.\+cpp}
+\hypertarget{_input_manager_8cpp_source}{}\label{_input_manager_8cpp_source}\index{util/InputManager.cpp@{util/InputManager.cpp}}
+\mbox{\hyperlink{_input_manager_8cpp}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_manager_8h}{InputManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00005}00005\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00010}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_af86c065162988df35bee521c919aed21}{00010}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_af86c065162988df35bee521c919aed21}{MRInputManager::Update}}()}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ keyManager\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a6c1007a54fa84d5a419aca392e950874}{mugen\_engine::MEKeyInputManager::GetIns}}();}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ numKey\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}.size();}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numKey;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (keyManager.GetKey(i)\ \&\ 0b11)}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}[i];}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00027}00027\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00032}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_afafacffa775a5d97a72f2cd15e477e61}{00032}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_afafacffa775a5d97a72f2cd15e477e61}{MRInputManager::MRInputManager}}()}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00033}00033\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ keyManager\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a6c1007a54fa84d5a419aca392e950874}{mugen\_engine::MEKeyInputManager::GetIns}}();}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ keyManager.AddKeycode(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403}{MRKeyCode::RIGHT}}),\ \textcolor{charliteral}{'D'},}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa8efc0a1755cedc6e084c709a30372de5}{mugen\_engine::MEKeyInputManager::GAMEPAD\_KEYTYPE::ThumbLR}},\ XINPUT\_GAMEPAD\_DPAD\_RIGHT);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ keyManager.AddKeycode(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f}{MRKeyCode::DOWN}}),\ \textcolor{charliteral}{'S'},}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa1cf716a1bc2fbcf697ea06437df5eb41}{mugen\_engine::MEKeyInputManager::GAMEPAD\_KEYTYPE::ThumbLD}},\ XINPUT\_GAMEPAD\_DPAD\_DOWN);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ keyManager.AddKeycode(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758}{MRKeyCode::LEFT}}),\ \textcolor{charliteral}{'A'},}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfaf6e24494285b967cd2adbdfdfb641519}{mugen\_engine::MEKeyInputManager::GAMEPAD\_KEYTYPE::ThumbLL}},\ XINPUT\_GAMEPAD\_DPAD\_LEFT);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ keyManager.AddKeycode(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1}{MRKeyCode::UP}}),\ \textcolor{charliteral}{'W'},}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa517edf48f0799584ea642d228d5109f7}{mugen\_engine::MEKeyInputManager::GAMEPAD\_KEYTYPE::ThumbLU}},\ XINPUT\_GAMEPAD\_DPAD\_UP);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\_pushedFrame}}.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_input_manager_8cpp_source_l00048}00048\ \}}
+
+\end{DoxyCode}

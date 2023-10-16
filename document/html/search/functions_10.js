@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['_7emeaudiodevice_0',['~MEAudioDevice',['../classmugen__engine_1_1_m_e_audio_device.html#a101fa92ac47a9b1898a0fa003cfadfd1',1,'mugen_engine::MEAudioDevice']]]
+  ['wait_0',['Wait',['../classmugen__engine_1_1_fps.html#a132c80fe1ccf055879c6cbb2233b7abd',1,'mugen_engine::Fps']]],
+  ['windowprocedure_1',['WindowProcedure',['../_core_8cpp.html#ab41a5745bc23c47844f0bd8be16ab464',1,'Core.cpp']]],
+  ['winmain_2',['WinMain',['../main_8cpp.html#aa9f5bde5a38da1ef0ae63e9a5a567411',1,'main.cpp']]]
 ];
