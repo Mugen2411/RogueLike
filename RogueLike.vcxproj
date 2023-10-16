@@ -158,6 +158,8 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map\MapData.cpp" />
     <ClCompile Include="src\Mover\Player\Player.cpp" />
+    <ClCompile Include="src\util\Camera.cpp" />
+    <ClCompile Include="src\util\InputManager.cpp" />
     <ClCompile Include="src\util\Random.cpp" />
     <ClCompile Include="src\util\Transform.cpp" />
   </ItemGroup>
@@ -207,6 +209,8 @@
     <ClInclude Include="src\Engine\Input\KeyInputManager.h" />
     <ClInclude Include="src\Map\MapData.h" />
     <ClInclude Include="src\Mover\Player\Player.h" />
+    <ClInclude Include="src\util\Camera.h" />
+    <ClInclude Include="src\util\InputManager.h" />
     <ClInclude Include="src\util\Random.h" />
     <ClInclude Include="src\util\Transform.h" />
   </ItemGroup>

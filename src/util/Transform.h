@@ -29,6 +29,30 @@ namespace magica_rogue
 		float GetY()const {
 			return m_y;
 		}
+		//! 次のフレームのX座標を取得
+		float GetNextX()const {
+			return m_x + m_vx;
+		}
+		//! 次のフレームのY座標を取得
+		float GetNextY()const {
+			return m_y + m_vy;
+		}
+		//! X座標を設定
+		void SetX(float x) {
+			m_x = x;
+		}
+		//! Y座標を設定
+		void SetY(float y) {
+			m_y = y;
+		}
+		//! X速度を設定
+		void SetVelocityX(float vx) {
+			m_vx = vx;
+		}
+		//! Y速度を設定
+		void SetVelocityY(float vy) {
+			m_vy = vy;
+		}
 		//! 位置情報を更新
 		void Update();
 

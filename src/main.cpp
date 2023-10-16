@@ -5,6 +5,9 @@
 #include "Engine/Input/KeyInputManager.h"
 
 #include "Map/MapData.h"
+#include "Mover/Player/Player.h"
+#include "util/InputManager.h"
+#include "util/Camera.h"
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
@@ -27,42 +30,25 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	enum KeyCode {
 		ME_INPUT_RIGHT, ME_INPUT_DOWN, ME_INPUT_LEFT, ME_INPUT_UP,
 	};
-	mugen_engine::MEKeyInputManager::GetIns().AddKeycode(ME_INPUT_RIGHT, 'D',
-		mugen_engine::MEKeyInputManager::GAMEPAD_KEYTYPE::ThumbLR, XINPUT_GAMEPAD_DPAD_RIGHT);
-	mugen_engine::MEKeyInputManager::GetIns().AddKeycode(ME_INPUT_DOWN, 'S',
-		mugen_engine::MEKeyInputManager::GAMEPAD_KEYTYPE::ThumbLD, XINPUT_GAMEPAD_DPAD_DOWN);
-	mugen_engine::MEKeyInputManager::GetIns().AddKeycode(ME_INPUT_LEFT, 'A',
-		mugen_engine::MEKeyInputManager::GAMEPAD_KEYTYPE::ThumbLL, XINPUT_GAMEPAD_DPAD_LEFT);
-	mugen_engine::MEKeyInputManager::GetIns().AddKeycode(ME_INPUT_UP, 'W',
-		mugen_engine::MEKeyInputManager::GAMEPAD_KEYTYPE::ThumbLU, XINPUT_GAMEPAD_DPAD_UP);
+	
+	magica_rogue::MRCamera camera(0, 0);
 
-	int cameraX = 0;
-	int cameraY = 0;
+	magica_rogue::MRPlayer player(magica_rogue::MRPlayer::PLAYER_ID::KOMUK, mapData.GetStartX(), mapData.GetStartY(), camera);
+
 	while (mugen_engine::MECore::GetIns().ProcessMessage() == 0)
 	{
 		mugen_engine::MEKeyInputManager::GetIns().Update();
-
-		if (mugen_engine::MEKeyInputManager::GetIns().GetKey(ME_INPUT_RIGHT) & 0b011)
-		{
-			cameraX += 8;
-		}
-		if (mugen_engine::MEKeyInputManager::GetIns().GetKey(ME_INPUT_DOWN) & 0b011)
-		{
-			cameraY += 8;
-		}
-		if (mugen_engine::MEKeyInputManager::GetIns().GetKey(ME_INPUT_LEFT) & 0b011)
-		{
-			cameraX -= 8;
-		}
-		if (mugen_engine::MEKeyInputManager::GetIns().GetKey(ME_INPUT_UP) & 0b011)
-		{
-			cameraY -= 8;
-		}
+		magica_rogue::MRInputManager::GetIns().Update();
 
 		mugen_engine::MECore::GetIns().ResetRenderArea();
 		mugen_engine::MECore::GetIns().ClearScreen(0, 0, 0);
 		
-		mapData.Render(cameraX, cameraY);
+		player.Update();
+		mapData.HitWithWall(player.GetTransform(), player.GetSize());
+		player.Move();
+
+		mapData.Render(camera);
+		player.Render();
 
 		float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		defFont.DrawFormatString(200, 720 - 32, color, -99.0, L"frame: %d", frame);

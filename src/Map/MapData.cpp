@@ -16,7 +16,8 @@ namespace magica_rogue
 		@param[in]		height				マップの高さ
 		@return			なし
 	*//***********************************************************************/
-	MRMapData::MRMapData(const int width, const int height, uint32_t seed) : m_width(width), m_height(height), m_random(seed)
+	MRMapData::MRMapData(const int width, const int height, uint32_t seed) :
+		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
@@ -38,7 +39,7 @@ namespace magica_rogue
 		@param[in]		cameraY				マップの左上を合わせるY座標
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::Render(const int cameraX, const int cameraY) const
+	void MRMapData::Render(const MRCamera& camera) const
 	{
 		const int chipW = 32;
 		const int chipH = 64;
@@ -47,7 +48,8 @@ namespace magica_rogue
 		{
 			for (int x = 0; x < m_width; ++x)
 			{
-				m_mapchipImg->DrawRotaGraph2X(chipW / 2 + chipW * x - cameraX, chipH / 2 + chipW * y - cameraY,
+				m_mapchipImg->DrawRotaGraph2X(camera.GetAnchoredX(chipW / 2 + chipW * x),
+					camera.GetAnchoredY(chipH / 2 + chipW * y),
 					static_cast<float>(chipW) / 32, 0.0f, priority[m_graphicData[y][x]], m_graphicData[y][x]);
 			}
 		}
@@ -55,9 +57,158 @@ namespace magica_rogue
 		float color[4] = { 0.0f, 1.0f, 1.0f, 1.0f };
 		for (auto& i : m_roomIndex)
 		{
-			m_font->DrawFormatString(i.x * chipW - cameraX, i.y * chipW - cameraY, color, 1.0f, L"%d", i.index);
+			m_font->DrawFormatString(camera.GetAnchoredX(i.x * chipW),
+				camera.GetAnchoredY(i.y * chipW), color, 1.0f, L"%d", i.index);
 		}
 #endif
+	}
+
+	void MRMapData::HitWithWall(MRTransform& transform, const float size)
+	{
+		auto hitToChip = [&](float chipX, float chipY) {
+			auto setU = [&]() {
+				transform.SetY(chipY + m_chipSize / 2 + size);
+				transform.SetVelocityY(0.0f);
+				};
+			auto setD = [&]() {
+				transform.SetY(chipY - m_chipSize / 2 - size);
+				transform.SetVelocityY(0.0f);
+				};
+			auto setR = [&]() {
+				transform.SetX(chipX - m_chipSize / 2 - size);
+				transform.SetVelocityX(0.0f);
+				};
+			auto setL = [&]() {
+				transform.SetX(chipX + m_chipSize / 2 + size);
+				transform.SetVelocityX(0.0f);
+				};
+
+			float nowX = transform.GetX();
+			float nowY = transform.GetY();
+			float nextX = transform.GetNextX();
+			float nextY = transform.GetNextY();
+
+			double max = (nowX + size) - (chipX - m_chipSize / 2),
+				may = (nowY + size) - (chipY - m_chipSize / 2);
+			double nax = (chipX + m_chipSize / 2) - (nowX - size),
+				nay = (chipY + m_chipSize / 2) - (nowY - size);
+			double _max = (nextX + size) - (chipX - m_chipSize / 2),
+				_may = (nextY + size) - (chipY - m_chipSize / 2);
+			double _nax = (chipX + m_chipSize / 2) - (nextX - size),
+				_nay = (chipY + m_chipSize / 2) - (nextY - size);
+			bool U = false, D = false, R = false, L = false;
+
+			//カド同士の判定
+			if (0 >= max && 0 >= may && _max > 0 && _may > 0)
+			{
+				if (_max >= _may)
+				{
+					//下にある
+					D = true;
+					setD();
+				}
+				else
+				{
+					//右にある
+					R = true;
+					setR();
+				}
+			}
+			if (0 >= nax && 0 >= may && _nax > 0 && _may > 0)
+			{
+				if (_nax >= _may)
+				{
+					//下にある
+					D = true;
+					setD();
+				}
+				else
+				{
+					//左にある
+					L = true;
+					setL();
+				}
+			}
+			if (0 >= max && 0 >= nay && _max > 0 && _nay > 0)
+			{
+				if (_max >= _nay)
+				{
+					//上にある
+					U = true;
+					setU();
+				}
+				else
+				{
+					//右にある
+					R = true;
+					setR();
+				}
+			}
+			if (0 >= nax && 0 >= nay && _nax > 0 && _nay > 0)
+			{
+				if (_nax >= _nay)
+				{
+					//上にある
+					U = true;
+					setU();
+				}
+				else
+				{
+					//左にある
+					L = true;
+					setL();
+				}
+			}
+
+			//上下左右の判定
+			if (may > 0 && nay > 0)
+			{
+				if (_nax > 0 &&
+					(nowX - size) > (chipX - m_chipSize / 2))
+				{
+					//左にある
+					L = true;
+					setL();
+				}
+				if (_max > 0 &&
+					(chipX + m_chipSize / 2) > (nowX + size))
+				{
+					//右にある
+					R = true;
+					setR();
+				}
+			}
+			if (max > 0 && nax > 0)
+			{
+				if (_nay > 0 &&
+					(nowY - size) > (chipY - m_chipSize / 2))
+				{
+					//上にある
+					U = true;
+					setU();
+				}
+				if (_may > 0 &&
+					(chipY + m_chipSize / 2) > (nowY + size))
+				{
+					//下にある
+					D = true;
+					setD();
+				}
+			}
+
+			};
+
+		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
+		int currentChipY = static_cast<int>((transform.GetY() - size) / m_chipSize);
+
+		for (int y = max(currentChipY - 3,0); y <= min(currentChipY + 3, m_height); ++y)
+		{
+			for (int x = max(currentChipX - 3, 0); x <= min(currentChipX + 3, m_width); ++x)
+			{
+				if (m_mapData[y][x] == 0) continue;
+				hitToChip(x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f);
+			}
+		}
 	}
 
 	/**********************************************************************//**
@@ -155,7 +306,7 @@ namespace magica_rogue
 				st.pop();
 				int x = cur % xNum;
 				int y = cur / xNum;
-				
+
 				if (x - 1 >= 0 && connect[cur - 1] == -1)
 				{
 					reserve.push_back(cur - 1);
@@ -372,5 +523,26 @@ namespace magica_rogue
 		}
 
 		makePathes();
+
+		_SetStartPosition(roomList);
+
+	}
+	void MRMapData::_SetStartPosition(std::vector<ROOM_NODE>& rooms)
+	{
+		std::vector<int> roomIndices;
+		for (int i = 0; i < rooms.size(); ++i)
+		{
+			roomIndices.push_back(i);
+		}
+		std::shuffle(roomIndices.begin(), roomIndices.end(), m_random.GetDevice());
+		for (auto& r : roomIndices)
+		{
+			if (rooms[r].usedFor == 1)
+			{
+				m_startX = (rooms[r].topX + rooms[r].bottomX) / 2;
+				m_startY = (rooms[r].topY + rooms[r].bottomY) / 2;
+				break;
+			}
+		}
 	}
 }

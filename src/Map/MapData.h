@@ -6,7 +6,9 @@
 
 #include "../Engine/Graphic/GraphicLoadedImage.h"
 #include "../Engine/Graphic/GraphicFontData.h"
+#include "../util/Camera.h"
 #include "../util/Random.h"
+#include "../util/Transform.h"
 #include <vector>
 #include <memory>
 
@@ -22,7 +24,17 @@ namespace magica_rogue
 		//! コンストラクタ
 		MRMapData(const int width, const int height, uint32_t seed);
 		//! マップを描画
-		void Render(const int cameraX, const int cameraY) const;
+		void Render(const MRCamera& camera) const;
+		//! プレイヤーの初期X座標を取得
+		float GetStartX() const {
+			return m_startX * 32.0f + 16.0f;
+		}
+		//! プレイヤーの初期Y座標を取得
+		float GetStartY() const {
+			return m_startY * 32.0f + 16.0f;
+		}
+		//! 壁と物体の衝突を処理する
+		void HitWithWall(MRTransform& transform, const float size);
 	private:
 		/**********************************************************************//**
 			@class		ROOM_NODE
@@ -59,12 +71,19 @@ namespace magica_rogue
 		void _ConvertGraphFromMap();
 		//! マップを部屋割りする
 		void _DivideRooms();
+		//! プレイヤーの初期位置を設定する
+		void _SetStartPosition(std::vector<ROOM_NODE>& rooms);
 
 		const int m_width;									//!< マップの横幅
 		const int m_height;									//!< マップの高さ
 
+		int m_startX;										//!< プレイヤーの初期X座標
+		int m_startY;										//!< プレイヤーの初期Y座標
+
 		std::vector<std::vector<int>> m_mapData;			//!< マップデータ(壁=1, 床=0)
 		std::vector<std::vector<int>> m_graphicData;		//!< 表示に使う方向とか入ってる奴
+
+		float m_chipSize;									//!< マップチップの一辺の長さ
 
 		mugen_engine::MEImage* m_mapchipImg;				//!< マップチップの画像
 		mugen_engine::MEFontData* m_font;					//!< フォントデータ

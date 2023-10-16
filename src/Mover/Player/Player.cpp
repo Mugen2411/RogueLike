@@ -3,6 +3,7 @@
 
 #include "Player.h"
 #include "../../Engine/Core.h"
+#include "../../util/InputManager.h"
 
 namespace magica_rogue
 {
@@ -13,7 +14,8 @@ namespace magica_rogue
 		@param[in]		y						YÀ•W
 		@return			‚È‚µ
 	*//***********************************************************************/
-	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y): m_id(id), m_transform(x, y, 0.0f, 0.0f)
+	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera):
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f)
 	{
 		switch (id)
 		{
@@ -54,7 +56,50 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRPlayer::Update()
 	{
+		auto input = MRInputManager::GetIns();
+		int numPushedButton = 0;
+		float vx = 0.0f;
+		float vy = 0.0f;
+		if (input.GetPushedFrame(MRInputManager::MRKeyCode::RIGHT) > 0)
+		{
+			vx += 4.0f;
+			++numPushedButton;
+		}
+		if (input.GetPushedFrame(MRInputManager::MRKeyCode::LEFT) > 0)
+		{
+			vx -= 4.0f;
+			++numPushedButton;
+		}
+		if (input.GetPushedFrame(MRInputManager::MRKeyCode::DOWN) > 0)
+		{
+			vy += 4.0f;
+			++numPushedButton;
+		}
+		if (input.GetPushedFrame(MRInputManager::MRKeyCode::UP) > 0)
+		{
+			vy -= 4.0f;
+			++numPushedButton;
+		}
+		if (numPushedButton == 0)
+		{
+			m_transform.SetVelocity(0.0f, 0.0f);
+		}
+		else
+		{
+			m_transform.SetVelocity(vx / std::sqrtf(static_cast<float>(numPushedButton)),
+				vy / std::sqrtf(static_cast<float>(numPushedButton)));
+		}
+	}
+
+	/**********************************************************************//**
+		@brief			ƒLƒƒƒ‰‚ðˆÚ“®‚³‚¹‚é
+		@param			‚È‚µ
+		@return			‚È‚µ
+	*//***********************************************************************/
+	void MRPlayer::Move()
+	{
 		m_transform.Update();
+		m_camera.SetAnchor(static_cast<int>(m_transform.GetX() - 320.0f), static_cast<int>(m_transform.GetY() - 180.0f));
 	}
 
 	/**********************************************************************//**
@@ -64,6 +109,7 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRPlayer::Render() const
 	{
-		m_playerImg->DrawRotaGraph2X(static_cast<int>(m_transform.GetX()), static_cast<int>(m_transform.GetY()), 1.0f, 0.0f, 0.0f, 0);
+		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
+			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, 0.0f, 4);
 	}
 }
