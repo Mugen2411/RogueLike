@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['order_0',['order',['../structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a.html#ae0a78771b9c66731d7da3f395146db0c',1,'mugen_engine::MEGraphicRenderQueue::RENDER_DATA']]]
+  ['left_5fmargin_0',['left_margin',['../namespacemagica__rogue_1_1constants_1_1screen.html#a2b1f72e92642186914e1cc6938cbda70',1,'magica_rogue::constants::screen']]]
 ];

@@ -26,7 +26,7 @@ namespace magica_rogue
 		//! マップを描画
 		void Render(const MRCamera& camera) const;
 		//! ミニマップを描画
-		void RenderMiniMap()const;
+		void RenderMiniMap(const MRTransform& playerTransform)const;
 		//! プレイヤーの初期X座標を取得
 		float GetStartX() const {
 			return m_startX * 32.0f + 16.0f;

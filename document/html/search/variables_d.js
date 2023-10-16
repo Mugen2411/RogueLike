@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['usedfor_0',['usedFor',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#ae9277b9d882bab286f01f5f19080ddb9',1,'magica_rogue::MRMapData::ROOM_NODE']]],
-  ['uv_1',['uv',['../structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html#aa2a3c7ab4b91c004d19c42d52964614f',1,'mugen_engine::VERTEX_DATA']]]
+  ['scalematrix_0',['scaleMatrix',['../structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html#a17eb2e557c78eaa619bdeea2a25f0568',1,'mugen_engine::CONSTANT_DATA']]],
+  ['start_5ftime_5f_1',['start_time_',['../classmugen__engine_1_1_fps.html#a15f425fe4655e1790faf5d9d1a95a2b2',1,'mugen_engine::Fps']]],
+  ['state_2',['state',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf']]]
 ];

@@ -2,6 +2,9 @@
 //! @note Copyright (c) Mugen_GameLab
 
 #include "Camera.h"
+#include "Constants.h"
+
+#include <cmath>
 
 namespace magica_rogue
 {

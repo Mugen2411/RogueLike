@@ -48,7 +48,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		player.Move();
 
 		mapData.Render(camera);
-		mapData.RenderMiniMap();
+		mapData.RenderMiniMap(player.GetTransform());
 		player.Render();
 
 		float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };

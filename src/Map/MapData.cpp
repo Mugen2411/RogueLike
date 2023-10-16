@@ -21,7 +21,7 @@ namespace magica_rogue
 		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
-		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 3, 1);
+		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 4, 1);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
 		m_minimapImg = &mugen_engine::MECore::GetIns().GetGraph("minimap");
 		m_minimapImg->SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
@@ -71,19 +71,26 @@ namespace magica_rogue
 		@param			‚È‚µ
 		@return			‚È‚µ
 	*//***********************************************************************/
-	void MRMapData::RenderMiniMap() const
+	void MRMapData::RenderMiniMap(const MRTransform& playerTransform) const
 	{
+		m_minimapImg->DrawModiGraph2X(0, 0, constants::screen::left_margin, 0,
+			0, constants::screen::height, constants::screen::left_margin, constants::screen::height,
+			constants::render_priority::minimap_base);
+		m_minimapImg->DrawRotaGraph(static_cast<int>(playerTransform.GetX() / m_chipSize),
+			static_cast<int>(playerTransform.GetY() / m_chipSize), 6.0f, 0.0f,
+			constants::render_priority::minimap_player, 3);
+
 		for (auto& r : m_roomList)
 		{
 			if (r.usedFor != 1) continue;
-			m_minimapImg->DrawModiGraph2X(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY,
-				constants::render_priority::minimap_room, 1);
+			m_minimapImg->DrawModiGraph(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY,
+				constants::render_priority::minimap_room, 2);
 		}
 
 		for (auto& r : m_pathList)
 		{
-			m_minimapImg->DrawModiGraph2X(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY, 
-				constants::render_priority::minimap_path, 0);
+			m_minimapImg->DrawModiGraph(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY,
+				constants::render_priority::minimap_path, 1);
 		}
 	}
 
@@ -287,8 +294,8 @@ namespace magica_rogue
 	void MRMapData::_DivideRooms()
 	{
 		const int room_margin = 3;
-		const int room_minimum = 6;
-		const int divide_margin = room_minimum + room_margin * 2 + 4;
+		const int room_minimum = 7;
+		const int divide_margin = room_minimum + room_margin * 2 + 3;
 		const int radius_path = 1;
 		//std::vector<ROOM_NODE> m_roomList;
 
@@ -303,7 +310,7 @@ namespace magica_rogue
 		int yNum = m_random.GetRanged(max(3, m_height / divide_margin - 3), m_height / divide_margin);
 
 		uint32_t yetElement = xNum * yNum;
-		uint32_t yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(6, 8)) / 10.0f);
+		uint32_t yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(55, 85)) / 100.0f);
 		for (int y = 0; y < yNum; ++y)
 		{
 			for (int x = 0; x < xNum; ++x)
@@ -460,73 +467,100 @@ namespace magica_rogue
 				//Ú‘±æ‚ª‰¡‚É‚ ‚éŽž
 				if (fromY == toY)
 				{
-					int beginY = (m_roomList[i].bottomY - m_roomList[i].topY == 1) ? m_roomList[i].topY :
-						m_random.GetRanged(m_roomList[i].topY + radius_path, m_roomList[i].bottomY - radius_path - 1);
-					int endY = (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) ? m_roomList[connect[i]].topY :
-						m_random.GetRanged(m_roomList[connect[i]].topY + radius_path, m_roomList[connect[i]].bottomY - radius_path - 1);
-
-					int beginX = m_roomList[connect[i]].bottomX < m_roomList[i].bottomX ?
-						m_roomList[connect[i]].bottomX : m_roomList[connect[i]].topX;
-					int endX = m_roomList[connect[i]].topX < m_roomList[i].topX ?
-						m_roomList[i].topX : m_roomList[i].bottomX;
-
-					int wallX = (fromX > toX) ? m_random.GetRanged(beginX + room_margin, endX - room_margin) :
-						m_random.GetRanged(endX - room_margin, beginX + room_margin);
-
-					m_pathList.emplace_back(ROOM_NODE(min(beginX, wallX) - radius_path, endY - radius_path,
-						max(beginX, wallX) + radius_path, endY + radius_path + 1, 2));
-					for (int x = min(m_roomList[connect[i]].bottomX - radius_path, wallX); x < max(m_roomList[connect[i]].bottomX - radius_path, wallX); ++x)
+					int beginX;
+					int endX;
+					int beginY;
+					int endY;
+					int wallX;
+					if (m_roomList[i].topX < m_roomList[connect[i]].topX)	//¶¨‰E‚ÉÚ‘±
 					{
-						fill3X3(endY, x);
-					}
-					m_pathList.emplace_back(ROOM_NODE(min(wallX, endX) - radius_path, beginY - radius_path,
-						max(wallX, endX) + radius_path, beginY + radius_path + 1, 2));
+						beginX = m_roomList[i].bottomX;
+						endX = m_roomList[connect[i]].topX;
 
-					for (int x = min(wallX, m_roomList[i].topX + radius_path); x < max(wallX, m_roomList[i].topX + radius_path); ++x)
+						if (m_roomList[i].bottomY - m_roomList[i].topY == 1) beginY = m_roomList[i].topY;
+						else beginY = m_random.GetRanged(m_roomList[i].topY + radius_path + 1, m_roomList[i].bottomY - radius_path - 1);
+						if (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) endY = m_roomList[connect[i]].topY;
+						else endY = m_random.GetRanged(m_roomList[connect[i]].topY + radius_path + 1,
+							m_roomList[connect[i]].bottomY - radius_path - 1);
+					}
+					else
+					{
+						beginX = m_roomList[connect[i]].bottomX;
+						endX = m_roomList[i].topX;
+
+						if (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) beginY = m_roomList[connect[i]].topY;
+						else beginY = m_random.GetRanged(m_roomList[connect[i]].topY + radius_path + 1,
+							m_roomList[connect[i]].bottomY - radius_path - 1);
+						if (m_roomList[i].bottomY - m_roomList[i].topY == 1) endY = m_roomList[i].topY;
+						else endY = m_random.GetRanged(m_roomList[i].topY + radius_path + 1, m_roomList[i].bottomY - radius_path - 1);
+					}
+					wallX = m_random.GetRanged(beginX + room_margin, endX - room_margin);
+
+					m_pathList.push_back(ROOM_NODE(beginX - radius_path, beginY - radius_path, wallX, beginY + radius_path + 1, 2));
+					for (int x = beginX - radius_path; x < wallX; ++x)
 					{
 						fill3X3(beginY, x);
 					}
 
-					m_pathList.emplace_back(ROOM_NODE(wallX - radius_path, min(beginY, endY) + radius_path,
-						wallX + radius_path + 1, max(beginY, endY) - radius_path, 2));
-					for (int y = min(beginY, endY); y <= max(beginY, endY); ++y)
+					m_pathList.push_back(ROOM_NODE(wallX, endY - radius_path, endX, endY + radius_path + 1, 2));
+					for (int x = wallX; x < endX; ++x)
+					{
+						fill3X3(endY, x);
+					}
+
+					m_pathList.push_back(ROOM_NODE(wallX - 1, min(beginY, endY) - 1, wallX + radius_path + 1, max(beginY, endY) + radius_path + 1, 2));
+					for (int y = min(beginY, endY); y < max(beginY, endY); ++y)
 					{
 						fill3X3(y, wallX);
 					}
 				}
 				//Ú‘±æ‚ªc‚É‚ ‚éŽž
-				if (fromX == toX)
+				else if (fromX == toX)
 				{
-					int beginX = (m_roomList[i].bottomX - m_roomList[i].topX == 1) ? m_roomList[i].topX :
-						m_random.GetRanged(m_roomList[i].topX + radius_path, m_roomList[i].bottomX - radius_path - 1);
-					int endX = (m_roomList[connect[i]].bottomX - m_roomList[connect[i]].topX == 1) ? m_roomList[connect[i]].topX :
-						m_random.GetRanged(m_roomList[connect[i]].topX + radius_path, m_roomList[connect[i]].bottomX - radius_path - 1);
-
-					int beginY = m_roomList[connect[i]].bottomY < m_roomList[i].bottomY ?
-						m_roomList[connect[i]].bottomY : m_roomList[connect[i]].topY;
-					int endY = m_roomList[connect[i]].topY < m_roomList[i].topY ?
-						m_roomList[i].topY : m_roomList[i].bottomY;
-
-					int wallY = (fromY > toY) ? m_random.GetRanged(beginY + room_margin, endY - room_margin) :
-						m_random.GetRanged(endY - room_margin, beginY + room_margin);
-
-					m_pathList.emplace_back(ROOM_NODE(endX - radius_path, min(beginY, wallY) - radius_path,
-						endX + radius_path + 1, max(beginY, wallY) + radius_path, 2));
-					for (int y = min(beginY - radius_path, wallY); y < max(beginY - radius_path, wallY); ++y)
+					int beginX;
+					int endX;
+					int beginY;
+					int endY;
+					int wallY;
+					if (m_roomList[i].topY < m_roomList[connect[i]].topY)	//ã¨‰º‚ÉÚ‘±
 					{
-						fill3X3(y, endX);
-					}
+						beginY = m_roomList[i].bottomY;
+						endY = m_roomList[connect[i]].topY;
 
-					m_pathList.emplace_back(ROOM_NODE(beginX - radius_path, min(wallY, endY + radius_path) - radius_path,
-						beginX + radius_path + 1, max(wallY, endY + radius_path) + radius_path, 2));
-					for (int y = min(wallY, endY + radius_path); y < max(wallY, endY + radius_path); ++y)
+						if (m_roomList[i].bottomX - m_roomList[i].topX == 1) beginX = m_roomList[i].topX;
+						else beginX = m_random.GetRanged(m_roomList[i].topX + radius_path + 1, m_roomList[i].bottomX - radius_path - 1);
+						if (m_roomList[connect[i]].bottomX - m_roomList[connect[i]].topX == 1) endX = m_roomList[connect[i]].topX;
+						else endX = m_random.GetRanged(m_roomList[connect[i]].topX + radius_path + 1,
+							m_roomList[connect[i]].bottomX - radius_path - 1);
+					}
+					else
+					{
+						beginY = m_roomList[connect[i]].bottomY;
+						endY = m_roomList[i].topY;
+
+						if (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) beginX = m_roomList[connect[i]].topX;
+						else beginX = m_random.GetRanged(m_roomList[connect[i]].topX + radius_path + 1,
+							m_roomList[connect[i]].bottomX - radius_path - 1);
+						if (m_roomList[i].bottomY - m_roomList[i].topY == 1) endX = m_roomList[i].topY;
+						else endX = m_random.GetRanged(m_roomList[i].topX + radius_path + 1, m_roomList[i].bottomX - radius_path - 1);
+					}
+					wallY = m_random.GetRanged(beginY + room_margin, endY - room_margin);
+
+					m_pathList.push_back(ROOM_NODE(beginX - 1, beginY - radius_path, beginX + radius_path, wallY, 2));
+					for (int y = beginY - radius_path; y < wallY; ++y)
 					{
 						fill3X3(y, beginX);
 					}
 
-					m_pathList.emplace_back(ROOM_NODE(min(beginX, endX) + radius_path, wallY - radius_path,
-						max(beginX, endX) - radius_path, wallY + radius_path + 1, 2));
-					for (int x = min(beginX, endX); x <= max(beginX, endX); ++x)
+					m_pathList.push_back(ROOM_NODE(endX - 1, wallY, endX + radius_path + 1, endY, 2));
+					for (int y = wallY; y < endY; ++y)
+					{
+						fill3X3(y, endX);
+					}
+
+					m_pathList.push_back(ROOM_NODE(min(beginX, endX) - 1, wallY - 1,
+						max(beginX, endX) + radius_path + 1, wallY + radius_path + 1, 2));
+					for (int x = min(beginX, endX); x < max(beginX, endX); ++x)
 					{
 						fill3X3(wallY, x);
 					}
@@ -571,7 +605,7 @@ namespace magica_rogue
 
 		for (int i = 0; i < m_roomList.size(); ++i)
 		{
-			if (m_random.GetRanged(0, 7) != 0)
+			if (m_random.GetRanged(0, 5) != 0)
 			{
 				connect[i] = -1;
 			}

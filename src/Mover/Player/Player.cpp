@@ -16,7 +16,7 @@ namespace magica_rogue
 		@return			‚È‚µ
 	*//***********************************************************************/
 	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera):
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f)
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(16.0f)
 	{
 		switch (id)
 		{
@@ -112,7 +112,8 @@ namespace magica_rogue
 	void MRPlayer::Move()
 	{
 		m_transform.Update();
-		m_camera.SetAnchor(static_cast<int>(m_transform.GetX() - 320.0f), static_cast<int>(m_transform.GetY() - 180.0f));
+		m_camera.SetAnchor(static_cast<int>(m_transform.GetX() - constants::screen::left_margin - constants::screen::width / 2),
+			static_cast<int>(m_transform.GetY() - constants::screen::height / 2));
 	}
 
 	/**********************************************************************//**

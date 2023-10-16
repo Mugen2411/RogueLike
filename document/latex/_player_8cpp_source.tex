@@ -7,108 +7,110 @@
 \DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../../Engine/Core.h"{}}}
 \DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../../util/InputManager.h"{}}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00009}00009\ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00010}00010\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00017}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a15a49f0a2f78963a5d059a952b3ec3de}{00017}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a15a49f0a2f78963a5d059a952b3ec3de}{MRPlayer::MRPlayer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\_ID}}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\&\ camera):}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ m\_id(id),\ m\_transform(x,\ y,\ 0.0f,\ 0.0f),\ m\_camera(camera),\ m\_size(14.0f)}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00019}00019\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7}{PLAYER\_ID::AKARI}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.8f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e}{PLAYER\_ID::MAMI}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.5f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486}{PLAYER\_ID::YUKINA}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.2f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062}{PLAYER\_ID::REEZE}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.2f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c}{PLAYER\_ID::IOS}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.4f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3}{PLAYER\_ID::ISHIKI}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.4f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a}{PLAYER\_ID::HARUNA}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.5f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90}{PLAYER\_ID::MISATO}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.4f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397}{PLAYER\_ID::SSEL}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.7f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409}{PLAYER\_ID::KOMUK}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc1324d45e5}{LoadDivGraph}}(\textcolor{stringliteral}{"{}player"{}},\ L\textcolor{stringliteral}{"{}media/graphic/player/komuk.png"{}},\ 4,\ 4);}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.0f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2}{PLAYER\_ID::AKIYO}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.0f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777}{PLAYER\_ID::OBORO}}:}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.8f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00060}00060\ }
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}{m\_playerImg}}\ =\ \&\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_aa82d2e31f5d5aa651347a7dac9cf73e5}{GetGraph}}(\textcolor{stringliteral}{"{}player"{}});}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00062}00062\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00063}00063\ }
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00064}00064\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00069}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}{00069}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}{MRPlayer::Update}}()}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00070}00070\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ input\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a5f38ea78069f5490c67de63b1f6b9e55}{MRInputManager::GetIns}}();}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numPushedButton\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vx\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vy\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403}{MRInputManager::MRKeyCode::RIGHT}})\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ vx\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758}{MRInputManager::MRKeyCode::LEFT}})\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ vx\ -\/=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f}{MRInputManager::MRKeyCode::DOWN}})\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ vy\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1}{MRInputManager::MRKeyCode::UP}})\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ vy\ -\/=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numPushedButton\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8c4cd50d2504ef7f0b96fc9be23fd6e8}{SetVelocity}}(0.0f,\ 0.0f);}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8c4cd50d2504ef7f0b96fc9be23fd6e8}{SetVelocity}}(vx\ /\ std::sqrtf(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(numPushedButton)),}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vy\ /\ std::sqrtf(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(numPushedButton)));}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00104}00104\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00105}00105\ }
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00106}00106\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00111}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{00111}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{MRPlayer::Move}}()}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00112}00112\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_ace281ee501c9dd6110c30042afb027d0}{Update}}();}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\_camera}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_a9ae65a3751389ecde0f3fbd525309ae5}{SetAnchor}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_aa348a91e555b9432ce8164f544d31e43}{GetX}}()\ -\/\ 320.0f),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a799ec6bf12fa654f4f0caf565578becc}{GetY}}()\ -\/\ 180.0f));}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00115}00115\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00117}00117\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00122}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{00122}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{MRPlayer::Render}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00123}00123\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}{m\_playerImg}}-\/>\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ac049f800bbe907664d2950f7e62207ed}{DrawRotaGraph2X}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\_camera}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_a36d9f03d3783631823b5656b46dd0d67}{GetAnchoredX}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_aa348a91e555b9432ce8164f544d31e43}{GetX}}())),}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\_camera}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_aa595bce2456ce46aca0943b5d1b65e51}{GetAnchoredY}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a799ec6bf12fa654f4f0caf565578becc}{GetY}}())),\ 1.0f,\ 0.0f,\ 0.0f,\ 0);}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00126}00126\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00127}00127\ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../../util/Constants.h"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00011}00011\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00018}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a15a49f0a2f78963a5d059a952b3ec3de}{00018}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a15a49f0a2f78963a5d059a952b3ec3de}{MRPlayer::MRPlayer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\_ID}}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\&\ camera):}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ m\_id(id),\ m\_transform(x,\ y,\ 0.0f,\ 0.0f),\ m\_camera(camera),\ m\_size(16.0f)}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7}{PLAYER\_ID::AKARI}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.8f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e}{PLAYER\_ID::MAMI}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.5f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486}{PLAYER\_ID::YUKINA}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.2f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062}{PLAYER\_ID::REEZE}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.2f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c}{PLAYER\_ID::IOS}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.4f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3}{PLAYER\_ID::ISHIKI}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.4f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a}{PLAYER\_ID::HARUNA}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.5f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90}{PLAYER\_ID::MISATO}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.4f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397}{PLAYER\_ID::SSEL}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.7f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409}{PLAYER\_ID::KOMUK}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc1324d45e5}{LoadDivGraph}}(\textcolor{stringliteral}{"{}player"{}},\ L\textcolor{stringliteral}{"{}media/graphic/player/komuk.png"{}},\ 4,\ 4);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.0f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2}{PLAYER\_ID::AKIYO}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 3.0f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777}{PLAYER\_ID::OBORO}}:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}}\ =\ 2.8f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}{m\_playerImg}}\ =\ \&\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_aa82d2e31f5d5aa651347a7dac9cf73e5}{GetGraph}}(\textcolor{stringliteral}{"{}player"{}});}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00070}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}{00070}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}{MRPlayer::Update}}()}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ input\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a5f38ea78069f5490c67de63b1f6b9e55}{MRInputManager::GetIns}}();}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numPushedButton\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vx\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vy\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403}{MRInputManager::MRKeyCode::RIGHT}})\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ vx\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758}{MRInputManager::MRKeyCode::LEFT}})\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ vx\ -\/=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f}{MRInputManager::MRKeyCode::DOWN}})\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ vy\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.GetPushedFrame(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1}{MRInputManager::MRKeyCode::UP}})\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ vy\ -\/=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\_speed}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ ++numPushedButton;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numPushedButton\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8c4cd50d2504ef7f0b96fc9be23fd6e8}{SetVelocity}}(0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8c4cd50d2504ef7f0b96fc9be23fd6e8}{SetVelocity}}(vx\ /\ std::sqrtf(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(numPushedButton)),}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vy\ /\ std::sqrtf(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(numPushedButton)));}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00107}00107\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00112}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{00112}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{MRPlayer::Move}}()}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00113}00113\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_ace281ee501c9dd6110c30042afb027d0}{Update}}();}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\_camera}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_a9ae65a3751389ecde0f3fbd525309ae5}{SetAnchor}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_aa348a91e555b9432ce8164f544d31e43}{GetX}}()\ -\/\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_1_1screen_a2b1f72e92642186914e1cc6938cbda70}{constants::screen::left\_margin}}\ -\/\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_1_1screen_a5b0e6603d07b5875f1b38f3d44e366ed}{constants::screen::width}}\ /\ 2),}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a799ec6bf12fa654f4f0caf565578becc}{GetY}}()\ -\/\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_1_1screen_ae6d99be81dc24f10b490e1344d669365}{constants::screen::height}}\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00119}00119\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00124}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{00124}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{MRPlayer::Render}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00125}00125\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}{m\_playerImg}}-\/>\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ac049f800bbe907664d2950f7e62207ed}{DrawRotaGraph2X}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\_camera}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_a36d9f03d3783631823b5656b46dd0d67}{GetAnchoredX}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_aa348a91e555b9432ce8164f544d31e43}{GetX}}())),}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\_camera}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_aa595bce2456ce46aca0943b5d1b65e51}{GetAnchoredY}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\_transform}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a799ec6bf12fa654f4f0caf565578becc}{GetY}}())),\ 1.0f,\ 0.0f,\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_1_1render__priority_a4fb2c53014c4434271b2baa5399622a8}{constants::render\_priority::player}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00129}00129\ \}}
 
 \end{DoxyCode}
