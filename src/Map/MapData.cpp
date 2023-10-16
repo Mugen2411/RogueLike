@@ -3,6 +3,7 @@
 
 #include "MapData.h"
 #include "../Engine/Core.h"
+#include "../util/Constants.h"
 #include <queue>
 #include <stack>
 #include <set>
@@ -20,10 +21,10 @@ namespace magica_rogue
 		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
-		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 2, 1);
+		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 3, 1);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
 		m_minimapImg = &mugen_engine::MECore::GetIns().GetGraph("minimap");
-		m_minimapImg->SetBrightness(1.0f, 1.0f, 1.0f, 0.5f);
+		m_minimapImg->SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
 		m_font = &mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 		m_mapData.resize(height);
 		m_graphicData.resize(height);
@@ -45,7 +46,7 @@ namespace magica_rogue
 	{
 		const int chipW = 32;
 		const int chipH = 64;
-		const float priority[2] = { 2.0f, 1.0f };
+		const float priority[2] = { constants::render_priority::map_floor, constants::render_priority::map_wall };
 		for (int y = 0; y < m_height; ++y)
 		{
 			for (int x = 0; x < m_width; ++x)
@@ -72,10 +73,17 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRMapData::RenderMiniMap() const
 	{
-		for (auto& r : roomList)
+		for (auto& r : m_roomList)
 		{
 			if (r.usedFor != 1) continue;
-			m_minimapImg->DrawModiGraph2X(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY, -0.1f, 0);
+			m_minimapImg->DrawModiGraph2X(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY,
+				constants::render_priority::minimap_room, 1);
+		}
+
+		for (auto& r : m_pathList)
+		{
+			m_minimapImg->DrawModiGraph2X(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY, 
+				constants::render_priority::minimap_path, 0);
 		}
 	}
 
@@ -223,7 +231,7 @@ namespace magica_rogue
 		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
 		int currentChipY = static_cast<int>((transform.GetY() - size) / m_chipSize);
 
-		for (int y = max(currentChipY - 3,0); y <= min(currentChipY + 3, m_height); ++y)
+		for (int y = max(currentChipY - 3, 0); y <= min(currentChipY + 3, m_height); ++y)
 		{
 			for (int x = max(currentChipX - 3, 0); x <= min(currentChipX + 3, m_width); ++x)
 			{
@@ -282,7 +290,7 @@ namespace magica_rogue
 		const int room_minimum = 6;
 		const int divide_margin = room_minimum + room_margin * 2 + 4;
 		const int radius_path = 1;
-		//std::vector<ROOM_NODE> roomList;
+		//std::vector<ROOM_NODE> m_roomList;
 
 		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
 		{
@@ -311,7 +319,7 @@ namespace magica_rogue
 					u = 2;
 				}
 				--yetElement;
-				roomList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, u));
+				m_roomList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, u));
 			}
 		}
 		// subetenosetuzokujoukyouwohozonn
@@ -387,43 +395,43 @@ namespace magica_rogue
 			}
 		}
 
-		for (int i = 0; i < roomList.size(); ++i)
+		for (int i = 0; i < m_roomList.size(); ++i)
 		{
-			if (roomList[i].usedFor == 0)
+			if (m_roomList[i].usedFor == 0)
 			{
 				continue;
 			}
-			if (roomList[i].usedFor == 1)
+			if (m_roomList[i].usedFor == 1)
 			{
 				// 部屋の大きさを区画内でランダムに決める
-				int offsetX = m_random.GetRanged(roomList[i].topX + room_margin, roomList[i].bottomX - room_margin - room_minimum);
-				roomList[i].topX = offsetX;
-				roomList[i].bottomX = m_random.GetRanged(offsetX + room_minimum, roomList[i].bottomX - room_margin);
+				int offsetX = m_random.GetRanged(m_roomList[i].topX + room_margin, m_roomList[i].bottomX - room_margin - room_minimum);
+				m_roomList[i].topX = offsetX;
+				m_roomList[i].bottomX = m_random.GetRanged(offsetX + room_minimum, m_roomList[i].bottomX - room_margin);
 
-				int offsetY = m_random.GetRanged(roomList[i].topY + room_margin, roomList[i].bottomY - room_margin - room_minimum);
-				roomList[i].topY = offsetY;
-				roomList[i].bottomY = m_random.GetRanged(offsetY + room_minimum, roomList[i].bottomY - room_margin);
+				int offsetY = m_random.GetRanged(m_roomList[i].topY + room_margin, m_roomList[i].bottomY - room_margin - room_minimum);
+				m_roomList[i].topY = offsetY;
+				m_roomList[i].bottomY = m_random.GetRanged(offsetY + room_minimum, m_roomList[i].bottomY - room_margin);
 			}
-			if (roomList[i].usedFor == 2)
+			if (m_roomList[i].usedFor == 2)
 			{
 				// 交差点の位置を点で打つ
-				int offsetX = m_random.GetRanged(roomList[i].topX + room_margin, roomList[i].bottomX - room_margin - room_minimum);
-				roomList[i].topX = offsetX;
-				roomList[i].bottomX = offsetX + 1;
+				int offsetX = m_random.GetRanged(m_roomList[i].topX + room_margin, m_roomList[i].bottomX - room_margin - room_minimum);
+				m_roomList[i].topX = offsetX;
+				m_roomList[i].bottomX = offsetX + 1;
 
-				int offsetY = m_random.GetRanged(roomList[i].topY + room_margin, roomList[i].bottomY - room_margin - room_minimum);
-				roomList[i].topY = offsetY;
-				roomList[i].bottomY = offsetY + 1;
+				int offsetY = m_random.GetRanged(m_roomList[i].topY + room_margin, m_roomList[i].bottomY - room_margin - room_minimum);
+				m_roomList[i].topY = offsetY;
+				m_roomList[i].bottomY = offsetY + 1;
 			}
 
 			// デバッグ用部屋番号
 			m_roomIndex.push_back(
-				ROOM_INDEX((roomList[i].bottomX + roomList[i].topX) / 2, (roomList[i].bottomY + roomList[i].topY) / 2, i));
+				ROOM_INDEX((m_roomList[i].bottomX + m_roomList[i].topX) / 2, (m_roomList[i].bottomY + m_roomList[i].topY) / 2, i));
 
 			// 部屋や交差点に当たる部分に穴をあける
-			for (int y = roomList[i].topY; y < roomList[i].bottomY; ++y)
+			for (int y = m_roomList[i].topY; y < m_roomList[i].bottomY; ++y)
 			{
-				for (int x = roomList[i].topX; x < roomList[i].bottomX; ++x)
+				for (int x = m_roomList[i].topX; x < m_roomList[i].bottomX; ++x)
 				{
 					m_mapData[y][x] = 0;
 				}
@@ -440,7 +448,7 @@ namespace magica_rogue
 			}
 			};
 		auto makePathes = [&]() {
-			for (int i = 0; i < roomList.size(); ++i)
+			for (int i = 0; i < m_roomList.size(); ++i)
 			{
 				if (connect[i] == -1)continue;
 				// 通路に穴をあける
@@ -452,20 +460,35 @@ namespace magica_rogue
 				//接続先が横にある時
 				if (fromY == toY)
 				{
-					int wallX = (fromX > toX) ? m_random.GetRanged(roomList[connect[i]].bottomX + room_margin, roomList[i].topX - room_margin) :
-						m_random.GetRanged(roomList[i].bottomX - room_margin, roomList[connect[i]].topX + room_margin);
-					int beginY = (roomList[i].bottomY - roomList[i].topY == 1) ? roomList[i].topY :
-						m_random.GetRanged(roomList[i].topY + radius_path, roomList[i].bottomY - radius_path - 1);
-					int endY = (roomList[connect[i]].bottomY - roomList[connect[i]].topY == 1) ? roomList[connect[i]].topY :
-						m_random.GetRanged(roomList[connect[i]].topY + radius_path, roomList[connect[i]].bottomY - radius_path - 1);
-					for (int x = min(roomList[connect[i]].bottomX - radius_path, wallX); x < max(roomList[connect[i]].bottomX - radius_path, wallX); ++x)
+					int beginY = (m_roomList[i].bottomY - m_roomList[i].topY == 1) ? m_roomList[i].topY :
+						m_random.GetRanged(m_roomList[i].topY + radius_path, m_roomList[i].bottomY - radius_path - 1);
+					int endY = (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) ? m_roomList[connect[i]].topY :
+						m_random.GetRanged(m_roomList[connect[i]].topY + radius_path, m_roomList[connect[i]].bottomY - radius_path - 1);
+
+					int beginX = m_roomList[connect[i]].bottomX < m_roomList[i].bottomX ?
+						m_roomList[connect[i]].bottomX : m_roomList[connect[i]].topX;
+					int endX = m_roomList[connect[i]].topX < m_roomList[i].topX ?
+						m_roomList[i].topX : m_roomList[i].bottomX;
+
+					int wallX = (fromX > toX) ? m_random.GetRanged(beginX + room_margin, endX - room_margin) :
+						m_random.GetRanged(endX - room_margin, beginX + room_margin);
+
+					m_pathList.emplace_back(ROOM_NODE(min(beginX, wallX) - radius_path, endY - radius_path,
+						max(beginX, wallX) + radius_path, endY + radius_path + 1, 2));
+					for (int x = min(m_roomList[connect[i]].bottomX - radius_path, wallX); x < max(m_roomList[connect[i]].bottomX - radius_path, wallX); ++x)
 					{
 						fill3X3(endY, x);
 					}
-					for (int x = min(wallX, roomList[i].topX + radius_path); x < max(wallX, roomList[i].topX + radius_path); ++x)
+					m_pathList.emplace_back(ROOM_NODE(min(wallX, endX) - radius_path, beginY - radius_path,
+						max(wallX, endX) + radius_path, beginY + radius_path + 1, 2));
+
+					for (int x = min(wallX, m_roomList[i].topX + radius_path); x < max(wallX, m_roomList[i].topX + radius_path); ++x)
 					{
 						fill3X3(beginY, x);
 					}
+
+					m_pathList.emplace_back(ROOM_NODE(wallX - radius_path, min(beginY, endY) + radius_path,
+						wallX + radius_path + 1, max(beginY, endY) - radius_path, 2));
 					for (int y = min(beginY, endY); y <= max(beginY, endY); ++y)
 					{
 						fill3X3(y, wallX);
@@ -474,20 +497,35 @@ namespace magica_rogue
 				//接続先が縦にある時
 				if (fromX == toX)
 				{
-					int wallY = (fromY > toY) ? m_random.GetRanged(roomList[connect[i]].bottomY + room_margin, roomList[i].topY - room_margin) :
-						m_random.GetRanged(roomList[i].bottomY - room_margin, roomList[connect[i]].topY + room_margin);
-					int beginX = (roomList[i].bottomX - roomList[i].topX == 1) ? roomList[i].topX :
-						m_random.GetRanged(roomList[i].topX + radius_path, roomList[i].bottomX - radius_path - 1);
-					int endX = (roomList[connect[i]].bottomX - roomList[connect[i]].topX == 1) ? roomList[connect[i]].topX :
-						m_random.GetRanged(roomList[connect[i]].topX + radius_path, roomList[connect[i]].bottomX - radius_path - 1);
-					for (int y = min(roomList[connect[i]].bottomY - radius_path, wallY); y < max(roomList[connect[i]].bottomY - radius_path, wallY); ++y)
+					int beginX = (m_roomList[i].bottomX - m_roomList[i].topX == 1) ? m_roomList[i].topX :
+						m_random.GetRanged(m_roomList[i].topX + radius_path, m_roomList[i].bottomX - radius_path - 1);
+					int endX = (m_roomList[connect[i]].bottomX - m_roomList[connect[i]].topX == 1) ? m_roomList[connect[i]].topX :
+						m_random.GetRanged(m_roomList[connect[i]].topX + radius_path, m_roomList[connect[i]].bottomX - radius_path - 1);
+
+					int beginY = m_roomList[connect[i]].bottomY < m_roomList[i].bottomY ?
+						m_roomList[connect[i]].bottomY : m_roomList[connect[i]].topY;
+					int endY = m_roomList[connect[i]].topY < m_roomList[i].topY ?
+						m_roomList[i].topY : m_roomList[i].bottomY;
+
+					int wallY = (fromY > toY) ? m_random.GetRanged(beginY + room_margin, endY - room_margin) :
+						m_random.GetRanged(endY - room_margin, beginY + room_margin);
+
+					m_pathList.emplace_back(ROOM_NODE(endX - radius_path, min(beginY, wallY) - radius_path,
+						endX + radius_path + 1, max(beginY, wallY) + radius_path, 2));
+					for (int y = min(beginY - radius_path, wallY); y < max(beginY - radius_path, wallY); ++y)
 					{
 						fill3X3(y, endX);
 					}
-					for (int y = min(wallY, roomList[i].topY + radius_path); y < max(wallY, roomList[i].topY + radius_path); ++y)
+
+					m_pathList.emplace_back(ROOM_NODE(beginX - radius_path, min(wallY, endY + radius_path) - radius_path,
+						beginX + radius_path + 1, max(wallY, endY + radius_path) + radius_path, 2));
+					for (int y = min(wallY, endY + radius_path); y < max(wallY, endY + radius_path); ++y)
 					{
 						fill3X3(y, beginX);
 					}
+
+					m_pathList.emplace_back(ROOM_NODE(min(beginX, endX) + radius_path, wallY - radius_path,
+						max(beginX, endX) - radius_path, wallY + radius_path + 1, 2));
 					for (int x = min(beginX, endX); x <= max(beginX, endX); ++x)
 					{
 						fill3X3(wallY, x);
@@ -498,7 +536,7 @@ namespace magica_rogue
 
 		makePathes();
 
-		for (int i = 0; i < roomList.size(); ++i)
+		for (int i = 0; i < m_roomList.size(); ++i)
 		{
 			int x = i % xNum;
 			int y = i / xNum;
@@ -531,7 +569,7 @@ namespace magica_rogue
 			reserve.clear();
 		}
 
-		for (int i = 0; i < roomList.size(); ++i)
+		for (int i = 0; i < m_roomList.size(); ++i)
 		{
 			if (m_random.GetRanged(0, 7) != 0)
 			{
@@ -546,7 +584,7 @@ namespace magica_rogue
 
 		makePathes();
 
-		_SetStartPosition(roomList);
+		_SetStartPosition(m_roomList);
 
 	}
 	void MRMapData::_SetStartPosition(std::vector<ROOM_NODE>& rooms)

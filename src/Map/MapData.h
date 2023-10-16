@@ -84,7 +84,8 @@ namespace magica_rogue
 
 		std::vector<std::vector<int>> m_mapData;			//!< マップデータ(壁=1, 床=0)
 		std::vector<std::vector<int>> m_graphicData;		//!< 表示に使う方向とか入ってる奴
-		std::vector<ROOM_NODE> roomList;					//!< 部屋リスト
+		std::vector<ROOM_NODE> m_roomList;					//!< 部屋リスト
+		std::vector<ROOM_NODE> m_pathList;					//!< 通路リスト
 
 		float m_chipSize;									//!< マップチップの一辺の長さ
 
