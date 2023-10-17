@@ -18,14 +18,16 @@ namespace magica_rogue
 		*//***********************************************************************/
 		namespace render_priority
 		{
-			const float player = 0.0f;					//!< プレイヤー
-			const float map_wall = 2.0f;				//!< マップの壁レイヤ
-			const float map_floor = 3.0f;				//!< マップの床レイヤ
-			const float minimap_base = -5.0f;			//!< ミニマップの基準
-			const float minimap_room = -5.2f;			//!< ミニマップの部屋
-			const float minimap_path = -5.1f;			//!< ミニマップの通路
-			const float minimap_player = -5.3f;			//!< ミニマップのプレイヤー
-			const float minimap_discovered = -5.9f;		//!< ミニマップを隠すベール
+			const float PLAYER = 0.0f;					//!< プレイヤー
+			const float TREASURE_BOX = 1.0f;			//!< 宝箱
+			const float MAP_WALL = 2.0f;				//!< マップの壁レイヤ
+			const float MAP_FLOOR = 3.0f;				//!< マップの床レイヤ
+			const float MINIMAP_BASE = -5.0f;			//!< ミニマップの基準
+			const float MINIMAP_ROOM = -5.2f;			//!< ミニマップの部屋
+			const float MINIMAP_PATH = -5.1f;			//!< ミニマップの通路
+			const float MINIMAP_TREASUREBOX = -5.3f;	//!< ミニマップの宝箱
+			const float MINIMAP_PLAYER = -5.8f;			//!< ミニマップのプレイヤー
+			const float MINIMAP_DISCOVERED = -5.9f;		//!< ミニマップを隠すベール
 		}
 
 		/**********************************************************************//**

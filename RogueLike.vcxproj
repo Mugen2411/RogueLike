@@ -158,13 +158,14 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map\MapData.cpp" />
     <ClCompile Include="src\Mover\Player\Player.cpp" />
-    <ClCompile Include="src\util\Camera.cpp" />
-    <ClCompile Include="src\util\InputManager.cpp" />
-    <ClCompile Include="src\util\Random.cpp" />
-    <ClCompile Include="src\util\Transform.cpp" />
+    <ClCompile Include="src\Static\TreasureBox.cpp" />
+    <ClCompile Include="src\Util\Camera.cpp" />
+    <ClCompile Include="src\Util\InputManager.cpp" />
+    <ClCompile Include="src\Util\Random.cpp" />
+    <ClCompile Include="src\Util\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="src\shader\BasicPixelShader.hlsl">
+    <FxCompile Include="src\Shader\BasicPixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
@@ -176,7 +177,7 @@
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).cso</ObjectFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).cso</ObjectFileOutput>
     </FxCompile>
-    <FxCompile Include="src\shader\BasicVertexShader.hlsl">
+    <FxCompile Include="src\Shader\BasicVertexShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
@@ -190,7 +191,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\shader\BasicShaderHeader.hlsli" />
+    <None Include="src\Shader\BasicShaderHeader.hlsli" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Audio\AudioDevice.h" />
@@ -209,11 +210,13 @@
     <ClInclude Include="src\Engine\Input\KeyInputManager.h" />
     <ClInclude Include="src\Map\MapData.h" />
     <ClInclude Include="src\Mover\Player\Player.h" />
-    <ClInclude Include="src\util\Camera.h" />
-    <ClInclude Include="src\util\Constants.h" />
-    <ClInclude Include="src\util\InputManager.h" />
-    <ClInclude Include="src\util\Random.h" />
-    <ClInclude Include="src\util\Transform.h" />
+    <ClInclude Include="src\Static\StaticObjectInterface.h" />
+    <ClInclude Include="src\Static\TreasureBox.h" />
+    <ClInclude Include="src\Util\Camera.h" />
+    <ClInclude Include="src\Util\Constants.h" />
+    <ClInclude Include="src\Util\InputManager.h" />
+    <ClInclude Include="src\Util\Random.h" />
+    <ClInclude Include="src\Util\Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

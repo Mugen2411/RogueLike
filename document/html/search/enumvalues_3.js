@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['haruna_0',['HARUNA',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a',1,'magica_rogue::MRPlayer']]]
+  ['gold_0',['GOLD',['../classmagica__rogue_1_1_m_r_tresure_box.html#a8bf4ad32ad6c15beffc63776bbce3f65a2c0898822ab3baf7f93bea86648adb26',1,'magica_rogue::MRTresureBox']]]
 ];

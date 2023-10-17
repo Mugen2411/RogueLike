@@ -1,21 +1,11 @@
 var searchData=
 [
-  ['r_0',['R',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html#ab8d14cda585beaf117d548e68bd595ec',1,'mugen_engine::MEGraphicCharacterUnit::TexRGBA']]],
-  ['random_2ecpp_1',['Random.cpp',['../_random_8cpp.html',1,'']]],
-  ['random_2eh_2',['Random.h',['../_random_8h.html',1,'']]],
-  ['reeze_3',['REEZE',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062',1,'magica_rogue::MRPlayer']]],
-  ['render_4',['render',['../classmagica__rogue_1_1_m_r_map_data.html#a86373ee55328a0c15851632c17bb985a',1,'magica_rogue::MRMapData::Render()'],['../classmagica__rogue_1_1_m_r_player.html#a703b50d4ad2cf05bc07c5041bc97907b',1,'magica_rogue::MRPlayer::Render()']]],
-  ['render_5fdata_5',['RENDER_DATA',['../structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a.html',1,'mugen_engine::MEGraphicRenderQueue']]],
-  ['render_5fpriority_6',['render_priority',['../namespacerender__priority.html',1,'']]],
-  ['renderall_7',['RenderAll',['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a7d5acd8d695b20b11be0dd1b002ed694',1,'mugen_engine::MEGraphicRenderQueue']]],
-  ['renderminimap_8',['RenderMiniMap',['../classmagica__rogue_1_1_m_r_map_data.html#aa37e49a483ad9799edf6e042169d502a',1,'magica_rogue::MRMapData']]],
-  ['reserverender_9',['ReserveRender',['../classmugen__engine_1_1_m_e_graphic_render_queue.html#aed53caf0379a1008611962820dbede29',1,'mugen_engine::MEGraphicRenderQueue']]],
-  ['resetadditionalvertexbuffer_10',['resetadditionalvertexbuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a627a624bffa5e538d2b7116fceb44504',1,'mugen_engine::MEGraphicGpuResourceManager::ResetAdditionalVertexBuffer()'],['../classmugen__engine_1_1_m_e_image.html#a19380393c434a749c53dc55974d56304',1,'mugen_engine::MEImage::ResetAdditionalVertexBuffer()']]],
-  ['resetrenderarea_11',['ResetRenderArea',['../classmugen__engine_1_1_m_e_core.html#aef074df0952ec0eedb4c8f7d86028ecf',1,'mugen_engine::MECore']]],
-  ['resetuploadbuffer_12',['ResetUploadBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a71d9e52f9453da796cb23ccc2ae189e9',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['right_13',['RIGHT',['../classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403',1,'magica_rogue::MRInputManager']]],
-  ['room_5findex_14',['room_index',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___i_n_d_e_x.html',1,'magica_rogue::MRMapData::ROOM_INDEX'],['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___i_n_d_e_x.html#acbecca302e9aebaddf800d1bc3975086',1,'magica_rogue::MRMapData::ROOM_INDEX::ROOM_INDEX()']]],
-  ['room_5fnode_15',['room_node',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html',1,'magica_rogue::MRMapData::ROOM_NODE'],['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#a90b5bd4afa9ec5c13abd97bf6246e79b',1,'magica_rogue::MRMapData::ROOM_NODE::ROOM_NODE()']]],
-  ['rotatematrix_16',['rotateMatrix',['../structmugen__engine_1_1_c_o_n_s_t_a_n_t___d_a_t_a.html#aaddab14acbee0a972e1adf75523a1679',1,'mugen_engine::CONSTANT_DATA']]],
-  ['rtrigger_17',['RTrigger',['../classmugen__engine_1_1_m_e_key_input_manager.html#a66d05c62f4df68d6bdf57019524480dfa7a1c91b1da9e7c5a1d3b9321e853005a',1,'mugen_engine::MEKeyInputManager']]]
+  ['player_0',['PLAYER',['../namespacemagica__rogue_1_1constants_1_1render__priority.html#a203c42324c718cfee3429924b85606d8',1,'magica_rogue::constants::render_priority']]],
+  ['player_2ecpp_1',['Player.cpp',['../_player_8cpp.html',1,'']]],
+  ['player_2eh_2',['Player.h',['../_player_8h.html',1,'']]],
+  ['player_5fid_3',['PLAYER_ID',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c',1,'magica_rogue::MRPlayer']]],
+  ['pos_4',['pos',['../structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html#a689a995b295ec7fc376f8f12e53003b7',1,'mugen_engine::VERTEX_DATA']]],
+  ['present_5',['Present',['../classmugen__engine_1_1_m_e_graphic_render_target.html#ad2cbb7cfe081e9ab6a3be51570f71b4e',1,'mugen_engine::MEGraphicRenderTarget']]],
+  ['priority_6',['priority',['../structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a.html#a57f4c885f905200cb36f53a6bba9b97c',1,'mugen_engine::MEGraphicRenderQueue::RENDER_DATA']]],
+  ['processmessage_7',['ProcessMessage',['../classmugen__engine_1_1_m_e_core.html#ac0ed52db525aae4982979c445e4d3c5e',1,'mugen_engine::MECore']]]
 ];

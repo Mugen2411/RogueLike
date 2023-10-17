@@ -6,6 +6,7 @@
 
 #include "Map/MapData.h"
 #include "Mover/Player/Player.h"
+#include "Static/StaticObjectInterface.h"
 #include "util/InputManager.h"
 #include "util/Camera.h"
 
@@ -19,12 +20,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	mugen_engine::Fps fps;
 
 	mugen_engine::MECore::GetIns().LoadFont("gothic", L"ノスタルドット（M+）", 64);
+	mugen_engine::MECore::GetIns().LoadDivGraph("treasureBox", L"media/graphic/mapchip/treasureBox.png", 4, 1);
 
 	auto gothicFont = mugen_engine::MECore::GetIns().GetFont("gothic");
 	auto defFont = mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
-
-	auto random = std::random_device();
-	magica_rogue::MRMapData mapData(256, 256, random());
 
 	int frame = 0;
 	enum KeyCode {
@@ -32,6 +31,11 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	};
 	
 	magica_rogue::MRCamera camera(0, 0);
+
+	std::vector<std::unique_ptr<magica_rogue::MRStaticObjectInterface>> staticList;
+
+	auto random = std::random_device();
+	magica_rogue::MRMapData mapData(64, 64, random(), staticList);
 
 	magica_rogue::MRPlayer player(magica_rogue::MRPlayer::PLAYER_ID::KOMUK, mapData.GetStartX(), mapData.GetStartY(), camera);
 
@@ -49,7 +53,11 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		player.Move();
 
 		mapData.Render(camera);
-		mapData.RenderMiniMap(player.GetTransform());
+		mapData.RenderMiniMap(player.GetTransform(), staticList);
+		for (auto& s : staticList)
+		{
+			s->Render(camera);
+		}
 		player.Render();
 
 		float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };

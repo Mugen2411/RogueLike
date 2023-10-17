@@ -17,7 +17,7 @@ namespace magica_rogue
 		@param[in]		height				マップの高さ
 		@return			なし
 	*//***********************************************************************/
-	MRMapData::MRMapData(const int width, const int height, uint32_t seed) :
+	MRMapData::MRMapData(const int width, const int height, uint32_t seed, std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList) :
 		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
@@ -35,6 +35,7 @@ namespace magica_rogue
 		}
 		_DivideRooms();
 		_ConvertGraphFromMap();
+		_SpawnTreasureBox(staticList);
 	}
 
 	/**********************************************************************//**
@@ -46,13 +47,15 @@ namespace magica_rogue
 	{
 		int x = static_cast<int>(playerTransform.GetX() / m_chipSize);
 		int y = static_cast<int>(playerTransform.GetY() / m_chipSize);
-		for (auto& r : m_regionList)
+		size_t numRegion = m_regionList.size();
+		for (size_t i = 0; i < numRegion; ++i)
 		{
-			if (r.usedFor == 0)continue;
+			if (m_regionList[i].usedFor == 0)continue;
 
-			if (r.topX <= x && x <= r.bottomX && r.topY <= y && y <= r.bottomY)
+			if (m_regionList[i].topX <= x && x <= m_regionList[i].bottomX &&
+				m_regionList[i].topY <= y && y <= m_regionList[i].bottomY)
 			{
-				r.usedFor = 0;
+				m_regionList[i].usedFor = 0;
 			}
 		}
 	}
@@ -66,7 +69,7 @@ namespace magica_rogue
 	{
 		const int chipW = 32;
 		const int chipH = 64;
-		const float priority[2] = { constants::render_priority::map_floor, constants::render_priority::map_wall };
+		const float priority[2] = { constants::render_priority::MAP_FLOOR, constants::render_priority::MAP_WALL };
 		for (int y = 0; y < m_height; ++y)
 		{
 			for (int x = 0; x < m_width; ++x)
@@ -91,28 +94,49 @@ namespace magica_rogue
 		@param[in]		プレイヤーの位置
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::RenderMiniMap(const MRTransform& playerTransform) const
+	void MRMapData::RenderMiniMap(const MRTransform& playerTransform,
+		std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList) const
 	{
 		int larger = max(m_width, m_height);
 
 		m_minimapImg->DrawModiGraph2X(0, 0, constants::screen::left_margin, 0,
 			0, constants::screen::height, constants::screen::left_margin, constants::screen::height,
-			constants::render_priority::minimap_base);
+			constants::render_priority::MINIMAP_BASE);
 
 		m_minimapImg->DrawRotaGraph(static_cast<int>(playerTransform.GetX() * constants::screen::left_margin * 2 / m_chipSize / larger),
 			static_cast<int>(playerTransform.GetY() * constants::screen::left_margin * 2 / m_chipSize / larger),
 			max(constants::screen::left_margin * 2 * 0.25f / larger, 0.5f), 0.0f,
-			constants::render_priority::minimap_player, 3);
+			constants::render_priority::MINIMAP_PLAYER, 3);
+
+		for (auto& s : staticList)
+		{
+			auto& t = s->GetTransform();
+			m_minimapImg->DrawRotaGraph(static_cast<int>(t.GetX() * constants::screen::left_margin * 2 / m_chipSize / larger),
+				static_cast<int>(t.GetY() * constants::screen::left_margin * 2 / m_chipSize / larger),
+				max(constants::screen::left_margin * 2 * 0.20f / larger, 0.4f), 0.0f,
+				constants::render_priority::MINIMAP_TREASUREBOX, 5);
+		}
 
 		for (auto& r : m_roomList)
 		{
-			if (r.usedFor != 1) continue;
-			m_minimapImg->DrawModiGraph(
-				r.topX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
-				r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
-				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
-				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
-				constants::render_priority::minimap_room, 2);
+			if (r.usedFor == 1)
+			{
+				m_minimapImg->DrawModiGraph(
+					r.topX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+					r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+					r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
+					r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
+					constants::render_priority::MINIMAP_ROOM, 2);
+			}
+			else if (r.usedFor == 2)
+			{
+				m_minimapImg->DrawModiGraph(
+					(r.topX - 1) * constants::screen::left_margin * 2 / larger, (r.topY - 1) * constants::screen::left_margin * 2 / larger,
+					(r.bottomX + 1) * constants::screen::left_margin * 2 / larger, (r.topY - 1) * constants::screen::left_margin * 2 / larger,
+					(r.topX - 1) * constants::screen::left_margin * 2 / larger, (r.bottomY + 1) * constants::screen::left_margin * 2 / larger,
+					(r.bottomX + 1) * constants::screen::left_margin * 2 / larger, (r.bottomY + 1) * constants::screen::left_margin * 2 / larger,
+					constants::render_priority::MINIMAP_PATH, 1);
+			}
 		}
 
 		for (auto& r : m_pathList)
@@ -122,7 +146,7 @@ namespace magica_rogue
 				r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
 				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
 				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
-				constants::render_priority::minimap_path, 1);
+				constants::render_priority::MINIMAP_PATH, 1);
 		}
 		for (auto& r : m_regionList)
 		{
@@ -132,7 +156,7 @@ namespace magica_rogue
 				r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
 				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
 				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
-				constants::render_priority::minimap_discovered, 4);
+				constants::render_priority::MINIMAP_DISCOVERED, 4);
 		}
 	}
 
@@ -301,28 +325,6 @@ namespace magica_rogue
 		{
 			for (int x = 0; x < m_width; ++x)
 			{
-				/*int i = 0;
-				if (m_mapData[y][x] == 1)
-				{
-					m_graphicData[y][x] = 16;
-					continue;
-				}
-				if (x == m_width - 1 || m_mapData[y][x + 1] == 1)
-				{
-					i |= 1;
-				}
-				if (y == m_height - 1 || m_mapData[y + 1][x] == 1)
-				{
-					i |= 2;
-				}
-				if (x == 0 || m_mapData[y][x - 1] == 1)
-				{
-					i |= 4;
-				}
-				if (y == 0 || m_mapData[y - 1][x] == 1)
-				{
-					i |= 8;
-				}*/
 				m_graphicData[y][x] = m_mapData[y][x];
 			}
 		}
@@ -339,17 +341,16 @@ namespace magica_rogue
 		const int room_minimum = 7;
 		const int divide_margin = room_minimum + room_margin * 2 + 3;
 		const int radius_path = 1;
-		//std::vector<ROOM_NODE> m_roomList;
 
-		if (m_width < divide_margin * 4 || m_height < divide_margin * 4)
+		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
 		{
 			OutputDebugString(L"map size too small");
 			return;
 		}
 
 		// 部屋の割り方を決める
-		int xNum = m_random.GetRanged(max(4, m_width / divide_margin - 6), m_width / divide_margin);
-		int yNum = m_random.GetRanged(max(4, m_height / divide_margin - 6), m_height / divide_margin);
+		int xNum = m_random.GetRanged(max(3, m_width / divide_margin - 6), m_width / divide_margin);
+		int yNum = m_random.GetRanged(max(3, m_height / divide_margin - 6), m_height / divide_margin);
 
 		uint32_t yetElement = xNum * yNum;
 		uint32_t yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(55, 85)) / 100.0f);
@@ -368,6 +369,7 @@ namespace magica_rogue
 					u = 2;
 				}
 				--yetElement;
+				assert(u != 0);
 				m_roomList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, u));
 				m_regionList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, 1));
 			}
@@ -390,42 +392,34 @@ namespace magica_rogue
 				if (x - 1 >= 0 && connect[cur - 1] == -1)
 				{
 					reserve.push_back(cur - 1);
-					if (m_random.GetRanged(0, 0) == 0)
-					{
-						connect[cur - 1] = cur;
-						globalConnect[cur].insert(cur - 1);
-						globalConnect[cur - 1].insert(cur);
-					}
+
+					connect[cur - 1] = cur;
+					globalConnect[cur].insert(cur - 1);
+					globalConnect[cur - 1].insert(cur);
 				}
 				if (x + 1 < xNum && connect[cur + 1] == -1)
 				{
 					reserve.push_back(cur + 1);
-					if (m_random.GetRanged(0, 0) == 0)
-					{
-						connect[cur + 1] = cur;
-						globalConnect[cur].insert(cur + 1);
-						globalConnect[cur + 1].insert(cur);
-					}
+
+					connect[cur + 1] = cur;
+					globalConnect[cur].insert(cur + 1);
+					globalConnect[cur + 1].insert(cur);
 				}
 				if (y - 1 >= 0 && connect[cur - xNum] == -1)
 				{
 					reserve.push_back(cur - xNum);
-					if (m_random.GetRanged(0, 0) == 0)
-					{
-						connect[cur - xNum] = cur;
-						globalConnect[cur].insert(cur - xNum);
-						globalConnect[cur - xNum].insert(cur);
-					}
+
+					connect[cur - xNum] = cur;
+					globalConnect[cur].insert(cur - xNum);
+					globalConnect[cur - xNum].insert(cur);
 				}
 				if (y + 1 < yNum && connect[cur + xNum] == -1)
 				{
 					reserve.push_back(cur + xNum);
-					if (m_random.GetRanged(0, 0) == 0)
-					{
-						connect[cur + xNum] = cur;
-						globalConnect[cur].insert(cur + xNum);
-						globalConnect[cur + xNum].insert(cur);
-					}
+
+					connect[cur + xNum] = cur;
+					globalConnect[cur].insert(cur + xNum);
+					globalConnect[cur + xNum].insert(cur);
 				}
 				std::shuffle(reserve.begin(), reserve.end(), m_random.GetDevice());
 				for (auto& i : reserve)
@@ -435,6 +429,8 @@ namespace magica_rogue
 				reserve.clear();
 			}
 		}
+
+		assert(std::count(connect.cbegin(), connect.cend(), -1) == 0);
 
 		// マップを壁で埋める
 		for (int y = 0; y < m_height; ++y)
@@ -520,22 +516,46 @@ namespace magica_rogue
 						beginX = m_roomList[i].bottomX;
 						endX = m_roomList[connect[i]].topX;
 
-						if (m_roomList[i].bottomY - m_roomList[i].topY == 1) beginY = m_roomList[i].topY;
-						else beginY = m_random.GetRanged(m_roomList[i].topY + radius_path + 1, m_roomList[i].bottomY - radius_path - 1);
-						if (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) endY = m_roomList[connect[i]].topY;
-						else endY = m_random.GetRanged(m_roomList[connect[i]].topY + radius_path + 1,
-							m_roomList[connect[i]].bottomY - radius_path - 1);
+						if (m_roomList[i].usedFor == 2)
+						{
+							beginY = m_roomList[i].topY;
+						}
+						else
+						{
+							beginY = m_random.GetRanged(m_roomList[i].topY + radius_path + 1, m_roomList[i].bottomY - radius_path - 1);
+						}
+						if (m_roomList[connect[i]].usedFor == 2)
+						{
+							endY = m_roomList[connect[i]].topY;
+						}
+						else
+						{
+							endY = m_random.GetRanged(m_roomList[connect[i]].topY + radius_path + 1,
+								m_roomList[connect[i]].bottomY - radius_path - 1);
+						}
 					}
 					else
 					{
 						beginX = m_roomList[connect[i]].bottomX;
 						endX = m_roomList[i].topX;
 
-						if (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) beginY = m_roomList[connect[i]].topY;
-						else beginY = m_random.GetRanged(m_roomList[connect[i]].topY + radius_path + 1,
-							m_roomList[connect[i]].bottomY - radius_path - 1);
-						if (m_roomList[i].bottomY - m_roomList[i].topY == 1) endY = m_roomList[i].topY;
-						else endY = m_random.GetRanged(m_roomList[i].topY + radius_path + 1, m_roomList[i].bottomY - radius_path - 1);
+						if (m_roomList[connect[i]].usedFor == 2)
+						{
+							beginY = m_roomList[connect[i]].topY;
+						}
+						else
+						{
+							beginY = m_random.GetRanged(m_roomList[connect[i]].topY + radius_path + 1,
+								m_roomList[connect[i]].bottomY - radius_path - 1);
+						}
+						if (m_roomList[i].usedFor == 2)
+						{
+							endY = m_roomList[i].topY;
+						}
+						else
+						{
+							endY = m_random.GetRanged(m_roomList[i].topY + radius_path + 1, m_roomList[i].bottomY - radius_path - 1);
+						}
 					}
 					wallX = m_random.GetRanged(beginX + room_margin, endX - room_margin);
 
@@ -546,12 +566,12 @@ namespace magica_rogue
 					}
 
 					m_pathList.push_back(ROOM_NODE(wallX, endY - radius_path, endX, endY + radius_path + 1, 2));
-					for (int x = wallX; x < endX; ++x)
+					for (int x = wallX; x < endX + radius_path; ++x)
 					{
 						fill3X3(endY, x);
 					}
 
-					m_pathList.push_back(ROOM_NODE(wallX - 1, min(beginY, endY) - 1, wallX + radius_path + 1, max(beginY, endY) + radius_path + 1, 2));
+					m_pathList.push_back(ROOM_NODE(wallX - radius_path, min(beginY, endY) - radius_path, wallX + radius_path + 1, max(beginY, endY) + radius_path + 1, 2));
 					for (int y = min(beginY, endY); y <= max(beginY, endY); ++y)
 					{
 						fill3X3(y, wallX);
@@ -570,38 +590,62 @@ namespace magica_rogue
 						beginY = m_roomList[i].bottomY;
 						endY = m_roomList[connect[i]].topY;
 
-						if (m_roomList[i].bottomX - m_roomList[i].topX == 1) beginX = m_roomList[i].topX;
-						else beginX = m_random.GetRanged(m_roomList[i].topX + radius_path + 1, m_roomList[i].bottomX - radius_path - 1);
-						if (m_roomList[connect[i]].bottomX - m_roomList[connect[i]].topX == 1) endX = m_roomList[connect[i]].topX;
-						else endX = m_random.GetRanged(m_roomList[connect[i]].topX + radius_path + 1,
-							m_roomList[connect[i]].bottomX - radius_path - 1);
+						if (m_roomList[i].usedFor == 2)
+						{
+							beginX = m_roomList[i].topX;
+						}
+						else
+						{
+							beginX = m_random.GetRanged(m_roomList[i].topX + radius_path + 1, m_roomList[i].bottomX - radius_path - 1);
+						}
+						if (m_roomList[connect[i]].usedFor == 2)
+						{
+							endX = m_roomList[connect[i]].topX;
+						}
+						else
+						{
+							endX = m_random.GetRanged(m_roomList[connect[i]].topX + radius_path + 1,
+								m_roomList[connect[i]].bottomX - radius_path - 1);
+						}
 					}
 					else
 					{
 						beginY = m_roomList[connect[i]].bottomY;
 						endY = m_roomList[i].topY;
 
-						if (m_roomList[connect[i]].bottomY - m_roomList[connect[i]].topY == 1) beginX = m_roomList[connect[i]].topX;
-						else beginX = m_random.GetRanged(m_roomList[connect[i]].topX + radius_path + 1,
-							m_roomList[connect[i]].bottomX - radius_path - 1);
-						if (m_roomList[i].bottomY - m_roomList[i].topY == 1) endX = m_roomList[i].topY;
-						else endX = m_random.GetRanged(m_roomList[i].topX + radius_path + 1, m_roomList[i].bottomX - radius_path - 1);
+						if (m_roomList[connect[i]].usedFor == 2)
+						{
+							beginX = m_roomList[connect[i]].topX;
+						}
+						else
+						{
+							beginX = m_random.GetRanged(m_roomList[connect[i]].topX + radius_path + 1,
+								m_roomList[connect[i]].bottomX - radius_path - 1);
+						}
+						if (m_roomList[i].usedFor == 2)
+						{
+							endX = m_roomList[i].topX;
+						}
+						else
+						{
+							endX = m_random.GetRanged(m_roomList[i].topX + radius_path + 1, m_roomList[i].bottomX - radius_path - 1);
+						}
 					}
 					wallY = m_random.GetRanged(beginY + room_margin, endY - room_margin);
 
-					m_pathList.push_back(ROOM_NODE(beginX - 1, beginY - radius_path, beginX + radius_path + 1, wallY, 2));
+					m_pathList.push_back(ROOM_NODE(beginX - radius_path, beginY - radius_path, beginX + radius_path + 1, wallY + radius_path, 2));
 					for (int y = beginY - radius_path; y < wallY; ++y)
 					{
 						fill3X3(y, beginX);
 					}
 
-					m_pathList.push_back(ROOM_NODE(endX - 1, wallY, endX + radius_path + 1, endY, 2));
-					for (int y = wallY; y < endY; ++y)
+					m_pathList.push_back(ROOM_NODE(endX - radius_path, wallY, endX + radius_path + 1, endY, 2));
+					for (int y = wallY; y < endY + radius_path; ++y)
 					{
 						fill3X3(y, endX);
 					}
 
-					m_pathList.push_back(ROOM_NODE(min(beginX, endX) - 1, wallY - 1,
+					m_pathList.push_back(ROOM_NODE(min(beginX, endX) - radius_path, wallY - radius_path,
 						max(beginX, endX) + radius_path + 1, wallY + radius_path + 1, 2));
 					for (int x = min(beginX, endX); x <= max(beginX, endX); ++x)
 					{
@@ -664,6 +708,13 @@ namespace magica_rogue
 		_SetStartPosition(m_roomList);
 
 	}
+
+	/**********************************************************************//**
+		@brief			プレイヤーの初期位置を決定する
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+
 	void MRMapData::_SetStartPosition(std::vector<ROOM_NODE>& rooms)
 	{
 		std::vector<int> roomIndices;
@@ -680,6 +731,23 @@ namespace magica_rogue
 				m_startY = (rooms[r].topY + rooms[r].bottomY) / 2;
 				break;
 			}
+		}
+	}
+
+	/**********************************************************************//**
+		@brief			宝箱を設置する
+		@param			staticList					固定オブジェクトのリスト
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::_SpawnTreasureBox(std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList)
+	{
+		for (auto& r : m_roomList)
+		{
+			if (r.usedFor != 1) continue;
+			int x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
+			int y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
+			staticList.push_back(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
+				static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3))));
 		}
 	}
 }

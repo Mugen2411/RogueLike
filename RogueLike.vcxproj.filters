@@ -54,7 +54,7 @@
     <ClCompile Include="src\Map\MapData.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\Random.cpp">
+    <ClCompile Include="src\Util\Random.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Input\KeyInputManager.cpp">
@@ -63,22 +63,25 @@
     <ClCompile Include="src\Mover\Player\Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\Transform.cpp">
+    <ClCompile Include="src\Util\Transform.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\InputManager.cpp">
+    <ClCompile Include="src\Util\InputManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\Camera.cpp">
+    <ClCompile Include="src\Util\Camera.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Static\TreasureBox.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="src\shader\BasicVertexShader.hlsl" />
-    <FxCompile Include="src\shader\BasicPixelShader.hlsl" />
+    <FxCompile Include="src\Shader\BasicVertexShader.hlsl" />
+    <FxCompile Include="src\Shader\BasicPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\shader\BasicShaderHeader.hlsli" />
+    <None Include="src\Shader\BasicShaderHeader.hlsli" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Core.h">
@@ -123,7 +126,7 @@
     <ClInclude Include="src\Map\MapData.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Random.h">
+    <ClInclude Include="src\Util\Random.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Input\KeyInputManager.h">
@@ -132,16 +135,22 @@
     <ClInclude Include="src\Mover\Player\Player.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Transform.h">
+    <ClInclude Include="src\Util\Transform.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\InputManager.h">
+    <ClInclude Include="src\Util\InputManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Camera.h">
+    <ClInclude Include="src\Util\Camera.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Constants.h">
+    <ClInclude Include="src\Util\Constants.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Static\TreasureBox.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Static\StaticObjectInterface.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

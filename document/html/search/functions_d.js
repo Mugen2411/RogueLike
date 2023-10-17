@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['render_0',['render',['../classmagica__rogue_1_1_m_r_map_data.html#a86373ee55328a0c15851632c17bb985a',1,'magica_rogue::MRMapData::Render()'],['../classmagica__rogue_1_1_m_r_player.html#a703b50d4ad2cf05bc07c5041bc97907b',1,'magica_rogue::MRPlayer::Render()']]],
+  ['render_0',['render',['../classmagica__rogue_1_1_m_r_map_data.html#a86373ee55328a0c15851632c17bb985a',1,'magica_rogue::MRMapData::Render()'],['../classmagica__rogue_1_1_m_r_player.html#a703b50d4ad2cf05bc07c5041bc97907b',1,'magica_rogue::MRPlayer::Render()'],['../classmagica__rogue_1_1_m_r_static_object_interface.html#a13c461f9bb0ab612292af2d3a84344cf',1,'magica_rogue::MRStaticObjectInterface::Render()'],['../classmagica__rogue_1_1_m_r_tresure_box.html#ab9204c864f87492656a71232ac975375',1,'magica_rogue::MRTresureBox::Render()']]],
   ['renderall_1',['RenderAll',['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a7d5acd8d695b20b11be0dd1b002ed694',1,'mugen_engine::MEGraphicRenderQueue']]],
-  ['renderminimap_2',['RenderMiniMap',['../classmagica__rogue_1_1_m_r_map_data.html#aa37e49a483ad9799edf6e042169d502a',1,'magica_rogue::MRMapData']]],
+  ['renderminimap_2',['RenderMiniMap',['../classmagica__rogue_1_1_m_r_map_data.html#a15275d3f60927ba2dcb0d68fcbfc64ad',1,'magica_rogue::MRMapData']]],
   ['reserverender_3',['ReserveRender',['../classmugen__engine_1_1_m_e_graphic_render_queue.html#aed53caf0379a1008611962820dbede29',1,'mugen_engine::MEGraphicRenderQueue']]],
   ['resetadditionalvertexbuffer_4',['resetadditionalvertexbuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a627a624bffa5e538d2b7116fceb44504',1,'mugen_engine::MEGraphicGpuResourceManager::ResetAdditionalVertexBuffer()'],['../classmugen__engine_1_1_m_e_image.html#a19380393c434a749c53dc55974d56304',1,'mugen_engine::MEImage::ResetAdditionalVertexBuffer()']]],
   ['resetrenderarea_5',['ResetRenderArea',['../classmugen__engine_1_1_m_e_core.html#aef074df0952ec0eedb4c8f7d86028ecf',1,'mugen_engine::MECore']]],

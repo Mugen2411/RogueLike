@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['y_0',['y',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___i_n_d_e_x.html#a163e8886d727810c039612fb0ef27b5b',1,'magica_rogue::MRMapData::ROOM_INDEX']]],
-  ['yukina_1',['YUKINA',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486',1,'magica_rogue::MRPlayer']]]
+  ['x_0',['x',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___i_n_d_e_x.html#a8014d7e5517d9cdce66fbab94ebaf1bd',1,'magica_rogue::MRMapData::ROOM_INDEX']]]
 ];

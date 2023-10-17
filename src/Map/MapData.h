@@ -9,6 +9,8 @@
 #include "../util/Camera.h"
 #include "../util/Random.h"
 #include "../util/Transform.h"
+#include "../Static/StaticObjectInterface.h"
+#include "../Static/TreasureBox.h"
 #include <vector>
 #include <memory>
 
@@ -22,13 +24,13 @@ namespace magica_rogue
 	{
 	public:
 		//! コンストラクタ
-		MRMapData(const int width, const int height, uint32_t seed);
+		MRMapData(const int width, const int height, uint32_t seed, std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList);
 		//! マップを更新
 		void Update(const MRTransform& playerTransform);
 		//! マップを描画
 		void Render(const MRCamera& camera) const;
 		//! ミニマップを描画
-		void RenderMiniMap(const MRTransform& playerTransform)const;
+		void RenderMiniMap(const MRTransform& playerTransform, std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList)const;
 		//! プレイヤーの初期X座標を取得
 		float GetStartX() const {
 			return m_startX * 32.0f + 16.0f;
@@ -53,7 +55,7 @@ namespace magica_rogue
 			int topY;										//!< 左上のY座標
 			int bottomX;									//!< 右下のX座標
 			int bottomY;									//!< 右下のY座標
-			
+
 			int usedFor;									//!< 部屋の使い道(0:無し 1:部屋 2:交差点)
 		};
 
@@ -63,7 +65,7 @@ namespace magica_rogue
 		*//***********************************************************************/
 		struct ROOM_INDEX
 		{
-			ROOM_INDEX(int x, int y, int index) :x(x), y(y), index(index) 
+			ROOM_INDEX(int x, int y, int index) :x(x), y(y), index(index)
 			{}
 
 			int x;											//!< X座標
@@ -77,6 +79,8 @@ namespace magica_rogue
 		void _DivideRooms();
 		//! プレイヤーの初期位置を設定する
 		void _SetStartPosition(std::vector<ROOM_NODE>& rooms);
+		//! 宝箱を設置する
+		void _SpawnTreasureBox(std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList);
 
 		const int m_width;									//!< マップの横幅
 		const int m_height;									//!< マップの高さ
