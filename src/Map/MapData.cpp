@@ -73,23 +73,34 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRMapData::RenderMiniMap(const MRTransform& playerTransform) const
 	{
+		int larger = max(m_width, m_height);
+
 		m_minimapImg->DrawModiGraph2X(0, 0, constants::screen::left_margin, 0,
 			0, constants::screen::height, constants::screen::left_margin, constants::screen::height,
 			constants::render_priority::minimap_base);
-		m_minimapImg->DrawRotaGraph(static_cast<int>(playerTransform.GetX() / m_chipSize),
-			static_cast<int>(playerTransform.GetY() / m_chipSize), 6.0f, 0.0f,
+		m_minimapImg->DrawRotaGraph(static_cast<int>(playerTransform.GetX() * constants::screen::left_margin * 2 / m_chipSize / larger),
+			static_cast<int>(playerTransform.GetY() * constants::screen::left_margin * 2 / m_chipSize / larger),
+			max(constants::screen::left_margin * 2 * 0.25f / larger, 0.5f), 0.0f,
 			constants::render_priority::minimap_player, 3);
 
 		for (auto& r : m_roomList)
 		{
 			if (r.usedFor != 1) continue;
-			m_minimapImg->DrawModiGraph(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY,
+			m_minimapImg->DrawModiGraph(
+				r.topX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+				r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
+				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
 				constants::render_priority::minimap_room, 2);
 		}
 
 		for (auto& r : m_pathList)
 		{
-			m_minimapImg->DrawModiGraph(r.topX, r.topY, r.bottomX, r.topY, r.topX, r.bottomY, r.bottomX, r.bottomY,
+			m_minimapImg->DrawModiGraph(
+				r.topX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+				r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
+				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
 				constants::render_priority::minimap_path, 1);
 		}
 	}
@@ -509,7 +520,7 @@ namespace magica_rogue
 					}
 
 					m_pathList.push_back(ROOM_NODE(wallX - 1, min(beginY, endY) - 1, wallX + radius_path + 1, max(beginY, endY) + radius_path + 1, 2));
-					for (int y = min(beginY, endY); y < max(beginY, endY); ++y)
+					for (int y = min(beginY, endY); y <= max(beginY, endY); ++y)
 					{
 						fill3X3(y, wallX);
 					}
@@ -546,7 +557,7 @@ namespace magica_rogue
 					}
 					wallY = m_random.GetRanged(beginY + room_margin, endY - room_margin);
 
-					m_pathList.push_back(ROOM_NODE(beginX - 1, beginY - radius_path, beginX + radius_path, wallY, 2));
+					m_pathList.push_back(ROOM_NODE(beginX - 1, beginY - radius_path, beginX + radius_path + 1, wallY, 2));
 					for (int y = beginY - radius_path; y < wallY; ++y)
 					{
 						fill3X3(y, beginX);
@@ -560,7 +571,7 @@ namespace magica_rogue
 
 					m_pathList.push_back(ROOM_NODE(min(beginX, endX) - 1, wallY - 1,
 						max(beginX, endX) + radius_path + 1, wallY + radius_path + 1, 2));
-					for (int x = min(beginX, endX); x < max(beginX, endX); ++x)
+					for (int x = min(beginX, endX); x <= max(beginX, endX); ++x)
 					{
 						fill3X3(wallY, x);
 					}

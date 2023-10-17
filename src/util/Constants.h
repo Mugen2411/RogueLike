@@ -22,8 +22,8 @@ namespace magica_rogue
 			const float map_wall = 2.0f;				//!< マップの壁レイヤ
 			const float map_floor = 3.0f;				//!< マップの床レイヤ
 			const float minimap_base = -5.0f;			//!< ミニマップの基準
-			const float minimap_room = -5.1f;			//!< ミニマップの部屋
-			const float minimap_path = -5.2f;			//!< ミニマップの通路
+			const float minimap_room = -5.2f;			//!< ミニマップの部屋
+			const float minimap_path = -5.1f;			//!< ミニマップの通路
 			const float minimap_player = -5.3f;			//!< ミニマップのプレイヤー
 		}
 
