@@ -24,7 +24,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	auto defFont = mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 
 	auto random = std::random_device();
-	magica_rogue::MRMapData mapData(128, 128, random());
+	magica_rogue::MRMapData mapData(256, 256, random());
 
 	int frame = 0;
 	enum KeyCode {
@@ -45,6 +45,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		
 		player.Update();
 		mapData.HitWithWall(player.GetTransform(), player.GetSize());
+		mapData.Update(player.GetTransform());
 		player.Move();
 
 		mapData.Render(camera);

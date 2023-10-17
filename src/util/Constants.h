@@ -25,6 +25,7 @@ namespace magica_rogue
 			const float minimap_room = -5.2f;			//!< ミニマップの部屋
 			const float minimap_path = -5.1f;			//!< ミニマップの通路
 			const float minimap_player = -5.3f;			//!< ミニマップのプレイヤー
+			const float minimap_discovered = -5.9f;		//!< ミニマップを隠すベール
 		}
 
 		/**********************************************************************//**

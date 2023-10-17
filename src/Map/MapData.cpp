@@ -21,7 +21,7 @@ namespace magica_rogue
 		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
-		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 4, 1);
+		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 4, 2);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
 		m_minimapImg = &mugen_engine::MECore::GetIns().GetGraph("minimap");
 		m_minimapImg->SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
@@ -35,6 +35,26 @@ namespace magica_rogue
 		}
 		_DivideRooms();
 		_ConvertGraphFromMap();
+	}
+
+	/**********************************************************************//**
+		@brief			マップを更新する
+		@param[in]		プレイヤーの位置
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::Update(const MRTransform& playerTransform)
+	{
+		int x = static_cast<int>(playerTransform.GetX() / m_chipSize);
+		int y = static_cast<int>(playerTransform.GetY() / m_chipSize);
+		for (auto& r : m_regionList)
+		{
+			if (r.usedFor == 0)continue;
+
+			if (r.topX <= x && x <= r.bottomX && r.topY <= y && y <= r.bottomY)
+			{
+				r.usedFor = 0;
+			}
+		}
 	}
 
 	/**********************************************************************//**
@@ -68,7 +88,7 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			ミニマップを描画する
-		@param			なし
+		@param[in]		プレイヤーの位置
 		@return			なし
 	*//***********************************************************************/
 	void MRMapData::RenderMiniMap(const MRTransform& playerTransform) const
@@ -78,6 +98,7 @@ namespace magica_rogue
 		m_minimapImg->DrawModiGraph2X(0, 0, constants::screen::left_margin, 0,
 			0, constants::screen::height, constants::screen::left_margin, constants::screen::height,
 			constants::render_priority::minimap_base);
+
 		m_minimapImg->DrawRotaGraph(static_cast<int>(playerTransform.GetX() * constants::screen::left_margin * 2 / m_chipSize / larger),
 			static_cast<int>(playerTransform.GetY() * constants::screen::left_margin * 2 / m_chipSize / larger),
 			max(constants::screen::left_margin * 2 * 0.25f / larger, 0.5f), 0.0f,
@@ -102,6 +123,16 @@ namespace magica_rogue
 				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
 				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
 				constants::render_priority::minimap_path, 1);
+		}
+		for (auto& r : m_regionList)
+		{
+			if (r.usedFor == 0) continue;
+			m_minimapImg->DrawModiGraph(
+				r.topX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+				r.bottomX * constants::screen::left_margin * 2 / larger, r.topY * constants::screen::left_margin * 2 / larger,
+				r.topX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
+				r.bottomX * constants::screen::left_margin * 2 / larger, r.bottomY * constants::screen::left_margin * 2 / larger,
+				constants::render_priority::minimap_discovered, 4);
 		}
 	}
 
@@ -310,15 +341,15 @@ namespace magica_rogue
 		const int radius_path = 1;
 		//std::vector<ROOM_NODE> m_roomList;
 
-		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
+		if (m_width < divide_margin * 4 || m_height < divide_margin * 4)
 		{
 			OutputDebugString(L"map size too small");
 			return;
 		}
 
 		// 部屋の割り方を決める
-		int xNum = m_random.GetRanged(max(3, m_width / divide_margin - 3), m_width / divide_margin);
-		int yNum = m_random.GetRanged(max(3, m_height / divide_margin - 3), m_height / divide_margin);
+		int xNum = m_random.GetRanged(max(4, m_width / divide_margin - 6), m_width / divide_margin);
+		int yNum = m_random.GetRanged(max(4, m_height / divide_margin - 6), m_height / divide_margin);
 
 		uint32_t yetElement = xNum * yNum;
 		uint32_t yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(55, 85)) / 100.0f);
@@ -338,6 +369,7 @@ namespace magica_rogue
 				}
 				--yetElement;
 				m_roomList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, u));
+				m_regionList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, 1));
 			}
 		}
 		// subetenosetuzokujoukyouwohozonn

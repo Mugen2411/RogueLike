@@ -23,6 +23,8 @@ namespace magica_rogue
 	public:
 		//! コンストラクタ
 		MRMapData(const int width, const int height, uint32_t seed);
+		//! マップを更新
+		void Update(const MRTransform& playerTransform);
 		//! マップを描画
 		void Render(const MRCamera& camera) const;
 		//! ミニマップを描画
@@ -86,6 +88,7 @@ namespace magica_rogue
 		std::vector<std::vector<int>> m_graphicData;		//!< 表示に使う方向とか入ってる奴
 		std::vector<ROOM_NODE> m_roomList;					//!< 部屋リスト
 		std::vector<ROOM_NODE> m_pathList;					//!< 通路リスト
+		std::vector<ROOM_NODE> m_regionList;				//!< 領域リスト
 
 		float m_chipSize;									//!< マップチップの一辺の長さ
 
