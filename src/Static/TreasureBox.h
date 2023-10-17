@@ -11,6 +11,10 @@
 
 namespace magica_rogue
 {
+	/**********************************************************************//**
+		@class		MRTreasureBox
+		@brief		•ó” ƒNƒ‰ƒX
+	*//***********************************************************************/
 	class MRTresureBox : public MRStaticObjectInterface
 	{
 	public:

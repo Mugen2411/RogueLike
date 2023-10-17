@@ -25,5 +25,7 @@ var searchData=
   ['start_5ftime_5f_22',['start_time_',['../classmugen__engine_1_1_fps.html#a15f425fe4655e1790faf5d9d1a95a2b2',1,'mugen_engine::Fps']]],
   ['state_23',['state',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf']]],
   ['staticobjectinterface_2eh_24',['StaticObjectInterface.h',['../_static_object_interface_8h.html',1,'']]],
-  ['sub_25',['SUB',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7',1,'mugen_engine::MEImage']]]
+  ['staticobjectmanager_2ecpp_25',['StaticObjectManager.cpp',['../_static_object_manager_8cpp.html',1,'']]],
+  ['staticobjectmanager_2eh_26',['StaticObjectManager.h',['../_static_object_manager_8h.html',1,'']]],
+  ['sub_27',['SUB',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7',1,'mugen_engine::MEImage']]]
 ];

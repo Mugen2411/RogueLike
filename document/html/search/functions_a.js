@@ -14,9 +14,10 @@ var searchData=
   ['move_11',['Move',['../classmagica__rogue_1_1_m_r_player.html#a133ff95b055b679c5f38723a0455a3d9',1,'magica_rogue::MRPlayer']]],
   ['mrcamera_12',['MRCamera',['../classmagica__rogue_1_1_m_r_camera.html#a8c9ce6c12b13868eef0006ffed41257b',1,'magica_rogue::MRCamera']]],
   ['mrinputmanager_13',['MRInputManager',['../classmagica__rogue_1_1_m_r_input_manager.html#afafacffa775a5d97a72f2cd15e477e61',1,'magica_rogue::MRInputManager']]],
-  ['mrmapdata_14',['MRMapData',['../classmagica__rogue_1_1_m_r_map_data.html#a7feeede0fafa48eac7e7aa7d4d0bf462',1,'magica_rogue::MRMapData']]],
+  ['mrmapdata_14',['MRMapData',['../classmagica__rogue_1_1_m_r_map_data.html#a17dba5a48d234a52ee8b34814da9d55a',1,'magica_rogue::MRMapData']]],
   ['mrplayer_15',['MRPlayer',['../classmagica__rogue_1_1_m_r_player.html#a15a49f0a2f78963a5d059a952b3ec3de',1,'magica_rogue::MRPlayer']]],
   ['mrrandom_16',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html#a559e5ed351afb9c5894b3385818f92f6',1,'magica_rogue::MRRandom']]],
-  ['mrtransform_17',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html#aaf0e191ef3fbac7855b148f380dcdad6',1,'magica_rogue::MRTransform']]],
-  ['mrtresurebox_18',['MRTresureBox',['../classmagica__rogue_1_1_m_r_tresure_box.html#adbbea585baf0b963cbf18fac451f8cb0',1,'magica_rogue::MRTresureBox']]]
+  ['mrstaticobjectmanager_17',['MRStaticObjectManager',['../classmagica__rogue_1_1_m_r_static_object_manager.html#af7d3a4f07d3cf10b8e711a82f2a74d84',1,'magica_rogue::MRStaticObjectManager']]],
+  ['mrtransform_18',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html#aaf0e191ef3fbac7855b148f380dcdad6',1,'magica_rogue::MRTransform']]],
+  ['mrtresurebox_19',['MRTresureBox',['../classmagica__rogue_1_1_m_r_tresure_box.html#adbbea585baf0b963cbf18fac451f8cb0',1,'magica_rogue::MRTresureBox']]]
 ];

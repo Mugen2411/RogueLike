@@ -18,6 +18,8 @@ var searchData=
   ['mrplayer_15',['MRPlayer',['../classmagica__rogue_1_1_m_r_player.html',1,'magica_rogue']]],
   ['mrrandom_16',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html',1,'magica_rogue']]],
   ['mrstaticobjectinterface_17',['MRStaticObjectInterface',['../classmagica__rogue_1_1_m_r_static_object_interface.html',1,'magica_rogue']]],
-  ['mrtransform_18',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html',1,'magica_rogue']]],
-  ['mrtresurebox_19',['MRTresureBox',['../classmagica__rogue_1_1_m_r_tresure_box.html',1,'magica_rogue']]]
+  ['mrstaticobjectmanager_18',['MRStaticObjectManager',['../classmagica__rogue_1_1_m_r_static_object_manager.html',1,'magica_rogue']]],
+  ['mrtransform_19',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html',1,'magica_rogue']]],
+  ['mrtreasurebox_20',['MRTreasureBox',['../class_m_r_treasure_box.html',1,'']]],
+  ['mrtresurebox_21',['MRTresureBox',['../classmagica__rogue_1_1_m_r_tresure_box.html',1,'magica_rogue']]]
 ];

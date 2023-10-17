@@ -9,6 +9,10 @@
 
 namespace magica_rogue
 {
+	/**********************************************************************//**
+		@class		MRStaticObjectInterface
+		@brief		静止オブジェクトが必ず継承するインターフェース
+	*//***********************************************************************/
 	class MRStaticObjectInterface
 	{
 	public:

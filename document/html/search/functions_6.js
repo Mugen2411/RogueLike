@@ -19,9 +19,10 @@ var searchData=
   ['getstarty_16',['GetStartY',['../classmagica__rogue_1_1_m_r_map_data.html#a73182e274931d534f2d13d3f18901dcd',1,'magica_rogue::MRMapData']]],
   ['gettextureheap_17',['GetTextureHeap',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a85dcec4acd131d990c1be75ee3cb63c3',1,'mugen_engine::MEGraphicGpuResourceManager']]],
   ['gettransform_18',['gettransform',['../classmagica__rogue_1_1_m_r_player.html#ab9039f3f911f7dfe1e0c054f459135f0',1,'magica_rogue::MRPlayer::GetTransform()'],['../classmagica__rogue_1_1_m_r_static_object_interface.html#a921de8d66caf427e0b098c04877bae09',1,'magica_rogue::MRStaticObjectInterface::GetTransform()'],['../classmagica__rogue_1_1_m_r_tresure_box.html#a09cf81c1ae3c50f0f569e6911e2e34c6',1,'magica_rogue::MRTresureBox::GetTransform()']]],
-  ['getvertexbufferview_19',['GetVertexBufferView',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5975faa5ec6615c97e1c07b1ec95893a',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['getwindowheight_20',['GetWindowHeight',['../classmugen__engine_1_1_m_e_core.html#a35c94ba4e5f6b2309b9eaab5121e075a',1,'mugen_engine::MECore']]],
-  ['getwindowwidth_21',['GetWindowWidth',['../classmugen__engine_1_1_m_e_core.html#ac6b8db890e9dd6d4f408963f719eb7d6',1,'mugen_engine::MECore']]],
-  ['getx_22',['GetX',['../classmagica__rogue_1_1_m_r_transform.html#aa348a91e555b9432ce8164f544d31e43',1,'magica_rogue::MRTransform']]],
-  ['gety_23',['GetY',['../classmagica__rogue_1_1_m_r_transform.html#a799ec6bf12fa654f4f0caf565578becc',1,'magica_rogue::MRTransform']]]
+  ['gettransforms_19',['GetTransforms',['../classmagica__rogue_1_1_m_r_static_object_manager.html#a11918a44b038888f232dcdb57b5f84c2',1,'magica_rogue::MRStaticObjectManager']]],
+  ['getvertexbufferview_20',['GetVertexBufferView',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5975faa5ec6615c97e1c07b1ec95893a',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['getwindowheight_21',['GetWindowHeight',['../classmugen__engine_1_1_m_e_core.html#a35c94ba4e5f6b2309b9eaab5121e075a',1,'mugen_engine::MECore']]],
+  ['getwindowwidth_22',['GetWindowWidth',['../classmugen__engine_1_1_m_e_core.html#ac6b8db890e9dd6d4f408963f719eb7d6',1,'mugen_engine::MECore']]],
+  ['getx_23',['GetX',['../classmagica__rogue_1_1_m_r_transform.html#aa348a91e555b9432ce8164f544d31e43',1,'magica_rogue::MRTransform']]],
+  ['gety_24',['GetY',['../classmagica__rogue_1_1_m_r_transform.html#a799ec6bf12fa654f4f0caf565578becc',1,'magica_rogue::MRTransform']]]
 ];

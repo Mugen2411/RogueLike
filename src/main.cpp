@@ -6,7 +6,7 @@
 
 #include "Map/MapData.h"
 #include "Mover/Player/Player.h"
-#include "Static/StaticObjectInterface.h"
+#include "Static/StaticObjectManager.h"
 #include "util/InputManager.h"
 #include "util/Camera.h"
 
@@ -32,10 +32,10 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	
 	magica_rogue::MRCamera camera(0, 0);
 
-	std::vector<std::unique_ptr<magica_rogue::MRStaticObjectInterface>> staticList;
+	magica_rogue::MRStaticObjectManager staticList;
 
 	auto random = std::random_device();
-	magica_rogue::MRMapData mapData(64, 64, random(), staticList);
+	magica_rogue::MRMapData mapData(256, 256, random(), staticList);
 
 	magica_rogue::MRPlayer player(magica_rogue::MRPlayer::PLAYER_ID::KOMUK, mapData.GetStartX(), mapData.GetStartY(), camera);
 
@@ -54,10 +54,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 		mapData.Render(camera);
 		mapData.RenderMiniMap(player.GetTransform(), staticList);
-		for (auto& s : staticList)
-		{
-			s->Render(camera);
-		}
+		staticList.Render(camera);
 		player.Render();
 
 		float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };

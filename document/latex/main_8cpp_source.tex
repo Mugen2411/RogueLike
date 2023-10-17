@@ -8,7 +8,7 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_map_data_8h}{Map/MapData.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Mover/Player/Player.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_static_object_interface_8h}{Static/StaticObjectInterface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_static_object_manager_8h}{Static/StaticObjectManager.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_manager_8h}{util/InputManager.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8h}{util/Camera.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ }
@@ -34,10 +34,10 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{magica\_rogue::MRCamera}}\ camera(0,\ 0);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ std::vector<std::unique\_ptr<magica\_rogue::MRStaticObjectInterface>>\ staticList;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{magica\_rogue::MRStaticObjectManager}}\ staticList;}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{auto}\ random\ =\ std::random\_device();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{magica\_rogue::MRMapData}}\ mapData(64,\ 64,\ random(),\ staticList);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{magica\_rogue::MRMapData}}\ mapData(256,\ 256,\ random(),\ staticList);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player}{magica\_rogue::MRPlayer}}\ player(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409}{magica\_rogue::MRPlayer::PLAYER\_ID::KOMUK}},\ mapData.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a45e732c70b44c9b31b24f37aedca9f36}{GetStartX}}(),\ mapData.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a73182e274931d534f2d13d3f18901dcd}{GetStartY}}(),\ camera);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ }
@@ -55,26 +55,23 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ player.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{Move}}();}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ mapData.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a86373ee55328a0c15851632c17bb985a}{Render}}(camera);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ mapData.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a15275d3f60927ba2dcb0d68fcbfc64ad}{RenderMiniMap}}(player.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ab9039f3f911f7dfe1e0c054f459135f0}{GetTransform}}(),\ staticList);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ s\ :\ staticList)}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ s-\/>Render(camera);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ player.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{Render}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ color[4]\ =\ \{\ 1.0f,\ 1.0f,\ 1.0f,\ 1.0f\ \};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ defFont.DrawFormatString(200,\ 720\ -\/\ 32,\ color,\ -\/99.0,\ L\textcolor{stringliteral}{"{}frame:\ \%d"{}},\ frame);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ fps.\mbox{\hyperlink{classmugen__engine_1_1_fps_a1b84a89d6400f52be54a522fc9e1d619}{Draw}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{ScreenFlip}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ fps.\mbox{\hyperlink{classmugen__engine_1_1_fps_aaa8fbb3ceb9d9f9adfdd68ea99069ed2}{Update}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ fps.\mbox{\hyperlink{classmugen__engine_1_1_fps_a132c80fe1ccf055879c6cbb2233b7abd}{Wait}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ mapData.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ada21e0dc70b03ec6bd368d2c79b6d3fa}{RenderMiniMap}}(player.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ab9039f3f911f7dfe1e0c054f459135f0}{GetTransform}}(),\ staticList);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ staticList.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{Render}}(camera);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ player.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{Render}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ color[4]\ =\ \{\ 1.0f,\ 1.0f,\ 1.0f,\ 1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ defFont.DrawFormatString(200,\ 720\ -\/\ 32,\ color,\ -\/99.0,\ L\textcolor{stringliteral}{"{}frame:\ \%d"{}},\ frame);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ fps.\mbox{\hyperlink{classmugen__engine_1_1_fps_a1b84a89d6400f52be54a522fc9e1d619}{Draw}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a29c86d9bd9b6506ac15fb8a97e27e3e1}{ScreenFlip}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ fps.\mbox{\hyperlink{classmugen__engine_1_1_fps_aaa8fbb3ceb9d9f9adfdd68ea99069ed2}{Update}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ fps.\mbox{\hyperlink{classmugen__engine_1_1_fps_a132c80fe1ccf055879c6cbb2233b7abd}{Wait}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ frame++;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ frame++;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}{Finalize}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a30e74b26e06c0baedaad42e01b7a6e24}{Finalize}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \}}
 
 \end{DoxyCode}

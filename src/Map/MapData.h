@@ -11,6 +11,7 @@
 #include "../util/Transform.h"
 #include "../Static/StaticObjectInterface.h"
 #include "../Static/TreasureBox.h"
+#include "../Static/StaticObjectManager.h"
 #include <vector>
 #include <memory>
 
@@ -24,13 +25,13 @@ namespace magica_rogue
 	{
 	public:
 		//! コンストラクタ
-		MRMapData(const int width, const int height, uint32_t seed, std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList);
+		MRMapData(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList);
 		//! マップを更新
 		void Update(const MRTransform& playerTransform);
 		//! マップを描画
 		void Render(const MRCamera& camera) const;
 		//! ミニマップを描画
-		void RenderMiniMap(const MRTransform& playerTransform, std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList)const;
+		void RenderMiniMap(const MRTransform& playerTransform, MRStaticObjectManager& staticList)const;
 		//! プレイヤーの初期X座標を取得
 		float GetStartX() const {
 			return m_startX * 32.0f + 16.0f;
@@ -80,7 +81,7 @@ namespace magica_rogue
 		//! プレイヤーの初期位置を設定する
 		void _SetStartPosition(std::vector<ROOM_NODE>& rooms);
 		//! 宝箱を設置する
-		void _SpawnTreasureBox(std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList);
+		void _SpawnTreasureBox(MRStaticObjectManager& staticList);
 
 		const int m_width;									//!< マップの横幅
 		const int m_height;									//!< マップの高さ

@@ -1,0 +1,155 @@
+\doxysection{magica\+\_\+rogue\+::MRStatic\+Object\+Manager クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_static_object_manager}{}\label{classmagica__rogue_1_1_m_r_static_object_manager}\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+
+
+静止オブジェクトを管理するクラス  
+
+
+
+
+{\ttfamily \#include $<$Static\+Object\+Manager.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_af7d3a4f07d3cf10b8e711a82f2a74d84}{MRStatic\+Object\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a9feb76361031c535c025656b4fff4a1d}{Register}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_interface}{MRStatic\+Object\+Interface}} $>$ \&\&obj)
+\begin{DoxyCompactList}\small\item\em 管理対象に追加する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}{Get\+Transforms}} (std\+::vector$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} $>$ \&list)
+\begin{DoxyCompactList}\small\item\em 物体の位置情報をvectorで取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{Render}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \&camera) const
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_interface}{MRStatic\+Object\+Interface}} $>$ $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}{m\+\_\+object\+List}}
+\begin{DoxyCompactList}\small\item\em オブジェクトのリスト \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+静止オブジェクトを管理するクラス 
+
+ \mbox{\hyperlink{_static_object_manager_8h_source}{Static\+Object\+Manager.\+h}} の \mbox{\hyperlink{_static_object_manager_8h_source_l00019}{19}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_af7d3a4f07d3cf10b8e711a82f2a74d84}\label{classmagica__rogue_1_1_m_r_static_object_manager_af7d3a4f07d3cf10b8e711a82f2a74d84} 
+\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!MRStaticObjectManager@{MRStaticObjectManager}}
+\index{MRStaticObjectManager@{MRStaticObjectManager}!magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+\doxysubsubsection{\texorpdfstring{MRStaticObjectManager()}{MRStaticObjectManager()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRStatic\+Object\+Manager\+::\+MRStatic\+Object\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}\label{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2} 
+\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!GetTransforms@{GetTransforms}}
+\index{GetTransforms@{GetTransforms}!magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+\doxysubsubsection{\texorpdfstring{GetTransforms()}{GetTransforms()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRStatic\+Object\+Manager\+::\+Get\+Transforms (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} $>$ \&}]{list }\end{DoxyParamCaption})}
+
+
+
+物体の位置情報をvectorで取得 
+
+位置情報をvectorで取得
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ out}}  & {\em list} & 位置情報を格納するvector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_a9feb76361031c535c025656b4fff4a1d}\label{classmagica__rogue_1_1_m_r_static_object_manager_a9feb76361031c535c025656b4fff4a1d} 
+\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!Register@{Register}}
+\index{Register@{Register}!magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRStatic\+Object\+Manager\+::\+Register (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_interface}{MRStatic\+Object\+Interface}} $>$ \&\&}]{obj }\end{DoxyParamCaption})}
+
+
+
+管理対象に追加する 
+
+静止オブジェクトを登録する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em obj} & 対象のオブジェクト \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00021}{21}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}\label{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8} 
+\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRStatic\+Object\+Manager\+::\+Render (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \&}]{camera }\end{DoxyParamCaption}) const}
+
+
+
+描画 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00044}{44}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}\label{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488} 
+\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!m\_objectList@{m\_objectList}}
+\index{m\_objectList@{m\_objectList}!magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+\doxysubsubsection{\texorpdfstring{m\_objectList}{m\_objectList}}
+{\footnotesize\ttfamily std\+::list$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_interface}{MRStatic\+Object\+Interface}}$>$ $>$ magica\+\_\+rogue\+::\+MRStatic\+Object\+Manager\+::m\+\_\+object\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+オブジェクトのリスト 
+
+
+
+ \mbox{\hyperlink{_static_object_manager_8h_source}{Static\+Object\+Manager.\+h}} の \mbox{\hyperlink{_static_object_manager_8h_source_l00031}{31}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Static/\mbox{\hyperlink{_static_object_manager_8h}{Static\+Object\+Manager.\+h}}\item 
+Static/\mbox{\hyperlink{_static_object_manager_8cpp}{Static\+Object\+Manager.\+cpp}}\end{DoxyCompactItemize}

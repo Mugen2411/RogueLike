@@ -17,7 +17,7 @@ namespace magica_rogue
 		@param[in]		height				マップの高さ
 		@return			なし
 	*//***********************************************************************/
-	MRMapData::MRMapData(const int width, const int height, uint32_t seed, std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList) :
+	MRMapData::MRMapData(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList) :
 		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
@@ -95,7 +95,7 @@ namespace magica_rogue
 		@return			なし
 	*//***********************************************************************/
 	void MRMapData::RenderMiniMap(const MRTransform& playerTransform,
-		std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList) const
+		MRStaticObjectManager& staticList) const
 	{
 		int larger = max(m_width, m_height);
 
@@ -107,10 +107,10 @@ namespace magica_rogue
 			static_cast<int>(playerTransform.GetY() * constants::screen::left_margin * 2 / m_chipSize / larger),
 			max(constants::screen::left_margin * 2 * 0.25f / larger, 0.5f), 0.0f,
 			constants::render_priority::MINIMAP_PLAYER, 3);
-
-		for (auto& s : staticList)
+		std::vector<MRTransform> staticTransforms;
+		staticList.GetTransforms(staticTransforms);
+		for (auto& t : staticTransforms)
 		{
-			auto& t = s->GetTransform();
 			m_minimapImg->DrawRotaGraph(static_cast<int>(t.GetX() * constants::screen::left_margin * 2 / m_chipSize / larger),
 				static_cast<int>(t.GetY() * constants::screen::left_margin * 2 / m_chipSize / larger),
 				max(constants::screen::left_margin * 2 * 0.20f / larger, 0.4f), 0.0f,
@@ -739,14 +739,14 @@ namespace magica_rogue
 		@param			staticList					固定オブジェクトのリスト
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::_SpawnTreasureBox(std::vector<std::unique_ptr<MRStaticObjectInterface>>& staticList)
+	void MRMapData::_SpawnTreasureBox(MRStaticObjectManager& staticList)
 	{
 		for (auto& r : m_roomList)
 		{
 			if (r.usedFor != 1) continue;
 			int x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
 			int y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
-			staticList.push_back(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
+			staticList.Register(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
 				static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3))));
 		}
 	}
