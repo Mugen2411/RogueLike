@@ -57,8 +57,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 		staticList.Render(camera);
 		player.Render();
 
-		float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		defFont.DrawFormatString(200, 720 - 32, color, -99.0, L"frame: %d", frame);
+		//float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		//defFont.DrawFormatString(200, 720 - 32, color, -99.0, L"frame: %d", frame);
 		fps.Draw();
 		mugen_engine::MECore::GetIns().ScreenFlip();
 		fps.Update();

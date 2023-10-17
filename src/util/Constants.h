@@ -28,6 +28,9 @@ namespace magica_rogue
 			const float MINIMAP_TREASUREBOX = -5.3f;	//!< ミニマップの宝箱
 			const float MINIMAP_PLAYER = -5.8f;			//!< ミニマップのプレイヤー
 			const float MINIMAP_DISCOVERED = -5.9f;		//!< ミニマップを隠すベール
+			const float UI_GUAGE_BASE = -6.0f;			//!< UIゲージのベース
+			const float UI_GUAGE_MAIN = -6.1f;			//!< UIゲージの本体
+			const float UI_GUAGE_FRAME = -6.2f;			//!< UIゲージのフレーム
 		}
 
 		/**********************************************************************//**

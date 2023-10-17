@@ -339,7 +339,7 @@ namespace magica_rogue
 	{
 		const int room_margin = 3;
 		const int room_minimum = 7;
-		const int divide_margin = room_minimum + room_margin * 2 + 3;
+		const int divide_margin = room_minimum + room_margin * 2 + 8;
 		const int radius_path = 1;
 
 		if (m_width < divide_margin * 3 || m_height < divide_margin * 3)
@@ -744,10 +744,25 @@ namespace magica_rogue
 		for (auto& r : m_roomList)
 		{
 			if (r.usedFor != 1) continue;
-			int x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
-			int y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
-			staticList.Register(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
-				static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3))));
+			int base_solid = 7 * 7;
+			int room_solid = (r.bottomX - r.topX) * (r.bottomY - r.topY);
+			int num = room_solid / base_solid;
+			std::vector<int> old_x;
+			std::vector<int> old_y;
+			for (int i = 0; i < num; ++i)
+			{
+				int x, y;
+				do
+				{
+					x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
+					y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
+				} while (std::count(old_x.cbegin(), old_x.cend(), x) != 0 && std::count(old_y.cbegin(), old_y.cend(), y));
+
+				staticList.Register(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
+					static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3))));
+				old_x.push_back(x);
+				old_y.push_back(y);
+			}
 		}
 	}
 }

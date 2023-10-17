@@ -42,6 +42,7 @@ namespace magica_rogue
 		PLAYER_ID m_id;										//!< プレイヤーID
 		MRTransform m_transform;							//!< 位置速度情報
 		mugen_engine::MEImage* m_playerImg;					//!< プレイヤーのグラフィック
+		mugen_engine::MEImage* m_hpGuageImg;				//!< HPゲージの画像
 		MRCamera& m_camera;									//!< カメラ
 		float m_size;										//!< プレイヤーの当たり判定サイズ
 		float m_speed;										//!< 自機の移動速度

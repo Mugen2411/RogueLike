@@ -60,6 +60,9 @@ namespace magica_rogue
 		}
 
 		m_playerImg = &mugen_engine::MECore::GetIns().GetGraph("player");
+
+		mugen_engine::MECore::GetIns().LoadDivGraph("hpGuage", L"media/graphic/UI/HPGuage.png", 9, 1);
+		m_hpGuageImg = &mugen_engine::MECore::GetIns().GetGraph("hpGuage");
 	}
 
 	/**********************************************************************//**
@@ -125,5 +128,9 @@ namespace magica_rogue
 	{
 		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
 			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER, 0);
+		for (int i = 0; i < 4; ++i)
+		{
+			m_hpGuageImg->DrawRotaGraph2X(16+32 * i, 216/2+constants::screen::left_margin, 1.0f, 0.0f, constants::render_priority::UI_GUAGE_FRAME, 0);
+		}
 	}
 }
