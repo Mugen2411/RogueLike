@@ -58,7 +58,8 @@ namespace mugen_engine
 		CONST MAT2 mat = { {0,1},{0,0},{0,0},{0,1} };
 		DWORD size = GetGlyphOutlineW(hdc, code, gradFlag, &gm, 0, NULL, &mat);
 		BYTE* pMono = new BYTE[size];
-		GetGlyphOutlineW(hdc, code, gradFlag, &gm, size, pMono, &mat);
+		auto result = GetGlyphOutlineW(hdc, code, gradFlag, &gm, size, pMono, &mat);
+		assert(result >= 0 && result != GDI_ERROR);
 
 		//フォントの幅と高さ
 		m_width = gm.gmCellIncX;
@@ -118,7 +119,7 @@ namespace mugen_engine
 		@param[in]		color				文字色
 		@return			なし
 	*//***********************************************************************/
-	void MEGraphicCharacterUnit::DrawCharacter(const int x, const int y, float color[4], float priority)
+	void MEGraphicCharacterUnit::DrawCharacter(const int x, const int y, const float color[4], const float priority)
 	{
 		CONSTANT_DATA constData = {};
 		constData.scaleMatrix = DirectX::XMMatrixScaling(2.0f / MECore::GetIns().GetWindowWidth(),

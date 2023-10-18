@@ -174,6 +174,7 @@ namespace mugen_engine
 	*//***********************************************************************/
 	void MECore::LoadFont(std::string gid, std::wstring fontName, int fontSize)
 	{
+		//if (m_loadedFonts.find(gid) != m_loadedFonts.end()) return;
 		m_loadedFonts[gid] = MEFontData(fontName, fontSize, m_graphicDevice, m_commandList, m_pipeline, m_renderTarget);
 	}
 

@@ -28,7 +28,7 @@ namespace mugen_engine
 			MEGraphicDevice& device, MEGraphicCommandList& cmdList,
 			MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
 		//! Žw’è‚µ‚½ˆÊ’u‚É•`‰æ
-		void DrawCharacter(const int x, const int y, float color[4], float priority);
+		void DrawCharacter(const int x, const int y, const float color[4], const float priority);
 	private:
 		/**********************************************************************//**
 		@struct		TexRGBA

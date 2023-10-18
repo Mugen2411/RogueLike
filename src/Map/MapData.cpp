@@ -746,7 +746,7 @@ namespace magica_rogue
 			if (r.usedFor != 1) continue;
 			int base_solid = 7 * 7;
 			int room_solid = (r.bottomX - r.topX) * (r.bottomY - r.topY);
-			int num = room_solid / base_solid;
+			int num = static_cast<int>(std::sqrtf(static_cast<float>(room_solid) / base_solid) - 0.1f);
 			std::vector<int> old_x;
 			std::vector<int> old_y;
 			for (int i = 0; i < num; ++i)

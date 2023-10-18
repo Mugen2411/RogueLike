@@ -16,7 +16,7 @@ namespace magica_rogue
 		@return			Ç»Çµ
 	*//***********************************************************************/
 	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera):
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(16.0f)
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(16.0f), m_hp(10.0f)
 	{
 		switch (id)
 		{
@@ -61,8 +61,11 @@ namespace magica_rogue
 
 		m_playerImg = &mugen_engine::MECore::GetIns().GetGraph("player");
 
-		mugen_engine::MECore::GetIns().LoadDivGraph("hpGuage", L"media/graphic/UI/HPGuage.png", 9, 1);
+		mugen_engine::MECore::GetIns().LoadDivGraph("hpGuage", L"media/graphic/UI/HPGuage.png", 1, 9);
 		m_hpGuageImg = &mugen_engine::MECore::GetIns().GetGraph("hpGuage");
+
+		mugen_engine::MECore::GetIns().LoadFont("guageNumber", L"ÇlÇr ÉSÉVÉbÉN", 16);
+		m_guageFont = &mugen_engine::MECore::GetIns().GetFont("guageNumber");
 	}
 
 	/**********************************************************************//**
@@ -105,6 +108,7 @@ namespace magica_rogue
 			m_transform.SetVelocity(vx / std::sqrtf(static_cast<float>(numPushedButton)),
 				vy / std::sqrtf(static_cast<float>(numPushedButton)));
 		}
+		m_hp.Damage(0.005f);
 	}
 
 	/**********************************************************************//**
@@ -130,7 +134,29 @@ namespace magica_rogue
 			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER, 0);
 		for (int i = 0; i < 4; ++i)
 		{
-			m_hpGuageImg->DrawRotaGraph2X(16+32 * i, 216/2+constants::screen::left_margin, 1.0f, 0.0f, constants::render_priority::UI_GUAGE_FRAME, 0);
+			m_hpGuageImg->DrawRotaGraph2X(64, 8 + 32 * i + constants::screen::left_margin, 1.0f, 0.0f,
+				constants::render_priority::UI_GUAGE_FRAME, 0);
 		}
+
+		constexpr int guageMargin = 4;
+		constexpr int guageWidth = 120;
+		constexpr int guageHeight = 8;
+
+		constexpr int hpGuageTopX = guageMargin;
+		constexpr int hpGuageTopY = constants::screen::left_margin + guageMargin;
+		// HPÉQÅ[ÉWÇÃï`âÊ
+		m_hpGuageImg->DrawModiGraph2X(hpGuageTopX + static_cast<int>(guageWidth * m_hp.GetRatio()), hpGuageTopY,
+			hpGuageTopX + static_cast<int>(guageWidth * m_hp.GetRatio()), hpGuageTopY + guageHeight,
+			hpGuageTopX, hpGuageTopY,
+			hpGuageTopX, hpGuageTopY + guageHeight,
+			constants::render_priority::UI_GUAGE_MAIN, 1);
+		m_hpGuageImg->DrawModiGraph2X(hpGuageTopX + guageWidth, hpGuageTopY,
+			hpGuageTopX + guageWidth, hpGuageTopY + guageHeight,
+			hpGuageTopX, hpGuageTopY,
+			hpGuageTopX, hpGuageTopY + guageHeight,
+			constants::render_priority::UI_GUAGE_BASE, 2);
+		const float fontColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32,
+			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"HP: %.1f / %.1f", m_hp.GetValue(), m_hp.GetMax());
 	}
 }

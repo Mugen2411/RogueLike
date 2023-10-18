@@ -4,9 +4,11 @@
 #ifndef __MagicaRogue_Player__
 #define __MagicaRogue_Player__
 
-#include "../../util/Transform.h"
-#include "../../util/Camera.h"
+#include "../../Util/Transform.h"
+#include "../../Util/Camera.h"
 #include "../../Engine/Graphic/GraphicLoadedImage.h"
+#include "../../Engine/Graphic/GraphicFontData.h"
+#include "../HitPoint.h"
 
 namespace magica_rogue
 {
@@ -43,9 +45,12 @@ namespace magica_rogue
 		MRTransform m_transform;							//!< 位置速度情報
 		mugen_engine::MEImage* m_playerImg;					//!< プレイヤーのグラフィック
 		mugen_engine::MEImage* m_hpGuageImg;				//!< HPゲージの画像
+		mugen_engine::MEFontData* m_guageFont;				//!< ゲージの実数値を表示するフォント
 		MRCamera& m_camera;									//!< カメラ
 		float m_size;										//!< プレイヤーの当たり判定サイズ
 		float m_speed;										//!< 自機の移動速度
+
+		MRHitPoint m_hp;									//!< HP
 	};
 }
 

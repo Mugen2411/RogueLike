@@ -31,6 +31,7 @@ namespace magica_rogue
 			const float UI_GUAGE_BASE = -6.0f;			//!< UIゲージのベース
 			const float UI_GUAGE_MAIN = -6.1f;			//!< UIゲージの本体
 			const float UI_GUAGE_FRAME = -6.2f;			//!< UIゲージのフレーム
+			const float UI_GUAGE_NUMBER = -6.3f;		//!< UIゲージに重ねる実数値
 		}
 
 		/**********************************************************************//**

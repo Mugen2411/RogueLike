@@ -30,10 +30,12 @@ namespace mugen_engine
 			lf.lfFaceName[i] = fontName[i];
 		}
 		HFONT hFont = CreateFontIndirectW(&lf);
+		assert(hFont != NULL);
 
 		// 現在のウィンドウに適用
 		// デバイスにフォントを持たせないとGetGlyphOutlineW関数はエラーとなる
 		m_hdc = GetDC(NULL);
+		assert(m_hdc != NULL);
 		m_oldFont = (HFONT)SelectObject(m_hdc, hFont);
 	}
 
@@ -64,7 +66,7 @@ namespace mugen_engine
 		@param[in]		text				描画したい文字列
 		@return			なし
 	*//***********************************************************************/
-	void MEFontData::DrawString(const int x, const int y, float color[4], float priority, const std::wstring text)
+	void MEFontData::DrawString(const int x, const int y, const float color[4], const float priority, const std::wstring text)
 	{
 		size_t xOffset = 0;
 		size_t yOffset = 0;
@@ -77,19 +79,23 @@ namespace mugen_engine
 					*m_pDevice, *m_pCmdList, *m_pPipeline, *m_pRenderTarget);
 			}
 			auto& cur = m_loadedCharacters[text[currentOffset]];
-			if(text[currentOffset] != L'\n')
-			{
-				cur.DrawCharacter(x + static_cast<int>(xOffset), y + static_cast<int>(yOffset), color, priority);
-				xOffset += m_loadedCharacters[text[currentOffset]].m_width;
-			}
-			else
+			if(text[currentOffset] == L'\n')
 			{
 				yOffset += cur.m_height;
 				xOffset = 0;
 			}
+			else if (text[currentOffset] == L' ')
+			{
+				xOffset += m_loadedCharacters[text[currentOffset]].m_width;
+			}
+			else
+			{
+				cur.DrawCharacter(x + static_cast<int>(xOffset), y + static_cast<int>(yOffset), color, priority);
+				xOffset += m_loadedCharacters[text[currentOffset]].m_width;
+			}
 		}
 	}
-	void MEFontData::DrawFormatString(const int x, const int y, float color[4], float priority, const std::wstring text, ...)
+	void MEFontData::DrawFormatString(const int x, const int y, const float color[4], const float priority, const std::wstring text, ...)
 	{
 		va_list args;
 		va_start(args, text);
