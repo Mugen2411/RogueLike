@@ -1,0 +1,18 @@
+<map id="Static/StaticObjectManager.cpp" name="Static/StaticObjectManager.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="193,5,399,32"/>
+<area shape="rect" id="Node000002" href="$_static_object_manager_8h.html" title=" " alt="" coords="219,80,373,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,33,299,64,294,64,294,33"/>
+<area shape="rect" id="Node000003" href="$_static_object_interface_8h.html" title=" " alt="" coords="100,155,253,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,109,211,149,209,144,274,105"/>
+<area shape="rect" id="Node000004" href="$_camera_8h.html" title=" " alt="" coords="5,229,118,256"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="219,101,185,108,150,119,117,135,89,157,79,169,72,184,65,215,60,213,67,182,75,166,85,153,114,130,148,114,184,103,218,96"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="277,155,315,181"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="299,107,299,139,294,139,294,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="339,155,395,181"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="310,105,346,142,342,145,307,109"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="418,155,486,181"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="324,105,412,145,410,150,322,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="158,184,96,223,93,218,155,180"/>
+<area shape="rect" id="Node000005" href="$_transform_8h.html" title=" " alt="" coords="142,229,266,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="184,181,196,214,191,216,179,183"/>
+</map>

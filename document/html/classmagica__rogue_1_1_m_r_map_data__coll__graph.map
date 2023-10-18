@@ -1,0 +1,25 @@
+<map id="magica_rogue::MRMapData" name="magica_rogue::MRMapData">
+<area shape="rect" id="Node000001" title="マップデータを扱うクラス" alt="" coords="760,247,942,273"/>
+<area shape="rect" id="Node000002" href="$classmugen__engine_1_1_m_e_image.html" title="読み込み済み画像を扱うクラス" alt="" coords="443,196,611,223"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="627,222,736,239,766,243,765,249,736,244,626,227"/>
+<area shape="rect" id="Node000003" href="$structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a.html" title="頂点単位のデータ群" alt="" coords="32,11,237,37"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,15,333,25,373,36,411,54,451,86,484,125,507,164,522,195,517,197,503,167,479,128,448,89,408,58,371,41,332,30,251,20"/>
+<area shape="rect" id="Node000004" href="$classmugen__engine_1_1_m_e_graphic_device.html" title="グラフィック制御部分の中核となるクラス" alt="" coords="26,316,243,343"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="258,329,297,324,336,315,374,301,408,281,417,270,419,258,422,245,432,233,451,221,454,225,435,237,427,248,425,260,421,272,411,285,376,306,338,320,298,330,258,335"/>
+<area shape="rect" id="Node000009" href="$classmugen__engine_1_1_m_e_font_data.html" title="読み込んだフォントで画面上に文字列描画を行うクラス" alt="" coords="434,247,620,273"/>
+<area shape="poly" id="edge9_Node000009_Node000004" title=" " alt="" coords="182,346,233,362,292,372,323,373,353,370,382,361,408,347,418,334,420,318,421,301,432,284,449,272,452,276,436,287,427,302,425,319,423,336,411,351,384,366,354,375,323,378,292,378,231,367,180,351"/>
+<area shape="rect" id="Node000005" href="$classmugen__engine_1_1_m_e_graphic_command_list.html" title="GPUコマンドを管理するクラス" alt="" coords="5,409,264,436"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="279,422,358,414,388,405,408,394,421,376,426,357,425,338,421,317,414,276,419,254,432,233,446,221,449,225,436,236,423,256,420,276,426,316,430,337,431,358,426,378,411,398,390,410,359,419,280,427"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="180,440,232,458,293,470,324,471,354,467,383,457,408,441,422,424,427,406,426,387,422,367,415,326,419,304,432,284,446,272,449,276,436,287,424,306,420,326,427,366,431,386,432,406,427,426,411,445,385,462,355,472,324,476,292,475,230,463,178,445"/>
+<area shape="rect" id="Node000006" href="$classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html" title="GPU資源を管理するクラス" alt="" coords="33,143,236,185"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="251,175,443,197,442,202,251,180"/>
+<area shape="rect" id="Node000007" href="$classmugen__engine_1_1_m_e_graphic_pipeline.html" title="ブレンド等を含むパイプラインを管理するクラス" alt="" coords="22,227,247,253"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="262,227,442,213,442,219,262,233"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="262,251,288,253,433,258,433,263,288,259,262,257"/>
+<area shape="rect" id="Node000008" href="$classmugen__engine_1_1_m_e_graphic_render_target.html" title="描画対象となる画面を管理するクラス" alt="" coords="25,68,244,111"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="259,73,335,78,374,85,411,98,446,118,476,144,518,194,514,197,473,148,443,122,409,102,373,90,335,83,259,79"/>
+<area shape="poly" id="edge12_Node000009_Node000008" title=" " alt="" coords="254,112,353,137,391,149,411,159,423,179,424,198,426,216,436,233,451,244,448,248,432,236,420,217,419,198,418,180,408,163,389,154,352,142,252,117"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="636,257,760,257,760,263,636,263"/>
+<area shape="rect" id="Node000010" href="$classmagica__rogue_1_1_m_r_random.html" title="乱数を扱うクラス" alt="" coords="438,297,616,324"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="631,294,736,279,778,271,779,277,736,284,632,300"/>
+</map>

@@ -1,0 +1,16 @@
+digraph "magica_rogue::MRRandom::GetRanged"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="magica_rogue::MRRandom\l::GetRanged",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="最小値と最大値を指定して乱数を取得"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="magica_rogue::MRMapData\l::_DivideRooms",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classmagica__rogue_1_1_m_r_map_data.html#a5881a757fa15d38b1714b7089b92c27c",tooltip="マップを部屋割りする"];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="magica_rogue::MRMapData\l::MRMapData",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classmagica__rogue_1_1_m_r_map_data.html#a17dba5a48d234a52ee8b34814da9d55a",tooltip="コンストラクタ"];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="magica_rogue::MRMapData\l::_SpawnTreasureBox",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classmagica__rogue_1_1_m_r_map_data.html#a2d562150039c884a0019392f5a8953bc",tooltip="宝箱を設置する"];
+  Node4 -> Node3 [id="edge4_Node000004_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+}
