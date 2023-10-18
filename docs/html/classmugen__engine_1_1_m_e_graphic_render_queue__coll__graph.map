@@ -1,5 +1,5 @@
 <map id="mugen_engine::MEGraphicRenderQueue" name="mugen_engine::MEGraphicRenderQueue">
-<area shape="rect" id="Node000001" title="描画待ちの画像を蓄えて処理するクラス" alt="" coords="5,96,225,139"/>
-<area shape="rect" id="Node000002" href="$classmugen__engine_1_1_m_e_graphic_device.html" title="グラフィック制御部分の中核となるクラス" alt="" coords="7,5,223,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,48,118,95,112,95,112,48"/>
+<area shape="rect" id="Node000001" title="描画待ちの画像を蓄えて処理するクラス" alt="" coords="5,315,357,885"/>
+<area shape="rect" id="Node000002" href="$classmugen__engine_1_1_m_e_graphic_device.html" title="グラフィック制御部分の中核となるクラス" alt="" coords="47,5,316,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,250,184,298,179,298,179,250"/>
 </map>
