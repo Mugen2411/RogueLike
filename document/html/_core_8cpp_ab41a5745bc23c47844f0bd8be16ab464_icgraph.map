@@ -1,9 +1,0 @@
-<map id="WindowProcedure" name="WindowProcedure">
-<area shape="rect" id="Node000001" title="ウィンドウプロシージャ" alt="" coords="542,13,669,40"/>
-<area shape="rect" id="Node000002" href="$classmugen__engine_1_1_m_e_core.html#ab0e66e76c01786fc7b4283c10e659a52" title="ウィンドウの作成" alt="" coords="334,5,494,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="527,29,495,29,495,24,527,24"/>
-<area shape="rect" id="Node000003" href="$classmugen__engine_1_1_m_e_core.html#a5c11ae146be6ee69d4b66f2f44d1b984" title="最初に必ず呼び出す初期化処理" alt="" coords="126,5,286,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="319,29,287,29,287,24,319,24"/>
-<area shape="rect" id="Node000004" href="$main_8cpp.html#aa9f5bde5a38da1ef0ae63e9a5a567411" title=" " alt="" coords="5,13,78,40"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="110,29,78,29,78,24,110,24"/>
-</map>

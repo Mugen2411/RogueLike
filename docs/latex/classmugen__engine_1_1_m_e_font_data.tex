@@ -9,6 +9,16 @@
 
 {\ttfamily \#include $<$Graphic\+Font\+Data.\+h$>$}
 
+
+
+mugen\+\_\+engine\+::MEFont\+Data 連携図
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmugen__engine_1_1_m_e_font_data__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
@@ -100,9 +110,27 @@ std\+::unordered\+\_\+map$<$ wchar\+\_\+t, \mbox{\hyperlink{classmugen__engine_1
 
 書式文字列を描画する 
 
+文字列の描画
 
 
- \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00098}{98}} 行目に定義があります。
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 左上の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 左上の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & 文字色 \\
+\hline
+\mbox{\texttt{ in}}  & {\em text} & 描画したい文字列 \\
+\hline
+\mbox{\texttt{ in}}  & {\em ...} & 書式文字列に対応する変数たち \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_font_data_8cpp_source}{Graphic\+Font\+Data.\+cpp}} の \mbox{\hyperlink{_graphic_font_data_8cpp_source_l00108}{108}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_font_data_af80b229c2db2f112802d3d5baeee86e2}\label{classmugen__engine_1_1_m_e_font_data_af80b229c2db2f112802d3d5baeee86e2} 
 \index{mugen\_engine::MEFontData@{mugen\_engine::MEFontData}!DrawString@{DrawString}}

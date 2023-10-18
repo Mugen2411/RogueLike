@@ -19,7 +19,8 @@ var searchData=
   ['mrmapdata_16',['MRMapData',['../classmagica__rogue_1_1_m_r_map_data.html#a17dba5a48d234a52ee8b34814da9d55a',1,'magica_rogue::MRMapData']]],
   ['mrplayer_17',['MRPlayer',['../classmagica__rogue_1_1_m_r_player.html#a15a49f0a2f78963a5d059a952b3ec3de',1,'magica_rogue::MRPlayer']]],
   ['mrrandom_18',['MRRandom',['../classmagica__rogue_1_1_m_r_random.html#a559e5ed351afb9c5894b3385818f92f6',1,'magica_rogue::MRRandom']]],
-  ['mrstaticobjectmanager_19',['MRStaticObjectManager',['../classmagica__rogue_1_1_m_r_static_object_manager.html#af7d3a4f07d3cf10b8e711a82f2a74d84',1,'magica_rogue::MRStaticObjectManager']]],
-  ['mrtransform_20',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html#aaf0e191ef3fbac7855b148f380dcdad6',1,'magica_rogue::MRTransform']]],
-  ['mrtresurebox_21',['MRTresureBox',['../classmagica__rogue_1_1_m_r_tresure_box.html#adbbea585baf0b963cbf18fac451f8cb0',1,'magica_rogue::MRTresureBox']]]
+  ['mrscenemanager_19',['MRSceneManager',['../classmagica__rogue_1_1_m_r_scene_manager.html#ad727fb7f0da943d105f6ad2916f9c1c7',1,'magica_rogue::MRSceneManager']]],
+  ['mrstaticobjectmanager_20',['MRStaticObjectManager',['../classmagica__rogue_1_1_m_r_static_object_manager.html#af7d3a4f07d3cf10b8e711a82f2a74d84',1,'magica_rogue::MRStaticObjectManager']]],
+  ['mrtransform_21',['MRTransform',['../classmagica__rogue_1_1_m_r_transform.html#aaf0e191ef3fbac7855b148f380dcdad6',1,'magica_rogue::MRTransform']]],
+  ['mrtresurebox_22',['MRTresureBox',['../classmagica__rogue_1_1_m_r_tresure_box.html#adbbea585baf0b963cbf18fac451f8cb0',1,'magica_rogue::MRTresureBox']]]
 ];
