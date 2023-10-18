@@ -6,5 +6,7 @@ var searchData=
   ['inputmanager_2ecpp_3',['InputManager.cpp',['../_input_manager_8cpp.html',1,'']]],
   ['inputmanager_2eh_4',['InputManager.h',['../_input_manager_8h.html',1,'']]],
   ['ios_5',['IOS',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c',1,'magica_rogue::MRPlayer']]],
-  ['ishiki_6',['ISHIKI',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3',1,'magica_rogue::MRPlayer']]]
+  ['ishiki_6',['ISHIKI',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3',1,'magica_rogue::MRPlayer']]],
+  ['ismaximum_7',['isMaximum',['../classmagica__rogue_1_1_m_r_capped_value.html#ab81d23ab6954dad55f438c45496c307b',1,'magica_rogue::MRCappedValue']]],
+  ['isminimum_8',['isMinimum',['../classmagica__rogue_1_1_m_r_capped_value.html#a755400163bea6616b0ed5f567ab35393',1,'magica_rogue::MRCappedValue']]]
 ];

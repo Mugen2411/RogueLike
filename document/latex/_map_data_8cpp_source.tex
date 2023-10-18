@@ -73,7 +73,7 @@
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ color[4]\ =\ \{\ 0.0f,\ 1.0f,\ 1.0f,\ 1.0f\ \};}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a1ab19508bbbf9ab7b24901dd0fe011c6}{m\_roomIndex}})}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a23404c45e4f5dec45f4fd56d59f1311b}{m\_font}}-\/>\mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data_ab9b873a2ba4ecb53c32e4712c9469498}{DrawFormatString}}(camera.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_a36d9f03d3783631823b5656b46dd0d67}{GetAnchoredX}}(i.x\ *\ chipW),}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a23404c45e4f5dec45f4fd56d59f1311b}{m\_font}}-\/>\mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data_a3e49e049ca203dce1c267cc2b9457288}{DrawFormatString}}(camera.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_a36d9f03d3783631823b5656b46dd0d67}{GetAnchoredX}}(i.x\ *\ chipW),}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ camera.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera_aa595bce2456ce46aca0943b5d1b65e51}{GetAnchoredY}}(i.y\ *\ chipW),\ color,\ 1.0f,\ L\textcolor{stringliteral}{"{}\%d"{}},\ i.index);}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00089}00089\ \textcolor{preprocessor}{\#endif}}
@@ -711,7 +711,7 @@
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00746}00746\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r.usedFor\ !=\ 1)\ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00747}00747\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ base\_solid\ =\ 7\ *\ 7;}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00748}00748\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ room\_solid\ =\ (r.bottomX\ -\/\ r.topX)\ *\ (r.bottomY\ -\/\ r.topY);}
-\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00749}00749\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\ =\ room\_solid\ /\ base\_solid;}
+\DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00749}00749\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::sqrtf(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(room\_solid)\ /\ base\_solid)\ -\/\ 0.1f);}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ old\_x;}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00751}00751\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ old\_y;}
 \DoxyCodeLine{\Hypertarget{_map_data_8cpp_source_l00752}00752\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num;\ ++i)}
