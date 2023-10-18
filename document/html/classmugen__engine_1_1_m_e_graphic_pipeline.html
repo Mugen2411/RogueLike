@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: mugen_engine::MEGraphicPipeline クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemugen__engine.html">mugen_engine</a></li><li class="navelem"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classmugen__engine_1_1_m_e_graphic_pipeline-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">mugen_engine::MEGraphicPipeline クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>ブレンド等を含むパイプラインを管理するクラス  
+ <a href="classmugen__engine_1_1_m_e_graphic_pipeline.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a49f85dc2d142dafd34abd2d89c64c230" id="r_a49f85dc2d142dafd34abd2d89c64c230"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a49f85dc2d142dafd34abd2d89c64c230">MEGraphicPipeline</a> ()</td></tr>
+<tr class="memdesc:a49f85dc2d142dafd34abd2d89c64c230"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:a49f85dc2d142dafd34abd2d89c64c230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac921b3426c1ae880bb12ea67de2154ae" id="r_ac921b3426c1ae880bb12ea67de2154ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#ac921b3426c1ae880bb12ea67de2154ae">Initialize</a> (const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)</td></tr>
+<tr class="memdesc:ac921b3426c1ae880bb12ea67de2154ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化  <br /></td></tr>
+<tr class="separator:ac921b3426c1ae880bb12ea67de2154ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d712861469c0a2c65eed9fec8b294a" id="r_a57d712861469c0a2c65eed9fec8b294a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a57d712861469c0a2c65eed9fec8b294a">SetPipelineState</a> (const int type, <a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;cmdList)</td></tr>
+<tr class="memdesc:a57d712861469c0a2c65eed9fec8b294a"><td class="mdescLeft">&#160;</td><td class="mdescRight">パイプラインステートの設定  <br /></td></tr>
+<tr class="separator:a57d712861469c0a2c65eed9fec8b294a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a58bb08857eed4bb938bd032c8f1584d3" id="r_a58bb08857eed4bb938bd032c8f1584d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3">_ProcessBlobError</a> (HRESULT result)</td></tr>
+<tr class="memdesc:a58bb08857eed4bb938bd032c8f1584d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">バイトコード周りのエラー処理  <br /></td></tr>
+<tr class="separator:a58bb08857eed4bb938bd032c8f1584d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72202b58cf14a895104ffdb0aae5f5a3" id="r_a72202b58cf14a895104ffdb0aae5f5a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a72202b58cf14a895104ffdb0aae5f5a3">_CreateRootSignarure</a> (const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device)</td></tr>
+<tr class="memdesc:a72202b58cf14a895104ffdb0aae5f5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ルートシグネチャの作成  <br /></td></tr>
+<tr class="separator:a72202b58cf14a895104ffdb0aae5f5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b820883c37d62c06cef397de3704292" id="r_a2b820883c37d62c06cef397de3704292"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292">_LoadShader</a> ()</td></tr>
+<tr class="memdesc:a2b820883c37d62c06cef397de3704292"><td class="mdescLeft">&#160;</td><td class="mdescRight">シェーダーの読み込み  <br /></td></tr>
+<tr class="separator:a2b820883c37d62c06cef397de3704292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc127052ba3e90b694b7c4d40d034225" id="r_abc127052ba3e90b694b7c4d40d034225"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#abc127052ba3e90b694b7c4d40d034225">_CreatePipelineState</a> (const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)</td></tr>
+<tr class="memdesc:abc127052ba3e90b694b7c4d40d034225"><td class="mdescLeft">&#160;</td><td class="mdescRight">パイプラインステートの作成  <br /></td></tr>
+<tr class="separator:abc127052ba3e90b694b7c4d40d034225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a5881f125352cb0fe4d4ccebe61d9c0ab" id="r_a5881f125352cb0fe4d4ccebe61d9c0ab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a5881f125352cb0fe4d4ccebe61d9c0ab">m_vsBlob</a></td></tr>
+<tr class="memdesc:a5881f125352cb0fe4d4ccebe61d9c0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点シェーダーのバイトコード  <br /></td></tr>
+<tr class="separator:a5881f125352cb0fe4d4ccebe61d9c0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138fa28d476c7b123e93731334bfea8a" id="r_a138fa28d476c7b123e93731334bfea8a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a138fa28d476c7b123e93731334bfea8a">m_psBlob</a></td></tr>
+<tr class="memdesc:a138fa28d476c7b123e93731334bfea8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ピクセルシェーダーのバイトコード  <br /></td></tr>
+<tr class="separator:a138fa28d476c7b123e93731334bfea8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed99dc47bcb98ab5c20ba0fe743c6e9" id="r_aaed99dc47bcb98ab5c20ba0fe743c6e9"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3DBlob &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#aaed99dc47bcb98ab5c20ba0fe743c6e9">m_errorBlob</a> = nullptr</td></tr>
+<tr class="memdesc:aaed99dc47bcb98ab5c20ba0fe743c6e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">バイトコード読み込みのエラーコード  <br /></td></tr>
+<tr class="separator:aaed99dc47bcb98ab5c20ba0fe743c6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e87c52c19c80463cfd0f0a7961f549e" id="r_a0e87c52c19c80463cfd0f0a7961f549e"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a0e87c52c19c80463cfd0f0a7961f549e">m_pipelineState</a> [3] = { nullptr }</td></tr>
+<tr class="memdesc:a0e87c52c19c80463cfd0f0a7961f549e"><td class="mdescLeft">&#160;</td><td class="mdescRight">パイプラインステート  <br /></td></tr>
+<tr class="separator:a0e87c52c19c80463cfd0f0a7961f549e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbe587496a50131abed8affe28508ad" id="r_a9cbe587496a50131abed8affe28508ad"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html#a9cbe587496a50131abed8affe28508ad">m_rootSignature</a> = nullptr</td></tr>
+<tr class="memdesc:a9cbe587496a50131abed8affe28508ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">ルートシグネチャ  <br /></td></tr>
+<tr class="separator:a9cbe587496a50131abed8affe28508ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>ブレンド等を含むパイプラインを管理するクラス </p>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00019">19</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a49f85dc2d142dafd34abd2d89c64c230" name="a49f85dc2d142dafd34abd2d89c64c230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49f85dc2d142dafd34abd2d89c64c230">&#9670;&#160;</a></span>MEGraphicPipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mugen_engine::MEGraphicPipeline::MEGraphicPipeline </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00015">15</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="abc127052ba3e90b694b7c4d40d034225" name="abc127052ba3e90b694b7c4d40d034225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc127052ba3e90b694b7c4d40d034225">&#9670;&#160;</a></span>_CreatePipelineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::_CreatePipelineState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const D3D12_INPUT_ELEMENT_DESC&#160;</td>
+          <td class="paramname"><em>inputLayout</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>layoutSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>パイプラインステートの作成 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>デバイス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00149">149</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a72202b58cf14a895104ffdb0aae5f5a3" name="a72202b58cf14a895104ffdb0aae5f5a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72202b58cf14a895104ffdb0aae5f5a3">&#9670;&#160;</a></span>_CreateRootSignarure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::_CreateRootSignarure </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ルートシグネチャの作成 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>デバイス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2b820883c37d62c06cef397de3704292" name="a2b820883c37d62c06cef397de3704292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b820883c37d62c06cef397de3704292">&#9670;&#160;</a></span>_LoadShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::_LoadShader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>シェーダーの読み込み </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00110">110</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a58bb08857eed4bb938bd032c8f1584d3" name="a58bb08857eed4bb938bd032c8f1584d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58bb08857eed4bb938bd032c8f1584d3">&#9670;&#160;</a></span>_ProcessBlobError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::_ProcessBlobError </td>
+          <td>(</td>
+          <td class="paramtype">HRESULT&#160;</td>
+          <td class="paramname"><em>result</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>バイトコード周りのエラー処理 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>読み込み時のエラーコード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00035">35</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac921b3426c1ae880bb12ea67de2154ae" name="ac921b3426c1ae880bb12ea67de2154ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac921b3426c1ae880bb12ea67de2154ae">&#9670;&#160;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const D3D12_INPUT_ELEMENT_DESC&#160;</td>
+          <td class="paramname"><em>inputLayout</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>layoutSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初期化 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">device</td><td>デバイス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00023">23</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a57d712861469c0a2c65eed9fec8b294a" name="a57d712861469c0a2c65eed9fec8b294a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d712861469c0a2c65eed9fec8b294a">&#9670;&#160;</a></span>SetPipelineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MEGraphicPipeline::SetPipelineState </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmdList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>パイプラインステートの設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>描画タイプ(0=透過・1=加算・2=減算) </td></tr>
+    <tr><td class="paramname">cmdList</td><td>コマンドリスト </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a> の <a class="el" href="_graphic_pipeline_8cpp_source.html#l00221">221</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="aaed99dc47bcb98ab5c20ba0fe743c6e9" name="aaed99dc47bcb98ab5c20ba0fe743c6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed99dc47bcb98ab5c20ba0fe743c6e9">&#9670;&#160;</a></span>m_errorBlob</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3DBlob&gt; mugen_engine::MEGraphicPipeline::m_errorBlob = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>バイトコード読み込みのエラーコード </p>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00040">40</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0e87c52c19c80463cfd0f0a7961f549e" name="a0e87c52c19c80463cfd0f0a7961f549e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e87c52c19c80463cfd0f0a7961f549e">&#9670;&#160;</a></span>m_pipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; mugen_engine::MEGraphicPipeline::m_pipelineState[3] = { nullptr }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>パイプラインステート </p>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00042">42</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a138fa28d476c7b123e93731334bfea8a" name="a138fa28d476c7b123e93731334bfea8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138fa28d476c7b123e93731334bfea8a">&#9670;&#160;</a></span>m_psBlob</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;char&gt; mugen_engine::MEGraphicPipeline::m_psBlob</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ピクセルシェーダーのバイトコード </p>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00039">39</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a9cbe587496a50131abed8affe28508ad" name="a9cbe587496a50131abed8affe28508ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cbe587496a50131abed8affe28508ad">&#9670;&#160;</a></span>m_rootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; mugen_engine::MEGraphicPipeline::m_rootSignature = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ルートシグネチャ </p>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00043">43</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5881f125352cb0fe4d4ccebe61d9c0ab" name="a5881f125352cb0fe4d4ccebe61d9c0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5881f125352cb0fe4d4ccebe61d9c0ab">&#9670;&#160;</a></span>m_vsBlob</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;char&gt; mugen_engine::MEGraphicPipeline::m_vsBlob</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>頂点シェーダーのバイトコード </p>
+
+<p class="definition"> <a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a> の <a class="el" href="_graphic_pipeline_8h_source.html#l00038">38</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Engine/Graphic/<a class="el" href="_graphic_pipeline_8h_source.html">GraphicPipeline.h</a></li>
+<li>Engine/Graphic/<a class="el" href="_graphic_pipeline_8cpp_source.html">GraphicPipeline.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

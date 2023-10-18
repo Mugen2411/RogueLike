@@ -95,6 +95,16 @@ namespace mugen_engine
 			}
 		}
 	}
+
+	/**********************************************************************//**
+		@brief			•¶š—ñ‚Ì•`‰æ
+		@param[in]		x					¶ã‚ÌXÀ•W
+		@param[in]		y					¶ã‚ÌYÀ•W
+		@param[in]		color				•¶šF
+		@param[in]		text				•`‰æ‚µ‚½‚¢•¶š—ñ
+		@param[in]		...					‘®•¶š—ñ‚É‘Î‰‚·‚é•Ï”‚½‚¿
+		@return			‚È‚µ
+	*//***********************************************************************/
 	void MEFontData::DrawFormatString(const int x, const int y, const float color[4], const float priority, const std::wstring text, ...)
 	{
 		va_list args;

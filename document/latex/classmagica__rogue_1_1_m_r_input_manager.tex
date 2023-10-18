@@ -1,0 +1,179 @@
+\doxysection{magica\+\_\+rogue\+::MRInput\+Manager クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_input_manager}{}\label{classmagica__rogue_1_1_m_r_input_manager}\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+
+
+キーとパッドの入力を扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Input\+Manager.\+h$>$}
+
+\doxysubsubsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7}{MRKey\+Code}} \+: char \{ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403}{RIGHT}} = 0
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f}{DOWN}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758}{LEFT}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1}{UP}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_af86c065162988df35bee521c919aed21}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 入力状況の更新 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a31725d60c8a61ec488f8ac381450c5e6}{Get\+Pushed\+Frame}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7}{MRKey\+Code}} code)
+\begin{DoxyCompactList}\small\item\em 長押しフレーム数の取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静的公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager}{MRInput\+Manager}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a5f38ea78069f5490c67de63b1f6b9e55}{Get\+Ins}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_afafacffa775a5d97a72f2cd15e477e61}{MRInput\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}{m\+\_\+pushed\+Frame}}
+\begin{DoxyCompactList}\small\item\em キーが長押しされたフレーム数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+キーとパッドの入力を扱うクラス 
+
+ \mbox{\hyperlink{_input_manager_8h_source}{Input\+Manager.\+h}} の \mbox{\hyperlink{_input_manager_8h_source_l00015}{15}} 行目に定義があります。
+
+
+
+\doxysubsection{列挙型メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7}\label{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7} 
+\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!MRKeyCode@{MRKeyCode}}
+\index{MRKeyCode@{MRKeyCode}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+\doxysubsubsection{\texorpdfstring{MRKeyCode}{MRKeyCode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7}{magica\+\_\+rogue\+::\+MRInput\+Manager\+::\+MRKey\+Code}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!RIGHT@{RIGHT}}}\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403}\label{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403} 
+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!DOWN@{DOWN}}}\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f}\label{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f} 
+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!LEFT@{LEFT}}}\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758}\label{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!UP@{UP}}}\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1}\label{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1} 
+UP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+ \mbox{\hyperlink{_input_manager_8h_source}{Input\+Manager.\+h}} の \mbox{\hyperlink{_input_manager_8h_source_l00018}{18}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_afafacffa775a5d97a72f2cd15e477e61}\label{classmagica__rogue_1_1_m_r_input_manager_afafacffa775a5d97a72f2cd15e477e61} 
+\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!MRInputManager@{MRInputManager}}
+\index{MRInputManager@{MRInputManager}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+\doxysubsubsection{\texorpdfstring{MRInputManager()}{MRInputManager()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRInput\+Manager\+::\+MRInput\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_input_manager_8cpp_source}{Input\+Manager.\+cpp}} の \mbox{\hyperlink{_input_manager_8cpp_source_l00032}{32}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a5f38ea78069f5490c67de63b1f6b9e55}\label{classmagica__rogue_1_1_m_r_input_manager_a5f38ea78069f5490c67de63b1f6b9e55} 
+\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!GetIns@{GetIns}}
+\index{GetIns@{GetIns}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+\doxysubsubsection{\texorpdfstring{GetIns()}{GetIns()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager}{MRInput\+Manager}} \& magica\+\_\+rogue\+::\+MRInput\+Manager\+::\+Get\+Ins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+ \mbox{\hyperlink{_input_manager_8h_source}{Input\+Manager.\+h}} の \mbox{\hyperlink{_input_manager_8h_source_l00022}{22}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_a31725d60c8a61ec488f8ac381450c5e6}\label{classmagica__rogue_1_1_m_r_input_manager_a31725d60c8a61ec488f8ac381450c5e6} 
+\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!GetPushedFrame@{GetPushedFrame}}
+\index{GetPushedFrame@{GetPushedFrame}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+\doxysubsubsection{\texorpdfstring{GetPushedFrame()}{GetPushedFrame()}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MRInput\+Manager\+::\+Get\+Pushed\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_input_manager_a7cead4209d8646705f2418cc7766c0c7}{MRKey\+Code}}}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+長押しフレーム数の取得 
+
+
+
+ \mbox{\hyperlink{_input_manager_8h_source}{Input\+Manager.\+h}} の \mbox{\hyperlink{_input_manager_8h_source_l00029}{29}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_af86c065162988df35bee521c919aed21}\label{classmagica__rogue_1_1_m_r_input_manager_af86c065162988df35bee521c919aed21} 
+\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRInput\+Manager\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+入力状況の更新 
+
+コンストラクタ
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_input_manager_8cpp_source}{Input\+Manager.\+cpp}} の \mbox{\hyperlink{_input_manager_8cpp_source_l00010}{10}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2}\label{classmagica__rogue_1_1_m_r_input_manager_aec6d6142a2b5e527b2f56971c63da8b2} 
+\index{magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}!m\_pushedFrame@{m\_pushedFrame}}
+\index{m\_pushedFrame@{m\_pushedFrame}!magica\_rogue::MRInputManager@{magica\_rogue::MRInputManager}}
+\doxysubsubsection{\texorpdfstring{m\_pushedFrame}{m\_pushedFrame}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ magica\+\_\+rogue\+::\+MRInput\+Manager\+::m\+\_\+pushed\+Frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+キーが長押しされたフレーム数 
+
+
+
+ \mbox{\hyperlink{_input_manager_8h_source}{Input\+Manager.\+h}} の \mbox{\hyperlink{_input_manager_8h_source_l00037}{37}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Util/\mbox{\hyperlink{_input_manager_8h}{Input\+Manager.\+h}}\item 
+Util/\mbox{\hyperlink{_input_manager_8cpp}{Input\+Manager.\+cpp}}\end{DoxyCompactItemize}

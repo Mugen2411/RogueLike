@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Mover/Player/Player.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c3f9f81a4c052bbeee102325a814cc55.html">Mover</a></li><li class="navelem"><a class="el" href="dir_cbd3a9fec277e3be0adddaf0798d777f.html">Player</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Player.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_player_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef __MagicaRogue_Player__</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define __MagicaRogue_Player__</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../../Util/Transform.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../../Util/Camera.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../../Engine/Graphic/GraphicLoadedImage.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../../Engine/Graphic/GraphicFontData.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../HitPoint.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemagica__rogue.html">magica_rogue</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmagica__rogue_1_1_m_r_player.html">MRPlayer</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">   22</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a> : <span class="keywordtype">char</span> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7">AKARI</a> = 0, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e">MAMI</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486">YUKINA</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062">REEZE</a>, </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c">IOS</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3">ISHIKI</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a">HARUNA</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90">MISATO</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397">SSEL</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409">KOMUK</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2">AKIYO</a>, <a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777">OBORO</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        };</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_player.html">MRPlayer</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y, <a class="code hl_class" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a>&amp; camera);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_player.html#a1af70849babd1f929acec7b34d4f2187">Update</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_player.html#a133ff95b055b679c5f38723a0455a3d9">Move</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_player.html#a703b50d4ad2cf05bc07c5041bc97907b">Render</a>() <span class="keyword">const</span>;</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#ab9039f3f911f7dfe1e0c054f459135f0">   36</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a>&amp; <a class="code hl_function" href="classmagica__rogue_1_1_m_r_player.html#ab9039f3f911f7dfe1e0c054f459135f0">GetTransform</a>() {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#ae13f694d467aa891e2e4f1fdce80c630">m_transform</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
+</div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#ae6177c42e9015f69bf4be32c11fa5bd6">   40</a></span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_player.html#ae6177c42e9015f69bf4be32c11fa5bd6">GetSize</a>() {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a9b595f14cf072e7ac91cc4a07a746fd8">m_size</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        }</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a6c76fd3faf4bf861cded116af459229b">   44</a></span>        <a class="code hl_enumeration" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a6c76fd3faf4bf861cded116af459229b">m_id</a>;                                     </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#ae13f694d467aa891e2e4f1fdce80c630">   45</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#ae13f694d467aa891e2e4f1fdce80c630">m_transform</a>;                            </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a8e082b49063b3992439f9845566d6479">   46</a></span>        <a class="code hl_class" href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a>* <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a8e082b49063b3992439f9845566d6479">m_playerImg</a>;                 </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a08337eb885d6fc9589d06b7b1ce27259">   47</a></span>        <a class="code hl_class" href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a>* <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a08337eb885d6fc9589d06b7b1ce27259">m_hpGuageImg</a>;                </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a2714eae122da0dccb18c0af27ba5ad71">   48</a></span>        <a class="code hl_class" href="classmugen__engine_1_1_m_e_font_data.html">mugen_engine::MEFontData</a>* <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a2714eae122da0dccb18c0af27ba5ad71">m_guageFont</a>;              </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a8bc746e873478f3fee8fdbd5cfc62919">   49</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a>&amp; <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a8bc746e873478f3fee8fdbd5cfc62919">m_camera</a>;                                 </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a9b595f14cf072e7ac91cc4a07a746fd8">   50</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a9b595f14cf072e7ac91cc4a07a746fd8">m_size</a>;                                       </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a4cd1b2ae6f264f35dad082d24103ae4d">   51</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a4cd1b2ae6f264f35dad082d24103ae4d">m_speed</a>;                                      </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_player.html#a88f98390dced6b8d221656e91c4a671f">   53</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_hit_point.html">MRHitPoint</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_player.html#a88f98390dced6b8d221656e91c4a671f">m_hp</a>;                                    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    };</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif</span><span class="comment">//__MagicaRogue_Player__</span></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_camera_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_camera.html">magica_rogue::MRCamera</a></div><div class="ttdoc">スクロール機能とカメラを扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_camera_8h_source.html#l00013">Camera.h:14</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_hit_point_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_hit_point.html">magica_rogue::MRHitPoint</a></div><div class="ttdoc">体力を扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_hit_point_8h_source.html#l00013">HitPoint.h:14</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html">magica_rogue::MRPlayer</a></div><div class="ttdoc">操作出来る自機クラス</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00019">Player.h:20</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a08337eb885d6fc9589d06b7b1ce27259"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a08337eb885d6fc9589d06b7b1ce27259">magica_rogue::MRPlayer::m_hpGuageImg</a></div><div class="ttdeci">mugen_engine::MEImage * m_hpGuageImg</div><div class="ttdoc">HPゲージの画像</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00047">Player.h:47</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a133ff95b055b679c5f38723a0455a3d9"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a133ff95b055b679c5f38723a0455a3d9">magica_rogue::MRPlayer::Move</a></div><div class="ttdeci">void Move()</div><div class="ttdoc">移動</div><div class="ttdef"><b>Definition</b> <a href="_player_8cpp_source.html#l00119">Player.cpp:119</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a1af70849babd1f929acec7b34d4f2187"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a1af70849babd1f929acec7b34d4f2187">magica_rogue::MRPlayer::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">更新</div><div class="ttdef"><b>Definition</b> <a href="_player_8cpp_source.html#l00076">Player.cpp:76</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a2714eae122da0dccb18c0af27ba5ad71"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a2714eae122da0dccb18c0af27ba5ad71">magica_rogue::MRPlayer::m_guageFont</a></div><div class="ttdeci">mugen_engine::MEFontData * m_guageFont</div><div class="ttdoc">ゲージの実数値を表示するフォント</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00048">Player.h:48</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a4cd1b2ae6f264f35dad082d24103ae4d"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a4cd1b2ae6f264f35dad082d24103ae4d">magica_rogue::MRPlayer::m_speed</a></div><div class="ttdeci">float m_speed</div><div class="ttdoc">自機の移動速度</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00051">Player.h:51</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a6c76fd3faf4bf861cded116af459229b"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a6c76fd3faf4bf861cded116af459229b">magica_rogue::MRPlayer::m_id</a></div><div class="ttdeci">PLAYER_ID m_id</div><div class="ttdoc">プレイヤーID</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00044">Player.h:44</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a703b50d4ad2cf05bc07c5041bc97907b"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a703b50d4ad2cf05bc07c5041bc97907b">magica_rogue::MRPlayer::Render</a></div><div class="ttdeci">void Render() const</div><div class="ttdoc">描画</div><div class="ttdef"><b>Definition</b> <a href="_player_8cpp_source.html#l00131">Player.cpp:131</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a88f98390dced6b8d221656e91c4a671f"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a88f98390dced6b8d221656e91c4a671f">magica_rogue::MRPlayer::m_hp</a></div><div class="ttdeci">MRHitPoint m_hp</div><div class="ttdoc">HP</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00053">Player.h:53</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a8bc746e873478f3fee8fdbd5cfc62919"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a8bc746e873478f3fee8fdbd5cfc62919">magica_rogue::MRPlayer::m_camera</a></div><div class="ttdeci">MRCamera &amp; m_camera</div><div class="ttdoc">カメラ</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00049">Player.h:49</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a8e082b49063b3992439f9845566d6479"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a8e082b49063b3992439f9845566d6479">magica_rogue::MRPlayer::m_playerImg</a></div><div class="ttdeci">mugen_engine::MEImage * m_playerImg</div><div class="ttdoc">プレイヤーのグラフィック</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00046">Player.h:46</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_a9b595f14cf072e7ac91cc4a07a746fd8"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#a9b595f14cf072e7ac91cc4a07a746fd8">magica_rogue::MRPlayer::m_size</a></div><div class="ttdeci">float m_size</div><div class="ttdoc">プレイヤーの当たり判定サイズ</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00050">Player.h:50</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95c"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">magica_rogue::MRPlayer::PLAYER_ID</a></div><div class="ttdeci">PLAYER_ID</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00022">Player.h:22</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409">magica_rogue::MRPlayer::PLAYER_ID::KOMUK</a></div><div class="ttdeci">@ KOMUK</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3">magica_rogue::MRPlayer::PLAYER_ID::ISHIKI</a></div><div class="ttdeci">@ ISHIKI</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486">magica_rogue::MRPlayer::PLAYER_ID::YUKINA</a></div><div class="ttdeci">@ YUKINA</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a">magica_rogue::MRPlayer::PLAYER_ID::HARUNA</a></div><div class="ttdeci">@ HARUNA</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062">magica_rogue::MRPlayer::PLAYER_ID::REEZE</a></div><div class="ttdeci">@ REEZE</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397">magica_rogue::MRPlayer::PLAYER_ID::SSEL</a></div><div class="ttdeci">@ SSEL</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7">magica_rogue::MRPlayer::PLAYER_ID::AKARI</a></div><div class="ttdeci">@ AKARI</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777">magica_rogue::MRPlayer::PLAYER_ID::OBORO</a></div><div class="ttdeci">@ OBORO</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c">magica_rogue::MRPlayer::PLAYER_ID::IOS</a></div><div class="ttdeci">@ IOS</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90">magica_rogue::MRPlayer::PLAYER_ID::MISATO</a></div><div class="ttdeci">@ MISATO</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e">magica_rogue::MRPlayer::PLAYER_ID::MAMI</a></div><div class="ttdeci">@ MAMI</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2">magica_rogue::MRPlayer::PLAYER_ID::AKIYO</a></div><div class="ttdeci">@ AKIYO</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_ab9039f3f911f7dfe1e0c054f459135f0"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#ab9039f3f911f7dfe1e0c054f459135f0">magica_rogue::MRPlayer::GetTransform</a></div><div class="ttdeci">MRTransform &amp; GetTransform()</div><div class="ttdoc">位置情報を取得</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00036">Player.h:36</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_ae13f694d467aa891e2e4f1fdce80c630"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#ae13f694d467aa891e2e4f1fdce80c630">magica_rogue::MRPlayer::m_transform</a></div><div class="ttdeci">MRTransform m_transform</div><div class="ttdoc">位置速度情報</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00045">Player.h:45</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html_ae6177c42e9015f69bf4be32c11fa5bd6"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html#ae6177c42e9015f69bf4be32c11fa5bd6">magica_rogue::MRPlayer::GetSize</a></div><div class="ttdeci">float GetSize()</div><div class="ttdoc">当たり判定のサイズを取得</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00040">Player.h:40</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_transform_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_transform.html">magica_rogue::MRTransform</a></div><div class="ttdoc">物体の座標と速度を扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00013">Transform.h:14</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_font_data_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_font_data.html">mugen_engine::MEFontData</a></div><div class="ttdoc">読み込んだフォントで画面上に文字列描画を行うクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_font_data_8h_source.html#l00018">GraphicFontData.h:19</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_image_html"><div class="ttname"><a href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a></div><div class="ttdoc">読み込み済み画像を扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8h_source.html#l00022">GraphicLoadedImage.h:23</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00012">MapData.cpp:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

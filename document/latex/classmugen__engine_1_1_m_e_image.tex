@@ -1,0 +1,582 @@
+\doxysection{mugen\+\_\+engine\+::MEImage クラス}
+\hypertarget{classmugen__engine_1_1_m_e_image}{}\label{classmugen__engine_1_1_m_e_image}\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+
+
+読み込み済み画像を扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Graphic\+Loaded\+Image.\+h$>$}
+
+\doxysubsubsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}{BLEND\+\_\+\+TYPE}} \{ \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faa09b51cdbd9e41af3c2f31f8433566568}{ALPHA}} = 0
+, \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faabc92c03dd85e2de8a2a35b4a4eca125b}{ADD}}
+, \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7}{SUB}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ae47af74b7e71c53738662f5f9bbbdd79}{MEImage}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a0bb8d6abdd47e3382dc51ac93c0a92b9}{MEImage}} (const std\+::wstring \&filepath, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&device, size\+\_\+t x\+Divide\+Num, size\+\_\+t y\+Divide\+Num, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&cmd\+List, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&pipeline, \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&render\+Target)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ab5885f701a38815f9832b4e48c3873bb}{Draw\+Graph}} (int x, int y, float priority, int index=0)
+\begin{DoxyCompactList}\small\item\em 指定した座標に描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a51fc8eceabf60160e5516c64f510d6de}{Draw\+Rota\+Graph}} (int x, int y, float scale, float angle, float priority, int index=0)
+\begin{DoxyCompactList}\small\item\em 座標と拡大率と回転角度を指定して描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ae9bc3eade98aca8a5071369848c6011b}{Draw\+Graph2X}} (int x, int y, float priority, int index=0)
+\begin{DoxyCompactList}\small\item\em 2倍換算で指定した座標に描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ac049f800bbe907664d2950f7e62207ed}{Draw\+Rota\+Graph2X}} (int x, int y, float scale, float angle, float priority, int index=0)
+\begin{DoxyCompactList}\small\item\em 2倍換算で座標と拡大率と回転角度を指定して描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a5b46151651eb87222501fcda2a1dc509}{Draw\+Modi\+Graph}} (int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index=0)
+\begin{DoxyCompactList}\small\item\em 自由に4頂点を指定して描画する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a90d318e0735d4c605f6ea407b9dd32a0}{Draw\+Modi\+Graph2X}} (int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index=0)
+\begin{DoxyCompactList}\small\item\em 2倍換算で自由に4頂点を指定して描画する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ab3ab48f43736904f3e21b275e922234a}{Set\+Brightness}} (const float R, const float G, const float B, const float A)
+\begin{DoxyCompactList}\small\item\em 画像描画時の輝度を設定する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ad095d3b93499825f35c35b397467286c}{Set\+Blend\+Type}} (\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}{BLEND\+\_\+\+TYPE}} blend\+Type)
+\begin{DoxyCompactList}\small\item\em 画像描画時のブレンドタイプを設定する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a19380393c434a749c53dc55974d56304}{Reset\+Additional\+Vertex\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em 追加の頂点バッファをリセットする(普段は触らない！) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a2c77be1d8311b2318bdc68bb1fa4c604}{m\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em 画像の横幅 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_aba9d749386c52237e35119901efbc2fa}{m\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em 画像の高さ \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ad05db29b477c885ee0ac42bad56e97d6}{m\+\_\+x\+Divide\+Num}}
+\begin{DoxyCompactList}\small\item\em 横方向の分割数 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a2d18d38e661eba34a0898050f5985d96}{m\+\_\+y\+Divide\+Num}}
+\begin{DoxyCompactList}\small\item\em 縦方向の分割数 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_aa67ecffab76e7614b1f63b455f73e402}{m\+\_\+vertices}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em 板ポリゴンとして表示するための頂点 \end{DoxyCompactList}\item 
+Direct\+X\+::\+XMFLOAT4 \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ad9712b665bce1fcd7ec46344bf2289fc}{m\+\_\+brightness}}
+\begin{DoxyCompactList}\small\item\em 輝度ベクトル \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}{BLEND\+\_\+\+TYPE}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a95186c8faf2efc5bfda3d5868e485959}{m\+\_\+blend\+Type}}
+\begin{DoxyCompactList}\small\item\em ブレンドタイプ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_aacf9eff5d3c89cd8f0c13e111fd4e7b8}{m\+\_\+p\+Device}}
+\begin{DoxyCompactList}\small\item\em デバイス \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_aa326d85ed9d897ce7f15997b936ecc03}{m\+\_\+p\+Cmd\+List}}
+\begin{DoxyCompactList}\small\item\em コマンドリスト \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_ad834cb3bd78ccbd2b65ba7ef52027c0b}{m\+\_\+resource\+Manager}}
+\begin{DoxyCompactList}\small\item\em リソースマネージャー \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_afa47735492734b83d809d3c8e7846898}{m\+\_\+p\+Pipeline}}
+\begin{DoxyCompactList}\small\item\em パイプライン \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_af420db3e3b9c494eb3902934f2a6ea1b}{m\+\_\+p\+Render\+Target}}
+\begin{DoxyCompactList}\small\item\em レンダーターゲット \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+読み込み済み画像を扱うクラス 
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00022}{22}} 行目に定義があります。
+
+
+
+\doxysubsection{列挙型メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}\label{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!BLEND\_TYPE@{BLEND\_TYPE}}
+\index{BLEND\_TYPE@{BLEND\_TYPE}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{BLEND\_TYPE}{BLEND\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}{mugen\+\_\+engine\+::\+MEImage\+::\+BLEND\+\_\+\+TYPE}}}
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALPHA@{ALPHA}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!ALPHA@{ALPHA}}}\Hypertarget{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faa09b51cdbd9e41af3c2f31f8433566568}\label{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faa09b51cdbd9e41af3c2f31f8433566568} 
+ALPHA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADD@{ADD}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!ADD@{ADD}}}\Hypertarget{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faabc92c03dd85e2de8a2a35b4a4eca125b}\label{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faabc92c03dd85e2de8a2a35b4a4eca125b} 
+ADD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUB@{SUB}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!SUB@{SUB}}}\Hypertarget{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7}\label{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7} 
+SUB&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00032}{32}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_image_ae47af74b7e71c53738662f5f9bbbdd79}\label{classmugen__engine_1_1_m_e_image_ae47af74b7e71c53738662f5f9bbbdd79} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!MEImage@{MEImage}}
+\index{MEImage@{MEImage}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{MEImage()}{MEImage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEImage\+::\+MEImage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00016}{16}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a0bb8d6abdd47e3382dc51ac93c0a92b9}\label{classmugen__engine_1_1_m_e_image_a0bb8d6abdd47e3382dc51ac93c0a92b9} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!MEImage@{MEImage}}
+\index{MEImage@{MEImage}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{MEImage()}{MEImage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEImage\+::\+MEImage (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{filepath,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}} \&}]{device,  }\item[{size\+\_\+t}]{x\+Divide\+Num,  }\item[{size\+\_\+t}]{y\+Divide\+Num,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}} \&}]{cmd\+List,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}} \&}]{pipeline,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}} \&}]{render\+Target }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em filepath} & 画像のファイルパス \\
+\hline
+\mbox{\texttt{ in}}  & {\em device} & デバイス \\
+\hline
+\mbox{\texttt{ in}}  & {\em x\+Divide\+Num} & 横方向の分割数 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y\+Divide\+Num} & 縦方向の分割数 \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmd\+List} & コマンドリスト \\
+\hline
+\mbox{\texttt{ in}}  & {\em pipeline} & パイプライン \\
+\hline
+\mbox{\texttt{ in}}  & {\em render\+Target} & レンダーターゲット \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00031}{31}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_image_ab5885f701a38815f9832b4e48c3873bb}\label{classmugen__engine_1_1_m_e_image_ab5885f701a38815f9832b4e48c3873bb} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!DrawGraph@{DrawGraph}}
+\index{DrawGraph@{DrawGraph}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{DrawGraph()}{DrawGraph()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Draw\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+指定した座標に描画 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 描画する中心の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & 画像が分割されている場合どれを描画するか \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00085}{85}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ae9bc3eade98aca8a5071369848c6011b}\label{classmugen__engine_1_1_m_e_image_ae9bc3eade98aca8a5071369848c6011b} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!DrawGraph2X@{DrawGraph2X}}
+\index{DrawGraph2X@{DrawGraph2X}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{DrawGraph2X()}{DrawGraph2X()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Draw\+Graph2X (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+2倍換算で指定した座標に描画 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 描画する中心の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & 画像が分割されている場合どれを描画するか \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00150}{150}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a5b46151651eb87222501fcda2a1dc509}\label{classmugen__engine_1_1_m_e_image_a5b46151651eb87222501fcda2a1dc509} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!DrawModiGraph@{DrawModiGraph}}
+\index{DrawModiGraph@{DrawModiGraph}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{DrawModiGraph()}{DrawModiGraph()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Draw\+Modi\+Graph (\begin{DoxyParamCaption}\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{int}]{x3,  }\item[{int}]{y3,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+自由に4頂点を指定して描画する 
+
+自由に4頂点を指定して描画
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00212}{212}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a90d318e0735d4c605f6ea407b9dd32a0}\label{classmugen__engine_1_1_m_e_image_a90d318e0735d4c605f6ea407b9dd32a0} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!DrawModiGraph2X@{DrawModiGraph2X}}
+\index{DrawModiGraph2X@{DrawModiGraph2X}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{DrawModiGraph2X()}{DrawModiGraph2X()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Draw\+Modi\+Graph2X (\begin{DoxyParamCaption}\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{int}]{x3,  }\item[{int}]{y3,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+2倍換算で自由に4頂点を指定して描画する 
+
+2倍換算で自由に4頂点を指定して描画
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00256}{256}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a51fc8eceabf60160e5516c64f510d6de}\label{classmugen__engine_1_1_m_e_image_a51fc8eceabf60160e5516c64f510d6de} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!DrawRotaGraph@{DrawRotaGraph}}
+\index{DrawRotaGraph@{DrawRotaGraph}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{DrawRotaGraph()}{DrawRotaGraph()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Draw\+Rota\+Graph (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{scale,  }\item[{float}]{angle,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+座標と拡大率と回転角度を指定して描画 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 描画する中心の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & 拡大率 \\
+\hline
+\mbox{\texttt{ in}}  & {\em angle} & 回転角度(ラジアン) \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & 画像が分割されている場合どれを描画するか \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00118}{118}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ac049f800bbe907664d2950f7e62207ed}\label{classmugen__engine_1_1_m_e_image_ac049f800bbe907664d2950f7e62207ed} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!DrawRotaGraph2X@{DrawRotaGraph2X}}
+\index{DrawRotaGraph2X@{DrawRotaGraph2X}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{DrawRotaGraph2X()}{DrawRotaGraph2X()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Draw\+Rota\+Graph2X (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{scale,  }\item[{float}]{angle,  }\item[{float}]{priority,  }\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+2倍換算で座標と拡大率と回転角度を指定して描画 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & 描画する中心の\+X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 描画する中心の\+Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & 拡大率 \\
+\hline
+\mbox{\texttt{ in}}  & {\em angle} & 回転角度(ラジアン) \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & 画像が分割されている場合どれを描画するか \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00183}{183}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a19380393c434a749c53dc55974d56304}\label{classmugen__engine_1_1_m_e_image_a19380393c434a749c53dc55974d56304} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!ResetAdditionalVertexBuffer@{ResetAdditionalVertexBuffer}}
+\index{ResetAdditionalVertexBuffer@{ResetAdditionalVertexBuffer}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{ResetAdditionalVertexBuffer()}{ResetAdditionalVertexBuffer()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Reset\+Additional\+Vertex\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+追加の頂点バッファをリセットする(普段は触らない！) 
+
+追加の頂点バッファをリセット
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00323}{323}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ad095d3b93499825f35c35b397467286c}\label{classmugen__engine_1_1_m_e_image_ad095d3b93499825f35c35b397467286c} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!SetBlendType@{SetBlendType}}
+\index{SetBlendType@{SetBlendType}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{SetBlendType()}{SetBlendType()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Set\+Blend\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}{BLEND\+\_\+\+TYPE}}}]{blend\+Type }\end{DoxyParamCaption})}
+
+
+
+画像描画時のブレンドタイプを設定する 
+
+画像描画時のブレンドタイプを設定
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em blend\+Type} & ブレンドタイプ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00313}{313}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ab3ab48f43736904f3e21b275e922234a}\label{classmugen__engine_1_1_m_e_image_ab3ab48f43736904f3e21b275e922234a} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!SetBrightness@{SetBrightness}}
+\index{SetBrightness@{SetBrightness}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{SetBrightness()}{SetBrightness()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEImage\+::\+Set\+Brightness (\begin{DoxyParamCaption}\item[{const float}]{R,  }\item[{const float}]{G,  }\item[{const float}]{B,  }\item[{const float}]{A }\end{DoxyParamCaption})}
+
+
+
+画像描画時の輝度を設定する 
+
+画像描画時の輝度を設定
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em R} & 赤 \\
+\hline
+\mbox{\texttt{ in}}  & {\em G} & 緑 \\
+\hline
+\mbox{\texttt{ in}}  & {\em B} & 青 \\
+\hline
+\mbox{\texttt{ in}}  & {\em A} & 不透明度 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8cpp_source}{Graphic\+Loaded\+Image.\+cpp}} の \mbox{\hyperlink{_graphic_loaded_image_8cpp_source_l00303}{303}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_image_a95186c8faf2efc5bfda3d5868e485959}\label{classmugen__engine_1_1_m_e_image_a95186c8faf2efc5bfda3d5868e485959} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_blendType@{m\_blendType}}
+\index{m\_blendType@{m\_blendType}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_blendType}{m\_blendType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_image_a23f17c7174964a80541a708c5f33c2fa}{BLEND\+\_\+\+TYPE}} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+blend\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ブレンドタイプ 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00063}{63}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ad9712b665bce1fcd7ec46344bf2289fc}\label{classmugen__engine_1_1_m_e_image_ad9712b665bce1fcd7ec46344bf2289fc} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_brightness@{m\_brightness}}
+\index{m\_brightness@{m\_brightness}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_brightness}{m\_brightness}}
+{\footnotesize\ttfamily Direct\+X\+::\+XMFLOAT4 mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+brightness\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+輝度ベクトル 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00062}{62}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_aba9d749386c52237e35119901efbc2fa}\label{classmugen__engine_1_1_m_e_image_aba9d749386c52237e35119901efbc2fa} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_height@{m\_height}}
+\index{m\_height@{m\_height}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_height}{m\_height}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+画像の高さ 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00058}{58}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_aa326d85ed9d897ce7f15997b936ecc03}\label{classmugen__engine_1_1_m_e_image_aa326d85ed9d897ce7f15997b936ecc03} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_pCmdList@{m\_pCmdList}}
+\index{m\_pCmdList@{m\_pCmdList}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_pCmdList}{m\_pCmdList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_command_list}{MEGraphic\+Command\+List}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+p\+Cmd\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+コマンドリスト 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00065}{65}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_aacf9eff5d3c89cd8f0c13e111fd4e7b8}\label{classmugen__engine_1_1_m_e_image_aacf9eff5d3c89cd8f0c13e111fd4e7b8} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_pDevice@{m\_pDevice}}
+\index{m\_pDevice@{m\_pDevice}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_pDevice}{m\_pDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_device}{MEGraphic\+Device}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+p\+Device\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+デバイス 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00064}{64}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_afa47735492734b83d809d3c8e7846898}\label{classmugen__engine_1_1_m_e_image_afa47735492734b83d809d3c8e7846898} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_pPipeline@{m\_pPipeline}}
+\index{m\_pPipeline@{m\_pPipeline}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_pPipeline}{m\_pPipeline}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_pipeline}{MEGraphic\+Pipeline}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+p\+Pipeline\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+パイプライン 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00067}{67}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_af420db3e3b9c494eb3902934f2a6ea1b}\label{classmugen__engine_1_1_m_e_image_af420db3e3b9c494eb3902934f2a6ea1b} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_pRenderTarget@{m\_pRenderTarget}}
+\index{m\_pRenderTarget@{m\_pRenderTarget}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_pRenderTarget}{m\_pRenderTarget}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_render_target}{MEGraphic\+Render\+Target}}\texorpdfstring{$\ast$}{*} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+p\+Render\+Target\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+レンダーターゲット 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00068}{68}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ad834cb3bd78ccbd2b65ba7ef52027c0b}\label{classmugen__engine_1_1_m_e_image_ad834cb3bd78ccbd2b65ba7ef52027c0b} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_resourceManager@{m\_resourceManager}}
+\index{m\_resourceManager@{m\_resourceManager}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_resourceManager}{m\_resourceManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_graphic_gpu_resource_manager}{MEGraphic\+Gpu\+Resource\+Manager}} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+resource\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+リソースマネージャー 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00066}{66}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_aa67ecffab76e7614b1f63b455f73e402}\label{classmugen__engine_1_1_m_e_image_aa67ecffab76e7614b1f63b455f73e402} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_vertices@{m\_vertices}}
+\index{m\_vertices@{m\_vertices}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_vertices}{m\_vertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmugen__engine_1_1_v_e_r_t_e_x___d_a_t_a}{VERTEX\+\_\+\+DATA}} mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+vertices\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+板ポリゴンとして表示するための頂点 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00061}{61}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a2c77be1d8311b2318bdc68bb1fa4c604}\label{classmugen__engine_1_1_m_e_image_a2c77be1d8311b2318bdc68bb1fa4c604} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_width@{m\_width}}
+\index{m\_width@{m\_width}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_width}{m\_width}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+画像の横幅 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00057}{57}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_ad05db29b477c885ee0ac42bad56e97d6}\label{classmugen__engine_1_1_m_e_image_ad05db29b477c885ee0ac42bad56e97d6} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_xDivideNum@{m\_xDivideNum}}
+\index{m\_xDivideNum@{m\_xDivideNum}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_xDivideNum}{m\_xDivideNum}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+x\+Divide\+Num\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+横方向の分割数 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00059}{59}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_image_a2d18d38e661eba34a0898050f5985d96}\label{classmugen__engine_1_1_m_e_image_a2d18d38e661eba34a0898050f5985d96} 
+\index{mugen\_engine::MEImage@{mugen\_engine::MEImage}!m\_yDivideNum@{m\_yDivideNum}}
+\index{m\_yDivideNum@{m\_yDivideNum}!mugen\_engine::MEImage@{mugen\_engine::MEImage}}
+\doxysubsubsection{\texorpdfstring{m\_yDivideNum}{m\_yDivideNum}}
+{\footnotesize\ttfamily size\+\_\+t mugen\+\_\+engine\+::\+MEImage\+::m\+\_\+y\+Divide\+Num\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+縦方向の分割数 
+
+
+
+ \mbox{\hyperlink{_graphic_loaded_image_8h_source}{Graphic\+Loaded\+Image.\+h}} の \mbox{\hyperlink{_graphic_loaded_image_8h_source_l00060}{60}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_loaded_image_8h}{Graphic\+Loaded\+Image.\+h}}\item 
+Engine/\+Graphic/\mbox{\hyperlink{_graphic_loaded_image_8cpp}{Graphic\+Loaded\+Image.\+cpp}}\end{DoxyCompactItemize}

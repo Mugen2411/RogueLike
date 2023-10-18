@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: magica_rogue::MRInputManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemagica__rogue.html">magica_rogue</a></li><li class="navelem"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html">MRInputManager</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classmagica__rogue_1_1_m_r_input_manager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">magica_rogue::MRInputManager クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>キーとパッドの入力を扱うクラス  
+ <a href="classmagica__rogue_1_1_m_r_input_manager.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_input_manager_8h_source.html">InputManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:a7cead4209d8646705f2418cc7766c0c7" id="r_a7cead4209d8646705f2418cc7766c0c7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7">MRKeyCode</a> : char { <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403">RIGHT</a> = 0
+, <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f">DOWN</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758">LEFT</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1">UP</a>
+ }</td></tr>
+<tr class="separator:a7cead4209d8646705f2418cc7766c0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:af86c065162988df35bee521c919aed21" id="r_af86c065162988df35bee521c919aed21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#af86c065162988df35bee521c919aed21">Update</a> ()</td></tr>
+<tr class="memdesc:af86c065162988df35bee521c919aed21"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力状況の更新  <br /></td></tr>
+<tr class="separator:af86c065162988df35bee521c919aed21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31725d60c8a61ec488f8ac381450c5e6" id="r_a31725d60c8a61ec488f8ac381450c5e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a31725d60c8a61ec488f8ac381450c5e6">GetPushedFrame</a> (<a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7">MRKeyCode</a> code)</td></tr>
+<tr class="memdesc:a31725d60c8a61ec488f8ac381450c5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">長押しフレーム数の取得  <br /></td></tr>
+<tr class="separator:a31725d60c8a61ec488f8ac381450c5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5f38ea78069f5490c67de63b1f6b9e55" id="r_a5f38ea78069f5490c67de63b1f6b9e55"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html">MRInputManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a5f38ea78069f5490c67de63b1f6b9e55">GetIns</a> ()</td></tr>
+<tr class="separator:a5f38ea78069f5490c67de63b1f6b9e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:afafacffa775a5d97a72f2cd15e477e61" id="r_afafacffa775a5d97a72f2cd15e477e61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#afafacffa775a5d97a72f2cd15e477e61">MRInputManager</a> ()</td></tr>
+<tr class="memdesc:afafacffa775a5d97a72f2cd15e477e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:afafacffa775a5d97a72f2cd15e477e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:aec6d6142a2b5e527b2f56971c63da8b2" id="r_aec6d6142a2b5e527b2f56971c63da8b2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#aec6d6142a2b5e527b2f56971c63da8b2">m_pushedFrame</a></td></tr>
+<tr class="memdesc:aec6d6142a2b5e527b2f56971c63da8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">キーが長押しされたフレーム数  <br /></td></tr>
+<tr class="separator:aec6d6142a2b5e527b2f56971c63da8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>キーとパッドの入力を扱うクラス </p>
+
+<p class="definition"> <a class="el" href="_input_manager_8h_source.html">InputManager.h</a> の <a class="el" href="_input_manager_8h_source.html#l00015">15</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">列挙型メンバ詳解</h2>
+<a id="a7cead4209d8646705f2418cc7766c0c7" name="a7cead4209d8646705f2418cc7766c0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cead4209d8646705f2418cc7766c0c7">&#9670;&#160;</a></span>MRKeyCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7">magica_rogue::MRInputManager::MRKeyCode</a> : char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403" name="a7cead4209d8646705f2418cc7766c0c7a21507b40c80068eda19865706fdc2403"></a>RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f" name="a7cead4209d8646705f2418cc7766c0c7ac4e0e4e3118472beeb2ae75827450f1f"></a>DOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758" name="a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1" name="a7cead4209d8646705f2418cc7766c0c7afbaedde498cdead4f2780217646e9ba1"></a>UP&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition"> <a class="el" href="_input_manager_8h_source.html">InputManager.h</a> の <a class="el" href="_input_manager_8h_source.html#l00018">18</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="afafacffa775a5d97a72f2cd15e477e61" name="afafacffa775a5d97a72f2cd15e477e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afafacffa775a5d97a72f2cd15e477e61">&#9670;&#160;</a></span>MRInputManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">magica_rogue::MRInputManager::MRInputManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a> の <a class="el" href="_input_manager_8cpp_source.html#l00032">32</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a5f38ea78069f5490c67de63b1f6b9e55" name="a5f38ea78069f5490c67de63b1f6b9e55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f38ea78069f5490c67de63b1f6b9e55">&#9670;&#160;</a></span>GetIns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html">MRInputManager</a> &amp; magica_rogue::MRInputManager::GetIns </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_input_manager_8h_source.html">InputManager.h</a> の <a class="el" href="_input_manager_8h_source.html#l00022">22</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a31725d60c8a61ec488f8ac381450c5e6" name="a31725d60c8a61ec488f8ac381450c5e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31725d60c8a61ec488f8ac381450c5e6">&#9670;&#160;</a></span>GetPushedFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int magica_rogue::MRInputManager::GetPushedFrame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7">MRKeyCode</a>&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>長押しフレーム数の取得 </p>
+
+<p class="definition"> <a class="el" href="_input_manager_8h_source.html">InputManager.h</a> の <a class="el" href="_input_manager_8h_source.html#l00029">29</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af86c065162988df35bee521c919aed21" name="af86c065162988df35bee521c919aed21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af86c065162988df35bee521c919aed21">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MRInputManager::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>入力状況の更新 </p>
+<p>コンストラクタ</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a> の <a class="el" href="_input_manager_8cpp_source.html#l00010">10</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="aec6d6142a2b5e527b2f56971c63da8b2" name="aec6d6142a2b5e527b2f56971c63da8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6d6142a2b5e527b2f56971c63da8b2">&#9670;&#160;</a></span>m_pushedFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; magica_rogue::MRInputManager::m_pushedFrame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>キーが長押しされたフレーム数 </p>
+
+<p class="definition"> <a class="el" href="_input_manager_8h_source.html">InputManager.h</a> の <a class="el" href="_input_manager_8h_source.html#l00037">37</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Util/<a class="el" href="_input_manager_8h_source.html">InputManager.h</a></li>
+<li>Util/<a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,1212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: mugen_engine::MECore クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemugen__engine.html">mugen_engine</a></li><li class="navelem"><a class="el" href="classmugen__engine_1_1_m_e_core.html">MECore</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classmugen__engine_1_1_m_e_core-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">mugen_engine::MECore クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>メディアサポートエンジンの中核となるクラス  
+ <a href="classmugen__engine_1_1_m_e_core.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_core_8h_source.html">Core.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5c11ae146be6ee69d4b66f2f44d1b984" id="r_a5c11ae146be6ee69d4b66f2f44d1b984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a5c11ae146be6ee69d4b66f2f44d1b984">Initialize</a> (const std::wstring window_title, int window_width, int window_height)</td></tr>
+<tr class="memdesc:a5c11ae146be6ee69d4b66f2f44d1b984"><td class="mdescLeft">&#160;</td><td class="mdescRight">最初に必ず呼び出す初期化処理  <br /></td></tr>
+<tr class="separator:a5c11ae146be6ee69d4b66f2f44d1b984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e74b26e06c0baedaad42e01b7a6e24" id="r_a30e74b26e06c0baedaad42e01b7a6e24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a30e74b26e06c0baedaad42e01b7a6e24">Finalize</a> ()</td></tr>
+<tr class="memdesc:a30e74b26e06c0baedaad42e01b7a6e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">最後に必ず呼び出す終了処理  <br /></td></tr>
+<tr class="separator:a30e74b26e06c0baedaad42e01b7a6e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ed52db525aae4982979c445e4d3c5e" id="r_ac0ed52db525aae4982979c445e4d3c5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ac0ed52db525aae4982979c445e4d3c5e">ProcessMessage</a> ()</td></tr>
+<tr class="memdesc:ac0ed52db525aae4982979c445e4d3c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">システムのメッセージを処理する  <br /></td></tr>
+<tr class="separator:ac0ed52db525aae4982979c445e4d3c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29c86d9bd9b6506ac15fb8a97e27e3e1" id="r_a29c86d9bd9b6506ac15fb8a97e27e3e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a29c86d9bd9b6506ac15fb8a97e27e3e1">ScreenFlip</a> ()</td></tr>
+<tr class="memdesc:a29c86d9bd9b6506ac15fb8a97e27e3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画結果を画面に反映させる  <br /></td></tr>
+<tr class="separator:a29c86d9bd9b6506ac15fb8a97e27e3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a00883185ed356fc17062cd521f78f4" id="r_a0a00883185ed356fc17062cd521f78f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a0a00883185ed356fc17062cd521f78f4">ClearScreen</a> (const int R, const int G, const int B)</td></tr>
+<tr class="memdesc:a0a00883185ed356fc17062cd521f78f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面を指定した色で初期化する  <br /></td></tr>
+<tr class="separator:a0a00883185ed356fc17062cd521f78f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec3792ccd97597895bba67cc9f5d0d40" id="r_aec3792ccd97597895bba67cc9f5d0d40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40">SetRenderArea</a> (const int topX, const int topY, const int bottomX, const int bottomY)</td></tr>
+<tr class="memdesc:aec3792ccd97597895bba67cc9f5d0d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画可能な範囲を設定する  <br /></td></tr>
+<tr class="separator:aec3792ccd97597895bba67cc9f5d0d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef074df0952ec0eedb4c8f7d86028ecf" id="r_aef074df0952ec0eedb4c8f7d86028ecf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#aef074df0952ec0eedb4c8f7d86028ecf">ResetRenderArea</a> ()</td></tr>
+<tr class="memdesc:aef074df0952ec0eedb4c8f7d86028ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画可能な範囲を画面全体に設定する  <br /></td></tr>
+<tr class="separator:aef074df0952ec0eedb4c8f7d86028ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e60218ad0b3e25d49915cced759d5e6" id="r_a4e60218ad0b3e25d49915cced759d5e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a4e60218ad0b3e25d49915cced759d5e6">LoadGraph</a> (std::string gid, std::wstring filepath)</td></tr>
+<tr class="memdesc:a4e60218ad0b3e25d49915cced759d5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像をファイルから読み込む  <br /></td></tr>
+<tr class="separator:a4e60218ad0b3e25d49915cced759d5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535878e1fa59aa58aba12fc1324d45e5" id="r_a535878e1fa59aa58aba12fc1324d45e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a535878e1fa59aa58aba12fc1324d45e5">LoadDivGraph</a> (std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)</td></tr>
+<tr class="memdesc:a535878e1fa59aa58aba12fc1324d45e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像をファイルから分割して読み込む  <br /></td></tr>
+<tr class="separator:a535878e1fa59aa58aba12fc1324d45e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa82d2e31f5d5aa651347a7dac9cf73e5" id="r_aa82d2e31f5d5aa651347a7dac9cf73e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_image.html">MEImage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#aa82d2e31f5d5aa651347a7dac9cf73e5">GetGraph</a> (std::string gid)</td></tr>
+<tr class="memdesc:aa82d2e31f5d5aa651347a7dac9cf73e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込み済み画像を取得する  <br /></td></tr>
+<tr class="separator:aa82d2e31f5d5aa651347a7dac9cf73e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5d3d45ea3e9eef54403115f0b916b31" id="r_ae5d3d45ea3e9eef54403115f0b916b31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ae5d3d45ea3e9eef54403115f0b916b31">LoadFont</a> (std::string gid, std::wstring fontName, int fontSize)</td></tr>
+<tr class="memdesc:ae5d3d45ea3e9eef54403115f0b916b31"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントを読み込む  <br /></td></tr>
+<tr class="separator:ae5d3d45ea3e9eef54403115f0b916b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8640f01f6f1b28722ff35a68a4b2b15" id="r_ab8640f01f6f1b28722ff35a68a4b2b15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_font_data.html">MEFontData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ab8640f01f6f1b28722ff35a68a4b2b15">GetFont</a> (std::string gid)</td></tr>
+<tr class="memdesc:ab8640f01f6f1b28722ff35a68a4b2b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込み済みフォントを取得する  <br /></td></tr>
+<tr class="separator:ab8640f01f6f1b28722ff35a68a4b2b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6b8db890e9dd6d4f408963f719eb7d6" id="r_ac6b8db890e9dd6d4f408963f719eb7d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ac6b8db890e9dd6d4f408963f719eb7d6">GetWindowWidth</a> () const</td></tr>
+<tr class="memdesc:ac6b8db890e9dd6d4f408963f719eb7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の横幅を取得  <br /></td></tr>
+<tr class="separator:ac6b8db890e9dd6d4f408963f719eb7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c94ba4e5f6b2309b9eaab5121e075a" id="r_a35c94ba4e5f6b2309b9eaab5121e075a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a35c94ba4e5f6b2309b9eaab5121e075a">GetWindowHeight</a> () const</td></tr>
+<tr class="memdesc:a35c94ba4e5f6b2309b9eaab5121e075a"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の高さを取得  <br /></td></tr>
+<tr class="separator:a35c94ba4e5f6b2309b9eaab5121e075a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a8efe32043348f81c574473428903f0be" id="r_a8efe32043348f81c574473428903f0be"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classmugen__engine_1_1_m_e_core.html">MECore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a8efe32043348f81c574473428903f0be">GetIns</a> ()</td></tr>
+<tr class="memdesc:a8efe32043348f81c574473428903f0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスの取得  <br /></td></tr>
+<tr class="separator:a8efe32043348f81c574473428903f0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a87f41c5f106912e64bbd2c4585e7fb93" id="r_a87f41c5f106912e64bbd2c4585e7fb93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a87f41c5f106912e64bbd2c4585e7fb93">MECore</a> ()</td></tr>
+<tr class="memdesc:a87f41c5f106912e64bbd2c4585e7fb93"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトコンストラクタ  <br /></td></tr>
+<tr class="separator:a87f41c5f106912e64bbd2c4585e7fb93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67bc41e7d9f40371d475dd170003092" id="r_ab67bc41e7d9f40371d475dd170003092"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ab67bc41e7d9f40371d475dd170003092">MECore</a> (const <a class="el" href="classmugen__engine_1_1_m_e_core.html">MECore</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ab67bc41e7d9f40371d475dd170003092"><td class="mdescLeft">&#160;</td><td class="mdescRight">コピーコンストラクタ(削除)  <br /></td></tr>
+<tr class="separator:ab67bc41e7d9f40371d475dd170003092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e66e76c01786fc7b4283c10e659a52" id="r_ab0e66e76c01786fc7b4283c10e659a52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ab0e66e76c01786fc7b4283c10e659a52">_CreateWindow</a> ()</td></tr>
+<tr class="memdesc:ab0e66e76c01786fc7b4283c10e659a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの作成  <br /></td></tr>
+<tr class="separator:ab0e66e76c01786fc7b4283c10e659a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a6a5f62424c0797e55b3a350765e001a8" id="r_a6a5f62424c0797e55b3a350765e001a8"><td class="memItemLeft" align="right" valign="top">HWND&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a6a5f62424c0797e55b3a350765e001a8">m_windowHandle</a></td></tr>
+<tr class="memdesc:a6a5f62424c0797e55b3a350765e001a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウハンドル  <br /></td></tr>
+<tr class="separator:a6a5f62424c0797e55b3a350765e001a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c12c2d04aa3e57a2f5bba3cf197fb44" id="r_a3c12c2d04aa3e57a2f5bba3cf197fb44"><td class="memItemLeft" align="right" valign="top">std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a3c12c2d04aa3e57a2f5bba3cf197fb44">m_windowTitle</a></td></tr>
+<tr class="memdesc:a3c12c2d04aa3e57a2f5bba3cf197fb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの名前(ウィンドウクラスの名前)  <br /></td></tr>
+<tr class="separator:a3c12c2d04aa3e57a2f5bba3cf197fb44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbb1a13eef6f0f08d59000e67164c5c" id="r_acfbb1a13eef6f0f08d59000e67164c5c"><td class="memItemLeft" align="right" valign="top">WNDCLASSEX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#acfbb1a13eef6f0f08d59000e67164c5c">m_windowClass</a></td></tr>
+<tr class="memdesc:acfbb1a13eef6f0f08d59000e67164c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウクラス  <br /></td></tr>
+<tr class="separator:acfbb1a13eef6f0f08d59000e67164c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00189f604a60d9428042bec40d3c13b8" id="r_a00189f604a60d9428042bec40d3c13b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a00189f604a60d9428042bec40d3c13b8">m_windowWidth</a></td></tr>
+<tr class="memdesc:a00189f604a60d9428042bec40d3c13b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの横幅  <br /></td></tr>
+<tr class="separator:a00189f604a60d9428042bec40d3c13b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807fa7c2778faf2ec643dacb1d3d278b" id="r_a807fa7c2778faf2ec643dacb1d3d278b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a807fa7c2778faf2ec643dacb1d3d278b">m_windowHeight</a></td></tr>
+<tr class="memdesc:a807fa7c2778faf2ec643dacb1d3d278b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの高さ  <br /></td></tr>
+<tr class="separator:a807fa7c2778faf2ec643dacb1d3d278b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760627ac44f129236b40295096b5e221" id="r_a760627ac44f129236b40295096b5e221"><td class="memItemLeft" align="right" valign="top">D3D12_INPUT_ELEMENT_DESC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a760627ac44f129236b40295096b5e221">m_inputLayout</a> [2]</td></tr>
+<tr class="memdesc:a760627ac44f129236b40295096b5e221"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力レイアウト  <br /></td></tr>
+<tr class="separator:a760627ac44f129236b40295096b5e221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d369ea07794fcd7f4ea80102f88c1cc" id="r_a8d369ea07794fcd7f4ea80102f88c1cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a8d369ea07794fcd7f4ea80102f88c1cc">m_graphicDevice</a></td></tr>
+<tr class="memdesc:a8d369ea07794fcd7f4ea80102f88c1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックデバイス  <br /></td></tr>
+<tr class="separator:a8d369ea07794fcd7f4ea80102f88c1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f581f73e2c96bdcd20c0ef1f4b9e94" id="r_a68f581f73e2c96bdcd20c0ef1f4b9e94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a68f581f73e2c96bdcd20c0ef1f4b9e94">m_commandList</a></td></tr>
+<tr class="memdesc:a68f581f73e2c96bdcd20c0ef1f4b9e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックコマンドリスト  <br /></td></tr>
+<tr class="separator:a68f581f73e2c96bdcd20c0ef1f4b9e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e95c24d2c973b5581393acc4b506496" id="r_a0e95c24d2c973b5581393acc4b506496"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a0e95c24d2c973b5581393acc4b506496">m_renderTarget</a></td></tr>
+<tr class="memdesc:a0e95c24d2c973b5581393acc4b506496"><td class="mdescLeft">&#160;</td><td class="mdescRight">レンダーターゲット  <br /></td></tr>
+<tr class="separator:a0e95c24d2c973b5581393acc4b506496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6daeee64399b272d3a73a2dc4279d258" id="r_a6daeee64399b272d3a73a2dc4279d258"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a6daeee64399b272d3a73a2dc4279d258">m_pipeline</a></td></tr>
+<tr class="memdesc:a6daeee64399b272d3a73a2dc4279d258"><td class="mdescLeft">&#160;</td><td class="mdescRight">パイプライン  <br /></td></tr>
+<tr class="separator:a6daeee64399b272d3a73a2dc4279d258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b9b2da64fd3c49d7041e26d5e12d16e" id="r_a3b9b2da64fd3c49d7041e26d5e12d16e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_audio_device.html">MEAudioDevice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a3b9b2da64fd3c49d7041e26d5e12d16e">m_audioDevice</a></td></tr>
+<tr class="memdesc:a3b9b2da64fd3c49d7041e26d5e12d16e"><td class="mdescLeft">&#160;</td><td class="mdescRight">オーディオデバイス  <br /></td></tr>
+<tr class="separator:a3b9b2da64fd3c49d7041e26d5e12d16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab709c682f3ef1c136a1e1796cd68dc1c" id="r_ab709c682f3ef1c136a1e1796cd68dc1c"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="classmugen__engine_1_1_m_e_image.html">MEImage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#ab709c682f3ef1c136a1e1796cd68dc1c">m_loadedImages</a></td></tr>
+<tr class="memdesc:ab709c682f3ef1c136a1e1796cd68dc1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込み済み画像を辞書で管理する  <br /></td></tr>
+<tr class="separator:ab709c682f3ef1c136a1e1796cd68dc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93279ebbf298749e0defdc1bf1327eba" id="r_a93279ebbf298749e0defdc1bf1327eba"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="classmugen__engine_1_1_m_e_font_data.html">MEFontData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_core.html#a93279ebbf298749e0defdc1bf1327eba">m_loadedFonts</a></td></tr>
+<tr class="memdesc:a93279ebbf298749e0defdc1bf1327eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込み済みのフォントを辞書で管理する  <br /></td></tr>
+<tr class="separator:a93279ebbf298749e0defdc1bf1327eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>メディアサポートエンジンの中核となるクラス </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00026">26</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a87f41c5f106912e64bbd2c4585e7fb93" name="a87f41c5f106912e64bbd2c4585e7fb93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87f41c5f106912e64bbd2c4585e7fb93">&#9670;&#160;</a></span>MECore() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mugen_engine::MECore::MECore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デフォルトコンストラクタ </p>
+<p>コンストラクタ</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00196">196</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab67bc41e7d9f40371d475dd170003092" name="ab67bc41e7d9f40371d475dd170003092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab67bc41e7d9f40371d475dd170003092">&#9670;&#160;</a></span>MECore() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mugen_engine::MECore::MECore </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmugen__engine_1_1_m_e_core.html">MECore</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コピーコンストラクタ(削除) </p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ab0e66e76c01786fc7b4283c10e659a52" name="ab0e66e76c01786fc7b4283c10e659a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e66e76c01786fc7b4283c10e659a52">&#9670;&#160;</a></span>_CreateWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::_CreateWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウの作成 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_width</td><td>ウィンドウ(描画範囲)の横幅 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_height</td><td>ウィンドウ(描画範囲)の縦幅 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00209">209</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0a00883185ed356fc17062cd521f78f4" name="a0a00883185ed356fc17062cd521f78f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a00883185ed356fc17062cd521f78f4">&#9670;&#160;</a></span>ClearScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::ClearScreen </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>R</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>G</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>B</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面を指定した色で初期化する </p>
+<p>画面を指定した色でクリアする</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">R</td><td>赤の輝度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>緑の輝度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>青の輝度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00105">105</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a30e74b26e06c0baedaad42e01b7a6e24" name="a30e74b26e06c0baedaad42e01b7a6e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e74b26e06c0baedaad42e01b7a6e24">&#9670;&#160;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>最後に必ず呼び出す終了処理 </p>
+<p>終了処理</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab8640f01f6f1b28722ff35a68a4b2b15" name="ab8640f01f6f1b28722ff35a68a4b2b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8640f01f6f1b28722ff35a68a4b2b15">&#9670;&#160;</a></span>GetFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_font_data.html">MEFontData</a> &amp; mugen_engine::MECore::GetFont </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>読み込み済みフォントを取得する </p>
+<p>キーを指定して読み込みフォントを取り出す</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>読み込み済みフォント </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00186">186</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa82d2e31f5d5aa651347a7dac9cf73e5" name="aa82d2e31f5d5aa651347a7dac9cf73e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa82d2e31f5d5aa651347a7dac9cf73e5">&#9670;&#160;</a></span>GetGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_image.html">MEImage</a> &amp; mugen_engine::MECore::GetGraph </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>読み込み済み画像を取得する </p>
+<p>キーを指定して読み込み済み画像を取り出す</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>読み込み済み画像 </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00163">163</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a8efe32043348f81c574473428903f0be" name="a8efe32043348f81c574473428903f0be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8efe32043348f81c574473428903f0be">&#9670;&#160;</a></span>GetIns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_core.html">MECore</a> &amp; mugen_engine::MECore::GetIns </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>インスタンスの取得 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>インスタンス </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00016">16</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a35c94ba4e5f6b2309b9eaab5121e075a" name="a35c94ba4e5f6b2309b9eaab5121e075a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c94ba4e5f6b2309b9eaab5121e075a">&#9670;&#160;</a></span>GetWindowHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mugen_engine::MECore::GetWindowHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>画面の高さを取得 </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00061">61</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac6b8db890e9dd6d4f408963f719eb7d6" name="ac6b8db890e9dd6d4f408963f719eb7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6b8db890e9dd6d4f408963f719eb7d6">&#9670;&#160;</a></span>GetWindowWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mugen_engine::MECore::GetWindowWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>画面の横幅を取得 </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00056">56</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5c11ae146be6ee69d4b66f2f44d1b984" name="a5c11ae146be6ee69d4b66f2f44d1b984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c11ae146be6ee69d4b66f2f44d1b984">&#9670;&#160;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring&#160;</td>
+          <td class="paramname"><em>window_title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>window_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>window_height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>最初に必ず呼び出す初期化処理 </p>
+<p>初期化</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_width</td><td>ウィンドウ(描画範囲)の横幅 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_height</td><td>ウィンドウ(描画範囲)の縦幅 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>インスタンス </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00027">27</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a535878e1fa59aa58aba12fc1324d45e5" name="a535878e1fa59aa58aba12fc1324d45e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535878e1fa59aa58aba12fc1324d45e5">&#9670;&#160;</a></span>LoadDivGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::LoadDivGraph </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramname"><em>filepath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>xDivideNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>yDivideNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画像をファイルから分割して読み込む </p>
+<p>ファイルから画像を読み込む</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filepath</td><td>画像ファイルへのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00152">152</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae5d3d45ea3e9eef54403115f0b916b31" name="ae5d3d45ea3e9eef54403115f0b916b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5d3d45ea3e9eef54403115f0b916b31">&#9670;&#160;</a></span>LoadFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::LoadFont </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramname"><em>fontName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fontSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>フォントを読み込む </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fontName</td><td>フォントの名前 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fontSize</td><td>フォントサイズ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00175">175</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a4e60218ad0b3e25d49915cced759d5e6" name="a4e60218ad0b3e25d49915cced759d5e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e60218ad0b3e25d49915cced759d5e6">&#9670;&#160;</a></span>LoadGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::LoadGraph </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramname"><em>filepath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画像をファイルから読み込む </p>
+<p>ファイルから画像を読み込む</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>取り出すキー </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filepath</td><td>画像ファイルへのパス </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00140">140</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac0ed52db525aae4982979c445e4d3c5e" name="ac0ed52db525aae4982979c445e4d3c5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ed52db525aae4982979c445e4d3c5e">&#9670;&#160;</a></span>ProcessMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mugen_engine::MECore::ProcessMessage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>システムのメッセージを処理する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>何もなければ0、アプリケーションが終了するなら-1 </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00060">60</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aef074df0952ec0eedb4c8f7d86028ecf" name="aef074df0952ec0eedb4c8f7d86028ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef074df0952ec0eedb4c8f7d86028ecf">&#9670;&#160;</a></span>ResetRenderArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::ResetRenderArea </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>描画可能な範囲を画面全体に設定する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00129">129</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a29c86d9bd9b6506ac15fb8a97e27e3e1" name="a29c86d9bd9b6506ac15fb8a97e27e3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29c86d9bd9b6506ac15fb8a97e27e3e1">&#9670;&#160;</a></span>ScreenFlip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::ScreenFlip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>描画結果を画面に反映させる </p>
+<p>描画結果を画面に反映する</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00085">85</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aec3792ccd97597895bba67cc9f5d0d40" name="aec3792ccd97597895bba67cc9f5d0d40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec3792ccd97597895bba67cc9f5d0d40">&#9670;&#160;</a></span>SetRenderArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mugen_engine::MECore::SetRenderArea </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>topX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>topY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>bottomX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>bottomY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>描画可能な範囲を設定する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">topX</td><td>左上のX座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">topY</td><td>左上のY座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bottomX</td><td>右下のX座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bottomY</td><td>右下のY座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_core_8cpp_source.html">Core.cpp</a> の <a class="el" href="_core_8cpp_source.html#l00119">119</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a3b9b2da64fd3c49d7041e26d5e12d16e" name="a3b9b2da64fd3c49d7041e26d5e12d16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9b2da64fd3c49d7041e26d5e12d16e">&#9670;&#160;</a></span>m_audioDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_audio_device.html">MEAudioDevice</a> mugen_engine::MECore::m_audioDevice</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>オーディオデバイス </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00088">88</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a68f581f73e2c96bdcd20c0ef1f4b9e94" name="a68f581f73e2c96bdcd20c0ef1f4b9e94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f581f73e2c96bdcd20c0ef1f4b9e94">&#9670;&#160;</a></span>m_commandList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_command_list.html">MEGraphicCommandList</a> mugen_engine::MECore::m_commandList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフィックコマンドリスト </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00084">84</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a8d369ea07794fcd7f4ea80102f88c1cc" name="a8d369ea07794fcd7f4ea80102f88c1cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d369ea07794fcd7f4ea80102f88c1cc">&#9670;&#160;</a></span>m_graphicDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> mugen_engine::MECore::m_graphicDevice</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフィックデバイス </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00083">83</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a760627ac44f129236b40295096b5e221" name="a760627ac44f129236b40295096b5e221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760627ac44f129236b40295096b5e221">&#9670;&#160;</a></span>m_inputLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_INPUT_ELEMENT_DESC mugen_engine::MECore::m_inputLayout[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>入力レイアウト </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00081">81</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a93279ebbf298749e0defdc1bf1327eba" name="a93279ebbf298749e0defdc1bf1327eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93279ebbf298749e0defdc1bf1327eba">&#9670;&#160;</a></span>m_loadedFonts</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="classmugen__engine_1_1_m_e_font_data.html">MEFontData</a>&gt; mugen_engine::MECore::m_loadedFonts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>読み込み済みのフォントを辞書で管理する </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00091">91</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab709c682f3ef1c136a1e1796cd68dc1c" name="ab709c682f3ef1c136a1e1796cd68dc1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab709c682f3ef1c136a1e1796cd68dc1c">&#9670;&#160;</a></span>m_loadedImages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="classmugen__engine_1_1_m_e_image.html">MEImage</a>&gt; mugen_engine::MECore::m_loadedImages</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>読み込み済み画像を辞書で管理する </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00090">90</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6daeee64399b272d3a73a2dc4279d258" name="a6daeee64399b272d3a73a2dc4279d258"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6daeee64399b272d3a73a2dc4279d258">&#9670;&#160;</a></span>m_pipeline</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_pipeline.html">MEGraphicPipeline</a> mugen_engine::MECore::m_pipeline</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>パイプライン </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00086">86</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0e95c24d2c973b5581393acc4b506496" name="a0e95c24d2c973b5581393acc4b506496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e95c24d2c973b5581393acc4b506496">&#9670;&#160;</a></span>m_renderTarget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_graphic_render_target.html">MEGraphicRenderTarget</a> mugen_engine::MECore::m_renderTarget</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>レンダーターゲット </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00085">85</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="acfbb1a13eef6f0f08d59000e67164c5c" name="acfbb1a13eef6f0f08d59000e67164c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfbb1a13eef6f0f08d59000e67164c5c">&#9670;&#160;</a></span>m_windowClass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">WNDCLASSEX mugen_engine::MECore::m_windowClass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウクラス </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00077">77</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6a5f62424c0797e55b3a350765e001a8" name="a6a5f62424c0797e55b3a350765e001a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a5f62424c0797e55b3a350765e001a8">&#9670;&#160;</a></span>m_windowHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HWND mugen_engine::MECore::m_windowHandle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウハンドル </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00075">75</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a807fa7c2778faf2ec643dacb1d3d278b" name="a807fa7c2778faf2ec643dacb1d3d278b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807fa7c2778faf2ec643dacb1d3d278b">&#9670;&#160;</a></span>m_windowHeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mugen_engine::MECore::m_windowHeight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウの高さ </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00079">79</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3c12c2d04aa3e57a2f5bba3cf197fb44" name="a3c12c2d04aa3e57a2f5bba3cf197fb44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c12c2d04aa3e57a2f5bba3cf197fb44">&#9670;&#160;</a></span>m_windowTitle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::wstring mugen_engine::MECore::m_windowTitle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウの名前(ウィンドウクラスの名前) </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00076">76</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a00189f604a60d9428042bec40d3c13b8" name="a00189f604a60d9428042bec40d3c13b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00189f604a60d9428042bec40d3c13b8">&#9670;&#160;</a></span>m_windowWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mugen_engine::MECore::m_windowWidth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウの横幅 </p>
+
+<p class="definition"> <a class="el" href="_core_8h_source.html">Core.h</a> の <a class="el" href="_core_8h_source.html#l00078">78</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Engine/<a class="el" href="_core_8h_source.html">Core.h</a></li>
+<li>Engine/<a class="el" href="_core_8cpp_source.html">Core.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

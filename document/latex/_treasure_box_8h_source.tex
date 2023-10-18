@@ -1,0 +1,37 @@
+\doxysection{Treasure\+Box.\+h}
+\hypertarget{_treasure_box_8h_source}{}\label{_treasure_box_8h_source}\index{Static/TreasureBox.h@{Static/TreasureBox.h}}
+\mbox{\hyperlink{_treasure_box_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MagicaRogue\_TreasureBox\_\_}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MagicaRogue\_TreasureBox\_\_}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../Util/Transform.h"{}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}../Util/Camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}../Engine/Graphic/GraphicLoadedImage.h"{}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_static_object_interface_8h}{StaticObjectInterface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00018}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box}{00018}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box}{MRTresureBox}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_interface}{MRStaticObjectInterface}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00019}00019\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00021}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}}\ :\ \textcolor{keywordtype}{char}\ \{}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65a1e23852820b9154316c7c06e2b7ba051}{NORMAL}}\ =\ 0,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65a0efc7a9b83f3cfe984a3b046f0269ccc}{SILVER}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65a2c0898822ab3baf7f93bea86648adb26}{GOLD}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65af105d2e7e230814257820eada783f9cd}{RAINBOW}}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box}{MRTresureBox}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}}\ rarity);}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}}\&\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a09cf81c1ae3c50f0f569e6911e2e34c6}{GetTransform}}();}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_ab9204c864f87492656a71232ac975375}{Render}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\&\ camera)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00032}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a5c10cfb90c9a51b89c8aa91fa4707641}{00032}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a5c10cfb90c9a51b89c8aa91fa4707641}{m\_transform}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00033}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_adf23e5cdb88b4d2b08ab100a85c0afd7}{00033}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_adf23e5cdb88b4d2b08ab100a85c0afd7}{m\_rarity}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00034}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a85369ef72dfe8e99158d3a0f3a1ef8d2}{00034}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\_engine::MEImage}}*\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a85369ef72dfe8e99158d3a0f3a1ef8d2}{m\_image}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00035}00035\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_treasure_box_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_TreasureBox\_\_}}
+
+\end{DoxyCode}

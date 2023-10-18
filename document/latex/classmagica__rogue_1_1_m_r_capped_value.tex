@@ -1,0 +1,235 @@
+\doxysection{magica\+\_\+rogue\+::MRCapped\+Value クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_capped_value}{}\label{classmagica__rogue_1_1_m_r_capped_value}\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+
+
+最大値と最小値が決まっている数値を扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Capped\+Value.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a0b34edb4bfa5603232f4854044922cd9}{MRCapped\+Value}} (const float initial\+Value, const float minimum\+Value, const float maximum\+Value)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a1cb0190e2c6fdccfcba57247bf45c450}{Get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em 値を取得 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_aa9b2b48c78b77d9e6c7946dea47eda85}{Add}} (const float value)
+\begin{DoxyCompactList}\small\item\em 加算 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a755400163bea6616b0ed5f567ab35393}{is\+Minimum}} () const
+\begin{DoxyCompactList}\small\item\em 最小値かどうか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_ab81d23ab6954dad55f438c45496c307b}{is\+Maximum}} () const
+\begin{DoxyCompactList}\small\item\em 最大値かどうか \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a5d8cea24aa46c93242fdcedca53086ba}{Get\+Ratio}} () const
+\begin{DoxyCompactList}\small\item\em 割合を取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a95d5fb4fca04227ab51b9a5870ce0f2d}{m\+\_\+value}}
+\begin{DoxyCompactList}\small\item\em 現在値 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a42b9be4f498719c7f936c74b6b29bd07}{m\+\_\+minimum}}
+\begin{DoxyCompactList}\small\item\em 最小値 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_capped_value_a1a525a470b9a196c5c6d6b06f3849e36}{m\+\_\+maximum}}
+\begin{DoxyCompactList}\small\item\em 最大値 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+最大値と最小値が決まっている数値を扱うクラス 
+
+ \mbox{\hyperlink{_capped_value_8h_source}{Capped\+Value.\+h}} の \mbox{\hyperlink{_capped_value_8h_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a0b34edb4bfa5603232f4854044922cd9}\label{classmagica__rogue_1_1_m_r_capped_value_a0b34edb4bfa5603232f4854044922cd9} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!MRCappedValue@{MRCappedValue}}
+\index{MRCappedValue@{MRCappedValue}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{MRCappedValue()}{MRCappedValue()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRCapped\+Value\+::\+MRCapped\+Value (\begin{DoxyParamCaption}\item[{const float}]{initial\+Value,  }\item[{const float}]{minimum\+Value,  }\item[{const float}]{maximum\+Value }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em initial\+Value} & 初期値 \\
+\hline
+\mbox{\texttt{ in}}  & {\em minimum\+Value} & 最小値 \\
+\hline
+\mbox{\texttt{ in}}  & {\em maximum\+Value} & 最大値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_capped_value_8cpp_source}{Capped\+Value.\+cpp}} の \mbox{\hyperlink{_capped_value_8cpp_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_aa9b2b48c78b77d9e6c7946dea47eda85}\label{classmagica__rogue_1_1_m_r_capped_value_aa9b2b48c78b77d9e6c7946dea47eda85} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!Add@{Add}}
+\index{Add@{Add}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRCapped\+Value\+::\+Add (\begin{DoxyParamCaption}\item[{const float}]{value }\end{DoxyParamCaption})}
+
+
+
+加算 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em value} & 加算する値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+加算された後の値 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_capped_value_8cpp_source}{Capped\+Value.\+cpp}} の \mbox{\hyperlink{_capped_value_8cpp_source_l00035}{35}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a5d8cea24aa46c93242fdcedca53086ba}\label{classmagica__rogue_1_1_m_r_capped_value_a5d8cea24aa46c93242fdcedca53086ba} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!GetRatio@{GetRatio}}
+\index{GetRatio@{GetRatio}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{GetRatio()}{GetRatio()}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRCapped\+Value\+::\+Get\+Ratio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+割合を取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+最大値と最小値を基にした割合 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_capped_value_8cpp_source}{Capped\+Value.\+cpp}} の \mbox{\hyperlink{_capped_value_8cpp_source_l00066}{66}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a1cb0190e2c6fdccfcba57247bf45c450}\label{classmagica__rogue_1_1_m_r_capped_value_a1cb0190e2c6fdccfcba57247bf45c450} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRCapped\+Value\+::\+Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+値を取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+現在の値 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_capped_value_8cpp_source}{Capped\+Value.\+cpp}} の \mbox{\hyperlink{_capped_value_8cpp_source_l00025}{25}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_ab81d23ab6954dad55f438c45496c307b}\label{classmagica__rogue_1_1_m_r_capped_value_ab81d23ab6954dad55f438c45496c307b} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!isMaximum@{isMaximum}}
+\index{isMaximum@{isMaximum}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{isMaximum()}{isMaximum()}}
+{\footnotesize\ttfamily bool magica\+\_\+rogue\+::\+MRCapped\+Value\+::is\+Maximum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+最大値かどうか 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+最大値ならtrue 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_capped_value_8cpp_source}{Capped\+Value.\+cpp}} の \mbox{\hyperlink{_capped_value_8cpp_source_l00056}{56}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a755400163bea6616b0ed5f567ab35393}\label{classmagica__rogue_1_1_m_r_capped_value_a755400163bea6616b0ed5f567ab35393} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!isMinimum@{isMinimum}}
+\index{isMinimum@{isMinimum}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{isMinimum()}{isMinimum()}}
+{\footnotesize\ttfamily bool magica\+\_\+rogue\+::\+MRCapped\+Value\+::is\+Minimum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+最小値かどうか 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+最小値ならtrue 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_capped_value_8cpp_source}{Capped\+Value.\+cpp}} の \mbox{\hyperlink{_capped_value_8cpp_source_l00046}{46}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a1a525a470b9a196c5c6d6b06f3849e36}\label{classmagica__rogue_1_1_m_r_capped_value_a1a525a470b9a196c5c6d6b06f3849e36} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!m\_maximum@{m\_maximum}}
+\index{m\_maximum@{m\_maximum}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{m\_maximum}{m\_maximum}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRCapped\+Value\+::m\+\_\+maximum\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+最大値 
+
+
+
+ \mbox{\hyperlink{_capped_value_8h_source}{Capped\+Value.\+h}} の \mbox{\hyperlink{_capped_value_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a42b9be4f498719c7f936c74b6b29bd07}\label{classmagica__rogue_1_1_m_r_capped_value_a42b9be4f498719c7f936c74b6b29bd07} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!m\_minimum@{m\_minimum}}
+\index{m\_minimum@{m\_minimum}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{m\_minimum}{m\_minimum}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRCapped\+Value\+::m\+\_\+minimum\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+最小値 
+
+
+
+ \mbox{\hyperlink{_capped_value_8h_source}{Capped\+Value.\+h}} の \mbox{\hyperlink{_capped_value_8h_source_l00030}{30}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_capped_value_a95d5fb4fca04227ab51b9a5870ce0f2d}\label{classmagica__rogue_1_1_m_r_capped_value_a95d5fb4fca04227ab51b9a5870ce0f2d} 
+\index{magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}!m\_value@{m\_value}}
+\index{m\_value@{m\_value}!magica\_rogue::MRCappedValue@{magica\_rogue::MRCappedValue}}
+\doxysubsubsection{\texorpdfstring{m\_value}{m\_value}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRCapped\+Value\+::m\+\_\+value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+現在値 
+
+
+
+ \mbox{\hyperlink{_capped_value_8h_source}{Capped\+Value.\+h}} の \mbox{\hyperlink{_capped_value_8h_source_l00029}{29}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Util/\mbox{\hyperlink{_capped_value_8h}{Capped\+Value.\+h}}\item 
+Util/\mbox{\hyperlink{_capped_value_8cpp}{Capped\+Value.\+cpp}}\end{DoxyCompactItemize}

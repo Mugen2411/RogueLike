@@ -1,0 +1,208 @@
+\doxysection{magica\+\_\+rogue\+::MRScene\+Manager クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_scene_manager}{}\label{classmagica__rogue_1_1_m_r_scene_manager}\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+
+
+シーンの要件を表すインターフェース  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_ad727fb7f0da943d105f6ad2916f9c1c7}{MRScene\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_ac8100b20253da6dfdd2ac353092064ad}{\texorpdfstring{$\sim$}{\string~}\+MRScene\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_af6df066981421e1248ec75184c0691c2}{Push}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{MRScene\+Interface}} $>$ \&\&scene, bool is\+Stack\+Clear=false)=0
+\begin{DoxyCompactList}\small\item\em シーンを1つ追加する \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_ae994c9c32ba9695b8cfd8ed5229ce3f8}{Pop}} ()=0
+\begin{DoxyCompactList}\small\item\em シーンを1つ削除する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_a32d6d630dfdb4ec34bb81bb3b3ac6df8}{Update}} ()
+\begin{DoxyCompactList}\small\item\em シーンを更新する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_acab84cd89ae89992be6ac587abe7b964}{Render}} () const
+\begin{DoxyCompactList}\small\item\em シーンを描画する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_a07970bad7d16c4e31c9f4d69830362a5}{\+\_\+\+Reset}} ()
+\begin{DoxyCompactList}\small\item\em シーンを全部消す \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::stack$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{MRScene\+Interface}} $>$ $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager_a3192e6a0ce3542d90ff6d2b5d4b7d852}{m\+\_\+scenes}}
+\begin{DoxyCompactList}\small\item\em シーンを管理するスタック \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+シーンの要件を表すインターフェース 
+
+ \mbox{\hyperlink{_scene_manager_8h_source}{Scene\+Manager.\+h}} の \mbox{\hyperlink{_scene_manager_8h_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_ad727fb7f0da943d105f6ad2916f9c1c7}\label{classmagica__rogue_1_1_m_r_scene_manager_ad727fb7f0da943d105f6ad2916f9c1c7} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!MRSceneManager@{MRSceneManager}}
+\index{MRSceneManager@{MRSceneManager}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{MRSceneManager()}{MRSceneManager()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRScene\+Manager\+::\+MRScene\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_scene_manager_8cpp_source}{Scene\+Manager.\+cpp}} の \mbox{\hyperlink{_scene_manager_8cpp_source_l00014}{14}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_ac8100b20253da6dfdd2ac353092064ad}\label{classmagica__rogue_1_1_m_r_scene_manager_ac8100b20253da6dfdd2ac353092064ad} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!````~MRSceneManager@{\texorpdfstring{$\sim$}{\string~}MRSceneManager}}
+\index{````~MRSceneManager@{\texorpdfstring{$\sim$}{\string~}MRSceneManager}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MRSceneManager()}{\string~MRSceneManager()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRScene\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+MRScene\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+デストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_scene_manager_8cpp_source}{Scene\+Manager.\+cpp}} の \mbox{\hyperlink{_scene_manager_8cpp_source_l00022}{22}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_a07970bad7d16c4e31c9f4d69830362a5}\label{classmagica__rogue_1_1_m_r_scene_manager_a07970bad7d16c4e31c9f4d69830362a5} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!\_Reset@{\_Reset}}
+\index{\_Reset@{\_Reset}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{\_Reset()}{\_Reset()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRScene\+Manager\+::\+\_\+\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーンを全部消す 
+
+シーンを全て削除する
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_scene_manager_8cpp_source}{Scene\+Manager.\+cpp}} の \mbox{\hyperlink{_scene_manager_8cpp_source_l00056}{56}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_ae994c9c32ba9695b8cfd8ed5229ce3f8}\label{classmagica__rogue_1_1_m_r_scene_manager_ae994c9c32ba9695b8cfd8ed5229ce3f8} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!Pop@{Pop}}
+\index{Pop@{Pop}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRScene\+Manager\+::\+Pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+シーンを1つ削除する 
+
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_af6df066981421e1248ec75184c0691c2}\label{classmagica__rogue_1_1_m_r_scene_manager_af6df066981421e1248ec75184c0691c2} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!Push@{Push}}
+\index{Push@{Push}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRScene\+Manager\+::\+Push (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{MRScene\+Interface}} $>$ \&\&}]{scene,  }\item[{bool}]{is\+Stack\+Clear = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+シーンを1つ追加する 
+
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_acab84cd89ae89992be6ac587abe7b964}\label{classmagica__rogue_1_1_m_r_scene_manager_acab84cd89ae89992be6ac587abe7b964} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRScene\+Manager\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+シーンを描画する 
+
+描画
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_scene_manager_8cpp_source}{Scene\+Manager.\+cpp}} の \mbox{\hyperlink{_scene_manager_8cpp_source_l00043}{43}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_a32d6d630dfdb4ec34bb81bb3b3ac6df8}\label{classmagica__rogue_1_1_m_r_scene_manager_a32d6d630dfdb4ec34bb81bb3b3ac6df8} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRScene\+Manager\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+シーンを更新する 
+
+更新
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_scene_manager_8cpp_source}{Scene\+Manager.\+cpp}} の \mbox{\hyperlink{_scene_manager_8cpp_source_l00030}{30}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_manager_a3192e6a0ce3542d90ff6d2b5d4b7d852}\label{classmagica__rogue_1_1_m_r_scene_manager_a3192e6a0ce3542d90ff6d2b5d4b7d852} 
+\index{magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}!m\_scenes@{m\_scenes}}
+\index{m\_scenes@{m\_scenes}!magica\_rogue::MRSceneManager@{magica\_rogue::MRSceneManager}}
+\doxysubsubsection{\texorpdfstring{m\_scenes}{m\_scenes}}
+{\footnotesize\ttfamily std\+::stack$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{MRScene\+Interface}}$>$ $>$ magica\+\_\+rogue\+::\+MRScene\+Manager\+::m\+\_\+scenes\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーンを管理するスタック 
+
+
+
+ \mbox{\hyperlink{_scene_manager_8h_source}{Scene\+Manager.\+h}} の \mbox{\hyperlink{_scene_manager_8h_source_l00035}{35}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Scene/\mbox{\hyperlink{_scene_manager_8h}{Scene\+Manager.\+h}}\item 
+Scene/\mbox{\hyperlink{_scene_manager_8cpp}{Scene\+Manager.\+cpp}}\end{DoxyCompactItemize}

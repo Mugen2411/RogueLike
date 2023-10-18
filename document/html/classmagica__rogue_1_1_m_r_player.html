@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: magica_rogue::MRPlayer クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemagica__rogue.html">magica_rogue</a></li><li class="navelem"><a class="el" href="classmagica__rogue_1_1_m_r_player.html">MRPlayer</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classmagica__rogue_1_1_m_r_player-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">magica_rogue::MRPlayer クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>操作出来る自機クラス  
+ <a href="classmagica__rogue_1_1_m_r_player.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_player_8h_source.html">Player.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:aaf3406185c281360c04f96e1d685b95c" id="r_aaf3406185c281360c04f96e1d685b95c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a> : char { <br />
+&#160;&#160;<a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7">AKARI</a> = 0
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e">MAMI</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486">YUKINA</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062">REEZE</a>
+, <br />
+&#160;&#160;<a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c">IOS</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3">ISHIKI</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a">HARUNA</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90">MISATO</a>
+, <br />
+&#160;&#160;<a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397">SSEL</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409">KOMUK</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2">AKIYO</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777">OBORO</a>
+<br />
+ }</td></tr>
+<tr class="separator:aaf3406185c281360c04f96e1d685b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a15a49f0a2f78963a5d059a952b3ec3de" id="r_a15a49f0a2f78963a5d059a952b3ec3de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a15a49f0a2f78963a5d059a952b3ec3de">MRPlayer</a> (const <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a> id, const float x, const float y, <a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> &amp;camera)</td></tr>
+<tr class="memdesc:a15a49f0a2f78963a5d059a952b3ec3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:a15a49f0a2f78963a5d059a952b3ec3de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1af70849babd1f929acec7b34d4f2187" id="r_a1af70849babd1f929acec7b34d4f2187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a1af70849babd1f929acec7b34d4f2187">Update</a> ()</td></tr>
+<tr class="memdesc:a1af70849babd1f929acec7b34d4f2187"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新  <br /></td></tr>
+<tr class="separator:a1af70849babd1f929acec7b34d4f2187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133ff95b055b679c5f38723a0455a3d9" id="r_a133ff95b055b679c5f38723a0455a3d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a133ff95b055b679c5f38723a0455a3d9">Move</a> ()</td></tr>
+<tr class="memdesc:a133ff95b055b679c5f38723a0455a3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">移動  <br /></td></tr>
+<tr class="separator:a133ff95b055b679c5f38723a0455a3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a703b50d4ad2cf05bc07c5041bc97907b" id="r_a703b50d4ad2cf05bc07c5041bc97907b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a703b50d4ad2cf05bc07c5041bc97907b">Render</a> () const</td></tr>
+<tr class="memdesc:a703b50d4ad2cf05bc07c5041bc97907b"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画  <br /></td></tr>
+<tr class="separator:a703b50d4ad2cf05bc07c5041bc97907b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9039f3f911f7dfe1e0c054f459135f0" id="r_ab9039f3f911f7dfe1e0c054f459135f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#ab9039f3f911f7dfe1e0c054f459135f0">GetTransform</a> ()</td></tr>
+<tr class="memdesc:ab9039f3f911f7dfe1e0c054f459135f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置情報を取得  <br /></td></tr>
+<tr class="separator:ab9039f3f911f7dfe1e0c054f459135f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6177c42e9015f69bf4be32c11fa5bd6" id="r_ae6177c42e9015f69bf4be32c11fa5bd6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#ae6177c42e9015f69bf4be32c11fa5bd6">GetSize</a> ()</td></tr>
+<tr class="memdesc:ae6177c42e9015f69bf4be32c11fa5bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">当たり判定のサイズを取得  <br /></td></tr>
+<tr class="separator:ae6177c42e9015f69bf4be32c11fa5bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a6c76fd3faf4bf861cded116af459229b" id="r_a6c76fd3faf4bf861cded116af459229b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a6c76fd3faf4bf861cded116af459229b">m_id</a></td></tr>
+<tr class="memdesc:a6c76fd3faf4bf861cded116af459229b"><td class="mdescLeft">&#160;</td><td class="mdescRight">プレイヤーID  <br /></td></tr>
+<tr class="separator:a6c76fd3faf4bf861cded116af459229b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13f694d467aa891e2e4f1fdce80c630" id="r_ae13f694d467aa891e2e4f1fdce80c630"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#ae13f694d467aa891e2e4f1fdce80c630">m_transform</a></td></tr>
+<tr class="memdesc:ae13f694d467aa891e2e4f1fdce80c630"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置速度情報  <br /></td></tr>
+<tr class="separator:ae13f694d467aa891e2e4f1fdce80c630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e082b49063b3992439f9845566d6479" id="r_a8e082b49063b3992439f9845566d6479"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a8e082b49063b3992439f9845566d6479">m_playerImg</a></td></tr>
+<tr class="memdesc:a8e082b49063b3992439f9845566d6479"><td class="mdescLeft">&#160;</td><td class="mdescRight">プレイヤーのグラフィック  <br /></td></tr>
+<tr class="separator:a8e082b49063b3992439f9845566d6479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08337eb885d6fc9589d06b7b1ce27259" id="r_a08337eb885d6fc9589d06b7b1ce27259"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a08337eb885d6fc9589d06b7b1ce27259">m_hpGuageImg</a></td></tr>
+<tr class="memdesc:a08337eb885d6fc9589d06b7b1ce27259"><td class="mdescLeft">&#160;</td><td class="mdescRight">HPゲージの画像  <br /></td></tr>
+<tr class="separator:a08337eb885d6fc9589d06b7b1ce27259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2714eae122da0dccb18c0af27ba5ad71" id="r_a2714eae122da0dccb18c0af27ba5ad71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmugen__engine_1_1_m_e_font_data.html">mugen_engine::MEFontData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a2714eae122da0dccb18c0af27ba5ad71">m_guageFont</a></td></tr>
+<tr class="memdesc:a2714eae122da0dccb18c0af27ba5ad71"><td class="mdescLeft">&#160;</td><td class="mdescRight">ゲージの実数値を表示するフォント  <br /></td></tr>
+<tr class="separator:a2714eae122da0dccb18c0af27ba5ad71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc746e873478f3fee8fdbd5cfc62919" id="r_a8bc746e873478f3fee8fdbd5cfc62919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a8bc746e873478f3fee8fdbd5cfc62919">m_camera</a></td></tr>
+<tr class="memdesc:a8bc746e873478f3fee8fdbd5cfc62919"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ  <br /></td></tr>
+<tr class="separator:a8bc746e873478f3fee8fdbd5cfc62919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b595f14cf072e7ac91cc4a07a746fd8" id="r_a9b595f14cf072e7ac91cc4a07a746fd8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a9b595f14cf072e7ac91cc4a07a746fd8">m_size</a></td></tr>
+<tr class="memdesc:a9b595f14cf072e7ac91cc4a07a746fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">プレイヤーの当たり判定サイズ  <br /></td></tr>
+<tr class="separator:a9b595f14cf072e7ac91cc4a07a746fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cd1b2ae6f264f35dad082d24103ae4d" id="r_a4cd1b2ae6f264f35dad082d24103ae4d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a4cd1b2ae6f264f35dad082d24103ae4d">m_speed</a></td></tr>
+<tr class="memdesc:a4cd1b2ae6f264f35dad082d24103ae4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">自機の移動速度  <br /></td></tr>
+<tr class="separator:a4cd1b2ae6f264f35dad082d24103ae4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88f98390dced6b8d221656e91c4a671f" id="r_a88f98390dced6b8d221656e91c4a671f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_hit_point.html">MRHitPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#a88f98390dced6b8d221656e91c4a671f">m_hp</a></td></tr>
+<tr class="memdesc:a88f98390dced6b8d221656e91c4a671f"><td class="mdescLeft">&#160;</td><td class="mdescRight">HP  <br /></td></tr>
+<tr class="separator:a88f98390dced6b8d221656e91c4a671f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>操作出来る自機クラス </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00019">19</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">列挙型メンバ詳解</h2>
+<a id="aaf3406185c281360c04f96e1d685b95c" name="aaf3406185c281360c04f96e1d685b95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf3406185c281360c04f96e1d685b95c">&#9670;&#160;</a></span>PLAYER_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">magica_rogue::MRPlayer::PLAYER_ID</a> : char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7" name="aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7"></a>AKARI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e" name="aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e"></a>MAMI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486" name="aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486"></a>YUKINA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062" name="aaf3406185c281360c04f96e1d685b95ca77f6e11839c352094a82c5ffedf7d062"></a>REEZE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c" name="aaf3406185c281360c04f96e1d685b95caba3f2adea47b86b0d408de3f7e4d922c"></a>IOS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3" name="aaf3406185c281360c04f96e1d685b95ca1e2240e782f891fe1aa9c629d46b97f3"></a>ISHIKI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a" name="aaf3406185c281360c04f96e1d685b95ca47e4cc8701ca9f03b9ad356f9d80284a"></a>HARUNA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90" name="aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90"></a>MISATO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397" name="aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397"></a>SSEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409" name="aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409"></a>KOMUK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2" name="aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2"></a>AKIYO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777" name="aaf3406185c281360c04f96e1d685b95cab7497f0130bf7da3d18558c2289e3777"></a>OBORO&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00022">22</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a15a49f0a2f78963a5d059a952b3ec3de" name="a15a49f0a2f78963a5d059a952b3ec3de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a49f0a2f78963a5d059a952b3ec3de">&#9670;&#160;</a></span>MRPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">magica_rogue::MRPlayer::MRPlayer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>プレイヤーID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_player_8cpp_source.html">Player.cpp</a> の <a class="el" href="_player_8cpp_source.html#l00018">18</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ae6177c42e9015f69bf4be32c11fa5bd6" name="ae6177c42e9015f69bf4be32c11fa5bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6177c42e9015f69bf4be32c11fa5bd6">&#9670;&#160;</a></span>GetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float magica_rogue::MRPlayer::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>当たり判定のサイズを取得 </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00040">40</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab9039f3f911f7dfe1e0c054f459135f0" name="ab9039f3f911f7dfe1e0c054f459135f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9039f3f911f7dfe1e0c054f459135f0">&#9670;&#160;</a></span>GetTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &amp; magica_rogue::MRPlayer::GetTransform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>位置情報を取得 </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00036">36</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a133ff95b055b679c5f38723a0455a3d9" name="a133ff95b055b679c5f38723a0455a3d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133ff95b055b679c5f38723a0455a3d9">&#9670;&#160;</a></span>Move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MRPlayer::Move </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>移動 </p>
+<p>キャラを移動させる</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_player_8cpp_source.html">Player.cpp</a> の <a class="el" href="_player_8cpp_source.html#l00119">119</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a703b50d4ad2cf05bc07c5041bc97907b" name="a703b50d4ad2cf05bc07c5041bc97907b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a703b50d4ad2cf05bc07c5041bc97907b">&#9670;&#160;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MRPlayer::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>描画 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_player_8cpp_source.html">Player.cpp</a> の <a class="el" href="_player_8cpp_source.html#l00131">131</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1af70849babd1f929acec7b34d4f2187" name="a1af70849babd1f929acec7b34d4f2187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af70849babd1f929acec7b34d4f2187">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MRPlayer::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>更新 </p>
+<p>情報を更新</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_player_8cpp_source.html">Player.cpp</a> の <a class="el" href="_player_8cpp_source.html#l00076">76</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a8bc746e873478f3fee8fdbd5cfc62919" name="a8bc746e873478f3fee8fdbd5cfc62919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc746e873478f3fee8fdbd5cfc62919">&#9670;&#160;</a></span>m_camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a>&amp; magica_rogue::MRPlayer::m_camera</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラ </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00049">49</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2714eae122da0dccb18c0af27ba5ad71" name="a2714eae122da0dccb18c0af27ba5ad71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2714eae122da0dccb18c0af27ba5ad71">&#9670;&#160;</a></span>m_guageFont</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_font_data.html">mugen_engine::MEFontData</a>* magica_rogue::MRPlayer::m_guageFont</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ゲージの実数値を表示するフォント </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a88f98390dced6b8d221656e91c4a671f" name="a88f98390dced6b8d221656e91c4a671f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88f98390dced6b8d221656e91c4a671f">&#9670;&#160;</a></span>m_hp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_hit_point.html">MRHitPoint</a> magica_rogue::MRPlayer::m_hp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>HP </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00053">53</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a08337eb885d6fc9589d06b7b1ce27259" name="a08337eb885d6fc9589d06b7b1ce27259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08337eb885d6fc9589d06b7b1ce27259">&#9670;&#160;</a></span>m_hpGuageImg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a>* magica_rogue::MRPlayer::m_hpGuageImg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>HPゲージの画像 </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00047">47</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6c76fd3faf4bf861cded116af459229b" name="a6c76fd3faf4bf861cded116af459229b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c76fd3faf4bf861cded116af459229b">&#9670;&#160;</a></span>m_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95c">PLAYER_ID</a> magica_rogue::MRPlayer::m_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>プレイヤーID </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00044">44</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a8e082b49063b3992439f9845566d6479" name="a8e082b49063b3992439f9845566d6479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e082b49063b3992439f9845566d6479">&#9670;&#160;</a></span>m_playerImg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmugen__engine_1_1_m_e_image.html">mugen_engine::MEImage</a>* magica_rogue::MRPlayer::m_playerImg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>プレイヤーのグラフィック </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a9b595f14cf072e7ac91cc4a07a746fd8" name="a9b595f14cf072e7ac91cc4a07a746fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b595f14cf072e7ac91cc4a07a746fd8">&#9670;&#160;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float magica_rogue::MRPlayer::m_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>プレイヤーの当たり判定サイズ </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00050">50</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a4cd1b2ae6f264f35dad082d24103ae4d" name="a4cd1b2ae6f264f35dad082d24103ae4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cd1b2ae6f264f35dad082d24103ae4d">&#9670;&#160;</a></span>m_speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float magica_rogue::MRPlayer::m_speed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>自機の移動速度 </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00051">51</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae13f694d467aa891e2e4f1fdce80c630" name="ae13f694d467aa891e2e4f1fdce80c630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae13f694d467aa891e2e4f1fdce80c630">&#9670;&#160;</a></span>m_transform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> magica_rogue::MRPlayer::m_transform</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>位置速度情報 </p>
+
+<p class="definition"> <a class="el" href="_player_8h_source.html">Player.h</a> の <a class="el" href="_player_8h_source.html#l00045">45</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Mover/Player/<a class="el" href="_player_8h_source.html">Player.h</a></li>
+<li>Mover/Player/<a class="el" href="_player_8cpp_source.html">Player.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
