@@ -76,6 +76,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="classmagica__rogue_1_1_m_r_scene_interface-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">magica_rogue::MRSceneInterface クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -86,31 +87,70 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a>&gt;</code></p>
 <div class="dynheader">
-magica_rogue::MRSceneInterface 連携図</div>
+magica_rogue::MRSceneInterface の継承関係図</div>
 <div class="dyncontent">
-<div class="center"><img src="classmagica__rogue_1_1_m_r_scene_interface__coll__graph.png" border="0" usemap="#amagica__rogue_1_1_m_r_scene_interface_coll__map" alt="Collaboration graph"/></div>
-<map name="amagica__rogue_1_1_m_r_scene_interface_coll__map" id="amagica__rogue_1_1_m_r_scene_interface_coll__map">
-<area shape="rect" title="シーンの要件を表すインターフェース" alt="" coords="5,5,213,117"/>
-</map>
-</div>
+ <div class="center">
+  <img src="classmagica__rogue_1_1_m_r_scene_interface.png" usemap="#magica_5Frogue::MRSceneInterface_map" alt=""/>
+  <map id="magica_5Frogue::MRSceneInterface_map" name="magica_5Frogue::MRSceneInterface_map">
+<area href="classmagica__rogue_1_1_m_r_scene_main.html" title="ゲームのメインシーン" alt="magica_rogue::MRSceneMain" shape="rect" coords="0,56,203,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:ac0dc93d91a023533f1f2970e5b081b95" id="r_ac0dc93d91a023533f1f2970e5b081b95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html#ac0dc93d91a023533f1f2970e5b081b95">MRSceneInterface</a> (<a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html">MRSceneManager</a> *sceneManager)</td></tr>
+<tr class="memdesc:ac0dc93d91a023533f1f2970e5b081b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:ac0dc93d91a023533f1f2970e5b081b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f2a9a67fad9452cce4ffc298fa1d0cd" id="r_a7f2a9a67fad9452cce4ffc298fa1d0cd"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html#a7f2a9a67fad9452cce4ffc298fa1d0cd">~MRSceneInterface</a> ()</td></tr>
 <tr class="memdesc:a7f2a9a67fad9452cce4ffc298fa1d0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">デストラクタ  <br /></td></tr>
 <tr class="separator:a7f2a9a67fad9452cce4ffc298fa1d0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f6ec6613be3cfea4003efc6f18863cc" id="r_a1f6ec6613be3cfea4003efc6f18863cc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html#a1f6ec6613be3cfea4003efc6f18863cc">Update</a> ()=0</td></tr>
 <tr class="memdesc:a1f6ec6613be3cfea4003efc6f18863cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新  <br /></td></tr>
 <tr class="separator:a1f6ec6613be3cfea4003efc6f18863cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac520b9dfc475991deb650cef7f191600" id="r_ac520b9dfc475991deb650cef7f191600"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html#ac520b9dfc475991deb650cef7f191600">Render</a> () const =0</td></tr>
-<tr class="memdesc:ac520b9dfc475991deb650cef7f191600"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画  <br /></td></tr>
-<tr class="separator:ac520b9dfc475991deb650cef7f191600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae979ac092308b5fe72ea56834276db06" id="r_ae979ac092308b5fe72ea56834276db06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html#ae979ac092308b5fe72ea56834276db06">Render</a> ()=0</td></tr>
+<tr class="memdesc:ae979ac092308b5fe72ea56834276db06"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画  <br /></td></tr>
+<tr class="separator:ae979ac092308b5fe72ea56834276db06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:aa2f87fa20523d6db24837e7852fa52da" id="r_aa2f87fa20523d6db24837e7852fa52da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html">MRSceneManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html#aa2f87fa20523d6db24837e7852fa52da">m_pSceneManager</a></td></tr>
+<tr class="separator:aa2f87fa20523d6db24837e7852fa52da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>シーンの要件を表すインターフェース </p>
 
-<p class="definition"> <a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a> の <a class="el" href="_scene_interface_8h_source.html#l00013">13</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a> の <a class="el" href="_scene_interface_8h_source.html#l00015">15</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
+<a id="ac0dc93d91a023533f1f2970e5b081b95" name="ac0dc93d91a023533f1f2970e5b081b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0dc93d91a023533f1f2970e5b081b95">&#9670;&#160;</a></span>MRSceneInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">magica_rogue::MRSceneInterface::MRSceneInterface </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html">MRSceneManager</a> *&#160;</td>
+          <td class="paramname"><em>sceneManager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+
+<p class="definition"> <a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a> の <a class="el" href="_scene_interface_8h_source.html#l00019">19</a> 行目に定義があります。</p>
+
+</div>
+</div>
 <a id="a7f2a9a67fad9452cce4ffc298fa1d0cd" name="a7f2a9a67fad9452cce4ffc298fa1d0cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f2a9a67fad9452cce4ffc298fa1d0cd">&#9670;&#160;</a></span>~MRSceneInterface()</h2>
 
@@ -136,13 +176,13 @@ magica_rogue::MRSceneInterface 連携図</div>
 
 <p>デストラクタ </p>
 
-<p class="definition"> <a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a> の <a class="el" href="_scene_interface_8h_source.html#l00017">17</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a> の <a class="el" href="_scene_interface_8h_source.html#l00022">22</a> 行目に定義があります。</p>
 
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="ac520b9dfc475991deb650cef7f191600" name="ac520b9dfc475991deb650cef7f191600"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac520b9dfc475991deb650cef7f191600">&#9670;&#160;</a></span>Render()</h2>
+<a id="ae979ac092308b5fe72ea56834276db06" name="ae979ac092308b5fe72ea56834276db06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae979ac092308b5fe72ea56834276db06">&#9670;&#160;</a></span>Render()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +194,7 @@ magica_rogue::MRSceneInterface 連携図</div>
           <td class="memname">virtual void magica_rogue::MRSceneInterface::Render </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -165,6 +205,8 @@ magica_rogue::MRSceneInterface 連携図</div>
 </div><div class="memdoc">
 
 <p>描画 </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_scene_main.html#a2e3e295867e552620b9d750256ad79ec">magica_rogue::MRSceneMain</a>で実装されています。</p>
 
 </div>
 </div>
@@ -192,6 +234,33 @@ magica_rogue::MRSceneInterface 連携図</div>
 </div><div class="memdoc">
 
 <p>更新 </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_scene_main.html#a1b8b076274d023942edb0d0205af27e9">magica_rogue::MRSceneMain</a>で実装されています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="aa2f87fa20523d6db24837e7852fa52da" name="aa2f87fa20523d6db24837e7852fa52da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f87fa20523d6db24837e7852fa52da">&#9670;&#160;</a></span>m_pSceneManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html">MRSceneManager</a>* magica_rogue::MRSceneInterface::m_pSceneManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_scene_interface_8h_source.html">SceneInterface.h</a> の <a class="el" href="_scene_interface_8h_source.html#l00029">29</a> 行目に定義があります。</p>
 
 </div>
 </div>

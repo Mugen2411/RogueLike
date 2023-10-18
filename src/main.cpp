@@ -3,12 +3,9 @@
 #include "Engine/Core.h"
 #include "Engine/Fps.h"
 #include "Engine/Input/KeyInputManager.h"
+#include "Util/InputManager.h"
 
-#include "Map/MapData.h"
-#include "Mover/Player/Player.h"
-#include "Static/StaticObjectManager.h"
-#include "util/InputManager.h"
-#include "util/Camera.h"
+#include "Scene/SceneMain.h"
 
 int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 {
@@ -26,18 +23,8 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 	auto defFont = mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 
 	int frame = 0;
-	enum KeyCode {
-		ME_INPUT_RIGHT, ME_INPUT_DOWN, ME_INPUT_LEFT, ME_INPUT_UP,
-	};
-	
-	magica_rogue::MRCamera camera(0, 0);
 
-	magica_rogue::MRStaticObjectManager staticList;
-
-	auto random = std::random_device();
-	magica_rogue::MRMapData mapData(256, 256, random(), staticList);
-
-	magica_rogue::MRPlayer player(magica_rogue::MRPlayer::PLAYER_ID::KOMUK, mapData.GetStartX(), mapData.GetStartY(), camera);
+	magica_rogue::MRSceneMain mainScene(nullptr);
 
 	while (mugen_engine::MECore::GetIns().ProcessMessage() == 0)
 	{
@@ -46,16 +33,9 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 		mugen_engine::MECore::GetIns().ResetRenderArea();
 		mugen_engine::MECore::GetIns().ClearScreen(0, 0, 0);
-		
-		player.Update();
-		mapData.HitWithWall(player.GetTransform(), player.GetSize());
-		mapData.Update(player.GetTransform());
-		player.Move();
 
-		mapData.Render(camera);
-		mapData.RenderMiniMap(player.GetTransform(), staticList);
-		staticList.Render(camera);
-		player.Render();
+		mainScene.Update();
+		mainScene.Render();
 
 		//float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		//defFont.DrawFormatString(200, 720 - 32, color, -99.0, L"frame: %d", frame);

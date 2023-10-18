@@ -14,8 +14,8 @@ namespace magica_rogue
 		@param[in]		rarity				ƒŒƒAƒŠƒeƒB
 		@return			‚È‚µ
 	*//***********************************************************************/
-	MRTresureBox::MRTresureBox(const float x, const float y, const MRRarity rarity)
-		: m_transform(x, y, 0.0f, 0.0f), m_rarity(rarity)
+	MRTresureBox::MRTresureBox(const float x, const float y, const MRRarity rarity, uint32_t seed)
+		: m_transform(x, y, 0.0f, 0.0f), m_rarity(rarity), m_random(seed)
 	{
 		m_image = &mugen_engine::MECore::GetIns().GetGraph("treasureBox");
 	}

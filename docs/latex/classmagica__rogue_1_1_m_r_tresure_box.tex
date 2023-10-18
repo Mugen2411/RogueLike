@@ -4,24 +4,10 @@
 
 {\ttfamily \#include $<$Treasure\+Box.\+h$>$}
 
-
-
-magica\+\_\+rogue\+::MRTresure\+Box の継承関係図
-\nopagebreak
-\begin{figure}[H]
+magica\+\_\+rogue\+::MRTresure\+Box の継承関係図\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=272pt]{classmagica__rogue_1_1_m_r_tresure_box__inherit__graph}
-\end{center}
-\end{figure}
-
-
-magica\+\_\+rogue\+::MRTresure\+Box 連携図
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classmagica__rogue_1_1_m_r_tresure_box__coll__graph}
+\includegraphics[height=2.000000cm]{classmagica__rogue_1_1_m_r_tresure_box}
 \end{center}
 \end{figure}
 \doxysubsubsection*{公開型}
@@ -36,7 +22,7 @@ enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_adbbea585baf0b963cbf18fac451f8cb0}{MRTresure\+Box}} (const float x, const float y, const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}} rarity)
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_afb21df524ed9c7c9580b80927d6f9584}{MRTresure\+Box}} (const float x, const float y, const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}} rarity, uint32\+\_\+t seed)
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a09cf81c1ae3c50f0f569e6911e2e34c6}{Get\+Transform}} ()
 \begin{DoxyCompactList}\small\item\em 位置情報を取得 \end{DoxyCompactList}\item 
@@ -50,13 +36,15 @@ void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_ab9204c864f87492656
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_adf23e5cdb88b4d2b08ab100a85c0afd7}{m\+\_\+rarity}}
 \begin{DoxyCompactList}\small\item\em レアリティ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a85369ef72dfe8e99158d3a0f3a1ef8d2}{m\+\_\+image}}
-\begin{DoxyCompactList}\small\item\em 画像 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 画像 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random}{MRRandom}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a5ba51a0f10ac6be6bef8f0b5c69dbc10}{m\+\_\+random}}
+\begin{DoxyCompactList}\small\item\em 乱数生成器 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 
 
- \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00018}{18}} 行目に定義があります。
+ \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00019}{19}} 行目に定義があります。
 
 
 
@@ -87,16 +75,16 @@ RAINBOW&\\
 \end{DoxyEnumFields}
 
 
- \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00021}{21}} 行目に定義があります。
+ \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00022}{22}} 行目に定義があります。
 
 
 
 \doxysubsection{構築子と解体子}
-\Hypertarget{classmagica__rogue_1_1_m_r_tresure_box_adbbea585baf0b963cbf18fac451f8cb0}\label{classmagica__rogue_1_1_m_r_tresure_box_adbbea585baf0b963cbf18fac451f8cb0} 
+\Hypertarget{classmagica__rogue_1_1_m_r_tresure_box_afb21df524ed9c7c9580b80927d6f9584}\label{classmagica__rogue_1_1_m_r_tresure_box_afb21df524ed9c7c9580b80927d6f9584} 
 \index{magica\_rogue::MRTresureBox@{magica\_rogue::MRTresureBox}!MRTresureBox@{MRTresureBox}}
 \index{MRTresureBox@{MRTresureBox}!magica\_rogue::MRTresureBox@{magica\_rogue::MRTresureBox}}
 \doxysubsubsection{\texorpdfstring{MRTresureBox()}{MRTresureBox()}}
-{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRTresure\+Box\+::\+MRTresure\+Box (\begin{DoxyParamCaption}\item[{const float}]{x,  }\item[{const float}]{y,  }\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}}}]{rarity }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRTresure\+Box\+::\+MRTresure\+Box (\begin{DoxyParamCaption}\item[{const float}]{x,  }\item[{const float}]{y,  }\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_tresure_box_a8bf4ad32ad6c15beffc63776bbce3f65}{MRRarity}}}]{rarity,  }\item[{uint32\+\_\+t}]{seed }\end{DoxyParamCaption})}
 
 
 
@@ -190,7 +178,21 @@ RAINBOW&\\
 
 
 
- \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00034}{34}} 行目に定義があります。
+ \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00035}{35}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_tresure_box_a5ba51a0f10ac6be6bef8f0b5c69dbc10}\label{classmagica__rogue_1_1_m_r_tresure_box_a5ba51a0f10ac6be6bef8f0b5c69dbc10} 
+\index{magica\_rogue::MRTresureBox@{magica\_rogue::MRTresureBox}!m\_random@{m\_random}}
+\index{m\_random@{m\_random}!magica\_rogue::MRTresureBox@{magica\_rogue::MRTresureBox}}
+\doxysubsubsection{\texorpdfstring{m\_random}{m\_random}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_random}{MRRandom}} magica\+\_\+rogue\+::\+MRTresure\+Box\+::m\+\_\+random\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+乱数生成器 
+
+
+
+ \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00036}{36}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_tresure_box_adf23e5cdb88b4d2b08ab100a85c0afd7}\label{classmagica__rogue_1_1_m_r_tresure_box_adf23e5cdb88b4d2b08ab100a85c0afd7} 
 \index{magica\_rogue::MRTresureBox@{magica\_rogue::MRTresureBox}!m\_rarity@{m\_rarity}}
@@ -204,7 +206,7 @@ RAINBOW&\\
 
 
 
- \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00033}{33}} 行目に定義があります。
+ \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00034}{34}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_tresure_box_a5c10cfb90c9a51b89c8aa91fa4707641}\label{classmagica__rogue_1_1_m_r_tresure_box_a5c10cfb90c9a51b89c8aa91fa4707641} 
 \index{magica\_rogue::MRTresureBox@{magica\_rogue::MRTresureBox}!m\_transform@{m\_transform}}
@@ -218,7 +220,7 @@ RAINBOW&\\
 
 
 
- \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00032}{32}} 行目に定義があります。
+ \mbox{\hyperlink{_treasure_box_8h_source}{Treasure\+Box.\+h}} の \mbox{\hyperlink{_treasure_box_8h_source_l00033}{33}} 行目に定義があります。
 
 
 

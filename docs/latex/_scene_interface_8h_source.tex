@@ -7,18 +7,25 @@
 \DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MagicaRogue\_SceneInterface\_\_}}
 \DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MagicaRogue\_SceneInterface\_\_}}
 \DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00006}00006\ }
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00008}00008\ \{}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00009}00009\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00013}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{MRSceneInterface}}}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00014}00014\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00017}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}{\string~MRSceneInterface}}()\{\}}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00019}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc}{Update}}()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00021}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac520b9dfc475991deb650cef7f191600}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac520b9dfc475991deb650cef7f191600}{Render}}()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00022}00022\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00023}00023\ \}}
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_SceneInterface\_\_}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_scene_manager_8h}{SceneManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00015}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{00015}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface}{MRSceneInterface}}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00019}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac0dc93d91a023533f1f2970e5b081b95}{00019}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac0dc93d91a023533f1f2970e5b081b95}{MRSceneInterface}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRSceneManager}}*\ sceneManager):\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da}{m\_pSceneManager}}(sceneManager)}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00022}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}{\string~MRSceneInterface}}()\{\}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00024}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc}{Update}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00026}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ae979ac092308b5fe72ea56834276db06}{00026}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ae979ac092308b5fe72ea56834276db06}{Render}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00029}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da}{00029}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRSceneManager}}*\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da}{m\_pSceneManager}};}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00030}00030\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_scene_interface_8h_source_l00033}00033\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_SceneInterface\_\_}}
 
 \end{DoxyCode}

@@ -19,22 +19,28 @@
 \DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00024}00024\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00025}00025\ }
 \DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00026}00026\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00031}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}{00031}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}{MRStaticObjectManager::GetTransforms}}(std::vector<MRTransform>\&\ list)}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00031}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a3e6d3e4ab7b45a0993eb0ed6f174bf16}{00031}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a3e6d3e4ab7b45a0993eb0ed6f174bf16}{MRStaticObjectManager::Reset}}()}
 \DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00032}00032\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ obj\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}{m\_objectList}})}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ list.push\_back(obj-\/>GetTransform());}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00037}00037\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00039}00039\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00044}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{00044}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{MRStaticObjectManager::Render}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\&\ camera)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00045}00045\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ obj\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}{m\_objectList}})}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ obj-\/>Render(camera);}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00050}00050\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}{m\_objectList}}.clear();}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00036}00036\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00041}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}{00041}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}{MRStaticObjectManager::GetTransforms}}(std::vector<MRTransform>\&\ list)}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00042}00042\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ obj\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}{m\_objectList}})}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ list.push\_back(obj-\/>GetTransform());}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00049}00049\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00054}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{00054}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{MRStaticObjectManager::Render}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\&\ camera)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00055}00055\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ obj\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_ae9e07cdb35ba7bbcf87d675bc56f0488}{m\_objectList}})}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ obj-\/>Render(camera);}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_static_object_manager_8cpp_source_l00061}00061\ \}}
 
 \end{DoxyCode}

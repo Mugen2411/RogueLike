@@ -86,14 +86,6 @@ $(function() {
  <a href="classmagica__rogue_1_1_m_r_static_object_manager.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="_static_object_manager_8h_source.html">StaticObjectManager.h</a>&gt;</code></p>
-<div class="dynheader">
-magica_rogue::MRStaticObjectManager 連携図</div>
-<div class="dyncontent">
-<div class="center"><img src="classmagica__rogue_1_1_m_r_static_object_manager__coll__graph.png" border="0" usemap="#amagica__rogue_1_1_m_r_static_object_manager_coll__map" alt="Collaboration graph"/></div>
-<map name="amagica__rogue_1_1_m_r_static_object_manager_coll__map" id="amagica__rogue_1_1_m_r_static_object_manager_coll__map">
-<area shape="rect" title="静止オブジェクトを管理するクラス" alt="" coords="5,5,249,235"/>
-</map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -103,6 +95,9 @@ magica_rogue::MRStaticObjectManager 連携図</div>
 <tr class="memitem:a9feb76361031c535c025656b4fff4a1d" id="r_a9feb76361031c535c025656b4fff4a1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_static_object_manager.html#a9feb76361031c535c025656b4fff4a1d">Register</a> (std::unique_ptr&lt; <a class="el" href="classmagica__rogue_1_1_m_r_static_object_interface.html">MRStaticObjectInterface</a> &gt; &amp;&amp;obj)</td></tr>
 <tr class="memdesc:a9feb76361031c535c025656b4fff4a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">管理対象に追加する  <br /></td></tr>
 <tr class="separator:a9feb76361031c535c025656b4fff4a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e6d3e4ab7b45a0993eb0ed6f174bf16" id="r_a3e6d3e4ab7b45a0993eb0ed6f174bf16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_static_object_manager.html#a3e6d3e4ab7b45a0993eb0ed6f174bf16">Reset</a> ()</td></tr>
+<tr class="memdesc:a3e6d3e4ab7b45a0993eb0ed6f174bf16"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての静止オブジェクトを解放する  <br /></td></tr>
+<tr class="separator:a3e6d3e4ab7b45a0993eb0ed6f174bf16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11918a44b038888f232dcdb57b5f84c2" id="r_a11918a44b038888f232dcdb57b5f84c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_static_object_manager.html#a11918a44b038888f232dcdb57b5f84c2">GetTransforms</a> (std::vector&lt; <a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &gt; &amp;list)</td></tr>
 <tr class="memdesc:a11918a44b038888f232dcdb57b5f84c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">物体の位置情報をvectorで取得  <br /></td></tr>
 <tr class="separator:a11918a44b038888f232dcdb57b5f84c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,7 +171,7 @@ magica_rogue::MRStaticObjectManager 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_static_object_manager_8cpp_source.html">StaticObjectManager.cpp</a> の <a class="el" href="_static_object_manager_8cpp_source.html#l00031">31</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_static_object_manager_8cpp_source.html">StaticObjectManager.cpp</a> の <a class="el" href="_static_object_manager_8cpp_source.html#l00041">41</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -235,7 +230,35 @@ magica_rogue::MRStaticObjectManager 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_static_object_manager_8cpp_source.html">StaticObjectManager.cpp</a> の <a class="el" href="_static_object_manager_8cpp_source.html#l00044">44</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_static_object_manager_8cpp_source.html">StaticObjectManager.cpp</a> の <a class="el" href="_static_object_manager_8cpp_source.html#l00054">54</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3e6d3e4ab7b45a0993eb0ed6f174bf16" name="a3e6d3e4ab7b45a0993eb0ed6f174bf16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6d3e4ab7b45a0993eb0ed6f174bf16">&#9670;&#160;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MRStaticObjectManager::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>全ての静止オブジェクトを解放する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_static_object_manager_8cpp_source.html">StaticObjectManager.cpp</a> の <a class="el" href="_static_object_manager_8cpp_source.html#l00031">31</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -262,7 +285,7 @@ magica_rogue::MRStaticObjectManager 連携図</div>
 
 <p>オブジェクトのリスト </p>
 
-<p class="definition"> <a class="el" href="_static_object_manager_8h_source.html">StaticObjectManager.h</a> の <a class="el" href="_static_object_manager_8h_source.html#l00031">31</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_static_object_manager_8h_source.html">StaticObjectManager.h</a> の <a class="el" href="_static_object_manager_8h_source.html#l00033">33</a> 行目に定義があります。</p>
 
 </div>
 </div>

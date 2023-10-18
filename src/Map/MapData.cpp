@@ -13,12 +13,9 @@ namespace magica_rogue
 {
 	/**********************************************************************//**
 		@brief			コンストラクタ
-		@param[in]		width				マップの横幅
-		@param[in]		height				マップの高さ
 		@return			なし
 	*//***********************************************************************/
-	MRMapData::MRMapData(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList) :
-		m_width(width), m_height(height), m_random(seed), m_chipSize(32.0f)
+	MRMapData::MRMapData(): m_chipSize(32.0f), m_random(0)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
 		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 4, 2);
@@ -26,6 +23,23 @@ namespace magica_rogue
 		m_minimapImg = &mugen_engine::MECore::GetIns().GetGraph("minimap");
 		m_minimapImg->SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
 		m_font = &mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
+	}
+
+	/**********************************************************************//**
+		@brief			マップを生成する
+		@param[in]		width				マップの横幅
+		@param[in]		height				マップの高さ
+		@param[in]		seed				シード値
+		@param[in]		staticList			静止オブジェクトの管理者
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::Construct(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList)
+	{
+		m_random.SetSeed(seed);
+
+		m_width = width;
+		m_height = height;
+
 		m_mapData.resize(height);
 		m_graphicData.resize(height);
 		for (int y = 0; y < height; ++y)
@@ -33,6 +47,11 @@ namespace magica_rogue
 			m_mapData[y].resize(width);
 			m_graphicData[y].resize(width);
 		}
+		m_roomIndex.clear();
+		m_roomList.clear();
+		m_regionList.clear();
+		m_pathList.clear();
+
 		_DivideRooms();
 		_ConvertGraphFromMap();
 		_SpawnTreasureBox(staticList);
@@ -94,7 +113,7 @@ namespace magica_rogue
 		@param[in]		プレイヤーの位置
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::RenderMiniMap(const MRTransform& playerTransform,
+	void MRMapData::RenderMiniMap(MRTransform& playerTransform,
 		MRStaticObjectManager& staticList) const
 	{
 		int larger = max(m_width, m_height);
@@ -759,7 +778,7 @@ namespace magica_rogue
 				} while (std::count(old_x.cbegin(), old_x.cend(), x) != 0 && std::count(old_y.cbegin(), old_y.cend(), y));
 
 				staticList.Register(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
-					static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3))));
+					static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3)), m_random.Get()));
 				old_x.push_back(x);
 				old_y.push_back(y);
 			}

@@ -9,16 +9,6 @@
 
 {\ttfamily \#include $<$Static\+Object\+Manager.\+h$>$}
 
-
-
-magica\+\_\+rogue\+::MRStatic\+Object\+Manager 連携図
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=263pt]{classmagica__rogue_1_1_m_r_static_object_manager__coll__graph}
-\end{center}
-\end{figure}
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,6 +16,8 @@ magica\+\_\+rogue\+::MRStatic\+Object\+Manager 連携図
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a9feb76361031c535c025656b4fff4a1d}{Register}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_interface}{MRStatic\+Object\+Interface}} $>$ \&\&obj)
 \begin{DoxyCompactList}\small\item\em 管理対象に追加する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a3e6d3e4ab7b45a0993eb0ed6f174bf16}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em 全ての静止オブジェクトを解放する \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_a11918a44b038888f232dcdb57b5f84c2}{Get\+Transforms}} (std\+::vector$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} $>$ \&list)
 \begin{DoxyCompactList}\small\item\em 物体の位置情報をvectorで取得 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager_abcbcfce54e9600d7b68a597ead88faa8}{Render}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \&camera) const
@@ -92,7 +84,7 @@ std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00031}{31}} 行目に定義があります。
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00041}{41}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_a9feb76361031c535c025656b4fff4a1d}\label{classmagica__rogue_1_1_m_r_static_object_manager_a9feb76361031c535c025656b4fff4a1d} 
 \index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!Register@{Register}}
@@ -138,7 +130,29 @@ std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00044}{44}} 行目に定義があります。
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00054}{54}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_static_object_manager_a3e6d3e4ab7b45a0993eb0ed6f174bf16}\label{classmagica__rogue_1_1_m_r_static_object_manager_a3e6d3e4ab7b45a0993eb0ed6f174bf16} 
+\index{magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}!Reset@{Reset}}
+\index{Reset@{Reset}!magica\_rogue::MRStaticObjectManager@{magica\_rogue::MRStaticObjectManager}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRStatic\+Object\+Manager\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+全ての静止オブジェクトを解放する 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_static_object_manager_8cpp_source}{Static\+Object\+Manager.\+cpp}} の \mbox{\hyperlink{_static_object_manager_8cpp_source_l00031}{31}} 行目に定義があります。
 
 
 
@@ -155,7 +169,7 @@ std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1
 
 
 
- \mbox{\hyperlink{_static_object_manager_8h_source}{Static\+Object\+Manager.\+h}} の \mbox{\hyperlink{_static_object_manager_8h_source_l00031}{31}} 行目に定義があります。
+ \mbox{\hyperlink{_static_object_manager_8h_source}{Static\+Object\+Manager.\+h}} の \mbox{\hyperlink{_static_object_manager_8h_source_l00033}{33}} 行目に定義があります。
 
 
 

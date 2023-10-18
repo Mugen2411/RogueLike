@@ -4,6 +4,8 @@
 #ifndef __MagicaRogue_SceneInterface__
 #define __MagicaRogue_SceneInterface__
 
+#include "SceneManager.h"
+
 namespace magica_rogue
 {
 	/**********************************************************************//**
@@ -13,12 +15,18 @@ namespace magica_rogue
 	class MRSceneInterface
 	{
 	public:
+		//! コンストラクタ
+		MRSceneInterface(MRSceneManager* sceneManager):m_pSceneManager(sceneManager)
+		{}
 		//! デストラクタ
 		virtual ~MRSceneInterface(){}
 		//! 更新
 		virtual void Update() = 0;
 		//! 描画
-		virtual void Render() const = 0;
+		virtual void Render() = 0;
+
+	protected:
+		MRSceneManager* m_pSceneManager;
 	};
 }
 

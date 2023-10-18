@@ -9,35 +9,52 @@
 
 {\ttfamily \#include $<$Scene\+Interface.\+h$>$}
 
-
-
-magica\+\_\+rogue\+::MRScene\+Interface 連携図
-\nopagebreak
-\begin{figure}[H]
+magica\+\_\+rogue\+::MRScene\+Interface の継承関係図\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=236pt]{classmagica__rogue_1_1_m_r_scene_interface__coll__graph}
+\includegraphics[height=2.000000cm]{classmagica__rogue_1_1_m_r_scene_interface}
 \end{center}
 \end{figure}
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac0dc93d91a023533f1f2970e5b081b95}{MRScene\+Interface}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRScene\+Manager}} \texorpdfstring{$\ast$}{*}scene\+Manager)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}{\texorpdfstring{$\sim$}{\string~}\+MRScene\+Interface}} ()
 \begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc}{Update}} ()=0
 \begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac520b9dfc475991deb650cef7f191600}{Render}} () const =0
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ae979ac092308b5fe72ea56834276db06}{Render}} ()=0
 \begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRScene\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da}{m\+\_\+p\+Scene\+Manager}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 シーンの要件を表すインターフェース 
 
- \mbox{\hyperlink{_scene_interface_8h_source}{Scene\+Interface.\+h}} の \mbox{\hyperlink{_scene_interface_8h_source_l00013}{13}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_interface_8h_source}{Scene\+Interface.\+h}} の \mbox{\hyperlink{_scene_interface_8h_source_l00015}{15}} 行目に定義があります。
 
 
 
 \doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_interface_ac0dc93d91a023533f1f2970e5b081b95}\label{classmagica__rogue_1_1_m_r_scene_interface_ac0dc93d91a023533f1f2970e5b081b95} 
+\index{magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}!MRSceneInterface@{MRSceneInterface}}
+\index{MRSceneInterface@{MRSceneInterface}!magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}}
+\doxysubsubsection{\texorpdfstring{MRSceneInterface()}{MRSceneInterface()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRScene\+Interface\+::\+MRScene\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRScene\+Manager}} \texorpdfstring{$\ast$}{*}}]{scene\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+コンストラクタ 
+
+
+
+ \mbox{\hyperlink{_scene_interface_8h_source}{Scene\+Interface.\+h}} の \mbox{\hyperlink{_scene_interface_8h_source_l00019}{19}} 行目に定義があります。
+
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}\label{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd} 
 \index{magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}!````~MRSceneInterface@{\texorpdfstring{$\sim$}{\string~}MRSceneInterface}}
 \index{````~MRSceneInterface@{\texorpdfstring{$\sim$}{\string~}MRSceneInterface}!magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}}
@@ -50,20 +67,24 @@ virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac520b9
 
 
 
- \mbox{\hyperlink{_scene_interface_8h_source}{Scene\+Interface.\+h}} の \mbox{\hyperlink{_scene_interface_8h_source_l00017}{17}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_interface_8h_source}{Scene\+Interface.\+h}} の \mbox{\hyperlink{_scene_interface_8h_source_l00022}{22}} 行目に定義があります。
 
 
 
 \doxysubsection{関数詳解}
-\Hypertarget{classmagica__rogue_1_1_m_r_scene_interface_ac520b9dfc475991deb650cef7f191600}\label{classmagica__rogue_1_1_m_r_scene_interface_ac520b9dfc475991deb650cef7f191600} 
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_interface_ae979ac092308b5fe72ea56834276db06}\label{classmagica__rogue_1_1_m_r_scene_interface_ae979ac092308b5fe72ea56834276db06} 
 \index{magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}!Render@{Render}}
 \index{Render@{Render}!magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}}
 \doxysubsubsection{\texorpdfstring{Render()}{Render()}}
-{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRScene\+Interface\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRScene\+Interface\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
 描画 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a2e3e295867e552620b9d750256ad79ec}{magica\+\_\+rogue\+::\+MRScene\+Main}}で実装されています。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc}\label{classmagica__rogue_1_1_m_r_scene_interface_a1f6ec6613be3cfea4003efc6f18863cc} 
 \index{magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}!Update@{Update}}
@@ -74,6 +95,23 @@ virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_ac520b9
 
 
 更新 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a1b8b076274d023942edb0d0205af27e9}{magica\+\_\+rogue\+::\+MRScene\+Main}}で実装されています。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da}\label{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da} 
+\index{magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}!m\_pSceneManager@{m\_pSceneManager}}
+\index{m\_pSceneManager@{m\_pSceneManager}!magica\_rogue::MRSceneInterface@{magica\_rogue::MRSceneInterface}}
+\doxysubsubsection{\texorpdfstring{m\_pSceneManager}{m\_pSceneManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRScene\+Manager}}\texorpdfstring{$\ast$}{*} magica\+\_\+rogue\+::\+MRScene\+Interface\+::m\+\_\+p\+Scene\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+ \mbox{\hyperlink{_scene_interface_8h_source}{Scene\+Interface.\+h}} の \mbox{\hyperlink{_scene_interface_8h_source_l00029}{29}} 行目に定義があります。
 
 
 

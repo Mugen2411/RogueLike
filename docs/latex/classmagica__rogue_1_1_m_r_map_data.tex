@@ -9,16 +9,6 @@
 
 {\ttfamily \#include $<$Map\+Data.\+h$>$}
 
-
-
-magica\+\_\+rogue\+::MRMap\+Data 連携図
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classmagica__rogue_1_1_m_r_map_data__coll__graph}
-\end{center}
-\end{figure}
 \doxysubsubsection*{クラス}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,13 +19,15 @@ class \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a17dba5a48d234a52ee8b34814da9d55a}{MRMap\+Data}} (const int width, const int height, uint32\+\_\+t seed, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&static\+List)
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_aa5b8dff970040d135b1430c1bee9b1b4}{MRMap\+Data}} ()
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ad59d6b6deb419fc34b7df33f900df14f}{Construct}} (const int width, const int height, uint32\+\_\+t seed, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&static\+List)
+\begin{DoxyCompactList}\small\item\em マップを生成 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_adc98d6d0690724e2c6b02ad52deaf9f6}{Update}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \&player\+Transform)
 \begin{DoxyCompactList}\small\item\em マップを更新 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a86373ee55328a0c15851632c17bb985a}{Render}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \&camera) const
 \begin{DoxyCompactList}\small\item\em マップを描画 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ada21e0dc70b03ec6bd368d2c79b6d3fa}{Render\+Mini\+Map}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \&player\+Transform, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&static\+List) const
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_aec4b1e46891e149274f13a54059e8e96}{Render\+Mini\+Map}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \&player\+Transform, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&static\+List) const
 \begin{DoxyCompactList}\small\item\em ミニマップを描画 \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a45e732c70b44c9b31b24f37aedca9f36}{Get\+StartX}} () const
 \begin{DoxyCompactList}\small\item\em プレイヤーの初期\+X座標を取得 \end{DoxyCompactList}\item 
@@ -57,9 +49,9 @@ void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a2d562150039c884a00193
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
-const int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}{m\+\_\+width}}
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a9edbf8989b8e90eb1a920fbe99ec06a6}{m\+\_\+width}}
 \begin{DoxyCompactList}\small\item\em マップの横幅 \end{DoxyCompactList}\item 
-const int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}{m\+\_\+height}}
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ab37538db180c3c5b0bdbf022d7ae8bfc}{m\+\_\+height}}
 \begin{DoxyCompactList}\small\item\em マップの高さ \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_ad5c49380725aadd007ca912f88b50f48}{m\+\_\+startX}}
 \begin{DoxyCompactList}\small\item\em プレイヤーの初期\+X座標 \end{DoxyCompactList}\item 
@@ -97,29 +89,22 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 \doxysubsection{構築子と解体子}
-\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a17dba5a48d234a52ee8b34814da9d55a}\label{classmagica__rogue_1_1_m_r_map_data_a17dba5a48d234a52ee8b34814da9d55a} 
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_aa5b8dff970040d135b1430c1bee9b1b4}\label{classmagica__rogue_1_1_m_r_map_data_aa5b8dff970040d135b1430c1bee9b1b4} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!MRMapData@{MRMapData}}
 \index{MRMapData@{MRMapData}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
 \doxysubsubsection{\texorpdfstring{MRMapData()}{MRMapData()}}
-{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRMap\+Data\+::\+MRMap\+Data (\begin{DoxyParamCaption}\item[{const int}]{width,  }\item[{const int}]{height,  }\item[{uint32\+\_\+t}]{seed,  }\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&}]{static\+List }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRMap\+Data\+::\+MRMap\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 コンストラクタ 
 
-
-\begin{DoxyParams}[1]{引数}
-\mbox{\texttt{ in}}  & {\em width} & マップの横幅 \\
-\hline
-\mbox{\texttt{ in}}  & {\em height} & マップの高さ \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{戻り値}
 なし 
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00020}{20}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00018}{18}} 行目に定義があります。
 
 
 
@@ -144,7 +129,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00322}{322}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00341}{341}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a5881a757fa15d38b1714b7089b92c27c}\label{classmagica__rogue_1_1_m_r_map_data_a5881a757fa15d38b1714b7089b92c27c} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!\_DivideRooms@{\_DivideRooms}}
@@ -168,7 +153,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00338}{338}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00357}{357}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_aa7fa99c07b61c634ac009b3444bf8a87}\label{classmagica__rogue_1_1_m_r_map_data_aa7fa99c07b61c634ac009b3444bf8a87} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!\_SetStartPosition@{\_SetStartPosition}}
@@ -192,7 +177,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00718}{718}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00737}{737}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a2d562150039c884a0019392f5a8953bc}\label{classmagica__rogue_1_1_m_r_map_data_a2d562150039c884a0019392f5a8953bc} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!\_SpawnTreasureBox@{\_SpawnTreasureBox}}
@@ -214,7 +199,37 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00742}{742}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00761}{761}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_ad59d6b6deb419fc34b7df33f900df14f}\label{classmagica__rogue_1_1_m_r_map_data_ad59d6b6deb419fc34b7df33f900df14f} 
+\index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!Construct@{Construct}}
+\index{Construct@{Construct}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
+\doxysubsubsection{\texorpdfstring{Construct()}{Construct()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMap\+Data\+::\+Construct (\begin{DoxyParamCaption}\item[{const int}]{width,  }\item[{const int}]{height,  }\item[{uint32\+\_\+t}]{seed,  }\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&}]{static\+List }\end{DoxyParamCaption})}
+
+
+
+マップを生成 
+
+マップを生成する
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em width} & マップの横幅 \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & マップの高さ \\
+\hline
+\mbox{\texttt{ in}}  & {\em seed} & シード値 \\
+\hline
+\mbox{\texttt{ in}}  & {\em static\+List} & 静止オブジェクトの管理者 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00036}{36}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a45e732c70b44c9b31b24f37aedca9f36}\label{classmagica__rogue_1_1_m_r_map_data_a45e732c70b44c9b31b24f37aedca9f36} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!GetStartX@{GetStartX}}
@@ -228,7 +243,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00036}{36}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00038}{38}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a73182e274931d534f2d13d3f18901dcd}\label{classmagica__rogue_1_1_m_r_map_data_a73182e274931d534f2d13d3f18901dcd} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!GetStartY@{GetStartY}}
@@ -242,7 +257,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00040}{40}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00042}{42}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a88148553633fb3e51266a609e6ad7e28}\label{classmagica__rogue_1_1_m_r_map_data_a88148553633fb3e51266a609e6ad7e28} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!HitWithWall@{HitWithWall}}
@@ -266,7 +281,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00169}{169}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00188}{188}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a86373ee55328a0c15851632c17bb985a}\label{classmagica__rogue_1_1_m_r_map_data_a86373ee55328a0c15851632c17bb985a} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!Render@{Render}}
@@ -290,13 +305,13 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00068}{68}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00087}{87}} 行目に定義があります。
 
-\Hypertarget{classmagica__rogue_1_1_m_r_map_data_ada21e0dc70b03ec6bd368d2c79b6d3fa}\label{classmagica__rogue_1_1_m_r_map_data_ada21e0dc70b03ec6bd368d2c79b6d3fa} 
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_aec4b1e46891e149274f13a54059e8e96}\label{classmagica__rogue_1_1_m_r_map_data_aec4b1e46891e149274f13a54059e8e96} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!RenderMiniMap@{RenderMiniMap}}
 \index{RenderMiniMap@{RenderMiniMap}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
 \doxysubsubsection{\texorpdfstring{RenderMiniMap()}{RenderMiniMap()}}
-{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMap\+Data\+::\+Render\+Mini\+Map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \&}]{player\+Transform,  }\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&}]{static\+List }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMap\+Data\+::\+Render\+Mini\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \&}]{player\+Transform,  }\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \&}]{static\+List }\end{DoxyParamCaption}) const}
 
 
 
@@ -314,7 +329,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00097}{97}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00116}{116}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_adc98d6d0690724e2c6b02ad52deaf9f6}\label{classmagica__rogue_1_1_m_r_map_data_adc98d6d0690724e2c6b02ad52deaf9f6} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!Update@{Update}}
@@ -338,7 +353,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00046}{46}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8cpp_source}{Map\+Data.\+cpp}} の \mbox{\hyperlink{_map_data_8cpp_source_l00065}{65}} 行目に定義があります。
 
 
 
@@ -355,7 +370,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00098}{98}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00100}{100}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a23404c45e4f5dec45f4fd56d59f1311b}\label{classmagica__rogue_1_1_m_r_map_data_a23404c45e4f5dec45f4fd56d59f1311b} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_font@{m\_font}}
@@ -369,7 +384,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00102}{102}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00104}{104}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f}\label{classmagica__rogue_1_1_m_r_map_data_a2b42187d2ec0db809bf38afc8cd6037f} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_graphicData@{m\_graphicData}}
@@ -383,13 +398,13 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00093}{93}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00095}{95}} 行目に定義があります。
 
-\Hypertarget{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86}\label{classmagica__rogue_1_1_m_r_map_data_ace404eb2bbee9e6a999e5c37320cde86} 
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_ab37538db180c3c5b0bdbf022d7ae8bfc}\label{classmagica__rogue_1_1_m_r_map_data_ab37538db180c3c5b0bdbf022d7ae8bfc} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_height@{m\_height}}
 \index{m\_height@{m\_height}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
 \doxysubsubsection{\texorpdfstring{m\_height}{m\_height}}
-{\footnotesize\ttfamily const int magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -397,7 +412,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00087}{87}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00089}{89}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c}\label{classmagica__rogue_1_1_m_r_map_data_ab5da42b183d31408184c11e0a28d910c} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_mapchipImg@{m\_mapchipImg}}
@@ -411,7 +426,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00100}{100}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00102}{102}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb}\label{classmagica__rogue_1_1_m_r_map_data_a764be5840cf741f57a53acadf2bdb7fb} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_mapData@{m\_mapData}}
@@ -425,7 +440,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00092}{92}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00094}{94}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a65fddac41c834f1872d6d06f254efa96}\label{classmagica__rogue_1_1_m_r_map_data_a65fddac41c834f1872d6d06f254efa96} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_minimapImg@{m\_minimapImg}}
@@ -439,7 +454,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00101}{101}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00103}{103}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_ab2997b74ca46ebde16be1b9c8a2b645d}\label{classmagica__rogue_1_1_m_r_map_data_ab2997b74ca46ebde16be1b9c8a2b645d} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_pathList@{m\_pathList}}
@@ -453,7 +468,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00095}{95}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00097}{97}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_af88902cdbcbc7882452210a16a2cfc03}\label{classmagica__rogue_1_1_m_r_map_data_af88902cdbcbc7882452210a16a2cfc03} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_random@{m\_random}}
@@ -467,7 +482,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00104}{104}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00106}{106}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a65044cd8f597a6b7a72d2578de58ac1c}\label{classmagica__rogue_1_1_m_r_map_data_a65044cd8f597a6b7a72d2578de58ac1c} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_regionList@{m\_regionList}}
@@ -481,7 +496,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00096}{96}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00098}{98}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_a1ab19508bbbf9ab7b24901dd0fe011c6}\label{classmagica__rogue_1_1_m_r_map_data_a1ab19508bbbf9ab7b24901dd0fe011c6} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_roomIndex@{m\_roomIndex}}
@@ -495,7 +510,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00106}{106}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00108}{108}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_aaf33b53bb42a1b73d02dee1fb50933c8}\label{classmagica__rogue_1_1_m_r_map_data_aaf33b53bb42a1b73d02dee1fb50933c8} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_roomList@{m\_roomList}}
@@ -509,7 +524,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00094}{94}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00096}{96}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_ad5c49380725aadd007ca912f88b50f48}\label{classmagica__rogue_1_1_m_r_map_data_ad5c49380725aadd007ca912f88b50f48} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_startX@{m\_startX}}
@@ -523,7 +538,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00089}{89}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00091}{91}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_map_data_abb1aecd6e2ea92d7c043a284349dd440}\label{classmagica__rogue_1_1_m_r_map_data_abb1aecd6e2ea92d7c043a284349dd440} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_startY@{m\_startY}}
@@ -537,13 +552,13 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00090}{90}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00092}{92}} 行目に定義があります。
 
-\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354}\label{classmagica__rogue_1_1_m_r_map_data_a6526246834d5ef5c989ee94d51291354} 
+\Hypertarget{classmagica__rogue_1_1_m_r_map_data_a9edbf8989b8e90eb1a920fbe99ec06a6}\label{classmagica__rogue_1_1_m_r_map_data_a9edbf8989b8e90eb1a920fbe99ec06a6} 
 \index{magica\_rogue::MRMapData@{magica\_rogue::MRMapData}!m\_width@{m\_width}}
 \index{m\_width@{m\_width}!magica\_rogue::MRMapData@{magica\_rogue::MRMapData}}
 \doxysubsubsection{\texorpdfstring{m\_width}{m\_width}}
-{\footnotesize\ttfamily const int magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MRMap\+Data\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -551,7 +566,7 @@ std\+::vector$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o
 
 
 
- \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00086}{86}} 行目に定義があります。
+ \mbox{\hyperlink{_map_data_8h_source}{Map\+Data.\+h}} の \mbox{\hyperlink{_map_data_8h_source_l00088}{88}} 行目に定義があります。
 
 
 

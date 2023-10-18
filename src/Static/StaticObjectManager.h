@@ -23,6 +23,8 @@ namespace magica_rogue
 		MRStaticObjectManager();
 		//! 管理対象に追加する
 		void Register(std::unique_ptr<MRStaticObjectInterface>&& obj);
+		//! 全ての静止オブジェクトを解放する
+		void Reset();
 		//! 物体の位置情報をvectorで取得
 		void GetTransforms(std::vector<MRTransform>& list);
 		//! 描画

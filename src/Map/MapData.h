@@ -25,13 +25,15 @@ namespace magica_rogue
 	{
 	public:
 		//! コンストラクタ
-		MRMapData(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList);
+		MRMapData();
+		//! マップを生成
+		void Construct(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList);
 		//! マップを更新
 		void Update(const MRTransform& playerTransform);
 		//! マップを描画
 		void Render(const MRCamera& camera) const;
 		//! ミニマップを描画
-		void RenderMiniMap(const MRTransform& playerTransform, MRStaticObjectManager& staticList)const;
+		void RenderMiniMap(MRTransform& playerTransform, MRStaticObjectManager& staticList)const;
 		//! プレイヤーの初期X座標を取得
 		float GetStartX() const {
 			return m_startX * 32.0f + 16.0f;
@@ -83,8 +85,8 @@ namespace magica_rogue
 		//! 宝箱を設置する
 		void _SpawnTreasureBox(MRStaticObjectManager& staticList);
 
-		const int m_width;									//!< マップの横幅
-		const int m_height;									//!< マップの高さ
+		int m_width;									//!< マップの横幅
+		int m_height;									//!< マップの高さ
 
 		int m_startX;										//!< プレイヤーの初期X座標
 		int m_startY;										//!< プレイヤーの初期Y座標

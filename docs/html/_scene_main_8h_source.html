@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Scene/SceneMain.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7a042bd9a3839f69c8fb34542781548e.html">Scene</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SceneMain.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_scene_main_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef __MagicaRogue_SceneMain__</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define __MagicaRogue_SceneMain__</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_scene_interface_8h.html">SceneInterface.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_scene_manager_8h.html">SceneManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../Mover/Player/Player.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../Map/MapData.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../Static/StaticObjectManager.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;../Util/Camera.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemagica__rogue.html">magica_rogue</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_main.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmagica__rogue_1_1_m_r_scene_main.html">MRSceneMain</a> :<span class="keyword">public</span> <a class="code hl_class" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_scene_main.html">MRSceneMain</a>(<a class="code hl_class" href="classmagica__rogue_1_1_m_r_scene_manager.html">MRSceneManager</a>* sceneManager);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_scene_main.html#a1b8b076274d023942edb0d0205af27e9">Update</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_scene_main.html#a2e3e295867e552620b9d750256ad79ec">Render</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_scene_main.html#a163000e8c13e23ee730c577016c21587">_GenerateMap</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_main.html#a7882f95e646d7a8339d0e3ffd8f5d0f0">   34</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_main.html#a7882f95e646d7a8339d0e3ffd8f5d0f0">m_floor</a>;                                                </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_main.html#aec5fcd7c4a27ef88cfca8912208ab6d7">   35</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_main.html#aec5fcd7c4a27ef88cfca8912208ab6d7">m_camera</a>;                                      </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_main.html#a5cadb945d845093c6f4974b2ad51531b">   36</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_static_object_manager.html">MRStaticObjectManager</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_main.html#a5cadb945d845093c6f4974b2ad51531b">m_staticObjectManager</a>;            </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_main.html#af654d63068901f45da13e52aefb81d9b">   37</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_main.html#af654d63068901f45da13e52aefb81d9b">m_mapData</a>;                                    </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_main.html#a066029a53341d4c451ac1b7a01686f3b">   38</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_player.html">MRPlayer</a> <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_main.html#a066029a53341d4c451ac1b7a01686f3b">m_player</a>;                                      </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span><span class="comment">//__MagicaRogue_SceneMain__</span></div>
+<div class="ttc" id="a_scene_interface_8h_html"><div class="ttname"><a href="_scene_interface_8h.html">SceneInterface.h</a></div></div>
+<div class="ttc" id="a_scene_manager_8h_html"><div class="ttname"><a href="_scene_manager_8h.html">SceneManager.h</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_camera_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_camera.html">magica_rogue::MRCamera</a></div><div class="ttdoc">スクロール機能とカメラを扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_camera_8h_source.html#l00013">Camera.h:14</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_map_data_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_map_data.html">magica_rogue::MRMapData</a></div><div class="ttdoc">マップデータを扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_map_data_8h_source.html#l00024">MapData.h:25</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_player_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_player.html">magica_rogue::MRPlayer</a></div><div class="ttdoc">操作出来る自機クラス</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00019">Player.h:20</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_interface_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_interface.html">magica_rogue::MRSceneInterface</a></div><div class="ttdoc">シーンの要件を表すインターフェース</div><div class="ttdef"><b>Definition</b> <a href="_scene_interface_8h_source.html#l00015">SceneInterface.h:16</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html">magica_rogue::MRSceneMain</a></div><div class="ttdoc">ゲームのメインシーン</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8h_source.html#l00021">SceneMain.h:22</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_a066029a53341d4c451ac1b7a01686f3b"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#a066029a53341d4c451ac1b7a01686f3b">magica_rogue::MRSceneMain::m_player</a></div><div class="ttdeci">MRPlayer m_player</div><div class="ttdoc">プレイヤー</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8h_source.html#l00038">SceneMain.h:38</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_a163000e8c13e23ee730c577016c21587"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#a163000e8c13e23ee730c577016c21587">magica_rogue::MRSceneMain::_GenerateMap</a></div><div class="ttdeci">void _GenerateMap()</div><div class="ttdoc">mappuwoseiseisuru</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8cpp_source.html#l00042">SceneMain.cpp:42</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_a1b8b076274d023942edb0d0205af27e9"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#a1b8b076274d023942edb0d0205af27e9">magica_rogue::MRSceneMain::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">更新</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8cpp_source.html#l00022">SceneMain.cpp:22</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_a2e3e295867e552620b9d750256ad79ec"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#a2e3e295867e552620b9d750256ad79ec">magica_rogue::MRSceneMain::Render</a></div><div class="ttdeci">void Render()</div><div class="ttdoc">描画</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8cpp_source.html#l00035">SceneMain.cpp:35</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_a5cadb945d845093c6f4974b2ad51531b"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#a5cadb945d845093c6f4974b2ad51531b">magica_rogue::MRSceneMain::m_staticObjectManager</a></div><div class="ttdeci">MRStaticObjectManager m_staticObjectManager</div><div class="ttdoc">静止オブジェクトの管理者</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8h_source.html#l00036">SceneMain.h:36</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_a7882f95e646d7a8339d0e3ffd8f5d0f0"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#a7882f95e646d7a8339d0e3ffd8f5d0f0">magica_rogue::MRSceneMain::m_floor</a></div><div class="ttdeci">int m_floor</div><div class="ttdoc">gennzainokaisou</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8h_source.html#l00034">SceneMain.h:34</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_aec5fcd7c4a27ef88cfca8912208ab6d7"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#aec5fcd7c4a27ef88cfca8912208ab6d7">magica_rogue::MRSceneMain::m_camera</a></div><div class="ttdeci">MRCamera m_camera</div><div class="ttdoc">カメラ</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8h_source.html#l00035">SceneMain.h:35</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_main_html_af654d63068901f45da13e52aefb81d9b"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_main.html#af654d63068901f45da13e52aefb81d9b">magica_rogue::MRSceneMain::m_mapData</a></div><div class="ttdeci">MRMapData m_mapData</div><div class="ttdoc">マップ</div><div class="ttdef"><b>Definition</b> <a href="_scene_main_8h_source.html#l00037">SceneMain.h:37</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html">magica_rogue::MRSceneManager</a></div><div class="ttdoc">シーンの要件を表すインターフェース</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8h_source.html#l00017">SceneManager.h:18</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_static_object_manager_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_static_object_manager.html">magica_rogue::MRStaticObjectManager</a></div><div class="ttdoc">静止オブジェクトを管理するクラス</div><div class="ttdef"><b>Definition</b> <a href="_static_object_manager_8h_source.html#l00019">StaticObjectManager.h:20</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00012">MapData.cpp:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

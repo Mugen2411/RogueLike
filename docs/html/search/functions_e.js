@@ -12,10 +12,11 @@ var searchData=
   ['setrenderarea_9',['setrenderarea',['../classmugen__engine_1_1_m_e_core.html#aec3792ccd97597895bba67cc9f5d0d40',1,'mugen_engine::MECore::SetRenderArea()'],['../classmugen__engine_1_1_m_e_graphic_render_target.html#a4a434c63c78f37b4cb143882c090b447',1,'mugen_engine::MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList &amp;cmdList, const int topX, const int topY, const int bottomX, const int bottomY)']]],
   ['setrenderbasecommand_10',['SetRenderBaseCommand',['../classmugen__engine_1_1_m_e_graphic_render_target.html#a9ad02058247ee840df88df8ace4472af',1,'mugen_engine::MEGraphicRenderTarget']]],
   ['setrendercommand_11',['SetRenderCommand',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a40aa78852a2cf8d7bf00b3f93fb339d9',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['setvelocity_12',['SetVelocity',['../classmagica__rogue_1_1_m_r_transform.html#a8c4cd50d2504ef7f0b96fc9be23fd6e8',1,'magica_rogue::MRTransform']]],
-  ['setvelocitywithangle_13',['SetVelocityWithAngle',['../classmagica__rogue_1_1_m_r_transform.html#a6bfc484a1a036fea452bbc0968e28447',1,'magica_rogue::MRTransform']]],
-  ['setvelocityx_14',['SetVelocityX',['../classmagica__rogue_1_1_m_r_transform.html#a3e48c7eb8f49900fd9bc1a7c4ba7e5e6',1,'magica_rogue::MRTransform']]],
-  ['setvelocityy_15',['SetVelocityY',['../classmagica__rogue_1_1_m_r_transform.html#a2bb09fcc6b0e38ff7476e5a310468993',1,'magica_rogue::MRTransform']]],
-  ['setx_16',['SetX',['../classmagica__rogue_1_1_m_r_transform.html#a7901c9a16c74df9a85ac921a2063ab88',1,'magica_rogue::MRTransform']]],
-  ['sety_17',['SetY',['../classmagica__rogue_1_1_m_r_transform.html#a387357e5ebd0eb0f733028957ad24431',1,'magica_rogue::MRTransform']]]
+  ['setseed_12',['SetSeed',['../classmagica__rogue_1_1_m_r_random.html#a72ed4ef71ba03d09dc941a4173b2e15a',1,'magica_rogue::MRRandom']]],
+  ['setvelocity_13',['SetVelocity',['../classmagica__rogue_1_1_m_r_transform.html#a8c4cd50d2504ef7f0b96fc9be23fd6e8',1,'magica_rogue::MRTransform']]],
+  ['setvelocitywithangle_14',['SetVelocityWithAngle',['../classmagica__rogue_1_1_m_r_transform.html#a6bfc484a1a036fea452bbc0968e28447',1,'magica_rogue::MRTransform']]],
+  ['setvelocityx_15',['SetVelocityX',['../classmagica__rogue_1_1_m_r_transform.html#a3e48c7eb8f49900fd9bc1a7c4ba7e5e6',1,'magica_rogue::MRTransform']]],
+  ['setvelocityy_16',['SetVelocityY',['../classmagica__rogue_1_1_m_r_transform.html#a2bb09fcc6b0e38ff7476e5a310468993',1,'magica_rogue::MRTransform']]],
+  ['setx_17',['SetX',['../classmagica__rogue_1_1_m_r_transform.html#a7901c9a16c74df9a85ac921a2063ab88',1,'magica_rogue::MRTransform']]],
+  ['sety_18',['SetY',['../classmagica__rogue_1_1_m_r_transform.html#a387357e5ebd0eb0f733028957ad24431',1,'magica_rogue::MRTransform']]]
 ];

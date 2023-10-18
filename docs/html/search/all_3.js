@@ -14,11 +14,12 @@ var searchData=
   ['constants_11',['constants',['../namespaceconstants.html',1,'']]],
   ['constants_2eh_12',['Constants.h',['../_constants_8h.html',1,'']]],
   ['constdata_13',['constData',['../structmugen__engine_1_1_m_e_graphic_render_queue_1_1_r_e_n_d_e_r___d_a_t_a.html#a528bea702ca6f672707dd8708990bfbd',1,'mugen_engine::MEGraphicRenderQueue::RENDER_DATA']]],
-  ['core_2ecpp_14',['Core.cpp',['../_core_8cpp.html',1,'']]],
-  ['core_2eh_15',['Core.h',['../_core_8h.html',1,'']]],
-  ['count_5f_16',['count_',['../classmugen__engine_1_1_fps.html#afab2f9e6e0a7526ec08754550e5d600f',1,'mugen_engine::Fps']]],
-  ['createadditionalvertexbuffer_17',['CreateAdditionalVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a628babc668697ba5e2d114f488eb0a5d',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['createsrv_18',['CreateSrv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ae1a25f50192f4a47df95f85d9420bf19',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['createtexturebuffer_19',['CreateTextureBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7326c5e2f2982b9ce05ca2e1173cd34',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['createvertexbuffer_20',['CreateVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7aab3b4314e258a876c5249b485e4ca',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['construct_14',['Construct',['../classmagica__rogue_1_1_m_r_map_data.html#ad59d6b6deb419fc34b7df33f900df14f',1,'magica_rogue::MRMapData']]],
+  ['core_2ecpp_15',['Core.cpp',['../_core_8cpp.html',1,'']]],
+  ['core_2eh_16',['Core.h',['../_core_8h.html',1,'']]],
+  ['count_5f_17',['count_',['../classmugen__engine_1_1_fps.html#afab2f9e6e0a7526ec08754550e5d600f',1,'mugen_engine::Fps']]],
+  ['createadditionalvertexbuffer_18',['CreateAdditionalVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a628babc668697ba5e2d114f488eb0a5d',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createsrv_19',['CreateSrv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ae1a25f50192f4a47df95f85d9420bf19',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createtexturebuffer_20',['CreateTextureBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7326c5e2f2982b9ce05ca2e1173cd34',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createvertexbuffer_21',['CreateVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7aab3b4314e258a876c5249b485e4ca',1,'mugen_engine::MEGraphicGpuResourceManager']]]
 ];
