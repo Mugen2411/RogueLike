@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['texrgba_0',['TexRGBA',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html',1,'mugen_engine::MEGraphicCharacterUnit']]]
+  ['option_0',['option',['../unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option.html',1,'magica_rogue::MREventQueue::eventData']]]
 ];

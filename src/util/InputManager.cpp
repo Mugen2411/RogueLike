@@ -44,5 +44,8 @@ namespace magica_rogue
 		keyManager.AddKeycode(static_cast<char>(MRKeyCode::UP), 'W',
 			mugen_engine::MEKeyInputManager::GAMEPAD_KEYTYPE::ThumbLU, XINPUT_GAMEPAD_DPAD_UP);
 		m_pushedFrame.push_back(0);
+		keyManager.AddKeycode(static_cast<char>(MRKeyCode::MENU), VK_SPACE,
+			mugen_engine::MEKeyInputManager::GAMEPAD_KEYTYPE::Buttons, XINPUT_GAMEPAD_X);
+		m_pushedFrame.push_back(0);
 	}
 }

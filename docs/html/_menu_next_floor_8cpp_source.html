@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Menu/MenuNextFloor.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_76517f5f2507c458ebd15a0ec51ba293.html">Menu</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">MenuNextFloor.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_menu_next_floor_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_menu_next_floor_8h.html">MenuNextFloor.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Util/Constants.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Util/InputManager.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemagica__rogue.html">magica_rogue</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#ac74d30643575353ca384a6fdbbcceaac">   15</a></span>    <a class="code hl_function" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#ac74d30643575353ca384a6fdbbcceaac">MRMenuNextFloor::MRMenuNextFloor</a>(<a class="code hl_class" href="classmagica__rogue_1_1_m_r_event_queue.html">MREventQueue</a>&amp; eventQueue) : <a class="code hl_class" href="classmagica__rogue_1_1_m_r_menu_interface.html">MRMenuInterface</a>(eventQueue)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a7ed1a6992ef5571937d9f195e91fd49a">m_baseImg</a> = &amp;<a class="code hl_function" href="classmugen__engine_1_1_m_e_core.html#a8efe32043348f81c574473428903f0be">mugen_engine::MECore::GetIns</a>().<a class="code hl_function" href="classmugen__engine_1_1_m_e_core.html#aa82d2e31f5d5aa651347a7dac9cf73e5">GetGraph</a>(<span class="stringliteral">&quot;menuBase&quot;</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a30c0594096b407ab73533028d3e31d6d">m_titleFont</a> = &amp;<a class="code hl_function" href="classmugen__engine_1_1_m_e_core.html#a8efe32043348f81c574473428903f0be">mugen_engine::MECore::GetIns</a>().<a class="code hl_function" href="classmugen__engine_1_1_m_e_core.html#ab8640f01f6f1b28722ff35a68a4b2b15">GetFont</a>(<span class="stringliteral">&quot;menuTitle&quot;</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a25a3d64f6c05cb27d373fc1f759e8300">   26</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a25a3d64f6c05cb27d373fc1f759e8300">MRMenuNextFloor::Update</a>()</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">auto</span> input = <a class="code hl_function" href="classmagica__rogue_1_1_m_r_input_manager.html#a5f38ea78069f5490c67de63b1f6b9e55">MRInputManager::GetIns</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">if</span> (input.GetPushedFrame(<a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a3ed53fbeb1eab0443561b68ca0c0b5cf">MRInputManager::MRKeyCode::MENU</a>) == 1)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_menu_interface.html#aaf155f3f7ecac2849e732c022ee9b110">m_eventQueue</a>.<a class="code hl_function" href="classmagica__rogue_1_1_m_r_event_queue.html#a73618ac5dd3896d6d012d77f9a3cf4f7">Push</a>(<a class="code hl_enumvalue" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067">MREventQueue::EVENT_ID::GOTO_NEXT_FLOOR</a>, 0);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a347e1fe994b61ea8abc2055c3c95aff3">   42</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a347e1fe994b61ea8abc2055c3c95aff3">MRMenuNextFloor::Render</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a7ed1a6992ef5571937d9f195e91fd49a">m_baseImg</a>-&gt;<a class="code hl_function" href="classmugen__engine_1_1_m_e_image.html#ae9bc3eade98aca8a5071369848c6011b">DrawGraph2X</a>(<a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1screen.html#a2b1f72e92642186914e1cc6938cbda70">constants::screen::left_margin</a> + <a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1screen.html#a5b0e6603d07b5875f1b38f3d44e366ed">constants::screen::width</a> / 2,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1screen.html#ae6d99be81dc24f10b490e1344d669365">constants::screen::height</a> / 2, <a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1render__priority.html#a1a7a319a1814631bb176053f0f103e12">constants::render_priority::MENU1_BASE</a>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a30c0594096b407ab73533028d3e31d6d">m_titleFont</a>-&gt;<a class="code hl_function" href="classmugen__engine_1_1_m_e_font_data.html#af80b229c2db2f112802d3d5baeee86e2">DrawString</a>(<a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1screen.html#a2b1f72e92642186914e1cc6938cbda70">constants::screen::left_margin</a> * 2 + 292, <a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1screen.html#ae6d99be81dc24f10b490e1344d669365">constants::screen::height</a> - 90, color,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <a class="code hl_variable" href="namespacemagica__rogue_1_1constants_1_1render__priority.html#a7e0f5dac12c02cec2fa663bf559dbf6c">constants::render_priority::MENU1_TEXT</a>, L<span class="stringliteral">&quot;次の階層へ進みますか？\n\n\n      →はい&quot;</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="ttc" id="a_menu_next_floor_8h_html"><div class="ttname"><a href="_menu_next_floor_8h.html">MenuNextFloor.h</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_event_queue_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_event_queue.html">magica_rogue::MREventQueue</a></div><div class="ttdoc">発生したイベントを蓄えて処理を待つクラス</div><div class="ttdef"><b>Definition</b> <a href="_event_queue_8h_source.html#l00015">EventQueue.h:16</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_event_queue_html_a73618ac5dd3896d6d012d77f9a3cf4f7"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_event_queue.html#a73618ac5dd3896d6d012d77f9a3cf4f7">magica_rogue::MREventQueue::Push</a></div><div class="ttdeci">void Push(const EVENT_ID eventId, const int Option)</div><div class="ttdoc">プッシュ</div><div class="ttdef"><b>Definition</b> <a href="_event_queue_8cpp_source.html#l00022">EventQueue.cpp:22</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_event_queue_html_ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067">magica_rogue::MREventQueue::EVENT_ID::GOTO_NEXT_FLOOR</a></div><div class="ttdeci">@ GOTO_NEXT_FLOOR</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_input_manager_html_a5f38ea78069f5490c67de63b1f6b9e55"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_input_manager.html#a5f38ea78069f5490c67de63b1f6b9e55">magica_rogue::MRInputManager::GetIns</a></div><div class="ttdeci">static MRInputManager &amp; GetIns()</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00022">InputManager.h:22</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_input_manager_html_a7cead4209d8646705f2418cc7766c0c7a3ed53fbeb1eab0443561b68ca0c0b5cf"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a3ed53fbeb1eab0443561b68ca0c0b5cf">magica_rogue::MRInputManager::MRKeyCode::MENU</a></div><div class="ttdeci">@ MENU</div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_interface_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_interface.html">magica_rogue::MRMenuInterface</a></div><div class="ttdoc">メインシーンで使うメニューが必ず継承するインターフェース</div><div class="ttdef"><b>Definition</b> <a href="_menu_interface_8h_source.html#l00015">MenuInterface.h:16</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_interface_html_aaf155f3f7ecac2849e732c022ee9b110"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_interface.html#aaf155f3f7ecac2849e732c022ee9b110">magica_rogue::MRMenuInterface::m_eventQueue</a></div><div class="ttdeci">MREventQueue &amp; m_eventQueue</div><div class="ttdoc">イベントキュー</div><div class="ttdef"><b>Definition</b> <a href="_menu_interface_8h_source.html#l00028">MenuInterface.h:28</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_next_floor_html_a25a3d64f6c05cb27d373fc1f759e8300"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a25a3d64f6c05cb27d373fc1f759e8300">magica_rogue::MRMenuNextFloor::Update</a></div><div class="ttdeci">int Update()</div><div class="ttdoc">更新</div><div class="ttdef"><b>Definition</b> <a href="_menu_next_floor_8cpp_source.html#l00026">MenuNextFloor.cpp:26</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_next_floor_html_a30c0594096b407ab73533028d3e31d6d"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a30c0594096b407ab73533028d3e31d6d">magica_rogue::MRMenuNextFloor::m_titleFont</a></div><div class="ttdeci">mugen_engine::MEFontData * m_titleFont</div><div class="ttdoc">見出しのフォント</div><div class="ttdef"><b>Definition</b> <a href="_menu_next_floor_8h_source.html#l00027">MenuNextFloor.h:27</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_next_floor_html_a347e1fe994b61ea8abc2055c3c95aff3"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a347e1fe994b61ea8abc2055c3c95aff3">magica_rogue::MRMenuNextFloor::Render</a></div><div class="ttdeci">void Render() const</div><div class="ttdoc">描画</div><div class="ttdef"><b>Definition</b> <a href="_menu_next_floor_8cpp_source.html#l00042">MenuNextFloor.cpp:42</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_next_floor_html_a7ed1a6992ef5571937d9f195e91fd49a"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_next_floor.html#a7ed1a6992ef5571937d9f195e91fd49a">magica_rogue::MRMenuNextFloor::m_baseImg</a></div><div class="ttdeci">mugen_engine::MEImage * m_baseImg</div><div class="ttdoc">メニューの背景画像</div><div class="ttdef"><b>Definition</b> <a href="_menu_next_floor_8h_source.html#l00026">MenuNextFloor.h:26</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_menu_next_floor_html_ac74d30643575353ca384a6fdbbcceaac"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_menu_next_floor.html#ac74d30643575353ca384a6fdbbcceaac">magica_rogue::MRMenuNextFloor::MRMenuNextFloor</a></div><div class="ttdeci">MRMenuNextFloor(MREventQueue &amp;eventQueue)</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_menu_next_floor_8cpp_source.html#l00015">MenuNextFloor.cpp:15</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_core_html_a8efe32043348f81c574473428903f0be"><div class="ttname"><a href="classmugen__engine_1_1_m_e_core.html#a8efe32043348f81c574473428903f0be">mugen_engine::MECore::GetIns</a></div><div class="ttdeci">static MECore &amp; GetIns()</div><div class="ttdoc">インスタンスの取得</div><div class="ttdef"><b>Definition</b> <a href="_core_8cpp_source.html#l00016">Core.cpp:16</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_core_html_aa82d2e31f5d5aa651347a7dac9cf73e5"><div class="ttname"><a href="classmugen__engine_1_1_m_e_core.html#aa82d2e31f5d5aa651347a7dac9cf73e5">mugen_engine::MECore::GetGraph</a></div><div class="ttdeci">MEImage &amp; GetGraph(std::string gid)</div><div class="ttdoc">読み込み済み画像を取得する</div><div class="ttdef"><b>Definition</b> <a href="_core_8cpp_source.html#l00163">Core.cpp:163</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_core_html_ab8640f01f6f1b28722ff35a68a4b2b15"><div class="ttname"><a href="classmugen__engine_1_1_m_e_core.html#ab8640f01f6f1b28722ff35a68a4b2b15">mugen_engine::MECore::GetFont</a></div><div class="ttdeci">MEFontData &amp; GetFont(std::string gid)</div><div class="ttdoc">読み込み済みフォントを取得する</div><div class="ttdef"><b>Definition</b> <a href="_core_8cpp_source.html#l00186">Core.cpp:186</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_font_data_html_af80b229c2db2f112802d3d5baeee86e2"><div class="ttname"><a href="classmugen__engine_1_1_m_e_font_data.html#af80b229c2db2f112802d3d5baeee86e2">mugen_engine::MEFontData::DrawString</a></div><div class="ttdeci">void DrawString(const int x, const int y, const float color[4], float priority, const std::wstring text)</div><div class="ttdoc">文字列の描画を行う</div><div class="ttdef"><b>Definition</b> <a href="_graphic_font_data_8cpp_source.html#l00069">GraphicFontData.cpp:69</a></div></div>
+<div class="ttc" id="aclassmugen__engine_1_1_m_e_image_html_ae9bc3eade98aca8a5071369848c6011b"><div class="ttname"><a href="classmugen__engine_1_1_m_e_image.html#ae9bc3eade98aca8a5071369848c6011b">mugen_engine::MEImage::DrawGraph2X</a></div><div class="ttdeci">void DrawGraph2X(int x, int y, float priority, int index=0)</div><div class="ttdoc">2倍換算で指定した座標に描画</div><div class="ttdef"><b>Definition</b> <a href="_graphic_loaded_image_8cpp_source.html#l00150">GraphicLoadedImage.cpp:150</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_1_1constants_1_1render__priority_html_a1a7a319a1814631bb176053f0f103e12"><div class="ttname"><a href="namespacemagica__rogue_1_1constants_1_1render__priority.html#a1a7a319a1814631bb176053f0f103e12">magica_rogue::constants::render_priority::MENU1_BASE</a></div><div class="ttdeci">const float MENU1_BASE</div><div class="ttdoc">メニュー1枚目の基準</div><div class="ttdef"><b>Definition</b> <a href="_constants_8h_source.html#l00039">Constants.h:39</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_1_1constants_1_1render__priority_html_a7e0f5dac12c02cec2fa663bf559dbf6c"><div class="ttname"><a href="namespacemagica__rogue_1_1constants_1_1render__priority.html#a7e0f5dac12c02cec2fa663bf559dbf6c">magica_rogue::constants::render_priority::MENU1_TEXT</a></div><div class="ttdeci">const float MENU1_TEXT</div><div class="ttdoc">メニュー1枚目のテキスト</div><div class="ttdef"><b>Definition</b> <a href="_constants_8h_source.html#l00040">Constants.h:40</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_1_1constants_1_1screen_html_a2b1f72e92642186914e1cc6938cbda70"><div class="ttname"><a href="namespacemagica__rogue_1_1constants_1_1screen.html#a2b1f72e92642186914e1cc6938cbda70">magica_rogue::constants::screen::left_margin</a></div><div class="ttdeci">const int left_margin</div><div class="ttdoc">UIで潰れる左部分の横幅</div><div class="ttdef"><b>Definition</b> <a href="_constants_8h_source.html#l00049">Constants.h:49</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_1_1constants_1_1screen_html_a5b0e6603d07b5875f1b38f3d44e366ed"><div class="ttname"><a href="namespacemagica__rogue_1_1constants_1_1screen.html#a5b0e6603d07b5875f1b38f3d44e366ed">magica_rogue::constants::screen::width</a></div><div class="ttdeci">const int width</div><div class="ttdoc">残りの画面の横幅</div><div class="ttdef"><b>Definition</b> <a href="_constants_8h_source.html#l00050">Constants.h:50</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_1_1constants_1_1screen_html_ae6d99be81dc24f10b490e1344d669365"><div class="ttname"><a href="namespacemagica__rogue_1_1constants_1_1screen.html#ae6d99be81dc24f10b490e1344d669365">magica_rogue::constants::screen::height</a></div><div class="ttdeci">const int height</div><div class="ttdoc">画面の高さ</div><div class="ttdef"><b>Definition</b> <a href="_constants_8h_source.html#l00051">Constants.h:51</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00013">MapData.cpp:14</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

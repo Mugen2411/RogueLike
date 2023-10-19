@@ -96,9 +96,9 @@ $(function() {
 <tr class="memitem:ac8100b20253da6dfdd2ac353092064ad" id="r_ac8100b20253da6dfdd2ac353092064ad"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html#ac8100b20253da6dfdd2ac353092064ad">~MRSceneManager</a> ()</td></tr>
 <tr class="memdesc:ac8100b20253da6dfdd2ac353092064ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">デストラクタ  <br /></td></tr>
 <tr class="separator:ac8100b20253da6dfdd2ac353092064ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6df066981421e1248ec75184c0691c2" id="r_af6df066981421e1248ec75184c0691c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html#af6df066981421e1248ec75184c0691c2">Push</a> (std::unique_ptr&lt; <a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a> &gt; &amp;&amp;scene, bool isStackClear=false)=0</td></tr>
-<tr class="memdesc:af6df066981421e1248ec75184c0691c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">シーンを1つ追加する  <br /></td></tr>
-<tr class="separator:af6df066981421e1248ec75184c0691c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7238d1aad8650c8239f2c8919db580b" id="r_ac7238d1aad8650c8239f2c8919db580b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html#ac7238d1aad8650c8239f2c8919db580b">Push</a> (int sceneId, bool isStackClear=false)=0</td></tr>
+<tr class="memdesc:ac7238d1aad8650c8239f2c8919db580b"><td class="mdescLeft">&#160;</td><td class="mdescRight">シーンを1つ追加する  <br /></td></tr>
+<tr class="separator:ac7238d1aad8650c8239f2c8919db580b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae994c9c32ba9695b8cfd8ed5229ce3f8" id="r_ae994c9c32ba9695b8cfd8ed5229ce3f8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html#ae994c9c32ba9695b8cfd8ed5229ce3f8">Pop</a> ()=0</td></tr>
 <tr class="memdesc:ae994c9c32ba9695b8cfd8ed5229ce3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">シーンを1つ削除する  <br /></td></tr>
 <tr class="separator:ae994c9c32ba9695b8cfd8ed5229ce3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,14 +117,14 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
-<tr class="memitem:a3192e6a0ce3542d90ff6d2b5d4b7d852" id="r_a3192e6a0ce3542d90ff6d2b5d4b7d852"><td class="memItemLeft" align="right" valign="top">std::stack&lt; std::unique_ptr&lt; <a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a></td></tr>
-<tr class="memdesc:a3192e6a0ce3542d90ff6d2b5d4b7d852"><td class="mdescLeft">&#160;</td><td class="mdescRight">シーンを管理するスタック  <br /></td></tr>
-<tr class="separator:a3192e6a0ce3542d90ff6d2b5d4b7d852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aaace33e811daffdbc63279369fe364" id="r_a9aaace33e811daffdbc63279369fe364"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::unique_ptr&lt; <a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_scene_manager.html#a9aaace33e811daffdbc63279369fe364">m_scenes</a></td></tr>
+<tr class="memdesc:a9aaace33e811daffdbc63279369fe364"><td class="mdescLeft">&#160;</td><td class="mdescRight">シーンを管理するスタック  <br /></td></tr>
+<tr class="separator:a9aaace33e811daffdbc63279369fe364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>シーンの要件を表すインターフェース </p>
 
-<p class="definition"> <a class="el" href="_scene_manager_8h_source.html">SceneManager.h</a> の <a class="el" href="_scene_manager_8h_source.html#l00017">17</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_scene_manager_8h_source.html">SceneManager.h</a> の <a class="el" href="_scene_manager_8h_source.html#l00024">24</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="ad727fb7f0da943d105f6ad2916f9c1c7" name="ad727fb7f0da943d105f6ad2916f9c1c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad727fb7f0da943d105f6ad2916f9c1c7">&#9670;&#160;</a></span>MRSceneManager()</h2>
@@ -255,8 +255,8 @@ $(function() {
 
 </div>
 </div>
-<a id="af6df066981421e1248ec75184c0691c2" name="af6df066981421e1248ec75184c0691c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6df066981421e1248ec75184c0691c2">&#9670;&#160;</a></span>Push()</h2>
+<a id="ac7238d1aad8650c8239f2c8919db580b" name="ac7238d1aad8650c8239f2c8919db580b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7238d1aad8650c8239f2c8919db580b">&#9670;&#160;</a></span>Push()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,8 +267,8 @@ $(function() {
         <tr>
           <td class="memname">virtual void magica_rogue::MRSceneManager::Push </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>scene</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sceneId</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -352,8 +352,8 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
-<a id="a3192e6a0ce3542d90ff6d2b5d4b7d852" name="a3192e6a0ce3542d90ff6d2b5d4b7d852"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3192e6a0ce3542d90ff6d2b5d4b7d852">&#9670;&#160;</a></span>m_scenes</h2>
+<a id="a9aaace33e811daffdbc63279369fe364" name="a9aaace33e811daffdbc63279369fe364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aaace33e811daffdbc63279369fe364">&#9670;&#160;</a></span>m_scenes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,7 +362,7 @@ $(function() {
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::stack&lt;std::unique_ptr&lt;<a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a>&gt; &gt; magica_rogue::MRSceneManager::m_scenes</td>
+          <td class="memname">std::list&lt;std::unique_ptr&lt;<a class="el" href="classmagica__rogue_1_1_m_r_scene_interface.html">MRSceneInterface</a>&gt; &gt; magica_rogue::MRSceneManager::m_scenes</td>
         </tr>
       </table>
   </td>
@@ -374,7 +374,7 @@ $(function() {
 
 <p>シーンを管理するスタック </p>
 
-<p class="definition"> <a class="el" href="_scene_manager_8h_source.html">SceneManager.h</a> の <a class="el" href="_scene_manager_8h_source.html#l00035">35</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_scene_manager_8h_source.html">SceneManager.h</a> の <a class="el" href="_scene_manager_8h_source.html#l00042">42</a> 行目に定義があります。</p>
 
 </div>
 </div>

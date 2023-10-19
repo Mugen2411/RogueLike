@@ -11,6 +11,8 @@
 #include "../Map/MapData.h"
 #include "../Static/StaticObjectManager.h"
 #include "../Util/Camera.h"
+#include "../Util/EventQueue.h"
+#include "../Menu/MenuManager.h"
 
 namespace magica_rogue
 {
@@ -18,7 +20,7 @@ namespace magica_rogue
 		@class		MRSceneMain
 		@brief		ゲームのメインシーン
 	*//***********************************************************************/
-	class MRSceneMain :public MRSceneInterface
+	class MRSceneMain :public MRSceneInterface, public MRMenuManager
 	{
 	public:
 		//! コンストラクタ
@@ -27,11 +29,13 @@ namespace magica_rogue
 		void Update();
 		//! 描画
 		void Render();
+
 	private:
-		//! mappuwoseiseisuru
+		//! マップを生成する
 		void _GenerateMap();
 
-		int m_floor;												//!< gennzainokaisou
+		int m_floor;											//!< 現在の階層
+		MREventQueue m_eventQueue;								//!< イベントキュー
 		MRCamera m_camera;										//!< カメラ
 		MRStaticObjectManager m_staticObjectManager;			//!< 静止オブジェクトの管理者
 		MRMapData m_mapData;									//!< マップ

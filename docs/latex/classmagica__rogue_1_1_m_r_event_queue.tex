@@ -1,0 +1,269 @@
+\doxysection{magica\+\_\+rogue\+::MREvent\+Queue クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_event_queue}{}\label{classmagica__rogue_1_1_m_r_event_queue}\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+
+
+発生したイベントを蓄えて処理を待つクラス  
+
+
+
+
+{\ttfamily \#include $<$Event\+Queue.\+h$>$}
+
+\doxysubsubsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{event\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}} \{ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693}{NONE}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828}{SELECT\+\_\+\+GOTO\+\_\+\+NEXT\+\_\+\+FLOOR}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067}{GOTO\+\_\+\+NEXT\+\_\+\+FLOOR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_adbdcad26328b1c54d8f35f6b6811acb1}{MREvent\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a73618ac5dd3896d6d012d77f9a3cf4f7}{Push}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}} event\+Id, const int Option)
+\begin{DoxyCompactList}\small\item\em プッシュ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_aceb37009426f8a7f006d501f593ba151}{Push}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}} event\+Id, const float Option)
+\begin{DoxyCompactList}\small\item\em プッシュ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a7ae88f74f00b4df57f97799f4387d367}{Push}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}} event\+Id, void \texorpdfstring{$\ast$}{*}Option)
+\begin{DoxyCompactList}\small\item\em プッシュ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{event\+Data}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a6b20526a6e4599ab4d149c613a324392}{Get\+Top}} () const
+\begin{DoxyCompactList}\small\item\em 先頭を取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a4ea35ee9310bc6fc99d9e554240b84d3}{Pop}} ()
+\begin{DoxyCompactList}\small\item\em ポップ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a3942eab5b5aacded698574fc122f0726}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em リセット \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::queue$<$ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{event\+Data}} $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ad0d4bb60a8c0e87f190266b3ab8ad0cc}{m\+\_\+event\+Queue}}
+\begin{DoxyCompactList}\small\item\em イベントデータを蓄えるキュー \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+発生したイベントを蓄えて処理を待つクラス 
+
+ \mbox{\hyperlink{_event_queue_8h_source}{Event\+Queue.\+h}} の \mbox{\hyperlink{_event_queue_8h_source_l00015}{15}} 行目に定義があります。
+
+
+
+\doxysubsection{列挙型メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}\label{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!EVENT\_ID@{EVENT\_ID}}
+\index{EVENT\_ID@{EVENT\_ID}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{EVENT\_ID}{EVENT\_ID}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+EVENT\+\_\+\+ID}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!NONE@{NONE}}}\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693}\label{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT\_GOTO\_NEXT\_FLOOR@{SELECT\_GOTO\_NEXT\_FLOOR}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!SELECT\_GOTO\_NEXT\_FLOOR@{SELECT\_GOTO\_NEXT\_FLOOR}}}\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828}\label{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828} 
+SELECT\+\_\+\+GOTO\+\_\+\+NEXT\+\_\+\+FLOOR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GOTO\_NEXT\_FLOOR@{GOTO\_NEXT\_FLOOR}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!GOTO\_NEXT\_FLOOR@{GOTO\_NEXT\_FLOOR}}}\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067}\label{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067} 
+GOTO\+\_\+\+NEXT\+\_\+\+FLOOR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+ \mbox{\hyperlink{_event_queue_8h_source}{Event\+Queue.\+h}} の \mbox{\hyperlink{_event_queue_8h_source_l00018}{18}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_adbdcad26328b1c54d8f35f6b6811acb1}\label{classmagica__rogue_1_1_m_r_event_queue_adbdcad26328b1c54d8f35f6b6811acb1} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!MREventQueue@{MREventQueue}}
+\index{MREventQueue@{MREventQueue}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{MREventQueue()}{MREventQueue()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+MREvent\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_a6b20526a6e4599ab4d149c613a324392}\label{classmagica__rogue_1_1_m_r_event_queue_a6b20526a6e4599ab4d149c613a324392} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!GetTop@{GetTop}}
+\index{GetTop@{GetTop}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{GetTop()}{GetTop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{MREvent\+Queue\+::event\+Data}} magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+Get\+Top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+先頭を取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+イベントデータ 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00063}{63}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_a4ea35ee9310bc6fc99d9e554240b84d3}\label{classmagica__rogue_1_1_m_r_event_queue_a4ea35ee9310bc6fc99d9e554240b84d3} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!Pop@{Pop}}
+\index{Pop@{Pop}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+Pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ポップ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00077}{77}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_aceb37009426f8a7f006d501f593ba151}\label{classmagica__rogue_1_1_m_r_event_queue_aceb37009426f8a7f006d501f593ba151} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!Push@{Push}}
+\index{Push@{Push}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+Push (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}}}]{event\+Id,  }\item[{const float}]{Option }\end{DoxyParamCaption})}
+
+
+
+プッシュ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em event\+Id} & イベント\+ID \\
+\hline
+\mbox{\texttt{ in}}  & {\em Option} & 追加で通知する値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00036}{36}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_a73618ac5dd3896d6d012d77f9a3cf4f7}\label{classmagica__rogue_1_1_m_r_event_queue_a73618ac5dd3896d6d012d77f9a3cf4f7} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!Push@{Push}}
+\index{Push@{Push}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+Push (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}}}]{event\+Id,  }\item[{const int}]{Option }\end{DoxyParamCaption})}
+
+
+
+プッシュ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em event\+Id} & イベント\+ID \\
+\hline
+\mbox{\texttt{ in}}  & {\em Option} & 追加で通知する値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00022}{22}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_a7ae88f74f00b4df57f97799f4387d367}\label{classmagica__rogue_1_1_m_r_event_queue_a7ae88f74f00b4df57f97799f4387d367} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!Push@{Push}}
+\index{Push@{Push}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+Push (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\+\_\+\+ID}}}]{event\+Id,  }\item[{void \texorpdfstring{$\ast$}{*}}]{Option }\end{DoxyParamCaption})}
+
+
+
+プッシュ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em event\+Id} & イベント\+ID \\
+\hline
+\mbox{\texttt{ in}}  & {\em Option} & 追加で通知する値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00050}{50}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_a3942eab5b5aacded698574fc122f0726}\label{classmagica__rogue_1_1_m_r_event_queue_a3942eab5b5aacded698574fc122f0726} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!Reset@{Reset}}
+\index{Reset@{Reset}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MREvent\+Queue\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+リセット 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_event_queue_8cpp_source}{Event\+Queue.\+cpp}} の \mbox{\hyperlink{_event_queue_8cpp_source_l00087}{87}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_event_queue_ad0d4bb60a8c0e87f190266b3ab8ad0cc}\label{classmagica__rogue_1_1_m_r_event_queue_ad0d4bb60a8c0e87f190266b3ab8ad0cc} 
+\index{magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}!m\_eventQueue@{m\_eventQueue}}
+\index{m\_eventQueue@{m\_eventQueue}!magica\_rogue::MREventQueue@{magica\_rogue::MREventQueue}}
+\doxysubsubsection{\texorpdfstring{m\_eventQueue}{m\_eventQueue}}
+{\footnotesize\ttfamily std\+::queue$<$\mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{event\+Data}}$>$ magica\+\_\+rogue\+::\+MREvent\+Queue\+::m\+\_\+event\+Queue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+イベントデータを蓄えるキュー 
+
+
+
+ \mbox{\hyperlink{_event_queue_8h_source}{Event\+Queue.\+h}} の \mbox{\hyperlink{_event_queue_8h_source_l00046}{46}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Util/\mbox{\hyperlink{_event_queue_8h}{Event\+Queue.\+h}}\item 
+Util/\mbox{\hyperlink{_event_queue_8cpp}{Event\+Queue.\+cpp}}\end{DoxyCompactItemize}

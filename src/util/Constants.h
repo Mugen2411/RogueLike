@@ -20,18 +20,24 @@ namespace magica_rogue
 		{
 			const float PLAYER = 0.0f;					//!< プレイヤー
 			const float TREASURE_BOX = 1.0f;			//!< 宝箱
+
 			const float MAP_WALL = 2.0f;				//!< マップの壁レイヤ
 			const float MAP_FLOOR = 3.0f;				//!< マップの床レイヤ
+
 			const float MINIMAP_BASE = -5.0f;			//!< ミニマップの基準
 			const float MINIMAP_ROOM = -5.2f;			//!< ミニマップの部屋
 			const float MINIMAP_PATH = -5.1f;			//!< ミニマップの通路
 			const float MINIMAP_TREASUREBOX = -5.3f;	//!< ミニマップの宝箱
 			const float MINIMAP_PLAYER = -5.8f;			//!< ミニマップのプレイヤー
 			const float MINIMAP_DISCOVERED = -5.9f;		//!< ミニマップを隠すベール
+
 			const float UI_GUAGE_BASE = -6.0f;			//!< UIゲージのベース
 			const float UI_GUAGE_MAIN = -6.1f;			//!< UIゲージの本体
 			const float UI_GUAGE_FRAME = -6.2f;			//!< UIゲージのフレーム
 			const float UI_GUAGE_NUMBER = -6.3f;		//!< UIゲージに重ねる実数値
+
+			const float MENU1_BASE = -100.0f;			//!< メニュー1枚目の基準
+			const float MENU1_TEXT = -101.0f;			//!< メニュー1枚目のテキスト
 		}
 
 		/**********************************************************************//**

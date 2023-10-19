@@ -105,9 +105,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_manager.html#a32d6d630dfdb4ec34bb81bb3b3ac6df8">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_scene_manager.html#a32d6d630dfdb4ec34bb81bb3b3ac6df8">MRSceneManager::Update</a>()</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a>.empty())</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a9aaace33e811daffdbc63279369fe364">m_scenes</a>.empty())</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a>.top()-&gt;Update();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a9aaace33e811daffdbc63279369fe364">m_scenes</a>.front()-&gt;Update();</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
 </div>
@@ -116,9 +116,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_manager.html#acab84cd89ae89992be6ac587abe7b964">   43</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_scene_manager.html#acab84cd89ae89992be6ac587abe7b964">MRSceneManager::Render</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a>.empty())</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; s : <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a9aaace33e811daffdbc63279369fe364">m_scenes</a>)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a>.top()-&gt;Render();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            s-&gt;Render();</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 </div>
@@ -127,22 +127,19 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_scene_manager.html#a07970bad7d16c4e31c9f4d69830362a5">   56</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_scene_manager.html#a07970bad7d16c4e31c9f4d69830362a5">MRSceneManager::_Reset</a>()</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">while</span> (!<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a>.empty())</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">m_scenes</a>.pop();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_scene_manager.html#a9aaace33e811daffdbc63279369fe364">m_scenes</a>.clear();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 <div class="ttc" id="a_scene_interface_8h_html"><div class="ttname"><a href="_scene_interface_8h.html">SceneInterface.h</a></div></div>
 <div class="ttc" id="a_scene_manager_8h_html"><div class="ttname"><a href="_scene_manager_8h.html">SceneManager.h</a></div></div>
 <div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_a07970bad7d16c4e31c9f4d69830362a5"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#a07970bad7d16c4e31c9f4d69830362a5">magica_rogue::MRSceneManager::_Reset</a></div><div class="ttdeci">void _Reset()</div><div class="ttdoc">シーンを全部消す</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8cpp_source.html#l00056">SceneManager.cpp:56</a></div></div>
-<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_a3192e6a0ce3542d90ff6d2b5d4b7d852"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#a3192e6a0ce3542d90ff6d2b5d4b7d852">magica_rogue::MRSceneManager::m_scenes</a></div><div class="ttdeci">std::stack&lt; std::unique_ptr&lt; MRSceneInterface &gt; &gt; m_scenes</div><div class="ttdoc">シーンを管理するスタック</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8h_source.html#l00035">SceneManager.h:35</a></div></div>
 <div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_a32d6d630dfdb4ec34bb81bb3b3ac6df8"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#a32d6d630dfdb4ec34bb81bb3b3ac6df8">magica_rogue::MRSceneManager::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">シーンを更新する</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8cpp_source.html#l00030">SceneManager.cpp:30</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_a9aaace33e811daffdbc63279369fe364"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#a9aaace33e811daffdbc63279369fe364">magica_rogue::MRSceneManager::m_scenes</a></div><div class="ttdeci">std::list&lt; std::unique_ptr&lt; MRSceneInterface &gt; &gt; m_scenes</div><div class="ttdoc">シーンを管理するスタック</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8h_source.html#l00042">SceneManager.h:42</a></div></div>
 <div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_ac8100b20253da6dfdd2ac353092064ad"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#ac8100b20253da6dfdd2ac353092064ad">magica_rogue::MRSceneManager::~MRSceneManager</a></div><div class="ttdeci">virtual ~MRSceneManager()</div><div class="ttdoc">デストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8cpp_source.html#l00022">SceneManager.cpp:22</a></div></div>
 <div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_acab84cd89ae89992be6ac587abe7b964"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#acab84cd89ae89992be6ac587abe7b964">magica_rogue::MRSceneManager::Render</a></div><div class="ttdeci">void Render() const</div><div class="ttdoc">シーンを描画する</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8cpp_source.html#l00043">SceneManager.cpp:43</a></div></div>
 <div class="ttc" id="aclassmagica__rogue_1_1_m_r_scene_manager_html_ad727fb7f0da943d105f6ad2916f9c1c7"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_scene_manager.html#ad727fb7f0da943d105f6ad2916f9c1c7">magica_rogue::MRSceneManager::MRSceneManager</a></div><div class="ttdeci">MRSceneManager()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_scene_manager_8cpp_source.html#l00014">SceneManager.cpp:14</a></div></div>
-<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00012">MapData.cpp:13</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00013">MapData.cpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

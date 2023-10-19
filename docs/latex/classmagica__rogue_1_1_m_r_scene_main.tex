@@ -31,16 +31,31 @@ void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a2e3e295867e552620b9
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_a7f2a9a67fad9452cce4ffc298fa1d0cd}{\texorpdfstring{$\sim$}{\string~}\+MRScene\+Interface}} ()
 \begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager}{magica\+\_\+rogue\+::\+MRMenu\+Manager}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_adcb4d48d5a762a1e4da7ac950de5dbb7}{MRMenu\+Manager}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} \&event\+Queue)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a55477c620ed9f6c9402b5bd6aa8ba819}{\texorpdfstring{$\sim$}{\string~}\+MRMenu\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a98ce654b1aff7c0aaea4fcc90438cd61}{Push}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_interface}{MRMenu\+Interface}} $>$ \&\&menu)
+\begin{DoxyCompactList}\small\item\em メニューをプッシュする \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a7a23ec3d7a85d807695ba9f1ca242c21}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_aac771fb0af4b03d46203a88256406a64}{Render}} () const
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a163000e8c13e23ee730c577016c21587}{\+\_\+\+Generate\+Map}} ()
-\begin{DoxyCompactList}\small\item\em mappuwoseiseisuru \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em マップを生成する \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a7882f95e646d7a8339d0e3ffd8f5d0f0}{m\+\_\+floor}}
-\begin{DoxyCompactList}\small\item\em gennzainokaisou \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em 現在の階層 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a8ceffe79cff92aa44ba9efa1462b600d}{m\+\_\+event\+Queue}}
+\begin{DoxyCompactList}\small\item\em イベントキュー \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_aec5fcd7c4a27ef88cfca8912208ab6d7}{m\+\_\+camera}}
 \begin{DoxyCompactList}\small\item\em カメラ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_static_object_manager}{MRStatic\+Object\+Manager}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a5cadb945d845093c6f4974b2ad51531b}{m\+\_\+static\+Object\+Manager}}
@@ -55,12 +70,19 @@ int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a7882f95e646d7a8339d0
 \item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_manager}{MRScene\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_interface_aa2f87fa20523d6db24837e7852fa52da}{m\+\_\+p\+Scene\+Manager}}
 \end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager}{magica\+\_\+rogue\+::\+MRMenu\+Manager}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a47461e3aca181ae29a08dc92239b3cb2}{m\+\_\+event\+Queue}}
+\begin{DoxyCompactList}\small\item\em イベントキュー \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_interface}{MRMenu\+Interface}} $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a08b91e098d6563bb695253e6ccd841dd}{m\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em メニュー本体 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 ゲームのメインシーン 
 
- \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00021}{21}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00023}{23}} 行目に定義があります。
 
 
 
@@ -85,7 +107,7 @@ int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a7882f95e646d7a8339d0
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00010}{10}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00014}{14}} 行目に定義があります。
 
 
 
@@ -98,11 +120,19 @@ int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_scene_main_a7882f95e646d7a8339d0
 
 
 
-mappuwoseiseisuru 
+マップを生成する 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00042}{42}} 行目に定義があります。
+
+ \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00074}{74}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_main_a2e3e295867e552620b9d750256ad79ec}\label{classmagica__rogue_1_1_m_r_scene_main_a2e3e295867e552620b9d750256ad79ec} 
 \index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!Render@{Render}}
@@ -128,7 +158,7 @@ mappuwoseiseisuru
 
 
 
- \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00035}{35}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00060}{60}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_main_a1b8b076274d023942edb0d0205af27e9}\label{classmagica__rogue_1_1_m_r_scene_main_a1b8b076274d023942edb0d0205af27e9} 
 \index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!Update@{Update}}
@@ -154,7 +184,7 @@ mappuwoseiseisuru
 
 
 
- \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00022}{22}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8cpp_source}{Scene\+Main.\+cpp}} の \mbox{\hyperlink{_scene_main_8cpp_source_l00026}{26}} 行目に定義があります。
 
 
 
@@ -171,7 +201,21 @@ mappuwoseiseisuru
 
 
 
- \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00035}{35}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00039}{39}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_scene_main_a8ceffe79cff92aa44ba9efa1462b600d}\label{classmagica__rogue_1_1_m_r_scene_main_a8ceffe79cff92aa44ba9efa1462b600d} 
+\index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!m\_eventQueue@{m\_eventQueue}}
+\index{m\_eventQueue@{m\_eventQueue}!magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}}
+\doxysubsubsection{\texorpdfstring{m\_eventQueue}{m\_eventQueue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} magica\+\_\+rogue\+::\+MRScene\+Main\+::m\+\_\+event\+Queue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+イベントキュー 
+
+
+
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00038}{38}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_main_a7882f95e646d7a8339d0e3ffd8f5d0f0}\label{classmagica__rogue_1_1_m_r_scene_main_a7882f95e646d7a8339d0e3ffd8f5d0f0} 
 \index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!m\_floor@{m\_floor}}
@@ -181,11 +225,11 @@ mappuwoseiseisuru
 
 
 
-gennzainokaisou 
+現在の階層 
 
 
 
- \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00034}{34}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00037}{37}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_main_af654d63068901f45da13e52aefb81d9b}\label{classmagica__rogue_1_1_m_r_scene_main_af654d63068901f45da13e52aefb81d9b} 
 \index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!m\_mapData@{m\_mapData}}
@@ -199,7 +243,7 @@ gennzainokaisou
 
 
 
- \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00037}{37}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00041}{41}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_main_a066029a53341d4c451ac1b7a01686f3b}\label{classmagica__rogue_1_1_m_r_scene_main_a066029a53341d4c451ac1b7a01686f3b} 
 \index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!m\_player@{m\_player}}
@@ -213,7 +257,7 @@ gennzainokaisou
 
 
 
- \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00038}{38}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00042}{42}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_scene_main_a5cadb945d845093c6f4974b2ad51531b}\label{classmagica__rogue_1_1_m_r_scene_main_a5cadb945d845093c6f4974b2ad51531b} 
 \index{magica\_rogue::MRSceneMain@{magica\_rogue::MRSceneMain}!m\_staticObjectManager@{m\_staticObjectManager}}
@@ -227,7 +271,7 @@ gennzainokaisou
 
 
 
- \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00036}{36}} 行目に定義があります。
+ \mbox{\hyperlink{_scene_main_8h_source}{Scene\+Main.\+h}} の \mbox{\hyperlink{_scene_main_8h_source_l00040}{40}} 行目に定義があります。
 
 
 

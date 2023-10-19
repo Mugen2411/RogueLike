@@ -3,7 +3,8 @@
 
 #include "MapData.h"
 #include "../Engine/Core.h"
-#include "../util/Constants.h"
+#include "../Util/Constants.h"
+#include "../Util/EventQueue.h"
 #include <queue>
 #include <stack>
 #include <set>
@@ -13,6 +14,7 @@ namespace magica_rogue
 {
 	/**********************************************************************//**
 		@brief			コンストラクタ
+		@param			なし
 		@return			なし
 	*//***********************************************************************/
 	MRMapData::MRMapData(): m_chipSize(32.0f), m_random(0)
@@ -190,23 +192,23 @@ namespace magica_rogue
 		@param[in]		size				物体の一辺の長さ
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::HitWithWall(MRTransform& transform, const float size)
+	void MRMapData::HitWithWall(MRTransform& transform, const float size, MREventQueue& eventQueue)
 	{
-		auto hitToChip = [&](float chipX, float chipY) {
+		auto hitToChip = [&](float chipX, float chipY, int chipID) {
 			auto setU = [&]() {
-				transform.SetY(chipY + m_chipSize / 2 + size);
+				transform.SetY(chipY + m_chipSize / 2 + size + 2);
 				transform.SetVelocityY(0.0f);
 				};
 			auto setD = [&]() {
-				transform.SetY(chipY - m_chipSize / 2 - size);
+				transform.SetY(chipY - m_chipSize / 2 - size - 2);
 				transform.SetVelocityY(0.0f);
 				};
 			auto setR = [&]() {
-				transform.SetX(chipX - m_chipSize / 2 - size);
+				transform.SetX(chipX - m_chipSize / 2 - size - 2);
 				transform.SetVelocityX(0.0f);
 				};
 			auto setL = [&]() {
-				transform.SetX(chipX + m_chipSize / 2 + size);
+				transform.SetX(chipX + m_chipSize / 2 + size + 2);
 				transform.SetVelocityX(0.0f);
 				};
 
@@ -323,6 +325,11 @@ namespace magica_rogue
 				}
 			}
 
+			if (U || D || R || L)
+			{
+				if(chipID == 2) eventQueue.Push(MREventQueue::EVENT_ID::SELECT_GOTO_NEXT_FLOOR, 0);
+			}
+
 			};
 
 		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
@@ -333,7 +340,7 @@ namespace magica_rogue
 			for (int x = max(currentChipX - 3, 0); x <= min(currentChipX + 3, m_width); ++x)
 			{
 				if (m_mapData[y][x] == 0) continue;
-				hitToChip(x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f);
+				hitToChip(x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f, m_mapData[y][x]);
 			}
 		}
 	}

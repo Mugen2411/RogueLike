@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: magica_rogue::MREventQueue クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemagica__rogue.html">magica_rogue</a></li><li class="navelem"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html">MREventQueue</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classmagica__rogue_1_1_m_r_event_queue-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">magica_rogue::MREventQueue クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>発生したイベントを蓄えて処理を待つクラス  
+ <a href="classmagica__rogue_1_1_m_r_event_queue.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_event_queue_8h_source.html">EventQueue.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmagica__rogue_1_1_m_r_event_queue_1_1event_data.html">eventData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:ae5b88c44c0fa1546aeea555bfb6a8ebc" id="r_ae5b88c44c0fa1546aeea555bfb6a8ebc"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a> { <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693">NONE</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828">SELECT_GOTO_NEXT_FLOOR</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067">GOTO_NEXT_FLOOR</a>
+ }</td></tr>
+<tr class="separator:ae5b88c44c0fa1546aeea555bfb6a8ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:adbdcad26328b1c54d8f35f6b6811acb1" id="r_adbdcad26328b1c54d8f35f6b6811acb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#adbdcad26328b1c54d8f35f6b6811acb1">MREventQueue</a> ()</td></tr>
+<tr class="memdesc:adbdcad26328b1c54d8f35f6b6811acb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:adbdcad26328b1c54d8f35f6b6811acb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73618ac5dd3896d6d012d77f9a3cf4f7" id="r_a73618ac5dd3896d6d012d77f9a3cf4f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#a73618ac5dd3896d6d012d77f9a3cf4f7">Push</a> (const <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a> eventId, const int Option)</td></tr>
+<tr class="memdesc:a73618ac5dd3896d6d012d77f9a3cf4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">プッシュ  <br /></td></tr>
+<tr class="separator:a73618ac5dd3896d6d012d77f9a3cf4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb37009426f8a7f006d501f593ba151" id="r_aceb37009426f8a7f006d501f593ba151"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#aceb37009426f8a7f006d501f593ba151">Push</a> (const <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a> eventId, const float Option)</td></tr>
+<tr class="memdesc:aceb37009426f8a7f006d501f593ba151"><td class="mdescLeft">&#160;</td><td class="mdescRight">プッシュ  <br /></td></tr>
+<tr class="separator:aceb37009426f8a7f006d501f593ba151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ae88f74f00b4df57f97799f4387d367" id="r_a7ae88f74f00b4df57f97799f4387d367"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#a7ae88f74f00b4df57f97799f4387d367">Push</a> (const <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a> eventId, void *Option)</td></tr>
+<tr class="memdesc:a7ae88f74f00b4df57f97799f4387d367"><td class="mdescLeft">&#160;</td><td class="mdescRight">プッシュ  <br /></td></tr>
+<tr class="separator:a7ae88f74f00b4df57f97799f4387d367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b20526a6e4599ab4d149c613a324392" id="r_a6b20526a6e4599ab4d149c613a324392"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmagica__rogue_1_1_m_r_event_queue_1_1event_data.html">eventData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#a6b20526a6e4599ab4d149c613a324392">GetTop</a> () const</td></tr>
+<tr class="memdesc:a6b20526a6e4599ab4d149c613a324392"><td class="mdescLeft">&#160;</td><td class="mdescRight">先頭を取得  <br /></td></tr>
+<tr class="separator:a6b20526a6e4599ab4d149c613a324392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea35ee9310bc6fc99d9e554240b84d3" id="r_a4ea35ee9310bc6fc99d9e554240b84d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#a4ea35ee9310bc6fc99d9e554240b84d3">Pop</a> ()</td></tr>
+<tr class="memdesc:a4ea35ee9310bc6fc99d9e554240b84d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ポップ  <br /></td></tr>
+<tr class="separator:a4ea35ee9310bc6fc99d9e554240b84d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3942eab5b5aacded698574fc122f0726" id="r_a3942eab5b5aacded698574fc122f0726"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#a3942eab5b5aacded698574fc122f0726">Reset</a> ()</td></tr>
+<tr class="memdesc:a3942eab5b5aacded698574fc122f0726"><td class="mdescLeft">&#160;</td><td class="mdescRight">リセット  <br /></td></tr>
+<tr class="separator:a3942eab5b5aacded698574fc122f0726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:ad0d4bb60a8c0e87f190266b3ab8ad0cc" id="r_ad0d4bb60a8c0e87f190266b3ab8ad0cc"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="structmagica__rogue_1_1_m_r_event_queue_1_1event_data.html">eventData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ad0d4bb60a8c0e87f190266b3ab8ad0cc">m_eventQueue</a></td></tr>
+<tr class="memdesc:ad0d4bb60a8c0e87f190266b3ab8ad0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">イベントデータを蓄えるキュー  <br /></td></tr>
+<tr class="separator:ad0d4bb60a8c0e87f190266b3ab8ad0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>発生したイベントを蓄えて処理を待つクラス </p>
+
+<p class="definition"> <a class="el" href="_event_queue_8h_source.html">EventQueue.h</a> の <a class="el" href="_event_queue_8h_source.html#l00015">15</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">列挙型メンバ詳解</h2>
+<a id="ae5b88c44c0fa1546aeea555bfb6a8ebc" name="ae5b88c44c0fa1546aeea555bfb6a8ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b88c44c0fa1546aeea555bfb6a8ebc">&#9670;&#160;</a></span>EVENT_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">magica_rogue::MREventQueue::EVENT_ID</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693" name="ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828" name="ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828"></a>SELECT_GOTO_NEXT_FLOOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067" name="ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067"></a>GOTO_NEXT_FLOOR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition"> <a class="el" href="_event_queue_8h_source.html">EventQueue.h</a> の <a class="el" href="_event_queue_8h_source.html#l00018">18</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="adbdcad26328b1c54d8f35f6b6811acb1" name="adbdcad26328b1c54d8f35f6b6811acb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbdcad26328b1c54d8f35f6b6811acb1">&#9670;&#160;</a></span>MREventQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">magica_rogue::MREventQueue::MREventQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00013">13</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a6b20526a6e4599ab4d149c613a324392" name="a6b20526a6e4599ab4d149c613a324392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b20526a6e4599ab4d149c613a324392">&#9670;&#160;</a></span>GetTop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmagica__rogue_1_1_m_r_event_queue_1_1event_data.html">MREventQueue::eventData</a> magica_rogue::MREventQueue::GetTop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>先頭を取得 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>イベントデータ </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00063">63</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a4ea35ee9310bc6fc99d9e554240b84d3" name="a4ea35ee9310bc6fc99d9e554240b84d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea35ee9310bc6fc99d9e554240b84d3">&#9670;&#160;</a></span>Pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MREventQueue::Pop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ポップ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00077">77</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aceb37009426f8a7f006d501f593ba151" name="aceb37009426f8a7f006d501f593ba151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceb37009426f8a7f006d501f593ba151">&#9670;&#160;</a></span>Push() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MREventQueue::Push </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a>&#160;</td>
+          <td class="paramname"><em>eventId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>Option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>プッシュ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eventId</td><td>イベントID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Option</td><td>追加で通知する値 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00036">36</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a73618ac5dd3896d6d012d77f9a3cf4f7" name="a73618ac5dd3896d6d012d77f9a3cf4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73618ac5dd3896d6d012d77f9a3cf4f7">&#9670;&#160;</a></span>Push() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MREventQueue::Push </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a>&#160;</td>
+          <td class="paramname"><em>eventId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>Option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>プッシュ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eventId</td><td>イベントID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Option</td><td>追加で通知する値 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00022">22</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7ae88f74f00b4df57f97799f4387d367" name="a7ae88f74f00b4df57f97799f4387d367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ae88f74f00b4df57f97799f4387d367">&#9670;&#160;</a></span>Push() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MREventQueue::Push </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebc">EVENT_ID</a>&#160;</td>
+          <td class="paramname"><em>eventId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>Option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>プッシュ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eventId</td><td>イベントID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Option</td><td>追加で通知する値 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3942eab5b5aacded698574fc122f0726" name="a3942eab5b5aacded698574fc122f0726"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3942eab5b5aacded698574fc122f0726">&#9670;&#160;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MREventQueue::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>リセット </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a> の <a class="el" href="_event_queue_8cpp_source.html#l00087">87</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ad0d4bb60a8c0e87f190266b3ab8ad0cc" name="ad0d4bb60a8c0e87f190266b3ab8ad0cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0d4bb60a8c0e87f190266b3ab8ad0cc">&#9670;&#160;</a></span>m_eventQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="structmagica__rogue_1_1_m_r_event_queue_1_1event_data.html">eventData</a>&gt; magica_rogue::MREventQueue::m_eventQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>イベントデータを蓄えるキュー </p>
+
+<p class="definition"> <a class="el" href="_event_queue_8h_source.html">EventQueue.h</a> の <a class="el" href="_event_queue_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Util/<a class="el" href="_event_queue_8h_source.html">EventQueue.h</a></li>
+<li>Util/<a class="el" href="_event_queue_8cpp_source.html">EventQueue.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

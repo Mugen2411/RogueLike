@@ -5,11 +5,18 @@
 #define __MagicaRogue_SceneManager__
 
 #include <memory>
-#include <stack>
+#include <list>
 
 namespace magica_rogue
 {
 	class MRSceneInterface;
+	/**********************************************************************//**
+		@class		MRSceneParameter
+		@brief		シーンが変更されるときに渡すパラメータを設定
+	*//***********************************************************************/
+	class MRSceneParameter
+	{};
+
 	/**********************************************************************//**
 		@class		MRSceneManager
 		@brief		シーンの要件を表すインターフェース
@@ -22,7 +29,7 @@ namespace magica_rogue
 		//! デストラクタ
 		virtual ~MRSceneManager();
 		//! シーンを1つ追加する
-		virtual void Push(std::unique_ptr<MRSceneInterface>&& scene, bool isStackClear = false) = 0;
+		virtual void Push(int sceneId, bool isStackClear = false) = 0;
 		//! シーンを1つ削除する
 		virtual void Pop() = 0;
 		//! シーンを更新する
@@ -32,7 +39,7 @@ namespace magica_rogue
 	protected:
 		//! シーンを全部消す
 		void _Reset();
-		std::stack<std::unique_ptr<MRSceneInterface>> m_scenes;				//!< シーンを管理するスタック
+		std::list<std::unique_ptr<MRSceneInterface>> m_scenes;				//!< シーンを管理するスタック
 	};
 }
 

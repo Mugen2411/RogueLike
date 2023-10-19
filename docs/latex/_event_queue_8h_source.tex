@@ -1,0 +1,45 @@
+\doxysection{Event\+Queue.\+h}
+\hypertarget{_event_queue_8h_source}{}\label{_event_queue_8h_source}\index{Util/EventQueue.h@{Util/EventQueue.h}}
+\mbox{\hyperlink{_event_queue_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MagicaRogue\_EventQueue\_\_}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MagicaRogue\_EventQueue\_\_}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00015}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{00015}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREventQueue}}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00018}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\_ID}}\ \{}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693}{NONE}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcad90df0eec61c71839301b314931fa828}{SELECT\_GOTO\_NEXT\_FLOOR}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebcaecff2ed2d5ad2ed57c8e4dce0113e067}{GOTO\_NEXT\_FLOOR}}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00021}\mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data}{eventData}}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00023}\mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data_acbfd12398b1fcca4b5c9df4acb480570}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\_ID}}\ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data_acbfd12398b1fcca4b5c9df4acb480570}{evnetId}};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00024}\mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option}{option}}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00026}\mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option_ab883a1b77b0a0ceaf84e1311eb6d5a3f}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option_ab883a1b77b0a0ceaf84e1311eb6d5a3f}{i}};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00027}\mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option_aca0622c10239989bce4eac7af7bfd15e}{00027}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option_aca0622c10239989bce4eac7af7bfd15e}{f}};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00028}\mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option_ae6663ac16f9896399d1319a343875e45}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{unionmagica__rogue_1_1_m_r_event_queue_1_1event_data_1_1option_ae6663ac16f9896399d1319a343875e45}{p}};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00029}\mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data_a1f4ec31c9898816087157b4b6ee04841}{00029}}\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{structmagica__rogue_1_1_m_r_event_queue_1_1event_data_a1f4ec31c9898816087157b4b6ee04841}{optionValue}};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_adbdcad26328b1c54d8f35f6b6811acb1}{MREventQueue}}();}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a73618ac5dd3896d6d012d77f9a3cf4f7}{Push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\_ID}}\ eventId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ Option);}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a73618ac5dd3896d6d012d77f9a3cf4f7}{Push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\_ID}}\ eventId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ Option);}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a73618ac5dd3896d6d012d77f9a3cf4f7}{Push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ae5b88c44c0fa1546aeea555bfb6a8ebc}{EVENT\_ID}}\ eventId,\ \textcolor{keywordtype}{void}*\ Option);}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ eventData\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a6b20526a6e4599ab4d149c613a324392}{GetTop}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a4ea35ee9310bc6fc99d9e554240b84d3}{Pop}}();}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_a3942eab5b5aacded698574fc122f0726}{Reset}}();}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00046}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ad0d4bb60a8c0e87f190266b3ab8ad0cc}{00046}}\ \ \ \ \ \ \ \ \ std::queue<eventData>\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue_ad0d4bb60a8c0e87f190266b3ab8ad0cc}{m\_eventQueue}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00047}00047\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_event_queue_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_EventQueue\_\_}}
+
+\end{DoxyCode}

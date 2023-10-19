@@ -17,7 +17,7 @@ namespace magica_rogue
 	public:
 		enum class MRKeyCode : char 
 		{
-			RIGHT = 0, DOWN, LEFT, UP
+			RIGHT = 0, DOWN, LEFT, UP, MENU, ATTACK1, ATTACK2
 		};
 		static MRInputManager& GetIns() {
 			static MRInputManager s_instance;

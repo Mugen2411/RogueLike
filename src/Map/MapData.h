@@ -17,6 +17,7 @@
 
 namespace magica_rogue
 {
+	class MREventQueue;
 	/**********************************************************************//**
 		@class		MRMapData
 		@brief		マップデータを扱うクラス
@@ -43,7 +44,7 @@ namespace magica_rogue
 			return m_startY * 32.0f + 16.0f;
 		}
 		//! 壁と物体の衝突を処理する
-		void HitWithWall(MRTransform& transform, const float size);
+		void HitWithWall(MRTransform& transform, const float size, MREventQueue& eventQueue);
 	private:
 		/**********************************************************************//**
 			@class		ROOM_NODE

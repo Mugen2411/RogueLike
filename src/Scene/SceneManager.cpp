@@ -31,7 +31,7 @@ namespace magica_rogue
 	{
 		if (!m_scenes.empty())
 		{
-			m_scenes.top()->Update();
+			m_scenes.front()->Update();
 		}
 	}
 
@@ -42,9 +42,9 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRSceneManager::Render() const
 	{
-		if (!m_scenes.empty())
+		for (auto& s : m_scenes)
 		{
-			m_scenes.top()->Render();
+			s->Render();
 		}
 	}
 
@@ -55,9 +55,6 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRSceneManager::_Reset()
 	{
-		while (!m_scenes.empty())
-		{
-			m_scenes.pop();
-		}
+		m_scenes.clear();
 	}
 }

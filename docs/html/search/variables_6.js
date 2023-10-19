@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_0',['height',['../namespacemagica__rogue_1_1constants_1_1screen.html#ae6d99be81dc24f10b490e1344d669365',1,'magica_rogue::constants::screen']]]
+  ['g_0',['G',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html#a9147852e4450e3af3854f173b5161dc2',1,'mugen_engine::MEGraphicCharacterUnit::TexRGBA']]]
 ];

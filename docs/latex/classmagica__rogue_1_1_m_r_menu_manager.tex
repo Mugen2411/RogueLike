@@ -1,0 +1,156 @@
+\doxysection{magica\+\_\+rogue\+::MRMenu\+Manager クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_menu_manager}{}\label{classmagica__rogue_1_1_m_r_menu_manager}\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+
+
+メインシーンで使うメニューを管理するクラス  
+
+
+
+
+{\ttfamily \#include $<$Menu\+Manager.\+h$>$}
+
+magica\+\_\+rogue\+::MRMenu\+Manager の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmagica__rogue_1_1_m_r_menu_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_adcb4d48d5a762a1e4da7ac950de5dbb7}{MRMenu\+Manager}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} \&event\+Queue)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a55477c620ed9f6c9402b5bd6aa8ba819}{\texorpdfstring{$\sim$}{\string~}\+MRMenu\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a98ce654b1aff7c0aaea4fcc90438cd61}{Push}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_interface}{MRMenu\+Interface}} $>$ \&\&menu)
+\begin{DoxyCompactList}\small\item\em メニューをプッシュする \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a7a23ec3d7a85d807695ba9f1ca242c21}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_aac771fb0af4b03d46203a88256406a64}{Render}} () const
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a47461e3aca181ae29a08dc92239b3cb2}{m\+\_\+event\+Queue}}
+\begin{DoxyCompactList}\small\item\em イベントキュー \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_interface}{MRMenu\+Interface}} $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_manager_a08b91e098d6563bb695253e6ccd841dd}{m\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em メニュー本体 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+メインシーンで使うメニューを管理するクラス 
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00018}{18}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_adcb4d48d5a762a1e4da7ac950de5dbb7}\label{classmagica__rogue_1_1_m_r_menu_manager_adcb4d48d5a762a1e4da7ac950de5dbb7} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!MRMenuManager@{MRMenuManager}}
+\index{MRMenuManager@{MRMenuManager}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{MRMenuManager()}{MRMenuManager()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRMenu\+Manager\+::\+MRMenu\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}} \&}]{event\+Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+コンストラクタ 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00022}{22}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_a55477c620ed9f6c9402b5bd6aa8ba819}\label{classmagica__rogue_1_1_m_r_menu_manager_a55477c620ed9f6c9402b5bd6aa8ba819} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!````~MRMenuManager@{\texorpdfstring{$\sim$}{\string~}MRMenuManager}}
+\index{````~MRMenuManager@{\texorpdfstring{$\sim$}{\string~}MRMenuManager}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MRMenuManager()}{\string~MRMenuManager()}}
+{\footnotesize\ttfamily virtual magica\+\_\+rogue\+::\+MRMenu\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+MRMenu\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+デストラクタ 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00029}{29}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_a98ce654b1aff7c0aaea4fcc90438cd61}\label{classmagica__rogue_1_1_m_r_menu_manager_a98ce654b1aff7c0aaea4fcc90438cd61} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!Push@{Push}}
+\index{Push@{Push}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMenu\+Manager\+::\+Push (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_interface}{MRMenu\+Interface}} $>$ \&\&}]{menu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+メニューをプッシュする 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00032}{32}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_aac771fb0af4b03d46203a88256406a64}\label{classmagica__rogue_1_1_m_r_menu_manager_aac771fb0af4b03d46203a88256406a64} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRMenu\+Manager\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+描画 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00053}{53}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_a7a23ec3d7a85d807695ba9f1ca242c21}\label{classmagica__rogue_1_1_m_r_menu_manager_a7a23ec3d7a85d807695ba9f1ca242c21} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool magica\+\_\+rogue\+::\+MRMenu\+Manager\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+更新 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00041}{41}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_a47461e3aca181ae29a08dc92239b3cb2}\label{classmagica__rogue_1_1_m_r_menu_manager_a47461e3aca181ae29a08dc92239b3cb2} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!m\_eventQueue@{m\_eventQueue}}
+\index{m\_eventQueue@{m\_eventQueue}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{m\_eventQueue}{m\_eventQueue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_event_queue}{MREvent\+Queue}}\& magica\+\_\+rogue\+::\+MRMenu\+Manager\+::m\+\_\+event\+Queue\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+イベントキュー 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00061}{61}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_menu_manager_a08b91e098d6563bb695253e6ccd841dd}\label{classmagica__rogue_1_1_m_r_menu_manager_a08b91e098d6563bb695253e6ccd841dd} 
+\index{magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}!m\_menu@{m\_menu}}
+\index{m\_menu@{m\_menu}!magica\_rogue::MRMenuManager@{magica\_rogue::MRMenuManager}}
+\doxysubsubsection{\texorpdfstring{m\_menu}{m\_menu}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classmagica__rogue_1_1_m_r_menu_interface}{MRMenu\+Interface}}$>$ magica\+\_\+rogue\+::\+MRMenu\+Manager\+::m\+\_\+menu\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+メニュー本体 
+
+
+
+ \mbox{\hyperlink{_menu_manager_8h_source}{Menu\+Manager.\+h}} の \mbox{\hyperlink{_menu_manager_8h_source_l00062}{62}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Menu/\mbox{\hyperlink{_menu_manager_8h}{Menu\+Manager.\+h}}\end{DoxyCompactItemize}
