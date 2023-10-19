@@ -17,7 +17,7 @@ namespace magica_rogue
 	*//***********************************************************************/
 	MRMapData::MRMapData(): m_chipSize(32.0f), m_random(0)
 	{
-		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 2, 1);
+		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 3, 1);
 		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 4, 2);
 		m_mapchipImg = &mugen_engine::MECore::GetIns().GetGraph("mapchip");
 		m_minimapImg = &mugen_engine::MECore::GetIns().GetGraph("minimap");
@@ -87,8 +87,9 @@ namespace magica_rogue
 	void MRMapData::Render(const MRCamera& camera) const
 	{
 		const int chipW = 32;
-		const int chipH = 64;
-		const float priority[2] = { constants::render_priority::MAP_FLOOR, constants::render_priority::MAP_WALL };
+		const int chipH = 32;
+		const float priority[3] = 
+		{ constants::render_priority::MAP_FLOOR, constants::render_priority::MAP_WALL, constants::render_priority::MAP_WALL};
 		for (int y = 0; y < m_height; ++y)
 		{
 			for (int x = 0; x < m_width; ++x)
@@ -135,6 +136,10 @@ namespace magica_rogue
 				max(constants::screen::left_margin * 2 * 0.20f / larger, 0.4f), 0.0f,
 				constants::render_priority::MINIMAP_TREASUREBOX, 5);
 		}
+
+		m_minimapImg->DrawRotaGraph(static_cast<int>(m_goalX * constants::screen::left_margin * 2 / larger),
+			static_cast<int>(m_goalY * constants::screen::left_margin * 2 / larger),
+			max(constants::screen::left_margin * 2 * 0.25f / larger, 0.5f), 0.0f, constants::render_priority::MINIMAP_TREASUREBOX, 6);
 
 		for (auto& r : m_roomList)
 		{
@@ -724,33 +729,110 @@ namespace magica_rogue
 
 		makePathes();
 
-		_SetStartPosition(m_roomList);
+		// スタート地点とゴール地点を一番遠くになるように決める
+		std::vector<int> distance(yNum * xNum, 999999);
+		std::stack<int> st;
+		st.push(m_random.GetRanged(0, yNum* xNum - 1));
+		distance[st.top()] = 0;
 
+		while (!st.empty())
+		{
+			int cur = st.top();
+			st.pop();
+			for (auto& i : globalConnect[cur])
+			{
+
+				if (distance[i] > distance[cur] + 1)
+				{
+					distance[i] = distance[cur] + 1;
+					st.push(i);
+				}
+			}
+		}
+		int begin_idx = -1;
+		int max_dist = 0;
+		for (int i = 0; i < distance.size(); ++i)
+		{
+			if (m_roomList[i].usedFor != 1) continue;
+			if (max_dist < distance[i])
+			{
+				max_dist = distance[i];
+				begin_idx = i;
+			}
+		}
+
+		for (auto& i : distance)
+		{
+			i = 999999;
+		}
+
+		st.push(begin_idx);
+		distance[st.top()] = 0;
+
+		while (!st.empty())
+		{
+			int cur = st.top();
+			st.pop();
+			for (auto& i : globalConnect[cur])
+			{
+
+				if (distance[i] > distance[cur] + 1)
+				{
+					distance[i] = distance[cur] + 1;
+					st.push(i);
+				}
+			}
+		}
+
+		max_dist = 0;
+		int end_idx = -1;
+		for (int i = 0; i < distance.size(); ++i)
+		{
+			if (m_roomList[i].usedFor != 1) continue;
+			if (max_dist < distance[i])
+			{
+				max_dist = distance[i];
+				end_idx = i;
+			}
+		}
+
+		_SetStartPosition(begin_idx);
+		_SetGoalPosition(end_idx);
 	}
 
 	/**********************************************************************//**
 		@brief			プレイヤーの初期位置を決定する
-		@param			なし
+		@param			index				部屋番号
 		@return			なし
 	*//***********************************************************************/
 
-	void MRMapData::_SetStartPosition(std::vector<ROOM_NODE>& rooms)
+	void MRMapData::_SetStartPosition(const size_t index)
 	{
-		std::vector<int> roomIndices;
-		for (int i = 0; i < rooms.size(); ++i)
+		m_startX = (m_roomList[index].topX + m_roomList[index].bottomX) / 2;
+		m_startY = (m_roomList[index].topY + m_roomList[index].bottomY) / 2;
+	}
+
+	/**********************************************************************//**
+		@brief			階段の位置を決定する
+		@param			index				部屋番号
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::_SetGoalPosition(const size_t index)
+	{
+		int startX = (m_roomList[index].topX + m_roomList[index].bottomX) / 2;
+		int startY = (m_roomList[index].topY + m_roomList[index].bottomY) / 2;
+
+		int x = 0;
+		int y = 0;
+		do
 		{
-			roomIndices.push_back(i);
-		}
-		std::shuffle(roomIndices.begin(), roomIndices.end(), m_random.GetDevice());
-		for (auto& r : roomIndices)
-		{
-			if (rooms[r].usedFor == 1)
-			{
-				m_startX = (rooms[r].topX + rooms[r].bottomX) / 2;
-				m_startY = (rooms[r].topY + rooms[r].bottomY) / 2;
-				break;
-			}
-		}
+			x = m_random.GetRanged(m_roomList[index].topX + 1, m_roomList[index].bottomX - 2);
+			y = m_random.GetRanged(m_roomList[index].topY + 1, m_roomList[index].bottomY - 2);
+		} while (x == startX && y == startY);
+
+		m_mapData[y][x] = 2;
+		m_goalX = x;
+		m_goalY = y;
 	}
 
 	/**********************************************************************//**
@@ -775,7 +857,8 @@ namespace magica_rogue
 				{
 					x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
 					y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
-				} while (std::count(old_x.cbegin(), old_x.cend(), x) != 0 && std::count(old_y.cbegin(), old_y.cend(), y));
+				} while (std::count(old_x.cbegin(), old_x.cend(), x) != 0 && std::count(old_y.cbegin(), old_y.cend(), y) &&
+					m_mapData[y][x] != 0);
 
 				staticList.Register(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,
 					static_cast<MRTresureBox::MRRarity>(m_random.GetRanged(0, 3)), m_random.Get()));

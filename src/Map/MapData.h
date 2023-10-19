@@ -81,7 +81,9 @@ namespace magica_rogue
 		//! マップを部屋割りする
 		void _DivideRooms();
 		//! プレイヤーの初期位置を設定する
-		void _SetStartPosition(std::vector<ROOM_NODE>& rooms);
+		void _SetStartPosition(const size_t index);
+		//! 階段の位置を設定する
+		void _SetGoalPosition(const size_t index);
 		//! 宝箱を設置する
 		void _SpawnTreasureBox(MRStaticObjectManager& staticList);
 
@@ -90,6 +92,8 @@ namespace magica_rogue
 
 		int m_startX;										//!< プレイヤーの初期X座標
 		int m_startY;										//!< プレイヤーの初期Y座標
+		int m_goalX;										//!< 階段のX座標
+		int m_goalY;										//!< 階段のY座標
 
 		std::vector<std::vector<int>> m_mapData;			//!< マップデータ(壁=1, 床=0)
 		std::vector<std::vector<int>> m_graphicData;		//!< 表示に使う方向とか入ってる奴
