@@ -25,6 +25,8 @@ namespace magica_rogue
 	private:
 		mugen_engine::MEImage* m_baseImg;			//!< メニューの背景画像
 		mugen_engine::MEFontData* m_titleFont;		//!< 見出しのフォント
+
+		int m_current;								//!< 現在の選択肢
 	};
 }
 
