@@ -48,7 +48,7 @@ namespace magica_rogue
 			m_speed = 2.7f;
 			break;
 		case PLAYER_ID::KOMUK:
-			mugen_engine::MECore::GetIns().LoadDivGraph("player", L"media/graphic/player/komuk.png", 4, 4);
+			mugen_engine::MECore::GetIns().LoadDivGraph("player", L"media/graphic/player/komuk.png", 4, 2);
 			m_speed = 3.0f;
 			break;
 		case PLAYER_ID::AKIYO:
@@ -83,11 +83,13 @@ namespace magica_rogue
 		{
 			vx += m_speed;
 			++numPushedButton;
+			m_isLeft = false;
 		}
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::LEFT) > 0)
 		{
 			vx -= m_speed;
 			++numPushedButton;
+			m_isLeft = true;
 		}
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::DOWN) > 0)
 		{
@@ -102,11 +104,14 @@ namespace magica_rogue
 		if (numPushedButton == 0)
 		{
 			m_transform.SetVelocity(0.0f, 0.0f);
+			m_currentAnimation = 0.0f;
 		}
 		else
 		{
 			m_transform.SetVelocity(vx / std::sqrtf(static_cast<float>(numPushedButton)),
 				vy / std::sqrtf(static_cast<float>(numPushedButton)));
+			m_currentAnimation += 0.1f;
+			if (m_currentAnimation > 4.0f) m_currentAnimation -= 4.0f;
 		}
 		m_hp.Damage(0.005f);
 	}
@@ -131,7 +136,8 @@ namespace magica_rogue
 	void MRPlayer::Render() const
 	{
 		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
-			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER, 0);
+			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER,
+			static_cast<int>(m_currentAnimation)+m_isLeft*4);
 		for (int i = 0; i < 4; ++i)
 		{
 			m_hpGuageImg->DrawRotaGraph2X(64, 8 + 32 * i + constants::screen::left_margin, 1.0f, 0.0f,

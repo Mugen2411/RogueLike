@@ -864,7 +864,7 @@ namespace magica_rogue
 				{
 					x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
 					y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
-				} while (std::count(old_x.cbegin(), old_x.cend(), x) != 0 && std::count(old_y.cbegin(), old_y.cend(), y) &&
+				} while ((std::count(old_x.cbegin(), old_x.cend(), x) != 0 && std::count(old_y.cbegin(), old_y.cend(), y) != 0) ||
 					m_mapData[y][x] != 0);
 
 				staticList.Register(std::make_unique<MRTresureBox>((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize,

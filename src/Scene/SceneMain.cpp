@@ -74,7 +74,7 @@ namespace magica_rogue
 	void MRSceneMain::_GenerateMap()
 	{
 		m_staticObjectManager.Reset();
-		m_mapData.Construct(64, 64, m_floor, m_staticObjectManager);
+		m_mapData.Construct(min(64+(m_floor/ 2), 256), min(64 + (m_floor / 2), 256), m_floor, m_staticObjectManager);
 		m_player.GetTransform().SetPosition(m_mapData.GetStartX(), m_mapData.GetStartY());
 	}
 }
