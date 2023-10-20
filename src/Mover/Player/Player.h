@@ -9,6 +9,7 @@
 #include "../../Engine/Graphic/GraphicLoadedImage.h"
 #include "../../Engine/Graphic/GraphicFontData.h"
 #include "../HitPoint.h"
+#include "../../Util/StateMachine.h"
 
 namespace magica_rogue
 {
@@ -16,13 +17,17 @@ namespace magica_rogue
 		@class		MRPlayer
 		@brief		操作出来る自機クラス
 	*//***********************************************************************/
-	class MRPlayer
+	class MRPlayer : public MRStateMachine<MRPlayer>
 	{
 	public:
 		enum class PLAYER_ID : char {
 			AKARI = 0, MAMI, YUKINA, REEZE, 
 			IOS, ISHIKI, HARUNA, MISATO,
 			SSEL, KOMUK, AKIYO, OBORO
+		};
+		enum class STATE
+		{
+			STAND, KNOCKBACKED
 		};
 		//! コンストラクタ
 		MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera);
@@ -40,6 +45,15 @@ namespace magica_rogue
 		float GetSize() {
 			return m_size;
 		}
+
+		//! 立ち状態での更新
+		void UpdateOnStand();
+		//! 立ち状態での描画
+		void RenderOnStand()const;
+		//! のけぞり状態での更新
+		void UpdateOnKnockbacked();
+		//! のけぞり状態での描画
+		void RenderOnKnockbacked()const;
 	private:
 		PLAYER_ID m_id;										//!< プレイヤーID
 		MRTransform m_transform;							//!< 位置速度情報
@@ -50,7 +64,8 @@ namespace magica_rogue
 		float m_size;										//!< プレイヤーの当たり判定サイズ
 		float m_speed;										//!< 自機の移動速度
 		bool m_isLeft;										//!< 自機が左を向いているか
-		float m_currentAnimation;								//!< 現在表示している画像
+		float m_currentAnimation;							//!< 現在表示している画像
+		int m_frameCount;									//!< ステートを変更せずに経過したフレーム
 
 		MRHitPoint m_hp;									//!< HP
 	};

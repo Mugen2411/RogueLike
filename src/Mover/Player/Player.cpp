@@ -15,8 +15,8 @@ namespace magica_rogue
 		@param[in]		y						Yç¿ïW
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera):
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(16.0f), m_hp(10.0f)
+	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera) :
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(16.0f), m_hp(10.0f), MRStateMachine(this)
 	{
 		switch (id)
 		{
@@ -48,7 +48,7 @@ namespace magica_rogue
 			m_speed = 2.7f;
 			break;
 		case PLAYER_ID::KOMUK:
-			mugen_engine::MECore::GetIns().LoadDivGraph("player", L"media/graphic/player/komuk.png", 4, 2);
+			mugen_engine::MECore::GetIns().LoadDivGraph("player", L"media/graphic/player/komuk.png", 8, 2);
 			m_speed = 3.0f;
 			break;
 		case PLAYER_ID::AKIYO:
@@ -66,6 +66,12 @@ namespace magica_rogue
 
 		mugen_engine::MECore::GetIns().LoadFont("guageNumber", L"ÇlÇr ÉSÉVÉbÉN", 16);
 		m_guageFont = &mugen_engine::MECore::GetIns().GetFont("guageNumber");
+
+		UpdateRegister(static_cast<int>(STATE::STAND), &MRPlayer::UpdateOnStand);
+		RenderRegister(static_cast<int>(STATE::STAND), &MRPlayer::RenderOnStand);
+		UpdateRegister(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::UpdateOnKnockbacked);
+		RenderRegister(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::RenderOnKnockbacked);
+		ChangeState(static_cast<int>(STATE::STAND));
 	}
 
 	/**********************************************************************//**
@@ -74,6 +80,64 @@ namespace magica_rogue
 		@return			Ç»Çµ
 	*//***********************************************************************/
 	void MRPlayer::Update()
+	{
+		MRStateMachine::Update();
+	}
+
+	/**********************************************************************//**
+		@brief			ÉLÉÉÉâÇà⁄ìÆÇ≥ÇπÇÈ
+		@param			Ç»Çµ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MRPlayer::Move()
+	{
+		m_transform.Update();
+		m_camera.SetAnchor(static_cast<int>(m_transform.GetX() - constants::screen::left_margin - constants::screen::width / 2),
+			static_cast<int>(m_transform.GetY() - constants::screen::height / 2));
+	}
+
+	/**********************************************************************//**
+		@brief			ï`âÊ
+		@param			Ç»Çµ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MRPlayer::Render() const
+	{
+		MRStateMachine::Render();
+		for (int i = 0; i < 4; ++i)
+		{
+			m_hpGuageImg->DrawRotaGraph2X(64, 8 + 32 * i + constants::screen::left_margin, 1.0f, 0.0f,
+				constants::render_priority::UI_GUAGE_FRAME, 0);
+		}
+
+		constexpr int guageMargin = 4;
+		constexpr int guageWidth = 120;
+		constexpr int guageHeight = 8;
+
+		constexpr int hpGuageTopX = guageMargin;
+		constexpr int hpGuageTopY = constants::screen::left_margin + guageMargin;
+		// HPÉQÅ[ÉWÇÃï`âÊ
+		m_hpGuageImg->DrawModiGraph2X(hpGuageTopX + static_cast<int>(guageWidth * m_hp.GetRatio()), hpGuageTopY,
+			hpGuageTopX + static_cast<int>(guageWidth * m_hp.GetRatio()), hpGuageTopY + guageHeight,
+			hpGuageTopX, hpGuageTopY,
+			hpGuageTopX, hpGuageTopY + guageHeight,
+			constants::render_priority::UI_GUAGE_MAIN, 1);
+		m_hpGuageImg->DrawModiGraph2X(hpGuageTopX + guageWidth, hpGuageTopY,
+			hpGuageTopX + guageWidth, hpGuageTopY + guageHeight,
+			hpGuageTopX, hpGuageTopY,
+			hpGuageTopX, hpGuageTopY + guageHeight,
+			constants::render_priority::UI_GUAGE_BASE, 2);
+		const float fontColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32,
+			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"HP: %.1f / %.1f", m_hp.GetValue(), m_hp.GetMax());
+	}
+
+	/**********************************************************************//**
+		@brief			óßÇøèÛë‘Ç≈ÇÃçXêV
+		@param			Ç»Çµ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MRPlayer::UpdateOnStand()
 	{
 		auto input = MRInputManager::GetIns();
 		int numPushedButton = 0;
@@ -113,56 +177,66 @@ namespace magica_rogue
 			m_currentAnimation += 0.1f;
 			if (m_currentAnimation > 4.0f) m_currentAnimation -= 4.0f;
 		}
-		m_hp.Damage(0.005f);
+		if (input.GetPushedFrame(MRInputManager::MRKeyCode::MENU) == 1)
+		{
+			m_frameCount = 0;
+			m_hp.Damage(0.3f);
+			m_transform.SetVelocityWithAngle(6.28f * (rand() % 16) / 16.0f, 4.0f);
+			ChangeState(static_cast<int>(STATE::KNOCKBACKED));
+			return;
+		}
 	}
 
 	/**********************************************************************//**
-		@brief			ÉLÉÉÉâÇà⁄ìÆÇ≥ÇπÇÈ
+		@brief			óßÇøèÛë‘Ç≈ÇÃï`âÊ
 		@param			Ç»Çµ
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MRPlayer::Move()
-	{
-		m_transform.Update();
-		m_camera.SetAnchor(static_cast<int>(m_transform.GetX() - constants::screen::left_margin - constants::screen::width / 2),
-			static_cast<int>(m_transform.GetY() - constants::screen::height / 2));
-	}
-
-	/**********************************************************************//**
-		@brief			ï`âÊ
-		@param			Ç»Çµ
-		@return			Ç»Çµ
-	*//***********************************************************************/
-	void MRPlayer::Render() const
+	void MRPlayer::RenderOnStand() const
 	{
 		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
 			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER,
-			static_cast<int>(m_currentAnimation)+m_isLeft*4);
-		for (int i = 0; i < 4; ++i)
+			static_cast<int>(m_currentAnimation) + m_isLeft * 8);
+	}
+
+	/**********************************************************************//**
+		@brief			ÇÃÇØÇºÇËèÛë‘Ç≈ÇÃçXêV
+		@param			Ç»Çµ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MRPlayer::UpdateOnKnockbacked()
+	{
+		if (m_transform.GetVelocityX() > 0.1f)
 		{
-			m_hpGuageImg->DrawRotaGraph2X(64, 8 + 32 * i + constants::screen::left_margin, 1.0f, 0.0f,
-				constants::render_priority::UI_GUAGE_FRAME, 0);
+			m_isLeft = false;
+		}
+		else if (m_transform.GetVelocityX() < -0.1f)
+		{
+			m_isLeft = true;
 		}
 
-		constexpr int guageMargin = 4;
-		constexpr int guageWidth = 120;
-		constexpr int guageHeight = 8;
+		if (m_frameCount > 10)
+		{
+			m_frameCount = 0;
+			ChangeState(static_cast<int>(STATE::STAND));
+		}
+		++m_frameCount;
+	}
 
-		constexpr int hpGuageTopX = guageMargin;
-		constexpr int hpGuageTopY = constants::screen::left_margin + guageMargin;
-		// HPÉQÅ[ÉWÇÃï`âÊ
-		m_hpGuageImg->DrawModiGraph2X(hpGuageTopX + static_cast<int>(guageWidth * m_hp.GetRatio()), hpGuageTopY,
-			hpGuageTopX + static_cast<int>(guageWidth * m_hp.GetRatio()), hpGuageTopY + guageHeight,
-			hpGuageTopX, hpGuageTopY,
-			hpGuageTopX, hpGuageTopY + guageHeight,
-			constants::render_priority::UI_GUAGE_MAIN, 1);
-		m_hpGuageImg->DrawModiGraph2X(hpGuageTopX + guageWidth, hpGuageTopY,
-			hpGuageTopX + guageWidth, hpGuageTopY + guageHeight,
-			hpGuageTopX, hpGuageTopY,
-			hpGuageTopX, hpGuageTopY + guageHeight,
-			constants::render_priority::UI_GUAGE_BASE, 2);
-		const float fontColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32,
-			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"HP: %.1f / %.1f", m_hp.GetValue(), m_hp.GetMax());
+	/**********************************************************************//**
+		@brief			ÇÃÇØÇºÇËèÛë‘Ç≈ÇÃï`âÊ
+		@param			Ç»Çµ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MRPlayer::RenderOnKnockbacked() const
+	{
+		if (m_frameCount % 3 == 0)
+		{
+			m_playerImg->SetBrightness(1.0f, 0.0f, 0.0f, 1.0f);
+		}
+		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
+			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER,
+			6 + m_isLeft * 8);
+		m_playerImg->SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 }

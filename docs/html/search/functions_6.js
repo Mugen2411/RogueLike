@@ -25,9 +25,11 @@ var searchData=
   ['gettransform_22',['gettransform',['../classmagica__rogue_1_1_m_r_player.html#ab9039f3f911f7dfe1e0c054f459135f0',1,'magica_rogue::MRPlayer::GetTransform()'],['../classmagica__rogue_1_1_m_r_static_object_interface.html#a921de8d66caf427e0b098c04877bae09',1,'magica_rogue::MRStaticObjectInterface::GetTransform()'],['../classmagica__rogue_1_1_m_r_tresure_box.html#a09cf81c1ae3c50f0f569e6911e2e34c6',1,'magica_rogue::MRTresureBox::GetTransform()']]],
   ['gettransforms_23',['GetTransforms',['../classmagica__rogue_1_1_m_r_static_object_manager.html#a11918a44b038888f232dcdb57b5f84c2',1,'magica_rogue::MRStaticObjectManager']]],
   ['getvalue_24',['getvalue',['../classmagica__rogue_1_1_m_r_hit_point.html#a7960ad5d81df82340cda0ec685606c8f',1,'magica_rogue::MRHitPoint::GetValue()'],['../classmagica__rogue_1_1_m_r_capped_value.html#a1cb0190e2c6fdccfcba57247bf45c450',1,'magica_rogue::MRCappedValue::GetValue()']]],
-  ['getvertexbufferview_25',['GetVertexBufferView',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5975faa5ec6615c97e1c07b1ec95893a',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['getwindowheight_26',['GetWindowHeight',['../classmugen__engine_1_1_m_e_core.html#a35c94ba4e5f6b2309b9eaab5121e075a',1,'mugen_engine::MECore']]],
-  ['getwindowwidth_27',['GetWindowWidth',['../classmugen__engine_1_1_m_e_core.html#ac6b8db890e9dd6d4f408963f719eb7d6',1,'mugen_engine::MECore']]],
-  ['getx_28',['GetX',['../classmagica__rogue_1_1_m_r_transform.html#aa348a91e555b9432ce8164f544d31e43',1,'magica_rogue::MRTransform']]],
-  ['gety_29',['GetY',['../classmagica__rogue_1_1_m_r_transform.html#a799ec6bf12fa654f4f0caf565578becc',1,'magica_rogue::MRTransform']]]
+  ['getvelocityx_25',['GetVelocityX',['../classmagica__rogue_1_1_m_r_transform.html#afe948f1106ac15218734d4f75c3a7929',1,'magica_rogue::MRTransform']]],
+  ['getvelocityy_26',['GetVelocityY',['../classmagica__rogue_1_1_m_r_transform.html#a225799c2908a1ce57d01c1261540d556',1,'magica_rogue::MRTransform']]],
+  ['getvertexbufferview_27',['GetVertexBufferView',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5975faa5ec6615c97e1c07b1ec95893a',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['getwindowheight_28',['GetWindowHeight',['../classmugen__engine_1_1_m_e_core.html#a35c94ba4e5f6b2309b9eaab5121e075a',1,'mugen_engine::MECore']]],
+  ['getwindowwidth_29',['GetWindowWidth',['../classmugen__engine_1_1_m_e_core.html#ac6b8db890e9dd6d4f408963f719eb7d6',1,'mugen_engine::MECore']]],
+  ['getx_30',['GetX',['../classmagica__rogue_1_1_m_r_transform.html#aa348a91e555b9432ce8164f544d31e43',1,'magica_rogue::MRTransform']]],
+  ['gety_31',['GetY',['../classmagica__rogue_1_1_m_r_transform.html#a799ec6bf12fa654f4f0caf565578becc',1,'magica_rogue::MRTransform']]]
 ];

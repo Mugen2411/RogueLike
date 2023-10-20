@@ -233,6 +233,7 @@
     <ClInclude Include="src\Util\EventQueue.h" />
     <ClInclude Include="src\Util\InputManager.h" />
     <ClInclude Include="src\Util\Random.h" />
+    <ClInclude Include="src\Util\StateMachine.h" />
     <ClInclude Include="src\Util\Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

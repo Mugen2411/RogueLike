@@ -29,10 +29,12 @@ var searchData=
   ['sety_26',['SetY',['../classmagica__rogue_1_1_m_r_transform.html#a387357e5ebd0eb0f733028957ad24431',1,'magica_rogue::MRTransform']]],
   ['silver_27',['SILVER',['../classmagica__rogue_1_1_m_r_tresure_box.html#a8bf4ad32ad6c15beffc63776bbce3f65a0efc7a9b83f3cfe984a3b046f0269ccc',1,'magica_rogue::MRTresureBox']]],
   ['ssel_28',['SSEL',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397',1,'magica_rogue::MRPlayer']]],
-  ['start_5ftime_5f_29',['start_time_',['../classmugen__engine_1_1_fps.html#a15f425fe4655e1790faf5d9d1a95a2b2',1,'mugen_engine::Fps']]],
-  ['state_30',['state',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf']]],
-  ['staticobjectinterface_2eh_31',['StaticObjectInterface.h',['../_static_object_interface_8h.html',1,'']]],
-  ['staticobjectmanager_2ecpp_32',['StaticObjectManager.cpp',['../_static_object_manager_8cpp.html',1,'']]],
-  ['staticobjectmanager_2eh_33',['StaticObjectManager.h',['../_static_object_manager_8h.html',1,'']]],
-  ['sub_34',['SUB',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7',1,'mugen_engine::MEImage']]]
+  ['stand_29',['STAND',['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31aeadd135fb441de529b55c24775556f3a81',1,'magica_rogue::MRPlayer']]],
+  ['start_5ftime_5f_30',['start_time_',['../classmugen__engine_1_1_fps.html#a15f425fe4655e1790faf5d9d1a95a2b2',1,'mugen_engine::Fps']]],
+  ['state_31',['state',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf::state'],['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31ae',1,'magica_rogue::MRPlayer::STATE']]],
+  ['statemachine_2eh_32',['StateMachine.h',['../_state_machine_8h.html',1,'']]],
+  ['staticobjectinterface_2eh_33',['StaticObjectInterface.h',['../_static_object_interface_8h.html',1,'']]],
+  ['staticobjectmanager_2ecpp_34',['StaticObjectManager.cpp',['../_static_object_manager_8cpp.html',1,'']]],
+  ['staticobjectmanager_2eh_35',['StaticObjectManager.h',['../_static_object_manager_8h.html',1,'']]],
+  ['sub_36',['SUB',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faa32f7c075c0c32901df5d9096116669f7',1,'mugen_engine::MEImage']]]
 ];

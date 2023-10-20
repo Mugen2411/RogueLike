@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: magica_rogue::MRStateMachine&lt; T &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemagica__rogue.html">magica_rogue</a></li><li class="navelem"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">MRStateMachine</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classmagica__rogue_1_1_m_r_state_machine-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">magica_rogue::MRStateMachine&lt; T &gt; クラステンプレート</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>ステートマシンを表現するクラス  
+ <a href="classmagica__rogue_1_1_m_r_state_machine.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5265e50cc948b7eb3c6b50cee58273bc" id="r_a5265e50cc948b7eb3c6b50cee58273bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a5265e50cc948b7eb3c6b50cee58273bc">MRStateMachine</a> (T *This)</td></tr>
+<tr class="memdesc:a5265e50cc948b7eb3c6b50cee58273bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新関数を追加する  <br /></td></tr>
+<tr class="separator:a5265e50cc948b7eb3c6b50cee58273bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c91a89fe9886cdf1cf827013997ad9b" id="r_a4c91a89fe9886cdf1cf827013997ad9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a4c91a89fe9886cdf1cf827013997ad9b">UpdateRegister</a> (int state, void(T::*func)(void))</td></tr>
+<tr class="memdesc:a4c91a89fe9886cdf1cf827013997ad9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新関数を追加する  <br /></td></tr>
+<tr class="separator:a4c91a89fe9886cdf1cf827013997ad9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c72c50ae1a313c98168b653cad2ba4e" id="r_a8c72c50ae1a313c98168b653cad2ba4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a8c72c50ae1a313c98168b653cad2ba4e">RenderRegister</a> (int state, void(T::*func)(void) const)</td></tr>
+<tr class="memdesc:a8c72c50ae1a313c98168b653cad2ba4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画関数を追加する  <br /></td></tr>
+<tr class="separator:a8c72c50ae1a313c98168b653cad2ba4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c91dce638f0eb624874ed2cba23ae3" id="r_a40c91dce638f0eb624874ed2cba23ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a40c91dce638f0eb624874ed2cba23ae3">Update</a> ()</td></tr>
+<tr class="memdesc:a40c91dce638f0eb624874ed2cba23ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新  <br /></td></tr>
+<tr class="separator:a40c91dce638f0eb624874ed2cba23ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7475d243a63b6caf90dd8866e7b5c251" id="r_a7475d243a63b6caf90dd8866e7b5c251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a7475d243a63b6caf90dd8866e7b5c251">Render</a> () const</td></tr>
+<tr class="memdesc:a7475d243a63b6caf90dd8866e7b5c251"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画  <br /></td></tr>
+<tr class="separator:a7475d243a63b6caf90dd8866e7b5c251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1b40637625d6bbccb4c1037c02a568" id="r_a8c1b40637625d6bbccb4c1037c02a568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a8c1b40637625d6bbccb4c1037c02a568">ChangeState</a> (const int state)</td></tr>
+<tr class="memdesc:a8c1b40637625d6bbccb4c1037c02a568"><td class="mdescLeft">&#160;</td><td class="mdescRight">ステートの遷移  <br /></td></tr>
+<tr class="separator:a8c1b40637625d6bbccb4c1037c02a568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a2902c1c368bdde2297dd6b9d2cb1291d" id="r_a2902c1c368bdde2297dd6b9d2cb1291d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a2902c1c368bdde2297dd6b9d2cb1291d">m_state</a></td></tr>
+<tr class="memdesc:a2902c1c368bdde2297dd6b9d2cb1291d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ステート  <br /></td></tr>
+<tr class="separator:a2902c1c368bdde2297dd6b9d2cb1291d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61bf9f953e831be7f4280431ac55e1f2" id="r_a61bf9f953e831be7f4280431ac55e1f2"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a61bf9f953e831be7f4280431ac55e1f2">m_pThis</a></td></tr>
+<tr class="memdesc:a61bf9f953e831be7f4280431ac55e1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">自身のポインタ  <br /></td></tr>
+<tr class="separator:a61bf9f953e831be7f4280431ac55e1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fed6e4dfa95a7ba50bd1617637c22af" id="r_a0fed6e4dfa95a7ba50bd1617637c22af"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, void(T::*)(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a0fed6e4dfa95a7ba50bd1617637c22af">m_updateList</a></td></tr>
+<tr class="separator:a0fed6e4dfa95a7ba50bd1617637c22af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a543bfe5e0ef3618f1f1d2a181cc9823c" id="r_a543bfe5e0ef3618f1f1d2a181cc9823c"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, void(T::*)(void) const  &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a543bfe5e0ef3618f1f1d2a181cc9823c">m_renderList</a></td></tr>
+<tr class="separator:a543bfe5e0ef3618f1f1d2a181cc9823c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
+class magica_rogue::MRStateMachine&lt; T &gt;</div><p>ステートマシンを表現するクラス </p>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00016">16</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a5265e50cc948b7eb3c6b50cee58273bc" name="a5265e50cc948b7eb3c6b50cee58273bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5265e50cc948b7eb3c6b50cee58273bc">&#9670;&#160;</a></span>MRStateMachine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::MRStateMachine </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>This</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>更新関数を追加する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">This</td><td>関数を実行する主体 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00024">24</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a8c1b40637625d6bbccb4c1037c02a568" name="a8c1b40637625d6bbccb4c1037c02a568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c1b40637625d6bbccb4c1037c02a568">&#9670;&#160;</a></span>ChangeState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::ChangeState </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ステートの遷移 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>遷移先のステート </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00071">71</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7475d243a63b6caf90dd8866e7b5c251" name="a7475d243a63b6caf90dd8866e7b5c251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7475d243a63b6caf90dd8866e7b5c251">&#9670;&#160;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00061">61</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a8c72c50ae1a313c98168b653cad2ba4e" name="a8c72c50ae1a313c98168b653cad2ba4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c72c50ae1a313c98168b653cad2ba4e">&#9670;&#160;</a></span>RenderRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::RenderRegister </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(T::*)(void) const&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画関数を追加する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>ステートと対応するID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>更新関数ポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00042">42</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a40c91dce638f0eb624874ed2cba23ae3" name="a40c91dce638f0eb624874ed2cba23ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c91dce638f0eb624874ed2cba23ae3">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>更新 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00051">51</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a4c91a89fe9886cdf1cf827013997ad9b" name="a4c91a89fe9886cdf1cf827013997ad9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c91a89fe9886cdf1cf827013997ad9b">&#9670;&#160;</a></span>UpdateRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::UpdateRegister </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(T::*)(void)&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>更新関数を追加する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>ステートと対応するID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>更新関数ポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a61bf9f953e831be7f4280431ac55e1f2" name="a61bf9f953e831be7f4280431ac55e1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bf9f953e831be7f4280431ac55e1f2">&#9670;&#160;</a></span>m_pThis</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::m_pThis</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>自身のポインタ </p>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00077">77</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a543bfe5e0ef3618f1f1d2a181cc9823c" name="a543bfe5e0ef3618f1f1d2a181cc9823c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a543bfe5e0ef3618f1f1d2a181cc9823c">&#9670;&#160;</a></span>m_renderList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, void (T::*)(void)const&gt; <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::m_renderList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00079">79</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2902c1c368bdde2297dd6b9d2cb1291d" name="a2902c1c368bdde2297dd6b9d2cb1291d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2902c1c368bdde2297dd6b9d2cb1291d">&#9670;&#160;</a></span>m_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::m_state</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ステート </p>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00076">76</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0fed6e4dfa95a7ba50bd1617637c22af" name="a0fed6e4dfa95a7ba50bd1617637c22af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fed6e4dfa95a7ba50bd1617637c22af">&#9670;&#160;</a></span>m_updateList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, void (T::*)(void)&gt; <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::m_updateList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00078">78</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Util/<a class="el" href="_state_machine_8h_source.html">StateMachine.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

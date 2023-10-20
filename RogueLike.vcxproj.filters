@@ -204,5 +204,8 @@
     <ClInclude Include="src\Menu\MenuNextFloor.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="src\Util\StateMachine.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

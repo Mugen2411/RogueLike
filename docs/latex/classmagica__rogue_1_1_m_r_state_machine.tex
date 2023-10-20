@@ -1,0 +1,254 @@
+\doxysection{magica\+\_\+rogue\+::MRState\+Machine\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} クラステンプレート}
+\hypertarget{classmagica__rogue_1_1_m_r_state_machine}{}\label{classmagica__rogue_1_1_m_r_state_machine}\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+
+
+ステートマシンを表現するクラス  
+
+
+
+
+{\ttfamily \#include $<$State\+Machine.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a5265e50cc948b7eb3c6b50cee58273bc}{MRState\+Machine}} (T \texorpdfstring{$\ast$}{*}This)
+\begin{DoxyCompactList}\small\item\em 更新関数を追加する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a4c91a89fe9886cdf1cf827013997ad9b}{Update\+Register}} (int state, void(T\+::\texorpdfstring{$\ast$}{*}func)(void))
+\begin{DoxyCompactList}\small\item\em 更新関数を追加する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a8c72c50ae1a313c98168b653cad2ba4e}{Render\+Register}} (int state, void(T\+::\texorpdfstring{$\ast$}{*}func)(void) const)
+\begin{DoxyCompactList}\small\item\em 描画関数を追加する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a40c91dce638f0eb624874ed2cba23ae3}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a7475d243a63b6caf90dd8866e7b5c251}{Render}} () const
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a8c1b40637625d6bbccb4c1037c02a568}{Change\+State}} (const int state)
+\begin{DoxyCompactList}\small\item\em ステートの遷移 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a2902c1c368bdde2297dd6b9d2cb1291d}{m\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em ステート \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a61bf9f953e831be7f4280431ac55e1f2}{m\+\_\+p\+This}}
+\begin{DoxyCompactList}\small\item\em 自身のポインタ \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ int, void(T\+::\texorpdfstring{$\ast$}{*})(void)$>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a0fed6e4dfa95a7ba50bd1617637c22af}{m\+\_\+update\+List}}
+\item 
+std\+::unordered\+\_\+map$<$ int, void(T\+::\texorpdfstring{$\ast$}{*})(void) const  $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine_a543bfe5e0ef3618f1f1d2a181cc9823c}{m\+\_\+render\+List}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+\subsubsection*{template$<$class T$>$\newline
+class magica\+\_\+rogue\+::\+MRState\+Machine$<$ T $>$}
+ステートマシンを表現するクラス 
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a5265e50cc948b7eb3c6b50cee58273bc}\label{classmagica__rogue_1_1_m_r_state_machine_a5265e50cc948b7eb3c6b50cee58273bc} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!MRStateMachine@{MRStateMachine}}
+\index{MRStateMachine@{MRStateMachine}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MRStateMachine()}{MRStateMachine()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::\+MRState\+Machine (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{This }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+更新関数を追加する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em This} & 関数を実行する主体 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00024}{24}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a8c1b40637625d6bbccb4c1037c02a568}\label{classmagica__rogue_1_1_m_r_state_machine_a8c1b40637625d6bbccb4c1037c02a568} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!ChangeState@{ChangeState}}
+\index{ChangeState@{ChangeState}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ChangeState()}{ChangeState()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::\+Change\+State (\begin{DoxyParamCaption}\item[{const int}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ステートの遷移 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em state} & 遷移先のステート \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00071}{71}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a7475d243a63b6caf90dd8866e7b5c251}\label{classmagica__rogue_1_1_m_r_state_machine_a7475d243a63b6caf90dd8866e7b5c251} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+描画 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00061}{61}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a8c72c50ae1a313c98168b653cad2ba4e}\label{classmagica__rogue_1_1_m_r_state_machine_a8c72c50ae1a313c98168b653cad2ba4e} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!RenderRegister@{RenderRegister}}
+\index{RenderRegister@{RenderRegister}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RenderRegister()}{RenderRegister()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::\+Render\+Register (\begin{DoxyParamCaption}\item[{int}]{state,  }\item[{void(T\+::\texorpdfstring{$\ast$}{*})(void) const}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+描画関数を追加する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em ID} & ステートと対応する\+ID \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & 更新関数ポインタ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00042}{42}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a40c91dce638f0eb624874ed2cba23ae3}\label{classmagica__rogue_1_1_m_r_state_machine_a40c91dce638f0eb624874ed2cba23ae3} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+更新 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00051}{51}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a4c91a89fe9886cdf1cf827013997ad9b}\label{classmagica__rogue_1_1_m_r_state_machine_a4c91a89fe9886cdf1cf827013997ad9b} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!UpdateRegister@{UpdateRegister}}
+\index{UpdateRegister@{UpdateRegister}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{UpdateRegister()}{UpdateRegister()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::\+Update\+Register (\begin{DoxyParamCaption}\item[{int}]{state,  }\item[{void(T\+::\texorpdfstring{$\ast$}{*})(void)}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+更新関数を追加する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em ID} & ステートと対応する\+ID \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & 更新関数ポインタ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00032}{32}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a61bf9f953e831be7f4280431ac55e1f2}\label{classmagica__rogue_1_1_m_r_state_machine_a61bf9f953e831be7f4280431ac55e1f2} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!m\_pThis@{m\_pThis}}
+\index{m\_pThis@{m\_pThis}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_pThis}{m\_pThis}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::m\+\_\+p\+This\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+自身のポインタ 
+
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00077}{77}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a543bfe5e0ef3618f1f1d2a181cc9823c}\label{classmagica__rogue_1_1_m_r_state_machine_a543bfe5e0ef3618f1f1d2a181cc9823c} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!m\_renderList@{m\_renderList}}
+\index{m\_renderList@{m\_renderList}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_renderList}{m\_renderList}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::unordered\+\_\+map$<$int, void (T\+::\texorpdfstring{$\ast$}{*})(void)const$>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::m\+\_\+render\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00079}{79}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a2902c1c368bdde2297dd6b9d2cb1291d}\label{classmagica__rogue_1_1_m_r_state_machine_a2902c1c368bdde2297dd6b9d2cb1291d} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!m\_state@{m\_state}}
+\index{m\_state@{m\_state}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_state}{m\_state}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::m\+\_\+state\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ステート 
+
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00076}{76}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_state_machine_a0fed6e4dfa95a7ba50bd1617637c22af}\label{classmagica__rogue_1_1_m_r_state_machine_a0fed6e4dfa95a7ba50bd1617637c22af} 
+\index{magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}!m\_updateList@{m\_updateList}}
+\index{m\_updateList@{m\_updateList}!magica\_rogue::MRStateMachine$<$ T $>$@{magica\_rogue::MRStateMachine$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_updateList}{m\_updateList}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::unordered\+\_\+map$<$int, void (T\+::\texorpdfstring{$\ast$}{*})(void)$>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_state_machine}{magica\+\_\+rogue\+::\+MRState\+Machine}}$<$ T $>$\+::m\+\_\+update\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_state_machine_8h_source}{State\+Machine.\+h}} の \mbox{\hyperlink{_state_machine_8h_source_l00078}{78}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Util/\mbox{\hyperlink{_state_machine_8h}{State\+Machine.\+h}}\end{DoxyCompactItemize}

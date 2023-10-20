@@ -37,6 +37,14 @@ namespace magica_rogue
 		float GetNextY()const {
 			return m_y + m_vy;
 		}
+		//! X‘¬“x‚ğæ“¾
+		float GetVelocityX()const {
+			return m_vx;
+		}
+		//! Y‘¬“x‚ğæ“¾
+		float GetVelocityY()const {
+			return m_vy;
+		}
 		//! XÀ•W‚ğİ’è
 		void SetX(float x) {
 			m_x = x;
