@@ -12,8 +12,10 @@
 #include "../Static/StaticObjectInterface.h"
 #include "../Static/TreasureBox.h"
 #include "../Static/StaticObjectManager.h"
+#include "../Mover/Enemy/EnemyManager.h"
 #include <vector>
 #include <memory>
+#include <set>
 
 namespace magica_rogue
 {
@@ -28,7 +30,7 @@ namespace magica_rogue
 		//! コンストラクタ
 		MRMapData();
 		//! マップを生成
-		void Construct(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList);
+		void Construct(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList, MREnemyManager& enemyManager);
 		//! マップを更新
 		void Update(const MRTransform& playerTransform);
 		//! マップを描画
@@ -45,6 +47,8 @@ namespace magica_rogue
 		}
 		//! 壁と物体の衝突を処理する
 		void HitWithWall(MRTransform& transform, const float size, MREventQueue& eventQueue);
+		//! 隣の部屋へのルートを取得する
+		void GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route);
 	private:
 		/**********************************************************************//**
 			@class		ROOM_NODE
@@ -87,6 +91,8 @@ namespace magica_rogue
 		void _SetGoalPosition(const size_t index);
 		//! 宝箱を設置する
 		void _SpawnTreasureBox(MRStaticObjectManager& staticList);
+		//! 敵のスポナーを設置する
+		void _CreateEnemySpawner(MREnemyManager& enemyManager);
 
 		int m_width;									//!< マップの横幅
 		int m_height;									//!< マップの高さ
@@ -101,6 +107,7 @@ namespace magica_rogue
 		std::vector<ROOM_NODE> m_roomList;					//!< 部屋リスト
 		std::vector<ROOM_NODE> m_pathList;					//!< 通路リスト
 		std::vector<ROOM_NODE> m_regionList;				//!< 領域リスト
+		std::vector<std::set<int>> m_globalConnect;			//!< 接続状況
 
 		float m_chipSize;									//!< マップチップの一辺の長さ
 

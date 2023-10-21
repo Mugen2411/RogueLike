@@ -19,6 +19,7 @@ namespace magica_rogue
 		namespace render_priority
 		{
 			const float PLAYER = 0.0f;					//!< プレイヤー
+			const float ENEMY = 0.5f;
 			const float TREASURE_BOX = 1.0f;			//!< 宝箱
 
 			const float MAP_WALL = 2.0f;				//!< マップの壁レイヤ
@@ -50,6 +51,17 @@ namespace magica_rogue
 			const int width = (640 - left_margin);		//!< 残りの画面の横幅
 			const int height = 360;						//!< 画面の高さ
 		}
+
+		/**********************************************************************//**
+			@enum		MRAttribute
+			@brief		属性を表す定数
+		*//***********************************************************************/
+		enum class MRAttribute
+		{
+			NONE = 0, FIRE, AQUA, ICE, WIND, POISON, FLOWER, THUNDER, EARTH, GHOST, ABYSS, HOLY, PHANTOM
+		};
+
+		int operator*(MRAttribute lhs, int rhs);
 	}
 }
 

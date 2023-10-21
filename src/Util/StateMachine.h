@@ -24,23 +24,15 @@ namespace magica_rogue
 		MRStateMachine(T* This):m_pThis(This){}
 
 		/**********************************************************************//**
-			@brief			更新関数を追加する
+			@brief			関数を追加する
 			@param[in]		ID					ステートと対応するID
-			@param[in]		func				更新関数ポインタ
+			@param[in]		updateFunc			更新関数ポインタ
+			@param[in]		renderFunc			描画関数ポインタ
 			@return			なし
 		*//***********************************************************************/
-		void UpdateRegister(int state, void (T::* func)(void)) {
-			m_updateList[state] = func;
-		}
-
-		/**********************************************************************//**
-			@brief			描画関数を追加する
-			@param[in]		ID					ステートと対応するID
-			@param[in]		func				更新関数ポインタ
-			@return			なし
-		*//***********************************************************************/
-		void RenderRegister(int state, void (T::* func)(void)const) {
-			m_renderList[state] = func;
+		void Register(int state, void (T::* updateFunc)(void), void (T::* renderFunc)(void)const) {
+			m_updateList[state] = updateFunc;
+			m_renderList[state] = renderFunc;
 		}
 
 		/**********************************************************************//**

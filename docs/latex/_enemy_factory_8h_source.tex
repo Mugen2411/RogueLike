@@ -1,0 +1,36 @@
+\doxysection{Enemy\+Factory.\+h}
+\hypertarget{_enemy_factory_8h_source}{}\label{_enemy_factory_8h_source}\index{Mover/Enemy/EnemyFactory.h@{Mover/Enemy/EnemyFactory.h}}
+\mbox{\hyperlink{_enemy_factory_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MagicaRogue\_EnemyFactory\_\_}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MagicaRogue\_EnemyFactory\_\_}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_enemy_interface_8h}{EnemyInterface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}../../Map/MapData.h"{}}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}../../Util/Constants.h"{}}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00019}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory}{00019}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory}{MREnemyFactory}}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory}{MREnemyFactory}}\&\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_ae7faeb5db2f2a2f31dc24f37d3e81b4c}{GetIns}}();}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a041f957f74497bd948706dd4c28ed2ef}{Initialize}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\&\ camera,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMapData}}\&\ mapdata);}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface}{MREnemyInterface}}*\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_af3b00231da8e6e77501697c4cbccc9ca}{Create}}(std::string\ name,}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants::MRAttribute}}\ attribute);}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_af794177e681e7b8c3485935f1a576fd7}{MREnemyFactory}}();}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00033}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a9ce5541401b8cb055c09c3169f3312ea}{00033}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}*\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a9ce5541401b8cb055c09c3169f3312ea}{m\_pCamera}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00034}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a2a79f84ce1e872938b4432619310511a}{00034}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMapData}}*\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a2a79f84ce1e872938b4432619310511a}{m\_pMapdata}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00035}00035\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_EnemyFactory\_\_}}
+
+\end{DoxyCode}

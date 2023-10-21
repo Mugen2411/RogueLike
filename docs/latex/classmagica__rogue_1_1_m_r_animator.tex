@@ -1,0 +1,185 @@
+\doxysection{magica\+\_\+rogue\+::MRAnimator クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_animator}{}\label{classmagica__rogue_1_1_m_r_animator}\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+
+
+アニメーションを管理するクラス  
+
+
+
+
+{\ttfamily \#include $<$Animator.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_a8717632b3c2b19d8a99fe28de7186819}{MRAnimator}} (float step, float maximum)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_aa1cd056e694fa4499512a4c790c6e447}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_a9ab4b4b6194df79458ee9102df134238}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em リセット \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_af36a4af5dd0870929d8350afb8758d40}{Get}} () const
+\begin{DoxyCompactList}\small\item\em 現在値を取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_a19500005750a02ee82d8399c5577a588}{m\+\_\+current}}
+\begin{DoxyCompactList}\small\item\em 現在値 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_a50fd11637eae13070dbd33b9de29245a}{m\+\_\+maximum}}
+\begin{DoxyCompactList}\small\item\em 最大値 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_animator_a3b14351a4b94e7054fcd4a04bb362dcd}{m\+\_\+step}}
+\begin{DoxyCompactList}\small\item\em 毎フレーム加算する値 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+アニメーションを管理するクラス 
+
+ \mbox{\hyperlink{_animator_8h_source}{Animator.\+h}} の \mbox{\hyperlink{_animator_8h_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_a8717632b3c2b19d8a99fe28de7186819}\label{classmagica__rogue_1_1_m_r_animator_a8717632b3c2b19d8a99fe28de7186819} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!MRAnimator@{MRAnimator}}
+\index{MRAnimator@{MRAnimator}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{MRAnimator()}{MRAnimator()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRAnimator\+::\+MRAnimator (\begin{DoxyParamCaption}\item[{float}]{step,  }\item[{float}]{maximum }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em step} & 毎フレーム加算する値 \\
+\hline
+\mbox{\texttt{ in}}  & {\em maximum} & 最大値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_animator_8cpp_source}{Animator.\+cpp}} の \mbox{\hyperlink{_animator_8cpp_source_l00014}{14}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_af36a4af5dd0870929d8350afb8758d40}\label{classmagica__rogue_1_1_m_r_animator_af36a4af5dd0870929d8350afb8758d40} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!Get@{Get}}
+\index{Get@{Get}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRAnimator\+::\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+現在値を取得 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+現在値 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_animator_8cpp_source}{Animator.\+cpp}} の \mbox{\hyperlink{_animator_8cpp_source_l00047}{47}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_a9ab4b4b6194df79458ee9102df134238}\label{classmagica__rogue_1_1_m_r_animator_a9ab4b4b6194df79458ee9102df134238} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!Reset@{Reset}}
+\index{Reset@{Reset}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRAnimator\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+リセット 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_animator_8cpp_source}{Animator.\+cpp}} の \mbox{\hyperlink{_animator_8cpp_source_l00037}{37}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_aa1cd056e694fa4499512a4c790c6e447}\label{classmagica__rogue_1_1_m_r_animator_aa1cd056e694fa4499512a4c790c6e447} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRAnimator\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+更新 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_animator_8cpp_source}{Animator.\+cpp}} の \mbox{\hyperlink{_animator_8cpp_source_l00023}{23}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_a19500005750a02ee82d8399c5577a588}\label{classmagica__rogue_1_1_m_r_animator_a19500005750a02ee82d8399c5577a588} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!m\_current@{m\_current}}
+\index{m\_current@{m\_current}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{m\_current}{m\_current}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRAnimator\+::m\+\_\+current\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+現在値 
+
+
+
+ \mbox{\hyperlink{_animator_8h_source}{Animator.\+h}} の \mbox{\hyperlink{_animator_8h_source_l00025}{25}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_a50fd11637eae13070dbd33b9de29245a}\label{classmagica__rogue_1_1_m_r_animator_a50fd11637eae13070dbd33b9de29245a} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!m\_maximum@{m\_maximum}}
+\index{m\_maximum@{m\_maximum}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{m\_maximum}{m\_maximum}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRAnimator\+::m\+\_\+maximum\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+最大値 
+
+
+
+ \mbox{\hyperlink{_animator_8h_source}{Animator.\+h}} の \mbox{\hyperlink{_animator_8h_source_l00026}{26}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_animator_a3b14351a4b94e7054fcd4a04bb362dcd}\label{classmagica__rogue_1_1_m_r_animator_a3b14351a4b94e7054fcd4a04bb362dcd} 
+\index{magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}!m\_step@{m\_step}}
+\index{m\_step@{m\_step}!magica\_rogue::MRAnimator@{magica\_rogue::MRAnimator}}
+\doxysubsubsection{\texorpdfstring{m\_step}{m\_step}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRAnimator\+::m\+\_\+step\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+毎フレーム加算する値 
+
+
+
+ \mbox{\hyperlink{_animator_8h_source}{Animator.\+h}} の \mbox{\hyperlink{_animator_8h_source_l00027}{27}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Util/\mbox{\hyperlink{_animator_8h}{Animator.\+h}}\item 
+Util/\mbox{\hyperlink{_animator_8cpp}{Animator.\+cpp}}\end{DoxyCompactItemize}

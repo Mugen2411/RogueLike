@@ -92,12 +92,9 @@ $(function() {
 <tr class="memitem:a5265e50cc948b7eb3c6b50cee58273bc" id="r_a5265e50cc948b7eb3c6b50cee58273bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a5265e50cc948b7eb3c6b50cee58273bc">MRStateMachine</a> (T *This)</td></tr>
 <tr class="memdesc:a5265e50cc948b7eb3c6b50cee58273bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新関数を追加する  <br /></td></tr>
 <tr class="separator:a5265e50cc948b7eb3c6b50cee58273bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c91a89fe9886cdf1cf827013997ad9b" id="r_a4c91a89fe9886cdf1cf827013997ad9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a4c91a89fe9886cdf1cf827013997ad9b">UpdateRegister</a> (int state, void(T::*func)(void))</td></tr>
-<tr class="memdesc:a4c91a89fe9886cdf1cf827013997ad9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新関数を追加する  <br /></td></tr>
-<tr class="separator:a4c91a89fe9886cdf1cf827013997ad9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c72c50ae1a313c98168b653cad2ba4e" id="r_a8c72c50ae1a313c98168b653cad2ba4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a8c72c50ae1a313c98168b653cad2ba4e">RenderRegister</a> (int state, void(T::*func)(void) const)</td></tr>
-<tr class="memdesc:a8c72c50ae1a313c98168b653cad2ba4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画関数を追加する  <br /></td></tr>
-<tr class="separator:a8c72c50ae1a313c98168b653cad2ba4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab881ffb8fe1a1136cfbbdf9f675ac4" id="r_a1ab881ffb8fe1a1136cfbbdf9f675ac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a1ab881ffb8fe1a1136cfbbdf9f675ac4">Register</a> (int state, void(T::*updateFunc)(void), void(T::*renderFunc)(void) const)</td></tr>
+<tr class="memdesc:a1ab881ffb8fe1a1136cfbbdf9f675ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">関数を追加する  <br /></td></tr>
+<tr class="separator:a1ab881ffb8fe1a1136cfbbdf9f675ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40c91dce638f0eb624874ed2cba23ae3" id="r_a40c91dce638f0eb624874ed2cba23ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a40c91dce638f0eb624874ed2cba23ae3">Update</a> ()</td></tr>
 <tr class="memdesc:a40c91dce638f0eb624874ed2cba23ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新  <br /></td></tr>
 <tr class="separator:a40c91dce638f0eb624874ed2cba23ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,7 +199,64 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00071">71</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00063">63</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1ab881ffb8fe1a1136cfbbdf9f675ac4" name="a1ab881ffb8fe1a1136cfbbdf9f675ac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab881ffb8fe1a1136cfbbdf9f675ac4">&#9670;&#160;</a></span>Register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::Register </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(T::*)(void)&#160;</td>
+          <td class="paramname"><em>updateFunc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(T::*)(void) const&#160;</td>
+          <td class="paramname"><em>renderFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>関数を追加する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>ステートと対応するID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">updateFunc</td><td>更新関数ポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">renderFunc</td><td>描画関数ポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00033">33</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -240,57 +294,7 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00061">61</a> 行目に定義があります。</p>
-
-</div>
-</div>
-<a id="a8c72c50ae1a313c98168b653cad2ba4e" name="a8c72c50ae1a313c98168b653cad2ba4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c72c50ae1a313c98168b653cad2ba4e">&#9670;&#160;</a></span>RenderRegister()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::RenderRegister </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>state</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(T::*)(void) const&#160;</td>
-          <td class="paramname"><em>func</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>描画関数を追加する </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>ステートと対応するID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>更新関数ポインタ </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
-
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00042">42</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00053">53</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -328,57 +332,7 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00051">51</a> 行目に定義があります。</p>
-
-</div>
-</div>
-<a id="a4c91a89fe9886cdf1cf827013997ad9b" name="a4c91a89fe9886cdf1cf827013997ad9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c91a89fe9886cdf1cf827013997ad9b">&#9670;&#160;</a></span>UpdateRegister()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::UpdateRegister </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>state</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(T::*)(void)&#160;</td>
-          <td class="paramname"><em>func</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>更新関数を追加する </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>ステートと対応するID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>更新関数ポインタ </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
-
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00043">43</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -407,7 +361,7 @@ template&lt;class T &gt; </div>
 
 <p>自身のポインタ </p>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00077">77</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00069">69</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -433,7 +387,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00079">79</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00071">71</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -461,7 +415,7 @@ template&lt;class T &gt; </div>
 
 <p>ステート </p>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00076">76</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00068">68</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -487,7 +441,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00078">78</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00070">70</a> 行目に定義があります。</p>
 
 </div>
 </div>

@@ -1,0 +1,312 @@
+\doxysection{magica\+\_\+rogue\+::MREnemy\+Interface クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_enemy_interface}{}\label{classmagica__rogue_1_1_m_r_enemy_interface}\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+
+
+敵キャラが必ず継承するインターフェース  
+
+
+
+
+{\ttfamily \#include $<$Enemy\+Interface.\+h$>$}
+
+magica\+\_\+rogue\+::MREnemy\+Interface の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmagica__rogue_1_1_m_r_enemy_interface}
+\end{center}
+\end{figure}
+\doxysubsubsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}{MRAlive\+State}} \+: char \{ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb}{ALIVE}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c}{DEAD}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f}{DISAPPEAR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a7372a1eae202df781844b0b3728aa113}{MREnemy\+Interface}} (const float x, const float y, const float walk\+Speed, const \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} attribute, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \texorpdfstring{$\ast$}{*}p\+Camera, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMap\+Data}} \texorpdfstring{$\ast$}{*}p\+Mapdata)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_aad33628ef3fdb09996a5e78fe4cac61a}{Update}} ()=0
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_aeec148e578a4b587542fcf22db8dc319}{Render}} () const =0
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a76d97114e4e0ed1266eda1eec330de88}{Dead}} ()=0
+\begin{DoxyCompactList}\small\item\em 死んだとき \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a6c73ec70fabed3b27920ca67f936acaa}{Disappear}} ()=0
+\begin{DoxyCompactList}\small\item\em 消えたとき \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a8104ef675a4ab32ba3190d4272bbbf9a}{Walk}} ()
+\begin{DoxyCompactList}\small\item\em 歩行する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a6c7a0142da5edaa125f56d44b4055fa9}{m\+\_\+p\+Camera}}
+\begin{DoxyCompactList}\small\item\em カメラ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMap\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_affce1566ae7152423914b8c864dbeac9}{m\+\_\+p\+Mapdata}}
+\begin{DoxyCompactList}\small\item\em マップデータ(ルート検索用) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_aa73d3ea85a25179fa20f25cc5dbc2de4}{m\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em 当たり判定のサイズ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a13021f09685ace39c8da4ef913799e5d}{m\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em 位置速度情報 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_aa2b4362b3c43b7395adedbf81b77fa8f}{m\+\_\+walk\+Speed}}
+\begin{DoxyCompactList}\small\item\em 歩く速度 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a9aac59dd1114e3150e3e2bf0844751a0}{m\+\_\+attribute}}
+\begin{DoxyCompactList}\small\item\em 属性 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_ad572ba6a0e285e9ead85e19ceb41ec4f}{m\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em 生存状況 \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} $>$ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a7c5e7a029ace5317f5ca7f9078d2104f}{m\+\_\+route}}
+\begin{DoxyCompactList}\small\item\em 歩くルート \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+敵キャラが必ず継承するインターフェース 
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00019}{19}} 行目に定義があります。
+
+
+
+\doxysubsection{列挙型メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}\label{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!MRAliveState@{MRAliveState}}
+\index{MRAliveState@{MRAliveState}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{MRAliveState}{MRAliveState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}{magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+MRAlive\+State}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALIVE@{ALIVE}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!ALIVE@{ALIVE}}}\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb}\label{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb} 
+ALIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEAD@{DEAD}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!DEAD@{DEAD}}}\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c}\label{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c} 
+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISAPPEAR@{DISAPPEAR}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!DISAPPEAR@{DISAPPEAR}}}\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f}\label{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f} 
+DISAPPEAR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00022}{22}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a7372a1eae202df781844b0b3728aa113}\label{classmagica__rogue_1_1_m_r_enemy_interface_a7372a1eae202df781844b0b3728aa113} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!MREnemyInterface@{MREnemyInterface}}
+\index{MREnemyInterface@{MREnemyInterface}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{MREnemyInterface()}{MREnemyInterface()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+MREnemy\+Interface (\begin{DoxyParamCaption}\item[{const float}]{x,  }\item[{const float}]{y,  }\item[{const float}]{walk\+Speed,  }\item[{const \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}}}]{attribute,  }\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \texorpdfstring{$\ast$}{*}}]{p\+Camera,  }\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMap\+Data}} \texorpdfstring{$\ast$}{*}}]{p\+Mapdata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+コンストラクタ 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00026}{26}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a76d97114e4e0ed1266eda1eec330de88}\label{classmagica__rogue_1_1_m_r_enemy_interface_a76d97114e4e0ed1266eda1eec330de88} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!Dead@{Dead}}
+\index{Dead@{Dead}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{Dead()}{Dead()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+死んだとき 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_a4db4b1fc2f02936daf7352d82861f0c1}{magica\+\_\+rogue\+::\+MRSlime}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a6c73ec70fabed3b27920ca67f936acaa}\label{classmagica__rogue_1_1_m_r_enemy_interface_a6c73ec70fabed3b27920ca67f936acaa} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!Disappear@{Disappear}}
+\index{Disappear@{Disappear}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{Disappear()}{Disappear()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+Disappear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+消えたとき 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_ad72974818f4b21d3b88c8dc420534bd8}{magica\+\_\+rogue\+::\+MRSlime}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_aeec148e578a4b587542fcf22db8dc319}\label{classmagica__rogue_1_1_m_r_enemy_interface_aeec148e578a4b587542fcf22db8dc319} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+描画 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_a394d8fcac17f71067098802d5294bd50}{magica\+\_\+rogue\+::\+MRSlime}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_aad33628ef3fdb09996a5e78fe4cac61a}\label{classmagica__rogue_1_1_m_r_enemy_interface_aad33628ef3fdb09996a5e78fe4cac61a} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}{MRAlive\+State}} magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+更新 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_aed4b6d22fe3a5d6de6d1d5e96c3bb264}{magica\+\_\+rogue\+::\+MRSlime}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a8104ef675a4ab32ba3190d4272bbbf9a}\label{classmagica__rogue_1_1_m_r_enemy_interface_a8104ef675a4ab32ba3190d4272bbbf9a} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!Walk@{Walk}}
+\index{Walk@{Walk}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{Walk()}{Walk()}}
+{\footnotesize\ttfamily bool magica\+\_\+rogue\+::\+MREnemy\+Interface\+::\+Walk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+歩行する 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+次に進むルートがあればtrue, 無ければfalse 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_enemy_interface_8cpp_source}{Enemy\+Interface.\+cpp}} の \mbox{\hyperlink{_enemy_interface_8cpp_source_l00015}{15}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a9aac59dd1114e3150e3e2bf0844751a0}\label{classmagica__rogue_1_1_m_r_enemy_interface_a9aac59dd1114e3150e3e2bf0844751a0} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_attribute@{m\_attribute}}
+\index{m\_attribute@{m\_attribute}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_attribute}{m\_attribute}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+attribute\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+属性 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00046}{46}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a6c7a0142da5edaa125f56d44b4055fa9}\label{classmagica__rogue_1_1_m_r_enemy_interface_a6c7a0142da5edaa125f56d44b4055fa9} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_pCamera@{m\_pCamera}}
+\index{m\_pCamera@{m\_pCamera}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_pCamera}{m\_pCamera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}}\texorpdfstring{$\ast$}{*} magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+p\+Camera\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+カメラ 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_affce1566ae7152423914b8c864dbeac9}\label{classmagica__rogue_1_1_m_r_enemy_interface_affce1566ae7152423914b8c864dbeac9} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_pMapdata@{m\_pMapdata}}
+\index{m\_pMapdata@{m\_pMapdata}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_pMapdata}{m\_pMapdata}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMap\+Data}}\texorpdfstring{$\ast$}{*} magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+p\+Mapdata\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+マップデータ(ルート検索用) 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00042}{42}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a7c5e7a029ace5317f5ca7f9078d2104f}\label{classmagica__rogue_1_1_m_r_enemy_interface_a7c5e7a029ace5317f5ca7f9078d2104f} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_route@{m\_route}}
+\index{m\_route@{m\_route}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_route}{m\_route}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}}$>$ magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+route\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+歩くルート 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00048}{48}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_aa73d3ea85a25179fa20f25cc5dbc2de4}\label{classmagica__rogue_1_1_m_r_enemy_interface_aa73d3ea85a25179fa20f25cc5dbc2de4} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_size@{m\_size}}
+\index{m\_size@{m\_size}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_size}{m\_size}}
+{\footnotesize\ttfamily size\+\_\+t magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+size\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+当たり判定のサイズ 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00043}{43}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_ad572ba6a0e285e9ead85e19ceb41ec4f}\label{classmagica__rogue_1_1_m_r_enemy_interface_ad572ba6a0e285e9ead85e19ceb41ec4f} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_state@{m\_state}}
+\index{m\_state@{m\_state}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_state}{m\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217}{MRAlive\+State}} magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+state\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+生存状況 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00047}{47}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_a13021f09685ace39c8da4ef913799e5d}\label{classmagica__rogue_1_1_m_r_enemy_interface_a13021f09685ace39c8da4ef913799e5d} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_transform@{m\_transform}}
+\index{m\_transform@{m\_transform}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_transform}{m\_transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+transform\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+位置速度情報 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00044}{44}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_interface_aa2b4362b3c43b7395adedbf81b77fa8f}\label{classmagica__rogue_1_1_m_r_enemy_interface_aa2b4362b3c43b7395adedbf81b77fa8f} 
+\index{magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}!m\_walkSpeed@{m\_walkSpeed}}
+\index{m\_walkSpeed@{m\_walkSpeed}!magica\_rogue::MREnemyInterface@{magica\_rogue::MREnemyInterface}}
+\doxysubsubsection{\texorpdfstring{m\_walkSpeed}{m\_walkSpeed}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MREnemy\+Interface\+::m\+\_\+walk\+Speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+歩く速度 
+
+
+
+ \mbox{\hyperlink{_enemy_interface_8h_source}{Enemy\+Interface.\+h}} の \mbox{\hyperlink{_enemy_interface_8h_source_l00045}{45}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Mover/\+Enemy/\mbox{\hyperlink{_enemy_interface_8h}{Enemy\+Interface.\+h}}\item 
+Mover/\+Enemy/\mbox{\hyperlink{_enemy_interface_8cpp}{Enemy\+Interface.\+cpp}}\end{DoxyCompactItemize}

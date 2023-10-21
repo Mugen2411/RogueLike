@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Mover/Enemy/EnemyInterface.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c3f9f81a4c052bbeee102325a814cc55.html">Mover</a></li><li class="navelem"><a class="el" href="dir_cf1e7e63ee2760386ea788de1e575767.html">Enemy</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">EnemyInterface.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_enemy_interface_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_enemy_interface_8h.html">EnemyInterface.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../../Map/MapData.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemagica__rogue.html">magica_rogue</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a8104ef675a4ab32ba3190d4272bbbf9a">   15</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a8104ef675a4ab32ba3190d4272bbbf9a">MREnemyInterface::Walk</a>()</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a>.empty())</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">m_transform</a>.<a class="code hl_function" href="classmagica__rogue_1_1_m_r_transform.html#aa59a4d71b7583db8dd067e3829ef11d8">GetDistance2</a>(<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a>.back()) &lt; 8.0f)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a>.pop_back();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a>.empty())</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">m_transform</a>.<a class="code hl_function" href="classmagica__rogue_1_1_m_r_transform.html#a6bfc484a1a036fea452bbc0968e28447">SetVelocityWithAngle</a>(std::atan2f(<a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a>.back().GetY() - <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">m_transform</a>.<a class="code hl_function" href="classmagica__rogue_1_1_m_r_transform.html#a799ec6bf12fa654f4f0caf565578becc">GetY</a>(),</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a>.back().GetX() - <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">m_transform</a>.<a class="code hl_function" href="classmagica__rogue_1_1_m_r_transform.html#aa348a91e555b9432ce8164f544d31e43">GetX</a>()), <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aa2b4362b3c43b7395adedbf81b77fa8f">m_walkSpeed</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="ttc" id="a_enemy_interface_8h_html"><div class="ttname"><a href="_enemy_interface_8h.html">EnemyInterface.h</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_interface_html_a13021f09685ace39c8da4ef913799e5d"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">magica_rogue::MREnemyInterface::m_transform</a></div><div class="ttdeci">MRTransform m_transform</div><div class="ttdoc">位置速度情報</div><div class="ttdef"><b>Definition</b> <a href="_enemy_interface_8h_source.html#l00044">EnemyInterface.h:44</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_interface_html_a7c5e7a029ace5317f5ca7f9078d2104f"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">magica_rogue::MREnemyInterface::m_route</a></div><div class="ttdeci">std::vector&lt; MRTransform &gt; m_route</div><div class="ttdoc">歩くルート</div><div class="ttdef"><b>Definition</b> <a href="_enemy_interface_8h_source.html#l00048">EnemyInterface.h:48</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_interface_html_a8104ef675a4ab32ba3190d4272bbbf9a"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_interface.html#a8104ef675a4ab32ba3190d4272bbbf9a">magica_rogue::MREnemyInterface::Walk</a></div><div class="ttdeci">bool Walk()</div><div class="ttdoc">歩行する</div><div class="ttdef"><b>Definition</b> <a href="_enemy_interface_8cpp_source.html#l00015">EnemyInterface.cpp:15</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_interface_html_aa2b4362b3c43b7395adedbf81b77fa8f"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_interface.html#aa2b4362b3c43b7395adedbf81b77fa8f">magica_rogue::MREnemyInterface::m_walkSpeed</a></div><div class="ttdeci">float m_walkSpeed</div><div class="ttdoc">歩く速度</div><div class="ttdef"><b>Definition</b> <a href="_enemy_interface_8h_source.html#l00045">EnemyInterface.h:45</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_transform_html_a6bfc484a1a036fea452bbc0968e28447"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_transform.html#a6bfc484a1a036fea452bbc0968e28447">magica_rogue::MRTransform::SetVelocityWithAngle</a></div><div class="ttdeci">void SetVelocityWithAngle(const float angle, const float speed)</div><div class="ttdoc">速度を角度を用いて設定</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00050">Transform.cpp:50</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_transform_html_a799ec6bf12fa654f4f0caf565578becc"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_transform.html#a799ec6bf12fa654f4f0caf565578becc">magica_rogue::MRTransform::GetY</a></div><div class="ttdeci">float GetY() const</div><div class="ttdoc">Y座標を取得</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00029">Transform.h:29</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_transform_html_aa348a91e555b9432ce8164f544d31e43"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_transform.html#aa348a91e555b9432ce8164f544d31e43">magica_rogue::MRTransform::GetX</a></div><div class="ttdeci">float GetX() const</div><div class="ttdoc">X座標を取得</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00025">Transform.h:25</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_transform_html_aa59a4d71b7583db8dd067e3829ef11d8"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_transform.html#aa59a4d71b7583db8dd067e3829ef11d8">magica_rogue::MRTransform::GetDistance2</a></div><div class="ttdeci">float GetDistance2(const MRTransform &amp;rhs) const</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00064">Transform.h:64</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00014">MapData.cpp:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

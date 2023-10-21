@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: Mover/Enemy/EnemyFactory.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c3f9f81a4c052bbeee102325a814cc55.html">Mover</a></li><li class="navelem"><a class="el" href="dir_cf1e7e63ee2760386ea788de1e575767.html">Enemy</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">EnemyFactory.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_enemy_factory_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef __MagicaRogue_EnemyFactory__</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define __MagicaRogue_EnemyFactory__</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_enemy_interface_8h.html">EnemyInterface.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../../Map/MapData.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../../Util/Constants.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemagica__rogue.html">magica_rogue</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /**********************************************************************/</span><span class="comment">/***********************************************************************/</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_enemy_factory.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmagica__rogue_1_1_m_r_enemy_factory.html">MREnemyFactory</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keyword">static</span> <a class="code hl_class" href="classmagica__rogue_1_1_m_r_enemy_factory.html">MREnemyFactory</a>&amp; <a class="code hl_function" href="classmagica__rogue_1_1_m_r_enemy_factory.html#ae7faeb5db2f2a2f31dc24f37d3e81b4c">GetIns</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmagica__rogue_1_1_m_r_enemy_factory.html#a041f957f74497bd948706dd4c28ed2ef">Initialize</a>(<a class="code hl_class" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a>&amp; camera, <a class="code hl_class" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a>&amp; mapdata);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_enemy_interface.html">MREnemyInterface</a>* <a class="code hl_function" href="classmagica__rogue_1_1_m_r_enemy_factory.html#af3b00231da8e6e77501697c4cbccc9ca">Create</a>(std::string name,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y, <span class="keyword">const</span> <a class="code hl_enumeration" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a> attribute);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_function" href="classmagica__rogue_1_1_m_r_enemy_factory.html#af794177e681e7b8c3485935f1a576fd7">MREnemyFactory</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_enemy_factory.html#a9ce5541401b8cb055c09c3169f3312ea">   33</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a>* <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_factory.html#a9ce5541401b8cb055c09c3169f3312ea">m_pCamera</a>;                </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classmagica__rogue_1_1_m_r_enemy_factory.html#a2a79f84ce1e872938b4432619310511a">   34</a></span>        <a class="code hl_class" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a>* <a class="code hl_variable" href="classmagica__rogue_1_1_m_r_enemy_factory.html#a2a79f84ce1e872938b4432619310511a">m_pMapdata</a>;              </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif</span><span class="comment">//__MagicaRogue_EnemyFactory__</span></div>
+<div class="ttc" id="a_enemy_interface_8h_html"><div class="ttname"><a href="_enemy_interface_8h.html">EnemyInterface.h</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_camera_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_camera.html">magica_rogue::MRCamera</a></div><div class="ttdoc">スクロール機能とカメラを扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_camera_8h_source.html#l00013">Camera.h:14</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html">magica_rogue::MREnemyFactory</a></div><div class="ttdoc">敵を実際に生成するクラス</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8h_source.html#l00019">EnemyFactory.h:20</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html_a041f957f74497bd948706dd4c28ed2ef"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html#a041f957f74497bd948706dd4c28ed2ef">magica_rogue::MREnemyFactory::Initialize</a></div><div class="ttdeci">void Initialize(MRCamera &amp;camera, MRMapData &amp;mapdata)</div><div class="ttdoc">初期化</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8cpp_source.html#l00027">EnemyFactory.cpp:27</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html_a2a79f84ce1e872938b4432619310511a"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html#a2a79f84ce1e872938b4432619310511a">magica_rogue::MREnemyFactory::m_pMapdata</a></div><div class="ttdeci">MRMapData * m_pMapdata</div><div class="ttdoc">マップデータ</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8h_source.html#l00034">EnemyFactory.h:34</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html_a9ce5541401b8cb055c09c3169f3312ea"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html#a9ce5541401b8cb055c09c3169f3312ea">magica_rogue::MREnemyFactory::m_pCamera</a></div><div class="ttdeci">MRCamera * m_pCamera</div><div class="ttdoc">カメラ</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8h_source.html#l00033">EnemyFactory.h:33</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html_ae7faeb5db2f2a2f31dc24f37d3e81b4c"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html#ae7faeb5db2f2a2f31dc24f37d3e81b4c">magica_rogue::MREnemyFactory::GetIns</a></div><div class="ttdeci">static MREnemyFactory &amp; GetIns()</div><div class="ttdoc">インスタンスの取得</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8cpp_source.html#l00015">EnemyFactory.cpp:15</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html_af3b00231da8e6e77501697c4cbccc9ca"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html#af3b00231da8e6e77501697c4cbccc9ca">magica_rogue::MREnemyFactory::Create</a></div><div class="ttdeci">MREnemyInterface * Create(std::string name, const float x, const float y, const constants::MRAttribute attribute)</div><div class="ttdoc">生成</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8cpp_source.html#l00041">EnemyFactory.cpp:41</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_factory_html_af794177e681e7b8c3485935f1a576fd7"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_factory.html#af794177e681e7b8c3485935f1a576fd7">magica_rogue::MREnemyFactory::MREnemyFactory</a></div><div class="ttdeci">MREnemyFactory()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition</b> <a href="_enemy_factory_8cpp_source.html#l00057">EnemyFactory.cpp:57</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_enemy_interface_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_enemy_interface.html">magica_rogue::MREnemyInterface</a></div><div class="ttdoc">敵キャラが必ず継承するインターフェース</div><div class="ttdef"><b>Definition</b> <a href="_enemy_interface_8h_source.html#l00019">EnemyInterface.h:20</a></div></div>
+<div class="ttc" id="aclassmagica__rogue_1_1_m_r_map_data_html"><div class="ttname"><a href="classmagica__rogue_1_1_m_r_map_data.html">magica_rogue::MRMapData</a></div><div class="ttdoc">マップデータを扱うクラス</div><div class="ttdef"><b>Definition</b> <a href="_map_data_8h_source.html#l00027">MapData.h:28</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_1_1constants_html_ac721d86b0e1424ded1d1c89a1d619667"><div class="ttname"><a href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">magica_rogue::constants::MRAttribute</a></div><div class="ttdeci">MRAttribute</div><div class="ttdoc">属性を表す定数</div><div class="ttdef"><b>Definition</b> <a href="_constants_8h_source.html#l00059">Constants.h:60</a></div></div>
+<div class="ttc" id="anamespacemagica__rogue_html"><div class="ttname"><a href="namespacemagica__rogue.html">magica_rogue</a></div><div class="ttdef"><b>Definition</b> <a href="_map_data_8cpp_source.html#l00014">MapData.cpp:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

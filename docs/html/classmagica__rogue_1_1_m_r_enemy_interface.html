@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RogueLike Magicians: magica_rogue::MREnemyInterface クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RogueLike Magicians<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">a game of magicians</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemagica__rogue.html">magica_rogue</a></li><li class="navelem"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html">MREnemyInterface</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="classmagica__rogue_1_1_m_r_enemy_interface-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">magica_rogue::MREnemyInterface クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>敵キャラが必ず継承するインターフェース  
+ <a href="classmagica__rogue_1_1_m_r_enemy_interface.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a>&gt;</code></p>
+<div class="dynheader">
+magica_rogue::MREnemyInterface の継承関係図</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classmagica__rogue_1_1_m_r_enemy_interface.png" usemap="#magica_5Frogue::MREnemyInterface_map" alt=""/>
+  <map id="magica_5Frogue::MREnemyInterface_map" name="magica_5Frogue::MREnemyInterface_map">
+<area href="classmagica__rogue_1_1_m_r_slime.html" title="敵「スライム」を表現するクラス" alt="magica_rogue::MRSlime" shape="rect" coords="0,56,205,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:a673f6d596065ee56e198d1ca3a712217" id="r_a673f6d596065ee56e198d1ca3a712217"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">MRAliveState</a> : char { <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb">ALIVE</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c">DEAD</a>
+, <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f">DISAPPEAR</a>
+ }</td></tr>
+<tr class="separator:a673f6d596065ee56e198d1ca3a712217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a7372a1eae202df781844b0b3728aa113" id="r_a7372a1eae202df781844b0b3728aa113"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7372a1eae202df781844b0b3728aa113">MREnemyInterface</a> (const float x, const float y, const float walkSpeed, const <a class="el" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a> attribute, <a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> *pCamera, <a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *pMapdata)</td></tr>
+<tr class="memdesc:a7372a1eae202df781844b0b3728aa113"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:a7372a1eae202df781844b0b3728aa113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad33628ef3fdb09996a5e78fe4cac61a" id="r_aad33628ef3fdb09996a5e78fe4cac61a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">MRAliveState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aad33628ef3fdb09996a5e78fe4cac61a">Update</a> ()=0</td></tr>
+<tr class="memdesc:aad33628ef3fdb09996a5e78fe4cac61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新  <br /></td></tr>
+<tr class="separator:aad33628ef3fdb09996a5e78fe4cac61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec148e578a4b587542fcf22db8dc319" id="r_aeec148e578a4b587542fcf22db8dc319"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aeec148e578a4b587542fcf22db8dc319">Render</a> () const =0</td></tr>
+<tr class="memdesc:aeec148e578a4b587542fcf22db8dc319"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画  <br /></td></tr>
+<tr class="separator:aeec148e578a4b587542fcf22db8dc319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d97114e4e0ed1266eda1eec330de88" id="r_a76d97114e4e0ed1266eda1eec330de88"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a76d97114e4e0ed1266eda1eec330de88">Dead</a> ()=0</td></tr>
+<tr class="memdesc:a76d97114e4e0ed1266eda1eec330de88"><td class="mdescLeft">&#160;</td><td class="mdescRight">死んだとき  <br /></td></tr>
+<tr class="separator:a76d97114e4e0ed1266eda1eec330de88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c73ec70fabed3b27920ca67f936acaa" id="r_a6c73ec70fabed3b27920ca67f936acaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a6c73ec70fabed3b27920ca67f936acaa">Disappear</a> ()=0</td></tr>
+<tr class="memdesc:a6c73ec70fabed3b27920ca67f936acaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">消えたとき  <br /></td></tr>
+<tr class="separator:a6c73ec70fabed3b27920ca67f936acaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8104ef675a4ab32ba3190d4272bbbf9a" id="r_a8104ef675a4ab32ba3190d4272bbbf9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a8104ef675a4ab32ba3190d4272bbbf9a">Walk</a> ()</td></tr>
+<tr class="memdesc:a8104ef675a4ab32ba3190d4272bbbf9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">歩行する  <br /></td></tr>
+<tr class="separator:a8104ef675a4ab32ba3190d4272bbbf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a6c7a0142da5edaa125f56d44b4055fa9" id="r_a6c7a0142da5edaa125f56d44b4055fa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a6c7a0142da5edaa125f56d44b4055fa9">m_pCamera</a></td></tr>
+<tr class="memdesc:a6c7a0142da5edaa125f56d44b4055fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ  <br /></td></tr>
+<tr class="separator:a6c7a0142da5edaa125f56d44b4055fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affce1566ae7152423914b8c864dbeac9" id="r_affce1566ae7152423914b8c864dbeac9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#affce1566ae7152423914b8c864dbeac9">m_pMapdata</a></td></tr>
+<tr class="memdesc:affce1566ae7152423914b8c864dbeac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップデータ(ルート検索用)  <br /></td></tr>
+<tr class="separator:affce1566ae7152423914b8c864dbeac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa73d3ea85a25179fa20f25cc5dbc2de4" id="r_aa73d3ea85a25179fa20f25cc5dbc2de4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aa73d3ea85a25179fa20f25cc5dbc2de4">m_size</a></td></tr>
+<tr class="memdesc:aa73d3ea85a25179fa20f25cc5dbc2de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">当たり判定のサイズ  <br /></td></tr>
+<tr class="separator:aa73d3ea85a25179fa20f25cc5dbc2de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13021f09685ace39c8da4ef913799e5d" id="r_a13021f09685ace39c8da4ef913799e5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">m_transform</a></td></tr>
+<tr class="memdesc:a13021f09685ace39c8da4ef913799e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置速度情報  <br /></td></tr>
+<tr class="separator:a13021f09685ace39c8da4ef913799e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b4362b3c43b7395adedbf81b77fa8f" id="r_aa2b4362b3c43b7395adedbf81b77fa8f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aa2b4362b3c43b7395adedbf81b77fa8f">m_walkSpeed</a></td></tr>
+<tr class="memdesc:aa2b4362b3c43b7395adedbf81b77fa8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">歩く速度  <br /></td></tr>
+<tr class="separator:aa2b4362b3c43b7395adedbf81b77fa8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aac59dd1114e3150e3e2bf0844751a0" id="r_a9aac59dd1114e3150e3e2bf0844751a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a9aac59dd1114e3150e3e2bf0844751a0">m_attribute</a></td></tr>
+<tr class="memdesc:a9aac59dd1114e3150e3e2bf0844751a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">属性  <br /></td></tr>
+<tr class="separator:a9aac59dd1114e3150e3e2bf0844751a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad572ba6a0e285e9ead85e19ceb41ec4f" id="r_ad572ba6a0e285e9ead85e19ceb41ec4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">MRAliveState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#ad572ba6a0e285e9ead85e19ceb41ec4f">m_state</a></td></tr>
+<tr class="memdesc:ad572ba6a0e285e9ead85e19ceb41ec4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">生存状況  <br /></td></tr>
+<tr class="separator:ad572ba6a0e285e9ead85e19ceb41ec4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c5e7a029ace5317f5ca7f9078d2104f" id="r_a7c5e7a029ace5317f5ca7f9078d2104f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a></td></tr>
+<tr class="memdesc:a7c5e7a029ace5317f5ca7f9078d2104f"><td class="mdescLeft">&#160;</td><td class="mdescRight">歩くルート  <br /></td></tr>
+<tr class="separator:a7c5e7a029ace5317f5ca7f9078d2104f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>敵キャラが必ず継承するインターフェース </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00019">19</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">列挙型メンバ詳解</h2>
+<a id="a673f6d596065ee56e198d1ca3a712217" name="a673f6d596065ee56e198d1ca3a712217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673f6d596065ee56e198d1ca3a712217">&#9670;&#160;</a></span>MRAliveState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">magica_rogue::MREnemyInterface::MRAliveState</a> : char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb" name="a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb"></a>ALIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c" name="a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c"></a>DEAD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f" name="a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f"></a>DISAPPEAR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00022">22</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a7372a1eae202df781844b0b3728aa113" name="a7372a1eae202df781844b0b3728aa113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7372a1eae202df781844b0b3728aa113">&#9670;&#160;</a></span>MREnemyInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">magica_rogue::MREnemyInterface::MREnemyInterface </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>walkSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a>&#160;</td>
+          <td class="paramname"><em>attribute</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> *&#160;</td>
+          <td class="paramname"><em>pCamera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *&#160;</td>
+          <td class="paramname"><em>pMapdata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00026">26</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a76d97114e4e0ed1266eda1eec330de88" name="a76d97114e4e0ed1266eda1eec330de88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d97114e4e0ed1266eda1eec330de88">&#9670;&#160;</a></span>Dead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void magica_rogue::MREnemyInterface::Dead </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>死んだとき </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_slime.html#a4db4b1fc2f02936daf7352d82861f0c1">magica_rogue::MRSlime</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a6c73ec70fabed3b27920ca67f936acaa" name="a6c73ec70fabed3b27920ca67f936acaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c73ec70fabed3b27920ca67f936acaa">&#9670;&#160;</a></span>Disappear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void magica_rogue::MREnemyInterface::Disappear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>消えたとき </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_slime.html#ad72974818f4b21d3b88c8dc420534bd8">magica_rogue::MRSlime</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="aeec148e578a4b587542fcf22db8dc319" name="aeec148e578a4b587542fcf22db8dc319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec148e578a4b587542fcf22db8dc319">&#9670;&#160;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void magica_rogue::MREnemyInterface::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画 </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_slime.html#a394d8fcac17f71067098802d5294bd50">magica_rogue::MRSlime</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="aad33628ef3fdb09996a5e78fe4cac61a" name="aad33628ef3fdb09996a5e78fe4cac61a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad33628ef3fdb09996a5e78fe4cac61a">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">MRAliveState</a> magica_rogue::MREnemyInterface::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>更新 </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_slime.html#aed4b6d22fe3a5d6de6d1d5e96c3bb264">magica_rogue::MRSlime</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a8104ef675a4ab32ba3190d4272bbbf9a" name="a8104ef675a4ab32ba3190d4272bbbf9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8104ef675a4ab32ba3190d4272bbbf9a">&#9670;&#160;</a></span>Walk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool magica_rogue::MREnemyInterface::Walk </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>歩行する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>次に進むルートがあればtrue, 無ければfalse </dd></dl>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8cpp_source.html">EnemyInterface.cpp</a> の <a class="el" href="_enemy_interface_8cpp_source.html#l00015">15</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a9aac59dd1114e3150e3e2bf0844751a0" name="a9aac59dd1114e3150e3e2bf0844751a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aac59dd1114e3150e3e2bf0844751a0">&#9670;&#160;</a></span>m_attribute</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a> magica_rogue::MREnemyInterface::m_attribute</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>属性 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6c7a0142da5edaa125f56d44b4055fa9" name="a6c7a0142da5edaa125f56d44b4055fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7a0142da5edaa125f56d44b4055fa9">&#9670;&#160;</a></span>m_pCamera</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a>* magica_rogue::MREnemyInterface::m_pCamera</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラ </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00041">41</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="affce1566ae7152423914b8c864dbeac9" name="affce1566ae7152423914b8c864dbeac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affce1566ae7152423914b8c864dbeac9">&#9670;&#160;</a></span>m_pMapdata</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a>* magica_rogue::MREnemyInterface::m_pMapdata</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>マップデータ(ルート検索用) </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00042">42</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7c5e7a029ace5317f5ca7f9078d2104f" name="a7c5e7a029ace5317f5ca7f9078d2104f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5e7a029ace5317f5ca7f9078d2104f">&#9670;&#160;</a></span>m_route</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a>&gt; magica_rogue::MREnemyInterface::m_route</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>歩くルート </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa73d3ea85a25179fa20f25cc5dbc2de4" name="aa73d3ea85a25179fa20f25cc5dbc2de4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa73d3ea85a25179fa20f25cc5dbc2de4">&#9670;&#160;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t magica_rogue::MREnemyInterface::m_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>当たり判定のサイズ </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00043">43</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad572ba6a0e285e9ead85e19ceb41ec4f" name="ad572ba6a0e285e9ead85e19ceb41ec4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad572ba6a0e285e9ead85e19ceb41ec4f">&#9670;&#160;</a></span>m_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">MRAliveState</a> magica_rogue::MREnemyInterface::m_state</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生存状況 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00047">47</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a13021f09685ace39c8da4ef913799e5d" name="a13021f09685ace39c8da4ef913799e5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13021f09685ace39c8da4ef913799e5d">&#9670;&#160;</a></span>m_transform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> magica_rogue::MREnemyInterface::m_transform</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>位置速度情報 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00044">44</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa2b4362b3c43b7395adedbf81b77fa8f" name="aa2b4362b3c43b7395adedbf81b77fa8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b4362b3c43b7395adedbf81b77fa8f">&#9670;&#160;</a></span>m_walkSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float magica_rogue::MREnemyInterface::m_walkSpeed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>歩く速度 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00045">45</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Mover/Enemy/<a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a></li>
+<li>Mover/Enemy/<a class="el" href="_enemy_interface_8cpp_source.html">EnemyInterface.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

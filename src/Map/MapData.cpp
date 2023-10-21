@@ -5,6 +5,7 @@
 #include "../Engine/Core.h"
 #include "../Util/Constants.h"
 #include "../Util/EventQueue.h"
+#include "../Mover/Enemy/EnemySpawner.h"
 #include <queue>
 #include <stack>
 #include <set>
@@ -17,7 +18,7 @@ namespace magica_rogue
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	MRMapData::MRMapData(): m_chipSize(32.0f), m_random(0)
+	MRMapData::MRMapData() : m_chipSize(32.0f), m_random(0)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 3, 1);
 		mugen_engine::MECore::GetIns().LoadDivGraph("minimap", L"media/graphic/mapchip/minimap.png", 4, 2);
@@ -35,7 +36,8 @@ namespace magica_rogue
 		@param[in]		staticList			静止オブジェクトの管理者
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::Construct(const int width, const int height, uint32_t seed, MRStaticObjectManager& staticList)
+	void MRMapData::Construct(const int width, const int height, uint32_t seed,
+		MRStaticObjectManager& staticList, MREnemyManager& enemyManager)
 	{
 		m_random.SetSeed(seed);
 
@@ -53,10 +55,12 @@ namespace magica_rogue
 		m_roomList.clear();
 		m_regionList.clear();
 		m_pathList.clear();
+		enemyManager.Reset();
 
 		_DivideRooms();
 		_ConvertGraphFromMap();
 		_SpawnTreasureBox(staticList);
+		_CreateEnemySpawner(enemyManager);
 	}
 
 	/**********************************************************************//**
@@ -90,8 +94,8 @@ namespace magica_rogue
 	{
 		const int chipW = 32;
 		const int chipH = 32;
-		const float priority[3] = 
-		{ constants::render_priority::MAP_FLOOR, constants::render_priority::MAP_WALL, constants::render_priority::MAP_WALL};
+		const float priority[3] =
+		{ constants::render_priority::MAP_FLOOR, constants::render_priority::MAP_WALL, constants::render_priority::MAP_WALL };
 		for (int y = 0; y < m_height; ++y)
 		{
 			for (int x = 0; x < m_width; ++x)
@@ -327,7 +331,7 @@ namespace magica_rogue
 
 			if (U || D || R || L)
 			{
-				if(chipID == 2) eventQueue.Push(MREventQueue::EVENT_ID::SELECT_GOTO_NEXT_FLOOR, 0);
+				if (chipID == 2) eventQueue.Push(MREventQueue::EVENT_ID::SELECT_GOTO_NEXT_FLOOR, 0);
 			}
 
 			};
@@ -343,6 +347,109 @@ namespace magica_rogue
 				hitToChip(x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f, m_mapData[y][x]);
 			}
 		}
+	}
+
+	/**********************************************************************//**
+		@brief			隣の部屋へのルートを検索する
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route)
+	{
+		route.clear();
+		static std::random_device device;
+		static MRRandom random = MRRandom(device());
+
+		int startX = static_cast<int>(transform.GetX() / m_chipSize);
+		int startY = static_cast<int>(transform.GetY() / m_chipSize);
+
+		int now_room = -1;
+		for (int i = 0; i < m_roomList.size(); ++i)
+		{
+			if (m_roomList[i].usedFor != 1) continue;
+			if (m_roomList[i].topX < startX && startX < m_roomList[i].bottomX &&
+				m_roomList[i].topY < startY && startY < m_roomList[i].bottomY)
+			{
+				now_room = i;
+				break;
+			}
+		}
+
+		// 次に進むべき部屋を検索する
+		std::vector<int> nextIdx(1, now_room);
+		do
+		{
+			std::sample(m_globalConnect[nextIdx[0]].begin(), m_globalConnect[nextIdx[0]].end(), nextIdx.begin(), 1, random.GetDevice());
+		} while (m_roomList[nextIdx[0]].usedFor != 1 || nextIdx[0] == now_room);
+
+		int goalX = m_random.GetRanged(m_roomList[nextIdx[0]].topX + 1, m_roomList[nextIdx[0]].bottomX - 2);
+		int goalY = m_random.GetRanged(m_roomList[nextIdx[0]].topY + 1, m_roomList[nextIdx[0]].bottomY - 2);
+
+		//次の部屋が確定したらそこへ向けてルートを幅優先で探る
+		constexpr int MAX_DISTANCE = 99999999;
+		std::vector<std::vector<int>> distanceList;
+		std::vector<std::vector<int>> connectList;
+		distanceList.resize(m_height);
+		for (int y = 0; y < m_height; ++y)
+		{
+			distanceList[y].resize(m_width);
+			for (auto& d : distanceList[y]) d = MAX_DISTANCE;
+		}
+		connectList.resize(m_height);
+		for (int y = 0; y < m_height; ++y)
+		{
+			connectList[y].resize(m_width);
+			for (auto& c : connectList[y]) c = -1;
+		}
+		std::queue<int> st;
+		std::queue<int> cost;
+		st.push(startY * m_width + startX);
+		distanceList[startY][startX] = 0;
+		cost.push(0);
+
+		int diffX[4] = { 0, 0, 1, -1 };
+		int diffY[4] = { 1, -1, 0, 0 };
+		while (!st.empty())
+		{
+			int cur = st.front();
+			st.pop();
+			int x = cur % m_width;
+			int y = cur / m_width;
+			int prev_cost = cost.front();
+			cost.pop();
+			if (x == goalX && y == goalY) break;
+			std::vector<std::pair<int, int>> cost_pair;
+			for (int i = 0; i < 4; ++i)
+			{
+				int nx = x + diffX[i];
+				int ny = y + diffY[i];
+				if (nx < 0 || nx >= m_width || ny < 0 || ny >= m_height) continue;
+				if (m_mapData[ny][nx] != 0) continue;
+				if (distanceList[ny][nx] <= std::abs(ny - goalY) + std::abs(nx - goalX) + prev_cost) continue;
+				distanceList[ny][nx] = std::abs(ny - goalY) + std::abs(nx - goalX) + prev_cost;
+				cost_pair.push_back({ distanceList[ny][nx], ny * m_width + nx });
+				connectList[ny][nx] = cur;
+			}
+			if (cost_pair.empty()) continue;
+			std::sort(cost_pair.begin(), cost_pair.end(), 
+				[](std::pair<int, int>& lhs, std::pair<int, int>& rhs) {
+					return lhs.first > rhs.first;
+				});
+			for (auto& c : cost_pair)
+			{
+				cost.push(c.first);
+				st.push(c.second);
+			}
+		}
+
+		for (int tx = goalX, ty = goalY; connectList[ty][tx] != -1; )
+		{
+			route.push_back(MRTransform(static_cast<float>(tx * 32.0f + 16.0f), static_cast<float>(ty * 32.0f + 16.0f), 0.0f, 0.0f));
+			int cur = connectList[ty][tx];
+			tx = cur % m_width;
+			ty = cur / m_width;
+		}
+		route;
 	}
 
 	/**********************************************************************//**
@@ -405,8 +512,8 @@ namespace magica_rogue
 				m_regionList.push_back(ROOM_NODE(m_width * x / xNum, m_height * y / yNum, m_width * (x + 1) / xNum, m_height * (y + 1) / yNum, 1));
 			}
 		}
-		// subetenosetuzokujoukyouwohozonn
-		std::vector<std::set<int>> globalConnect(xNum * yNum);
+		// 全ての接続状況
+		m_globalConnect.resize(xNum * yNum);
 		// 部屋の繋がり方を決める
 		std::vector<int> connect(xNum * yNum, -1);
 		{
@@ -425,32 +532,32 @@ namespace magica_rogue
 					reserve.push_back(cur - 1);
 
 					connect[cur - 1] = cur;
-					globalConnect[cur].insert(cur - 1);
-					globalConnect[cur - 1].insert(cur);
+					m_globalConnect[cur].insert(cur - 1);
+					m_globalConnect[cur - 1].insert(cur);
 				}
 				if (x + 1 < xNum && connect[cur + 1] == -1)
 				{
 					reserve.push_back(cur + 1);
 
 					connect[cur + 1] = cur;
-					globalConnect[cur].insert(cur + 1);
-					globalConnect[cur + 1].insert(cur);
+					m_globalConnect[cur].insert(cur + 1);
+					m_globalConnect[cur + 1].insert(cur);
 				}
 				if (y - 1 >= 0 && connect[cur - xNum] == -1)
 				{
 					reserve.push_back(cur - xNum);
 
 					connect[cur - xNum] = cur;
-					globalConnect[cur].insert(cur - xNum);
-					globalConnect[cur - xNum].insert(cur);
+					m_globalConnect[cur].insert(cur - xNum);
+					m_globalConnect[cur - xNum].insert(cur);
 				}
 				if (y + 1 < yNum && connect[cur + xNum] == -1)
 				{
 					reserve.push_back(cur + xNum);
 
 					connect[cur + xNum] = cur;
-					globalConnect[cur].insert(cur + xNum);
-					globalConnect[cur + xNum].insert(cur);
+					m_globalConnect[cur].insert(cur + xNum);
+					m_globalConnect[cur + xNum].insert(cur);
 				}
 				std::shuffle(reserve.begin(), reserve.end(), m_random.GetDevice());
 				for (auto& i : reserve)
@@ -729,8 +836,8 @@ namespace magica_rogue
 			}
 			else
 			{
-				globalConnect[connect[i]].insert(i);
-				globalConnect[i].insert(connect[i]);
+				m_globalConnect[connect[i]].insert(i);
+				m_globalConnect[i].insert(connect[i]);
 			}
 		}
 
@@ -739,14 +846,14 @@ namespace magica_rogue
 		// スタート地点とゴール地点を一番遠くになるように決める
 		std::vector<int> distance(yNum * xNum, 999999);
 		std::stack<int> st;
-		st.push(m_random.GetRanged(0, yNum* xNum - 1));
+		st.push(m_random.GetRanged(0, yNum * xNum - 1));
 		distance[st.top()] = 0;
 
 		while (!st.empty())
 		{
 			int cur = st.top();
 			st.pop();
-			for (auto& i : globalConnect[cur])
+			for (auto& i : m_globalConnect[cur])
 			{
 
 				if (distance[i] > distance[cur] + 1)
@@ -780,7 +887,7 @@ namespace magica_rogue
 		{
 			int cur = st.top();
 			st.pop();
-			for (auto& i : globalConnect[cur])
+			for (auto& i : m_globalConnect[cur])
 			{
 
 				if (distance[i] > distance[cur] + 1)
@@ -872,6 +979,22 @@ namespace magica_rogue
 				old_x.push_back(x);
 				old_y.push_back(y);
 			}
+		}
+	}
+
+	/**********************************************************************//**
+		@brief			敵のスポナーを設置する
+		@param			enemyManager				敵の管理者
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::_CreateEnemySpawner(MREnemyManager& enemyManager)
+	{
+		for (auto& r : m_roomList)
+		{
+			if (r.usedFor != 1) continue;
+			int x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
+			int y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
+			enemyManager.RegisterSpawner(MREnemySpawner((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize, 60 * 30));
 		}
 	}
 }

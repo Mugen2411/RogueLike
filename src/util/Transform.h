@@ -61,6 +61,9 @@ namespace magica_rogue
 		void SetVelocityY(float vy) {
 			m_vy = vy;
 		}
+		float GetDistance2(const MRTransform& rhs)const {
+			return (m_x - rhs.m_x) * (m_x - rhs.m_x) + (m_y - rhs.m_y) * (m_y - rhs.m_y);
+		}
 		//! ˆÊ’uî•ñ‚ğXV
 		void Update();
 

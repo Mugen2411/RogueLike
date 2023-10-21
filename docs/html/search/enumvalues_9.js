@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['none_0',['NONE',['../classmagica__rogue_1_1_m_r_event_queue.html#ae5b88c44c0fa1546aeea555bfb6a8ebcab50339a10e1de285ac99d4c3990b8693',1,'magica_rogue::MREventQueue']]],
-  ['normal_1',['NORMAL',['../classmagica__rogue_1_1_m_r_tresure_box.html#a8bf4ad32ad6c15beffc63776bbce3f65a1e23852820b9154316c7c06e2b7ba051',1,'magica_rogue::MRTresureBox']]]
+  ['left_0',['LEFT',['../classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a684d325a7303f52e64011467ff5c5758',1,'magica_rogue::MRInputManager']]],
+  ['ltrigger_1',['LTrigger',['../classmugen__engine_1_1_m_e_key_input_manager.html#a66d05c62f4df68d6bdf57019524480dfac3b28f14adda15541f23ae21582f5e71',1,'mugen_engine::MEKeyInputManager']]]
 ];

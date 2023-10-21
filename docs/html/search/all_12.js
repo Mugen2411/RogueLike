@@ -10,12 +10,13 @@ var searchData=
   ['thumbrl_7',['ThumbRL',['../classmugen__engine_1_1_m_e_key_input_manager.html#a66d05c62f4df68d6bdf57019524480dfa1fe420f065f780cc9d448581bbf3ceb0',1,'mugen_engine::MEKeyInputManager']]],
   ['thumbrr_8',['ThumbRR',['../classmugen__engine_1_1_m_e_key_input_manager.html#a66d05c62f4df68d6bdf57019524480dfaa304561789e126b258e4ed772378fe81',1,'mugen_engine::MEKeyInputManager']]],
   ['thumbru_9',['ThumbRU',['../classmugen__engine_1_1_m_e_key_input_manager.html#a66d05c62f4df68d6bdf57019524480dfa1bafafcc4c3474e573bd4b942b5f1164',1,'mugen_engine::MEKeyInputManager']]],
-  ['topx_10',['topX',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#ab5940e0e6ca779b29831e591cfbf66a1',1,'magica_rogue::MRMapData::ROOM_NODE']]],
-  ['topy_11',['topY',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#a2a5e9d81f8e9b643bdf36738df93ff2c',1,'magica_rogue::MRMapData::ROOM_NODE']]],
-  ['transform_2ecpp_12',['Transform.cpp',['../_transform_8cpp.html',1,'']]],
-  ['transform_2eh_13',['Transform.h',['../_transform_8h.html',1,'']]],
-  ['treasure_5fbox_14',['TREASURE_BOX',['../namespacemagica__rogue_1_1constants_1_1render__priority.html#a6c33540b3d97c5da7bfd6359b924ee6c',1,'magica_rogue::constants::render_priority']]],
-  ['treasurebox_2ecpp_15',['TreasureBox.cpp',['../_treasure_box_8cpp.html',1,'']]],
-  ['treasurebox_2eh_16',['TreasureBox.h',['../_treasure_box_8h.html',1,'']]],
-  ['typegamepadkey_17',['typeGamepadKey',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a197720efe0a07b174a53fc9ee259e340',1,'mugen_engine::MEKeyInputManager::KeyInf']]]
+  ['thunder_10',['THUNDER',['../namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667a4dea2619c18c245292efbc2bac1fa87f',1,'magica_rogue::constants']]],
+  ['topx_11',['topX',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#ab5940e0e6ca779b29831e591cfbf66a1',1,'magica_rogue::MRMapData::ROOM_NODE']]],
+  ['topy_12',['topY',['../structmagica__rogue_1_1_m_r_map_data_1_1_r_o_o_m___n_o_d_e.html#a2a5e9d81f8e9b643bdf36738df93ff2c',1,'magica_rogue::MRMapData::ROOM_NODE']]],
+  ['transform_2ecpp_13',['Transform.cpp',['../_transform_8cpp.html',1,'']]],
+  ['transform_2eh_14',['Transform.h',['../_transform_8h.html',1,'']]],
+  ['treasure_5fbox_15',['TREASURE_BOX',['../namespacemagica__rogue_1_1constants_1_1render__priority.html#a6c33540b3d97c5da7bfd6359b924ee6c',1,'magica_rogue::constants::render_priority']]],
+  ['treasurebox_2ecpp_16',['TreasureBox.cpp',['../_treasure_box_8cpp.html',1,'']]],
+  ['treasurebox_2eh_17',['TreasureBox.h',['../_treasure_box_8h.html',1,'']]],
+  ['typegamepadkey_18',['typeGamepadKey',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a197720efe0a07b174a53fc9ee259e340',1,'mugen_engine::MEKeyInputManager::KeyInf']]]
 ];

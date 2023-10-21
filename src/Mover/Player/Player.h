@@ -10,6 +10,7 @@
 #include "../../Engine/Graphic/GraphicFontData.h"
 #include "../HitPoint.h"
 #include "../../Util/StateMachine.h"
+#include "../../Util/Animator.h"
 
 namespace magica_rogue
 {
@@ -64,8 +65,9 @@ namespace magica_rogue
 		float m_size;										//!< プレイヤーの当たり判定サイズ
 		float m_speed;										//!< 自機の移動速度
 		bool m_isLeft;										//!< 自機が左を向いているか
-		float m_currentAnimation;							//!< 現在表示している画像
 		int m_frameCount;									//!< ステートを変更せずに経過したフレーム
+		MRAnimator m_animator;								//!< アニメーター
+
 
 		MRHitPoint m_hp;									//!< HP
 	};

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mami_0',['MAMI',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cac6d9dfd58d0bafee1a1c764c0ee6f51e',1,'magica_rogue::MRPlayer']]],
-  ['menu_1',['MENU',['../classmagica__rogue_1_1_m_r_input_manager.html#a7cead4209d8646705f2418cc7766c0c7a3ed53fbeb1eab0443561b68ca0c0b5cf',1,'magica_rogue::MRInputManager']]],
-  ['misato_2',['MISATO',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cabc045932a08cc23c2c09118110597f90',1,'magica_rogue::MRPlayer']]]
+  ['knockbacked_0',['KNOCKBACKED',['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31aea766c3680bc81d3018cc1648baa8b1367',1,'magica_rogue::MRPlayer']]],
+  ['komuk_1',['KOMUK',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca1a5b99b65a3fd65a84b5ce1460068409',1,'magica_rogue::MRPlayer']]]
 ];

@@ -3,6 +3,7 @@
 
 #include "SceneMain.h"
 #include "../Menu/MenuNextFloor.h"
+#include "../Mover/Enemy/EnemyFactory.h"
 
 namespace magica_rogue
 {
@@ -15,6 +16,7 @@ namespace magica_rogue
 		m_camera(0,0), m_mapData(), 
 		m_player(MRPlayer::PLAYER_ID::KOMUK, m_mapData.GetStartX(), m_mapData.GetStartY(), m_camera)
 	{
+		MREnemyFactory::GetIns().Initialize(m_camera, m_mapData);
 		_GenerateMap();
 	}
 
@@ -45,6 +47,7 @@ namespace magica_rogue
 		}
 		if (MRMenuManager::Update()) return;
 
+		m_enemyManager.Update();
 		m_player.Update();
 		m_mapData.HitWithWall(m_player.GetTransform(), m_player.GetSize(), m_eventQueue);
 		m_mapData.Update(m_player.GetTransform());
@@ -63,6 +66,7 @@ namespace magica_rogue
 		m_mapData.RenderMiniMap(m_player.GetTransform(), m_staticObjectManager);
 		m_staticObjectManager.Render(m_camera);
 		m_player.Render();
+		m_enemyManager.Render();
 		MRMenuManager::Render();
 	}
 
@@ -74,7 +78,7 @@ namespace magica_rogue
 	void MRSceneMain::_GenerateMap()
 	{
 		m_staticObjectManager.Reset();
-		m_mapData.Construct(min(64+(m_floor/ 2), 256), min(64 + (m_floor / 2), 256), m_floor, m_staticObjectManager);
+		m_mapData.Construct(min(64+(m_floor/ 2), 256), min(64 + (m_floor / 2), 256), m_floor, m_staticObjectManager, m_enemyManager);
 		m_player.GetTransform().SetPosition(m_mapData.GetStartX(), m_mapData.GetStartY());
 	}
 }

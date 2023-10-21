@@ -16,7 +16,8 @@ namespace magica_rogue
 		@return			Ç»Çµ
 	*//***********************************************************************/
 	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera) :
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(16.0f), m_hp(10.0f), MRStateMachine(this)
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f), m_hp(10.0f),
+		MRStateMachine(this), m_animator(0.1f, 4.0f)
 	{
 		switch (id)
 		{
@@ -67,10 +68,8 @@ namespace magica_rogue
 		mugen_engine::MECore::GetIns().LoadFont("guageNumber", L"ÇlÇr ÉSÉVÉbÉN", 16);
 		m_guageFont = &mugen_engine::MECore::GetIns().GetFont("guageNumber");
 
-		UpdateRegister(static_cast<int>(STATE::STAND), &MRPlayer::UpdateOnStand);
-		RenderRegister(static_cast<int>(STATE::STAND), &MRPlayer::RenderOnStand);
-		UpdateRegister(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::UpdateOnKnockbacked);
-		RenderRegister(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::RenderOnKnockbacked);
+		Register(static_cast<int>(STATE::STAND), &MRPlayer::UpdateOnStand, &MRPlayer::RenderOnStand);
+		Register(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::UpdateOnKnockbacked, &MRPlayer::RenderOnKnockbacked);
 		ChangeState(static_cast<int>(STATE::STAND));
 	}
 
@@ -168,14 +167,13 @@ namespace magica_rogue
 		if (numPushedButton == 0)
 		{
 			m_transform.SetVelocity(0.0f, 0.0f);
-			m_currentAnimation = 0.0f;
+			m_animator.Reset();
 		}
 		else
 		{
 			m_transform.SetVelocity(vx / std::sqrtf(static_cast<float>(numPushedButton)),
 				vy / std::sqrtf(static_cast<float>(numPushedButton)));
-			m_currentAnimation += 0.1f;
-			if (m_currentAnimation > 4.0f) m_currentAnimation -= 4.0f;
+			m_animator.Update();
 		}
 		if (input.GetPushedFrame(MRInputManager::MRKeyCode::MENU) == 1)
 		{
@@ -196,7 +194,7 @@ namespace magica_rogue
 	{
 		m_playerImg->DrawRotaGraph2X(m_camera.GetAnchoredX(static_cast<int>(m_transform.GetX())),
 			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER,
-			static_cast<int>(m_currentAnimation) + m_isLeft * 8);
+			static_cast<int>(m_animator.Get()) + m_isLeft * 8);
 	}
 
 	/**********************************************************************//**
@@ -208,11 +206,11 @@ namespace magica_rogue
 	{
 		if (m_transform.GetVelocityX() > 0.1f)
 		{
-			m_isLeft = false;
+			m_isLeft = true;
 		}
 		else if (m_transform.GetVelocityX() < -0.1f)
 		{
-			m_isLeft = true;
+			m_isLeft = false;
 		}
 
 		if (m_frameCount > 10)

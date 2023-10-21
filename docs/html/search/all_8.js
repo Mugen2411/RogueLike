@@ -5,5 +5,6 @@ var searchData=
   ['height_2',['height',['../namespacemagica__rogue_1_1constants_1_1screen.html#ae6d99be81dc24f10b490e1344d669365',1,'magica_rogue::constants::screen']]],
   ['hitpoint_2ecpp_3',['HitPoint.cpp',['../_hit_point_8cpp.html',1,'']]],
   ['hitpoint_2eh_4',['HitPoint.h',['../_hit_point_8h.html',1,'']]],
-  ['hitwithwall_5',['HitWithWall',['../classmagica__rogue_1_1_m_r_map_data.html#a6ff861f7807afd8b32aa78d4c91a0424',1,'magica_rogue::MRMapData']]]
+  ['hitwithwall_5',['HitWithWall',['../classmagica__rogue_1_1_m_r_map_data.html#a6ff861f7807afd8b32aa78d4c91a0424',1,'magica_rogue::MRMapData']]],
+  ['holy_6',['HOLY',['../namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667ab710a3de1962f99c74c959ba097ec8cd',1,'magica_rogue::constants']]]
 ];

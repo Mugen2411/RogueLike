@@ -13,6 +13,7 @@
 #include "../Util/Camera.h"
 #include "../Util/EventQueue.h"
 #include "../Menu/MenuManager.h"
+#include "../Mover/Enemy/EnemyManager.h"
 
 namespace magica_rogue
 {
@@ -40,6 +41,7 @@ namespace magica_rogue
 		MRStaticObjectManager m_staticObjectManager;			//!< 静止オブジェクトの管理者
 		MRMapData m_mapData;									//!< マップ
 		MRPlayer m_player;										//!< プレイヤー
+		MREnemyManager m_enemyManager;							//!< 敵の管理者
 	};
 }
 
