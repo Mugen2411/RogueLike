@@ -18,9 +18,12 @@ namespace magica_rogue
 	{
 	public:
 		//! コンストラクタ
-		MRSlime(const float x, const float y, const constants::MRAttribute attribute, MRCamera *pCamera, MRMapData* pMapdata);
+		MRSlime(const float x, const float y, const constants::MRAttribute attribute,
+			MRCamera *pCamera, MRMapData* pMapdata, const uint32_t seed);
 		//! 更新
 		MRAliveState Update();
+		//! 移動
+		void Move();
 		//! 描画
 		void Render() const;
 		//! 死んだとき

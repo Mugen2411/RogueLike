@@ -17,10 +17,12 @@ struct \mbox{\hyperlink{structmagica__rogue_1_1_m_r_enemy_spawner_1_1_enemy_data
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a7ed96d96fb6a2445b88aaef6c052e879}{MREnemy\+Spawner}} (const float x, const float y, const int cycle)
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a0c6b2019e020891a13c7f29e344fde6c}{MREnemy\+Spawner}} (const int topX, const int topY, const int bottomX, const int bottomY, const int cycle, uint32\+\_\+t seed)
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a6170e9b5c2ad9ac754b9d31a5c459ef2}{Update}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager}{MREnemy\+Manager}} \&enemy\+Manager)
-\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_aa4f2ce5683cd7c200094254fce945a67}{Push}} (std\+::string name, \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} attribute, int count)
+\begin{DoxyCompactList}\small\item\em 敵データを追加する \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,25 +32,31 @@ int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a3a7690a895fcf4ab0
 \begin{DoxyCompactList}\small\item\em 敵を召喚する周期 \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a653b123a87b889164d33587e62c2519c}{m\+\_\+cnt}}
 \begin{DoxyCompactList}\small\item\em 経過時間(フレーム) \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_aa98670f7c294010cbf4d74df8b7afe48}{m\+\_\+x}}
-\begin{DoxyCompactList}\small\item\em X座標 \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0c56c626977ada5e44}{m\+\_\+y}}
-\begin{DoxyCompactList}\small\item\em Y座標 \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a70ee35e90172cc1f8a469b5bc56bd682}{m\+\_\+topX}}
+\begin{DoxyCompactList}\small\item\em 左上の\+X座標 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a40b7b03fcd7e024ce438aa17ef80907b}{m\+\_\+topY}}
+\begin{DoxyCompactList}\small\item\em 左上の\+Y座標 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_adc63b970430fd9e903b8e94367626899}{m\+\_\+bottomX}}
+\begin{DoxyCompactList}\small\item\em 右下の\+X座標 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a5357a888d73dbf27a503bf27df9cc849}{m\+\_\+bottomY}}
+\begin{DoxyCompactList}\small\item\em 右下の\+Y座標 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random}{MRRandom}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a131157f3a04a24e2806e38709741f76a}{m\+\_\+random}}
+\begin{DoxyCompactList}\small\item\em 乱数生成器 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 敵のスポナークラス 
 
- \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00018}{18}} 行目に定義があります。
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00019}{19}} 行目に定義があります。
 
 
 
 \doxysubsection{構築子と解体子}
-\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a7ed96d96fb6a2445b88aaef6c052e879}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a7ed96d96fb6a2445b88aaef6c052e879} 
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a0c6b2019e020891a13c7f29e344fde6c}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a0c6b2019e020891a13c7f29e344fde6c} 
 \index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!MREnemySpawner@{MREnemySpawner}}
 \index{MREnemySpawner@{MREnemySpawner}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
 \doxysubsubsection{\texorpdfstring{MREnemySpawner()}{MREnemySpawner()}}
-{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::\+MREnemy\+Spawner (\begin{DoxyParamCaption}\item[{const float}]{x,  }\item[{const float}]{y,  }\item[{const int}]{cycle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::\+MREnemy\+Spawner (\begin{DoxyParamCaption}\item[{const int}]{topX,  }\item[{const int}]{topY,  }\item[{const int}]{bottomX,  }\item[{const int}]{bottomY,  }\item[{const int}]{cycle,  }\item[{uint32\+\_\+t}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -56,11 +64,25 @@ float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0
 
 
 
- \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00022}{22}} 行目に定義があります。
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00023}{23}} 行目に定義があります。
 
 
 
 \doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_aa4f2ce5683cd7c200094254fce945a67}\label{classmagica__rogue_1_1_m_r_enemy_spawner_aa4f2ce5683cd7c200094254fce945a67} 
+\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!Push@{Push}}
+\index{Push@{Push}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::\+Push (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}}}]{attribute,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+敵データを追加する 
+
+
+
+ \mbox{\hyperlink{_enemy_spawner_8cpp_source}{Enemy\+Spawner.\+cpp}} の \mbox{\hyperlink{_enemy_spawner_8cpp_source_l00035}{35}} 行目に定義があります。
+
 \Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a6170e9b5c2ad9ac754b9d31a5c459ef2}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a6170e9b5c2ad9ac754b9d31a5c459ef2} 
 \index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!Update@{Update}}
 \index{Update@{Update}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
@@ -86,6 +108,34 @@ float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0
 
 
 \doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_adc63b970430fd9e903b8e94367626899}\label{classmagica__rogue_1_1_m_r_enemy_spawner_adc63b970430fd9e903b8e94367626899} 
+\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_bottomX@{m\_bottomX}}
+\index{m\_bottomX@{m\_bottomX}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
+\doxysubsubsection{\texorpdfstring{m\_bottomX}{m\_bottomX}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+bottomX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+右下の\+X座標 
+
+
+
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00049}{49}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a5357a888d73dbf27a503bf27df9cc849}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a5357a888d73dbf27a503bf27df9cc849} 
+\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_bottomY@{m\_bottomY}}
+\index{m\_bottomY@{m\_bottomY}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
+\doxysubsubsection{\texorpdfstring{m\_bottomY}{m\_bottomY}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+bottomY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+右下の\+Y座標 
+
+
+
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00050}{50}} 行目に定義があります。
+
 \Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a653b123a87b889164d33587e62c2519c}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a653b123a87b889164d33587e62c2519c} 
 \index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_cnt@{m\_cnt}}
 \index{m\_cnt@{m\_cnt}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
@@ -98,7 +148,7 @@ float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0
 
 
 
- \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00043}{43}} 行目に定義があります。
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00046}{46}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a3a7690a895fcf4ab070d696d4caea9eb}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a3a7690a895fcf4ab070d696d4caea9eb} 
 \index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_cycle@{m\_cycle}}
@@ -112,7 +162,7 @@ float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0
 
 
 
- \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00042}{42}} 行目に定義があります。
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00045}{45}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a5044b06c316bc39fe9c0552bf82d6db8}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a5044b06c316bc39fe9c0552bf82d6db8} 
 \index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_enemyDataList@{m\_enemyDataList}}
@@ -126,35 +176,49 @@ float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0
 
 
 
- \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00041}{41}} 行目に定義があります。
-
-\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_aa98670f7c294010cbf4d74df8b7afe48}\label{classmagica__rogue_1_1_m_r_enemy_spawner_aa98670f7c294010cbf4d74df8b7afe48} 
-\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_x@{m\_x}}
-\index{m\_x@{m\_x}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
-\doxysubsubsection{\texorpdfstring{m\_x}{m\_x}}
-{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-X座標 
-
-
-
  \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00044}{44}} 行目に定義があります。
 
-\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0c56c626977ada5e44}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0c56c626977ada5e44} 
-\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_y@{m\_y}}
-\index{m\_y@{m\_y}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
-\doxysubsubsection{\texorpdfstring{m\_y}{m\_y}}
-{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a131157f3a04a24e2806e38709741f76a}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a131157f3a04a24e2806e38709741f76a} 
+\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_random@{m\_random}}
+\index{m\_random@{m\_random}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
+\doxysubsubsection{\texorpdfstring{m\_random}{m\_random}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_random}{MRRandom}} magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+random\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Y座標 
+乱数生成器 
 
 
 
- \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00045}{45}} 行目に定義があります。
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00051}{51}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a70ee35e90172cc1f8a469b5bc56bd682}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a70ee35e90172cc1f8a469b5bc56bd682} 
+\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_topX@{m\_topX}}
+\index{m\_topX@{m\_topX}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
+\doxysubsubsection{\texorpdfstring{m\_topX}{m\_topX}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+topX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+左上の\+X座標 
+
+
+
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00047}{47}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_enemy_spawner_a40b7b03fcd7e024ce438aa17ef80907b}\label{classmagica__rogue_1_1_m_r_enemy_spawner_a40b7b03fcd7e024ce438aa17ef80907b} 
+\index{magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}!m\_topY@{m\_topY}}
+\index{m\_topY@{m\_topY}!magica\_rogue::MREnemySpawner@{magica\_rogue::MREnemySpawner}}
+\doxysubsubsection{\texorpdfstring{m\_topY}{m\_topY}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MREnemy\+Spawner\+::m\+\_\+topY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+左上の\+Y座標 
+
+
+
+ \mbox{\hyperlink{_enemy_spawner_8h_source}{Enemy\+Spawner.\+h}} の \mbox{\hyperlink{_enemy_spawner_8h_source_l00048}{48}} 行目に定義があります。
 
 
 

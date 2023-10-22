@@ -30,7 +30,7 @@ namespace magica_rogue
 		@param[in]		maximum				Å‘å’l
 		@return			‚È‚µ
 	*//***********************************************************************/
-	uint32_t MRRandom::GetRanged(uint32_t minimum, uint32_t maximum)
+	int MRRandom::GetRanged(int minimum, int maximum)
 	{
 		assert(minimum <= maximum);
 		uint32_t range = maximum - minimum + 1;

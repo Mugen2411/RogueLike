@@ -32,6 +32,7 @@ namespace magica_rogue
 
 		MRCamera* m_pCamera;				//!< カメラ
 		MRMapData* m_pMapdata;				//!< マップデータ
+		MRRandom m_random;					//!< 乱数生成器
 	};
 }
 

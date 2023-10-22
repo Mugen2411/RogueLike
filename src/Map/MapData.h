@@ -45,8 +45,10 @@ namespace magica_rogue
 		float GetStartY() const {
 			return m_startY * 32.0f + 16.0f;
 		}
-		//! 壁と物体の衝突を処理する
-		void HitWithWall(MRTransform& transform, const float size, MREventQueue& eventQueue);
+		//! 壁とプレイヤーの衝突を処理する
+		void HitWallWithPlayer(MRTransform& transform, const float size, MREventQueue& eventQueue);
+		//! 壁と敵の衝突を処理する
+		void HitWallWithEnemy(MRTransform& transform, const float size);
 		//! 隣の部屋へのルートを取得する
 		void GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route);
 	private:
@@ -93,6 +95,8 @@ namespace magica_rogue
 		void _SpawnTreasureBox(MRStaticObjectManager& staticList);
 		//! 敵のスポナーを設置する
 		void _CreateEnemySpawner(MREnemyManager& enemyManager);
+		//! 壁と位置速度情報の当たり判定
+		int _HitWall(MRTransform &transform, const float size, float chipX, float chipY, int chipID);
 
 		int m_width;									//!< マップの横幅
 		int m_height;									//!< マップの高さ

@@ -25,9 +25,15 @@ namespace magica_rogue
 		{
 			for (int i = 0; i < e.count; ++i)
 			{
-				enemyManager.Register(std::unique_ptr<MREnemyInterface>(MREnemyFactory::GetIns().Create(e.name, m_x, m_y, e.attribute)));
+				float x = m_random.GetRanged(m_topX, m_bottomX) * 32.0f + 16.0f;
+				float y = m_random.GetRanged(m_topY, m_bottomY) * 32.0f + 16.0f;
+				enemyManager.Register(std::unique_ptr<MREnemyInterface>(MREnemyFactory::GetIns().Create(e.name, x, y, e.attribute)));
 			}
 		}
 		++m_cnt;
+	}
+	void MREnemySpawner::Push(std::string name, constants::MRAttribute attribute, int count)
+	{
+		m_enemyDataList.push_back(EnemyData{ name, attribute, count });
 	}
 }

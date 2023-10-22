@@ -24,11 +24,17 @@
 \DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ e.count;\ ++i)}
 \DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemyManager.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{Register}}(std::unique\_ptr<MREnemyInterface>(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_ae7faeb5db2f2a2f31dc24f37d3e81b4c}{MREnemyFactory::GetIns}}().Create(e.name,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_aa98670f7c294010cbf4d74df8b7afe48}{m\_x}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a56ebfe743582ab0c56c626977ada5e44}{m\_y}},\ e.attribute)));}
-\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a653b123a87b889164d33587e62c2519c}{m\_cnt}};}
-\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00032}00032\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a131157f3a04a24e2806e38709741f76a}{m\_random}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_acf089526c5debf32b66bc1c0a168a865}{GetRanged}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a70ee35e90172cc1f8a469b5bc56bd682}{m\_topX}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_adc63b970430fd9e903b8e94367626899}{m\_bottomX}})\ *\ 32.0f\ +\ 16.0f;}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a131157f3a04a24e2806e38709741f76a}{m\_random}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_acf089526c5debf32b66bc1c0a168a865}{GetRanged}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a40b7b03fcd7e024ce438aa17ef80907b}{m\_topY}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a5357a888d73dbf27a503bf27df9cc849}{m\_bottomY}})\ *\ 32.0f\ +\ 16.0f;}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemyManager.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{Register}}(std::unique\_ptr<MREnemyInterface>(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_ae7faeb5db2f2a2f31dc24f37d3e81b4c}{MREnemyFactory::GetIns}}().Create(e.name,\ x,\ y,\ e.attribute)));}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a653b123a87b889164d33587e62c2519c}{m\_cnt}};}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00035}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_aa4f2ce5683cd7c200094254fce945a67}{00035}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_aa4f2ce5683cd7c200094254fce945a67}{MREnemySpawner::Push}}(std::string\ name,\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants::MRAttribute}}\ attribute,\ \textcolor{keywordtype}{int}\ count)}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner_a5044b06c316bc39fe9c0552bf82d6db8}{m\_enemyDataList}}.push\_back(\mbox{\hyperlink{structmagica__rogue_1_1_m_r_enemy_spawner_1_1_enemy_data}{EnemyData}}\{\ name,\ attribute,\ count\ \});}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_spawner_8cpp_source_l00039}00039\ \}}
 
 \end{DoxyCode}

@@ -191,151 +191,14 @@ namespace magica_rogue
 	}
 
 	/**********************************************************************//**
-		@brief			壁と物体の衝突を処理する
-		@param[in]		transform			物体の位置速度情報
-		@param[in]		size				物体の一辺の長さ
+		@brief			壁とプレイヤーの衝突を処理する
+		@param[in]		transform			プレイヤーの位置速度情報
+		@param[in]		size				プレイヤーの一辺の長さ
+		@param			eventQueue			イベントキュー
 		@return			なし
 	*//***********************************************************************/
-	void MRMapData::HitWithWall(MRTransform& transform, const float size, MREventQueue& eventQueue)
+	void MRMapData::HitWallWithPlayer(MRTransform& transform, const float size, MREventQueue& eventQueue)
 	{
-		auto hitToChip = [&](float chipX, float chipY, int chipID) {
-			auto setU = [&]() {
-				transform.SetY(chipY + m_chipSize / 2 + size + 2);
-				transform.SetVelocityY(0.0f);
-				};
-			auto setD = [&]() {
-				transform.SetY(chipY - m_chipSize / 2 - size - 2);
-				transform.SetVelocityY(0.0f);
-				};
-			auto setR = [&]() {
-				transform.SetX(chipX - m_chipSize / 2 - size - 2);
-				transform.SetVelocityX(0.0f);
-				};
-			auto setL = [&]() {
-				transform.SetX(chipX + m_chipSize / 2 + size + 2);
-				transform.SetVelocityX(0.0f);
-				};
-
-			float nowX = transform.GetX();
-			float nowY = transform.GetY();
-			float nextX = transform.GetNextX();
-			float nextY = transform.GetNextY();
-
-			double max = (nowX + size) - (chipX - m_chipSize / 2),
-				may = (nowY + size) - (chipY - m_chipSize / 2);
-			double nax = (chipX + m_chipSize / 2) - (nowX - size),
-				nay = (chipY + m_chipSize / 2) - (nowY - size);
-			double _max = (nextX + size) - (chipX - m_chipSize / 2),
-				_may = (nextY + size) - (chipY - m_chipSize / 2);
-			double _nax = (chipX + m_chipSize / 2) - (nextX - size),
-				_nay = (chipY + m_chipSize / 2) - (nextY - size);
-			bool U = false, D = false, R = false, L = false;
-
-			//カド同士の判定
-			if (0 >= max && 0 >= may && _max > 0 && _may > 0)
-			{
-				if (_max >= _may)
-				{
-					//下にある
-					D = true;
-					setD();
-				}
-				else
-				{
-					//右にある
-					R = true;
-					setR();
-				}
-			}
-			if (0 >= nax && 0 >= may && _nax > 0 && _may > 0)
-			{
-				if (_nax >= _may)
-				{
-					//下にある
-					D = true;
-					setD();
-				}
-				else
-				{
-					//左にある
-					L = true;
-					setL();
-				}
-			}
-			if (0 >= max && 0 >= nay && _max > 0 && _nay > 0)
-			{
-				if (_max >= _nay)
-				{
-					//上にある
-					U = true;
-					setU();
-				}
-				else
-				{
-					//右にある
-					R = true;
-					setR();
-				}
-			}
-			if (0 >= nax && 0 >= nay && _nax > 0 && _nay > 0)
-			{
-				if (_nax >= _nay)
-				{
-					//上にある
-					U = true;
-					setU();
-				}
-				else
-				{
-					//左にある
-					L = true;
-					setL();
-				}
-			}
-
-			//上下左右の判定
-			if (may > 0 && nay > 0)
-			{
-				if (_nax > 0 &&
-					(nowX - size) > (chipX - m_chipSize / 2))
-				{
-					//左にある
-					L = true;
-					setL();
-				}
-				if (_max > 0 &&
-					(chipX + m_chipSize / 2) > (nowX + size))
-				{
-					//右にある
-					R = true;
-					setR();
-				}
-			}
-			if (max > 0 && nax > 0)
-			{
-				if (_nay > 0 &&
-					(nowY - size) > (chipY - m_chipSize / 2))
-				{
-					//上にある
-					U = true;
-					setU();
-				}
-				if (_may > 0 &&
-					(chipY + m_chipSize / 2) > (nowY + size))
-				{
-					//下にある
-					D = true;
-					setD();
-				}
-			}
-
-			if (U || D || R || L)
-			{
-				if (chipID == 2) eventQueue.Push(MREventQueue::EVENT_ID::SELECT_GOTO_NEXT_FLOOR, 0);
-			}
-
-			};
-
 		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
 		int currentChipY = static_cast<int>((transform.GetY() - size) / m_chipSize);
 
@@ -344,7 +207,29 @@ namespace magica_rogue
 			for (int x = max(currentChipX - 3, 0); x <= min(currentChipX + 3, m_width); ++x)
 			{
 				if (m_mapData[y][x] == 0) continue;
-				hitToChip(x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f, m_mapData[y][x]);
+				int ID = _HitWall(transform, size, x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f, m_mapData[y][x]);
+				if (ID == 2) eventQueue.Push(MREventQueue::EVENT_ID::SELECT_GOTO_NEXT_FLOOR, 0);
+			}
+		}
+	}
+
+	/**********************************************************************//**
+		@brief			壁と敵の衝突を処理する
+		@param[in]		transform			敵の位置速度情報
+		@param[in]		size				敵の一辺の長さ
+		@return			なし
+	*//***********************************************************************/
+	void MRMapData::HitWallWithEnemy(MRTransform& transform, const float size)
+	{
+		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
+		int currentChipY = static_cast<int>((transform.GetY() - size) / m_chipSize);
+
+		for (int y = max(currentChipY - 3, 0); y <= min(currentChipY + 3, m_height); ++y)
+		{
+			for (int x = max(currentChipX - 3, 0); x <= min(currentChipX + 3, m_width); ++x)
+			{
+				if (m_mapData[y][x] == 0) continue;
+				int ID = _HitWall(transform, size, x * m_chipSize + m_chipSize * 0.5f, y * m_chipSize + m_chipSize * 0.5f, m_mapData[y][x]);
 			}
 		}
 	}
@@ -366,9 +251,8 @@ namespace magica_rogue
 		int now_room = -1;
 		for (int i = 0; i < m_roomList.size(); ++i)
 		{
-			if (m_roomList[i].usedFor != 1) continue;
-			if (m_roomList[i].topX < startX && startX < m_roomList[i].bottomX &&
-				m_roomList[i].topY < startY && startY < m_roomList[i].bottomY)
+			if (m_regionList[i].topX < startX && startX <= m_regionList[i].bottomX &&
+				m_regionList[i].topY < startY && startY <= m_regionList[i].bottomY)
 			{
 				now_room = i;
 				break;
@@ -377,13 +261,15 @@ namespace magica_rogue
 
 		// 次に進むべき部屋を検索する
 		std::vector<int> nextIdx(1, now_room);
-		do
-		{
-			std::sample(m_globalConnect[nextIdx[0]].begin(), m_globalConnect[nextIdx[0]].end(), nextIdx.begin(), 1, random.GetDevice());
-		} while (m_roomList[nextIdx[0]].usedFor != 1 || nextIdx[0] == now_room);
 
-		int goalX = m_random.GetRanged(m_roomList[nextIdx[0]].topX + 1, m_roomList[nextIdx[0]].bottomX - 2);
-		int goalY = m_random.GetRanged(m_roomList[nextIdx[0]].topY + 1, m_roomList[nextIdx[0]].bottomY - 2);
+		std::sample(m_globalConnect[nextIdx[0]].begin(), m_globalConnect[nextIdx[0]].end(), nextIdx.begin(), 1, random.GetDevice());
+
+		int goalX = (m_roomList[nextIdx[0]].usedFor == 1)?
+			m_random.GetRanged(m_roomList[nextIdx[0]].topX + 1, m_roomList[nextIdx[0]].bottomX - 2):
+			m_random.GetRanged(m_roomList[nextIdx[0]].topX, m_roomList[nextIdx[0]].bottomX);
+		int goalY = (m_roomList[nextIdx[0]].usedFor == 1) ?
+			m_random.GetRanged(m_roomList[nextIdx[0]].topY + 1, m_roomList[nextIdx[0]].bottomY - 2) :
+			m_random.GetRanged(m_roomList[nextIdx[0]].topY, m_roomList[nextIdx[0]].bottomY);
 
 		//次の部屋が確定したらそこへ向けてルートを幅優先で探る
 		constexpr int MAX_DISTANCE = 99999999;
@@ -490,8 +376,8 @@ namespace magica_rogue
 		int xNum = m_random.GetRanged(max(3, m_width / divide_margin - 6), m_width / divide_margin);
 		int yNum = m_random.GetRanged(max(3, m_height / divide_margin - 6), m_height / divide_margin);
 
-		uint32_t yetElement = xNum * yNum;
-		uint32_t yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(55, 85)) / 100.0f);
+		int yetElement = xNum * yNum;
+		int yetRoom = static_cast<uint32_t>(yetElement * static_cast<float>(m_random.GetRanged(55, 85)) / 100.0f);
 		for (int y = 0; y < yNum; ++y)
 		{
 			for (int x = 0; x < xNum; ++x)
@@ -992,9 +878,157 @@ namespace magica_rogue
 		for (auto& r : m_roomList)
 		{
 			if (r.usedFor != 1) continue;
-			int x = m_random.GetRanged(r.topX + 1, r.bottomX - 2);
-			int y = m_random.GetRanged(r.topY + 1, r.bottomY - 2);
-			enemyManager.RegisterSpawner(MREnemySpawner((x + 0.5f) * m_chipSize, (y + 0.5f) * m_chipSize, 60 * 30));
+			auto spawner = MREnemySpawner(r.topX + 1, r.topY + 1, r.bottomX - 2, r.bottomY - 2 , 60 * 30, m_random.Get());
+			spawner.Push("slime", static_cast<constants::MRAttribute>(m_random.GetRanged(1, 12)), m_random.GetRanged(3, 6));
+			enemyManager.RegisterSpawner(spawner);
 		}
+	}
+
+	/**********************************************************************//**
+		@brief			壁と位置速度情報の当たり判定
+		@param			transform				位置速度情報
+		@param[in]		size					物体のサイズ
+		@param[in]		chipX					マップチップのX座標
+		@param[in]		chipY					マップチップのY座標
+		@param[in]		chiID					該当チップのID
+		@return			当たっていたらチップID
+	*//***********************************************************************/
+	int MRMapData::_HitWall(MRTransform& transform, const float size, float chipX, float chipY, int chipID)
+	{
+		auto setU = [&]() {
+			transform.SetY(chipY + m_chipSize / 2 + size + 2);
+			transform.SetVelocityY(0.0f);
+			};
+		auto setD = [&]() {
+			transform.SetY(chipY - m_chipSize / 2 - size - 2);
+			transform.SetVelocityY(0.0f);
+			};
+		auto setR = [&]() {
+			transform.SetX(chipX - m_chipSize / 2 - size - 2);
+			transform.SetVelocityX(0.0f);
+			};
+		auto setL = [&]() {
+			transform.SetX(chipX + m_chipSize / 2 + size + 2);
+			transform.SetVelocityX(0.0f);
+			};
+
+		float nowX = transform.GetX();
+		float nowY = transform.GetY();
+		float nextX = transform.GetNextX();
+		float nextY = transform.GetNextY();
+
+		double max = (nowX + size) - (chipX - m_chipSize / 2),
+			may = (nowY + size) - (chipY - m_chipSize / 2);
+		double nax = (chipX + m_chipSize / 2) - (nowX - size),
+			nay = (chipY + m_chipSize / 2) - (nowY - size);
+		double _max = (nextX + size) - (chipX - m_chipSize / 2),
+			_may = (nextY + size) - (chipY - m_chipSize / 2);
+		double _nax = (chipX + m_chipSize / 2) - (nextX - size),
+			_nay = (chipY + m_chipSize / 2) - (nextY - size);
+		bool U = false, D = false, R = false, L = false;
+
+		//カド同士の判定
+		if (0 >= max && 0 >= may && _max > 0 && _may > 0)
+		{
+			if (_max >= _may)
+			{
+				//下にある
+				D = true;
+				setD();
+			}
+			else
+			{
+				//右にある
+				R = true;
+				setR();
+			}
+		}
+		if (0 >= nax && 0 >= may && _nax > 0 && _may > 0)
+		{
+			if (_nax >= _may)
+			{
+				//下にある
+				D = true;
+				setD();
+			}
+			else
+			{
+				//左にある
+				L = true;
+				setL();
+			}
+		}
+		if (0 >= max && 0 >= nay && _max > 0 && _nay > 0)
+		{
+			if (_max >= _nay)
+			{
+				//上にある
+				U = true;
+				setU();
+			}
+			else
+			{
+				//右にある
+				R = true;
+				setR();
+			}
+		}
+		if (0 >= nax && 0 >= nay && _nax > 0 && _nay > 0)
+		{
+			if (_nax >= _nay)
+			{
+				//上にある
+				U = true;
+				setU();
+			}
+			else
+			{
+				//左にある
+				L = true;
+				setL();
+			}
+		}
+
+		//上下左右の判定
+		if (may > 0 && nay > 0)
+		{
+			if (_nax > 0 &&
+				(nowX - size) > (chipX - m_chipSize / 2))
+			{
+				//左にある
+				L = true;
+				setL();
+			}
+			if (_max > 0 &&
+				(chipX + m_chipSize / 2) > (nowX + size))
+			{
+				//右にある
+				R = true;
+				setR();
+			}
+		}
+		if (max > 0 && nax > 0)
+		{
+			if (_nay > 0 &&
+				(nowY - size) > (chipY - m_chipSize / 2))
+			{
+				//上にある
+				U = true;
+				setU();
+			}
+			if (_may > 0 &&
+				(chipY + m_chipSize / 2) > (nowY + size))
+			{
+				//下にある
+				D = true;
+				setD();
+			}
+		}
+
+		if (U || D || R || L)
+		{
+			return chipID;
+		}
+		return 0;
 	}
 }

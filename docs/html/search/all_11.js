@@ -33,7 +33,7 @@ var searchData=
   ['ssel_30',['SSEL',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397',1,'magica_rogue::MRPlayer']]],
   ['stand_31',['STAND',['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31aeadd135fb441de529b55c24775556f3a81',1,'magica_rogue::MRPlayer']]],
   ['start_5ftime_5f_32',['start_time_',['../classmugen__engine_1_1_fps.html#a15f425fe4655e1790faf5d9d1a95a2b2',1,'mugen_engine::Fps']]],
-  ['state_33',['state',['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf::state'],['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31ae',1,'magica_rogue::MRPlayer::STATE']]],
+  ['state_33',['state',['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31ae',1,'magica_rogue::MRPlayer::STATE'],['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf::state']]],
   ['statemachine_2eh_34',['StateMachine.h',['../_state_machine_8h.html',1,'']]],
   ['staticobjectinterface_2eh_35',['StaticObjectInterface.h',['../_static_object_interface_8h.html',1,'']]],
   ['staticobjectmanager_2ecpp_36',['StaticObjectManager.cpp',['../_static_object_manager_8cpp.html',1,'']]],

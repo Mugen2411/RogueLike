@@ -107,12 +107,15 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a7372a1eae202df781844b0b3728aa113" id="r_a7372a1eae202df781844b0b3728aa113"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7372a1eae202df781844b0b3728aa113">MREnemyInterface</a> (const float x, const float y, const float walkSpeed, const <a class="el" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a> attribute, <a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> *pCamera, <a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *pMapdata)</td></tr>
-<tr class="memdesc:a7372a1eae202df781844b0b3728aa113"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
-<tr class="separator:a7372a1eae202df781844b0b3728aa113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a232210b18b76b09d63024b6c1a86c4" id="r_a1a232210b18b76b09d63024b6c1a86c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a1a232210b18b76b09d63024b6c1a86c4">MREnemyInterface</a> (const float x, const float y, const float walkSpeed, const <a class="el" href="namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667">constants::MRAttribute</a> attribute, <a class="el" href="classmagica__rogue_1_1_m_r_camera.html">MRCamera</a> *pCamera, <a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *pMapdata, const uint32_t seed)</td></tr>
+<tr class="memdesc:a1a232210b18b76b09d63024b6c1a86c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
+<tr class="separator:a1a232210b18b76b09d63024b6c1a86c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad33628ef3fdb09996a5e78fe4cac61a" id="r_aad33628ef3fdb09996a5e78fe4cac61a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217">MRAliveState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aad33628ef3fdb09996a5e78fe4cac61a">Update</a> ()=0</td></tr>
 <tr class="memdesc:aad33628ef3fdb09996a5e78fe4cac61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新  <br /></td></tr>
 <tr class="separator:aad33628ef3fdb09996a5e78fe4cac61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86dcf811b554773aab0d5cf9a9082b53" id="r_a86dcf811b554773aab0d5cf9a9082b53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a86dcf811b554773aab0d5cf9a9082b53">Move</a> ()=0</td></tr>
+<tr class="memdesc:a86dcf811b554773aab0d5cf9a9082b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">移動  <br /></td></tr>
+<tr class="separator:a86dcf811b554773aab0d5cf9a9082b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeec148e578a4b587542fcf22db8dc319" id="r_aeec148e578a4b587542fcf22db8dc319"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aeec148e578a4b587542fcf22db8dc319">Render</a> () const =0</td></tr>
 <tr class="memdesc:aeec148e578a4b587542fcf22db8dc319"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画  <br /></td></tr>
 <tr class="separator:aeec148e578a4b587542fcf22db8dc319"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +128,15 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 <tr class="memitem:a8104ef675a4ab32ba3190d4272bbbf9a" id="r_a8104ef675a4ab32ba3190d4272bbbf9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a8104ef675a4ab32ba3190d4272bbbf9a">Walk</a> ()</td></tr>
 <tr class="memdesc:a8104ef675a4ab32ba3190d4272bbbf9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">歩行する  <br /></td></tr>
 <tr class="separator:a8104ef675a4ab32ba3190d4272bbbf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f57c0111e5a99bb9df9119731e01d0a" id="r_a1f57c0111e5a99bb9df9119731e01d0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a1f57c0111e5a99bb9df9119731e01d0a">HitWithEnemy</a> (<a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html">MREnemyInterface</a> *rhs)</td></tr>
+<tr class="memdesc:a1f57c0111e5a99bb9df9119731e01d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">敵と敵の押し合い  <br /></td></tr>
+<tr class="separator:a1f57c0111e5a99bb9df9119731e01d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7939bb19407cfaa6f103cb8c63fd66ae" id="r_a7939bb19407cfaa6f103cb8c63fd66ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7939bb19407cfaa6f103cb8c63fd66ae">GetTransform</a> ()</td></tr>
+<tr class="memdesc:a7939bb19407cfaa6f103cb8c63fd66ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置速度情報の取得  <br /></td></tr>
+<tr class="separator:a7939bb19407cfaa6f103cb8c63fd66ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6feb80dee445d6141e640afc64ede997" id="r_a6feb80dee445d6141e640afc64ede997"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a6feb80dee445d6141e640afc64ede997">GetSize</a> () const</td></tr>
+<tr class="memdesc:a6feb80dee445d6141e640afc64ede997"><td class="mdescLeft">&#160;</td><td class="mdescRight">サイズの取得  <br /></td></tr>
+<tr class="separator:a6feb80dee445d6141e640afc64ede997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
@@ -134,9 +146,9 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 <tr class="memitem:affce1566ae7152423914b8c864dbeac9" id="r_affce1566ae7152423914b8c864dbeac9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#affce1566ae7152423914b8c864dbeac9">m_pMapdata</a></td></tr>
 <tr class="memdesc:affce1566ae7152423914b8c864dbeac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップデータ(ルート検索用)  <br /></td></tr>
 <tr class="separator:affce1566ae7152423914b8c864dbeac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa73d3ea85a25179fa20f25cc5dbc2de4" id="r_aa73d3ea85a25179fa20f25cc5dbc2de4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#aa73d3ea85a25179fa20f25cc5dbc2de4">m_size</a></td></tr>
-<tr class="memdesc:aa73d3ea85a25179fa20f25cc5dbc2de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">当たり判定のサイズ  <br /></td></tr>
-<tr class="separator:aa73d3ea85a25179fa20f25cc5dbc2de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02f71033a9a467d6fcbc4e92b4a05a83" id="r_a02f71033a9a467d6fcbc4e92b4a05a83"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a02f71033a9a467d6fcbc4e92b4a05a83">m_size</a></td></tr>
+<tr class="memdesc:a02f71033a9a467d6fcbc4e92b4a05a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">当たり判定のサイズ  <br /></td></tr>
+<tr class="separator:a02f71033a9a467d6fcbc4e92b4a05a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13021f09685ace39c8da4ef913799e5d" id="r_a13021f09685ace39c8da4ef913799e5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a13021f09685ace39c8da4ef913799e5d">m_transform</a></td></tr>
 <tr class="memdesc:a13021f09685ace39c8da4ef913799e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置速度情報  <br /></td></tr>
 <tr class="separator:a13021f09685ace39c8da4ef913799e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,11 +164,17 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 <tr class="memitem:a7c5e7a029ace5317f5ca7f9078d2104f" id="r_a7c5e7a029ace5317f5ca7f9078d2104f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a7c5e7a029ace5317f5ca7f9078d2104f">m_route</a></td></tr>
 <tr class="memdesc:a7c5e7a029ace5317f5ca7f9078d2104f"><td class="mdescLeft">&#160;</td><td class="mdescRight">歩くルート  <br /></td></tr>
 <tr class="separator:a7c5e7a029ace5317f5ca7f9078d2104f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b6b2d741a149c7fa94aede42bdce38" id="r_a84b6b2d741a149c7fa94aede42bdce38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmagica__rogue_1_1_m_r_random.html">MRRandom</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a84b6b2d741a149c7fa94aede42bdce38">m_random</a></td></tr>
+<tr class="memdesc:a84b6b2d741a149c7fa94aede42bdce38"><td class="mdescLeft">&#160;</td><td class="mdescRight">乱数生成器  <br /></td></tr>
+<tr class="separator:a84b6b2d741a149c7fa94aede42bdce38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a748ccaac5e469082042fbb995fdd2" id="r_a64a748ccaac5e469082042fbb995fdd2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html#a64a748ccaac5e469082042fbb995fdd2">m_countWalkFrame</a></td></tr>
+<tr class="memdesc:a64a748ccaac5e469082042fbb995fdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">最近の中継地点に着くまでの時間  <br /></td></tr>
+<tr class="separator:a64a748ccaac5e469082042fbb995fdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>敵キャラが必ず継承するインターフェース </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00019">19</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00020">20</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">列挙型メンバ詳解</h2>
 <a id="a673f6d596065ee56e198d1ca3a712217" name="a673f6d596065ee56e198d1ca3a712217"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a673f6d596065ee56e198d1ca3a712217">&#9670;&#160;</a></span>MRAliveState</h2>
@@ -183,13 +201,13 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 <tr><td class="fieldname"><a id="a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f" name="a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f"></a>DISAPPEAR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00022">22</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00023">23</a> 行目に定義があります。</p>
 
 </div>
 </div>
 <h2 class="groupheader">構築子と解体子</h2>
-<a id="a7372a1eae202df781844b0b3728aa113" name="a7372a1eae202df781844b0b3728aa113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7372a1eae202df781844b0b3728aa113">&#9670;&#160;</a></span>MREnemyInterface()</h2>
+<a id="a1a232210b18b76b09d63024b6c1a86c4" name="a1a232210b18b76b09d63024b6c1a86c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a232210b18b76b09d63024b6c1a86c4">&#9670;&#160;</a></span>MREnemyInterface()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +249,13 @@ magica_rogue::MREnemyInterface の継承関係図</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_map_data.html">MRMapData</a> *&#160;</td>
-          <td class="paramname"><em>pMapdata</em>&#160;</td>
+          <td class="paramname"><em>pMapdata</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>seed</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -248,7 +272,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>コンストラクタ </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00026">26</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00027">27</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -308,6 +332,115 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 <p>消えたとき </p>
 
 <p><a class="el" href="classmagica__rogue_1_1_m_r_slime.html#ad72974818f4b21d3b88c8dc420534bd8">magica_rogue::MRSlime</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a6feb80dee445d6141e640afc64ede997" name="a6feb80dee445d6141e640afc64ede997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6feb80dee445d6141e640afc64ede997">&#9670;&#160;</a></span>GetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float magica_rogue::MREnemyInterface::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>サイズの取得 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00050">50</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7939bb19407cfaa6f103cb8c63fd66ae" name="a7939bb19407cfaa6f103cb8c63fd66ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7939bb19407cfaa6f103cb8c63fd66ae">&#9670;&#160;</a></span>GetTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_transform.html">MRTransform</a> &amp; magica_rogue::MREnemyInterface::GetTransform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>位置速度情報の取得 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1f57c0111e5a99bb9df9119731e01d0a" name="a1f57c0111e5a99bb9df9119731e01d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f57c0111e5a99bb9df9119731e01d0a">&#9670;&#160;</a></span>HitWithEnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void magica_rogue::MREnemyInterface::HitWithEnemy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmagica__rogue_1_1_m_r_enemy_interface.html">MREnemyInterface</a> *&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>敵と敵の押し合い </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8cpp_source.html">EnemyInterface.cpp</a> の <a class="el" href="_enemy_interface_8cpp_source.html#l00037">37</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a86dcf811b554773aab0d5cf9a9082b53" name="a86dcf811b554773aab0d5cf9a9082b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86dcf811b554773aab0d5cf9a9082b53">&#9670;&#160;</a></span>Move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void magica_rogue::MREnemyInterface::Move </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移動 </p>
+
+<p><a class="el" href="classmagica__rogue_1_1_m_r_slime.html#a2088d08c1c71150db2760509c839abdf">magica_rogue::MRSlime</a>で実装されています。</p>
 
 </div>
 </div>
@@ -420,7 +553,33 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>属性 </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00059">59</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a64a748ccaac5e469082042fbb995fdd2" name="a64a748ccaac5e469082042fbb995fdd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a748ccaac5e469082042fbb995fdd2">&#9670;&#160;</a></span>m_countWalkFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int magica_rogue::MREnemyInterface::m_countWalkFrame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>最近の中継地点に着くまでの時間 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00063">63</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -446,7 +605,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>カメラ </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00041">41</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00054">54</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -472,7 +631,33 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>マップデータ(ルート検索用) </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00042">42</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00055">55</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a84b6b2d741a149c7fa94aede42bdce38" name="a84b6b2d741a149c7fa94aede42bdce38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84b6b2d741a149c7fa94aede42bdce38">&#9670;&#160;</a></span>m_random</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmagica__rogue_1_1_m_r_random.html">MRRandom</a> magica_rogue::MREnemyInterface::m_random</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>乱数生成器 </p>
+
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00062">62</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -498,12 +683,12 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>歩くルート </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00061">61</a> 行目に定義があります。</p>
 
 </div>
 </div>
-<a id="aa73d3ea85a25179fa20f25cc5dbc2de4" name="aa73d3ea85a25179fa20f25cc5dbc2de4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa73d3ea85a25179fa20f25cc5dbc2de4">&#9670;&#160;</a></span>m_size</h2>
+<a id="a02f71033a9a467d6fcbc4e92b4a05a83" name="a02f71033a9a467d6fcbc4e92b4a05a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f71033a9a467d6fcbc4e92b4a05a83">&#9670;&#160;</a></span>m_size</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -512,7 +697,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t magica_rogue::MREnemyInterface::m_size</td>
+          <td class="memname">float magica_rogue::MREnemyInterface::m_size</td>
         </tr>
       </table>
   </td>
@@ -524,7 +709,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>当たり判定のサイズ </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00043">43</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00056">56</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -550,7 +735,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>生存状況 </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00047">47</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00060">60</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -576,7 +761,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>位置速度情報 </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00044">44</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00057">57</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -602,7 +787,7 @@ magica_rogue::MREnemyInterface の継承関係図</div>
 
 <p>歩く速度 </p>
 
-<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00045">45</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_enemy_interface_8h_source.html">EnemyInterface.h</a> の <a class="el" href="_enemy_interface_8h_source.html#l00058">58</a> 行目に定義があります。</p>
 
 </div>
 </div>

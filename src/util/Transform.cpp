@@ -54,6 +54,30 @@ namespace magica_rogue
 	}
 
 	/**********************************************************************//**
+		@brief			速度を加算
+		@param[in]		vx						X速度
+		@param[in]		vy						Y速度
+		@return			なし
+	*//***********************************************************************/
+	void MRTransform::AddVelocity(const float vx, const float vy)
+	{
+		m_vx += vx;
+		m_vy += vy;
+	}
+
+	/**********************************************************************//**
+		@brief			角度を用いて速度を加算
+		@param[in]		angle					角度(ラジアン)
+		@param[in]		speed					速度
+		@return			なし
+	*//***********************************************************************/
+	void MRTransform::AddVelocityWithAngle(const float angle, const float speed)
+	{
+		m_vx += std::cosf(angle) * speed;
+		m_vy += std::sinf(angle) * speed;
+	}
+
+	/**********************************************************************//**
 		@brief			位置情報を更新
 		@param			なし
 		@return			なし

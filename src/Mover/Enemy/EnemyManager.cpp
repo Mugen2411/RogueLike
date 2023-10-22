@@ -2,6 +2,7 @@
 //! @note Copyright (c) Mugen_GameLab
 
 #include "EnemyManager.h"
+#include "../../Map/MapData.h"
 
 namespace magica_rogue
 {
@@ -50,7 +51,7 @@ namespace magica_rogue
 		@param			‚È‚µ
 		@return			‚È‚µ
 	*//***********************************************************************/
-	void MREnemyManager::Update()
+	void MREnemyManager::Update(MRMapData& mapdata)
 	{
 		for (auto& s : m_spawnerList)
 		{
@@ -76,6 +77,19 @@ namespace magica_rogue
 				}
 				itr = m_enemyList.erase(itr);
 			}
+		}
+		for (auto& i : m_enemyList)
+		{
+			for (auto& j : m_enemyList)
+			{
+				if (i == j) continue;
+				i->HitWithEnemy(j.get());
+			}
+		}
+		for (auto& i : m_enemyList)
+		{
+			mapdata.HitWallWithEnemy(i->GetTransform(), i->GetSize());
+			i->Move();
 		}
 	}
 

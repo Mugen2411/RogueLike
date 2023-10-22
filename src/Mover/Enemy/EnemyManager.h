@@ -11,6 +11,7 @@
 
 namespace magica_rogue
 {
+	class MRMapData;
 	/**********************************************************************//**
 		@class		MREnemyManager
 		@brief		敵の管理をするクラス
@@ -27,7 +28,7 @@ namespace magica_rogue
 		//! リセット
 		void Reset();
 		//! 更新
-		void Update();
+		void Update(MRMapData& mapdata);
 		//! 描画
 		void Render()const;
 	private:

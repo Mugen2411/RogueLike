@@ -5,71 +5,85 @@
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00001}00001\ }
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00003}00003\ }
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_enemy_manager_8h}{EnemyManager.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00007}00007\ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00008}00008\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00013}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a39b7348072f613e15885369445fba6d4}{00013}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a39b7348072f613e15885369445fba6d4}{MREnemyManager::MREnemyManager}}()}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00014}00014\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00015}00015\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00017}00017\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00022}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a13fbc043f9b2f5caf08c219d5484f4a7}{00022}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a13fbc043f9b2f5caf08c219d5484f4a7}{MREnemyManager::RegisterSpawner}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner}{MREnemySpawner}}\ spawner)}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00023}00023\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}}.push\_back(spawner);}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00025}00025\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00027}00027\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00032}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{00032}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{MREnemyManager::Register}}(std::unique\_ptr<MREnemyInterface>\&\&\ enemy)}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00033}00033\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.push\_back(std::move(enemy));}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00035}00035\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00037}00037\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00042}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a03b2146ab423837215f8beb958620cf1}{00042}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a03b2146ab423837215f8beb958620cf1}{MREnemyManager::Reset}}()}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00043}00043\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}}.clear();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.clear();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00046}00046\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00048}00048\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00053}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a9a433a54c89f47c81259fc695544c3e7}{00053}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a9a433a54c89f47c81259fc695544c3e7}{MREnemyManager::Update}}()}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00054}00054\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ s\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}})}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ s.Update(*\textcolor{keyword}{this});}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.begin();\ itr\ !=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.end();)}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ (*itr)-\/>Update();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb}{MREnemyInterface::MRAliveState::ALIVE}})}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++itr;}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c}{MREnemyInterface::MRAliveState::DEAD}})}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*itr)-\/>Dead();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f}{MREnemyInterface::MRAliveState::DISAPPEAR}})}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*itr)-\/>Disappear();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itr\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.erase(itr);}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00080}00080\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00082}00082\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00087}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a3c667eeb0a102ee39e2c414ffe7d9ee3}{00087}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a3c667eeb0a102ee39e2c414ffe7d9ee3}{MREnemyManager::Render}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00088}00088\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../../Map/MapData.h"{}}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00009}00009\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00014}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a39b7348072f613e15885369445fba6d4}{00014}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a39b7348072f613e15885369445fba6d4}{MREnemyManager::MREnemyManager}}()}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00018}00018\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00023}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a13fbc043f9b2f5caf08c219d5484f4a7}{00023}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a13fbc043f9b2f5caf08c219d5484f4a7}{MREnemyManager::RegisterSpawner}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner}{MREnemySpawner}}\ spawner)}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}}.push\_back(spawner);}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00028}00028\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00033}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{00033}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{MREnemyManager::Register}}(std::unique\_ptr<MREnemyInterface>\&\&\ enemy)}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.push\_back(std::move(enemy));}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00038}00038\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00043}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a03b2146ab423837215f8beb958620cf1}{00043}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a03b2146ab423837215f8beb958620cf1}{MREnemyManager::Reset}}()}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00044}00044\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}}.clear();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.clear();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00049}00049\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00054}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a319211d0edd46f9f433c9ccd317246a8}{00054}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a319211d0edd46f9f433c9ccd317246a8}{MREnemyManager::Update}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMapData}}\&\ mapdata)}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00055}00055\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ s\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ s.Update(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.begin();\ itr\ !=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.end();)}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ (*itr)-\/>Update();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb}{MREnemyInterface::MRAliveState::ALIVE}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++itr;}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217abb4784231ff45108ee20bad16e4a2e8c}{MREnemyInterface::MRAliveState::DEAD}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*itr)-\/>Dead();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface_a673f6d596065ee56e198d1ca3a712217a6a5799ffa80b2e544a1ea8864da9e44f}{MREnemyInterface::MRAliveState::DISAPPEAR}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*itr)-\/>Disappear();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itr\ =\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}}.erase(itr);}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ j\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i-\/>HitWithEnemy(j.get());}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}})}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ i-\/>Render();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00093}00093\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ mapdata.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data_a9b5492f7b25d4a2f4663e127d8aed708}{HitWallWithEnemy}}(i-\/>GetTransform(),\ i-\/>GetSize());}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ i-\/>Move();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00096}00096\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00101}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a3c667eeb0a102ee39e2c414ffe7d9ee3}{00101}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a3c667eeb0a102ee39e2c414ffe7d9ee3}{MREnemyManager::Render}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00102}00102\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}})}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ i-\/>Render();}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8cpp_source_l00108}00108\ \}}
 
 \end{DoxyCode}

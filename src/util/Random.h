@@ -20,7 +20,7 @@ namespace magica_rogue
 		//! 乱数を取得
 		uint32_t Get();
 		//! 最小値と最大値を指定して乱数を取得
-		uint32_t GetRanged(uint32_t minimum, uint32_t maximum);
+		int GetRanged(int minimum, int maximum);
 		//! デバイスを返す
 		std::mt19937& GetDevice(){
 			return m_engine;

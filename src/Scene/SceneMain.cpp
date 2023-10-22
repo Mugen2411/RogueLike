@@ -47,9 +47,9 @@ namespace magica_rogue
 		}
 		if (MRMenuManager::Update()) return;
 
-		m_enemyManager.Update();
+		m_enemyManager.Update(m_mapData);
 		m_player.Update();
-		m_mapData.HitWithWall(m_player.GetTransform(), m_player.GetSize(), m_eventQueue);
+		m_mapData.HitWallWithPlayer(m_player.GetTransform(), m_player.GetSize(), m_eventQueue);
 		m_mapData.Update(m_player.GetTransform());
 		m_player.Move();
 

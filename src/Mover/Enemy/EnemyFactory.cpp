@@ -43,7 +43,7 @@ namespace magica_rogue
 	{
 		if (name == "slime")
 		{
-			return new MRSlime(x, y, attribute, m_pCamera, m_pMapdata);
+			return new MRSlime(x, y, attribute, m_pCamera, m_pMapdata, m_random.Get());
 		}
 		return nullptr;
 	}
@@ -54,8 +54,10 @@ namespace magica_rogue
 		@return			Ç»Çµ
 		@detail			ìGÇÃâÊëúÇÃì«Ç›çûÇ›ÇÕÇ±Ç±Ç≈Ç‚ÇËÇ‹Ç∑
 	*//***********************************************************************/
-	MREnemyFactory::MREnemyFactory(): m_pCamera(nullptr), m_pMapdata(nullptr)
+	MREnemyFactory::MREnemyFactory(): m_pCamera(nullptr), m_pMapdata(nullptr), m_random(0)
 	{
+		std::random_device dev;
+		m_random.SetSeed(dev());
 		mugen_engine::MECore::GetIns().LoadDivGraph("enemy_slime", L"media/graphic/enemy/slime.png", 10, 13);
 	}
 }

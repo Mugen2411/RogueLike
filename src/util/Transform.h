@@ -21,6 +21,10 @@ namespace magica_rogue
 		void SetVelocity(const float vx, const float vy);
 		//! 速度を角度を用いて設定
 		void SetVelocityWithAngle(const float angle, const float speed);
+		//! 速度を加算
+		void AddVelocity(const float vx, const float vy);
+		//! 速度を角度を用いて加算
+		void AddVelocityWithAngle(const float angle, const float speed);
 		//! X座標を取得
 		float GetX()const {
 			return m_x;

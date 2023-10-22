@@ -35,11 +35,25 @@
 \DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00054}00054\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00055}00055\ }
 \DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00061}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_ace281ee501c9dd6110c30042afb027d0}{00061}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_ace281ee501c9dd6110c30042afb027d0}{MRTransform::Update}}()}
-\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00062}00062\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_aa168c008295620394a3cad462be71034}{m\_x}}\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a7b4a49814c49d3203c5469694b1db00d}{m\_vx}};}
-\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a222735175656aa1ec395c0a0d09c9aaa}{m\_y}}\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8aa52eb513baef627758b4613ea86915}{m\_vy}};}
-\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00065}00065\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00062}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a5afcd3f2acacd80c8ae874604db319d0}{00062}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a5afcd3f2acacd80c8ae874604db319d0}{MRTransform::AddVelocity}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ vx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ vy)}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00063}00063\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a7b4a49814c49d3203c5469694b1db00d}{m\_vx}}\ +=\ vx;}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8aa52eb513baef627758b4613ea86915}{m\_vy}}\ +=\ vy;}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00074}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a58e4307b90c25ae83e835bc7643515f1}{00074}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a58e4307b90c25ae83e835bc7643515f1}{MRTransform::AddVelocityWithAngle}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ speed)}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00075}00075\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a7b4a49814c49d3203c5469694b1db00d}{m\_vx}}\ +=\ std::cosf(angle)\ *\ speed;}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8aa52eb513baef627758b4613ea86915}{m\_vy}}\ +=\ std::sinf(angle)\ *\ speed;}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00080}00080\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00085}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_ace281ee501c9dd6110c30042afb027d0}{00085}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_ace281ee501c9dd6110c30042afb027d0}{MRTransform::Update}}()}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00086}00086\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_aa168c008295620394a3cad462be71034}{m\_x}}\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a7b4a49814c49d3203c5469694b1db00d}{m\_vx}};}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a222735175656aa1ec395c0a0d09c9aaa}{m\_y}}\ +=\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform_a8aa52eb513baef627758b4613ea86915}{m\_vy}};}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8cpp_source_l00090}00090\ \}}
 
 \end{DoxyCode}

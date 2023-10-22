@@ -30,16 +30,18 @@
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00043}00043\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (name\ ==\ \textcolor{stringliteral}{"{}slime"{}})}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime}{MRSlime}}(x,\ y,\ attribute,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a9ce5541401b8cb055c09c3169f3312ea}{m\_pCamera}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a2a79f84ce1e872938b4432619310511a}{m\_pMapdata}});}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime}{MRSlime}}(x,\ y,\ attribute,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a9ce5541401b8cb055c09c3169f3312ea}{m\_pCamera}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a2a79f84ce1e872938b4432619310511a}{m\_pMapdata}},\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a6950fc794c1ceb7b2b111b3326c0da04}{m\_random}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_aa78e99749792fb9b407760fc097247ca}{Get}}());}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00049}00049\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00050}00050\ }
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00051}00051\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
-\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00057}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_af794177e681e7b8c3485935f1a576fd7}{00057}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_af794177e681e7b8c3485935f1a576fd7}{MREnemyFactory::MREnemyFactory}}():\ m\_pCamera(nullptr),\ m\_pMapdata(nullptr)}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00057}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_af794177e681e7b8c3485935f1a576fd7}{00057}}\ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_af794177e681e7b8c3485935f1a576fd7}{MREnemyFactory::MREnemyFactory}}():\ m\_pCamera(nullptr),\ m\_pMapdata(nullptr),\ m\_random(0)}
 \DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00058}00058\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc1324d45e5}{LoadDivGraph}}(\textcolor{stringliteral}{"{}enemy\_slime"{}},\ L\textcolor{stringliteral}{"{}media/graphic/enemy/slime.png"{}},\ 10,\ 13);}
-\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00060}00060\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ std::random\_device\ dev;}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_factory_a6950fc794c1ceb7b2b111b3326c0da04}{m\_random}}.\mbox{\hyperlink{classmagica__rogue_1_1_m_r_random_a72ed4ef71ba03d09dc941a4173b2e15a}{SetSeed}}(dev());}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a535878e1fa59aa58aba12fc1324d45e5}{LoadDivGraph}}(\textcolor{stringliteral}{"{}enemy\_slime"{}},\ L\textcolor{stringliteral}{"{}media/graphic/enemy/slime.png"{}},\ 10,\ 13);}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_factory_8cpp_source_l00063}00063\ \}}
 
 \end{DoxyCode}

@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include "../../Util/Constants.h"
+#include "../../Util/Random.h"
 
 namespace magica_rogue
 {
@@ -19,13 +20,15 @@ namespace magica_rogue
 	{
 	public:
 		//! コンストラクタ
-		MREnemySpawner(const float x, const float y, const int cycle)
-			:m_cycle(cycle), m_cnt(0), m_x(x), m_y(y)
+		MREnemySpawner(const int topX, const int topY, const int bottomX, const int bottomY, const int cycle, uint32_t seed)
+			:m_cycle(cycle), m_cnt(0), m_topX(topX), m_topY(topY), m_bottomX(bottomX), m_bottomY(bottomY), m_random(seed)
 		{
-			m_enemyDataList.push_back(EnemyData{ "slime", constants::MRAttribute::ABYSS, 1 });
+			m_cnt = m_random.GetRanged(0, m_cycle);
 		}
 		//! 更新
 		void Update(MREnemyManager& enemyManager);
+		//! 敵データを追加する
+		void Push(std::string name, constants::MRAttribute attribute, int count);
 	private:
 		/**********************************************************************//**
 			@struct		EnemyData
@@ -41,8 +44,11 @@ namespace magica_rogue
 		std::vector<EnemyData> m_enemyDataList;		//!< 召喚するべき敵のリスト
 		int m_cycle;								//!< 敵を召喚する周期
 		int m_cnt;									//!< 経過時間(フレーム)
-		float m_x;									//!< X座標
-		float m_y;									//!< Y座標
+		int m_topX;									//!< 左上のX座標
+		int m_topY;									//!< 左上のY座標
+		int m_bottomX;								//!< 右下のX座標
+		int m_bottomY;								//!< 右下のY座標
+		MRRandom m_random;							//!< 乱数生成器
 	};
 }
 
