@@ -50,7 +50,7 @@ namespace magica_rogue
 		//! •Ç‚Æ“G‚ÌÕ“Ë‚ğˆ—‚·‚é
 		void HitWallWithEnemy(MRTransform& transform, const float size);
 		//! —×‚Ì•”‰®‚Ö‚Ìƒ‹[ƒg‚ğæ“¾‚·‚é
-		void GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route);
+		bool GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route);
 	private:
 		/**********************************************************************//**
 			@class		ROOM_NODE

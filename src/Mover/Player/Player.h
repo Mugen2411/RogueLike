@@ -46,6 +46,8 @@ namespace magica_rogue
 		float GetSize() {
 			return m_size;
 		}
+		//! ダメージを食らう
+		void Damage(const float power, const float knockback, const float angle, const int duration);
 
 		//! 立ち状態での更新
 		void UpdateOnStand();
@@ -67,7 +69,7 @@ namespace magica_rogue
 		bool m_isLeft;										//!< 自機が左を向いているか
 		int m_frameCount;									//!< ステートを変更せずに経過したフレーム
 		MRAnimator m_animator;								//!< アニメーター
-
+		int m_knockbackDuration;							//!< のけぞる時間
 
 		MRHitPoint m_hp;									//!< HP
 	};

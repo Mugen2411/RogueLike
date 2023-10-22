@@ -54,6 +54,7 @@ namespace mugen_engine
 
 	/**********************************************************************//**
 		@brief			頂点データをバッファに書き込む
+		@param[in]		index						インデックス
 		@param[in]		vertices					頂点データの先頭のポインタ
 		@param[in]		vertexNum					頂点の数
 		@return			なし
@@ -72,8 +73,7 @@ namespace mugen_engine
 
 	/**********************************************************************//**
 		@brief			定数バッファに書き込む
-		@param[in]		matrix						変形行列
-		@param[in]		cmdList						コマンドリスト
+		@param[in]		constData					定数データ
 		@return			なし
 	*//***********************************************************************/
 	void MEGraphicGpuResourceManager::UploadConstantData(CONSTANT_DATA& constData)
@@ -319,6 +319,7 @@ namespace mugen_engine
 
 	/**********************************************************************//**
 		@brief			追加の頂点データをバッファに書き込む
+		@param[in]		index						インデックス
 		@param[in]		vertices					頂点データの先頭のポインタ
 		@param[in]		vertexNum					頂点の数
 		@return			なし

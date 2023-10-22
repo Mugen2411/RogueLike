@@ -104,6 +104,9 @@ $(function() {
 <tr class="memitem:a8c1b40637625d6bbccb4c1037c02a568" id="r_a8c1b40637625d6bbccb4c1037c02a568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#a8c1b40637625d6bbccb4c1037c02a568">ChangeState</a> (const int state)</td></tr>
 <tr class="memdesc:a8c1b40637625d6bbccb4c1037c02a568"><td class="mdescLeft">&#160;</td><td class="mdescRight">ステートの遷移  <br /></td></tr>
 <tr class="separator:a8c1b40637625d6bbccb4c1037c02a568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4386d923cbed30e1e5bc93563c5ba26" id="r_ac4386d923cbed30e1e5bc93563c5ba26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html#ac4386d923cbed30e1e5bc93563c5ba26">GetState</a> () const</td></tr>
+<tr class="memdesc:ac4386d923cbed30e1e5bc93563c5ba26"><td class="mdescLeft">&#160;</td><td class="mdescRight">ステートの取得  <br /></td></tr>
+<tr class="separator:ac4386d923cbed30e1e5bc93563c5ba26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
@@ -203,6 +206,44 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="ac4386d923cbed30e1e5bc93563c5ba26" name="ac4386d923cbed30e1e5bc93563c5ba26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4386d923cbed30e1e5bc93563c5ba26">&#9670;&#160;</a></span>GetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classmagica__rogue_1_1_m_r_state_machine.html">magica_rogue::MRStateMachine</a>&lt; T &gt;::GetState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ステートの取得 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">なし</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>ステート </dd></dl>
+
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00072">72</a> 行目に定義があります。</p>
+
+</div>
+</div>
 <a id="a1ab881ffb8fe1a1136cfbbdf9f675ac4" name="a1ab881ffb8fe1a1136cfbbdf9f675ac4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ab881ffb8fe1a1136cfbbdf9f675ac4">&#9670;&#160;</a></span>Register()</h2>
 
@@ -248,7 +289,7 @@ template&lt;class T &gt; </div>
 <p>関数を追加する </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>ステートと対応するID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>ステート </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">updateFunc</td><td>更新関数ポインタ </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">renderFunc</td><td>描画関数ポインタ </td></tr>
   </table>
@@ -361,7 +402,7 @@ template&lt;class T &gt; </div>
 
 <p>自身のポインタ </p>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00069">69</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00078">78</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -387,7 +428,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00071">71</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00080">80</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -415,7 +456,7 @@ template&lt;class T &gt; </div>
 
 <p>ステート </p>
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00068">68</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00077">77</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -441,7 +482,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00070">70</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a> の <a class="el" href="_state_machine_8h_source.html#l00079">79</a> 行目に定義があります。</p>
 
 </div>
 </div>

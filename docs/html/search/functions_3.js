@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['damage_0',['Damage',['../classmagica__rogue_1_1_m_r_hit_point.html#ac1d59aa01ac5ebf77bf2d64ed08b64fa',1,'magica_rogue::MRHitPoint']]],
+  ['damage_0',['damage',['../classmagica__rogue_1_1_m_r_hit_point.html#ac1d59aa01ac5ebf77bf2d64ed08b64fa',1,'magica_rogue::MRHitPoint::Damage()'],['../classmagica__rogue_1_1_m_r_player.html#a7a6daebe37e98956ec55c03b341bd2ad',1,'magica_rogue::MRPlayer::Damage()']]],
   ['dead_1',['dead',['../classmagica__rogue_1_1_m_r_enemy_interface.html#a76d97114e4e0ed1266eda1eec330de88',1,'magica_rogue::MREnemyInterface::Dead()'],['../classmagica__rogue_1_1_m_r_slime.html#a4db4b1fc2f02936daf7352d82861f0c1',1,'magica_rogue::MRSlime::Dead()']]],
   ['disappear_2',['disappear',['../classmagica__rogue_1_1_m_r_enemy_interface.html#a6c73ec70fabed3b27920ca67f936acaa',1,'magica_rogue::MREnemyInterface::Disappear()'],['../classmagica__rogue_1_1_m_r_slime.html#ad72974818f4b21d3b88c8dc420534bd8',1,'magica_rogue::MRSlime::Disappear()']]],
   ['draw_3',['Draw',['../classmugen__engine_1_1_fps.html#a1b84a89d6400f52be54a522fc9e1d619',1,'mugen_engine::Fps']]],

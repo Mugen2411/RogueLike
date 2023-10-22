@@ -11,7 +11,7 @@ namespace magica_rogue
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	MREnemyManager::MREnemyManager()
+	MREnemyManager::MREnemyManager(): m_maxEnemyNum(0)
 	{
 	}
 
@@ -32,6 +32,7 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MREnemyManager::Register(std::unique_ptr<MREnemyInterface>&& enemy)
 	{
+		if (m_enemyList.size() >= m_maxEnemyNum) return;
 		m_enemyList.push_back(std::move(enemy));
 	}
 
@@ -40,18 +41,20 @@ namespace magica_rogue
 		@param			なし
 		@return			なし
 	*//***********************************************************************/
-	void MREnemyManager::Reset()
+	void MREnemyManager::Reset(int maxEnemyNum)
 	{
+		m_maxEnemyNum = maxEnemyNum;
 		m_spawnerList.clear();
 		m_enemyList.clear();
 	}
 
 	/**********************************************************************//**
 		@brief			更新
-		@param			なし
+		@param			mapdata				マップデータ
+		@param			player				プレイヤー
 		@return			なし
 	*//***********************************************************************/
-	void MREnemyManager::Update(MRMapData& mapdata)
+	void MREnemyManager::Update(MRMapData& mapdata, MRPlayer& player)
 	{
 		for (auto& s : m_spawnerList)
 		{
@@ -88,6 +91,7 @@ namespace magica_rogue
 		}
 		for (auto& i : m_enemyList)
 		{
+			i->HitWithPlayer(player);
 			mapdata.HitWallWithEnemy(i->GetTransform(), i->GetSize());
 			i->Move();
 		}

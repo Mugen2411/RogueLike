@@ -18,6 +18,8 @@ namespace mugen_engine
 	/**********************************************************************//**
 		@brief			初期化
 		@param[in]		device			デバイス
+		@param			inputLayout			入力レイアウト
+		@param			layoutSize			レイアウトのサイズ
 		@return			なし
 	*//***********************************************************************/
 	void MEGraphicPipeline::Initialize(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)
@@ -144,6 +146,8 @@ namespace mugen_engine
 	/**********************************************************************//**
 		@brief			パイプラインステートの作成
 		@param			device				デバイス
+		@param			inputLayout			入力レイアウト
+		@param			layoutSize			レイアウトのサイズ
 		@return			なし
 	*//***********************************************************************/
 	void MEGraphicPipeline::_CreatePipelineState(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)

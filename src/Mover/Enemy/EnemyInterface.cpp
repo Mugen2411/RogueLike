@@ -3,10 +3,21 @@
 
 #include "EnemyInterface.h"
 #include "../../Map/MapData.h"
+#include "../Player/Player.h"
 #include <cmath>
 
 namespace magica_rogue
 {
+	/**********************************************************************//**
+		@brief			移動
+		@param			なし
+		@return			なし
+	*//***********************************************************************/
+	void MREnemyInterface::Move()
+	{
+		m_transform.Clip();
+		m_transform.Update();
+	}
 	/**********************************************************************//**
 		@brief			歩行する
 		@param			なし
@@ -34,6 +45,12 @@ namespace magica_rogue
 		++m_countWalkFrame;
 		return true;
 	}
+
+	/**********************************************************************//**
+		@brief			敵と敵の押し合い
+		@param			rhs					ぶつかる敵
+		@return			なし
+	*//***********************************************************************/
 	void MREnemyInterface::HitWithEnemy(MREnemyInterface* rhs)
 	{
 		constexpr float hitSizeRatio = 10.0f;
@@ -47,5 +64,21 @@ namespace magica_rogue
 				+ m_random.GetRanged(-24, 24) * constants::math::pi2 / 256.0f,
 				static_cast<float>(inv * (m_size + rhs->m_size) * min(maxDist2 / dist2, hitSizeRatio)));
 		}
+	}
+
+	/**********************************************************************//**
+		@brief			敵とプレイヤーの当たり判定
+		@param			player				プレイヤー
+		@return			なし
+	*//***********************************************************************/
+	void MREnemyInterface::HitWithPlayer(MRPlayer& player)
+	{
+		auto playerTransform = player.GetTransform();
+		if (playerTransform.GetDistance2(this->m_transform) > (player.GetSize() + this->m_size)* (player.GetSize() + this->m_size))
+		{
+			return;
+		}
+		player.Damage(m_tacklePower, m_tackleKnockback,
+			std::atan2f(playerTransform.GetY() - m_transform.GetY(), playerTransform.GetX() - m_transform.GetX()), m_tackleDuration);
 	}
 }

@@ -55,7 +55,6 @@ namespace magica_rogue
 		m_roomList.clear();
 		m_regionList.clear();
 		m_pathList.clear();
-		enemyManager.Reset();
 
 		_DivideRooms();
 		_ConvertGraphFromMap();
@@ -65,7 +64,7 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			マップを更新する
-		@param[in]		プレイヤーの位置
+		@param[in]		playerTransform			プレイヤーの位置
 		@return			なし
 	*//***********************************************************************/
 	void MRMapData::Update(const MRTransform& playerTransform)
@@ -117,7 +116,8 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			ミニマップを描画する
-		@param[in]		プレイヤーの位置
+		@param[in]		playerTransform			プレイヤーの位置
+		@param[in]		staticList				静止オブジェクトの管理者
 		@return			なし
 	*//***********************************************************************/
 	void MRMapData::RenderMiniMap(MRTransform& playerTransform,
@@ -237,9 +237,9 @@ namespace magica_rogue
 	/**********************************************************************//**
 		@brief			隣の部屋へのルートを検索する
 		@param			なし
-		@return			なし
+		@return			ルート検索に成功したらtrue、失敗したらfalse
 	*//***********************************************************************/
-	void MRMapData::GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route)
+	bool MRMapData::GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route)
 	{
 		route.clear();
 		static std::random_device device;
@@ -258,6 +258,7 @@ namespace magica_rogue
 				break;
 			}
 		}
+		if (now_room == -1) return false;
 
 		// 次に進むべき部屋を検索する
 		std::vector<int> nextIdx(1, now_room);
@@ -335,7 +336,7 @@ namespace magica_rogue
 			tx = cur % m_width;
 			ty = cur / m_width;
 		}
-		route;
+		return true;
 	}
 
 	/**********************************************************************//**
@@ -879,7 +880,7 @@ namespace magica_rogue
 		{
 			if (r.usedFor != 1) continue;
 			auto spawner = MREnemySpawner(r.topX + 1, r.topY + 1, r.bottomX - 2, r.bottomY - 2 , 60 * 30, m_random.Get());
-			spawner.Push("slime", static_cast<constants::MRAttribute>(m_random.GetRanged(1, 12)), m_random.GetRanged(3, 6));
+			spawner.Push("slime", static_cast<constants::MRAttribute>(m_random.GetRanged(1, 12)), m_random.GetRanged(1, 3));
 			enemyManager.RegisterSpawner(spawner);
 		}
 	}
@@ -890,7 +891,7 @@ namespace magica_rogue
 		@param[in]		size					物体のサイズ
 		@param[in]		chipX					マップチップのX座標
 		@param[in]		chipY					マップチップのY座標
-		@param[in]		chiID					該当チップのID
+		@param[in]		chipID					該当チップのID
 		@return			当たっていたらチップID
 	*//***********************************************************************/
 	int MRMapData::_HitWall(MRTransform& transform, const float size, float chipX, float chipY, int chipID)

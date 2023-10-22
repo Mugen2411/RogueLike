@@ -206,7 +206,16 @@ namespace mugen_engine
 
 	/**********************************************************************//**
 		@brief			自由に4頂点を指定して描画
-		@param[in]		x					描画する中心のX座標
+		@param[in]		x0					X座標
+		@param[in]		y0					Y座標
+		@param[in]		x1					X座標
+		@param[in]		y1					Y座標
+		@param[in]		x2					X座標
+		@param[in]		y2					Y座標
+		@param[in]		x3					X座標
+		@param[in]		y3					Y座標
+		@param[in]		priority			描画優先度
+		@param[in]		index				インデックス
 		@return			なし
 	*//***********************************************************************/
 	void MEImage::DrawModiGraph(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index)
@@ -249,8 +258,17 @@ namespace mugen_engine
 	}
 
 	/**********************************************************************//**
-		@brief			2倍換算で自由に4頂点を指定して描画
-		@param[in]		x					描画する中心のX座標
+		@brief			自由に4頂点を指定して描画
+		@param[in]		x0					X座標
+		@param[in]		y0					Y座標
+		@param[in]		x1					X座標
+		@param[in]		y1					Y座標
+		@param[in]		x2					X座標
+		@param[in]		y2					Y座標
+		@param[in]		x3					X座標
+		@param[in]		y3					Y座標
+		@param[in]		priority			描画優先度
+		@param[in]		index				インデックス
 		@return			なし
 	*//***********************************************************************/
 	void MEImage::DrawModiGraph2X(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index)

@@ -25,7 +25,7 @@ namespace magica_rogue
 
 		/**********************************************************************//**
 			@brief			関数を追加する
-			@param[in]		ID					ステートと対応するID
+			@param[in]		state				ステート
 			@param[in]		updateFunc			更新関数ポインタ
 			@param[in]		renderFunc			描画関数ポインタ
 			@return			なし
@@ -63,6 +63,15 @@ namespace magica_rogue
 		void ChangeState(const int state) 
 		{
 			m_state = state;
+		}
+		/**********************************************************************//**
+			@brief			ステートの取得
+			@param			なし
+			@return			ステート
+		*//***********************************************************************/
+		int GetState() const
+		{
+			return m_state;
 		}
 	private:
 		int m_state;													//!< ステート

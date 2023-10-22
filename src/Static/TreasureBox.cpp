@@ -32,7 +32,7 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			•`‰æ
-		@param			ƒJƒƒ‰
+		@param[in]		camera					ƒJƒƒ‰
 		@return			‚È‚µ
 	*//***********************************************************************/
 	void MRTresureBox::Render(const MRCamera& camera) const

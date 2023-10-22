@@ -12,6 +12,7 @@
 
 namespace magica_rogue
 {
+	class MRPlayer;
 	class MRMapData;
 	/**********************************************************************//**
 		@class		MREnemyInterface
@@ -25,13 +26,17 @@ namespace magica_rogue
 		};
 		//! コンストラクタ
 		MREnemyInterface(const float x, const float y, const float walkSpeed,
-			const constants::MRAttribute attribute, MRCamera *pCamera, MRMapData* pMapdata, const uint32_t seed)
+			const constants::MRAttribute attribute, MRCamera *pCamera, MRMapData* pMapdata, const uint32_t seed,
+			const float tacklePower, const float tackleKnockback, const int tackleDuration)
 			:m_pCamera(pCamera), m_pMapdata(pMapdata), m_size(14.0f), m_transform(x, y, 0.0f, 0.0f),
-			m_walkSpeed(walkSpeed), m_attribute(attribute), m_state(MRAliveState::ALIVE), m_random(seed), m_countWalkFrame(0) {}
+			m_walkSpeed(walkSpeed), m_attribute(attribute), m_state(MRAliveState::ALIVE), m_random(seed), m_countWalkFrame(0),
+			m_tacklePower(tacklePower), m_tackleKnockback(tackleKnockback), m_tackleDuration(tackleDuration){}
+		//! デストラクタ
+		virtual ~MREnemyInterface(){}
 		//! 更新
 		virtual MRAliveState Update() = 0;
 		//! 移動
-		virtual void Move() = 0;
+		void Move();
 		//! 描画
 		virtual void Render() const = 0;
 		//! 死んだとき
@@ -46,6 +51,8 @@ namespace magica_rogue
 		MRTransform& GetTransform() {
 			return m_transform;
 		}
+		//! プレイヤーとの当たり判定
+		void HitWithPlayer(MRPlayer& player);
 		//! サイズの取得
 		float GetSize() const {
 			return m_size;
@@ -61,6 +68,9 @@ namespace magica_rogue
 		std::vector<MRTransform> m_route;					//!< 歩くルート
 		MRRandom m_random;									//!< 乱数生成器
 		int m_countWalkFrame;								//!< 最近の中継地点に着くまでの時間
+		float m_tackleKnockback;							//!< プレイヤーとぶつかった時に吹き飛ばす威力
+		int m_tackleDuration;								//!< プレイヤーとぶつかった時にプレイヤーに与える硬直
+		float m_tacklePower;								//!< プレイヤーとぶつかった時にプレイヤーに与えるダメージ
 	};
 }
 

@@ -25,6 +25,9 @@ namespace magica_rogue
 		{
 			m_cnt = m_random.GetRanged(0, m_cycle);
 		}
+		~MREnemySpawner() {
+			m_enemyDataList.clear();
+		}
 		//! 更新
 		void Update(MREnemyManager& enemyManager);
 		//! 敵データを追加する

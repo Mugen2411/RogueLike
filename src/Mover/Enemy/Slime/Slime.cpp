@@ -11,13 +11,14 @@ namespace magica_rogue
 		@param[in]		x					X座標
 		@param[in]		y					Y座標
 		@param[in]		attribute			属性
-		@param[in]		camera				カメラ
+		@param[in]		pCamera				カメラ
+		@param[in]		pMapdata			マップデータ
 		@param[in]		seed				シード値
 		@return			なし
 	*//***********************************************************************/
 	MRSlime::MRSlime(const float x, const float y, const constants::MRAttribute attribute,
 		MRCamera* pCamera, MRMapData* pMapdata, const uint32_t seed)
-		:MREnemyInterface(x, y, 1.2f, attribute, pCamera, pMapdata, seed), m_animator(0.16f, 4.0f)
+		:MREnemyInterface(x, y, 1.2f, attribute, pCamera, pMapdata, seed, 1.0f, 6.0f, 12), m_animator(0.16f, 4.0f), m_isLeft(false)
 	{
 		m_img = &mugen_engine::MECore::GetIns().GetGraph("enemy_slime");
 	}
@@ -32,21 +33,15 @@ namespace magica_rogue
 		m_animator.Update();
 		if (!Walk() || m_countWalkFrame > 60)
 		{
-			m_pMapdata->GetRouteToNextRoom(m_transform, m_route);
+			int ret = m_pMapdata->GetRouteToNextRoom(m_transform, m_route);
 			m_countWalkFrame = 0;
+			if (!ret)
+			{
+				m_state = MRAliveState::DISAPPEAR;
+			}
 		}
 		m_isLeft = (m_transform.GetVelocityX() < 0.0f);
 		return m_state;
-	}
-
-	/**********************************************************************//**
-		@brief			移動
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
-	void MRSlime::Move()
-	{
-		m_transform.Update();
 	}
 
 	/**********************************************************************//**

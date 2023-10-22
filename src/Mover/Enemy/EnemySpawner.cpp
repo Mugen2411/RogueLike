@@ -32,6 +32,14 @@ namespace magica_rogue
 		}
 		++m_cnt;
 	}
+
+	/**********************************************************************//**
+		@brief			スポナーの追加
+		@param			name				召喚する敵の名前
+		@param			attribute			召喚する敵の属性
+		@param			count				召喚する敵の数
+		@return			なし
+	*//***********************************************************************/
 	void MREnemySpawner::Push(std::string name, constants::MRAttribute attribute, int count)
 	{
 		m_enemyDataList.push_back(EnemyData{ name, attribute, count });

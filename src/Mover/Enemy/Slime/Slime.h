@@ -22,8 +22,6 @@ namespace magica_rogue
 			MRCamera *pCamera, MRMapData* pMapdata, const uint32_t seed);
 		//! XV
 		MRAliveState Update();
-		//! ˆÚ“®
-		void Move();
 		//! •`‰æ
 		void Render() const;
 		//! €‚ñ‚¾‚Æ‚«

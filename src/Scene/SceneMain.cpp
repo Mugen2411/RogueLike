@@ -47,7 +47,7 @@ namespace magica_rogue
 		}
 		if (MRMenuManager::Update()) return;
 
-		m_enemyManager.Update(m_mapData);
+		m_enemyManager.Update(m_mapData, m_player);
 		m_player.Update();
 		m_mapData.HitWallWithPlayer(m_player.GetTransform(), m_player.GetSize(), m_eventQueue);
 		m_mapData.Update(m_player.GetTransform());
@@ -78,6 +78,7 @@ namespace magica_rogue
 	void MRSceneMain::_GenerateMap()
 	{
 		m_staticObjectManager.Reset();
+		m_enemyManager.Reset(8 + 4 * m_floor);
 		m_mapData.Construct(min(64+(m_floor/ 2), 256), min(64 + (m_floor / 2), 256), m_floor, m_staticObjectManager, m_enemyManager);
 		m_player.GetTransform().SetPosition(m_mapData.GetStartX(), m_mapData.GetStartY());
 	}

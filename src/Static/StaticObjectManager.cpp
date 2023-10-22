@@ -48,7 +48,7 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			ï`âÊ
-		@param			Ç»Çµ
+		@param			camera				ÉJÉÅÉâ
 		@return			Ç»Çµ
 	*//***********************************************************************/
 	void MRStaticObjectManager::Render(const MRCamera& camera) const

@@ -42,6 +42,7 @@ namespace mugen_engine
 		@param[in]		constData			定数バッファのデータ
 		@param[in]		textureHeap			テクスチャのディスクリプタヒープ
 		@param[in]		blendType			ブレンドタイプ
+		@param[in]		priority			描画優先度
 		@param[in]		cmdList				コマンドリスト
 		@param[in]		pipeline			パイプライン
 		@param[in]		renderTarget		レンダーターゲット

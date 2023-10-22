@@ -22,15 +22,16 @@
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a39b7348072f613e15885369445fba6d4}{MREnemyManager}}();}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a13fbc043f9b2f5caf08c219d5484f4a7}{RegisterSpawner}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_spawner}{MREnemySpawner}}\ spawner);}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_aaed749cac9033f4700b00a0fdb6a488b}{Register}}(std::unique\_ptr<MREnemyInterface>\&\&\ enemy);}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a03b2146ab423837215f8beb958620cf1}{Reset}}();}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a319211d0edd46f9f433c9ccd317246a8}{Update}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMapData}}\&\ mapdata);}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_af4ed00ca2b3eff3d0b3c6ec3123c19bf}{Reset}}(\textcolor{keywordtype}{int}\ maxEnemyNum);}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a3526d28e14d09cde5dd18aade96befa7}{Update}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_map_data}{MRMapData}}\&\ mapdata,\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player}{MRPlayer}}\&\ player);}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a3c667eeb0a102ee39e2c414ffe7d9ee3}{Render}}()\textcolor{keyword}{const};}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00035}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{00035}}\ \ \ \ \ \ \ \ \ std::list<std::unique\_ptr<MREnemyInterface>>\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a282fcdba376ec3ce0afae7213170bdbf}{m\_enemyList}};\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00036}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{00036}}\ \ \ \ \ \ \ \ \ std::list<MREnemySpawner>\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_affc5011e438f2fac71241900df46f236}{m\_spawnerList}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00037}00037\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00038}00038\ \}}
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_EnemyManager\_\_}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00037}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a814a8ffb2c91c7c672dbf99c28afaa39}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_manager_a814a8ffb2c91c7c672dbf99c28afaa39}{m\_maxEnemyNum}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00038}00038\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_enemy_manager_8h_source_l00041}00041\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_EnemyManager\_\_}}
 
 \end{DoxyCode}

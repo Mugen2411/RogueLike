@@ -132,6 +132,24 @@ namespace magica_rogue
 	}
 
 	/**********************************************************************//**
+		@brief			ダメージを食らう
+		@param[in]			power					受ける素のダメージ
+		@param[in]			knockback				吹き飛ばされる威力
+		@param[in]			angle					吹き飛ばされる角度
+		@param[in]			duration				吹き飛ばされる時間
+		@return			なし
+	*//***********************************************************************/
+	void MRPlayer::Damage(const float power, const float knockback, const float angle, const int duration)
+	{
+		if (GetState() == static_cast<int>(STATE::KNOCKBACKED)) return;
+		m_frameCount = 0;
+		m_knockbackDuration = duration;
+		m_hp.Damage(power);
+		m_transform.SetVelocityWithAngle(angle, knockback);
+		ChangeState(static_cast<int>(STATE::KNOCKBACKED));
+	}
+
+	/**********************************************************************//**
 		@brief			立ち状態での更新
 		@param			なし
 		@return			なし
@@ -175,14 +193,6 @@ namespace magica_rogue
 				vy / std::sqrtf(static_cast<float>(numPushedButton)));
 			m_animator.Update();
 		}
-		if (input.GetPushedFrame(MRInputManager::MRKeyCode::MENU) == 1)
-		{
-			m_frameCount = 0;
-			m_hp.Damage(0.3f);
-			m_transform.SetVelocityWithAngle(6.28f * (rand() % 16) / 16.0f, 4.0f);
-			ChangeState(static_cast<int>(STATE::KNOCKBACKED));
-			return;
-		}
 	}
 
 	/**********************************************************************//**
@@ -213,7 +223,7 @@ namespace magica_rogue
 			m_isLeft = false;
 		}
 
-		if (m_frameCount > 10)
+		if (m_frameCount > m_knockbackDuration)
 		{
 			m_frameCount = 0;
 			ChangeState(static_cast<int>(STATE::STAND));

@@ -4,6 +4,8 @@
 #ifndef __MagicaRogue_Transform__
 #define __MagicaRogue_Transform__
 
+#include <cmath>
+
 namespace magica_rogue
 {
 	/**********************************************************************//**
@@ -70,6 +72,13 @@ namespace magica_rogue
 		}
 		//! 位置情報を更新
 		void Update();
+		//! すり抜けない程度に速度を抑制する
+		void Clip() {
+			float length = m_vx * m_vx + m_vy * m_vy;
+			if (length < 32.0f * 32.0f) return;
+			m_vx = m_vx * 32.0f / std::sqrtf(length);
+			m_vy = m_vy * 32.0f / std::sqrtf(length);
+		}
 
 	private:
 		float m_x;											//!< X座標
