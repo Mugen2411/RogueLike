@@ -30,6 +30,16 @@ namespace magica_rogue
 		{
 			return m_pushedFrame[static_cast<char>(code)];
 		}
+		//! マウスのX座標を取得
+		int GetMouseX() const
+		{
+			return mugen_engine::MEKeyInputManager::GetIns().GetMouseX();
+		}
+		//! マウスのY座標を取得
+		int GetMouseY() const
+		{
+			return mugen_engine::MEKeyInputManager::GetIns().GetMouseY();
+		}
 	private:
 		//! コンストラクタ
 		MRInputManager();

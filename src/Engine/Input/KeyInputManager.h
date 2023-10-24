@@ -40,6 +40,16 @@ namespace mugen_engine
 			static MEKeyInputManager instance;
 			return instance;
 		}
+		//! マウスのX座標を取得
+		int GetMouseX() const
+		{
+			return m_currentMousePosX;
+		}
+		//! マウスのY座標を取得
+		int GetMouseY() const
+		{
+			return m_currentMousePosY;
+		}
 	private:
 		/**********************************************************************//**
 			@struct		KeyInf
@@ -55,14 +65,17 @@ namespace mugen_engine
 
 		//! コンストラクタ
 		MEKeyInputManager();
-		//! マウスを真ん中に固定
-		void _SetMousePosition();
+		//! マウスの処理
+		void _ProcessMouseInput();
 
 		std::vector<char> m_statePrev;									//!< 前のフレームでの入力状況
 		std::vector<KeyInf> m_watchingKeyInfos;							//!< 監視対象のキーコード
 		const int m_cursorPosX;											//!< マウスを固定するX座標
 		const int m_cursorPosY;											//!< マウスを固定するX座標
 		HWND m_mainWindowHandle;										//!< メインウィンドウのハンドル
+		int m_currentMousePosX;											//!< 現在のマウスのX座標
+		int m_currentMousePosY;											//!< 現在のマウスのY座標
+		float m_mouseSpeedRatio;										//!< マウスのスピード倍率
 	};
 }
 

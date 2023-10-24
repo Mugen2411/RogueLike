@@ -129,6 +129,9 @@ namespace magica_rogue
 		const float fontColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32,
 			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"HP: %.1f / %.1f", m_hp.GetValue(), m_hp.GetMax());
+
+		m_playerImg->DrawGraph2X(MRInputManager::GetIns().GetMouseX(), MRInputManager::GetIns().GetMouseY(),
+			constants::render_priority::PLAYER, 0);
 	}
 
 	/**********************************************************************//**
