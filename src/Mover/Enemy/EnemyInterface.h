@@ -29,7 +29,7 @@ namespace magica_rogue
 			const constants::MRAttribute attribute, MRCamera *pCamera, MRMapData* pMapdata, const uint32_t seed,
 			const float tacklePower, const float tackleKnockback, const int tackleDuration)
 			:m_pCamera(pCamera), m_pMapdata(pMapdata), m_size(14.0f), m_transform(x, y, 0.0f, 0.0f),
-			m_walkSpeed(walkSpeed), m_attribute(attribute), m_state(MRAliveState::ALIVE), m_random(seed), m_countWalkFrame(0),
+			m_walkSpeed(walkSpeed), m_attribute(attribute), m_aliveState(MRAliveState::ALIVE), m_random(seed), m_countWalkFrame(0),
 			m_tacklePower(tacklePower), m_tackleKnockback(tackleKnockback), m_tackleDuration(tackleDuration){}
 		//! デストラクタ
 		virtual ~MREnemyInterface(){}
@@ -64,7 +64,7 @@ namespace magica_rogue
 		MRTransform m_transform;							//!< 位置速度情報
 		float m_walkSpeed;									//!< 歩く速度
 		constants::MRAttribute m_attribute;					//!< 属性
-		MRAliveState m_state;								//!< 生存状況
+		MRAliveState m_aliveState;								//!< 生存状況
 		std::vector<MRTransform> m_route;					//!< 歩くルート
 		MRRandom m_random;									//!< 乱数生成器
 		int m_countWalkFrame;								//!< 最近の中継地点に着くまでの時間

@@ -18,7 +18,7 @@ namespace magica_rogue
 		@class		MRPlayer
 		@brief		操作出来る自機クラス
 	*//***********************************************************************/
-	class MRPlayer : public MRStateMachine<MRPlayer>
+	class MRPlayer
 	{
 	public:
 		enum class PLAYER_ID : char {
@@ -67,9 +67,10 @@ namespace magica_rogue
 		float m_size;										//!< プレイヤーの当たり判定サイズ
 		float m_speed;										//!< 自機の移動速度
 		bool m_isLeft;										//!< 自機が左を向いているか
-		int m_frameCount;									//!< ステートを変更せずに経過したフレーム
+		int m_frameCount;									//!< 経過したフレーム
 		MRAnimator m_animator;								//!< アニメーター
 		int m_knockbackDuration;							//!< のけぞる時間
+		MRStateMachine<MRPlayer> m_stateMachine;			//!< ステートマシン
 
 		MRHitPoint m_hp;									//!< HP
 	};

@@ -21,7 +21,7 @@ namespace magica_rogue
 			@param[in]		This					関数を実行する主体
 			@return			なし
 		*//***********************************************************************/
-		MRStateMachine(T* This):m_pThis(This){}
+		MRStateMachine(T* This):m_pThis(This), m_frameOnState(0){}
 
 		/**********************************************************************//**
 			@brief			関数を追加する
@@ -42,7 +42,8 @@ namespace magica_rogue
 		*//***********************************************************************/
 		void Update() 
 		{
-			(m_pThis->*(m_updateList[m_state]))();
+			(m_pThis->*(m_updateList[m_aliveState]))();
+			++m_frameOnState;
 		}
 
 		/**********************************************************************//**
@@ -52,7 +53,7 @@ namespace magica_rogue
 		*//***********************************************************************/
 		void Render()const
 		{
-			(m_pThis->*(m_renderList.at(m_state)))();
+			(m_pThis->*(m_renderList.at(m_aliveState)))();
 		}
 
 		/**********************************************************************//**
@@ -62,7 +63,21 @@ namespace magica_rogue
 		*//***********************************************************************/
 		void ChangeState(const int state) 
 		{
-			m_state = state;
+			m_frameOnState = 0;
+			m_prevState = m_aliveState;
+			m_aliveState = state;
+		}
+
+		/**********************************************************************//**
+			@brief			前のステートへ戻る
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
+		void RestoreState()
+		{
+			int tmp = m_aliveState;
+			m_aliveState = m_prevState;
+			m_prevState = tmp;
 		}
 		/**********************************************************************//**
 			@brief			ステートの取得
@@ -71,13 +86,35 @@ namespace magica_rogue
 		*//***********************************************************************/
 		int GetState() const
 		{
-			return m_state;
+			return m_aliveState;
+		}
+
+		/**********************************************************************//**
+			@brief			前のステートの取得
+			@param			なし
+			@return			前のステート
+		*//***********************************************************************/
+		int GetPrevState() const
+		{
+			return m_prevState;
+		}
+
+		/**********************************************************************//**
+			@brief			経過フレームの取得
+			@param			なし
+			@return			経過フレーム
+		*//***********************************************************************/
+		int GetFrame() const
+		{
+			return m_frameOnState;
 		}
 	private:
-		int m_state;													//!< ステート
+		int m_aliveState;												//!< ステート
+		int m_prevState;												//!< 前のステート
 		T* m_pThis;														//!< 自身のポインタ
-		std::unordered_map<int, void (T::*)(void)> m_updateList;
-		std::unordered_map<int, void (T::*)(void)const> m_renderList;
+		int m_frameOnState;												//!< ステートの経過フレーム
+		std::unordered_map<int, void (T::*)(void)> m_updateList;		//!< 更新関数のリスト
+		std::unordered_map<int, void (T::*)(void)const> m_renderList;	//!< 描画関数のリスト
 	};
 }
 

@@ -236,7 +236,8 @@ namespace magica_rogue
 
 	/**********************************************************************//**
 		@brief			隣の部屋へのルートを検索する
-		@param			なし
+		@param[in]		transform					敵の位置情報
+		@param[out]		route						検索したルートを格納する配列
 		@return			ルート検索に成功したらtrue、失敗したらfalse
 	*//***********************************************************************/
 	bool MRMapData::GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route)
@@ -272,70 +273,24 @@ namespace magica_rogue
 			m_random.GetRanged(m_roomList[nextIdx[0]].topY + 1, m_roomList[nextIdx[0]].bottomY - 2) :
 			m_random.GetRanged(m_roomList[nextIdx[0]].topY, m_roomList[nextIdx[0]].bottomY);
 
-		//次の部屋が確定したらそこへ向けてルートを幅優先で探る
-		constexpr int MAX_DISTANCE = 99999999;
-		std::vector<std::vector<int>> distanceList;
-		std::vector<std::vector<int>> connectList;
-		distanceList.resize(m_height);
-		for (int y = 0; y < m_height; ++y)
-		{
-			distanceList[y].resize(m_width);
-			for (auto& d : distanceList[y]) d = MAX_DISTANCE;
-		}
-		connectList.resize(m_height);
-		for (int y = 0; y < m_height; ++y)
-		{
-			connectList[y].resize(m_width);
-			for (auto& c : connectList[y]) c = -1;
-		}
-		std::queue<int> st;
-		std::queue<int> cost;
-		st.push(startY * m_width + startX);
-		distanceList[startY][startX] = 0;
-		cost.push(0);
+		_FindRoute(startX, startY, goalX, goalY, route);
+		return true;
+	}
 
-		int diffX[4] = { 0, 0, 1, -1 };
-		int diffY[4] = { 1, -1, 0, 0 };
-		while (!st.empty())
-		{
-			int cur = st.front();
-			st.pop();
-			int x = cur % m_width;
-			int y = cur / m_width;
-			int prev_cost = cost.front();
-			cost.pop();
-			if (x == goalX && y == goalY) break;
-			std::vector<std::pair<int, int>> cost_pair;
-			for (int i = 0; i < 4; ++i)
-			{
-				int nx = x + diffX[i];
-				int ny = y + diffY[i];
-				if (nx < 0 || nx >= m_width || ny < 0 || ny >= m_height) continue;
-				if (m_mapData[ny][nx] != 0) continue;
-				if (distanceList[ny][nx] <= std::abs(ny - goalY) + std::abs(nx - goalX) + prev_cost) continue;
-				distanceList[ny][nx] = std::abs(ny - goalY) + std::abs(nx - goalX) + prev_cost;
-				cost_pair.push_back({ distanceList[ny][nx], ny * m_width + nx });
-				connectList[ny][nx] = cur;
-			}
-			if (cost_pair.empty()) continue;
-			std::sort(cost_pair.begin(), cost_pair.end(), 
-				[](std::pair<int, int>& lhs, std::pair<int, int>& rhs) {
-					return lhs.first > rhs.first;
-				});
-			for (auto& c : cost_pair)
-			{
-				cost.push(c.first);
-				st.push(c.second);
-			}
-		}
-
-		for (int tx = goalX, ty = goalY; connectList[ty][tx] != -1; )
-		{
-			route.push_back(MRTransform(static_cast<float>(tx * 32.0f + 16.0f), static_cast<float>(ty * 32.0f + 16.0f), 0.0f, 0.0f));
-			int cur = connectList[ty][tx];
-			tx = cur % m_width;
-			ty = cur / m_width;
-		}
+	/**********************************************************************//**
+		@brief			自機へのルートを検索する
+		@param[in]		transform					敵の位置情報
+		@param[out]		route						検索したルートを格納する配列
+		@return			ルート検索に成功したらtrue、失敗したらfalse
+	*//***********************************************************************/
+	bool MRMapData::GetRouteToPlayer(MRTransform& transform, std::vector<MRTransform>& route)
+	{
+		route.clear();
+		int startX = static_cast<int>(transform.GetX() / m_chipSize);
+		int startY = static_cast<int>(transform.GetY() / m_chipSize);
+		int goalX = static_cast<int>(m_pPlayerTransform->GetX() / m_chipSize);
+		int goalY = static_cast<int>(m_pPlayerTransform->GetY() / m_chipSize);
+		_FindRoute(startX, startY, goalX, goalY, route);
 		return true;
 	}
 
@@ -1031,5 +986,81 @@ namespace magica_rogue
 			return chipID;
 		}
 		return 0;
+	}
+
+	/**********************************************************************//**
+		@brief			ルートを検索する
+		@param[in]		startX					始点のX位置
+		@param[in]		startY					始点のY位置
+		@param[in]		goalX					終点のX位置
+		@param[in]		goalY					終点のY位置
+		@param[out]		route					検索したルートを格納する配列
+	*//***********************************************************************/
+	void MRMapData::_FindRoute(const int startX, const int startY, const int goalX, const int goalY, std::vector<MRTransform>& route)
+	{
+		//次の部屋が確定したらそこへ向けてルートを幅優先で探る
+		constexpr int MAX_DISTANCE = 99999999;
+		std::vector<std::vector<int>> distanceList;
+		std::vector<std::vector<int>> connectList;
+		distanceList.resize(m_height);
+		for (int y = 0; y < m_height; ++y)
+		{
+			distanceList[y].resize(m_width);
+			for (auto& d : distanceList[y]) d = MAX_DISTANCE;
+		}
+		connectList.resize(m_height);
+		for (int y = 0; y < m_height; ++y)
+		{
+			connectList[y].resize(m_width);
+			for (auto& c : connectList[y]) c = -1;
+		}
+		std::queue<int> st;
+		std::queue<int> cost;
+		st.push(startY * m_width + startX);
+		distanceList[startY][startX] = 0;
+		cost.push(0);
+
+		int diffX[4] = { 0, 0, 1, -1 };
+		int diffY[4] = { 1, -1, 0, 0 };
+		while (!st.empty())
+		{
+			int cur = st.front();
+			st.pop();
+			int x = cur % m_width;
+			int y = cur / m_width;
+			int prev_cost = cost.front();
+			cost.pop();
+			if (x == goalX && y == goalY) break;
+			std::vector<std::pair<int, int>> cost_pair;
+			for (int i = 0; i < 4; ++i)
+			{
+				int nx = x + diffX[i];
+				int ny = y + diffY[i];
+				if (nx < 0 || nx >= m_width || ny < 0 || ny >= m_height) continue;
+				if (m_mapData[ny][nx] != 0) continue;
+				if (distanceList[ny][nx] <= std::abs(ny - goalY) + std::abs(nx - goalX) + prev_cost) continue;
+				distanceList[ny][nx] = std::abs(ny - goalY) + std::abs(nx - goalX) + prev_cost;
+				cost_pair.push_back({ distanceList[ny][nx], ny * m_width + nx });
+				connectList[ny][nx] = cur;
+			}
+			if (cost_pair.empty()) continue;
+			std::sort(cost_pair.begin(), cost_pair.end(),
+				[](std::pair<int, int>& lhs, std::pair<int, int>& rhs) {
+					return lhs.first > rhs.first;
+				});
+			for (auto& c : cost_pair)
+			{
+				cost.push(c.first);
+				st.push(c.second);
+			}
+		}
+
+		for (int tx = goalX, ty = goalY; connectList[ty][tx] != -1; )
+		{
+			route.push_back(MRTransform(static_cast<float>(tx * 32.0f + 16.0f), static_cast<float>(ty * 32.0f + 16.0f), 0.0f, 0.0f));
+			int cur = connectList[ty][tx];
+			tx = cur % m_width;
+			ty = cur / m_width;
+		}
 	}
 }

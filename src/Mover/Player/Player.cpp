@@ -16,8 +16,8 @@ namespace magica_rogue
 		@return			Ç»Çµ
 	*//***********************************************************************/
 	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera) :
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f), m_hp(10.0f),
-		MRStateMachine(this), m_animator(0.1f, 4.0f)
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f), m_hp(10.0f), m_frameCount(0),
+		m_animator(0.1f, 4.0f), m_stateMachine(this)
 	{
 		switch (id)
 		{
@@ -68,9 +68,9 @@ namespace magica_rogue
 		mugen_engine::MECore::GetIns().LoadFont("guageNumber", L"ÇlÇr ÉSÉVÉbÉN", 16);
 		m_guageFont = &mugen_engine::MECore::GetIns().GetFont("guageNumber");
 
-		Register(static_cast<int>(STATE::STAND), &MRPlayer::UpdateOnStand, &MRPlayer::RenderOnStand);
-		Register(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::UpdateOnKnockbacked, &MRPlayer::RenderOnKnockbacked);
-		ChangeState(static_cast<int>(STATE::STAND));
+		m_stateMachine.Register(static_cast<int>(STATE::STAND), &MRPlayer::UpdateOnStand, &MRPlayer::RenderOnStand);
+		m_stateMachine.Register(static_cast<int>(STATE::KNOCKBACKED), &MRPlayer::UpdateOnKnockbacked, &MRPlayer::RenderOnKnockbacked);
+		m_stateMachine.ChangeState(static_cast<int>(STATE::STAND));
 	}
 
 	/**********************************************************************//**
@@ -80,7 +80,7 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRPlayer::Update()
 	{
-		MRStateMachine::Update();
+		m_stateMachine.Update();
 	}
 
 	/**********************************************************************//**
@@ -102,7 +102,7 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRPlayer::Render() const
 	{
-		MRStateMachine::Render();
+		m_stateMachine.Render();
 		for (int i = 0; i < 4; ++i)
 		{
 			m_hpGuageImg->DrawRotaGraph2X(64, 8 + 32 * i + constants::screen::left_margin, 1.0f, 0.0f,
@@ -141,12 +141,11 @@ namespace magica_rogue
 	*//***********************************************************************/
 	void MRPlayer::Damage(const float power, const float knockback, const float angle, const int duration)
 	{
-		if (GetState() == static_cast<int>(STATE::KNOCKBACKED)) return;
-		m_frameCount = 0;
+		if (m_stateMachine.GetState() == static_cast<int>(STATE::KNOCKBACKED)) return;
 		m_knockbackDuration = duration;
 		m_hp.Damage(power);
 		m_transform.SetVelocityWithAngle(angle, knockback);
-		ChangeState(static_cast<int>(STATE::KNOCKBACKED));
+		m_stateMachine.ChangeState(static_cast<int>(STATE::KNOCKBACKED));
 	}
 
 	/**********************************************************************//**
@@ -223,10 +222,9 @@ namespace magica_rogue
 			m_isLeft = false;
 		}
 
-		if (m_frameCount > m_knockbackDuration)
+		if (m_stateMachine.GetFrame() > m_knockbackDuration)
 		{
-			m_frameCount = 0;
-			ChangeState(static_cast<int>(STATE::STAND));
+			m_stateMachine.ChangeState(static_cast<int>(STATE::STAND));
 		}
 		++m_frameCount;
 	}

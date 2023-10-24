@@ -38,12 +38,9 @@ namespace magica_rogue
 		//! ミニマップを描画
 		void RenderMiniMap(MRTransform& playerTransform, MRStaticObjectManager& staticList)const;
 		//! プレイヤーの初期X座標を取得
-		float GetStartX() const {
-			return m_startX * 32.0f + 16.0f;
-		}
-		//! プレイヤーの初期Y座標を取得
-		float GetStartY() const {
-			return m_startY * 32.0f + 16.0f;
+		void SetPlayerPosition(MRTransform& playerTransform) {
+			playerTransform.SetPosition(m_startX * 32.0f + 16.0f, m_startY * 32.0f + 16.0f);
+			m_pPlayerTransform = &playerTransform;
 		}
 		//! 壁とプレイヤーの衝突を処理する
 		void HitWallWithPlayer(MRTransform& transform, const float size, MREventQueue& eventQueue);
@@ -51,6 +48,13 @@ namespace magica_rogue
 		void HitWallWithEnemy(MRTransform& transform, const float size);
 		//! 隣の部屋へのルートを取得する
 		bool GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route);
+		//! 自機へのルートを取得する
+		bool GetRouteToPlayer(MRTransform& transform, std::vector<MRTransform>& route);
+		//! 自機との距離を取得する
+		float GetDistancePlayer(MRTransform& transform) const
+		{
+			return std::sqrtf(m_pPlayerTransform->GetDistance2(transform));
+		}
 	private:
 		/**********************************************************************//**
 			@class		ROOM_NODE
@@ -97,10 +101,13 @@ namespace magica_rogue
 		void _CreateEnemySpawner(MREnemyManager& enemyManager);
 		//! 壁と位置速度情報の当たり判定
 		int _HitWall(MRTransform &transform, const float size, float chipX, float chipY, int chipID);
+		//! ルート検索
+		void _FindRoute(const int startX, const int startY, const int goalX, const int goalY, std::vector<MRTransform>& route);
 
-		int m_width;									//!< マップの横幅
-		int m_height;									//!< マップの高さ
+		int m_width;										//!< マップの横幅
+		int m_height;										//!< マップの高さ
 
+		MRTransform* m_pPlayerTransform;					//!< プレイヤーの位置速度情報
 		int m_startX;										//!< プレイヤーの初期X座標
 		int m_startY;										//!< プレイヤーの初期Y座標
 		int m_goalX;										//!< 階段のX座標

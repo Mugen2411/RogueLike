@@ -7,6 +7,7 @@
 #include "../EnemyInterface.h"
 #include "../../../Engine/Core.h"
 #include "../../../Util/Animator.h"
+#include "../../../Util/StateMachine.h"
 
 namespace magica_rogue
 {
@@ -29,9 +30,25 @@ namespace magica_rogue
 		//! 消えたとき
 		void Disappear();
 	private:
-		mugen_engine::MEImage* m_img;				//!< 画像
-		MRAnimator m_animator;						//!< アニメーター
-		bool m_isLeft;								//!< 左を向いているか
+		enum class STATE {
+			STROLL,				//!< 徘徊
+			CHASE,				//!< 追跡
+			KNOCKBACKED			//!< ノックバック
+		};
+
+		//! 徘徊中の更新
+		void _UpdateOnStroll();
+		//! 徘徊中の描画
+		void _RenderOnStroll() const;
+		//! 追跡中の更新
+		void _UpdateOnChase();
+		//! 追跡中の描画
+		void _RenderOnChase() const;
+
+		mugen_engine::MEImage* m_img;						//!< 画像
+		MRAnimator m_animator;								//!< アニメーター
+		bool m_isLeft;										//!< 左を向いているか
+		MRStateMachine<MRSlime> m_stateMachine;				//!< ステートマシン
 	};
 }
 

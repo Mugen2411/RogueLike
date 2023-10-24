@@ -14,9 +14,10 @@ namespace magica_rogue
 	*//***********************************************************************/
 	MRSceneMain::MRSceneMain(MRSceneManager* sceneManager) :m_floor(0), MRSceneInterface(sceneManager), MRMenuManager(m_eventQueue),
 		m_camera(0,0), m_mapData(), 
-		m_player(MRPlayer::PLAYER_ID::KOMUK, m_mapData.GetStartX(), m_mapData.GetStartY(), m_camera)
+		m_player(MRPlayer::PLAYER_ID::KOMUK, 0, 0, m_camera)
 	{
 		MREnemyFactory::GetIns().Initialize(m_camera, m_mapData);
+		m_mapData.SetPlayerPosition(m_player.GetTransform());
 		_GenerateMap();
 	}
 
@@ -80,6 +81,6 @@ namespace magica_rogue
 		m_staticObjectManager.Reset();
 		m_enemyManager.Reset(8 + 4 * m_floor);
 		m_mapData.Construct(min(64+(m_floor/ 2), 256), min(64 + (m_floor / 2), 256), m_floor, m_staticObjectManager, m_enemyManager);
-		m_player.GetTransform().SetPosition(m_mapData.GetStartX(), m_mapData.GetStartY());
+		m_mapData.SetPlayerPosition(m_player.GetTransform());
 	}
 }

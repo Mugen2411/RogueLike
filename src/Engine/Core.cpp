@@ -3,6 +3,7 @@
 
 #include "Core.h"
 #include "Graphic/GraphicRenderQueue.h"
+#include "Input/KeyInputManager.h"
 
 LRESULT WindowProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
@@ -36,6 +37,7 @@ namespace mugen_engine
 			m_windowHandle, window_width, window_height);
 		m_pipeline.Initialize(m_graphicDevice, m_inputLayout, _countof(m_inputLayout));
 		MEGraphicRenderQueue::Initialize(m_graphicDevice);
+		MEKeyInputManager::GetIns().Initialize(m_windowHandle);
 
 		m_audioDevice.Initialize();
 

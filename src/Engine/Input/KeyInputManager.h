@@ -27,6 +27,8 @@ namespace mugen_engine
 			ThumbLL, ThumbLR, ThumbLU, ThumbLD,
 			ThumbRL, ThumbRR, ThumbRU, ThumbRD,
 		};
+		//! 初期化
+		void Initialize(HWND hWnd);
 		//! キーコードを監視対象に追加
 		bool AddKeycode(char codeKey, char codeKeyboard, GAMEPAD_KEYTYPE typeGamepadKey, short codeGamepad);
 		//! 入力状況を更新
@@ -53,9 +55,14 @@ namespace mugen_engine
 
 		//! コンストラクタ
 		MEKeyInputManager();
+		//! マウスを真ん中に固定
+		void _SetMousePosition();
 
-		std::vector<char> m_statePrev;									//! 前のフレームでの入力状況
-		std::vector<KeyInf> m_watchingKeyInfos;							//! 監視対象のキーコード
+		std::vector<char> m_statePrev;									//!< 前のフレームでの入力状況
+		std::vector<KeyInf> m_watchingKeyInfos;							//!< 監視対象のキーコード
+		const int m_cursorPosX;											//!< マウスを固定するX座標
+		const int m_cursorPosY;											//!< マウスを固定するX座標
+		HWND m_mainWindowHandle;										//!< メインウィンドウのハンドル
 	};
 }
 
