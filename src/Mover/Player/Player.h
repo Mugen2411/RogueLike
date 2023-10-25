@@ -9,6 +9,7 @@
 #include "../../Engine/Graphic/GraphicLoadedImage.h"
 #include "../../Engine/Graphic/GraphicFontData.h"
 #include "../HitPoint.h"
+#include "../MagicPoint.h"
 #include "../../Util/StateMachine.h"
 #include "../../Util/Animator.h"
 
@@ -62,6 +63,7 @@ namespace magica_rogue
 		MRTransform m_transform;							//!< 位置速度情報
 		mugen_engine::MEImage* m_playerImg;					//!< プレイヤーのグラフィック
 		mugen_engine::MEImage* m_hpGuageImg;				//!< HPゲージの画像
+		mugen_engine::MEImage* m_aimImg;					//!< 照準の画像
 		mugen_engine::MEFontData* m_guageFont;				//!< ゲージの実数値を表示するフォント
 		MRCamera& m_camera;									//!< カメラ
 		float m_size;										//!< プレイヤーの当たり判定サイズ
@@ -73,6 +75,7 @@ namespace magica_rogue
 		MRStateMachine<MRPlayer> m_stateMachine;			//!< ステートマシン
 
 		MRHitPoint m_hp;									//!< HP
+		MRMagicPoint m_mp;									//!< MP
 	};
 }
 

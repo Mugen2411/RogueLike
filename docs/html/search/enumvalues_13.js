@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yukina_0',['YUKINA',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca3042260edbba00901846e6df03487486',1,'magica_rogue::MRPlayer']]]
+  ['wind_0',['WIND',['../namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667a4a67e057db1520f4aa49f1a50f7e532c',1,'magica_rogue::constants']]]
 ];

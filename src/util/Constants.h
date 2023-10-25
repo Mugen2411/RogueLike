@@ -25,6 +25,10 @@ namespace magica_rogue
 			const float MAP_WALL = 2.0f;				//!< マップの壁レイヤ
 			const float MAP_FLOOR = 3.0f;				//!< マップの床レイヤ
 
+			const float SYSTEM_AIM = -2.0f;				//!< 照準
+			const float SYSTEM_AIM_GUAGE_BASE = -1.8f;	//!< 照準のMPゲージの背景部分
+			const float SYSTEM_AIM_GUAGE_MAIN = -1.9f;	//!< 照準のMPゲージの本体
+
 			const float MINIMAP_BASE = -5.0f;			//!< ミニマップの基準
 			const float MINIMAP_ROOM = -5.2f;			//!< ミニマップの部屋
 			const float MINIMAP_PATH = -5.1f;			//!< ミニマップの通路
@@ -36,6 +40,7 @@ namespace magica_rogue
 			const float UI_GUAGE_MAIN = -6.1f;			//!< UIゲージの本体
 			const float UI_GUAGE_FRAME = -6.2f;			//!< UIゲージのフレーム
 			const float UI_GUAGE_NUMBER = -6.3f;		//!< UIゲージに重ねる実数値
+
 
 			const float MENU1_BASE = -100.0f;			//!< メニュー1枚目の基準
 			const float MENU1_TEXT = -101.0f;			//!< メニュー1枚目のテキスト

@@ -164,6 +164,7 @@
     <ClCompile Include="src\Mover\Enemy\EnemySpawner.cpp" />
     <ClCompile Include="src\Mover\Enemy\Slime\Slime.cpp" />
     <ClCompile Include="src\Mover\HitPoint.cpp" />
+    <ClCompile Include="src\Mover\MagicPoint.cpp" />
     <ClCompile Include="src\Mover\Player\Player.cpp" />
     <ClCompile Include="src\Scene\SceneMain.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="src\Mover\Enemy\EnemySpawner.h" />
     <ClInclude Include="src\Mover\Enemy\Slime\Slime.h" />
     <ClInclude Include="src\Mover\HitPoint.h" />
+    <ClInclude Include="src\Mover\MagicPoint.h" />
     <ClInclude Include="src\Mover\Player\Player.h" />
     <ClInclude Include="src\Scene\SceneInterface.h" />
     <ClInclude Include="src\Scene\SceneMain.h" />

@@ -16,7 +16,7 @@ namespace magica_rogue
 		@return			‚È‚µ
 	*//***********************************************************************/
 	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera) :
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f), m_hp(10.0f), m_frameCount(0),
+		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f), m_hp(10.0f), m_mp(10.0f), m_frameCount(0),
 		m_animator(0.1f, 4.0f), m_stateMachine(this)
 	{
 		switch (id)
@@ -64,6 +64,9 @@ namespace magica_rogue
 
 		mugen_engine::MECore::GetIns().LoadDivGraph("hpGuage", L"media/graphic/UI/HPGuage.png", 1, 9);
 		m_hpGuageImg = &mugen_engine::MECore::GetIns().GetGraph("hpGuage");
+
+		mugen_engine::MECore::GetIns().LoadDivGraph("aim", L"media/graphic/player/aim.png", 3, 1);
+		m_aimImg = &mugen_engine::MECore::GetIns().GetGraph("aim");
 
 		mugen_engine::MECore::GetIns().LoadFont("guageNumber", L"‚l‚r ƒSƒVƒbƒN", 16);
 		m_guageFont = &mugen_engine::MECore::GetIns().GetFont("guageNumber");
@@ -130,8 +133,31 @@ namespace magica_rogue
 		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32,
 			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"HP: %.1f / %.1f", m_hp.GetValue(), m_hp.GetMax());
 
-		m_playerImg->DrawGraph2X(MRInputManager::GetIns().GetMouseX(), MRInputManager::GetIns().GetMouseY(),
-			constants::render_priority::PLAYER, 0);
+		constexpr int mpGuageTopX = guageMargin;
+		constexpr int mpGuageTopY = constants::screen::left_margin + guageMargin + 32;
+		// MPƒQ[ƒW‚Ì•`‰æ
+		m_hpGuageImg->DrawModiGraph2X(mpGuageTopX + static_cast<int>(guageWidth * m_mp.GetRatio()), mpGuageTopY,
+			mpGuageTopX + static_cast<int>(guageWidth * m_mp.GetRatio()), mpGuageTopY + guageHeight,
+			mpGuageTopX, mpGuageTopY,
+			mpGuageTopX, mpGuageTopY + guageHeight,
+			constants::render_priority::UI_GUAGE_MAIN, 3);
+		m_hpGuageImg->DrawModiGraph2X(mpGuageTopX + guageWidth, mpGuageTopY,
+			mpGuageTopX + guageWidth, mpGuageTopY + guageHeight,
+			mpGuageTopX, mpGuageTopY,
+			mpGuageTopX, mpGuageTopY + guageHeight,
+			constants::render_priority::UI_GUAGE_BASE, 4);
+		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 64 * 2,
+			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"MP: %.1f / %.1f", m_mp.GetValue(), m_mp.GetMax());
+
+		const int mouseX = MRInputManager::GetIns().GetMouseX();
+		const int mouseY = MRInputManager::GetIns().GetMouseY();
+		m_aimImg->DrawGraph2X(mouseX, mouseY,
+			constants::render_priority::SYSTEM_AIM, 0);
+		m_aimImg->DrawModiGraph2X(mouseX + 2, mouseY - 16, mouseX + 2, mouseY + 16, mouseX - 2, mouseY - 16, mouseX - 2, mouseY + 16,
+			constants::render_priority::SYSTEM_AIM_GUAGE_BASE, 2);
+		m_aimImg->DrawModiGraph2X(mouseX + 2, mouseY - 16, mouseX + 2, static_cast<int>(mouseY - 16 + 32 * m_mp.GetRatio()),
+			mouseX - 2, mouseY - 16, mouseX - 2, static_cast<int>(mouseY - 16 + 32 * m_mp.GetRatio()),
+			constants::render_priority::SYSTEM_AIM_GUAGE_MAIN, 1);
 	}
 
 	/**********************************************************************//**

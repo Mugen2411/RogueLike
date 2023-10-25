@@ -1,0 +1,37 @@
+\doxysection{Magic\+Point.\+h}
+\hypertarget{_magic_point_8h_source}{}\label{_magic_point_8h_source}\index{Mover/MagicPoint.h@{Mover/MagicPoint.h}}
+\mbox{\hyperlink{_magic_point_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MagicaRogue\_MagicPoint\_\_}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MagicaRogue\_MagicPoint\_\_}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00009}00009\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00013}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point}{MRMagicPoint}}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point}{MRMagicPoint}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ maximumValue);}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a2f685d7c2d7e5ea23ac1aa7d08c2617c}{Heal}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_ad5cdae31f2329d211739459a1534ad5c}{RatioHeal}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ratio);}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a74b7ab98533694558c94da3077479971}{Damage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00025}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a57e56be34b06bf6dc5701f410f78d8e8}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a57e56be34b06bf6dc5701f410f78d8e8}{GetValue}}()\textcolor{keyword}{const\ }\{}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_abb14002e318f4c311e13f5bbb1dc695b}{m\_value}};}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00029}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_ae98b24a8d1cc2c601582baeda98b6973}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_ae98b24a8d1cc2c601582baeda98b6973}{GetRatio}}()\textcolor{keyword}{const\ }\{}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_abb14002e318f4c311e13f5bbb1dc695b}{m\_value}}\ /\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a38a64663eb1314b72a0c6962d1a517bc}{m\_maximum}};}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00033}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_abbae1c219b0d5db46211e25be87752f8}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_abbae1c219b0d5db46211e25be87752f8}{GetMax}}()\textcolor{keyword}{const\ }\{}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a38a64663eb1314b72a0c6962d1a517bc}{m\_maximum}};}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00037}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_abb14002e318f4c311e13f5bbb1dc695b}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_abb14002e318f4c311e13f5bbb1dc695b}{m\_value}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00038}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a38a64663eb1314b72a0c6962d1a517bc}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point_a38a64663eb1314b72a0c6962d1a517bc}{m\_maximum}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00039}00039\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_magic_point_8h_source_l00042}00042\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_MagicPoint\_\_}}
+
+\end{DoxyCode}
