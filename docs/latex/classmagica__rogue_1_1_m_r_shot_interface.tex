@@ -1,0 +1,236 @@
+\doxysection{magica\+\_\+rogue\+::MRShot\+Interface クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_shot_interface}{}\label{classmagica__rogue_1_1_m_r_shot_interface}\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+
+
+自機ショットが必ず継承するインターフェース  
+
+
+
+
+{\ttfamily \#include $<$Shot\+Interface.\+h$>$}
+
+magica\+\_\+rogue\+::MRShot\+Interface の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmagica__rogue_1_1_m_r_shot_interface}
+\end{center}
+\end{figure}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a46a3a826ba55a9ee2c0c738c2e6ac29b}{MRShot\+Interface}} (const float x, const float y, const float vx, const float vy, const float size, const float attack, const \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} attribute, int duration)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a84bf57c124d9f559c0220712087e5734}{Update}} ()=0
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_aa747c74933599cd0c5747b00436688d8}{Render}} () const =0
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_ab46e4d9ef66c1aa565a162aac3feedd9}{Hit\+With\+Enemy}} (\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface}{MREnemy\+Interface}} \&enemy)
+\begin{DoxyCompactList}\small\item\em 敵との当たり判定 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a474c25d6b8455df7ab39ed1b86fbf74a}{m\+\_\+attack}}
+\begin{DoxyCompactList}\small\item\em 攻撃力 \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a8ef66333a119ccfa69c3576da7f59f93}{m\+\_\+attribute}}
+\begin{DoxyCompactList}\small\item\em 属性 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a4e987811e4c0279aae9659405a5ff64c}{m\+\_\+frame}}
+\begin{DoxyCompactList}\small\item\em 生成されてからのフレーム数 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a192b23a77bc8950137255fd2f40975b2}{m\+\_\+duration}}
+\begin{DoxyCompactList}\small\item\em 消えるまでの時間 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{magica\+\_\+rogue\+::\+MRMover\+Interface}} に属する継承非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_aa8ae6328c41e0c87b4c3f590fde22a2d}{m\+\_\+alive\+State}}
+\begin{DoxyCompactList}\small\item\em 生存状況 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a7ce4379e23560f913392785035b00332}{m\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em 当たり判定のサイズ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a1b95ed95c19c7263118d58f69a042200}{m\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em 位置速度情報 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{magica\+\_\+rogue\+::\+MRMover\+Interface}} に属する継承非公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \+: char \{ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba3bfa0eed9e858c516e816a519b2a82eb}{ALIVE}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5babb4784231ff45108ee20bad16e4a2e8c}{DEAD}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba6a5799ffa80b2e544a1ea8864da9e44f}{DISAPPEAR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{magica\+\_\+rogue\+::\+MRMover\+Interface}} に属する継承非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a56016fd61b3a8e816e70e650543d4c9e}{MRMover\+Interface}} (const float x, const float y, const float size, const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} state)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ade288a4096ab9ca8db83837c5c1b69a4}{\texorpdfstring{$\sim$}{\string~}\+MRMover\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ad1919a5177b43d91ec0429f915648c27}{Get\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em 位置速度情報の取得 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a11d94c00eda2a4674ecd9c797f630e41}{Get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em サイズの取得 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a8d3b5aac5595c0a290d66086b063e144}{Move}} ()
+\begin{DoxyCompactList}\small\item\em 移動 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ac333c053f591432d28813f99a29dfb06}{Dead}} ()=0
+\begin{DoxyCompactList}\small\item\em 死んだとき \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a7e9872921c4853fbbfae6fcab43c2672}{Disappear}} ()=0
+\begin{DoxyCompactList}\small\item\em 消えたとき \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+自機ショットが必ず継承するインターフェース 
+
+ \mbox{\hyperlink{_shot_interface_8h_source}{Shot\+Interface.\+h}} の \mbox{\hyperlink{_shot_interface_8h_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_a46a3a826ba55a9ee2c0c738c2e6ac29b}\label{classmagica__rogue_1_1_m_r_shot_interface_a46a3a826ba55a9ee2c0c738c2e6ac29b} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!MRShotInterface@{MRShotInterface}}
+\index{MRShotInterface@{MRShotInterface}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{MRShotInterface()}{MRShotInterface()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRShot\+Interface\+::\+MRShot\+Interface (\begin{DoxyParamCaption}\item[{const float}]{x,  }\item[{const float}]{y,  }\item[{const float}]{vx,  }\item[{const float}]{vy,  }\item[{const float}]{size,  }\item[{const float}]{attack,  }\item[{const \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}}}]{attribute,  }\item[{int}]{duration }\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em x} & X座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y座標 \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & 当たり判定のサイズ \\
+\hline
+\mbox{\texttt{ in}}  & {\em attack} & 攻撃力 \\
+\hline
+\mbox{\texttt{ in}}  & {\em attribute} & 属性 \\
+\hline
+\mbox{\texttt{ in}}  & {\em duration} & 持続時間 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_shot_interface_8cpp_source}{Shot\+Interface.\+cpp}} の \mbox{\hyperlink{_shot_interface_8cpp_source_l00018}{18}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_ab46e4d9ef66c1aa565a162aac3feedd9}\label{classmagica__rogue_1_1_m_r_shot_interface_ab46e4d9ef66c1aa565a162aac3feedd9} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!HitWithEnemy@{HitWithEnemy}}
+\index{HitWithEnemy@{HitWithEnemy}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{HitWithEnemy()}{HitWithEnemy()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRShot\+Interface\+::\+Hit\+With\+Enemy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface}{MREnemy\+Interface}} \&}]{enemy }\end{DoxyParamCaption})}
+
+
+
+敵との当たり判定 
+
+コンストラクタ
+
+
+\begin{DoxyParams}{引数}
+{\em enemy} & 敵 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_shot_interface_8cpp_source}{Shot\+Interface.\+cpp}} の \mbox{\hyperlink{_shot_interface_8cpp_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_aa747c74933599cd0c5747b00436688d8}\label{classmagica__rogue_1_1_m_r_shot_interface_aa747c74933599cd0c5747b00436688d8} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRShot\+Interface\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+描画 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a8bbf95c29fa1157807fa6f715e8a58e4}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を実装しています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_a84bf57c124d9f559c0220712087e5734}\label{classmagica__rogue_1_1_m_r_shot_interface_a84bf57c124d9f559c0220712087e5734} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} magica\+\_\+rogue\+::\+MRShot\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+更新 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a9a66d698753be67790d81ac76b068112}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を実装しています。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_a474c25d6b8455df7ab39ed1b86fbf74a}\label{classmagica__rogue_1_1_m_r_shot_interface_a474c25d6b8455df7ab39ed1b86fbf74a} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!m\_attack@{m\_attack}}
+\index{m\_attack@{m\_attack}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{m\_attack}{m\_attack}}
+{\footnotesize\ttfamily const float magica\+\_\+rogue\+::\+MRShot\+Interface\+::m\+\_\+attack\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+攻撃力 
+
+
+
+ \mbox{\hyperlink{_shot_interface_8h_source}{Shot\+Interface.\+h}} の \mbox{\hyperlink{_shot_interface_8h_source_l00030}{30}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_a8ef66333a119ccfa69c3576da7f59f93}\label{classmagica__rogue_1_1_m_r_shot_interface_a8ef66333a119ccfa69c3576da7f59f93} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!m\_attribute@{m\_attribute}}
+\index{m\_attribute@{m\_attribute}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{m\_attribute}{m\_attribute}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants\+::\+MRAttribute}} magica\+\_\+rogue\+::\+MRShot\+Interface\+::m\+\_\+attribute\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+属性 
+
+
+
+ \mbox{\hyperlink{_shot_interface_8h_source}{Shot\+Interface.\+h}} の \mbox{\hyperlink{_shot_interface_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_a192b23a77bc8950137255fd2f40975b2}\label{classmagica__rogue_1_1_m_r_shot_interface_a192b23a77bc8950137255fd2f40975b2} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!m\_duration@{m\_duration}}
+\index{m\_duration@{m\_duration}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{m\_duration}{m\_duration}}
+{\footnotesize\ttfamily const int magica\+\_\+rogue\+::\+MRShot\+Interface\+::m\+\_\+duration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+消えるまでの時間 
+
+
+
+ \mbox{\hyperlink{_shot_interface_8h_source}{Shot\+Interface.\+h}} の \mbox{\hyperlink{_shot_interface_8h_source_l00033}{33}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_shot_interface_a4e987811e4c0279aae9659405a5ff64c}\label{classmagica__rogue_1_1_m_r_shot_interface_a4e987811e4c0279aae9659405a5ff64c} 
+\index{magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}!m\_frame@{m\_frame}}
+\index{m\_frame@{m\_frame}!magica\_rogue::MRShotInterface@{magica\_rogue::MRShotInterface}}
+\doxysubsubsection{\texorpdfstring{m\_frame}{m\_frame}}
+{\footnotesize\ttfamily int magica\+\_\+rogue\+::\+MRShot\+Interface\+::m\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+生成されてからのフレーム数 
+
+
+
+ \mbox{\hyperlink{_shot_interface_8h_source}{Shot\+Interface.\+h}} の \mbox{\hyperlink{_shot_interface_8h_source_l00032}{32}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Mover/\+Shot/\mbox{\hyperlink{_shot_interface_8h}{Shot\+Interface.\+h}}\item 
+Mover/\+Shot/\mbox{\hyperlink{_shot_interface_8cpp}{Shot\+Interface.\+cpp}}\end{DoxyCompactItemize}

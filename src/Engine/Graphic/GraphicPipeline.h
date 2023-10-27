@@ -19,20 +19,59 @@ namespace mugen_engine
 	class MEGraphicPipeline
 	{
 	public: 
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEGraphicPipeline();
-		//! 初期化
+
+		/**********************************************************************//**
+			@brief			初期化
+			@param[in]		device			デバイス
+			@param[in]		inputLayout			入力レイアウト
+			@param[in]		layoutSize			レイアウトのサイズ
+			@return			なし
+		*//***********************************************************************/
 		void Initialize(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize);
-		//! パイプラインステートの設定
+
+		/**********************************************************************//**
+			@brief			パイプラインステートの設定
+			@param[in]		type				描画タイプ(0=透過・1=加算・2=減算)
+			@param			cmdList				コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void SetPipelineState(const int type, MEGraphicCommandList& cmdList);
+
 	private:
-		//! バイトコード周りのエラー処理
-		void _ProcessBlobError(HRESULT result);
-		//! ルートシグネチャの作成
+		/**********************************************************************//**
+			@brief			バイトコード周りのエラー処理
+			@param[in]		result				読み込み時のエラーコード
+			@return			なし
+		*//***********************************************************************/
+		void _ProcessBlobError(const HRESULT result);
+		
+		/**********************************************************************//**
+			@brief			ルートシグネチャの作成
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
 		void _CreateRootSignarure(const MEGraphicDevice& device);
-		//! シェーダーの読み込み
+
+		/**********************************************************************//**
+			@brief			シェーダーの読み込み
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void _LoadShader();
-		//! パイプラインステートの作成
+
+		/**********************************************************************//**
+			@brief			パイプラインステートの作成
+			@param[in]		device				デバイス
+			@param[in]		inputLayout			入力レイアウト
+			@param[in]		layoutSize			レイアウトのサイズ
+			@return			なし
+		*//***********************************************************************/
 		void _CreatePipelineState(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize);
 
 		std::vector<char> m_vsBlob;													//!< 頂点シェーダーのバイトコード

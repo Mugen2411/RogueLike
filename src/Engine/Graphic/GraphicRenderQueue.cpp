@@ -12,11 +12,6 @@ namespace mugen_engine
 	MEGraphicDevice* MEGraphicRenderQueue::m_pDevice = nullptr;
 	std::vector<CONSTANT_DATA*> MEGraphicRenderQueue::m_pMapMatrix;
 
-	/**********************************************************************//**
-		@brief			初期化
-		@param[in]		device				デバイス
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderQueue::Initialize(MEGraphicDevice& device)
 	{
 		m_pDevice = &device;
@@ -36,20 +31,9 @@ namespace mugen_engine
 		_InitalizeConstantBuffer(device);
 	}
 
-	/**********************************************************************//**
-		@brief			描画を予約する
-		@param[in]		vbView				頂点バッファビュー
-		@param[in]		constData			定数バッファのデータ
-		@param[in]		textureHeap			テクスチャのディスクリプタヒープ
-		@param[in]		blendType			ブレンドタイプ
-		@param[in]		priority			描画優先度
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		pipeline			パイプライン
-		@param[in]		renderTarget		レンダーターゲット
-		@return			なし
-	*//***********************************************************************/
-	void MEGraphicRenderQueue::ReserveRender(D3D12_VERTEX_BUFFER_VIEW vbView, CONSTANT_DATA constData,
-		MEGraphicGpuResourceManager* textureHeap, int blendType, float priority, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
+	void MEGraphicRenderQueue::ReserveRender(const D3D12_VERTEX_BUFFER_VIEW vbView, const CONSTANT_DATA constData,
+		MEGraphicGpuResourceManager* textureHeap, const int blendType, const float priority,
+		MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 		MEGraphicRenderTarget* renderTarget)
 	{
 		static RENDER_DATA tmp = {};
@@ -63,13 +47,6 @@ namespace mugen_engine
 		m_reserveList.push_back(tmp);
 	}
 
-	/**********************************************************************//**
-		@brief			予約された描画を全部発火する
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		pipeline			パイプライン
-		@param[in]		renderTarget		レンダーターゲット
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderQueue::RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget)
 	{	
 		for (auto& res : m_reserveList)
@@ -122,13 +99,7 @@ namespace mugen_engine
 		m_reserveList.clear();
 	}
 
-	/**********************************************************************//**
-		@brief			指定したインデックスに定数バッファビューを構築する
-		@param[in]		index				生成時に割り当てられたインデックス
-		@param[in]		device				デバイス
-		@return			なし
-	*//***********************************************************************/
-	void MEGraphicRenderQueue::_CreateCbv(uint32_t index, const MEGraphicDevice& device)
+	void MEGraphicRenderQueue::_CreateCbv(const uint32_t index, const MEGraphicDevice& device)
 	{
 		D3D12_HEAP_PROPERTIES heapprop = {};
 		heapprop.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -164,11 +135,6 @@ namespace mugen_engine
 		m_constantBuffers[index]->Map(0, nullptr, (void**)&m_pMapMatrix[index]);
 	}
 
-	/**********************************************************************//**
-		@brief			定数バッファを初期化する
-		@param[in]		device			デバイス
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderQueue::_InitalizeConstantBuffer(const MEGraphicDevice& device)
 	{
 		m_constantBuffers.resize(m_maxReserve);

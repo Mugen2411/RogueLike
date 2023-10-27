@@ -2,23 +2,9 @@
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	MEGraphicRenderTarget::MEGraphicRenderTarget() :m_numBackBuffer(2), m_backBuffers(m_numBackBuffer)
 	{}
 
-	/**********************************************************************//**
-		@brief			初期化
-		@param[in]		device				デバイス
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		hwnd				ウィンドウハンドル
-		@param[in]		window_width		ウィンドウ(描画範囲)の横幅
-		@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
-		@return			インスタンス
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::Initialize(const MEGraphicDevice& device, const MEGraphicCommandList& cmdList,
 		HWND hwnd, const int window_width, const int window_height)
 	{
@@ -73,22 +59,11 @@ namespace mugen_engine
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			バックバッファの内容をディスプレイに反映する
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::Present()
 	{
 		m_swapchain->Present(0, 0);
 	}
 
-	/**********************************************************************//**
-		@brief			描画前バリア
-		@param			device			デバイス
-		@param			cmdList			コマンドリスト
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::SetBarrierBeforeRender(MEGraphicDevice& device, MEGraphicCommandList& cmdList)
 	{
 		//DX12 プレゼント前バリア
@@ -110,11 +85,6 @@ namespace mugen_engine
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			プレゼント前バリア
-		@param			cmdList			コマンドリスト
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::SetBarrierBeforePresent(MEGraphicCommandList& cmdList)
 	{
 		//DX12 プレゼント前バリア
@@ -133,27 +103,12 @@ namespace mugen_engine
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			画面を指定した色でクリアする
-		@param			clearColor		指定色(RGBA, 0.0f～1.0f)
-		@param			cmdList			コマンドリスト
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::Clear(float clearColor[4], MEGraphicCommandList& cmdList)
 	{
 		cmdList.GetCommandList()->OMSetRenderTargets(1, &m_renderTargetHandle, true, nullptr);
 		cmdList.GetCommandList()->ClearRenderTargetView(m_renderTargetHandle, clearColor, 0, nullptr);
 	}
 
-	/**********************************************************************//**
-		@brief			描画可能な範囲を設定する
-		@param			cmdList			コマンドリスト
-		@param[in]		topX			左上のX座標
-		@param[in]		topY			左上のY座標
-		@param[in]		bottomX			右下のX座標
-		@param[in]		bottomY			右下のY座標
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::SetRenderArea(MEGraphicCommandList& cmdList, 
 		const int topX, const int topY, const int bottomX, const int bottomY)
 	{
@@ -163,11 +118,6 @@ namespace mugen_engine
 		m_scissorRect.bottom = bottomY;
 	}
 
-	/**********************************************************************//**
-		@brief			描画毎に必要なコマンドを積む
-		@param			cmdList			コマンドリスト
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicRenderTarget::SetRenderBaseCommand(MEGraphicCommandList& cmdList)
 	{
 		cmdList.GetCommandList()->OMSetRenderTargets(1, &m_renderTargetHandle, true, nullptr);

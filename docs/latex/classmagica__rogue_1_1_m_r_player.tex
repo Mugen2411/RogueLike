@@ -9,6 +9,12 @@
 
 {\ttfamily \#include $<$Player.\+h$>$}
 
+magica\+\_\+rogue\+::MRPlayer の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmagica__rogue_1_1_m_r_player}
+\end{center}
+\end{figure}
 \doxysubsubsection*{公開型}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,21 +39,29 @@ enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_abc29e8ebe83f12344
 , \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_abc29e8ebe83f12344ca6e9d0816b31aea766c3680bc81d3018cc1648baa8b1367}{KNOCKBACKED}}
  \}
 \end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{magica\+\_\+rogue\+::\+MRMover\+Interface}} に属する継承公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \+: char \{ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba3bfa0eed9e858c516e816a519b2a82eb}{ALIVE}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5babb4784231ff45108ee20bad16e4a2e8c}{DEAD}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba6a5799ffa80b2e544a1ea8864da9e44f}{DISAPPEAR}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a15a49f0a2f78963a5d059a952b3ec3de}{MRPlayer}} (const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}} id, const float x, const float y, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \&camera)
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}{Update}} ()
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_af7622a3c7f1fa61909528dddedcfdd63}{Update}} ()
 \begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{Move}} ()
 \begin{DoxyCompactList}\small\item\em 移動 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{Render}} () const
 \begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ab9039f3f911f7dfe1e0c054f459135f0}{Get\+Transform}} ()
-\begin{DoxyCompactList}\small\item\em 位置情報を取得 \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae6177c42e9015f69bf4be32c11fa5bd6}{Get\+Size}} ()
-\begin{DoxyCompactList}\small\item\em 当たり判定のサイズを取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a77dc72c8bc3cc84c4a3faee29e37d54b}{Dead}} ()
+\begin{DoxyCompactList}\small\item\em 死んだとき \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a3c248d0f1bd6b59d8a43daf11685cded}{Disappear}} ()
+\begin{DoxyCompactList}\small\item\em 消えたとき \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a7a6daebe37e98956ec55c03b341bd2ad}{Damage}} (const float power, const float knockback, const float angle, const int duration)
 \begin{DoxyCompactList}\small\item\em ダメージを食らう \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8803af5833a2fe29313f0fc567685bfe}{Update\+On\+Stand}} ()
@@ -58,13 +72,27 @@ void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aa637e3e4fc4576ff47b1079
 \begin{DoxyCompactList}\small\item\em のけぞり状態での更新 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a5f8ee1c1e6e2cd730aae6efdf264a115}{Render\+On\+Knockbacked}} () const
 \begin{DoxyCompactList}\small\item\em のけぞり状態での描画 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{magica\+\_\+rogue\+::\+MRMover\+Interface}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a56016fd61b3a8e816e70e650543d4c9e}{MRMover\+Interface}} (const float x, const float y, const float size, const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} state)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ade288a4096ab9ca8db83837c5c1b69a4}{\texorpdfstring{$\sim$}{\string~}\+MRMover\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ad1919a5177b43d91ec0429f915648c27}{Get\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em 位置速度情報の取得 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a11d94c00eda2a4674ecd9c797f630e41}{Get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em サイズの取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a24dd395f61447fadbe3877b004814c74}{\+\_\+\+Shot}} ()
+\begin{DoxyCompactList}\small\item\em ショットを撃つ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aaf3406185c281360c04f96e1d685b95c}{PLAYER\+\_\+\+ID}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a6c76fd3faf4bf861cded116af459229b}{m\+\_\+id}}
 \begin{DoxyCompactList}\small\item\em プレイヤー\+ID \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}{m\+\_\+transform}}
-\begin{DoxyCompactList}\small\item\em 位置速度情報 \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}{m\+\_\+player\+Img}}
 \begin{DoxyCompactList}\small\item\em プレイヤーのグラフィック \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_image}{mugen\+\_\+engine\+::\+MEImage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a08337eb885d6fc9589d06b7b1ce27259}{m\+\_\+hp\+Guage\+Img}}
@@ -75,8 +103,6 @@ void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a5f8ee1c1e6e2cd730aae6ef
 \begin{DoxyCompactList}\small\item\em ゲージの実数値を表示するフォント \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_camera}{MRCamera}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}{m\+\_\+camera}}
 \begin{DoxyCompactList}\small\item\em カメラ \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a9b595f14cf072e7ac91cc4a07a746fd8}{m\+\_\+size}}
-\begin{DoxyCompactList}\small\item\em プレイヤーの当たり判定サイズ \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}{m\+\_\+speed}}
 \begin{DoxyCompactList}\small\item\em 自機の移動速度 \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a709e9cb7a9c17697bc5990a300183fa9}{m\+\_\+is\+Left}}
@@ -93,12 +119,22 @@ int \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_ae62a3390dcbd3fc8007872cd
 \begin{DoxyCompactList}\small\item\em HP \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmagica__rogue_1_1_m_r_magic_point}{MRMagic\+Point}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_aa21ecc6e249280ff4d29928d56c9f41d}{m\+\_\+mp}}
 \begin{DoxyCompactList}\small\item\em MP \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{magica\+\_\+rogue\+::\+MRMover\+Interface}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_aa8ae6328c41e0c87b4c3f590fde22a2d}{m\+\_\+alive\+State}}
+\begin{DoxyCompactList}\small\item\em 生存状況 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a7ce4379e23560f913392785035b00332}{m\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em 当たり判定のサイズ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a1b95ed95c19c7263118d58f69a042200}{m\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em 位置速度情報 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{詳解}
 操作出来る自機クラス 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00022}{22}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00023}{23}} 行目に定義があります。
 
 
 
@@ -161,7 +197,7 @@ OBORO&\\
 \end{DoxyEnumFields}
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00025}{25}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00026}{26}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_abc29e8ebe83f12344ca6e9d0816b31ae}\label{classmagica__rogue_1_1_m_r_player_abc29e8ebe83f12344ca6e9d0816b31ae} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!STATE@{STATE}}
@@ -181,7 +217,7 @@ KNOCKBACKED&\\
 \end{DoxyEnumFields}
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00030}{30}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00031}{31}} 行目に定義があります。
 
 
 
@@ -215,6 +251,30 @@ KNOCKBACKED&\\
 
 
 \doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a24dd395f61447fadbe3877b004814c74}\label{classmagica__rogue_1_1_m_r_player_a24dd395f61447fadbe3877b004814c74} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!\_Shot@{\_Shot}}
+\index{\_Shot@{\_Shot}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{\_Shot()}{\_Shot()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+\_\+\+Shot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ショットを撃つ 
+
+攻撃
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00285}{285}} 行目に定義があります。
+
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a7a6daebe37e98956ec55c03b341bd2ad}\label{classmagica__rogue_1_1_m_r_player_a7a6daebe37e98956ec55c03b341bd2ad} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Damage@{Damage}}
 \index{Damage@{Damage}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
@@ -241,41 +301,49 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00171}{171}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00173}{173}} 行目に定義があります。
 
-\Hypertarget{classmagica__rogue_1_1_m_r_player_ae6177c42e9015f69bf4be32c11fa5bd6}\label{classmagica__rogue_1_1_m_r_player_ae6177c42e9015f69bf4be32c11fa5bd6} 
-\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!GetSize@{GetSize}}
-\index{GetSize@{GetSize}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
-\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
-{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRPlayer\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-当たり判定のサイズを取得 
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a77dc72c8bc3cc84c4a3faee29e37d54b}\label{classmagica__rogue_1_1_m_r_player_a77dc72c8bc3cc84c4a3faee29e37d54b} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Dead@{Dead}}
+\index{Dead@{Dead}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{Dead()}{Dead()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00047}{47}} 行目に定義があります。
-
-\Hypertarget{classmagica__rogue_1_1_m_r_player_ab9039f3f911f7dfe1e0c054f459135f0}\label{classmagica__rogue_1_1_m_r_player_ab9039f3f911f7dfe1e0c054f459135f0} 
-\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!GetTransform@{GetTransform}}
-\index{GetTransform@{GetTransform}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
-\doxysubsubsection{\texorpdfstring{GetTransform()}{GetTransform()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& magica\+\_\+rogue\+::\+MRPlayer\+::\+Get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+死んだとき 
 
 
 
-位置情報を取得 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ac333c053f591432d28813f99a29dfb06}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を実装しています。
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00043}{43}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00044}{44}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_player_a3c248d0f1bd6b59d8a43daf11685cded}\label{classmagica__rogue_1_1_m_r_player_a3c248d0f1bd6b59d8a43daf11685cded} 
+\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Disappear@{Disappear}}
+\index{Disappear@{Disappear}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
+\doxysubsubsection{\texorpdfstring{Disappear()}{Disappear()}}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Disappear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+消えたとき 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a7e9872921c4853fbbfae6fcab43c2672}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を実装しています。
+
+
+
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00046}{46}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}\label{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Move@{Move}}
 \index{Move@{Move}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
 \doxysubsubsection{\texorpdfstring{Move()}{Move()}}
-{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -293,13 +361,17 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00094}{94}} 行目に定義があります。
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a8d3b5aac5595c0a290d66086b063e144}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00095}{95}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}\label{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Render@{Render}}
 \index{Render@{Render}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
 \doxysubsubsection{\texorpdfstring{Render()}{Render()}}
-{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -315,7 +387,11 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00106}{106}} 行目に定義があります。
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a8bbf95c29fa1157807fa6f715e8a58e4}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を実装しています。
+
+
+
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00107}{107}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a5f8ee1c1e6e2cd730aae6efdf264a115}\label{classmagica__rogue_1_1_m_r_player_a5f8ee1c1e6e2cd730aae6efdf264a115} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!RenderOnKnockbacked@{RenderOnKnockbacked}}
@@ -337,7 +413,7 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00266}{266}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00268}{268}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_aef0fce6ff53b6ebc742e6aca2e507c36}\label{classmagica__rogue_1_1_m_r_player_aef0fce6ff53b6ebc742e6aca2e507c36} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!RenderOnStand@{RenderOnStand}}
@@ -359,13 +435,13 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00231}{231}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00233}{233}} 行目に定義があります。
 
-\Hypertarget{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187}\label{classmagica__rogue_1_1_m_r_player_a1af70849babd1f929acec7b34d4f2187} 
+\Hypertarget{classmagica__rogue_1_1_m_r_player_af7622a3c7f1fa61909528dddedcfdd63}\label{classmagica__rogue_1_1_m_r_player_af7622a3c7f1fa61909528dddedcfdd63} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!Update@{Update}}
 \index{Update@{Update}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void magica\+\_\+rogue\+::\+MRPlayer\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRMover\+Interface\+::\+MRAlive\+State}} magica\+\_\+rogue\+::\+MRPlayer\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -381,6 +457,10 @@ KNOCKBACKED&\\
 \begin{DoxyReturn}{戻り値}
 なし 
 \end{DoxyReturn}
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a9a66d698753be67790d81ac76b068112}{magica\+\_\+rogue\+::\+MRMover\+Interface}}を実装しています。
+
 
 
  \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00084}{84}} 行目に定義があります。
@@ -405,7 +485,7 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00243}{243}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00245}{245}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a8803af5833a2fe29313f0fc567685bfe}\label{classmagica__rogue_1_1_m_r_player_a8803af5833a2fe29313f0fc567685bfe} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!UpdateOnStand@{UpdateOnStand}}
@@ -427,7 +507,7 @@ KNOCKBACKED&\\
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00185}{185}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}} の \mbox{\hyperlink{_player_8cpp_source_l00187}{187}} 行目に定義があります。
 
 
 
@@ -444,7 +524,7 @@ KNOCKBACKED&\\
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00066}{66}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00065}{65}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a6402af9d761f373490cbc0fdc3ff4f24}\label{classmagica__rogue_1_1_m_r_player_a6402af9d761f373490cbc0fdc3ff4f24} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_animator@{m\_animator}}
@@ -458,7 +538,7 @@ KNOCKBACKED&\\
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00073}{73}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00071}{71}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919}\label{classmagica__rogue_1_1_m_r_player_a8bc746e873478f3fee8fdbd5cfc62919} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_camera@{m\_camera}}
@@ -472,7 +552,7 @@ KNOCKBACKED&\\
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00068}{68}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00067}{67}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a212dcf9a371a9ede0975005eb8426e59}\label{classmagica__rogue_1_1_m_r_player_a212dcf9a371a9ede0975005eb8426e59} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_frameCount@{m\_frameCount}}
@@ -486,7 +566,7 @@ KNOCKBACKED&\\
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00072}{72}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00070}{70}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a2714eae122da0dccb18c0af27ba5ad71}\label{classmagica__rogue_1_1_m_r_player_a2714eae122da0dccb18c0af27ba5ad71} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_guageFont@{m\_guageFont}}
@@ -500,7 +580,7 @@ KNOCKBACKED&\\
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00067}{67}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00066}{66}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a88f98390dced6b8d221656e91c4a671f}\label{classmagica__rogue_1_1_m_r_player_a88f98390dced6b8d221656e91c4a671f} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_hp@{m\_hp}}
@@ -514,7 +594,7 @@ HP
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00077}{77}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00075}{75}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a08337eb885d6fc9589d06b7b1ce27259}\label{classmagica__rogue_1_1_m_r_player_a08337eb885d6fc9589d06b7b1ce27259} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_hpGuageImg@{m\_hpGuageImg}}
@@ -528,7 +608,7 @@ HPゲージの画像
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00065}{65}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00064}{64}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a6c76fd3faf4bf861cded116af459229b}\label{classmagica__rogue_1_1_m_r_player_a6c76fd3faf4bf861cded116af459229b} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_id@{m\_id}}
@@ -556,7 +636,7 @@ HPゲージの画像
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00071}{71}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00069}{69}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_ae62a3390dcbd3fc8007872cd55896551}\label{classmagica__rogue_1_1_m_r_player_ae62a3390dcbd3fc8007872cd55896551} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_knockbackDuration@{m\_knockbackDuration}}
@@ -570,7 +650,7 @@ HPゲージの画像
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00074}{74}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00072}{72}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_aa21ecc6e249280ff4d29928d56c9f41d}\label{classmagica__rogue_1_1_m_r_player_aa21ecc6e249280ff4d29928d56c9f41d} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_mp@{m\_mp}}
@@ -584,7 +664,7 @@ MP
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00078}{78}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00076}{76}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479}\label{classmagica__rogue_1_1_m_r_player_a8e082b49063b3992439f9845566d6479} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_playerImg@{m\_playerImg}}
@@ -598,21 +678,7 @@ MP
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00064}{64}} 行目に定義があります。
-
-\Hypertarget{classmagica__rogue_1_1_m_r_player_a9b595f14cf072e7ac91cc4a07a746fd8}\label{classmagica__rogue_1_1_m_r_player_a9b595f14cf072e7ac91cc4a07a746fd8} 
-\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_size@{m\_size}}
-\index{m\_size@{m\_size}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
-\doxysubsubsection{\texorpdfstring{m\_size}{m\_size}}
-{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRPlayer\+::m\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-プレイヤーの当たり判定サイズ 
-
-
-
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00069}{69}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00063}{63}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d}\label{classmagica__rogue_1_1_m_r_player_a4cd1b2ae6f264f35dad082d24103ae4d} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_speed@{m\_speed}}
@@ -626,7 +692,7 @@ MP
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00070}{70}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00068}{68}} 行目に定義があります。
 
 \Hypertarget{classmagica__rogue_1_1_m_r_player_ac563a8ff8a4c370aea08abb69b33a082}\label{classmagica__rogue_1_1_m_r_player_ac563a8ff8a4c370aea08abb69b33a082} 
 \index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_stateMachine@{m\_stateMachine}}
@@ -640,21 +706,7 @@ MP
 
 
 
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00075}{75}} 行目に定義があります。
-
-\Hypertarget{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630}\label{classmagica__rogue_1_1_m_r_player_ae13f694d467aa891e2e4f1fdce80c630} 
-\index{magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}!m\_transform@{m\_transform}}
-\index{m\_transform@{m\_transform}!magica\_rogue::MRPlayer@{magica\_rogue::MRPlayer}}
-\doxysubsubsection{\texorpdfstring{m\_transform}{m\_transform}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} magica\+\_\+rogue\+::\+MRPlayer\+::m\+\_\+transform\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-位置速度情報 
-
-
-
- \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00063}{63}} 行目に定義があります。
+ \mbox{\hyperlink{_player_8h_source}{Player.\+h}} の \mbox{\hyperlink{_player_8h_source_l00073}{73}} 行目に定義があります。
 
 
 

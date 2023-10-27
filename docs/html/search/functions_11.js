@@ -5,6 +5,7 @@ var searchData=
   ['_7emrenemyspawner_2',['~MREnemySpawner',['../classmagica__rogue_1_1_m_r_enemy_spawner.html#a63b4f862c4bbc3b90c32d287146e5f52',1,'magica_rogue::MREnemySpawner']]],
   ['_7emrmenuinterface_3',['~MRMenuInterface',['../classmagica__rogue_1_1_m_r_menu_interface.html#af43b438802644def0d2629a9e971d99f',1,'magica_rogue::MRMenuInterface']]],
   ['_7emrmenumanager_4',['~MRMenuManager',['../classmagica__rogue_1_1_m_r_menu_manager.html#a55477c620ed9f6c9402b5bd6aa8ba819',1,'magica_rogue::MRMenuManager']]],
-  ['_7emrsceneinterface_5',['~MRSceneInterface',['../classmagica__rogue_1_1_m_r_scene_interface.html#a7f2a9a67fad9452cce4ffc298fa1d0cd',1,'magica_rogue::MRSceneInterface']]],
-  ['_7emrscenemanager_6',['~MRSceneManager',['../classmagica__rogue_1_1_m_r_scene_manager.html#ac8100b20253da6dfdd2ac353092064ad',1,'magica_rogue::MRSceneManager']]]
+  ['_7emrmoverinterface_5',['~MRMoverInterface',['../classmagica__rogue_1_1_m_r_mover_interface.html#ade288a4096ab9ca8db83837c5c1b69a4',1,'magica_rogue::MRMoverInterface']]],
+  ['_7emrsceneinterface_6',['~MRSceneInterface',['../classmagica__rogue_1_1_m_r_scene_interface.html#a7f2a9a67fad9452cce4ffc298fa1d0cd',1,'magica_rogue::MRSceneInterface']]],
+  ['_7emrscenemanager_7',['~MRSceneManager',['../classmagica__rogue_1_1_m_r_scene_manager.html#ac8100b20253da6dfdd2ac353092064ad',1,'magica_rogue::MRSceneManager']]]
 ];

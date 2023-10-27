@@ -1,0 +1,35 @@
+\doxysection{Shot\+Interface.\+h}
+\hypertarget{_shot_interface_8h_source}{}\label{_shot_interface_8h_source}\index{Mover/Shot/ShotInterface.h@{Mover/Shot/ShotInterface.h}}
+\mbox{\hyperlink{_shot_interface_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ \_\_MagicaRogue\_ShotInterface\_\_}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ \_\_MagicaRogue\_ShotInterface\_\_}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../MoverInterface.h"{}}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}../../Util/Constants.h"{}}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00010}00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemagica__rogue}{magica\_rogue}}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{class\ }MREnemyInterface;}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00017}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface}{MRShotInterface}}\ :\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface}{MRMoverInterface}}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface}{MRShotInterface}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ vx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ vy,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ size,}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ attack,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants::MRAttribute}}\ attribute,\ \textcolor{keywordtype}{int}\ duration);}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00024}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a84bf57c124d9f559c0220712087e5734}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAliveState}}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a84bf57c124d9f559c0220712087e5734}{Update}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00026}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_aa747c74933599cd0c5747b00436688d8}{00026}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_aa747c74933599cd0c5747b00436688d8}{Render}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_ab46e4d9ef66c1aa565a162aac3feedd9}{HitWithEnemy}}(\mbox{\hyperlink{classmagica__rogue_1_1_m_r_enemy_interface}{MREnemyInterface}}\&\ enemy);}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00030}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a474c25d6b8455df7ab39ed1b86fbf74a}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a474c25d6b8455df7ab39ed1b86fbf74a}{m\_attack}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00031}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a8ef66333a119ccfa69c3576da7f59f93}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacemagica__rogue_1_1constants_ac721d86b0e1424ded1d1c89a1d619667}{constants::MRAttribute}}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a8ef66333a119ccfa69c3576da7f59f93}{m\_attribute}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00032}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a4e987811e4c0279aae9659405a5ff64c}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a4e987811e4c0279aae9659405a5ff64c}{m\_frame}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00033}\mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a192b23a77bc8950137255fd2f40975b2}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a192b23a77bc8950137255fd2f40975b2}{m\_duration}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_shot_interface_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MagicaRogue\_ShotInterface\_\_}}
+
+\end{DoxyCode}

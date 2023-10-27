@@ -8,26 +8,10 @@
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param		なし
-		@return			なし
-	*//***********************************************************************/
 	MEImage::MEImage() :
 		m_width(0), m_height(0), m_xDivideNum(1), m_yDivideNum(1), m_brightness(1.0f, 1.0f, 1.0f, 1.0f)
 	{}
 
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param[in]		filepath			画像のファイルパス
-		@param[in]		device				デバイス
-		@param[in]		xDivideNum			横方向の分割数
-		@param[in]		yDivideNum			縦方向の分割数
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		pipeline			パイプライン
-		@param[in]		renderTarget		レンダーターゲット
-		@return			なし
-	*//***********************************************************************/
 	MEImage::MEImage(const std::wstring& filepath,
 		MEGraphicDevice& device, size_t xDivideNum, size_t yDivideNum, MEGraphicCommandList& cmdList,
 		MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
@@ -75,14 +59,7 @@ namespace mugen_engine
 		//m_resourceManager.UploadToGpu(metadata, img->rowPitch, img->format, *m_pCmdList);
 	}
 
-	/**********************************************************************//**
-		@brief			指定した座標に描画
-		@param[in]		x					描画する中心のX座標
-		@param[in]		y					描画する中心のY座標
-		@param[in]		index				画像が分割されている場合どれを描画するか
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::DrawGraph(int x, int y, float priority, int index)
+	void MEImage::DrawGraph(const int x, const int y, const float priority, const int index)
 	{
 		if (index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -106,16 +83,7 @@ namespace mugen_engine
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			座標と拡大率と回転角度を指定して描画
-		@param[in]		x					描画する中心のX座標
-		@param[in]		y					描画する中心のY座標
-		@param[in]		scale				拡大率
-		@param[in]		angle				回転角度(ラジアン)
-		@param[in]		index				画像が分割されている場合どれを描画するか
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::DrawRotaGraph(int x, int y, float scale, float angle, float priority, int index)
+	void MEImage::DrawRotaGraph(const int x, const int y, const float scale, const float angle, const float priority, const int index)
 	{
 		if (index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -140,14 +108,7 @@ namespace mugen_engine
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			2倍換算で指定した座標に描画
-		@param[in]		x					描画する中心のX座標
-		@param[in]		y					描画する中心のY座標
-		@param[in]		index				画像が分割されている場合どれを描画するか
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::DrawGraph2X(int x, int y, float priority, int index)
+	void MEImage::DrawGraph2X(const int x, const int y, const float priority, const int index)
 	{
 		if (index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -171,16 +132,7 @@ namespace mugen_engine
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			2倍換算で座標と拡大率と回転角度を指定して描画
-		@param[in]		x					描画する中心のX座標
-		@param[in]		y					描画する中心のY座標
-		@param[in]		scale				拡大率
-		@param[in]		angle				回転角度(ラジアン)
-		@param[in]		index				画像が分割されている場合どれを描画するか
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::DrawRotaGraph2X(int x, int y, float scale, float angle, float priority, int index)
+	void MEImage::DrawRotaGraph2X(const int x, const int y, const float scale, const float angle, const float priority, const int index)
 	{
 		if (index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -204,21 +156,8 @@ namespace mugen_engine
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			自由に4頂点を指定して描画
-		@param[in]		x0					X座標
-		@param[in]		y0					Y座標
-		@param[in]		x1					X座標
-		@param[in]		y1					Y座標
-		@param[in]		x2					X座標
-		@param[in]		y2					Y座標
-		@param[in]		x3					X座標
-		@param[in]		y3					Y座標
-		@param[in]		priority			描画優先度
-		@param[in]		index				インデックス
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::DrawModiGraph(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index)
+	void MEImage::DrawModiGraph(const int x0, const int y0, const int x1, const int y1,
+		const int x2, const int y2, const int x3, const int y3, const float priority, const int index)
 	{
 		if (index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -257,21 +196,8 @@ namespace mugen_engine
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			自由に4頂点を指定して描画
-		@param[in]		x0					X座標
-		@param[in]		y0					Y座標
-		@param[in]		x1					X座標
-		@param[in]		y1					Y座標
-		@param[in]		x2					X座標
-		@param[in]		y2					Y座標
-		@param[in]		x3					X座標
-		@param[in]		y3					Y座標
-		@param[in]		priority			描画優先度
-		@param[in]		index				インデックス
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::DrawModiGraph2X(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3, float priority, int index)
+	void MEImage::DrawModiGraph2X(const int x0, const int y0, const int x1, const int y1,
+		const int x2, const int y2, const int x3, const int y3, const float priority, const int index)
 	{
 		if (index >= m_xDivideNum * m_yDivideNum)
 		{
@@ -310,34 +236,16 @@ namespace mugen_engine
 			&m_resourceManager, m_blendType, priority, m_pCmdList, m_pPipeline, m_pRenderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			画像描画時の輝度を設定
-		@param[in]		R					赤
-		@param[in]		G					緑
-		@param[in]		B					青
-		@param[in]		A					不透明度
-		@return			なし
-	*//***********************************************************************/
 	void MEImage::SetBrightness(const float R, const float G, const float B, const float A)
 	{
 		m_brightness = DirectX::XMFLOAT4(R, G, B, A);
 	}
 
-	/**********************************************************************//**
-		@brief			画像描画時のブレンドタイプを設定
-		@param[in]		blendType					ブレンドタイプ
-		@return			なし
-	*//***********************************************************************/
-	void MEImage::SetBlendType(BLEND_TYPE blendType)
+	void MEImage::SetBlendType(const BLEND_TYPE blendType)
 	{
 		m_blendType = blendType;
 	}
 
-	/**********************************************************************//**
-		@brief			追加の頂点バッファをリセット
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MEImage::ResetAdditionalVertexBuffer()
 	{
 		m_resourceManager.ResetAdditionalVertexBuffer();

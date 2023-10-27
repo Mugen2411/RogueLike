@@ -18,17 +18,50 @@ namespace mugen_engine
 	class MEFontData
 	{
 	public:
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEFontData();
-		//! コンストラクタ
+
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param[in]		fontName			テクスチャを生成するフォントの名前
+			@param[in]		fontSize			フォントサイズ
+			@return			なし
+		*//***********************************************************************/
 		MEFontData(std::wstring fontName, int fontSize, MEGraphicDevice& device, MEGraphicCommandList& cmdList,
 			MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
-		//! コピー代入演算子
+
+		/**********************************************************************//**
+			@brief			コピー代入演算子
+			@param[in]		rhs					右辺
+			@return			自身の参照
+		*//***********************************************************************/
 		MEFontData & operator= (const MEFontData & rhs);
-		//! 文字列の描画を行う
+
+		/**********************************************************************//**
+			@brief			文字列の描画
+			@param[in]		x					左上のX座標
+			@param[in]		y					左上のY座標
+			@param[in]		color				文字色
+			@param[in]		text				描画したい文字列
+			@return			なし
+		*//***********************************************************************/
 		void DrawString(const int x, const int y, const float color[4], float priority, const std::wstring text);
-		//! 書式文字列を描画する
+
+		/**********************************************************************//**
+			@brief			文字列の描画
+			@param[in]		x					左上のX座標
+			@param[in]		y					左上のY座標
+			@param[in]		color				文字色
+			@param[in]		text				描画したい文字列
+			@param[in]		...					書式文字列に対応する変数たち
+			@return			なし
+		*//***********************************************************************/
 		void DrawFormatString(const int x, const int y, const float color[4], float priority, const std::wstring text, ...);
+
 	private:
 		HDC m_hdc;																//!< ハンドル
 		HFONT m_oldFont;														//!< 文字テクスチャに渡すフォント本体

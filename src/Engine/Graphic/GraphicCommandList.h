@@ -19,16 +19,46 @@ namespace mugen_engine
 	class MEGraphicCommandList
 	{
 	public:
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEGraphicCommandList();
-		//! 初期化
+
+		/**********************************************************************//**
+			@brief			初期化
+			@param[in]		device			DX12デバイス
+			@return			インスタンス
+		*//***********************************************************************/
 		void Initialize(const MEGraphicDevice& device);
-		//! 実行&GPU処理を待機
+
+		/**********************************************************************//**
+			@brief			コマンドを実行してGPU処理が終わるまで待機する
+			@param[in]		なし
+			@return			なし
+		*//***********************************************************************/
 		void Execute();
-		//! コマンドキューの生ポインタを取得
-		ID3D12CommandQueue * const GetCommandQueue() const;
-		//! コマンドリストの生ポインタを取得
-		ID3D12GraphicsCommandList* const GetCommandList() const;
+
+		/**********************************************************************//**
+			@brief			コマンドキューの生ポインタを取得
+			@param			なし
+			@return			コマンドキューの生ポインタ
+		*//***********************************************************************/
+		ID3D12CommandQueue* const GetCommandQueue() const
+		{
+			return m_cmdQueue.Get();
+		}
+
+		/**********************************************************************//**
+			@brief			コマンドリストの生ポインタを取得
+			@param			なし
+			@return			コマンドリストの生ポインタ
+		*//***********************************************************************/
+		ID3D12GraphicsCommandList* const GetCommandList() const
+		{
+			return m_cmdList.Get();
+		}
 	private:
 
 		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> m_cmdAllocator = nullptr;		//!< コマンドアロケーター

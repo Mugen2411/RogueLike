@@ -166,6 +166,7 @@
     <ClCompile Include="src\Mover\HitPoint.cpp" />
     <ClCompile Include="src\Mover\MagicPoint.cpp" />
     <ClCompile Include="src\Mover\Player\Player.cpp" />
+    <ClCompile Include="src\Mover\Shot\ShotInterface.cpp" />
     <ClCompile Include="src\Scene\SceneMain.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Static\StaticObjectManager.cpp" />
@@ -234,7 +235,9 @@
     <ClInclude Include="src\Mover\Enemy\Slime\Slime.h" />
     <ClInclude Include="src\Mover\HitPoint.h" />
     <ClInclude Include="src\Mover\MagicPoint.h" />
+    <ClInclude Include="src\Mover\MoverInterface.h" />
     <ClInclude Include="src\Mover\Player\Player.h" />
+    <ClInclude Include="src\Mover\Shot\ShotInterface.h" />
     <ClInclude Include="src\Scene\SceneInterface.h" />
     <ClInclude Include="src\Scene\SceneMain.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />

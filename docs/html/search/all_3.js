@@ -24,8 +24,8 @@ var searchData=
   ['count_21',['count',['../structmagica__rogue_1_1_m_r_enemy_spawner_1_1_enemy_data.html#acfce344041144ec2e53ad9e31418e5ef',1,'magica_rogue::MREnemySpawner::EnemyData']]],
   ['count_5f_22',['count_',['../classmugen__engine_1_1_fps.html#afab2f9e6e0a7526ec08754550e5d600f',1,'mugen_engine::Fps']]],
   ['create_23',['Create',['../classmagica__rogue_1_1_m_r_enemy_factory.html#af3b00231da8e6e77501697c4cbccc9ca',1,'magica_rogue::MREnemyFactory']]],
-  ['createadditionalvertexbuffer_24',['CreateAdditionalVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a628babc668697ba5e2d114f488eb0a5d',1,'mugen_engine::MEGraphicGpuResourceManager']]],
+  ['createadditionalvertexbuffer_24',['CreateAdditionalVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#af6bf11e2998d75b1882e3ad87c8d59f3',1,'mugen_engine::MEGraphicGpuResourceManager']]],
   ['createsrv_25',['CreateSrv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ae1a25f50192f4a47df95f85d9420bf19',1,'mugen_engine::MEGraphicGpuResourceManager']]],
   ['createtexturebuffer_26',['CreateTextureBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7326c5e2f2982b9ce05ca2e1173cd34',1,'mugen_engine::MEGraphicGpuResourceManager']]],
-  ['createvertexbuffer_27',['CreateVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#ac7aab3b4314e258a876c5249b485e4ca',1,'mugen_engine::MEGraphicGpuResourceManager']]]
+  ['createvertexbuffer_27',['CreateVertexBuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a5f8054b82fe52b4d39001f399188b7d3',1,'mugen_engine::MEGraphicGpuResourceManager']]]
 ];

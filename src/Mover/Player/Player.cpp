@@ -15,8 +15,8 @@ namespace magica_rogue
 		@param[in]		y						Yç¿ïW
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera) :
-		m_id(id), m_transform(x, y, 0.0f, 0.0f), m_camera(camera), m_size(14.0f), m_hp(10.0f), m_mp(10.0f), m_frameCount(0),
+	MRPlayer::MRPlayer(const PLAYER_ID id, const float x, const float y, MRCamera& camera) : MRMoverInterface(x, y, 14.0f, MRAliveState::ALIVE),
+		m_id(id), m_camera(camera), m_hp(10.0f), m_mp(10.0f), m_frameCount(0),
 		m_animator(0.1f, 4.0f), m_stateMachine(this)
 	{
 		switch (id)
@@ -81,9 +81,10 @@ namespace magica_rogue
 		@param			Ç»Çµ
 		@return			Ç»Çµ
 	*//***********************************************************************/
-	void MRPlayer::Update()
+	MRMoverInterface::MRAliveState MRPlayer::Update()
 	{
 		m_stateMachine.Update();
+		return m_aliveState;
 	}
 
 	/**********************************************************************//**
@@ -130,7 +131,7 @@ namespace magica_rogue
 			hpGuageTopX, hpGuageTopY + guageHeight,
 			constants::render_priority::UI_GUAGE_BASE, 2);
 		const float fontColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32,
+		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32 + 64 * 0,
 			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"HP: %.1f / %.1f", m_hp.GetValue(), m_hp.GetMax());
 
 		constexpr int mpGuageTopX = guageMargin;
@@ -146,9 +147,10 @@ namespace magica_rogue
 			mpGuageTopX, mpGuageTopY,
 			mpGuageTopX, mpGuageTopY + guageHeight,
 			constants::render_priority::UI_GUAGE_BASE, 4);
-		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 64 * 2,
+		m_guageFont->DrawFormatString(0, constants::screen::left_margin * 2 + 32 + 64 * 1,
 			fontColor, constants::render_priority::UI_GUAGE_NUMBER, L"MP: %.1f / %.1f", m_mp.GetValue(), m_mp.GetMax());
 
+		// è∆èÄÇÃï`âÊ
 		const int mouseX = MRInputManager::GetIns().GetMouseX();
 		const int mouseY = MRInputManager::GetIns().GetMouseY();
 		m_aimImg->DrawGraph2X(mouseX, mouseY,
@@ -273,5 +275,18 @@ namespace magica_rogue
 			m_camera.GetAnchoredY(static_cast<int>(m_transform.GetY())), 1.0f, 0.0f, constants::render_priority::PLAYER,
 			6 + m_isLeft * 8);
 		m_playerImg->SetBrightness(1.0f, 1.0f, 1.0f, 1.0f);
+	}
+
+	/**********************************************************************//**
+		@brief			çUåÇ
+		@param			Ç»Çµ
+		@return			Ç»Çµ
+	*//***********************************************************************/
+	void MRPlayer::_Shot()
+	{
+		if (MRInputManager::GetIns().GetPushedFrame(MRInputManager::MRKeyCode::ATTACK1) % 5 == 0)
+		{
+
+		}
 	}
 }

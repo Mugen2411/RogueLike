@@ -1,0 +1,279 @@
+\doxysection{magica\+\_\+rogue\+::MRMover\+Interface クラス}
+\hypertarget{classmagica__rogue_1_1_m_r_mover_interface}{}\label{classmagica__rogue_1_1_m_r_mover_interface}\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+
+
+動体が必ず継承するインターフェース  
+
+
+
+
+{\ttfamily \#include $<$Mover\+Interface.\+h$>$}
+
+magica\+\_\+rogue\+::MRMover\+Interface の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.629108cm]{classmagica__rogue_1_1_m_r_mover_interface}
+\end{center}
+\end{figure}
+\doxysubsubsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \+: char \{ \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba3bfa0eed9e858c516e816a519b2a82eb}{ALIVE}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5babb4784231ff45108ee20bad16e4a2e8c}{DEAD}}
+, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba6a5799ffa80b2e544a1ea8864da9e44f}{DISAPPEAR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a56016fd61b3a8e816e70e650543d4c9e}{MRMover\+Interface}} (const float x, const float y, const float size, const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} state)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ade288a4096ab9ca8db83837c5c1b69a4}{\texorpdfstring{$\sim$}{\string~}\+MRMover\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ad1919a5177b43d91ec0429f915648c27}{Get\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em 位置速度情報の取得 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a11d94c00eda2a4674ecd9c797f630e41}{Get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em サイズの取得 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a9a66d698753be67790d81ac76b068112}{Update}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a8d3b5aac5595c0a290d66086b063e144}{Move}} ()
+\begin{DoxyCompactList}\small\item\em 移動 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a8bbf95c29fa1157807fa6f715e8a58e4}{Render}} () const =0
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_ac333c053f591432d28813f99a29dfb06}{Dead}} ()=0
+\begin{DoxyCompactList}\small\item\em 死んだとき \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a7e9872921c4853fbbfae6fcab43c2672}{Disappear}} ()=0
+\begin{DoxyCompactList}\small\item\em 消えたとき \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_aa8ae6328c41e0c87b4c3f590fde22a2d}{m\+\_\+alive\+State}}
+\begin{DoxyCompactList}\small\item\em 生存状況 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a7ce4379e23560f913392785035b00332}{m\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em 当たり判定のサイズ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a1b95ed95c19c7263118d58f69a042200}{m\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em 位置速度情報 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+動体が必ず継承するインターフェース 
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00015}{15}} 行目に定義があります。
+
+
+
+\doxysubsection{列挙型メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}\label{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!MRAliveState@{MRAliveState}}
+\index{MRAliveState@{MRAliveState}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{MRAliveState}{MRAliveState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+MRAlive\+State}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALIVE@{ALIVE}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!ALIVE@{ALIVE}}}\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba3bfa0eed9e858c516e816a519b2a82eb}\label{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba3bfa0eed9e858c516e816a519b2a82eb} 
+ALIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEAD@{DEAD}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!DEAD@{DEAD}}}\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5babb4784231ff45108ee20bad16e4a2e8c}\label{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5babb4784231ff45108ee20bad16e4a2e8c} 
+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISAPPEAR@{DISAPPEAR}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!DISAPPEAR@{DISAPPEAR}}}\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba6a5799ffa80b2e544a1ea8864da9e44f}\label{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5ba6a5799ffa80b2e544a1ea8864da9e44f} 
+DISAPPEAR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00018}{18}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a56016fd61b3a8e816e70e650543d4c9e}\label{classmagica__rogue_1_1_m_r_mover_interface_a56016fd61b3a8e816e70e650543d4c9e} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!MRMoverInterface@{MRMoverInterface}}
+\index{MRMoverInterface@{MRMoverInterface}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{MRMoverInterface()}{MRMoverInterface()}}
+{\footnotesize\ttfamily magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+MRMover\+Interface (\begin{DoxyParamCaption}\item[{const float}]{x,  }\item[{const float}]{y,  }\item[{const float}]{size,  }\item[{const \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+コンストラクタ 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00022}{22}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_ade288a4096ab9ca8db83837c5c1b69a4}\label{classmagica__rogue_1_1_m_r_mover_interface_ade288a4096ab9ca8db83837c5c1b69a4} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!````~MRMoverInterface@{\texorpdfstring{$\sim$}{\string~}MRMoverInterface}}
+\index{````~MRMoverInterface@{\texorpdfstring{$\sim$}{\string~}MRMoverInterface}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MRMoverInterface()}{\string~MRMoverInterface()}}
+{\footnotesize\ttfamily virtual magica\+\_\+rogue\+::\+MRMover\+Interface\+::\texorpdfstring{$\sim$}{\string~}\+MRMover\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+デストラクタ 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00025}{25}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_ac333c053f591432d28813f99a29dfb06}\label{classmagica__rogue_1_1_m_r_mover_interface_ac333c053f591432d28813f99a29dfb06} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!Dead@{Dead}}
+\index{Dead@{Dead}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{Dead()}{Dead()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+死んだとき 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_a4db4b1fc2f02936daf7352d82861f0c1}{magica\+\_\+rogue\+::\+MRSlime}}, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a77dc72c8bc3cc84c4a3faee29e37d54b}{magica\+\_\+rogue\+::\+MRPlayer}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a7e9872921c4853fbbfae6fcab43c2672}\label{classmagica__rogue_1_1_m_r_mover_interface_a7e9872921c4853fbbfae6fcab43c2672} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!Disappear@{Disappear}}
+\index{Disappear@{Disappear}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{Disappear()}{Disappear()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Disappear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+消えたとき 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_ad72974818f4b21d3b88c8dc420534bd8}{magica\+\_\+rogue\+::\+MRSlime}}, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a3c248d0f1bd6b59d8a43daf11685cded}{magica\+\_\+rogue\+::\+MRPlayer}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a11d94c00eda2a4674ecd9c797f630e41}\label{classmagica__rogue_1_1_m_r_mover_interface_a11d94c00eda2a4674ecd9c797f630e41} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+サイズの取得 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_ad1919a5177b43d91ec0429f915648c27}\label{classmagica__rogue_1_1_m_r_mover_interface_ad1919a5177b43d91ec0429f915648c27} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!GetTransform@{GetTransform}}
+\index{GetTransform@{GetTransform}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{GetTransform()}{GetTransform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} \& magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+位置速度情報の取得 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00027}{27}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a8d3b5aac5595c0a290d66086b063e144}\label{classmagica__rogue_1_1_m_r_mover_interface_a8d3b5aac5595c0a290d66086b063e144} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!Move@{Move}}
+\index{Move@{Move}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+移動 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a133ff95b055b679c5f38723a0455a3d9}{magica\+\_\+rogue\+::\+MRPlayer}}で再実装されています。
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a8bbf95c29fa1157807fa6f715e8a58e4}\label{classmagica__rogue_1_1_m_r_mover_interface_a8bbf95c29fa1157807fa6f715e8a58e4} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!Render@{Render}}
+\index{Render@{Render}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily virtual void magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+描画 
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_a394d8fcac17f71067098802d5294bd50}{magica\+\_\+rogue\+::\+MRSlime}}, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_a703b50d4ad2cf05bc07c5041bc97907b}{magica\+\_\+rogue\+::\+MRPlayer}}, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_aa747c74933599cd0c5747b00436688d8}{magica\+\_\+rogue\+::\+MRShot\+Interface}}で実装されています。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a9a66d698753be67790d81ac76b068112}\label{classmagica__rogue_1_1_m_r_mover_interface_a9a66d698753be67790d81ac76b068112} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!Update@{Update}}
+\index{Update@{Update}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} magica\+\_\+rogue\+::\+MRMover\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{classmagica__rogue_1_1_m_r_slime_aed4b6d22fe3a5d6de6d1d5e96c3bb264}{magica\+\_\+rogue\+::\+MRSlime}}, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_player_af7622a3c7f1fa61909528dddedcfdd63}{magica\+\_\+rogue\+::\+MRPlayer}}, \mbox{\hyperlink{classmagica__rogue_1_1_m_r_shot_interface_a84bf57c124d9f559c0220712087e5734}{magica\+\_\+rogue\+::\+MRShot\+Interface}}で実装されています。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_aa8ae6328c41e0c87b4c3f590fde22a2d}\label{classmagica__rogue_1_1_m_r_mover_interface_aa8ae6328c41e0c87b4c3f590fde22a2d} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!m\_aliveState@{m\_aliveState}}
+\index{m\_aliveState@{m\_aliveState}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{m\_aliveState}{m\_aliveState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_mover_interface_a074428d346b05deddab3bc6e12294f5b}{MRAlive\+State}} magica\+\_\+rogue\+::\+MRMover\+Interface\+::m\+\_\+alive\+State\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+生存状況 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00052}{52}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a7ce4379e23560f913392785035b00332}\label{classmagica__rogue_1_1_m_r_mover_interface_a7ce4379e23560f913392785035b00332} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!m\_size@{m\_size}}
+\index{m\_size@{m\_size}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{m\_size}{m\_size}}
+{\footnotesize\ttfamily float magica\+\_\+rogue\+::\+MRMover\+Interface\+::m\+\_\+size\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+当たり判定のサイズ 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00053}{53}} 行目に定義があります。
+
+\Hypertarget{classmagica__rogue_1_1_m_r_mover_interface_a1b95ed95c19c7263118d58f69a042200}\label{classmagica__rogue_1_1_m_r_mover_interface_a1b95ed95c19c7263118d58f69a042200} 
+\index{magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}!m\_transform@{m\_transform}}
+\index{m\_transform@{m\_transform}!magica\_rogue::MRMoverInterface@{magica\_rogue::MRMoverInterface}}
+\doxysubsubsection{\texorpdfstring{m\_transform}{m\_transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmagica__rogue_1_1_m_r_transform}{MRTransform}} magica\+\_\+rogue\+::\+MRMover\+Interface\+::m\+\_\+transform\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+位置速度情報 
+
+
+
+ \mbox{\hyperlink{_mover_interface_8h_source}{Mover\+Interface.\+h}} の \mbox{\hyperlink{_mover_interface_8h_source_l00054}{54}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Mover/\mbox{\hyperlink{_mover_interface_8h}{Mover\+Interface.\+h}}\end{DoxyCompactItemize}

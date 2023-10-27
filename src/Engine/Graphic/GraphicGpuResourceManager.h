@@ -24,60 +24,181 @@ namespace mugen_engine
 	class MEGraphicGpuResourceManager
 	{
 	public:
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEGraphicGpuResourceManager();
-		//! 初期化
-		void Initialize(const MEGraphicDevice& device, UINT numVertexBuffer);
-		//! GPUリソースをコマンドリストに設定する
+
+		/**********************************************************************//**
+			@brief			初期化
+			@param[in]		device				デバイス
+			@param[in]		numVertexBuffer		頂点バッファの数
+			@return			なし
+		*//***********************************************************************/
+		void Initialize(const MEGraphicDevice& device, const UINT numVertexBuffer);
+
+		/**********************************************************************//**
+			@brief			描画時にディスクリプタヒープ等をコマンドリストに設定する
+			@param[in]		cmdList					コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void SetGpuResource(MEGraphicCommandList& cmdList);
-		//! 頂点データをバッファに書き込む
-		void UploadVertexData(uint32_t index, VERTEX_DATA* vertices, size_t vertexNum);
-		//! 定数バッファに書き込む
+
+		/**********************************************************************//**
+			@brief			頂点データをバッファに書き込む
+			@param[in]		index						インデックス
+			@param[in]		vertices					頂点データの先頭のポインタ
+			@param[in]		vertexNum					頂点の数
+			@return			なし
+		*//***********************************************************************/
+		void UploadVertexData(const uint32_t index, VERTEX_DATA* vertices, const size_t vertexNum);
+
+		/**********************************************************************//**
+			@brief			定数バッファに書き込む
+			@param[in]		constData					定数データ
+			@return			なし
+		*//***********************************************************************/
 		void UploadConstantData(CONSTANT_DATA& constData);
-		//! 描画対象としてセットする
-		void SetRenderCommand(MEGraphicCommandList& cmdList);
-		//! 指定したインデックスにフォーマットを参考にSRVを構築する
-		void CreateSrv(const DXGI_FORMAT format,
-			const MEGraphicDevice& device);
-		//! テクスチャのバッファを作成する
+
+		/**********************************************************************//**
+			@brief			シェーダーリソースビューを構築する
+			@param[in]		format				画像のフォーマット
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
+		void CreateSrv(const DXGI_FORMAT format, const MEGraphicDevice& device);
+
+		/**********************************************************************//**
+			@brief			テクスチャのバッファを作成する
+			@param[in]		metadata			画像のメタデータ
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
 		void CreateTextureBuffer(const DirectX::TexMetadata& metadata, const MEGraphicDevice& device);
-		//! アップロード用のバッファを再設定する
+
+		/**********************************************************************//**
+			@brief			アップロード用のバッファを再設定する
+			@param[in]		rowPitch			画像の一行辺りのデータサイズ
+			@param[in]		height				画像の高さ
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
 		void ResetUploadBuffer(const size_t rowPitch, const size_t height, const MEGraphicDevice& device);
-		//! アップロード用のバッファにデータを流し込む
+
+		/**********************************************************************//**
+			@brief			中間バッファにデータをアップロードする
+			@param[in]		srcData			画像の生データへのポインタ
+			@param[in]		rowPitch		画像の一行辺りのデータサイズ
+			@param[in]		height			画像の高さ
+			@return			なし
+		*//***********************************************************************/
 		void UploadDataToUploadBuffer(uint8_t* srcData, const size_t rowPitch, const size_t height);
-		//! GPUにテクスチャデータをアップロードする
-		void UploadToGpu(DirectX::TexMetadata& metadata, size_t rowPitch, DXGI_FORMAT format,
+
+		/**********************************************************************//**
+			@brief			テクスチャデータを転送する
+			@param[in]		metadata					画像のメタデータ
+			@param[in]		rowPitch					画像データの行単位のサイズ
+			@param[in]		format						画像データのフォーマット
+			@param[in]		cmdList						コマンドリスト
+			@return			なし
+		*//***********************************************************************/
+		void UploadToGpu(DirectX::TexMetadata& metadata, const size_t rowPitch, const DXGI_FORMAT format,
 			MEGraphicCommandList& cmdList);
-		//! CPUで転送する
+
+		/**********************************************************************//**
+			@brief			CPUを用いてデータをアップロードする
+			@param[in]		srcData			画像の生データへのポインタ
+			@param[in]		rowPitch		画像の一行辺りのデータサイズ
+			@param[in]		height			画像の高さ
+			@return			なし
+		*//***********************************************************************/
 		void UploadByCpu(uint8_t* srcData, size_t rowPitch, size_t height);
-		//! 頂点バッファビューを取得
-		D3D12_VERTEX_BUFFER_VIEW GetVertexBufferView(uint32_t index)
+
+		/**********************************************************************//**
+			@brief			頂点バッファビューを取得
+			@param[in]		index			インデックス
+			@return			なし
+		*//***********************************************************************/
+		D3D12_VERTEX_BUFFER_VIEW GetVertexBufferView(const uint32_t index)
 		{
 			return m_vertexBufferView[index];
 		}
-		//! テクスチャ用ヒープを取得
+
+		/**********************************************************************//**
+			@brief			テクスチャヒープを取得する
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		ID3D12DescriptorHeap* GetTextureHeap()
 		{
 			return m_basicDescHeap.Get();
 		}
-		//! 頂点バッファの作成
-		void CreateVertexBuffer(size_t vertexNum, const MEGraphicDevice& device);
-		//! 追加の頂点バッファの作成
-		D3D12_VERTEX_BUFFER_VIEW CreateAdditionalVertexBuffer(int& vertexBufferIndex, size_t vertexNum, const MEGraphicDevice& device);
-		//! 追加の頂点データをバッファに書き込む
-		void UploadAdditionalVertexData(uint32_t index, VERTEX_DATA* vertices, size_t vertexNum);
-		//! 追加の頂点データをリセットする
+
+		/**********************************************************************//**
+			@brief			頂点バッファを作成する
+			@param[in]		vertexNum					頂点の数(もし3D描画に対応するつもりならこれは画像の枚数だけ必要)
+			@param[in]		device						デバイス
+			@return			なし
+		*//***********************************************************************/
+		void CreateVertexBuffer(const size_t vertexNum, const MEGraphicDevice& device);
+
+		/**********************************************************************//**
+			@brief			追加の頂点バッファを作成する
+			@param[out]		vertexBufferIndex			追加された頂点バッファのインデックスを格納するバッファ
+			@param[in]		vertexNum					頂点の数(もし3D描画に対応するつもりならこれは画像の枚数だけ必要)
+			@param[in]		device						デバイス
+			@return			なし
+		*//***********************************************************************/
+		D3D12_VERTEX_BUFFER_VIEW CreateAdditionalVertexBuffer(int& vertexBufferIndex, const size_t vertexNum, const MEGraphicDevice& device);
+
+		/**********************************************************************//**
+			@brief			追加の頂点データをバッファに書き込む
+			@param[in]		index						インデックス
+			@param[in]		vertices					頂点データの先頭のポインタ
+			@param[in]		vertexNum					頂点の数
+			@return			なし
+		*//***********************************************************************/
+		void UploadAdditionalVertexData(const uint32_t index, VERTEX_DATA* vertices, const size_t vertexNum);
+
+		/**********************************************************************//**
+			@brief			追加の頂点バッファをリセットする
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void ResetAdditionalVertexBuffer() {
 			m_currerntAdditionalVertexBufferViewIndex = 0;
 		}
+
 	private:
-		//! 定数バッファを確保する
+		/**********************************************************************//**
+			@brief			定数バッファを初期化する
+			@param[in]		device			デバイス
+			@return			なし
+		*//***********************************************************************/
 		void _InitalizeConstantBuffer(const MEGraphicDevice& device);
-		//! アライメントサイズを取得
+
+		/**********************************************************************//**
+			@brief	アライメントに揃える
+			@param size			元のサイズ
+			@param alignment		アライメントサイズ
+			@return				アライメントを揃えたサイズ
+		*//***********************************************************************/
 		size_t _GetAlignmentedSize(size_t size, size_t alignment);
-		//! 指定したインデックスにCBVを構築する
+
+		/**********************************************************************//**
+			@brief			指定したインデックスに定数バッファビューを構築する
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
 		void _CreateCbv(const MEGraphicDevice& device);
-		//! テクスチャアップロード前のバリア設定
+
+		/**********************************************************************//**
+			@brief			テクスチャデータを転送する直前にバリアを設定する
+			@param[in]		cmdList						コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void _SetBarrierBeforeUploadTexture(const MEGraphicCommandList& cmdList);
 
 		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_basicDescHeap = nullptr;		//!< ディスクリプタヒープ

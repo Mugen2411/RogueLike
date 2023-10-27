@@ -22,14 +22,39 @@ namespace mugen_engine
 	class MEGraphicRenderQueue
 	{
 	public:
-		//! 初期化
+		/**********************************************************************//**
+			@brief			初期化
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
 		static void Initialize(MEGraphicDevice& device);
-		//! 描画を予約する
-		static void ReserveRender(D3D12_VERTEX_BUFFER_VIEW vbView, CONSTANT_DATA constData,
-			MEGraphicGpuResourceManager* textureHeap, int blendType, float priority, MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
+
+		/**********************************************************************//**
+			@brief			描画を予約する
+			@param[in]		vbView				頂点バッファビュー
+			@param[in]		constData			定数バッファのデータ
+			@param[in]		textureHeap			テクスチャのディスクリプタヒープ
+			@param[in]		blendType			ブレンドタイプ
+			@param[in]		priority			描画優先度
+			@param[in]		cmdList				コマンドリスト
+			@param[in]		pipeline			パイプライン
+			@param[in]		renderTarget		レンダーターゲット
+			@return			なし
+		*//***********************************************************************/
+		static void ReserveRender(const D3D12_VERTEX_BUFFER_VIEW vbView, const CONSTANT_DATA constData,
+			MEGraphicGpuResourceManager* textureHeap, const int blendType, const float priority,
+			MEGraphicCommandList* cmdList, MEGraphicPipeline* pipeline,
 			MEGraphicRenderTarget* renderTarget);
-		//! 予約した描画を行う
+		
+		/**********************************************************************//**
+			@brief			予約された描画を全部発火する
+			@param[in]		cmdList				コマンドリスト
+			@param[in]		pipeline			パイプライン
+			@param[in]		renderTarget		レンダーターゲット
+			@return			なし
+		*//***********************************************************************/
 		static void RenderAll(MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
+
 	private:
 		/**********************************************************************//**
 			@struct		RENDER_DATA
@@ -42,22 +67,32 @@ namespace mugen_engine
 			int blendType;										//!< ブレンドタイプ
 			CONSTANT_DATA constData;							//!< 定数データ
 			float priority;										//!< 描画優先度
-			size_t order;											//!< 予約された順番
+			size_t order;										//!< 予約された順番
 		};
 
-		//! 指定したインデックスにCBVを構築する
-		static void _CreateCbv(uint32_t index, const MEGraphicDevice& device);
-		//! 定数バッファを確保する
+		/**********************************************************************//**
+			@brief			指定したインデックスに定数バッファビューを構築する
+			@param[in]		index				生成時に割り当てられたインデックス
+			@param[in]		device				デバイス
+			@return			なし
+		*//***********************************************************************/
+		static void _CreateCbv(const uint32_t index, const MEGraphicDevice& device);
+
+		/**********************************************************************//**
+			@brief			定数バッファを初期化する
+			@param[in]		device			デバイス
+			@return			なし
+		*//***********************************************************************/
 		static void _InitalizeConstantBuffer(const MEGraphicDevice& device);
 
-		static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_constantDescHeap;		//!< 定数用のディスクリプタヒープ
-		static std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_constantBuffers;//!< 定数バッファ
-		static int m_maxReserve;													//!< 描画予約可能な最大数
-		static std::deque<RENDER_DATA> m_reserveList;								//!< 描画予約キュー
-		static std::vector<const RENDER_DATA*> m_reservePointerList;						//!< ソートに使うポインタの配列
-		static uint32_t m_descriptorHeapIncrementSize;								//!< SRVとCBVにおけるディスクリプタヒープ上のサイズ
-		static MEGraphicDevice* m_pDevice;											//!< デバイス
-		static std::vector<CONSTANT_DATA*> m_pMapMatrix;							//!< マップされた定数バッファ
+		static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_constantDescHeap;			//!< 定数用のディスクリプタヒープ
+		static std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_constantBuffers;	//!< 定数バッファ
+		static int m_maxReserve;														//!< 描画予約可能な最大数
+		static std::deque<RENDER_DATA> m_reserveList;									//!< 描画予約キュー
+		static std::vector<const RENDER_DATA*> m_reservePointerList;					//!< ソートに使うポインタの配列
+		static uint32_t m_descriptorHeapIncrementSize;									//!< SRVとCBVにおけるディスクリプタヒープ上のサイズ
+		static MEGraphicDevice* m_pDevice;												//!< デバイス
+		static std::vector<CONSTANT_DATA*> m_pMapMatrix;								//!< マップされた定数バッファ
 	};
 }
 

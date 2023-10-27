@@ -91,13 +91,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:afb6fd2eec2f8409737ded05edddbeeee" id="r_afb6fd2eec2f8409737ded05edddbeeee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html#afb6fd2eec2f8409737ded05edddbeeee">MEGraphicDevice</a> ()</td></tr>
-<tr class="memdesc:afb6fd2eec2f8409737ded05edddbeeee"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトコンストラクタ  <br /></td></tr>
+<tr class="memdesc:afb6fd2eec2f8409737ded05edddbeeee"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <br /></td></tr>
 <tr class="separator:afb6fd2eec2f8409737ded05edddbeeee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e6e87fb88e54b18160c48f4c3c95a0a" id="r_a9e6e87fb88e54b18160c48f4c3c95a0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html#a9e6e87fb88e54b18160c48f4c3c95a0a">MEGraphicDevice</a> (const <a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html">MEGraphicDevice</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a9e6e87fb88e54b18160c48f4c3c95a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コピーコンストラクタ(削除)  <br /></td></tr>
 <tr class="separator:a9e6e87fb88e54b18160c48f4c3c95a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a474caa37051bbe08f07aa8ca0e319bdb" id="r_a474caa37051bbe08f07aa8ca0e319bdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html#a474caa37051bbe08f07aa8ca0e319bdb">Initialize</a> ()</td></tr>
-<tr class="memdesc:a474caa37051bbe08f07aa8ca0e319bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">最初に必ず呼ばれる初期化処理  <br /></td></tr>
+<tr class="memdesc:a474caa37051bbe08f07aa8ca0e319bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">デバイスとファクトリの初期化  <br /></td></tr>
 <tr class="separator:a474caa37051bbe08f07aa8ca0e319bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b80c568c2b2708835c532d31a748b25" id="r_a1b80c568c2b2708835c532d31a748b25"><td class="memItemLeft" align="right" valign="top">ID3D12Device *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmugen__engine_1_1_m_e_graphic_device.html#a1b80c568c2b2708835c532d31a748b25">GetDevice</a> () const</td></tr>
 <tr class="memdesc:a1b80c568c2b2708835c532d31a748b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">デバイスの生ポインタを取得  <br /></td></tr>
@@ -141,8 +141,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>デフォルトコンストラクタ </p>
-<p>コンストラクタ</p>
+<p>コンストラクタ </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">なし</td><td></td></tr>
@@ -151,7 +150,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00095">95</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00065">65</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -216,7 +215,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00103">103</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00068">68</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -225,6 +224,9 @@ $(function() {
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">ID3D12Device *const mugen_engine::MEGraphicDevice::GetDevice </td>
@@ -233,6 +235,11 @@ $(function() {
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>デバイスの生ポインタを取得 </p>
@@ -244,7 +251,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>デバイスの生ポインタ </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00075">75</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8h_source.html">GraphicDevice.h</a> の <a class="el" href="_graphic_device_8h_source.html#l00053">53</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -253,6 +260,9 @@ $(function() {
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">IDXGIFactory4 *const mugen_engine::MEGraphicDevice::GetFactory </td>
@@ -261,6 +271,11 @@ $(function() {
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>ファクトリの生ポインタを取得 </p>
@@ -272,7 +287,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>ファクトリの生ポインタ </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00085">85</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8h_source.html">GraphicDevice.h</a> の <a class="el" href="_graphic_device_8h_source.html#l00063">63</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -291,8 +306,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>最初に必ず呼ばれる初期化処理 </p>
-<p>デバイスとファクトリの初期化</p>
+<p>デバイスとファクトリの初期化 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">なし</td><td></td></tr>
@@ -301,7 +315,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
-<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00013">13</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8cpp_source.html">GraphicDevice.cpp</a> の <a class="el" href="_graphic_device_8cpp_source.html#l00008">8</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -328,7 +342,7 @@ $(function() {
 
 <p>DX12デバイス </p>
 
-<p class="definition"> <a class="el" href="_graphic_device_8h_source.html">GraphicDevice.h</a> の <a class="el" href="_graphic_device_8h_source.html#l00047">47</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8h_source.html">GraphicDevice.h</a> の <a class="el" href="_graphic_device_8h_source.html#l00076">76</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -354,7 +368,7 @@ $(function() {
 
 <p>DXGIデバイス </p>
 
-<p class="definition"> <a class="el" href="_graphic_device_8h_source.html">GraphicDevice.h</a> の <a class="el" href="_graphic_device_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="_graphic_device_8h_source.html">GraphicDevice.h</a> の <a class="el" href="_graphic_device_8h_source.html#l00077">77</a> 行目に定義があります。</p>
 
 </div>
 </div>

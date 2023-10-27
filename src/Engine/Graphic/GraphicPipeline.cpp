@@ -7,21 +7,9 @@
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	MEGraphicPipeline::MEGraphicPipeline()
 	{}
 
-	/**********************************************************************//**
-		@brief			初期化
-		@param[in]		device			デバイス
-		@param			inputLayout			入力レイアウト
-		@param			layoutSize			レイアウトのサイズ
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicPipeline::Initialize(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)
 	{
 		_LoadShader();
@@ -29,12 +17,7 @@ namespace mugen_engine
 		_CreatePipelineState(device, inputLayout, layoutSize);
 	}
 
-	/**********************************************************************//**
-		@brief			バイトコード周りのエラー処理
-		@param			result				読み込み時のエラーコード
-		@return			なし
-	*//***********************************************************************/
-	void MEGraphicPipeline::_ProcessBlobError(HRESULT result)
+	void MEGraphicPipeline::_ProcessBlobError(const HRESULT result)
 	{
 		if(SUCCEEDED(result))
 		{
@@ -52,11 +35,6 @@ namespace mugen_engine
 		::OutputDebugStringA(errstr.c_str());
 	}
 
-	/**********************************************************************//**
-		@brief			ルートシグネチャの作成
-		@param			device				デバイス
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicPipeline::_CreateRootSignarure(const MEGraphicDevice& device)
 	{
 		Microsoft::WRL::ComPtr<ID3DBlob> rootSigBlob = nullptr;
@@ -104,11 +82,6 @@ namespace mugen_engine
 			IID_PPV_ARGS(m_rootSignature.ReleaseAndGetAddressOf()));
 	}
 
-	/**********************************************************************//**
-		@brief			シェーダーの読み込み
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicPipeline::_LoadShader()
 	{
 		//頂点シェーダー
@@ -143,13 +116,6 @@ namespace mugen_engine
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			パイプラインステートの作成
-		@param			device				デバイス
-		@param			inputLayout			入力レイアウト
-		@param			layoutSize			レイアウトのサイズ
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicPipeline::_CreatePipelineState(const MEGraphicDevice& device, const D3D12_INPUT_ELEMENT_DESC inputLayout[], const int layoutSize)
 	{
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC gpipeline = {};
@@ -216,12 +182,6 @@ namespace mugen_engine
 		result = device.GetDevice()->CreateGraphicsPipelineState(&gpipeline, IID_PPV_ARGS(m_pipelineState[2].ReleaseAndGetAddressOf()));
 	}
 
-	/**********************************************************************//**
-		@brief			パイプラインステートの設定
-		@param			type				描画タイプ(0=透過・1=加算・2=減算)
-		@param			cmdList				コマンドリスト
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicPipeline::SetPipelineState(const int type, MEGraphicCommandList& cmdList)
 	{
 		cmdList.GetCommandList()->SetPipelineState(m_pipelineState[type].Get());

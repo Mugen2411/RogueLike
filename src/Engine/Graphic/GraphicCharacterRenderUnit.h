@@ -21,13 +21,35 @@ namespace mugen_engine
 	class MEGraphicCharacterUnit
 	{
 	public:
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEGraphicCharacterUnit();
-		//! コンストラクタ
+
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param[in]		character			テクスチャに変換する文字
+			@param[in]		fontData			フォント
+			@param[in]		hdc					デバイスコンテキスト
+			@param[in]		device				デバイス
+			@param[in]		cmdList				コマンドリスト
+			@param[in]		pipeline			パイプライン
+			@param[in]		renderTarget		レンダーターゲット
+			@return			なし
+		*//***********************************************************************/
 		MEGraphicCharacterUnit(const wchar_t character, HFONT fontData, HDC hdc,
 			MEGraphicDevice& device, MEGraphicCommandList& cmdList,
 			MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget);
-		//! 指定した位置に描画
+
+		/**********************************************************************//**
+			@brief			文字を描画
+			@param[in]		x					左上のX座標
+			@param[in]		y					左上のY座標
+			@param[in]		color				文字色
+			@return			なし
+		*//***********************************************************************/
 		void DrawCharacter(const int x, const int y, const float color[4], const float priority);
 	private:
 		/**********************************************************************//**

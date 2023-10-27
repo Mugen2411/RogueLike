@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_5fconvertgraphfrommap_0',['_ConvertGraphFromMap',['../classmagica__rogue_1_1_m_r_map_data.html#a64a23a3147746cdc0ceb84d3ddbffdf9',1,'magica_rogue::MRMapData']]],
-  ['_5fcreatecbv_1',['_createcbv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#abc6d485209c321078e3bfbc7862a444e',1,'mugen_engine::MEGraphicGpuResourceManager::_CreateCbv()'],['../classmugen__engine_1_1_m_e_graphic_render_queue.html#aa8f4c7c01cbe1621c331f6232dd48121',1,'mugen_engine::MEGraphicRenderQueue::_CreateCbv()']]],
+  ['_5fcreatecbv_1',['_createcbv',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#abc6d485209c321078e3bfbc7862a444e',1,'mugen_engine::MEGraphicGpuResourceManager::_CreateCbv()'],['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a96b25d3811f56a560d259df7ceb9a16c',1,'mugen_engine::MEGraphicRenderQueue::_CreateCbv()']]],
   ['_5fcreateenemyspawner_2',['_CreateEnemySpawner',['../classmagica__rogue_1_1_m_r_map_data.html#a86b7887eda43616be5a698c5fb82c2b0',1,'magica_rogue::MRMapData']]],
   ['_5fcreatepipelinestate_3',['_CreatePipelineState',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#abc127052ba3e90b694b7c4d40d034225',1,'mugen_engine::MEGraphicPipeline']]],
   ['_5fcreaterootsignarure_4',['_CreateRootSignarure',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a72202b58cf14a895104ffdb0aae5f5a3',1,'mugen_engine::MEGraphicPipeline']]],
@@ -14,7 +14,7 @@ var searchData=
   ['_5fhitwall_11',['_HitWall',['../classmagica__rogue_1_1_m_r_map_data.html#acb09b67c9d1520501ae14a73ad212247',1,'magica_rogue::MRMapData']]],
   ['_5finitalizeconstantbuffer_12',['_initalizeconstantbuffer',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a15c0ac9fb35f01fd62c12a6cfecedb47',1,'mugen_engine::MEGraphicGpuResourceManager::_InitalizeConstantBuffer()'],['../classmugen__engine_1_1_m_e_graphic_render_queue.html#a748be9c665e157b955a496e76d0a5605',1,'mugen_engine::MEGraphicRenderQueue::_InitalizeConstantBuffer()']]],
   ['_5floadshader_13',['_LoadShader',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a2b820883c37d62c06cef397de3704292',1,'mugen_engine::MEGraphicPipeline']]],
-  ['_5fprocessbloberror_14',['_ProcessBlobError',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a58bb08857eed4bb938bd032c8f1584d3',1,'mugen_engine::MEGraphicPipeline']]],
+  ['_5fprocessbloberror_14',['_ProcessBlobError',['../classmugen__engine_1_1_m_e_graphic_pipeline.html#a7329aa658ffd78254a364d951851498d',1,'mugen_engine::MEGraphicPipeline']]],
   ['_5fprocessmouseinput_15',['_ProcessMouseInput',['../classmugen__engine_1_1_m_e_key_input_manager.html#ab1e61abac8ff2a1462a726899ae20efb',1,'mugen_engine::MEKeyInputManager']]],
   ['_5frenderonchase_16',['_RenderOnChase',['../classmagica__rogue_1_1_m_r_slime.html#af6185df08a6847bead0f21c60668188b',1,'magica_rogue::MRSlime']]],
   ['_5frenderonstroll_17',['_RenderOnStroll',['../classmagica__rogue_1_1_m_r_slime.html#a1cbb5af2787ccb100c1e54a6f393c5d5',1,'magica_rogue::MRSlime']]],
@@ -22,7 +22,8 @@ var searchData=
   ['_5fsetbarrierbeforeuploadtexture_19',['_SetBarrierBeforeUploadTexture',['../classmugen__engine_1_1_m_e_graphic_gpu_resource_manager.html#a9f09697fa28224cbe93517adeb4b70fa',1,'mugen_engine::MEGraphicGpuResourceManager']]],
   ['_5fsetgoalposition_20',['_SetGoalPosition',['../classmagica__rogue_1_1_m_r_map_data.html#ae41c2ea9fedbfdad85af19d9828018c3',1,'magica_rogue::MRMapData']]],
   ['_5fsetstartposition_21',['_SetStartPosition',['../classmagica__rogue_1_1_m_r_map_data.html#aefa7953325eb8959700d470fd16e8e49',1,'magica_rogue::MRMapData']]],
-  ['_5fspawntreasurebox_22',['_SpawnTreasureBox',['../classmagica__rogue_1_1_m_r_map_data.html#a2d562150039c884a0019392f5a8953bc',1,'magica_rogue::MRMapData']]],
-  ['_5fupdateonchase_23',['_UpdateOnChase',['../classmagica__rogue_1_1_m_r_slime.html#a5614198e1793528a96e5bade74370406',1,'magica_rogue::MRSlime']]],
-  ['_5fupdateonstroll_24',['_UpdateOnStroll',['../classmagica__rogue_1_1_m_r_slime.html#ac5bc1d1c4bc13df1f7083a67b253c23c',1,'magica_rogue::MRSlime']]]
+  ['_5fshot_22',['_Shot',['../classmagica__rogue_1_1_m_r_player.html#a24dd395f61447fadbe3877b004814c74',1,'magica_rogue::MRPlayer']]],
+  ['_5fspawntreasurebox_23',['_SpawnTreasureBox',['../classmagica__rogue_1_1_m_r_map_data.html#a2d562150039c884a0019392f5a8953bc',1,'magica_rogue::MRMapData']]],
+  ['_5fupdateonchase_24',['_UpdateOnChase',['../classmagica__rogue_1_1_m_r_slime.html#a5614198e1793528a96e5bade74370406',1,'magica_rogue::MRSlime']]],
+  ['_5fupdateonstroll_25',['_UpdateOnStroll',['../classmagica__rogue_1_1_m_r_slime.html#ac5bc1d1c4bc13df1f7083a67b253c23c',1,'magica_rogue::MRSlime']]]
 ];

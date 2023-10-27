@@ -8,7 +8,7 @@ var searchData=
   ['addvelocitywithangle_5',['AddVelocityWithAngle',['../classmagica__rogue_1_1_m_r_transform.html#a58e4307b90c25ae83e835bc7643515f1',1,'magica_rogue::MRTransform']]],
   ['akari_6',['AKARI',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7',1,'magica_rogue::MRPlayer']]],
   ['akiyo_7',['AKIYO',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cae95a8a093514524584f4f2b293ae60a2',1,'magica_rogue::MRPlayer']]],
-  ['alive_8',['ALIVE',['../classmagica__rogue_1_1_m_r_enemy_interface.html#a673f6d596065ee56e198d1ca3a712217a3bfa0eed9e858c516e816a519b2a82eb',1,'magica_rogue::MREnemyInterface']]],
+  ['alive_8',['ALIVE',['../classmagica__rogue_1_1_m_r_mover_interface.html#a074428d346b05deddab3bc6e12294f5ba3bfa0eed9e858c516e816a519b2a82eb',1,'magica_rogue::MRMoverInterface']]],
   ['alpha_9',['ALPHA',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faa09b51cdbd9e41af3c2f31f8433566568',1,'mugen_engine::MEImage']]],
   ['animator_2ecpp_10',['Animator.cpp',['../_animator_8cpp.html',1,'']]],
   ['animator_2eh_11',['Animator.h',['../_animator_8h.html',1,'']]],

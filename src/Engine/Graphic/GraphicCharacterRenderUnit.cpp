@@ -11,25 +11,9 @@
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	MEGraphicCharacterUnit::MEGraphicCharacterUnit()
 	{}
 
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param[in]		character			テクスチャに変換する文字
-		@param[in]		fontData			フォント
-		@param[in]		hdc					デバイスコンテキスト
-		@param[in]		device				デバイス
-		@param[in]		cmdList				コマンドリスト
-		@param[in]		pipeline			パイプライン
-		@param[in]		renderTarget		レンダーターゲット
-		@return			なし
-	*//***********************************************************************/
 	MEGraphicCharacterUnit::MEGraphicCharacterUnit(const wchar_t character, HFONT fontData, HDC hdc,
 		MEGraphicDevice& device, MEGraphicCommandList& cmdList, MEGraphicPipeline& pipeline, MEGraphicRenderTarget& renderTarget) :
 		m_pCmdList(&cmdList), m_pPipeline(&pipeline), m_pRenderTarget(&renderTarget)
@@ -112,13 +96,6 @@ namespace mugen_engine
 		//m_resourceManager.UploadToGpu(metadata, m_width * sizeof(TexRGBA), metadata.format, *m_pCmdList);
 	}
 
-	/**********************************************************************//**
-		@brief			文字を描画
-		@param[in]		x					左上のX座標
-		@param[in]		y					左上のY座標
-		@param[in]		color				文字色
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicCharacterUnit::DrawCharacter(const int x, const int y, const float color[4], const float priority)
 	{
 		CONSTANT_DATA constData = {};

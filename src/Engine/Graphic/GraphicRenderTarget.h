@@ -22,23 +22,72 @@ namespace mugen_engine
 	class MEGraphicRenderTarget
 	{
 	public:
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEGraphicRenderTarget();
-		//! 初期化
+
+		/**********************************************************************//**
+			@brief			初期化
+			@param[in]		device				デバイス
+			@param[in]		cmdList				コマンドリスト
+			@param[in]		hwnd				ウィンドウハンドル
+			@param[in]		window_width		ウィンドウ(描画範囲)の横幅
+			@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
+			@return			インスタンス
+		*//***********************************************************************/
 		void Initialize(const MEGraphicDevice& device, const MEGraphicCommandList& cmdList,
 			HWND hwnd, const int window_width, const int window_height);
-		//! バックバッファの内容をディスプレイに反映する
+
+		/**********************************************************************//**
+			@brief			バックバッファの内容をディスプレイに反映する
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void Present();
-		//! 描画前バリア
+
+		/**********************************************************************//**
+			@brief			描画前バリア
+			@param			device			デバイス
+			@param			cmdList			コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void SetBarrierBeforeRender(MEGraphicDevice& device, MEGraphicCommandList& cmdList);
-		//! プレゼント前バリア
+
+		/**********************************************************************//**
+			@brief			プレゼント前バリア
+			@param			cmdList			コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void SetBarrierBeforePresent(MEGraphicCommandList& cmdList);
-		//! 画面を指定した色でクリアする
+
+		/**********************************************************************//**
+			@brief			画面を指定した色でクリアする
+			@param			clearColor		指定色(RGBA, 0.0f～1.0f)
+			@param			cmdList			コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void Clear(float clearColor[4], MEGraphicCommandList& cmdList);
-		//! 描画可能な範囲を設定する
+
+		/**********************************************************************//**
+			@brief			描画可能な範囲を設定する
+			@param			cmdList			コマンドリスト
+			@param[in]		topX			左上のX座標
+			@param[in]		topY			左上のY座標
+			@param[in]		bottomX			右下のX座標
+			@param[in]		bottomY			右下のY座標
+			@return			なし
+		*//***********************************************************************/
 		void SetRenderArea(MEGraphicCommandList& cmdList, 
 			const int topX, const int topY, const int bottomX, const int bottomY);
-		//! 描画毎に必要なコマンドを積む
+
+		/**********************************************************************//**
+			@brief			描画毎に必要なコマンドを積む
+			@param			cmdList			コマンドリスト
+			@return			なし
+		*//***********************************************************************/
 		void SetRenderBaseCommand(MEGraphicCommandList& cmdList);
 	private:
 		const int m_numBackBuffer;												//!< バックバッファの数
@@ -47,7 +96,7 @@ namespace mugen_engine
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_backBuffers;		//!< バックバッファ
 		D3D12_CPU_DESCRIPTOR_HANDLE m_renderTargetHandle;						//!< OMSetRenderTargetに渡すCPU上のアドレス
 		D3D12_VIEWPORT m_viewport;												//!< ビューポート
-		D3D12_RECT m_scissorRect;													//!< シザー矩形
+		D3D12_RECT m_scissorRect;												//!< シザー矩形
 	};
 }
 

@@ -6,19 +6,9 @@
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	MEGraphicCommandList::MEGraphicCommandList()
 	{}
 
-	/**********************************************************************//**
-		@brief			初期化
-		@param[in]		device			DX12デバイス
-		@return			インスタンス
-	*//***********************************************************************/
 	void MEGraphicCommandList::Initialize(const MEGraphicDevice& device)
 	{
 		//DX12 コマンドリストとコマンドアロケーター
@@ -63,11 +53,6 @@ namespace mugen_engine
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			コマンドを実行してGPU処理が終わるまで待機する
-		@param[in]		なし
-		@return			なし
-	*//***********************************************************************/
 	void MEGraphicCommandList::Execute()
 	{
 		m_cmdList->Close();
@@ -86,25 +71,5 @@ namespace mugen_engine
 
 		m_cmdAllocator->Reset();
 		m_cmdList->Reset(m_cmdAllocator.Get(), nullptr);
-	}
-
-	/**********************************************************************//**
-		@brief			コマンドキューの生ポインタを取得
-		@param			なし
-		@return			コマンドキューの生ポインタ
-	*//***********************************************************************/
-	ID3D12CommandQueue * const MEGraphicCommandList::GetCommandQueue() const
-	{
-		return m_cmdQueue.Get();
-	}
-
-	/**********************************************************************//**
-		@brief			コマンドリストの生ポインタを取得
-		@param			なし
-		@return			コマンドリストの生ポインタ
-	*//***********************************************************************/
-	ID3D12GraphicsCommandList* const MEGraphicCommandList::GetCommandList() const
-	{
-		return m_cmdList.Get();
 	}
 }
