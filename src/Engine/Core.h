@@ -26,32 +26,114 @@ namespace mugen_engine
 	class MECore
 	{
 	public:
-		//! インスタンスの取得
-		static MECore& GetIns();
-		//! 最初に必ず呼び出す初期化処理
+		/**********************************************************************//**
+			@brief			インスタンスの取得
+			@param			なし
+			@return			インスタンス
+		*//***********************************************************************/
+		static MECore& GetIns()
+		{
+			static MECore instance;
+			return instance;
+		}
+
+		/**********************************************************************//**
+			@brief			初期化
+			@param[in]		window_title		ウィンドウのタイトル
+			@param[in]		window_width		ウィンドウ(描画範囲)の横幅
+			@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
+			@return			インスタンス
+		*//***********************************************************************/
 		void Initialize(const std::wstring window_title, int window_width, int window_height);
-		//! 最後に必ず呼び出す終了処理
+
+		/**********************************************************************//**
+			@brief			終了処理
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void Finalize();
-		//! システムのメッセージを処理する
+
+		/**********************************************************************//**
+			@brief			システムのメッセージを処理する
+			@param			なし
+			@return			何もなければ0、アプリケーションが終了するなら-1
+		*//***********************************************************************/
 		int ProcessMessage();
-		//! 描画結果を画面に反映させる
+
+		/**********************************************************************//**
+			@brief			描画結果を画面に反映する
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void ScreenFlip();
-		//! 画面を指定した色で初期化する
+
+		/**********************************************************************//**
+			@brief			画面を指定した色でクリアする
+			@param[in]		R			赤の輝度
+			@param[in]		G			緑の輝度
+			@param[in]		B			青の輝度
+			@return			なし
+		*//***********************************************************************/
 		void ClearScreen(const int R, const int G, const int B);
-		//! 描画可能な範囲を設定する
+
+		/**********************************************************************//**
+			@brief			描画可能な範囲を設定する
+			@param[in]		topX		左上のX座標
+			@param[in]		topY		左上のY座標
+			@param[in]		bottomX		右下のX座標
+			@param[in]		bottomY		右下のY座標
+			@return			なし
+		*//***********************************************************************/
 		void SetRenderArea(const int topX, const int topY, const int bottomX, const int bottomY);
-		//! 描画可能な範囲を画面全体に設定する
+
+		/**********************************************************************//**
+			@brief			描画可能な範囲を画面全体に設定する
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void ResetRenderArea();
-		//! 画像をファイルから読み込む
-		void LoadGraph(std::string gid, std::wstring filepath);
-		//! 画像をファイルから分割して読み込む
-		void LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum);
-		//! 読み込み済み画像を取得する
-		MEImage& GetGraph(std::string gid);
-		//! フォントを読み込む
-		void LoadFont(std::string gid, std::wstring fontName, int fontSize);
-		//! 読み込み済みフォントを取得する
-		MEFontData& GetFont(std::string gid);
+
+		/**********************************************************************//**
+			@brief			ファイルから画像を読み込む
+			@param[in]		gid				取り出すキー
+			@param[in]		filepath		画像ファイルへのパス
+			@return			なし
+		*//***********************************************************************/
+		void LoadGraph(const std::string gid, const std::wstring filepath);
+
+		/**********************************************************************//**
+			@brief			ファイルから分割して画像を読み込む
+			@param[in]		gid				取り出すキー
+			@param[in]		filepath		画像ファイルへのパス
+			@param[in]		xDivideNum		横方向の分割数
+			@param[in]		yDivideNum		縦方向の分割数
+			@return			なし
+		*//***********************************************************************/
+		void LoadDivGraph(const std::string gid, const std::wstring filepath, const size_t xDivideNum, const size_t yDivideNum);
+
+		/**********************************************************************//**
+			@brief			キーを指定して読み込み済み画像を取り出す
+			@param[in]		gid				取り出すキー
+			@return			読み込み済み画像
+		*//***********************************************************************/
+		MEImage& GetGraph(const std::string gid);
+
+		/**********************************************************************//**
+			@brief			フォントを読み込む
+			@param[in]		gid				取り出すキー
+			@param[in]		fontName		フォントの名前
+			@param[in]		fontSize		フォントサイズ
+			@return			なし
+		*//***********************************************************************/
+		void LoadFont(const std::string gid, const std::wstring fontName, const int fontSize);
+
+		/**********************************************************************//**
+			@brief			キーを指定して読み込みフォントを取り出す
+			@param[in]		gid				取り出すキー
+			@return			読み込み済みフォント
+		*//***********************************************************************/
+		MEFontData& GetFont(const std::string gid);
+
 		//! 画面の横幅を取得
 		int GetWindowWidth() const
 		{
@@ -64,12 +146,21 @@ namespace mugen_engine
 		}
 
 	private:
-		//! デフォルトコンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MECore();
+
 		//! コピーコンストラクタ(削除)
 		MECore(const MECore&) = delete;
 
-		//! ウィンドウの作成
+		/**********************************************************************//**
+			@brief			ウィンドウの作成
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void _CreateWindow();
 		
 		HWND m_windowHandle;											//!< ウィンドウハンドル

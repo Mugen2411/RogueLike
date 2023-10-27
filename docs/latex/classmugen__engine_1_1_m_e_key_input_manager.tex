@@ -32,22 +32,22 @@ enum struct \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05
 , \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa1bafafcc4c3474e573bd4b942b5f1164}{Thumb\+RU}}
 , \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa7d7bb7d57779e8c980c4866ad2b29427}{Thumb\+RD}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ゲームパッドの入力形式 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a2f90bcbb6aba03e48cecfbabadec40fe}{Initialize}} (HWND h\+Wnd)
 \begin{DoxyCompactList}\small\item\em 初期化 \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_ad73bf78bfb061f8b31b3ad600dae58c8}{Add\+Keycode}} (char code\+Key, char code\+Keyboard, \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\+\_\+\+KEYTYPE}} type\+Gamepad\+Key, short code\+Gamepad)
-\begin{DoxyCompactList}\small\item\em キーコードを監視対象に追加 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a52b5e11b14830b0bcfebdf6c54930253}{Add\+Keycode}} (const char code\+Key, const char code\+Keyboard, const \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\+\_\+\+KEYTYPE}} type\+Gamepad\+Key, const short code\+Gamepad)
+\begin{DoxyCompactList}\small\item\em キーを監視対象に追加 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_acc3c09121eb738a3b4ea51aac8ee817d}{Update}} ()
-\begin{DoxyCompactList}\small\item\em 入力状況を更新 \end{DoxyCompactList}\item 
-char \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a748e2cf29dc032707380a2e0e90993a2}{Get\+Key}} (char code\+Key)
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_af89e963d56da7691e5f42e73f1465a93}{Get\+Key}} (const char code\+Key) const
 \begin{DoxyCompactList}\small\item\em 入力状況を取得 \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_ab7e11e7f43db20b36452245ebcefafe4}{Get\+MouseX}} () const
-\begin{DoxyCompactList}\small\item\em マウスの\+X座標を取得 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em マウスの\+X座標の取得 \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a42b2db996d424814976574942c534f35}{Get\+MouseY}} () const
-\begin{DoxyCompactList}\small\item\em マウスの\+Y座標を取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em マウスの\+Y座標の取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{静的公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,7 +59,7 @@ static \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager}{MEKey\+Inp
 \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a53bdda6e8d2bcf4a7eaf68d134d52f02}{MEKey\+Input\+Manager}} ()
 \begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_ab1e61abac8ff2a1462a726899ae20efb}{\+\_\+\+Process\+Mouse\+Input}} ()
-\begin{DoxyCompactList}\small\item\em マウスの処理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em マウス関連の入力を処理する \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{非公開変数類}
 \begin{DoxyCompactItemize}
 \item 
@@ -94,6 +94,10 @@ float \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_ae38849376ec
 \index{GAMEPAD\_KEYTYPE@{GAMEPAD\_KEYTYPE}!mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}}
 \doxysubsubsection{\texorpdfstring{GAMEPAD\_KEYTYPE}{GAMEPAD\_KEYTYPE}}
 {\footnotesize\ttfamily enum struct \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{mugen\+\_\+engine\+::\+MEKey\+Input\+Manager\+::\+GAMEPAD\+\_\+\+KEYTYPE}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+ゲームパッドの入力形式 
 
 \begin{DoxyEnumFields}{列挙値}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Buttons@{Buttons}!mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}}\index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!Buttons@{Buttons}}}\Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa5b3ec15499a125805b5bbf8e4afcec8c}\label{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480dfa5b3ec15499a125805b5bbf8e4afcec8c} 
@@ -143,7 +147,7 @@ Thumb\+RD&\\
 \end{DoxyEnumFields}
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00025}{25}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00029}{29}} 行目に定義があります。
 
 
 
@@ -159,6 +163,14 @@ Thumb\+RD&\\
 コンストラクタ 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
 
  \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00009}{9}} 行目に定義があります。
 
@@ -173,25 +185,47 @@ Thumb\+RD&\\
 
 
 
-マウスの処理 
+マウス関連の入力を処理する 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00013}{13}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_ad73bf78bfb061f8b31b3ad600dae58c8}\label{classmugen__engine_1_1_m_e_key_input_manager_ad73bf78bfb061f8b31b3ad600dae58c8} 
+ \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00014}{14}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a52b5e11b14830b0bcfebdf6c54930253}\label{classmugen__engine_1_1_m_e_key_input_manager_a52b5e11b14830b0bcfebdf6c54930253} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!AddKeycode@{AddKeycode}}
 \index{AddKeycode@{AddKeycode}!mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}}
 \doxysubsubsection{\texorpdfstring{AddKeycode()}{AddKeycode()}}
-{\footnotesize\ttfamily bool mugen\+\_\+engine\+::\+MEKey\+Input\+Manager\+::\+Add\+Keycode (\begin{DoxyParamCaption}\item[{char}]{code\+Key,  }\item[{char}]{code\+Keyboard,  }\item[{\mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\+\_\+\+KEYTYPE}}}]{type\+Gamepad\+Key,  }\item[{short}]{code\+Gamepad }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool mugen\+\_\+engine\+::\+MEKey\+Input\+Manager\+::\+Add\+Keycode (\begin{DoxyParamCaption}\item[{const char}]{code\+Key,  }\item[{const char}]{code\+Keyboard,  }\item[{const \mbox{\hyperlink{classmugen__engine_1_1_m_e_key_input_manager_a66d05c62f4df68d6bdf57019524480df}{GAMEPAD\+\_\+\+KEYTYPE}}}]{type\+Gamepad\+Key,  }\item[{const short}]{code\+Gamepad }\end{DoxyParamCaption})}
 
 
 
-キーコードを監視対象に追加 
+キーを監視対象に追加 
 
 
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em code\+Key} & ユーザー定義されたキーコード \\
+\hline
+\mbox{\texttt{ in}}  & {\em code\+Keyboard} & 仮想キーコード \\
+\hline
+\mbox{\texttt{ in}}  & {\em type\+Gamepad\+Key} & ゲームパッドの入力形式 \\
+\hline
+\mbox{\texttt{ in}}  & {\em code\+Gamepad} & ゲームパッドのボタンコード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00043}{43}} 行目に定義があります。
+
+ \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00046}{46}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a6c1007a54fa84d5a419aca392e950874}\label{classmugen__engine_1_1_m_e_key_input_manager_a6c1007a54fa84d5a419aca392e950874} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!GetIns@{GetIns}}
@@ -204,22 +238,38 @@ Thumb\+RD&\\
 インスタンスの取得 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+インスタンス 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00039}{39}} 行目に定義があります。
 
-\Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a748e2cf29dc032707380a2e0e90993a2}\label{classmugen__engine_1_1_m_e_key_input_manager_a748e2cf29dc032707380a2e0e90993a2} 
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00071}{71}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_af89e963d56da7691e5f42e73f1465a93}\label{classmugen__engine_1_1_m_e_key_input_manager_af89e963d56da7691e5f42e73f1465a93} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!GetKey@{GetKey}}
 \index{GetKey@{GetKey}!mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}}
 \doxysubsubsection{\texorpdfstring{GetKey()}{GetKey()}}
-{\footnotesize\ttfamily char mugen\+\_\+engine\+::\+MEKey\+Input\+Manager\+::\+Get\+Key (\begin{DoxyParamCaption}\item[{char}]{code\+Key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char mugen\+\_\+engine\+::\+MEKey\+Input\+Manager\+::\+Get\+Key (\begin{DoxyParamCaption}\item[{const char}]{code\+Key }\end{DoxyParamCaption}) const}
 
 
 
 入力状況を取得 
 
 
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em code\+Key} & ユーザー定義されたキーコード \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+入力状況 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00096}{96}} 行目に定義があります。
+
+ \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00100}{100}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_ab7e11e7f43db20b36452245ebcefafe4}\label{classmugen__engine_1_1_m_e_key_input_manager_ab7e11e7f43db20b36452245ebcefafe4} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!GetMouseX@{GetMouseX}}
@@ -229,11 +279,19 @@ Thumb\+RD&\\
 
 
 
-マウスの\+X座標を取得 
+マウスの\+X座標の取得 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+マウスの\+X座標 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00044}{44}} 行目に定義があります。
+
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00081}{81}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a42b2db996d424814976574942c534f35}\label{classmugen__engine_1_1_m_e_key_input_manager_a42b2db996d424814976574942c534f35} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!GetMouseY@{GetMouseY}}
@@ -243,11 +301,19 @@ Thumb\+RD&\\
 
 
 
-マウスの\+Y座標を取得 
+マウスの\+Y座標の取得 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+マウスの\+Y座標 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00049}{49}} 行目に定義があります。
+
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00091}{91}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a2f90bcbb6aba03e48cecfbabadec40fe}\label{classmugen__engine_1_1_m_e_key_input_manager_a2f90bcbb6aba03e48cecfbabadec40fe} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!Initialize@{Initialize}}
@@ -260,8 +326,16 @@ Thumb\+RD&\\
 初期化 
 
 
+\begin{DoxyParams}{引数}
+{\em h\+Wnd} & メインウィンドウのハンドル \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00034}{34}} 行目に定義があります。
+
+ \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00036}{36}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_acc3c09121eb738a3b4ea51aac8ee817d}\label{classmugen__engine_1_1_m_e_key_input_manager_acc3c09121eb738a3b4ea51aac8ee817d} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!Update@{Update}}
@@ -271,11 +345,19 @@ Thumb\+RD&\\
 
 
 
-入力状況を更新 
+更新 
 
 
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
 
- \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00054}{54}} 行目に定義があります。
+
+ \mbox{\hyperlink{_key_input_manager_8cpp_source}{Key\+Input\+Manager.\+cpp}} の \mbox{\hyperlink{_key_input_manager_8cpp_source_l00058}{58}} 行目に定義があります。
 
 
 
@@ -292,7 +374,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00076}{76}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00127}{127}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a98dd804d84bc8dbaff962df24ca2759c}\label{classmugen__engine_1_1_m_e_key_input_manager_a98dd804d84bc8dbaff962df24ca2759c} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_currentMousePosY@{m\_currentMousePosY}}
@@ -306,7 +388,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00077}{77}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00128}{128}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a9c5d86f9282462d4bc9afd4690cfc4fe}\label{classmugen__engine_1_1_m_e_key_input_manager_a9c5d86f9282462d4bc9afd4690cfc4fe} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_cursorPosX@{m\_cursorPosX}}
@@ -320,7 +402,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00073}{73}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00124}{124}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_ab839eee04bbac772791e6e7dff72410e}\label{classmugen__engine_1_1_m_e_key_input_manager_ab839eee04bbac772791e6e7dff72410e} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_cursorPosY@{m\_cursorPosY}}
@@ -334,7 +416,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00074}{74}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00125}{125}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_afc63061bf475af67c67499d3bbfc7940}\label{classmugen__engine_1_1_m_e_key_input_manager_afc63061bf475af67c67499d3bbfc7940} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_mainWindowHandle@{m\_mainWindowHandle}}
@@ -348,7 +430,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00075}{75}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00126}{126}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_ae38849376ec0ba8161c3841182c7a279}\label{classmugen__engine_1_1_m_e_key_input_manager_ae38849376ec0ba8161c3841182c7a279} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_mouseSpeedRatio@{m\_mouseSpeedRatio}}
@@ -362,7 +444,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00078}{78}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00129}{129}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_adccb6b51fb62f4f688128c81aa6d3338}\label{classmugen__engine_1_1_m_e_key_input_manager_adccb6b51fb62f4f688128c81aa6d3338} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_statePrev@{m\_statePrev}}
@@ -376,7 +458,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00071}{71}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00122}{122}} 行目に定義があります。
 
 \Hypertarget{classmugen__engine_1_1_m_e_key_input_manager_a2f5e4c7da0b1f6019f067c5c052e60ff}\label{classmugen__engine_1_1_m_e_key_input_manager_a2f5e4c7da0b1f6019f067c5c052e60ff} 
 \index{mugen\_engine::MEKeyInputManager@{mugen\_engine::MEKeyInputManager}!m\_watchingKeyInfos@{m\_watchingKeyInfos}}
@@ -390,7 +472,7 @@ Thumb\+RD&\\
 
 
 
- \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00072}{72}} 行目に定義があります。
+ \mbox{\hyperlink{_key_input_manager_8h_source}{Key\+Input\+Manager.\+h}} の \mbox{\hyperlink{_key_input_manager_8h_source_l00123}{123}} 行目に定義があります。
 
 
 

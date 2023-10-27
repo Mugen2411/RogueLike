@@ -1,0 +1,233 @@
+\doxysection{mugen\+\_\+engine\+::MEFps クラス}
+\hypertarget{classmugen__engine_1_1_m_e_fps}{}\label{classmugen__engine_1_1_m_e_fps}\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+
+
+読み込んだフォントで画面上に文字列描画を行うクラス  
+
+
+
+
+{\ttfamily \#include $<$Fps.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a3db30514bc7e6b517cf78cb90bf03cea}{MEFps}} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a1f59c18f6d0a01d5afd7844c2c191577}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_aed72923f15b5f99ed85769fdba164c50}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em 描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_ac7b88c6e2453628e6db46e80aa0e89f4}{Wait}} ()
+\begin{DoxyCompactList}\small\item\em 待機 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\+\_\+time\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 測定開始時刻 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\+\_\+}}
+\begin{DoxyCompactList}\small\item\em カウンタ \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}{fps\+\_\+}}
+\begin{DoxyCompactList}\small\item\em FPS \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{mugen\+\_\+engine\+::\+MEFont\+Data}} \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66}{def\+Font}}
+\begin{DoxyCompactList}\small\item\em FPSを表示するフォント \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静的非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc}{cnt\+\_\+to\+\_\+sample}} = 60
+\begin{DoxyCompactList}\small\item\em 平均を取るサンプル数 \end{DoxyCompactList}\item 
+static const int \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a5c3c47832dbebcd73bbb1d7b57fde35c}{ideal\+\_\+fps\+\_\+}} = 60
+\begin{DoxyCompactList}\small\item\em 設定した\+FPS \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+読み込んだフォントで画面上に文字列描画を行うクラス 
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a3db30514bc7e6b517cf78cb90bf03cea}\label{classmugen__engine_1_1_m_e_fps_a3db30514bc7e6b517cf78cb90bf03cea} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!MEFps@{MEFps}}
+\index{MEFps@{MEFps}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{MEFps()}{MEFps()}}
+{\footnotesize\ttfamily mugen\+\_\+engine\+::\+MEFps\+::\+MEFps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00032}{32}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_fps_aed72923f15b5f99ed85769fdba164c50}\label{classmugen__engine_1_1_m_e_fps_aed72923f15b5f99ed85769fdba164c50} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!Draw@{Draw}}
+\index{Draw@{Draw}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEFps\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+描画 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00067}{67}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a1f59c18f6d0a01d5afd7844c2c191577}\label{classmugen__engine_1_1_m_e_fps_a1f59c18f6d0a01d5afd7844c2c191577} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!Update@{Update}}
+\index{Update@{Update}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool mugen\+\_\+engine\+::\+MEFps\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+更新 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00045}{45}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_ac7b88c6e2453628e6db46e80aa0e89f4}\label{classmugen__engine_1_1_m_e_fps_ac7b88c6e2453628e6db46e80aa0e89f4} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!Wait@{Wait}}
+\index{Wait@{Wait}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}}
+{\footnotesize\ttfamily void mugen\+\_\+engine\+::\+MEFps\+::\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+待機 
+
+
+\begin{DoxyParams}{引数}
+{\em なし} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+なし 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00078}{78}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc}\label{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!cnt\_to\_sample@{cnt\_to\_sample}}
+\index{cnt\_to\_sample@{cnt\_to\_sample}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{cnt\_to\_sample}{cnt\_to\_sample}}
+{\footnotesize\ttfamily const int mugen\+\_\+engine\+::\+MEFps\+::cnt\+\_\+to\+\_\+sample = 60\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+平均を取るサンプル数 
+
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00022}{22}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}\label{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!count\_@{count\_}}
+\index{count\_@{count\_}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{count\_}{count\_}}
+{\footnotesize\ttfamily int mugen\+\_\+engine\+::\+MEFps\+::count\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+カウンタ 
+
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00020}{20}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66}\label{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!defFont@{defFont}}
+\index{defFont@{defFont}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{defFont}{defFont}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{mugen\+\_\+engine\+::\+MEFont\+Data}} mugen\+\_\+engine\+::\+MEFps\+::def\+Font\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+FPSを表示するフォント 
+
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00024}{24}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}\label{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!fps\_@{fps\_}}
+\index{fps\_@{fps\_}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{fps\_}{fps\_}}
+{\footnotesize\ttfamily float mugen\+\_\+engine\+::\+MEFps\+::fps\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+FPS 
+
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00021}{21}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a5c3c47832dbebcd73bbb1d7b57fde35c}\label{classmugen__engine_1_1_m_e_fps_a5c3c47832dbebcd73bbb1d7b57fde35c} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!ideal\_fps\_@{ideal\_fps\_}}
+\index{ideal\_fps\_@{ideal\_fps\_}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{ideal\_fps\_}{ideal\_fps\_}}
+{\footnotesize\ttfamily const int mugen\+\_\+engine\+::\+MEFps\+::ideal\+\_\+fps\+\_\+ = 60\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+設定した\+FPS 
+
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00023}{23}} 行目に定義があります。
+
+\Hypertarget{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}\label{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d} 
+\index{mugen\_engine::MEFps@{mugen\_engine::MEFps}!start\_time\_@{start\_time\_}}
+\index{start\_time\_@{start\_time\_}!mugen\_engine::MEFps@{mugen\_engine::MEFps}}
+\doxysubsubsection{\texorpdfstring{start\_time\_}{start\_time\_}}
+{\footnotesize\ttfamily std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point mugen\+\_\+engine\+::\+MEFps\+::start\+\_\+time\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+測定開始時刻 
+
+
+
+ \mbox{\hyperlink{_fps_8h_source}{Fps.\+h}} の \mbox{\hyperlink{_fps_8h_source_l00019}{19}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\mbox{\hyperlink{_fps_8h}{Fps.\+h}}\end{DoxyCompactItemize}

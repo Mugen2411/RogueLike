@@ -9,22 +9,6 @@ LRESULT WindowProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
 namespace mugen_engine
 {
-	/**********************************************************************//**
-		@brief			インスタンスの取得
-		@param			なし
-		@return			インスタンス
-	*//***********************************************************************/
-	MECore& MECore::GetIns()
-	{
-		static MECore instance;
-		return instance;
-	}
-	/**********************************************************************//**
-		@brief			初期化
-		@param[in]		window_width		ウィンドウ(描画範囲)の横幅
-		@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
-		@return			インスタンス
-	*//***********************************************************************/
 	void MECore::Initialize(const std::wstring window_title, const int window_width, const int window_height)
 	{
 		m_windowWidth = window_width;
@@ -44,21 +28,11 @@ namespace mugen_engine
 		LoadFont("__mugen_engine_default__", L"ＭＳ ゴシック", 32);
 	}
 
-	/**********************************************************************//**
-		@brief			終了処理
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MECore::Finalize()
 	{
 		UnregisterClass(m_windowClass.lpszClassName, m_windowClass.hInstance);
 	}
 
-	/**********************************************************************//**
-		@brief			システムのメッセージを処理する
-		@param			なし
-		@return			何もなければ0、アプリケーションが終了するなら-1
-	*//***********************************************************************/
 	int MECore::ProcessMessage()
 	{
 		MSG msg = {};
@@ -79,11 +53,6 @@ namespace mugen_engine
 		return 0;
 	}
 
-	/**********************************************************************//**
-		@brief			描画結果を画面に反映する
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MECore::ScreenFlip()
 	{
 		MEGraphicRenderQueue::RenderAll(m_commandList, m_pipeline, m_renderTarget);
@@ -97,104 +66,50 @@ namespace mugen_engine
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			画面を指定した色でクリアする
-		@param[in]		R			赤の輝度
-		@param[in]		G			緑の輝度
-		@param[in]		B			青の輝度
-		@return			なし
-	*//***********************************************************************/
 	void MECore::ClearScreen(const int R, const int G, const int B)
 	{
 		float clearColor[] = { R / 255.0f, G / 255.0f, B / 255.0f, 1.0f };
 		m_renderTarget.Clear(clearColor, m_commandList);
 	}
 
-	/**********************************************************************//**
-		@brief			描画可能な範囲を設定する
-		@param[in]		topX		左上のX座標
-		@param[in]		topY		左上のY座標
-		@param[in]		bottomX		右下のX座標
-		@param[in]		bottomY		右下のY座標
-		@return			なし
-	*//***********************************************************************/
 	void MECore::SetRenderArea(const int topX, const int topY, const int bottomX, const int bottomY)
 	{
 		m_renderTarget.SetRenderArea(m_commandList, topX, topY, bottomX, bottomY);
 	}
 
-	/**********************************************************************//**
-		@brief			描画可能な範囲を画面全体に設定する
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MECore::ResetRenderArea()
 	{
 		SetRenderArea(0, 0, m_windowWidth, m_windowHeight);
 	}
 
-	/**********************************************************************//**
-		@brief			ファイルから画像を読み込む
-		@param[in]		gid				取り出すキー
-		@param[in]		filepath		画像ファイルへのパス
-		@return			なし
-	*//***********************************************************************/
-	void MECore::LoadGraph(std::string gid, std::wstring filepath)
+	void MECore::LoadGraph(const std::string gid, const std::wstring filepath)
 	{
 		auto img = MEImage(filepath, m_graphicDevice, 1, 1, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImages[gid] = img;
 	}
 
-	/**********************************************************************//**
-		@brief			ファイルから画像を読み込む
-		@param[in]		gid				取り出すキー
-		@param[in]		filepath		画像ファイルへのパス
-		@return			なし
-	*//***********************************************************************/
-	void MECore::LoadDivGraph(std::string gid, std::wstring filepath, size_t xDivideNum, size_t yDivideNum)
+	void MECore::LoadDivGraph(const std::string gid, const std::wstring filepath, const size_t xDivideNum, const size_t yDivideNum)
 	{
 		auto img = MEImage(filepath, m_graphicDevice, xDivideNum, yDivideNum, m_commandList, m_pipeline, m_renderTarget);
 		m_loadedImages[gid] = img;
 	}
 
-	/**********************************************************************//**
-		@brief			キーを指定して読み込み済み画像を取り出す
-		@param[in]		gid				取り出すキー
-		@return			読み込み済み画像
-	*//***********************************************************************/
-	MEImage& MECore::GetGraph(std::string gid)
+	MEImage& MECore::GetGraph(const std::string gid)
 	{
 		return m_loadedImages[gid];
 	}
 
-	/**********************************************************************//**
-		@brief			フォントを読み込む
-		@param[in]		gid				取り出すキー
-		@param[in]		fontName		フォントの名前
-		@param[in]		fontSize		フォントサイズ
-		@return			なし
-	*//***********************************************************************/
-	void MECore::LoadFont(std::string gid, std::wstring fontName, int fontSize)
+	void MECore::LoadFont(const std::string gid, const std::wstring fontName, const int fontSize)
 	{
 		//if (m_loadedFonts.find(gid) != m_loadedFonts.end()) return;
 		m_loadedFonts[gid] = MEFontData(fontName, fontSize, m_graphicDevice, m_commandList, m_pipeline, m_renderTarget);
 	}
 
-	/**********************************************************************//**
-		@brief			キーを指定して読み込みフォントを取り出す
-		@param[in]		gid				取り出すキー
-		@return			読み込み済みフォント
-	*//***********************************************************************/
-	MEFontData& MECore::GetFont(std::string gid)
+	MEFontData& MECore::GetFont(const std::string gid)
 	{
 		return m_loadedFonts[gid];
 	}
 
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	MECore::MECore() : m_windowClass {}, m_windowHandle(), m_windowWidth(0), m_windowHeight(0), m_inputLayout
 	{
 		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
@@ -202,12 +117,6 @@ namespace mugen_engine
 	}
 	{}
 
-	/**********************************************************************//**
-		@brief			ウィンドウの作成
-		@param[in]		window_width		ウィンドウ(描画範囲)の横幅
-		@param[in]		window_height		ウィンドウ(描画範囲)の縦幅
-		@return			なし
-	*//***********************************************************************/
 	void MECore::_CreateWindow()
 	{
 		m_windowClass.cbSize = sizeof(m_windowClass);

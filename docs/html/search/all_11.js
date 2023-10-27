@@ -34,7 +34,7 @@ var searchData=
   ['slime_2eh_31',['Slime.h',['../_slime_8h.html',1,'']]],
   ['ssel_32',['SSEL',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95ca9bf3cf7ad1f8db0295b481b99541d397',1,'magica_rogue::MRPlayer']]],
   ['stand_33',['STAND',['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31aeadd135fb441de529b55c24775556f3a81',1,'magica_rogue::MRPlayer']]],
-  ['start_5ftime_5f_34',['start_time_',['../classmugen__engine_1_1_fps.html#a15f425fe4655e1790faf5d9d1a95a2b2',1,'mugen_engine::Fps']]],
+  ['start_5ftime_5f_34',['start_time_',['../classmugen__engine_1_1_m_e_fps.html#a57a255d49e53ba3f11a2f2c850d26b8d',1,'mugen_engine::MEFps']]],
   ['state_35',['state',['../classmagica__rogue_1_1_m_r_slime.html#ab56d958f6671924add9a78f0b7236e71',1,'magica_rogue::MRSlime::STATE'],['../classmagica__rogue_1_1_m_r_player.html#abc29e8ebe83f12344ca6e9d0816b31ae',1,'magica_rogue::MRPlayer::STATE'],['../structmugen__engine_1_1_m_e_key_input_manager_1_1_key_inf.html#a7ff52970c917af0f8b7f898b561000ef',1,'mugen_engine::MEKeyInputManager::KeyInf::state']]],
   ['statemachine_2eh_36',['StateMachine.h',['../_state_machine_8h.html',1,'']]],
   ['staticobjectinterface_2eh_37',['StaticObjectInterface.h',['../_static_object_interface_8h.html',1,'']]],

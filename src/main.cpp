@@ -14,7 +14,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpC, int nC)
 
 	mugen_engine::MECore::GetIns().Initialize(L"MagicaRogue", window_width, window_height);
 
-	mugen_engine::Fps fps;
+	mugen_engine::MEFps fps;
 
 	mugen_engine::MECore::GetIns().LoadFont("gothic", L"ノスタルドット（M+）", 64);
 	mugen_engine::MECore::GetIns().LoadDivGraph("treasureBox", L"media/graphic/mapchip/treasureBox.png", 4, 1);

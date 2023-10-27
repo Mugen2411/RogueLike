@@ -22,30 +22,72 @@ namespace mugen_engine
 	class MEKeyInputManager
 	{
 	public:
+		/**********************************************************************//**
+			@enum		GAMEPAD_KEYTYPE
+			@brief		ゲームパッドの入力形式
+		*//***********************************************************************/
 		enum struct GAMEPAD_KEYTYPE : char {
 			Buttons, LTrigger, RTrigger,
 			ThumbLL, ThumbLR, ThumbLU, ThumbLD,
 			ThumbRL, ThumbRR, ThumbRU, ThumbRD,
 		};
-		//! 初期化
+
+		/**********************************************************************//**
+			@brief			初期化
+			@param			hWnd			メインウィンドウのハンドル
+			@return			なし
+		*//***********************************************************************/
 		void Initialize(HWND hWnd);
-		//! キーコードを監視対象に追加
-		bool AddKeycode(char codeKey, char codeKeyboard, GAMEPAD_KEYTYPE typeGamepadKey, short codeGamepad);
-		//! 入力状況を更新
+
+		/**********************************************************************//**
+			@brief			キーを監視対象に追加
+			@param[in]		codeKey					ユーザー定義されたキーコード
+			@param[in]		codeKeyboard			仮想キーコード
+			@param[in]		typeGamepadKey			ゲームパッドの入力形式
+			@param[in]		codeGamepad				ゲームパッドのボタンコード
+			@return			なし
+		*//***********************************************************************/
+		bool AddKeycode(const char codeKey, const char codeKeyboard, const GAMEPAD_KEYTYPE typeGamepadKey, const short codeGamepad);
+
+		/**********************************************************************//**
+			@brief			更新
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void Update();
-		//! 入力状況を取得
-		char GetKey(char codeKey);
-		//! インスタンスの取得
+
+		/**********************************************************************//**
+			@brief			入力状況を取得
+			@param[in]		codeKey					ユーザー定義されたキーコード
+			@return			入力状況
+		*//***********************************************************************/
+		char GetKey(const char codeKey) const;
+
+		/**********************************************************************//**
+			@brief			インスタンスの取得
+			@param			なし
+			@return			インスタンス
+		*//***********************************************************************/
 		static MEKeyInputManager& GetIns(){
 			static MEKeyInputManager instance;
 			return instance;
 		}
-		//! マウスのX座標を取得
+		
+		/**********************************************************************//**
+			@brief			マウスのX座標の取得
+			@param			なし
+			@return			マウスのX座標
+		*//***********************************************************************/
 		int GetMouseX() const
 		{
 			return m_currentMousePosX;
 		}
-		//! マウスのY座標を取得
+		
+		/**********************************************************************//**
+			@brief			マウスのY座標の取得
+			@param			なし
+			@return			マウスのY座標
+		*//***********************************************************************/
 		int GetMouseY() const
 		{
 			return m_currentMousePosY;
@@ -63,9 +105,18 @@ namespace mugen_engine
 			short codeGamepad;
 		};
 
-		//! コンストラクタ
+		/**********************************************************************//**
+			@brief			コンストラクタ
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		MEKeyInputManager();
-		//! マウスの処理
+
+		/**********************************************************************//**
+			@brief			マウス関連の入力を処理する
+			@param			なし
+			@return			なし
+		*//***********************************************************************/
 		void _ProcessMouseInput();
 
 		std::vector<char> m_statePrev;									//!< 前のフレームでの入力状況

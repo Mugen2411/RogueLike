@@ -13,59 +13,64 @@
 \DoxyCodeLine{\Hypertarget{_fps_8h_source_l00010}00010\ }
 \DoxyCodeLine{\Hypertarget{_fps_8h_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemugen__engine}{mugen\_engine}}}
 \DoxyCodeLine{\Hypertarget{_fps_8h_source_l00012}00012\ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00013}\mbox{\hyperlink{classmugen__engine_1_1_fps}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_fps}{Fps}}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00014}00014\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00015}\mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{00015}}\ \ \ \ \ \ \ \ \ std::chrono::system\_clock::time\_point\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{start\_time\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//測定開始時刻}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00016}\mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//カウンタ}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00017}\mbox{\hyperlink{classmugen__engine_1_1_fps_a8f61dfdfd1851277d1e7829edf67386b}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a8f61dfdfd1851277d1e7829edf67386b}{fps\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fps\_}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00018}\mbox{\hyperlink{classmugen__engine_1_1_fps_ac6050bd1d8d17658dc79a07e1daa3ece}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_ac6050bd1d8d17658dc79a07e1daa3ece}{cnt\_to\_sample}}\ =\ 60;\ \ \ \ \textcolor{comment}{//平均を取るサンプル数}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00019}\mbox{\hyperlink{classmugen__engine_1_1_fps_a93b127d6abd6cb126ef1edbe7762a25d}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a93b127d6abd6cb126ef1edbe7762a25d}{ideal\_fps\_}}\ =\ 60;\ \ \textcolor{comment}{//設定したFPS}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00020}\mbox{\hyperlink{classmugen__engine_1_1_fps_ae3dbf87e12f8493ee67f2e4bda3814f9}{00020}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{mugen\_engine::MEFontData}}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_ae3dbf87e12f8493ee67f2e4bda3814f9}{defFont}};}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00023}\mbox{\hyperlink{classmugen__engine_1_1_fps_a6f5513d58eaa87f9d6251a0fe6c14952}{00023}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_a6f5513d58eaa87f9d6251a0fe6c14952}{Fps}}()}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{start\_time\_}}\ =\ std::chrono::system\_clock::now();}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_a8f61dfdfd1851277d1e7829edf67386b}{fps\_}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_ae3dbf87e12f8493ee67f2e4bda3814f9}{defFont}}\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_ab8640f01f6f1b28722ff35a68a4b2b15}{GetFont}}(\textcolor{stringliteral}{"{}\_\_mugen\_engine\_default\_\_"{}});}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00031}\mbox{\hyperlink{classmugen__engine_1_1_fps_aaa8fbb3ceb9d9f9adfdd68ea99069ed2}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_aaa8fbb3ceb9d9f9adfdd68ea99069ed2}{Update}}()}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}}\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ 1フレーム目なら時刻を記憶}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{start\_time\_}}\ =\ std::chrono::system\_clock::now();}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}}\ ==\ \mbox{\hyperlink{classmugen__engine_1_1_fps_ac6050bd1d8d17658dc79a07e1daa3ece}{cnt\_to\_sample}})}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ 60フレーム目なら平均を計算する}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ t\ =\ std::chrono::system\_clock::now();}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_a8f61dfdfd1851277d1e7829edf67386b}{fps\_}}\ =\ 1000.f\ /\ (std::chrono::duration\_cast<std::chrono::milliseconds>(t\ -\/\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{start\_time\_}}).count()\ /\ (float)\mbox{\hyperlink{classmugen__engine_1_1_fps_ac6050bd1d8d17658dc79a07e1daa3ece}{cnt\_to\_sample}});}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{start\_time\_}}\ =\ t;}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}}++;}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00048}\mbox{\hyperlink{classmugen__engine_1_1_fps_a1b84a89d6400f52be54a522fc9e1d619}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a1b84a89d6400f52be54a522fc9e1d619}{Draw}}()}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ color[4]\ =\ \{\ 1.0f,\ 1.0f,\ 1.0f,\ 1.0f\ \};}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_fps_ae3dbf87e12f8493ee67f2e4bda3814f9}{defFont}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data_a3e49e049ca203dce1c267cc2b9457288}{DrawFormatString}}(0,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8efe32043348f81c574473428903f0be}{mugen\_engine::MECore::GetIns}}().GetWindowHeight()\ -\/\ 32,\ color,\ -\/9999.9f,\ L\textcolor{stringliteral}{"{}fps:\ \%.1f"{}},\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a8f61dfdfd1851277d1e7829edf67386b}{fps\_}});}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00054}\mbox{\hyperlink{classmugen__engine_1_1_fps_a132c80fe1ccf055879c6cbb2233b7abd}{00054}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a132c80fe1ccf055879c6cbb2233b7abd}{Wait}}()}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tookTime\ =\ std::chrono::system\_clock::now()\ -\/\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a15f425fe4655e1790faf5d9d1a95a2b2}{start\_time\_}};\ \ \ \ \ \ \textcolor{comment}{//かかった時間}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ waitTime\ =\ \mbox{\hyperlink{classmugen__engine_1_1_fps_afab2f9e6e0a7526ec08754550e5d600f}{count\_}}\ *\ 1000\ /\ \mbox{\hyperlink{classmugen__engine_1_1_fps_a93b127d6abd6cb126ef1edbe7762a25d}{ideal\_fps\_}}\ -\/\ std::chrono::duration\_cast<std::chrono::milliseconds>(tookTime).count();\ \ \textcolor{comment}{//待つべき時間}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(waitTime\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sleep(\textcolor{keyword}{static\_cast<}DWORD\textcolor{keyword}{>}(waitTime));\ \ \textcolor{comment}{//待機}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00063}00063\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00064}00064\ \}}
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00066}00066\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_Fps\_\_}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00017}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps}{MEFps}}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00019}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{00019}}\ \ \ \ \ \ \ \ \ std::chrono::system\_clock::time\_point\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\_time\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00020}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00021}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}{fps\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00022}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc}{cnt\_to\_sample}}\ =\ 60;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00023}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a5c3c47832dbebcd73bbb1d7b57fde35c}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a5c3c47832dbebcd73bbb1d7b57fde35c}{ideal\_fps\_}}\ =\ 60;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00024}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66}{00024}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data}{mugen\_engine::MEFontData}}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66}{defFont}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00032}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a3db30514bc7e6b517cf78cb90bf03cea}{00032}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a3db30514bc7e6b517cf78cb90bf03cea}{MEFps}}()}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\_time\_}}\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}{fps\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66}{defFont}}\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8761d217e3361865aefe64b0bbb4f05d}{mugen\_engine::MECore::GetIns}}().\mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a36fbd592bafbb9f9ff93bdfa035bedda}{GetFont}}(\textcolor{stringliteral}{"{}\_\_mugen\_engine\_default\_\_"{}});}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00040}00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00045}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a1f59c18f6d0a01d5afd7844c2c191577}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a1f59c18f6d0a01d5afd7844c2c191577}{Update}}()}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ 1フレーム目なら時刻を記憶}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\_time\_}}\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}}\ ==\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc}{cnt\_to\_sample}})}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \textcolor{comment}{//\ 60フレーム目なら平均を計算する}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ t\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}{fps\_}}\ =\ 1000.f\ /\ (std::chrono::duration\_cast<std::chrono::milliseconds>(t\ -\/\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\_time\_}}).count()\ /\ (float)\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a761c247ff9eba587f0d106f6f00ac4bc}{cnt\_to\_sample}});}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\_time\_}}\ =\ t;}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}}++;}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00067}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_aed72923f15b5f99ed85769fdba164c50}{00067}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_aed72923f15b5f99ed85769fdba164c50}{Draw}}()}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ color[4]\ =\ \{\ 1.0f,\ 1.0f,\ 1.0f,\ 1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a25a2aca2acae6b2e16f10243bb819e66}{defFont}}.\mbox{\hyperlink{classmugen__engine_1_1_m_e_font_data_a3e49e049ca203dce1c267cc2b9457288}{DrawFormatString}}(0,\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_core_a8761d217e3361865aefe64b0bbb4f05d}{mugen\_engine::MECore::GetIns}}().GetWindowHeight()\ -\/\ 32,\ color,\ -\/9999.9f,\ L\textcolor{stringliteral}{"{}fps:\ \%.1f"{}},\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a0e4cc98e6cba230e8fc4f415cbd0c28f}{fps\_}});}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**********************************************************************/}\textcolor{comment}{/***********************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00078}\mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_ac7b88c6e2453628e6db46e80aa0e89f4}{00078}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_ac7b88c6e2453628e6db46e80aa0e89f4}{Wait}}()}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tookTime\ =\ std::chrono::system\_clock::now()\ -\/\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a57a255d49e53ba3f11a2f2c850d26b8d}{start\_time\_}};\ \ \ \ \ \ \textcolor{comment}{//かかった時間}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ waitTime\ =\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a8cb4e196387aab53cdc9b5c29edf9489}{count\_}}\ *\ 1000\ /\ \mbox{\hyperlink{classmugen__engine_1_1_m_e_fps_a5c3c47832dbebcd73bbb1d7b57fde35c}{ideal\_fps\_}}\ -\/\ std::chrono::duration\_cast<std::chrono::milliseconds>(tookTime).count();\ \ \textcolor{comment}{//待つべき時間}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(waitTime\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sleep(\textcolor{keyword}{static\_cast<}DWORD\textcolor{keyword}{>}(waitTime));\ \ \textcolor{comment}{//待機}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00087}00087\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_fps_8h_source_l00090}00090\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//\_\_MugenEngine\_Fps\_\_}}
 
 \end{DoxyCode}

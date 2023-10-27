@@ -2,8 +2,8 @@ var searchData=
 [
   ['a_0',['A',['../structmugen__engine_1_1_m_e_graphic_character_unit_1_1_tex_r_g_b_a.html#a12ce5298b9003eb60b1921c83f235db2',1,'mugen_engine::MEGraphicCharacterUnit::TexRGBA']]],
   ['abyss_1',['ABYSS',['../namespacemagica__rogue_1_1constants.html#ac721d86b0e1424ded1d1c89a1d619667a6824758f35553e2dcdbd83dbc112cc11',1,'magica_rogue::constants']]],
-  ['add_2',['add',['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faabc92c03dd85e2de8a2a35b4a4eca125b',1,'mugen_engine::MEImage::ADD'],['../classmagica__rogue_1_1_m_r_capped_value.html#aa9b2b48c78b77d9e6c7946dea47eda85',1,'magica_rogue::MRCappedValue::Add()']]],
-  ['addkeycode_3',['AddKeycode',['../classmugen__engine_1_1_m_e_key_input_manager.html#ad73bf78bfb061f8b31b3ad600dae58c8',1,'mugen_engine::MEKeyInputManager']]],
+  ['add_2',['add',['../classmagica__rogue_1_1_m_r_capped_value.html#aa9b2b48c78b77d9e6c7946dea47eda85',1,'magica_rogue::MRCappedValue::Add()'],['../classmugen__engine_1_1_m_e_image.html#a23f17c7174964a80541a708c5f33c2faabc92c03dd85e2de8a2a35b4a4eca125b',1,'mugen_engine::MEImage::ADD']]],
+  ['addkeycode_3',['AddKeycode',['../classmugen__engine_1_1_m_e_key_input_manager.html#a52b5e11b14830b0bcfebdf6c54930253',1,'mugen_engine::MEKeyInputManager']]],
   ['addvelocity_4',['AddVelocity',['../classmagica__rogue_1_1_m_r_transform.html#a5afcd3f2acacd80c8ae874604db319d0',1,'magica_rogue::MRTransform']]],
   ['addvelocitywithangle_5',['AddVelocityWithAngle',['../classmagica__rogue_1_1_m_r_transform.html#a58e4307b90c25ae83e835bc7643515f1',1,'magica_rogue::MRTransform']]],
   ['akari_6',['AKARI',['../classmagica__rogue_1_1_m_r_player.html#aaf3406185c281360c04f96e1d685b95cab26589f2cb3f7737444b8593d607f6f7',1,'magica_rogue::MRPlayer']]],

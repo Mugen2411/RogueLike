@@ -1,4 +1,4 @@
-//! @file Fps.h
+//! @file MEFps.h
 //! @note Copyright (c) Mugen_GameLab
 
 #ifndef __MugenEngine_Fps__
@@ -10,17 +10,26 @@
 
 namespace mugen_engine
 {
-    class Fps
+    /**********************************************************************//**
+        @class		MEFps
+        @brief		読み込んだフォントで画面上に文字列描画を行うクラス
+    *//***********************************************************************/
+    class MEFps
     {
-        std::chrono::system_clock::time_point start_time_;             //測定開始時刻
-        int count_;                 //カウンタ
-        float fps_;                 // fps_
-        static const int cnt_to_sample = 60;    //平均を取るサンプル数
-        static const int ideal_fps_ = 60;  //設定したFPS
-        mugen_engine::MEFontData defFont;
+        std::chrono::system_clock::time_point start_time_;              //!< 測定開始時刻
+        int count_;                                                     //!< カウンタ
+        float fps_;                                                     //!< FPS
+        static const int cnt_to_sample = 60;                            //!< 平均を取るサンプル数
+        static const int ideal_fps_ = 60;                               //!< 設定したFPS
+        mugen_engine::MEFontData defFont;                               //!< FPSを表示するフォント
 
     public:
-        Fps()
+        /**********************************************************************//**
+            @brief			コンストラクタ
+            @param			なし
+            @return			なし
+        *//***********************************************************************/
+        MEFps()
         {
             start_time_ = std::chrono::system_clock::now();
             count_ = 0;
@@ -28,6 +37,11 @@ namespace mugen_engine
             defFont = mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
         }
 
+        /**********************************************************************//**
+            @brief			更新
+            @param			なし
+            @return			なし
+        *//***********************************************************************/
         bool Update()
         {
             if(count_ == 0)
@@ -45,12 +59,22 @@ namespace mugen_engine
             return true;
         }
 
+        /**********************************************************************//**
+            @brief			描画
+            @param			なし
+            @return			なし
+        *//***********************************************************************/
         void Draw()
         {
             static float color[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
             defFont.DrawFormatString(0, mugen_engine::MECore::GetIns().GetWindowHeight() - 32, color, -9999.9f, L"fps: %.1f", fps_);
         }
 
+        /**********************************************************************//**
+            @brief			待機
+            @param			なし
+            @return			なし
+        *//***********************************************************************/
         void Wait()
         {
             auto tookTime = std::chrono::system_clock::now() - start_time_;      //かかった時間

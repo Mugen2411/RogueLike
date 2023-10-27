@@ -10,6 +10,7 @@ namespace mugen_engine
 		m_currentMousePosX(m_cursorPosX), m_currentMousePosY(m_cursorPosY)
 	{
 	}
+
 	void MEKeyInputManager::_ProcessMouseInput()
 	{
 		if (GetForegroundWindow() == m_mainWindowHandle)
@@ -31,6 +32,7 @@ namespace mugen_engine
 			while (0 > ShowCursor(true));
 		}
 	}
+
 	void MEKeyInputManager::Initialize(HWND hWnd)
 	{
 		m_mainWindowHandle = hWnd;
@@ -40,7 +42,9 @@ namespace mugen_engine
 		ClientToScreen(m_mainWindowHandle, &center);
 		SetCursorPos(center.x, center.y);
 	}
-	bool MEKeyInputManager::AddKeycode(char codeKey, char codeKeyboard, GAMEPAD_KEYTYPE typeGamepadKey, short codeGamepad)
+
+	bool MEKeyInputManager::AddKeycode(const char codeKey, const char codeKeyboard,
+		const GAMEPAD_KEYTYPE typeGamepadKey, const short codeGamepad)
 	{
 		KeyInf tmp = {};
 		tmp.codeKey = codeKey;
@@ -93,7 +97,7 @@ namespace mugen_engine
 			_ProcessMouseInput();
 		}
 	}
-	char MEKeyInputManager::GetKey(char codeKey)
+	char MEKeyInputManager::GetKey(const char codeKey) const
 	{
 		int numRegistered = static_cast<int>(m_watchingKeyInfos.size());
 		for (int i = 0; i < numRegistered; ++i)
