@@ -13,11 +13,6 @@
 
 namespace magica_rogue
 {
-	/**********************************************************************//**
-		@brief			コンストラクタ
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	MRMapData::MRMapData() : m_chipSize(32.0f), m_random(0)
 	{
 		mugen_engine::MECore::GetIns().LoadDivGraph("mapchip", L"media/graphic/mapchip/ruins.png", 3, 1);
@@ -28,14 +23,6 @@ namespace magica_rogue
 		m_font = &mugen_engine::MECore::GetIns().GetFont("__mugen_engine_default__");
 	}
 
-	/**********************************************************************//**
-		@brief			マップを生成する
-		@param[in]		width				マップの横幅
-		@param[in]		height				マップの高さ
-		@param[in]		seed				シード値
-		@param[in]		staticList			静止オブジェクトの管理者
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::Construct(const int width, const int height, uint32_t seed,
 		MRStaticObjectManager& staticList, MREnemyManager& enemyManager)
 	{
@@ -62,11 +49,6 @@ namespace magica_rogue
 		_CreateEnemySpawner(enemyManager);
 	}
 
-	/**********************************************************************//**
-		@brief			マップを更新する
-		@param[in]		playerTransform			プレイヤーの位置
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::Update(const MRTransform& playerTransform)
 	{
 		int x = static_cast<int>(playerTransform.GetX() / m_chipSize);
@@ -84,11 +66,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			マップを描画する
-		@param[in]		camera				カメラ
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::Render(const MRCamera& camera) const
 	{
 		const int chipW = 32;
@@ -114,12 +91,6 @@ namespace magica_rogue
 #endif
 	}
 
-	/**********************************************************************//**
-		@brief			ミニマップを描画する
-		@param[in]		playerTransform			プレイヤーの位置
-		@param[in]		staticList				静止オブジェクトの管理者
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::RenderMiniMap(MRTransform& playerTransform,
 		MRStaticObjectManager& staticList) const
 	{
@@ -190,13 +161,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			壁とプレイヤーの衝突を処理する
-		@param[in]		transform			プレイヤーの位置速度情報
-		@param[in]		size				プレイヤーの一辺の長さ
-		@param			eventQueue			イベントキュー
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::HitWallWithPlayer(MRTransform& transform, const float size, MREventQueue& eventQueue)
 	{
 		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
@@ -213,12 +177,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			壁と敵の衝突を処理する
-		@param[in]		transform			敵の位置速度情報
-		@param[in]		size				敵の一辺の長さ
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::HitWallWithEnemy(MRTransform& transform, const float size)
 	{
 		int currentChipX = static_cast<int>((transform.GetX() - size) / m_chipSize);
@@ -234,12 +192,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			隣の部屋へのルートを検索する
-		@param[in]		transform					敵の位置情報
-		@param[out]		route						検索したルートを格納する配列
-		@return			ルート検索に成功したらtrue、失敗したらfalse
-	*//***********************************************************************/
 	bool MRMapData::GetRouteToNextRoom(MRTransform& transform, std::vector<MRTransform>& route)
 	{
 		route.clear();
@@ -277,12 +229,6 @@ namespace magica_rogue
 		return true;
 	}
 
-	/**********************************************************************//**
-		@brief			自機へのルートを検索する
-		@param[in]		transform					敵の位置情報
-		@param[out]		route						検索したルートを格納する配列
-		@return			ルート検索に成功したらtrue、失敗したらfalse
-	*//***********************************************************************/
 	bool MRMapData::GetRouteToPlayer(MRTransform& transform, std::vector<MRTransform>& route)
 	{
 		route.clear();
@@ -294,11 +240,6 @@ namespace magica_rogue
 		return true;
 	}
 
-	/**********************************************************************//**
-		@brief			マップデータから表示に使うデータに変換する
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::_ConvertGraphFromMap()
 	{
 		for (int y = 0; y < m_height; ++y)
@@ -310,11 +251,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			マップデータを部屋割りする
-		@param			なし
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::_DivideRooms()
 	{
 		const int room_margin = 3;
@@ -756,23 +692,12 @@ namespace magica_rogue
 		_SetGoalPosition(end_idx);
 	}
 
-	/**********************************************************************//**
-		@brief			プレイヤーの初期位置を決定する
-		@param			index				部屋番号
-		@return			なし
-	*//***********************************************************************/
-
 	void MRMapData::_SetStartPosition(const size_t index)
 	{
 		m_startX = (m_roomList[index].topX + m_roomList[index].bottomX) / 2;
 		m_startY = (m_roomList[index].topY + m_roomList[index].bottomY) / 2;
 	}
 
-	/**********************************************************************//**
-		@brief			階段の位置を決定する
-		@param			index				部屋番号
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::_SetGoalPosition(const size_t index)
 	{
 		int startX = (m_roomList[index].topX + m_roomList[index].bottomX) / 2;
@@ -791,11 +716,6 @@ namespace magica_rogue
 		m_goalY = y;
 	}
 
-	/**********************************************************************//**
-		@brief			宝箱を設置する
-		@param			staticList					固定オブジェクトのリスト
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::_SpawnTreasureBox(MRStaticObjectManager& staticList)
 	{
 		for (auto& r : m_roomList)
@@ -824,11 +744,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			敵のスポナーを設置する
-		@param			enemyManager				敵の管理者
-		@return			なし
-	*//***********************************************************************/
 	void MRMapData::_CreateEnemySpawner(MREnemyManager& enemyManager)
 	{
 		for (auto& r : m_roomList)
@@ -840,15 +755,6 @@ namespace magica_rogue
 		}
 	}
 
-	/**********************************************************************//**
-		@brief			壁と位置速度情報の当たり判定
-		@param			transform				位置速度情報
-		@param[in]		size					物体のサイズ
-		@param[in]		chipX					マップチップのX座標
-		@param[in]		chipY					マップチップのY座標
-		@param[in]		chipID					該当チップのID
-		@return			当たっていたらチップID
-	*//***********************************************************************/
 	int MRMapData::_HitWall(MRTransform& transform, const float size, float chipX, float chipY, int chipID)
 	{
 		auto setU = [&]() {
@@ -988,14 +894,6 @@ namespace magica_rogue
 		return 0;
 	}
 
-	/**********************************************************************//**
-		@brief			ルートを検索する
-		@param[in]		startX					始点のX位置
-		@param[in]		startY					始点のY位置
-		@param[in]		goalX					終点のX位置
-		@param[in]		goalY					終点のY位置
-		@param[out]		route					検索したルートを格納する配列
-	*//***********************************************************************/
 	void MRMapData::_FindRoute(const int startX, const int startY, const int goalX, const int goalY, std::vector<MRTransform>& route)
 	{
 		//次の部屋が確定したらそこへ向けてルートを幅優先で探る
